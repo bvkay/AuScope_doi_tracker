@@ -25,9 +25,20 @@ async function searchOpenAlex(query, opts = {}) {
       const doi = w.doi ? w.doi.replace('https://doi.org/', '') : '';
       if (!doi) continue;
 
-      const authors = (w.authorships || []).map(a => a.author.display_name);
+      const authorships = w.authorships || [];
+      const authors = authorships.map(a => a.author.display_name);
       const loc = w.primary_location || {};
       const src = loc.source || {};
+
+      // Extract unique institutions and countries from all authorships
+      const instSet = {};
+      const countrySet = {};
+      for (const a of authorships) {
+        for (const inst of (a.institutions || [])) {
+          if (inst.display_name) instSet[inst.display_name] = true;
+          if (inst.country_code) countrySet[inst.country_code] = true;
+        }
+      }
 
       items.push({
         doi,
@@ -40,7 +51,10 @@ async function searchOpenAlex(query, opts = {}) {
         type: (w.type || '').replace(/-/g, ' '),
         isOA: w.open_access ? (w.open_access.is_oa ? 'Yes' : 'No') : 'No',
         subject: (w.topics || []).slice(0, 3).map(t => t.display_name).join('; '),
-        sources: ['OpenAlex']
+        sources: ['OpenAlex'],
+        authorCount: authors.length,
+        institutions: Object.keys(instSet),
+        countries: Object.keys(countrySet)
       });
     }
 

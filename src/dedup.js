@@ -45,6 +45,11 @@ function mergeInto(target, source) {
   if (source.type && source.type.length > (target.type || '').length) target.type = source.type;
   if (source.subject && source.subject.length > (target.subject || '').length) target.subject = source.subject;
   if (target.isOA === 'Unknown' && source.isOA !== 'Unknown') target.isOA = source.isOA;
+  // Merge institutions and countries (take the larger set)
+  if ((source.institutions || []).length > (target.institutions || []).length) target.institutions = source.institutions;
+  if ((source.countries || []).length > (target.countries || []).length) target.countries = source.countries;
+  // Keep highest author count
+  if ((source.authorCount || 0) > (target.authorCount || 0)) target.authorCount = source.authorCount;
 }
 
 function copyItem(item) {
@@ -60,7 +65,10 @@ function copyItem(item) {
     isOA: item.isOA || 'Unknown',
     subject: item.subject || '',
     sources: (item.sources || []).slice(),
-    searchTerms: (item.searchTerms || []).slice()
+    searchTerms: (item.searchTerms || []).slice(),
+    authorCount: item.authorCount || 0,
+    institutions: (item.institutions || []).slice(),
+    countries: (item.countries || []).slice()
   };
 }
 

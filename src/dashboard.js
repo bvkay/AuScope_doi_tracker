@@ -79,12 +79,30 @@ function computeStats(pubs, datasets) {
   const yearCounts = {};
   const topicCounts = {};
   let noSubjectCount = 0;
+  const allInstitutions = {};
+  const allCountries = {};
+  const allAuthors = {};
 
   for (const p of pubs) {
     const cited = parseInt(p.cited) || 0;
     totalCitations += cited;
     if (cited > 0) citedPubs++;
     if (p.journal) journals[p.journal] = true;
+
+    // Collect unique institutions and countries
+    for (const inst of (p.institutions || [])) {
+      if (inst) allInstitutions[inst] = true;
+    }
+    for (const cc of (p.countries || [])) {
+      if (cc) allCountries[cc] = true;
+    }
+    // Collect unique author names (approximate — name-based dedup)
+    if (p.authors) {
+      p.authors.split(';').forEach(a => {
+        a = a.trim();
+        if (a) allAuthors[a.toLowerCase()] = a; // lowercase key for dedup, preserve display
+      });
+    }
 
     const year = parseInt(p.year);
     if (year && !isNaN(year)) {
@@ -160,6 +178,9 @@ function computeStats(pubs, datasets) {
       citedPercent: pubs.length ? parseFloat((citedPubs / pubs.length * 100).toFixed(1)) : 0,
       avgCitations: pubs.length ? parseFloat((totalCitations / pubs.length).toFixed(1)) : 0,
       uniqueJournals: Object.keys(journals).length,
+      uniqueAuthors: Object.keys(allAuthors).length,
+      uniqueInstitutions: Object.keys(allInstitutions).length,
+      uniqueCountries: Object.keys(allCountries).length,
       yearRange: minYear && maxYear ? minYear + '–' + maxYear : 'N/A',
       noSubjectCount
     },
@@ -320,12 +341,16 @@ function buildHTML(stats, lastUpdated) {
                 <div class="label">Total Citations</div>
             </div>
             <div class="stat-card">
-                <div class="number">${s.citedPercent}%</div>
-                <div class="label">Publications Cited</div>
+                <div class="number">${s.uniqueAuthors.toLocaleString()}</div>
+                <div class="label">Researchers</div>
             </div>
             <div class="stat-card">
-                <div class="number">${s.avgCitations}</div>
-                <div class="label">Mean Citations / Paper</div>
+                <div class="number">${s.uniqueInstitutions.toLocaleString()}</div>
+                <div class="label">Institutions</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">${s.uniqueCountries}</div>
+                <div class="label">Countries</div>
             </div>
         </div>
     </div>
@@ -611,15 +636,13 @@ function buildWidget(stats, lastUpdated) {
             margin-bottom: 16px;
         }
         .stat-grid {
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            gap: 12px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px 16px;
+            max-width: 960px;
+            margin: 0 auto;
         }
         .stat-card {
-            flex: 1;
-            min-width: 140px;
-            max-width: 240px;
             padding: 12px 10px;
         }
         .stat-icon {
@@ -652,10 +675,9 @@ function buildWidget(stats, lastUpdated) {
         }
         .updated a:hover { text-decoration: underline; opacity: 1; }
 
-        @media (max-width: 480px) {
-            .stat-grid { gap: 6px; }
-            .stat-card { min-width: 90px; padding: 10px 6px; }
-            .stat-card .number { font-size: 22px; }
+        @media (max-width: 600px) {
+            .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .stat-card .number { font-size: 24px; }
         }
     </style>
 </head>
@@ -672,6 +694,26 @@ function buildWidget(stats, lastUpdated) {
                 <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
                 <div class="number">${s.totalCitations.toLocaleString()}</div>
                 <div class="label">Total Citations</div>
+            </div>
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="number">${s.uniqueAuthors.toLocaleString()}</div>
+                <div class="label">Researchers</div>
+            </div>
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <div class="number">${s.uniqueInstitutions.toLocaleString()}</div>
+                <div class="label">Institutions</div>
+            </div>
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <div class="number">${s.uniqueCountries}</div>
+                <div class="label">Countries</div>
+            </div>
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                <div class="number">${s.totalDatasets.toLocaleString()}</div>
+                <div class="label">Datasets</div>
             </div>
             <div class="stat-card">
                 <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
