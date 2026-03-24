@@ -35,31 +35,39 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             opacity: 0.6;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            text-align: center;
         }
         .stat-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px 16px;
-            max-width: 960px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 12px;
+            max-width: 800px;
             margin: 0 auto;
         }
         .stat-card {
-            padding: 12px 10px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
         }
         .stat-icon {
-            width: 36px;
-            height: 36px;
-            opacity: 0.6;
-            margin-bottom: 8px;
+            width: 40px;
+            height: 40px;
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+        .stat-text {
+            text-align: center;
         }
         .stat-card .number {
-            font-size: 42px;
+            font-size: 50px;
             font-weight: 800;
             line-height: 1.1;
         }
         .stat-card .label {
-            font-size: 15px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             opacity: 0.8;
@@ -77,9 +85,9 @@
         }
         .updated a:hover { text-decoration: underline; opacity: 1; }
 
-        @media (max-width: 600px) {
+        @media (max-width: 500px) {
             .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-            .stat-card .number { font-size: 24px; }
+            .stat-card .number { font-size: 28px; }
         }
     </style>
 </head>
@@ -89,43 +97,27 @@
         <div class="stat-grid">
             <div class="stat-card">
                 <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
-                <div class="number">1,832</div>
-                <div class="label">Publications</div>
+                <div class="stat-text"><div class="number">1,832</div><div class="label">Publications</div></div>
             </div>
             <div class="stat-card">
                 <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                <div class="number">41,117</div>
-                <div class="label">Total Citations</div>
-            </div>
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <div class="number">7,751</div>
-                <div class="label">Researchers</div>
-            </div>
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                <div class="number">1,112</div>
-                <div class="label">Institutions</div>
-            </div>
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <div class="number">83</div>
-                <div class="label">Countries</div>
+                <div class="stat-text"><div class="number">41,117</div><div class="label">Citations</div></div>
             </div>
             <div class="stat-card">
                 <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                <div class="number">200</div>
-                <div class="label">Datasets</div>
+                <div class="stat-text"><div class="number">200</div><div class="label">Datasets</div></div>
             </div>
             <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <div class="number">80.2%</div>
-                <div class="label">Publications Cited</div>
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="stat-text"><div class="number">7,751</div><div class="label">Researchers</div></div>
             </div>
             <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                <div class="number">22.4</div>
-                <div class="label">Mean Citations / Paper</div>
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <div class="stat-text"><div class="number">1,112</div><div class="label">Institutions</div></div>
+            </div>
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <div class="stat-text"><div class="number">83</div><div class="label">Countries</div></div>
             </div>
         </div>
     </div>
