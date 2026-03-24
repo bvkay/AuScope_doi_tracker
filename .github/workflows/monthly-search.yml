@@ -51,7 +51,11 @@ jobs:
           DIMENSIONS_API_KEY: ${{ secrets.DIMENSIONS_API_KEY }}
         run: node src/search.js
 
-      # Always regenerate dashboard
+      # Dedup and fill missing metadata
+      - name: Maintenance (dedup + metadata fill)
+        run: node src/maintain.js
+
+      # Regenerate dashboard
       - name: Generate dashboard
         run: node src/dashboard.js
 

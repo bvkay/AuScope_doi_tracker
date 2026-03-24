@@ -6,6 +6,7 @@
   "scripts": {
     "search": "node src/search.js",
     "process-pending": "node src/process-pending.js",
+    "maintain": "node src/maintain.js",
     "dashboard": "node src/dashboard.js",
     "sync-from-sheet": "node src/sync.js pull",
     "sync-to-sheet": "node src/sync.js push",
