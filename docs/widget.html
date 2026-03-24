@@ -38,27 +38,38 @@
             margin-bottom: 12px;
             text-align: center;
         }
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px 12px;
-            max-width: 800px;
+        .stat-table {
+            display: table;
             margin: 0 auto;
+            border-spacing: 16px 20px;
         }
-        .stat-card {
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
+        .stat-row {
+            display: table-row;
+        }
+        .stat-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 8px 0;
+        }
+        .stat-cell-icon {
+            display: table-cell;
+            vertical-align: middle;
+            width: 44px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        .stat-cell-text {
+            display: table-cell;
+            vertical-align: middle;
+            width: 180px;
         }
         .stat-icon {
             width: 40px;
             height: 40px;
             opacity: 0.5;
-            flex-shrink: 0;
         }
-        .stat-text {
+        .stat-card {
+            display: inline-block;
             text-align: center;
         }
         .stat-card .number {
@@ -85,41 +96,54 @@
         }
         .updated a:hover { text-decoration: underline; opacity: 1; }
 
-        @media (max-width: 500px) {
-            .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-            .stat-card .number { font-size: 28px; }
-        }
     </style>
 </head>
 <body>
     <div class="widget">
         <div class="heading">AuScope Impact at a Glance</div>
-        <div class="stat-grid">
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
-                <div class="stat-text"><div class="number">1,832</div><div class="label">Publications</div></div>
+        <div class="stat-table">
+            <div class="stat-row">
+                <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></div>
+                <div class="stat-cell-text stat-card"><div class="number">1,832</div><div class="label">Publications</div></div>
+                <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                <div class="stat-cell-text stat-card"><div class="number">41,117</div><div class="label">Citations</div></div>
+                <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+                <div class="stat-cell-text stat-card"><div class="number">200</div><div class="label">Datasets</div></div>
             </div>
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                <div class="stat-text"><div class="number">41,117</div><div class="label">Citations</div></div>
-            </div>
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                <div class="stat-text"><div class="number">200</div><div class="label">Datasets</div></div>
-            </div>
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <div class="stat-text"><div class="number">7,751</div><div class="label">Researchers</div></div>
-            </div>
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                <div class="stat-text"><div class="number">1,112</div><div class="label">Institutions</div></div>
-            </div>
-            <div class="stat-card">
-                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <div class="stat-text"><div class="number">83</div><div class="label">Countries</div></div>
+            <div class="stat-row">
+                <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div class="stat-cell-text stat-card"><div class="number">7,751</div><div class="label">Researchers</div></div>
+                <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <div class="stat-cell-text stat-card"><div class="number">1,112</div><div class="label">Institutions</div></div>
+                <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <div class="stat-cell-text stat-card"><div class="number">83</div><div class="label">Countries</div></div>
             </div>
         </div>
     </div>
+<script>
+(function() {
+  var duration = 1000;
+  var els = document.querySelectorAll('.stat-card .number');
+  els.forEach(function(el) {
+    var text = el.textContent.trim();
+    var target = parseFloat(text.replace(/,/g, ''));
+    if (isNaN(target) || target === 0) return;
+    var isFloat = text.indexOf('.') >= 0;
+    var start = 0;
+    var startTime = null;
+    el.textContent = '0';
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var value = Math.floor(progress * target);
+      if (isFloat) value = (progress * target).toFixed(1);
+      el.textContent = Number(value).toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString(undefined, isFloat ? {minimumFractionDigits:1, maximumFractionDigits:1} : {});
+    }
+    requestAnimationFrame(step);
+  });
+})();
+</script>
 </body>
 </html>
