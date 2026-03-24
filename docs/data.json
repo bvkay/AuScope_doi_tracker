@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-24T04:32:36.178Z",
+  "generated": "2026-03-24T04:45:26.147Z",
   "stats": {
-    "totalPublications": 1218,
+    "totalPublications": 1426,
     "totalDatasets": 0,
-    "totalCitations": 21096,
-    "citedPublications": 829,
-    "citedPercent": 68.1,
-    "avgCitations": 17.3,
-    "uniqueJournals": 295,
+    "totalCitations": 26222,
+    "citedPublications": 1032,
+    "citedPercent": 72.4,
+    "avgCitations": 18.4,
+    "uniqueJournals": 368,
     "yearRange": "1997–2026",
     "noSubjectCount": 111
   },
@@ -175,106 +175,106 @@
     },
     {
       "year": 2020,
-      "count": 89,
-      "cumulative": 446,
-      "citations": 2061,
-      "cumulativeCitations": 16751
+      "count": 253,
+      "cumulative": 610,
+      "citations": 6700,
+      "cumulativeCitations": 21390
     },
     {
       "year": 2021,
-      "count": 119,
-      "cumulative": 565,
-      "citations": 1238,
-      "cumulativeCitations": 17989
+      "count": 124,
+      "cumulative": 734,
+      "citations": 1320,
+      "cumulativeCitations": 22710
     },
     {
       "year": 2022,
       "count": 130,
-      "cumulative": 695,
+      "cumulative": 864,
       "citations": 1005,
-      "cumulativeCitations": 18994
+      "cumulativeCitations": 23715
     },
     {
       "year": 2023,
-      "count": 182,
-      "cumulative": 877,
-      "citations": 1246,
-      "cumulativeCitations": 20240
+      "count": 185,
+      "cumulative": 1049,
+      "citations": 1304,
+      "cumulativeCitations": 25019
     },
     {
       "year": 2024,
-      "count": 140,
-      "cumulative": 1017,
-      "citations": 710,
-      "cumulativeCitations": 20950
+      "count": 172,
+      "cumulative": 1221,
+      "citations": 1048,
+      "cumulativeCitations": 26067
     },
     {
       "year": 2025,
-      "count": 156,
-      "cumulative": 1173,
-      "citations": 139,
-      "cumulativeCitations": 21089
+      "count": 160,
+      "cumulative": 1381,
+      "citations": 148,
+      "cumulativeCitations": 26215
     },
     {
       "year": 2026,
       "count": 45,
-      "cumulative": 1218,
+      "cumulative": 1426,
       "citations": 7,
-      "cumulativeCitations": 21096
+      "cumulativeCitations": 26222
     }
   ],
   "topSubjects": [
     {
       "topic": "Geological and Geochemical Analysis",
-      "count": 273
+      "count": 377
     },
     {
       "topic": "earthquake and tectonic studies",
-      "count": 201
+      "count": 273
     },
     {
       "topic": "High-pressure geophysics and materials",
-      "count": 156
+      "count": 201
     },
     {
       "topic": "Geochemistry and Geologic Mapping",
-      "count": 142
-    },
-    {
-      "topic": "GNSS positioning and interference",
-      "count": 88
-    },
-    {
-      "topic": "Geophysics and Gravity Measurements",
-      "count": 84
+      "count": 186
     },
     {
       "topic": "Geology and Paleoclimatology Research",
-      "count": 74
+      "count": 106
+    },
+    {
+      "topic": "GNSS positioning and interference",
+      "count": 91
+    },
+    {
+      "topic": "Geophysics and Gravity Measurements",
+      "count": 90
     },
     {
       "topic": "Geophysical and Geoelectrical Methods",
-      "count": 63
+      "count": 78
     },
     {
       "topic": "Seismic Waves and Analysis",
-      "count": 57
-    },
-    {
-      "topic": "Seismic Imaging and Inversion Techniques",
-      "count": 53
+      "count": 69
     },
     {
       "topic": "Paleontology and Stratigraphy of Fossils",
-      "count": 53
+      "count": 69
     },
     {
-      "topic": "Radio Astronomy Observations and Technology",
-      "count": 47
+      "topic": "Seismic Imaging and Inversion Techniques",
+      "count": 66
     },
     {
       "topic": "Geological and Geophysical Studies",
-      "count": 42
+      "count": 66
+    },
+    {
+      "topic": "Radio Astronomy Observations and Technology",
+      "count": 48
     },
     {
       "topic": "Astrophysics and Cosmic Phenomena",
@@ -282,33 +282,33 @@
     },
     {
       "topic": "Geological Modeling and Analysis",
-      "count": 36
+      "count": 39
     }
   ],
   "citationDistribution": [
     {
       "label": "0",
-      "count": 389
+      "count": 394
     },
     {
       "label": "1–5",
-      "count": 368
+      "count": 415
     },
     {
       "label": "6–20",
-      "count": 253
+      "count": 329
     },
     {
       "label": "21–50",
-      "count": 129
+      "count": 182
     },
     {
       "label": "51–100",
-      "count": 53
+      "count": 73
     },
     {
       "label": "100+",
-      "count": 26
+      "count": 33
     }
   ]
 }
