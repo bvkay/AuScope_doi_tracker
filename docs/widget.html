@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuScope Research Impact</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: transparent;
+        }
+        .widget {
+            background: #282572;
+            color: #ffffff;
+            padding: 20px 24px 18px;
+            text-align: center;
+            border-radius: 12px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .widget h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+        }
+        .widget .subtitle {
+            font-size: 12px;
+            opacity: 0.75;
+            margin-bottom: 20px;
+        }
+        .heading {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            margin-bottom: 16px;
+        }
+        .stat-grid {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .stat-card {
+            flex: 1;
+            min-width: 140px;
+            max-width: 240px;
+            padding: 12px 10px;
+        }
+        .stat-icon {
+            width: 36px;
+            height: 36px;
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+        .stat-card .number {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        .stat-card .label {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            margin-top: 6px;
+        }
+        .updated {
+            margin-top: 16px;
+            font-size: 10px;
+            opacity: 0.5;
+        }
+        .updated a {
+            color: #ffffff;
+            opacity: 0.7;
+            text-decoration: none;
+        }
+        .updated a:hover { text-decoration: underline; opacity: 1; }
+
+        @media (max-width: 480px) {
+            .stat-grid { gap: 6px; }
+            .stat-card { min-width: 90px; padding: 10px 6px; }
+            .stat-card .number { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="widget">
+        <div class="heading">AuScope Impact at a Glance</div>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+                <div class="number">1,218</div>
+                <div class="label">Publications</div>
+            </div>
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <div class="number">21,096</div>
+                <div class="label">Total Citations</div>
+            </div>
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <div class="number">68.1%</div>
+                <div class="label">Publications Cited</div>
+            </div>
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <div class="number">17.3</div>
+                <div class="label">Mean Citations / Paper</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

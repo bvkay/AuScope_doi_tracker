@@ -1,0 +1,65 @@
+name: Citation Search & DOI Processing
+
+on:
+  # Weekly full keyword search (Sundays 2am UTC)
+  schedule:
+    - cron: '0 2 * * 0'
+
+  # Process pending DOIs when pushed from Google Sheet
+  push:
+    paths:
+      - 'data/pending.json'
+
+  # Manual trigger via GitHub UI
+  workflow_dispatch:
+    inputs:
+      run_search:
+        description: 'Run full keyword search (not just pending DOIs)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  process-and-search:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Always process pending DOIs if any exist
+      - name: Process pending DOIs
+        env:
+          S2_API_KEY: ${{ secrets.S2_API_KEY }}
+        run: node src/process-pending.js
+
+      # Run full search on schedule, or if manually requested
+      - name: Run full keyword search
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.run_search == 'true')
+        env:
+          S2_API_KEY: ${{ secrets.S2_API_KEY }}
+          CORE_API_KEY: ${{ secrets.CORE_API_KEY }}
+          DIMENSIONS_API_KEY: ${{ secrets.DIMENSIONS_API_KEY }}
+        run: node src/search.js
+
+      # Always regenerate dashboard
+      - name: Generate dashboard
+        run: node src/dashboard.js
+
+      # Commit and push all changes
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ docs/
+          git diff --cached --quiet || git commit -m "Update citations $(date +%Y-%m-%d)"
+          git push

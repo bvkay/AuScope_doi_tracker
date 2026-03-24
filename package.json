@@ -1,0 +1,17 @@
+{
+  "name": "auscope-doi-tracker",
+  "version": "1.0.0",
+  "description": "Citation and dataset DOI tracker for AuScope research infrastructure",
+  "private": true,
+  "scripts": {
+    "search": "node src/search.js",
+    "process-pending": "node src/process-pending.js",
+    "dashboard": "node src/dashboard.js",
+    "sync-from-sheet": "node src/sync.js pull",
+    "sync-to-sheet": "node src/sync.js push",
+    "full-run": "node src/search.js && node src/dashboard.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

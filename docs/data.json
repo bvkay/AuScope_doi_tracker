@@ -1,0 +1,314 @@
+{
+  "generated": "2026-03-24T04:00:50.654Z",
+  "stats": {
+    "totalPublications": 1218,
+    "totalDatasets": 0,
+    "totalCitations": 21096,
+    "citedPublications": 829,
+    "citedPercent": 68.1,
+    "avgCitations": 17.3,
+    "uniqueJournals": 295,
+    "yearRange": "1997–2026",
+    "noSubjectCount": 111
+  },
+  "publicationsByYear": [
+    {
+      "year": 1997,
+      "count": 2,
+      "cumulative": 2,
+      "citations": 4,
+      "cumulativeCitations": 4
+    },
+    {
+      "year": 1998,
+      "count": 1,
+      "cumulative": 3,
+      "citations": 0,
+      "cumulativeCitations": 4
+    },
+    {
+      "year": 1999,
+      "count": 0,
+      "cumulative": 3,
+      "citations": 0,
+      "cumulativeCitations": 4
+    },
+    {
+      "year": 2000,
+      "count": 0,
+      "cumulative": 3,
+      "citations": 0,
+      "cumulativeCitations": 4
+    },
+    {
+      "year": 2001,
+      "count": 0,
+      "cumulative": 3,
+      "citations": 0,
+      "cumulativeCitations": 4
+    },
+    {
+      "year": 2002,
+      "count": 1,
+      "cumulative": 4,
+      "citations": 1,
+      "cumulativeCitations": 5
+    },
+    {
+      "year": 2003,
+      "count": 2,
+      "cumulative": 6,
+      "citations": 20,
+      "cumulativeCitations": 25
+    },
+    {
+      "year": 2004,
+      "count": 4,
+      "cumulative": 10,
+      "citations": 99,
+      "cumulativeCitations": 124
+    },
+    {
+      "year": 2005,
+      "count": 2,
+      "cumulative": 12,
+      "citations": 260,
+      "cumulativeCitations": 384
+    },
+    {
+      "year": 2006,
+      "count": 2,
+      "cumulative": 14,
+      "citations": 8,
+      "cumulativeCitations": 392
+    },
+    {
+      "year": 2007,
+      "count": 1,
+      "cumulative": 15,
+      "citations": 19,
+      "cumulativeCitations": 411
+    },
+    {
+      "year": 2008,
+      "count": 11,
+      "cumulative": 26,
+      "citations": 2394,
+      "cumulativeCitations": 2805
+    },
+    {
+      "year": 2009,
+      "count": 10,
+      "cumulative": 36,
+      "citations": 462,
+      "cumulativeCitations": 3267
+    },
+    {
+      "year": 2010,
+      "count": 13,
+      "cumulative": 49,
+      "citations": 210,
+      "cumulativeCitations": 3477
+    },
+    {
+      "year": 2011,
+      "count": 12,
+      "cumulative": 61,
+      "citations": 333,
+      "cumulativeCitations": 3810
+    },
+    {
+      "year": 2012,
+      "count": 16,
+      "cumulative": 77,
+      "citations": 441,
+      "cumulativeCitations": 4251
+    },
+    {
+      "year": 2013,
+      "count": 11,
+      "cumulative": 88,
+      "citations": 709,
+      "cumulativeCitations": 4960
+    },
+    {
+      "year": 2014,
+      "count": 25,
+      "cumulative": 113,
+      "citations": 3649,
+      "cumulativeCitations": 8609
+    },
+    {
+      "year": 2015,
+      "count": 33,
+      "cumulative": 146,
+      "citations": 891,
+      "cumulativeCitations": 9500
+    },
+    {
+      "year": 2016,
+      "count": 38,
+      "cumulative": 184,
+      "citations": 1227,
+      "cumulativeCitations": 10727
+    },
+    {
+      "year": 2017,
+      "count": 44,
+      "cumulative": 228,
+      "citations": 1324,
+      "cumulativeCitations": 12051
+    },
+    {
+      "year": 2018,
+      "count": 57,
+      "cumulative": 285,
+      "citations": 1712,
+      "cumulativeCitations": 13763
+    },
+    {
+      "year": 2019,
+      "count": 72,
+      "cumulative": 357,
+      "citations": 927,
+      "cumulativeCitations": 14690
+    },
+    {
+      "year": 2020,
+      "count": 89,
+      "cumulative": 446,
+      "citations": 2061,
+      "cumulativeCitations": 16751
+    },
+    {
+      "year": 2021,
+      "count": 119,
+      "cumulative": 565,
+      "citations": 1238,
+      "cumulativeCitations": 17989
+    },
+    {
+      "year": 2022,
+      "count": 130,
+      "cumulative": 695,
+      "citations": 1005,
+      "cumulativeCitations": 18994
+    },
+    {
+      "year": 2023,
+      "count": 182,
+      "cumulative": 877,
+      "citations": 1246,
+      "cumulativeCitations": 20240
+    },
+    {
+      "year": 2024,
+      "count": 140,
+      "cumulative": 1017,
+      "citations": 710,
+      "cumulativeCitations": 20950
+    },
+    {
+      "year": 2025,
+      "count": 156,
+      "cumulative": 1173,
+      "citations": 139,
+      "cumulativeCitations": 21089
+    },
+    {
+      "year": 2026,
+      "count": 45,
+      "cumulative": 1218,
+      "citations": 7,
+      "cumulativeCitations": 21096
+    }
+  ],
+  "topSubjects": [
+    {
+      "topic": "Geological and Geochemical Analysis",
+      "count": 273
+    },
+    {
+      "topic": "earthquake and tectonic studies",
+      "count": 201
+    },
+    {
+      "topic": "High-pressure geophysics and materials",
+      "count": 156
+    },
+    {
+      "topic": "Geochemistry and Geologic Mapping",
+      "count": 142
+    },
+    {
+      "topic": "GNSS positioning and interference",
+      "count": 88
+    },
+    {
+      "topic": "Geophysics and Gravity Measurements",
+      "count": 84
+    },
+    {
+      "topic": "Geology and Paleoclimatology Research",
+      "count": 74
+    },
+    {
+      "topic": "Geophysical and Geoelectrical Methods",
+      "count": 63
+    },
+    {
+      "topic": "Seismic Waves and Analysis",
+      "count": 57
+    },
+    {
+      "topic": "Seismic Imaging and Inversion Techniques",
+      "count": 53
+    },
+    {
+      "topic": "Paleontology and Stratigraphy of Fossils",
+      "count": 53
+    },
+    {
+      "topic": "Radio Astronomy Observations and Technology",
+      "count": 47
+    },
+    {
+      "topic": "Geological and Geophysical Studies",
+      "count": 42
+    },
+    {
+      "topic": "Astrophysics and Cosmic Phenomena",
+      "count": 40
+    },
+    {
+      "topic": "Geological Modeling and Analysis",
+      "count": 36
+    }
+  ],
+  "citationDistribution": [
+    {
+      "label": "0",
+      "count": 389
+    },
+    {
+      "label": "1–5",
+      "count": 368
+    },
+    {
+      "label": "6–20",
+      "count": 253
+    },
+    {
+      "label": "21–50",
+      "count": 129
+    },
+    {
+      "label": "51–100",
+      "count": 53
+    },
+    {
+      "label": "100+",
+      "count": 26
+    }
+  ]
+}
