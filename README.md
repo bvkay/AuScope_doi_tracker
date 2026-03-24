@@ -1,6 +1,6 @@
 # AuScope DOI Tracker
 
-Citation, publication, and dataset tracker for [AuScope](https://www.auscope.org.au/) — Australia's national research infrastructure for the Earth and environmental sciences.
+Citation, publication, and dataset tracker for [AuScope](https://www.auscope.org.au/) - Australia's national research infrastructure for Geosciences funded by the Australian Government through NCRIS.
 
 Automatically discovers and tracks journal publications referencing AuScope facilities, inventories datasets across AuScope platforms, and generates an embeddable impact dashboard.
 
@@ -17,9 +17,9 @@ Google Sheet                              GitHub (this repo)
 │ Staff paste DOIs    ─┼─── pending ───► │ Process pending DOIs    │
 │ into "DOIs to add"   │                 │ (metadata via Crossref  │
 │                      │                 │  + OpenAlex)            │
-│ MasterList ◄─────────┼─── sync ◄───── │                         │
+│ MasterList ◄─────────┼─── sync ◄─────  │                         │
 │ (source of truth     │                 │ Weekly keyword search   │
-│  for manual edits)   │                 │ (39 terms × 3 APIs)    │
+│  for manual edits)   │                 │ (39 terms × 3 APIs)     │
 └──────────────────────┘                 │                         │
                                          │ Dataset inventory       │
                                          │ (EarthBank, AusPass,    │
