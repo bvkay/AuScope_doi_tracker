@@ -1,8 +1,1631 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": null,
-    "total_count": 0
+    "last_updated": "2026-03-24T07:04:48.292Z",
+    "total_count": 200
   },
-  "records": []
+  "records": [
+    {
+      "doi": "10.58024/agcue7c379c2",
+      "name": "WA Museum Mineralogy",
+      "authors": "Aditya Priyadarshi",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agua531ecf21",
+      "name": "East Antarctica FMU",
+      "authors": "Mayer-Ullmann, Ferdinand",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcua1bf69ca",
+      "name": "Zircon double-dating, trace element and O isotope analysis to decipher late Pleistocene explosive-effusive eruptions from a zoned ocean-island magma system, Ascension Island (2023)  ",
+      "authors": "Harvey, Janet",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/aguqcb42e9bf",
+      "name": "Lu-Hf in Mafic and detrital apatite ",
+      "authors": "Kharkongor, Melissa ",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/aguq43489aac",
+      "name": "Herberton Petrography",
+      "authors": "Zhou, Renjie",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/aguma5dc78b8",
+      "name": "Ar-Ar Geochronology of Volcanics from the Bulga Plateau, NSW",
+      "authors": "Dalton, Hayden",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/aguqd44783c4",
+      "name": "Ernest Henry apatite ",
+      "authors": "Zhou, Renjie",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum9ddde7d6",
+      "name": "Cobar Thermochron",
+      "authors": "McMillan, Malcolm",
+      "year": 2024,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum75d6f5c7",
+      "name": "Resolving closely spaced eruptions in the early Pleistocene Ileret Tuff Complex, Turkana Basin. ",
+      "authors": "Savelkouls, Ashley",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum4f7e1d42",
+      "name": "40Ar/39Ar single-grain age estimations for K-feldspar: A case study from the Morte Tuff, Koobi For a Formation, Turkana Basin. ",
+      "authors": "Savelkouls, Ashley",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum4d16ecac",
+      "name": "40Ar/39Ar step-heating analysis of Headlow  basalts",
+      "authors": "Dalton, Hayden",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agumcad7b7cb",
+      "name": "Australian Thermochronology - 2002 to 2022",
+      "authors": "Dr Samuel C Boone (0000-0003-2274-7933), Malcolm McMillan (0000-0002-5375-5680), Dr Angus Nixon (0000-0003-3638-1864), Dr Ling Chung (0000-0002-2046-1184), Dr Christian Seiler, A. Prof Stijn Glorie (0000-0002-3107-9028), Prof Barry P Kohn (0000-0001-5064-5454), Prof Andrew JW Gleadow (0000-0003-0496-0028)",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum46bd292f",
+      "name": "Australian Thermochronology - 2002 and prior",
+      "authors": "McMillan, Malcolm",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agag55665fd9",
+      "name": "CSIRO Hackathon",
+      "authors": "Theile, Moritz",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcu92cfc45c",
+      "name": "Zircon Si isotopes, Pilbara Craton",
+      "authors": "Hartnady, Michael",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum879ac77a",
+      "name": "Detrital REE Mineralisation in Westland, New Zealand",
+      "authors": "Dalton, Hayden",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcu84cb899f",
+      "name": "Ora Banda impact glass geochemistry",
+      "authors": "Cavosie, Aaron",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum3f1fb3b5",
+      "name": "Saini Samim_Thesis",
+      "authors": "Samim, Saini",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agua9bc2394d",
+      "name": "North Australian Craton Low-Temperature Thermochronology - Nixon PhD",
+      "authors": "Nixon, Angus",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agumfbaafbe4",
+      "name": "South Australian Kimberlites",
+      "authors": "Dalton, Hayden",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agua6e7b32b9",
+      "name": "Central Asia thermochronology compilation",
+      "authors": "Boone, Samuel",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcu9cb45313",
+      "name": "Curnamona Province Pb isotope data",
+      "authors": "Liebmann, Janne",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agumdce695a7",
+      "name": "High-resolution 40Ar/39Ar geochronology of the Koobi Fora Tuff Complex, Turkana Basin: Implications for the hominin bearing strata of the Early Pleistocene (1.6 to 1.4 Ma)",
+      "authors": "Savelkouls, Ashley",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum5b34174d",
+      "name": "Supplementary data to High-resolution tephrochronology resolves stratigraphic complexities in archaeologically significant Nariokotome tuffs, Turkana Basin",
+      "authors": "Samim, Saini",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum97fc4439",
+      "name": "Phanerozoic thermochronology record of Afro-Arabia",
+      "authors": "Boone, Samuel",
+      "year": 2024,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum799f93c9",
+      "name": "Kukkonen et al. (in review) - Phanerozoic evolution of Fennoscandia: Evidence from apatite fission track, fluid flow and geodynamic data in Finland and Estonia",
+      "authors": "Boone, Samuel",
+      "year": 2024,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/aguaebe2cbb4",
+      "name": "Foden Sunda-Banda Arc Collection",
+      "authors": "Nixon, Angus",
+      "year": 2024,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcud93d7eb1",
+      "name": "A crustal Pb isotope map of southeastern Australia",
+      "authors": "Dr Janne Liebmann (0000-0002-0739-3148), Dr Bryant Ware (0000-0002-3907-4344), Dr David Mole (0000-0001-7888-5943), Prof Chris Kirkland (0000-0003-3367-8961), Dr Geoff Fraser (0000-0001-9504-2331), Dr Kathryn Waltenberg (0000-0002-1629-0597), Dr Simon Bodorkos (0000-0001-8605-0276), Dr David Huston (0000-0002-1740-6336), Prof Noreen Evans (0000-0002-7615-8328), Mr Brad McDonald, Dr Kai Rankenburg (0000-0003-3708-9304), Priyanjan Datta (0009-0008-9208-4745), A. Prof Svetlana Tessalina (0000-0002-2881-9232)",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agagc3f5af22",
+      "name": "An improved methodology for high-resolution LA-ICP-MS trace-element fingerprinting of tephra layers: Insights from the Upper and Lower Nariokotome Tuffs, Turkana Basin, Kenya",
+      "authors": "Samim, Saini",
+      "year": 2024,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum6a344358",
+      "name": "Malawi Rift: Usisya Border Fault Footwall Thermochronology",
+      "authors": "McMillan, Malcolm",
+      "year": 2024,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agag7ca582a8",
+      "name": "West African AFT Data",
+      "authors": "Wildman, Mark",
+      "year": 2024,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agum_tog2024",
+      "name": "Global Kimberlite Database - Treatise on Geochemistry",
+      "authors": "Dalton, Hayden",
+      "year": 2024,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcucf41dce5",
+      "name": "Pb isotopes",
+      "authors": "Liebmann, Janne",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/aguaddd6d6b2",
+      "name": "Cooper-Eromanga Basin detrital apatite",
+      "authors": "Nixon, Angus",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agag2b7833fb",
+      "name": "PNG Thermochron",
+      "authors": "Tu, Addison",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcue17519f2",
+      "name": "Impact glass geochemistry",
+      "authors": "Cavosie, Aaron",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agag3b8addad",
+      "name": "Addisons Test Data Set",
+      "authors": "Tu, Addison",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agwo10.5194/essd-14-4271-2022",
+      "name": "Sr Isoscape of SE Australia",
+      "authors": "Dux, F.",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agwo10.5194/essd-2022-446",
+      "name": "Sr Isoscape of N Australia",
+      "authors": "Dux, Florian",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcu96eeed1d",
+      "name": "Grenville rutile",
+      "authors": "Liebmann, Janne",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agagff263a9b",
+      "name": "08LBZ-25",
+      "authors": "Chen, Xi",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/agag1b6e58d7",
+      "name": "xichen's first package",
+      "authors": "Chen, Xi",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agag4f685555",
+      "name": "xichen's first package",
+      "authors": "Chen, Xi",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcu3b1e8746",
+      "name": "Supplementary Tables",
+      "authors": "Liebmann, Janne",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcu1c8a8587",
+      "name": "Supplementary Table A",
+      "authors": "Liebmann, Janne",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/aguq7959547c",
+      "name": "BR02-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq9feb2a56",
+      "name": "18NC03",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqf6b5cfcd",
+      "name": "18NC01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq49b34178",
+      "name": "GCC-G2",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq554f1716",
+      "name": "GCC-G4",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqbf85e91d",
+      "name": "PCF-D1",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq433633e9",
+      "name": "PRF01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq3975fb31",
+      "name": "18NC02",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq75c88f67",
+      "name": "WR-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqf98a81ef",
+      "name": "GCC-G3",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq5e297349",
+      "name": "GCC-G1",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqd1169a8b",
+      "name": "WF01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqd28ea678",
+      "name": "18NC05",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq819b7519",
+      "name": "BR01-03",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq8f3ebd6d",
+      "name": "19BG05",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqb71c3bf1",
+      "name": "PRF02",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqf288c9dd",
+      "name": "GS-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq151477c5",
+      "name": "KHF-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq6e1e83a5",
+      "name": "19BG01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq668f3b2a",
+      "name": "THA-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq858f6f97",
+      "name": "19BG02",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqead25d79",
+      "name": "GB-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq33568d74",
+      "name": "19BG04",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq64423be5",
+      "name": "NP01-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqf27586b2",
+      "name": "PB03-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq62b54c17",
+      "name": "PPH-Pinpin Harz",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq7f5b487e",
+      "name": "NMA02-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqc1a12ebf",
+      "name": "19TX01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq8d34d55b",
+      "name": "GR2H",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq26623fce",
+      "name": "19BG03",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq66cf7173",
+      "name": "19BS03",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq82641a11",
+      "name": "Ouehat1",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqa34474f6",
+      "name": "KM-SL50",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq8d5cf8d1",
+      "name": "MD02-03",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqc347b2eb",
+      "name": "KM05-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqaad84f3a",
+      "name": "KM02-02",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq267d78f5",
+      "name": "BR04-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq5fa6e556",
+      "name": "KPB",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq6a287a7d",
+      "name": "PTKM1",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqf72a75f2",
+      "name": "PPG-Pinpin Gabbro",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqcd29ca26",
+      "name": "SL16",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq766979bf",
+      "name": "19WA01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguq5add37cf",
+      "name": "BR03-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqca6568f6",
+      "name": "KM04-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqf9a428dd",
+      "name": "KM03-01",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/aguqedcb2f5c",
+      "name": "KGH2",
+      "authors": "Perera, Siyumini",
+      "year": 2023,
+      "platform": "EarthBank",
+      "type": "PhysicalObject"
+    },
+    {
+      "doi": "10.58024/agum98746938",
+      "name": "Vermeer et al., 2022 ",
+      "authors": "Boone, Samuel",
+      "year": 2022,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcu1bda3dcf",
+      "name": "Holsnoy",
+      "authors": "moritz.theile (Theile, Moritz)",
+      "year": 2022,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "code": "1E",
+      "name": "South QLD Spiral Array",
+      "year": 2013,
+      "doi": "10.7914/SN/1E_2013",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1F",
+      "name": "CURNAMONA",
+      "year": 2009,
+      "doi": "10.7914/SN/1F_2009",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1G",
+      "name": "GAWLER",
+      "year": 2008,
+      "doi": "10.7914/SN/1G_2008",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1G",
+      "name": "Transitions in the Banda Arc-Australia continental collision",
+      "year": 2019,
+      "doi": "10.7914/SN/YS_2014",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1G",
+      "name": "Lake George Seismic Nodal Array",
+      "year": 2020,
+      "doi": "10.7914/t2z3-2m87",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1H",
+      "name": "EAL2",
+      "year": 2010,
+      "doi": "10.7914/SN/1H_2010",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1H",
+      "name": "Mundi Mundi Passive Seismic Array (Mundi Mundi)",
+      "year": 2024,
+      "doi": "10.7914/psbw-7z20",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1K",
+      "name": "ALFREX - Albany-Fraser Experiment",
+      "year": 2013,
+      "doi": "10.7914/SN/1K_2013",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1L",
+      "name": "Canberra Deep Space Centre DAS Experiment",
+      "year": 2021,
+      "doi": "10.7914/63mk-n625",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1P",
+      "name": "BASS",
+      "year": 2011,
+      "doi": "10.7914/SN/1P_2011",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "1Q",
+      "name": "AQT",
+      "year": 2015,
+      "doi": "10.7914/k268-9v05",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "2B",
+      "name": "South Island Seismology at the Speed of Light Experiment",
+      "year": 2023,
+      "doi": "10.7914/bfp8-xv25",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "2E",
+      "name": "Wairakei Earthquake and Tomography Array (WETA)",
+      "year": 2023,
+      "doi": "10.7914/37v8-hv88",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "2J",
+      "name": "South Coast(SOUTHCOAST)",
+      "year": 2009,
+      "doi": "10.7914/64n9-ft63",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "2P",
+      "name": "SWAN / SW Australia Network",
+      "year": 2020,
+      "doi": "10.7914/SN/2P_2020",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "2X",
+      "name": "Vulcan Iron-Oxide Copper-Gold (IOCG) prospect",
+      "year": 2022,
+      "doi": "10.7914/xnz7-th21",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "3B",
+      "name": "Wyalkatchem Temporary Network (WYKM)",
+      "year": 2024,
+      "doi": "10.7914/xy0z-bx66",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "3D",
+      "name": "Ambient Seismic Experiment Tasmania 1(ASET1)",
+      "year": 2008,
+      "doi": "10.7914/efr0-yc38",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "3F",
+      "name": "Macquarie Ridge",
+      "year": 2020,
+      "doi": "10.7914/SN/3F_2020",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "3G",
+      "name": "MARLA (High density seismic line)",
+      "year": 2018,
+      "doi": "10.7914/SN/3G_2018",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "3M",
+      "name": "Australia-Indonesia Tectonics Observatory 2013-2016",
+      "year": 2013,
+      "doi": "10.7914/SN/3M_2013",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "3O",
+      "name": "AKIMBA19 / Kimberley Region",
+      "year": 2019,
+      "doi": "10.7914/SN/3O_2019",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "3X",
+      "name": "Curnamona Deep Earth Imaging Project (Curnamona Cube)",
+      "year": 2022,
+      "doi": "10.7914/6q5b-va48",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "4B",
+      "name": "Seismic Network Around Kangaroo Eyre York",
+      "year": 2023,
+      "doi": "10.7914/9j20-yq91",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "4H",
+      "name": "EAL1",
+      "year": 2009,
+      "doi": "10.7914/SN/4H_2009",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "4J",
+      "name": "AQ3 (part WOMBAT transportable array)",
+      "year": 2014,
+      "doi": "10.7914/SN/4J_2014",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "4K",
+      "name": "Fiordland Seismological Sending of Landslides and Earthquakes (FISSLE)",
+      "year": 2024,
+      "doi": "10.7914/7b9m-1d60",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "4N",
+      "name": "China-Western Australia Seismic Array (CWAS)",
+      "year": 2017,
+      "doi": "10.7914/SN/4N_2017",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "4Z",
+      "name": "Melbourne - ALiRT nodal deployment (ALiRT)",
+      "year": 2021,
+      "doi": "10.7914/pgt8-x273",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "5C",
+      "name": "PERTHBASIN",
+      "year": 2017,
+      "doi": "10.7914/nx28-a367",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "5G",
+      "name": "Lake Eyre Basin",
+      "year": 2018,
+      "doi": "10.7914/SN/5G_2018",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "5J",
+      "name": "ASR",
+      "year": 2017,
+      "doi": "10.7914/SN/5J_2017",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "5K",
+      "name": "SSCUA",
+      "year": 2002,
+      "doi": "10.7914/hf8d-4s28",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "6C",
+      "name": "WA Spiral Array",
+      "year": 2015,
+      "doi": "10.7914/SN/6C_2015",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "6D",
+      "name": "Western Gawler MT & Passive Seismic Array (Western Gawler ADI)",
+      "year": 2022,
+      "doi": "10.7914/6j8j-9f06",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "6F",
+      "name": "BILBY",
+      "year": 2008,
+      "doi": "10.7914/SN/6F_2008",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "6I",
+      "name": "Rapid Deployments for local earthquake swarms in Western Australia",
+      "year": 2026,
+      "doi": "10.7914/gbnj-wt07",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "6K",
+      "name": "AusArray SA",
+      "year": 2020,
+      "doi": "10.7914/SN/6K_2020",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "6T",
+      "name": "NTSPA",
+      "year": 2018,
+      "doi": "10.7914/4e87-j738",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "6Y",
+      "name": "Southland Otago Seismic Array(SOSA)",
+      "year": 2022,
+      "doi": "10.7914/jr68-qq17",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7A",
+      "name": "Georgetown inlier for Far North Queensland",
+      "year": 2024,
+      "doi": "10.7914/3v05-sw22",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7B",
+      "name": "SKIPPY",
+      "year": 1993,
+      "doi": "10.7914/SN/7B_1993",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7D",
+      "name": "KIMBA97",
+      "year": 1997,
+      "doi": "10.7914/SN/7D_1997",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7E",
+      "name": "KIMBA98",
+      "year": 1998,
+      "doi": "10.7914/SN/7E_1998",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7F",
+      "name": "QUOLL 1999",
+      "year": 1999,
+      "doi": "10.7914/SN/7F_1999",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7G",
+      "name": "West Australian Cratons",
+      "year": 2000,
+      "doi": "10.7914/SN/7G_2000",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7H",
+      "name": "TIGGER (BB)",
+      "year": 2001,
+      "doi": "10.7914/SN/7H_2001",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7I",
+      "name": "TASMAL",
+      "year": 2003,
+      "doi": "10.7914/SN/7I_2003",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7J",
+      "name": "CAPRAL",
+      "year": 2005,
+      "doi": "10.7914/SN/7J_2005",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7K",
+      "name": "SOC",
+      "year": 2007,
+      "doi": "10.7914/SN/7K_2007",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7L",
+      "name": "EAL3",
+      "year": 2011,
+      "doi": "10.7914/SN/7L_2011",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7M",
+      "name": "Lachlan Foldbelt",
+      "year": 1998,
+      "doi": "10.7914/SN/7M_1998",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7M",
+      "name": "COPA / Capricorn Orogen Passive-source Array",
+      "year": 2014,
+      "doi": "10.7914/SN/7M_2014",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7N",
+      "name": "Murray Basin",
+      "year": 1999,
+      "doi": "10.7914/SN/7N_1999",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7O",
+      "name": "Adelaide Foldbelt",
+      "year": 2000,
+      "doi": "10.7914/SN/7O_2000",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7P",
+      "name": "TIGGER (SP)",
+      "year": 2002,
+      "doi": "10.7914/SN/7P_2002",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7Q",
+      "name": "SEAL (South-Eastern Australia Linkeage 1/3)",
+      "year": 2004,
+      "doi": "10.7914/SN/7Q_2004",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7R",
+      "name": "EVA - Lachlan Orogen, Victoria Australia",
+      "year": 2005,
+      "doi": "10.7914/SN/7R_2005",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7S",
+      "name": "SETA / SE Tasmania Array",
+      "year": 2006,
+      "doi": "10.7914/SN/7S_2006",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7T",
+      "name": "SEAL2 (South-Eastern Australia Linkeage 2/3)",
+      "year": 2007,
+      "doi": "10.7914/SN/7T_2007",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "7U",
+      "name": "SEAL3 (South-Eastern Australia Linkeage 3/3)",
+      "year": 2007,
+      "doi": "10.7914/SN/7U_2007",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "8A",
+      "name": "Black Mountain SmartSolo Node Testing Experiment (BMNTE)",
+      "year": 2024,
+      "doi": "10.7914/ps89-gf83",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "8J",
+      "name": "SQEAL (South Queensland Eastern Australia Linkage, part of WOMBAT)",
+      "year": 2012,
+      "doi": "10.7914/SN/8J_2012",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "8K",
+      "name": "COPA HPS / Capricorn Orogen High-density Passive-Source Array.",
+      "year": 2014,
+      "doi": "10.7914/SN/8K_2014",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "8M",
+      "name": "MULGA",
+      "year": 2016,
+      "doi": "10.7914/SN/8M_2016",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "9B",
+      "name": "Mt. Stromlo Node Array",
+      "year": 2020,
+      "doi": "10.7914/z6kv-sg06",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "9M",
+      "name": "Eyre Peninsula Nodal Array (EPNA)",
+      "year": 2023,
+      "doi": "10.7914/ac1p-7y35",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "9V",
+      "name": "CADAGIA",
+      "year": 2015,
+      "doi": "10.7914/nrw9-9825",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "9X",
+      "name": "Kamb Ice Stream Outlet Channel (KambSeis2)",
+      "year": 2021,
+      "doi": "10.7914/b1k3-3c71",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "IU",
+      "name": "Global Seismograph Network (GSN - IRIS/USGS) (GSN)",
+      "year": 2000,
+      "doi": "10.7914/SN/IU",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "M8",
+      "name": "Australian Semi-Permanent Support Network (MATE)",
+      "year": 2024,
+      "doi": "10.7914/6e8t-6g37",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "OA",
+      "name": "AusArray",
+      "year": 2022,
+      "doi": "10.11636/135284",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "OZ",
+      "name": "",
+      "year": 1976,
+      "doi": "",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "S1",
+      "name": "Australian Seismometers in Schools (AUSiS)",
+      "year": 2011,
+      "doi": "10.7914/SN/S1",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "VW",
+      "name": "University of Melbourne Seismic Network VW: (VICWAVE)",
+      "year": 2000,
+      "doi": "10.7914/8csc-8z27",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "WG",
+      "name": "WA Array",
+      "year": 2022,
+      "doi": "10.7914/xagc-se62",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "X5",
+      "name": "Auckland-Hauraki Node Array",
+      "year": 2023,
+      "doi": "10.7914/8jxr-7029",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "X8",
+      "name": "Mount Gambier Deployment(Mt_Gambier)",
+      "year": 2005,
+      "doi": "10.7914/xhzt-cq87",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "XX",
+      "name": "",
+      "year": 1980,
+      "doi": "10.7914/SN/XX_2013",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "Y2",
+      "name": "Kilkivan Temporary Network (Kilkivan)",
+      "year": 2025,
+      "doi": "10.7914/r4x6-3573",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "YB",
+      "name": "Rugby MLa 4.4 RDK",
+      "year": 2026,
+      "doi": "10.7914/g75f-4a16",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "YW",
+      "name": "Muswellbrook (Mus)",
+      "year": 2021,
+      "doi": "10.7914/SN/YW_2021",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "Z9",
+      "name": "Casey-Wilkins Adaptable Array",
+      "year": 2022,
+      "doi": "10.7914/SN/Z9_2021",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "ZJ",
+      "name": "Southern Alps Monitoring of Weather-Influenced Seismicity and Erosion(SAMWISE)",
+      "year": 2025,
+      "doi": "10.7914/0zmj-7e94",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "ZR",
+      "name": "MINQ (Mount Isa Northern Queensland)",
+      "year": 2009,
+      "doi": "10.7914/SN/ZR_2009",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "doi": "10.25914/f01x-b211",
+      "name": "Magnetotelluric Broadband Surveys of Australia",
+      "authors": "AuScope",
+      "year": 2023,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f2104_7817_6176_4235"
+    },
+    {
+      "doi": "10.25914/31br-q319",
+      "name": "Magnetotelluric Broadband Surveys of Tasmania",
+      "authors": "AuScope",
+      "year": 2023,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f2726_4254_7999_8141"
+    },
+    {
+      "doi": "10.25914/5eaa30cc934d0",
+      "name": "Magnetotelluric surveys from the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "Graham Heinson",
+      "year": 2020,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f6307_9112_1484_3827"
+    },
+    {
+      "doi": "10.25914/bzd5-n780",
+      "name": "Magnetotelluric surveys of South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "Goleby, Bruce, Thiel, Stephan, Hollmann, Hannes, Hollmann, Hannes",
+      "year": 2023,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f3484_7156_3078_9567"
+    },
+    {
+      "doi": "10.25914/r1yv-qe70",
+      "name": "Magnetotelluric surveys of Tasmania as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f6598_1359_7455_7246"
+    },
+    {
+      "doi": "10.25914/rrm2-b189",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province, 2016 to 2018",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f6277_7362_8380_4100"
+    },
+    {
+      "doi": "10.25914/nxxw-wd19",
+      "name": "Magnetotelluric surveys of the Australian Antarctic Territory",
+      "authors": "Selway, Kate, Manassero,  Maria Constanza, St�l, Tobias, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f8303_6396_4487_5442"
+    },
+    {
+      "doi": "10.25914/fyrh-v157",
+      "name": "Magnetotelluric surveys for glacier process investigations in East Antarctica",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f6732_1581_4488_6269"
+    },
+    {
+      "doi": "10.4225/41/5a618c3ae30ab",
+      "name": "The University of Adelaide Legacy Magnetotellurics Data",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f4237_9555_3315_5547"
+    },
+    {
+      "doi": "10.4225/41/5a79326ea898d",
+      "name": "Magnetotelluric surveys in New South Wales",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f2066_9902_2549_5960"
+    },
+    {
+      "doi": "10.4225/41/5a7933c881dbc",
+      "name": "Magnetotelluric surveys in South Australia",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f6440_7394_2965_2331"
+    },
+    {
+      "doi": "10.4225/41/5a7a2b9f1f3dc",
+      "name": "Magnetotelluric surveys in Tasmania",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f4430_5784_1652_3308"
+    },
+    {
+      "doi": "10.4225/41/5a7a2c8449efc",
+      "name": "Magnetotelluric surveys in Victoria",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f1746_7402_6625_3811"
+    },
+    {
+      "doi": "10.25914/5b98b2782538c",
+      "name": "Magnetotelluric surveys in Western Australia",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f1819_6386_8013_2641"
+    },
+    {
+      "doi": "10.25914/aty6-xs98",
+      "name": "National magnetotelluric surveys of Australia",
+      "authors": "Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f3493_5419_2278_8379"
+    },
+    {
+      "doi": "10.25914/kf96-nb26",
+      "name": "Australian Lightwave Infrastructure Research Testbed Dataset (ALIRT-001)",
+      "authors": "Lai, Voon Hui, Miller, Meghan",
+      "year": 2023,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f0103_2437_2513_4912"
+    },
+    {
+      "doi": "10.25914/1phc-8r73",
+      "name": "Australian Lightwave Infrastructure Research Testbed Dataset (ALIRT-001) - Level 1 Decimated Data",
+      "authors": "Lai, Voon Hui, Miller, Meghan",
+      "year": 2023,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f7951_4499_3694_3652"
+    },
+    {
+      "doi": "10.25914/trnf-c381",
+      "name": "Fiordland Seismological Sounding of Landslides and Earthquakes (FISSLE-001)",
+      "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
+      "year": 2026,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f7028_7996_9657_0446"
+    },
+    {
+      "doi": "10.25914/098k-vy40",
+      "name": "Fiordland Seismological Sounding of Landslides and Earthquakes (FISSLE-001) - Level 0 Raw Undecimated Data",
+      "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
+      "year": 2026,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f6919_6315_6758_0339"
+    },
+    {
+      "doi": "10.25914/nr0d-nv51",
+      "name": "Fiordland Seismological Sounding of Landslides and Earthquakes (FISSLE-001) - Level 1 Decimated Data",
+      "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
+      "year": 2026,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f4225_7281_3553_5114"
+    },
+    {
+      "doi": "10.25914/tzyp-dy03",
+      "name": "South Island Seismology at the Speed of Light Experiment (SISSLE)",
+      "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
+      "year": 2026,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f1569_5260_6502_2433"
+    },
+    {
+      "doi": "10.25914/nn3w-d141",
+      "name": "South Island Seismology at the Speed of Light Experiment (SISSLE) - Level 1 Decimated Data",
+      "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
+      "year": 2026,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f2381_8931_8909_7373"
+    }
+  ]
 }

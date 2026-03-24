@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "search": "node src/search.js",
+    "datasets": "node src/dataset-inventory.js",
     "process-pending": "node src/process-pending.js",
     "maintain": "node src/maintain.js",
     "dashboard": "node src/dashboard.js",
