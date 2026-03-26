@@ -1,14 +1,14 @@
 {
-  "generated": "2026-03-24T22:43:31.762Z",
+  "generated": "2026-03-26T21:16:55.319Z",
   "stats": {
-    "totalPublications": 1832,
+    "totalPublications": 1835,
     "totalDatasets": 200,
     "totalCitations": 41117,
     "citedPublications": 1470,
-    "citedPercent": 80.2,
+    "citedPercent": 80.1,
     "avgCitations": 22.4,
     "uniqueJournals": 460,
-    "uniqueAuthors": 7751,
+    "uniqueAuthors": 7760,
     "uniqueInstitutions": 1112,
     "uniqueCountries": 83,
     "yearRange": "1997–2026",
@@ -213,15 +213,15 @@
     },
     {
       "year": 2025,
-      "count": 181,
-      "cumulative": 1781,
+      "count": 182,
+      "cumulative": 1782,
       "citations": 233,
       "cumulativeCitations": 41110
     },
     {
       "year": 2026,
-      "count": 51,
-      "cumulative": 1832,
+      "count": 53,
+      "cumulative": 1835,
       "citations": 7,
       "cumulativeCitations": 41117
     }
@@ -229,7 +229,7 @@
   "topSubjects": [
     {
       "topic": "Geological and Geochemical Analysis",
-      "count": 677
+      "count": 679
     },
     {
       "topic": "earthquake and tectonic studies",
@@ -249,7 +249,7 @@
     },
     {
       "topic": "Paleontology and Stratigraphy of Fossils",
-      "count": 172
+      "count": 174
     },
     {
       "topic": "Geological and Geophysical Studies",
@@ -291,7 +291,7 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 362
+      "count": 365
     },
     {
       "label": "1–5",
