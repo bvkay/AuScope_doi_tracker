@@ -1,16 +1,16 @@
 {
-  "generated": "2026-03-26T21:16:55.319Z",
+  "generated": "2026-03-29T04:43:45.213Z",
   "stats": {
-    "totalPublications": 1835,
-    "totalDatasets": 200,
-    "totalCitations": 41117,
-    "citedPublications": 1470,
-    "citedPercent": 80.1,
+    "totalPublications": 1837,
+    "totalDatasets": 190,
+    "totalCitations": 41189,
+    "citedPublications": 1473,
+    "citedPercent": 80.2,
     "avgCitations": 22.4,
-    "uniqueJournals": 460,
-    "uniqueAuthors": 7760,
-    "uniqueInstitutions": 1112,
-    "uniqueCountries": 83,
+    "uniqueJournals": 464,
+    "uniqueAuthors": 7796,
+    "uniqueInstitutions": 1130,
+    "uniqueCountries": 86,
     "yearRange": "1997–2026",
     "noSubjectCount": 4
   },
@@ -96,134 +96,134 @@
       "year": 2008,
       "count": 11,
       "cumulative": 22,
-      "citations": 3082,
-      "cumulativeCitations": 3801
+      "citations": 3086,
+      "cumulativeCitations": 3805
     },
     {
       "year": 2009,
       "count": 9,
       "cumulative": 31,
       "citations": 462,
-      "cumulativeCitations": 4263
+      "cumulativeCitations": 4267
     },
     {
       "year": 2010,
       "count": 11,
       "cumulative": 42,
-      "citations": 200,
-      "cumulativeCitations": 4463
+      "citations": 201,
+      "cumulativeCitations": 4468
     },
     {
       "year": 2011,
       "count": 10,
       "cumulative": 52,
       "citations": 314,
-      "cumulativeCitations": 4777
+      "cumulativeCitations": 4782
     },
     {
       "year": 2012,
       "count": 14,
       "cumulative": 66,
-      "citations": 441,
-      "cumulativeCitations": 5218
+      "citations": 442,
+      "cumulativeCitations": 5224
     },
     {
       "year": 2013,
       "count": 11,
       "cumulative": 77,
-      "citations": 750,
-      "cumulativeCitations": 5968
+      "citations": 753,
+      "cumulativeCitations": 5977
     },
     {
       "year": 2014,
       "count": 25,
       "cumulative": 102,
-      "citations": 5909,
-      "cumulativeCitations": 11877
+      "citations": 5917,
+      "cumulativeCitations": 11894
     },
     {
       "year": 2015,
       "count": 29,
       "cumulative": 131,
       "citations": 1526,
-      "cumulativeCitations": 13403
+      "cumulativeCitations": 13420
     },
     {
       "year": 2016,
       "count": 37,
       "cumulative": 168,
-      "citations": 1967,
-      "cumulativeCitations": 15370
+      "citations": 1969,
+      "cumulativeCitations": 15389
     },
     {
       "year": 2017,
       "count": 42,
       "cumulative": 210,
-      "citations": 2221,
-      "cumulativeCitations": 17591
+      "citations": 2224,
+      "cumulativeCitations": 17613
     },
     {
       "year": 2018,
       "count": 56,
       "cumulative": 266,
-      "citations": 3120,
-      "cumulativeCitations": 20711
+      "citations": 3126,
+      "cumulativeCitations": 20739
     },
     {
       "year": 2019,
       "count": 67,
       "cumulative": 333,
-      "citations": 1479,
-      "cumulativeCitations": 22190
+      "citations": 1480,
+      "cumulativeCitations": 22219
     },
     {
       "year": 2020,
       "count": 249,
       "cumulative": 582,
-      "citations": 7603,
-      "cumulativeCitations": 29793
+      "citations": 7607,
+      "cumulativeCitations": 29826
     },
     {
       "year": 2021,
       "count": 120,
       "cumulative": 702,
-      "citations": 1970,
-      "cumulativeCitations": 31763
+      "citations": 1971,
+      "cumulativeCitations": 31797
     },
     {
       "year": 2022,
       "count": 360,
       "cumulative": 1062,
-      "citations": 4144,
-      "cumulativeCitations": 35907
+      "citations": 4151,
+      "cumulativeCitations": 35948
     },
     {
       "year": 2023,
-      "count": 341,
-      "cumulative": 1403,
-      "citations": 3522,
-      "cumulativeCitations": 39429
+      "count": 342,
+      "cumulative": 1404,
+      "citations": 3540,
+      "cumulativeCitations": 39488
     },
     {
       "year": 2024,
       "count": 197,
-      "cumulative": 1600,
-      "citations": 1448,
-      "cumulativeCitations": 40877
+      "cumulative": 1601,
+      "citations": 1459,
+      "cumulativeCitations": 40947
     },
     {
       "year": 2025,
       "count": 182,
-      "cumulative": 1782,
-      "citations": 233,
-      "cumulativeCitations": 41110
+      "cumulative": 1783,
+      "citations": 234,
+      "cumulativeCitations": 41181
     },
     {
       "year": 2026,
-      "count": 53,
-      "cumulative": 1835,
-      "citations": 7,
-      "cumulativeCitations": 41117
+      "count": 54,
+      "cumulative": 1837,
+      "citations": 8,
+      "cumulativeCitations": 41189
     }
   ],
   "topSubjects": [
@@ -291,7 +291,7 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 365
+      "count": 364
     },
     {
       "label": "1–5",
@@ -299,7 +299,7 @@
     },
     {
       "label": "6–20",
-      "count": 547
+      "count": 550
     },
     {
       "label": "21–50",
