@@ -20,7 +20,7 @@ const config = require('../config.json');
 const { queryLabel } = require('./utils');
 const { searchOpenAlex } = require('./sources/openalex');
 const { searchSemanticScholar } = require('./sources/semantic_scholar');
-const { searchEuropePMC } = require('./sources/europepmc');
+const { searchEuropePMC, searchEuropePMCAck } = require('./sources/europepmc');
 const { searchCORE } = require('./sources/core');
 const { searchDimensions } = require('./sources/dimensions');
 const { deduplicateItems, mergeIntoExisting } = require('./dedup');
@@ -63,7 +63,12 @@ async function run() {
     // OpenAlex
     try {
       const maxPages = isPrimary ? config.primary_max_pages : config.secondary_max_pages;
-      const oaItems = await searchOpenAlex(query, { email: config.email, maxPages });
+      const oaItems = await searchOpenAlex(query, {
+        email: config.email,
+        maxPages,
+        yearWindows: isPrimary,
+        minYear: config.min_year || 1997
+      });
       oaItems.forEach(item => { item.searchTerms = [label]; });
       allItems.push(...oaItems);
       queryCount += oaItems.length;
@@ -85,7 +90,7 @@ async function run() {
       }
     }
 
-    // Europe PMC
+    // Europe PMC (general search)
     try {
       const maxResults = isPrimary ? config.MAX_RESULTS_EUROPEPMC || 500 : config.secondary_max_pages * 100;
       const pmcItems = await searchEuropePMC(query, { maxResults });
@@ -95,6 +100,20 @@ async function run() {
     } catch (err) {
       process.stdout.write('PMC err ');
       console.error('  Europe PMC error: ' + err.message);
+    }
+
+    // Europe PMC acknowledgements/funding search (primary only — catches papers
+    // that mention AuScope in acknowledgements but not abstract)
+    if (isPrimary) {
+      try {
+        const ackItems = await searchEuropePMCAck(query, { maxResults: 500 });
+        ackItems.forEach(item => { item.searchTerms = [label]; });
+        allItems.push(...ackItems);
+        queryCount += ackItems.length;
+      } catch (err) {
+        process.stdout.write('PMC-ACK err ');
+        console.error('  Europe PMC ACK error: ' + err.message);
+      }
     }
 
     // CORE — primary only (covers theses, OA grey literature)

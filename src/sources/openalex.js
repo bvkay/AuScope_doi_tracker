@@ -1,7 +1,10 @@
 const { fetchJSON, sleep, stripHtml } = require('../utils');
 
 /**
- * Search OpenAlex for works matching a query via full-text search.
+ * Search OpenAlex for works matching a query.
+ * Runs two passes: fulltext.search (deep, covers full paper text) and
+ * default.search (broader, catches papers not fulltext-indexed).
+ * Results are combined and deduped by DOI.
  * @param {string} query - Search query (supports quoted phrases)
  * @param {object} opts - { email, maxPages }
  * @returns {Promise<Array>} Normalised citation records
@@ -9,11 +12,55 @@ const { fetchJSON, sleep, stripHtml } = require('../utils');
 async function searchOpenAlex(query, opts = {}) {
   const email = opts.email || '';
   const maxPages = opts.maxPages || 2;
+  const yearWindows = opts.yearWindows || false;
+
+  let fulltextItems, defaultItems;
+
+  if (yearWindows) {
+    // Split by year windows to bypass per-query pagination caps.
+    // Each window gets full pagination independently.
+    const currentYear = new Date().getFullYear();
+    const minYear = opts.minYear || 1997;
+    const windowSize = 5;
+    fulltextItems = [];
+    defaultItems = [];
+
+    for (let startYear = minYear; startYear <= currentYear; startYear += windowSize) {
+      const endYear = Math.min(startYear + windowSize - 1, currentYear);
+      const yearFilter = ',publication_year:' + startYear + '-' + endYear;
+      const windowFt = await searchOpenAlexFilter_(query, 'fulltext.search', email, maxPages, yearFilter);
+      const windowDf = await searchOpenAlexFilter_(query, 'default.search', email, maxPages, yearFilter);
+      fulltextItems.push(...windowFt);
+      defaultItems.push(...windowDf);
+    }
+  } else {
+    fulltextItems = await searchOpenAlexFilter_(query, 'fulltext.search', email, maxPages);
+    defaultItems = await searchOpenAlexFilter_(query, 'default.search', email, maxPages);
+  }
+
+  // Dedup by DOI (fulltext results take priority)
+  const seen = {};
+  const items = [];
+  for (const item of fulltextItems) {
+    seen[item.doi.toLowerCase()] = true;
+    items.push(item);
+  }
+  for (const item of defaultItems) {
+    if (!seen[item.doi.toLowerCase()]) {
+      seen[item.doi.toLowerCase()] = true;
+      items.push(item);
+    }
+  }
+
+  return items;
+}
+
+async function searchOpenAlexFilter_(query, filterType, email, maxPages, extraFilter) {
   const items = [];
 
   for (let page = 1; page <= maxPages; page++) {
     const url = 'https://api.openalex.org/works?per_page=25&page=' + page
-      + '&filter=fulltext.search:' + encodeURIComponent(query)
+      + '&filter=' + filterType + ':' + encodeURIComponent(query) + (extraFilter || '')
       + '&select=id,doi,title,publication_year,authorships,primary_location,cited_by_count,type,open_access,topics'
       + '&sort=publication_year:desc'
       + '&mailto=' + encodeURIComponent(email);

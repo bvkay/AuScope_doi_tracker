@@ -69,4 +69,18 @@ async function searchEuropePMC(query, opts = {}) {
   return items;
 }
 
-module.exports = { searchEuropePMC };
+/**
+ * Search Europe PMC specifically in acknowledgement and funding sections.
+ * Many papers mention infrastructure like AuScope only in acknowledgements,
+ * not in the abstract — this catches those.
+ * @param {string} query
+ * @param {object} opts - { maxResults }
+ * @returns {Promise<Array>}
+ */
+async function searchEuropePMCAck(query, opts = {}) {
+  // ACK_FUND searches acknowledgements + funding sections specifically
+  const ackQuery = 'ACK_FUND:"' + query.replace(/"/g, '') + '"';
+  return searchEuropePMC(ackQuery, opts);
+}
+
+module.exports = { searchEuropePMC, searchEuropePMCAck };
