@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<!--
+    AuScope Dataset Browser
+    Browse AuScope datasets across platforms: EarthBank, AusPass, NCI
+    Citation counts from DataCite GraphQL
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AuScope Datasets</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 { color: #2563eb; margin-bottom: 8px; font-size: 22px; }
+        h2 { color: #1e40af; margin-bottom: 12px; font-size: 17px; }
+        .subtitle { color: #6b7280; font-size: 13px; margin-bottom: 20px; }
+
+        .breadcrumb {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .view { display: none; }
+        .view.active { display: block; }
+
+        .platform-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .platform-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .platform-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+        .platform-card h3 { color: #1e40af; font-size: 15px; margin-bottom: 4px; }
+        .platform-card p { color: #6b7280; font-size: 12px; }
+
+        .status-bar {
+            padding: 10px 0;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .table-scroll { overflow-x: auto; }
+
+        .dataset-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .dataset-table th {
+            background: #f0f4ff;
+            color: #1e40af;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #d1d5db;
+            white-space: nowrap;
+        }
+        .dataset-table td {
+            padding: 6px 10px;
+            border-bottom: 1px solid #f3f4f6;
+            vertical-align: top;
+        }
+        .dataset-table tr:hover { background: #f9fafb; }
+
+        .doi-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 12px;
+            word-break: break-all;
+        }
+        .doi-link:hover { text-decoration: underline; }
+
+        .cite-count {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        .cite-count.zero {
+            background: #f3f4f6;
+            color: #9ca3af;
+        }
+
+        .btn-sm {
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            border: 1px solid #d1d5db;
+            background: #fff;
+            color: #374151;
+        }
+        .btn-sm:hover { background: #f3f4f6; }
+
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #e5e7eb;
+            border-top: 2px solid #2563eb;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        #inline-citation-console {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            min-height: 200px;
+            max-height: 70vh;
+            overflow-y: auto;
+            font-family: 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .log-info { color: #2563eb; }
+        .log-success { color: #16a34a; }
+        .log-warn { color: #ca8a04; }
+        .log-error { color: #dc2626; }
+        .log-dim { color: #9ca3af; }
+        .log-citation { color: #333; }
+        .log-doi { color: #2563eb; }
+        .log-doi a { color: #2563eb; text-decoration: none; }
+        .log-doi a:hover { text-decoration: underline; }
+        .log-title { color: #111; font-weight: bold; }
+        .log-divider { color: #9ca3af; }
+
+        .source-tag {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 4px;
+        }
+        .tag-datacite { background: #dbeafe; color: #1e40af; }
+        .tag-crossref { background: #fef3c7; color: #92400e; }
+        .tag-opencitations { background: #fce7f3; color: #9d174d; }
+        .tag-openalex { background: #d1fae5; color: #065f46; }
+
+        .nci-toggle { user-select: none; cursor: pointer; }
+        .nci-toggle:hover { color: #2563eb; }
+
+        .dataset-table td:nth-child(4) { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .dataset-table td:nth-child(4):hover { white-space: normal; overflow: visible; }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .nav-link:hover { text-decoration: underline; }
+
+        @media (max-width: 700px) {
+            .platform-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AuScope Datasets</h1>
+    <p class="subtitle">Browse datasets across AuScope research infrastructure platforms</p>
+
+    <!-- ==================== LANDING VIEW ==================== -->
+    <div id="view-landing" class="view active">
+        <div class="platform-list" id="platform-list"></div>
+        <a class="nav-link" href="index.html">&larr; Back to Citation Dashboard</a>
+    </div>
+
+    <!-- ==================== PLATFORM BROWSE VIEW ==================== -->
+    <div id="view-platform-browse" class="view">
+        <div class="breadcrumb">
+            <a onclick="showView('landing')">Platforms</a> &rsaquo;
+            <span id="platform-breadcrumb-name"></span>
+        </div>
+        <h2 id="platform-title"></h2>
+        <div id="platform-status" class="status-bar"></div>
+        <div id="platform-table-wrap" class="table-scroll"></div>
+
+        <div id="inline-citation-panel" style="display:none; margin-top: 16px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 8px;">
+                <h2 id="inline-citation-title" style="margin:0;"></h2>
+                <button class="btn-sm" onclick="closeInlineCitations()">Close</button>
+            </div>
+            <div id="inline-citation-console"></div>
+        </div>
+    </div>
+
+<script>
+    // =====================================================
+    // VIEW MANAGEMENT
+    // =====================================================
+
+    var currentPlatformKey = null;
+    var currentLoadId = 0;
+
+    function showView(name) {
+        var views = document.querySelectorAll('.view');
+        for (var i = 0; i < views.length; i++) views[i].classList.remove('active');
+        document.getElementById('view-' + name).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    // =====================================================
+    // PLATFORM CONFIGURATIONS
+    // =====================================================
+
+    var platforms = {
+        earthbank: {
+            name: 'AuScope EarthBank',
+            desc: 'Geochemistry datasets via DataCite',
+            fetchDatasets: fetchEarthBankDatasets
+        },
+        auspass: {
+            name: 'AusPass Seismic Networks',
+            desc: 'Seismic networks on the Australian Passive Seismic Server',
+            fetchDatasets: fetchAusPassNetworks
+        },
+        nci_mt: {
+            name: 'NCI Magnetotellurics (MT)',
+            desc: 'AuScope magnetotelluric survey data',
+            fetchDatasets: function() { return fetchNCITree('f0824_6578_7486_1991'); }
+        },
+        nci_das: {
+            name: 'NCI Distributed Acoustic Sensing (DAS)',
+            desc: 'AuScope DAS fibre-optic sensing datasets',
+            fetchDatasets: function() { return fetchNCITree('f7227_9397_9402_8183'); }
+        }
+    };
+
+    // Build platform cards
+    (function buildPlatformCards() {
+        var container = document.getElementById('platform-list');
+        var keys = Object.keys(platforms);
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            var p = platforms[key];
+            var card = document.createElement('div');
+            card.className = 'platform-card';
+            card.setAttribute('data-key', key);
+            card.innerHTML = '<h3>' + p.name + '</h3><p>' + p.desc + '</p>';
+            card.onclick = (function(k) { return function() { loadPlatform(k); }; })(key);
+            container.appendChild(card);
+        }
+    })();
+
+    // =====================================================
+    // LOAD PLATFORM DATASETS
+    // =====================================================
+
+    async function loadPlatform(key) {
+        var p = platforms[key];
+        currentPlatformKey = key;
+        var myLoadId = ++currentLoadId;
+
+        document.getElementById('platform-title').textContent = p.name;
+        document.getElementById('platform-breadcrumb-name').textContent = p.name;
+        document.getElementById('platform-status').innerHTML = '<span class="spinner"></span> Loading datasets...';
+        document.getElementById('platform-table-wrap').innerHTML = '';
+        closeInlineCitations();
+        showView('platform-browse');
+
+        try {
+            var datasets = await p.fetchDatasets();
+            if (myLoadId !== currentLoadId) return;
+
+            if (datasets.length === 0) {
+                document.getElementById('platform-status').textContent = 'No datasets found.';
+                return;
+            }
+
+            document.getElementById('platform-status').innerHTML = datasets.length + ' datasets/networks found. ' +
+                '<span class="spinner"></span> Checking citation counts via DataCite...';
+
+            renderDatasetTable(datasets, false);
+
+            var batchSize = 5;
+            for (var i = 0; i < datasets.length; i += batchSize) {
+                if (myLoadId !== currentLoadId) return;
+                var batch = datasets.slice(i, i + batchSize);
+                var promises = batch.map(function(ds) {
+                    if (!ds.doi) { ds.citationCount = 0; return Promise.resolve(); }
+                    return fetchCitationCount(ds.doi).then(function(count) {
+                        ds.citationCount = count;
+                    }).catch(function() {
+                        ds.citationCount = 0;
+                    });
+                });
+                await Promise.all(promises);
+                if (myLoadId !== currentLoadId) return;
+                renderDatasetTable(datasets, false);
+                document.getElementById('platform-status').innerHTML = datasets.length + ' datasets/networks found. ' +
+                    '<span class="spinner"></span> Checking citations... (' + Math.min(i + batchSize, datasets.length) + '/' + datasets.length + ')';
+            }
+
+            if (myLoadId !== currentLoadId) return;
+            document.getElementById('platform-status').textContent = datasets.length + ' datasets/networks found. Citation counts loaded.';
+            renderDatasetTable(datasets, true);
+
+        } catch (err) {
+            if (myLoadId !== currentLoadId) return;
+            document.getElementById('platform-status').innerHTML = '<span class="log-error">Error: ' + escapeHtml(err.message) + '</span>';
+        }
+    }
+
+    // =====================================================
+    // DATASET TABLE RENDERING
+    // =====================================================
+
+    var currentDatasets = [];
+
+    function renderDatasetTable(datasets, complete) {
+        currentDatasets = datasets;
+        var html = '<table class="dataset-table">';
+        html += '<thead><tr>';
+        html += '<th>#</th><th>Code</th><th>Name</th><th>Authors</th><th>DOI</th><th>Year</th><th>Citations</th><th></th>';
+        html += '</tr></thead><tbody>';
+
+        var rowNum = { n: 0 };
+        for (var i = 0; i < datasets.length; i++) {
+            html += renderTreeRow(datasets[i], rowNum, 0);
+        }
+
+        html += '</tbody></table>';
+        document.getElementById('platform-table-wrap').innerHTML = html;
+    }
+
+    function renderTreeRow(ds, rowNum, depth) {
+        rowNum.n++;
+        var countHtml = ds.citationCount === undefined
+            ? '<span class="log-dim">...</span>'
+            : (ds.citationCount > 0
+                ? '<span class="cite-count">' + ds.citationCount + '</span>'
+                : '<span class="cite-count zero">0</span>');
+
+        var indent = depth * 20;
+        var nameHtml = escapeHtml(ds.name || '');
+
+        var hasKids = ds.children && ds.children.length > 0;
+        if (hasKids || (ds.nciUuid && !ds.childrenLoaded && !ds.isLeaf)) {
+            var arrow = ds.expanded ? '&#9660;' : '&#9654;';
+            var badge = hasKids ? ' <span class="log-dim">(' + ds.children.length + ')</span>' : '';
+            if (!ds.childrenLoaded && !ds.isLeaf) badge = ' <span class="log-dim">...</span>';
+            nameHtml = '<span class="nci-toggle" onclick="toggleTreeNode(\'' + escapeAttr(ds.nciUuid) + '\')">'
+                + arrow + ' ' + nameHtml + badge + '</span>';
+        }
+
+        var nameCell = '<span style="padding-left:' + indent + 'px; display:inline-block;">' + nameHtml + '</span>';
+        var authorsHtml = ds.authors ? '<span style="font-size:11px">' + escapeHtml(ds.authors) + '</span>' : '';
+
+        var isNci = !!ds.nciUuid;
+        var bgColor = isNci ? (depth === 0 ? '#f0f7ff' : (depth % 2 === 1 ? '#f8fafc' : '#ffffff')) : '';
+        var html = '<tr' + (bgColor ? ' style="background:' + bgColor + '"' : '') + '>';
+        html += '<td>' + rowNum.n + '</td>';
+        html += '<td><strong>' + escapeHtml(ds.code || '') + '</strong></td>';
+        html += '<td>' + nameCell + '</td>';
+        html += '<td>' + authorsHtml + '</td>';
+        html += '<td>' + (ds.doi
+            ? '<a class="doi-link" href="https://doi.org/' + escapeAttr(ds.doi) + '" target="_blank">' + escapeHtml(ds.doi) + '</a>'
+            : '<span class="log-dim">—</span>') + '</td>';
+        html += '<td>' + (ds.year || '') + '</td>';
+        html += '<td style="text-align:center">' + countHtml + '</td>';
+        html += '<td>' + (ds.doi && ds.citationCount > 0
+            ? '<button class="btn-sm" onclick="showCitationDetail(\'' + escapeAttr(ds.doi) + '\', \'' + escapeAttr(ds.name || '') + '\')">View</button>'
+            : '') + '</td>';
+        html += '</tr>';
+
+        if (hasKids && ds.expanded) {
+            for (var c = 0; c < ds.children.length; c++) {
+                html += renderTreeRow(ds.children[c], rowNum, depth + 1);
+            }
+        }
+
+        return html;
+    }
+
+    // =====================================================
+    // NCI TREE NODE TOGGLE
+    // =====================================================
+
+    function findNodeByUuid(datasets, uuid) {
+        for (var i = 0; i < datasets.length; i++) {
+            if (datasets[i].nciUuid === uuid) return datasets[i];
+            if (datasets[i].children) {
+                var found = findNodeByUuid(datasets[i].children, uuid);
+                if (found) return found;
+            }
+        }
+        return null;
+    }
+
+    async function toggleTreeNode(uuid) {
+        var node = findNodeByUuid(currentDatasets, uuid);
+        if (!node) return;
+
+        if (node.expanded) {
+            node.expanded = false;
+            renderDatasetTable(currentDatasets, true);
+            return;
+        }
+
+        if (!node.childrenLoaded) {
+            node.expanded = true;
+            renderDatasetTable(currentDatasets, false);
+
+            try {
+                var kids = await fetchNCIChildren(node.nciUuid);
+                node.children = kids;
+                node.childrenLoaded = true;
+                node.isLeaf = kids.length === 0;
+
+                // Fetch citation counts for children
+                var batchSize = 5;
+                for (var i = 0; i < kids.length; i += batchSize) {
+                    var batch = kids.slice(i, i + batchSize);
+                    await Promise.all(batch.map(function(kid) {
+                        if (!kid.doi) { kid.citationCount = 0; return Promise.resolve(); }
+                        return fetchCitationCount(kid.doi).then(function(c) { kid.citationCount = c; }).catch(function() { kid.citationCount = 0; });
+                    }));
+                    renderDatasetTable(currentDatasets, false);
+                }
+            } catch (e) {
+                node.children = [];
+                node.childrenLoaded = true;
+                node.isLeaf = true;
+            }
+        } else {
+            node.expanded = true;
+        }
+
+        renderDatasetTable(currentDatasets, true);
+    }
+
+    // =====================================================
+    // FETCH DATASETS: EARTHBANK (DataCite API)
+    // =====================================================
+
+    async function fetchEarthBankDatasets() {
+        var datasets = [];
+        var page = 1;
+        var pageSize = 100;
+        var hasMore = true;
+
+        while (hasMore) {
+            var url = 'https://api.datacite.org/dois?client-id=hypc.gxglvy'
+                + '&page[size]=' + pageSize
+                + '&page[number]=' + page
+                + '&sort=-created';
+            var response = await fetch(url);
+            if (!response.ok) throw new Error('DataCite API returned HTTP ' + response.status);
+            var data = await response.json();
+            var items = data.data || [];
+
+            for (var i = 0; i < items.length; i++) {
+                var attrs = items[i].attributes;
+                var creators = attrs.creators || [];
+                var authors = creators.map(function(c) {
+                    if (c.familyName && c.givenName) return c.familyName + ', ' + c.givenName.charAt(0) + '.';
+                    return c.name || 'Unknown';
+                }).join('; ');
+
+                datasets.push({
+                    code: '',
+                    name: attrs.titles && attrs.titles[0] ? attrs.titles[0].title : 'Untitled',
+                    doi: attrs.doi || '',
+                    year: attrs.publicationYear || '',
+                    authors: authors,
+                    access: '',
+                    citationCount: undefined
+                });
+            }
+
+            hasMore = items.length === pageSize;
+            page++;
+        }
+
+        datasets.sort(function(a, b) { return (b.year || 0) - (a.year || 0); });
+        return datasets;
+    }
+
+    // =====================================================
+    // FETCH DATASETS: AUSPASS (FDSN Station Service + FDSN Networks API)
+    // =====================================================
+
+    async function fetchAusPassNetworks() {
+        var stationUrl = 'https://auspass.edu.au/fdsnws/station/1/query?level=network&format=text';
+        var stationResp = await fetch(stationUrl);
+        if (!stationResp.ok) throw new Error('AusPass station service returned HTTP ' + stationResp.status);
+        var stationText = await stationResp.text();
+
+        var lines = stationText.trim().split('\n');
+        var networks = [];
+        for (var i = 1; i < lines.length; i++) {
+            var parts = lines[i].split('|');
+            if (parts.length < 5) continue;
+            var code = parts[0].trim();
+            var desc = parts[1].trim();
+            var startTime = parts[2].trim();
+            var endTime = parts[3].trim();
+            var totalStations = parts[4].trim();
+
+            var startYear = startTime ? startTime.substring(0, 4) : '';
+            var endYear = endTime ? endTime.substring(0, 4) : '';
+            var yearStr = startYear;
+            if (endYear && endYear !== startYear) yearStr += '-' + endYear;
+
+            networks.push({
+                code: code,
+                name: desc + (totalStations ? ' (' + totalStations + ' stations)' : ''),
+                year: yearStr,
+                doi: '',
+                access: '',
+                citationCount: undefined
+            });
+        }
+
+        // Fetch DOIs from FDSN Networks JSON API
+        var doiMapExact = {};
+        var doiMapCode = {};
+        try {
+            var fdsnUrl = 'https://www.fdsn.org/ws/networks/1/query?format=json';
+            var fdsnResp = await fetch(fdsnUrl);
+            if (fdsnResp.ok) {
+                var fdsnData = await fdsnResp.json();
+                var fdsnNetworks = fdsnData.networks || fdsnData;
+                if (Array.isArray(fdsnNetworks)) {
+                    for (var j = 0; j < fdsnNetworks.length; j++) {
+                        var net = fdsnNetworks[j];
+                        if (net.doi && net.fdsn_code) {
+                            doiMapCode[net.fdsn_code] = net.doi;
+                            if (net.start_date) {
+                                var sy = net.start_date.substring(0, 4);
+                                doiMapExact[net.fdsn_code + '_' + sy] = net.doi;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (e) {
+            console.warn('FDSN networks API failed:', e);
+        }
+
+        var datasets = [];
+        for (var k = 0; k < networks.length; k++) {
+            var nw = networks[k];
+            var startYr = nw.year ? nw.year.substring(0, 4) : '';
+            nw.doi = doiMapExact[nw.code + '_' + startYr] || doiMapCode[nw.code] || '';
+            datasets.push(nw);
+        }
+
+        datasets.sort(function(a, b) {
+            var ya = parseInt(a.year) || 0;
+            var yb = parseInt(b.year) || 0;
+            if (yb !== ya) return yb - ya;
+            return a.code.localeCompare(b.code);
+        });
+
+        return datasets;
+    }
+
+    // =====================================================
+    // FETCH DATASETS: NCI AUSCOPE COLLECTIONS (GeoNetwork API)
+    // =====================================================
+
+    async function fetchNCITree(rootUuid) {
+        return await fetchNCIChildren(rootUuid);
+    }
+
+    function nciTitle(child) {
+        var title = child.title;
+        if (title && typeof title === 'object') {
+            title = title.eng || title.en || Object.values(title)[0] || 'Untitled';
+        }
+        return title || child.defaultTitle || 'Untitled';
+    }
+
+    async function fetchNCIChildren(parentUuid) {
+        var url = 'https://geonetwork.nci.org.au/geonetwork/srv/api/records/' + parentUuid + '/related?type=children';
+        var response = await fetch(url, { headers: { 'Accept': 'application/json' } });
+        if (!response.ok) return [];
+        var data = await response.json();
+        var children = data.children || [];
+        if (children.length === 0) return [];
+
+        var kids = [];
+        for (var i = 0; i < children.length; i++) {
+            var child = children[i];
+            kids.push({
+                code: '',
+                name: nciTitle(child),
+                doi: '',
+                year: '',
+                authors: '',
+                access: '',
+                nciUuid: child.id || child['@id'] || '',
+                children: null,
+                childrenLoaded: false,
+                expanded: false,
+                isLeaf: false,
+                citationCount: undefined
+            });
+        }
+
+        var metaPromises = kids.map(function(kid) {
+            return fetchNCIRecordMeta(kid.nciUuid).then(function(meta) {
+                kid.doi = meta.doi;
+                kid.authors = meta.authors;
+                kid.year = meta.year;
+            }).catch(function() {});
+        });
+        await Promise.all(metaPromises);
+
+        kids.sort(function(a, b) { return (b.year || 0) - (a.year || 0); });
+        return kids;
+    }
+
+    async function fetchNCIRecordMeta(uuid) {
+        var url = 'https://geonetwork.nci.org.au/geonetwork/srv/api/records/' + uuid;
+        var response = await fetch(url, { headers: { 'Accept': 'application/json' } });
+        if (!response.ok) return { doi: '', authors: '', year: '' };
+        var data = await response.json();
+
+        var doi = '';
+        try {
+            var dsUri = data['gmd:dataSetURI'];
+            if (dsUri) {
+                var uriText = dsUri['gco:CharacterString'];
+                if (uriText && typeof uriText === 'object') uriText = uriText['#text'];
+                if (uriText && uriText.indexOf('10.') === 0) doi = uriText;
+                if (!doi) {
+                    var doiMatch = (uriText || '').match(/(?:doi\.org\/)?(10\.\d{4,}\/[^\s"'<,]+)/);
+                    if (doiMatch) doi = doiMatch[1];
+                }
+            }
+        } catch (e) {}
+        if (!doi) {
+            var fullText = JSON.stringify(data);
+            var nciDoi = fullText.match(/10\.25914\/[a-z0-9]+-[a-z0-9]+/);
+            if (nciDoi) doi = nciDoi[0];
+        }
+
+        var authors = '';
+        try {
+            var ident = data['gmd:identificationInfo'] || {};
+            var di = ident['gmd:MD_DataIdentification'] || {};
+            var cit = di['gmd:citation'] || {};
+            var ciCit = cit['gmd:CI_Citation'] || {};
+            var parties = ciCit['gmd:citedResponsibleParty'];
+            if (parties && !Array.isArray(parties)) parties = [parties];
+            if (parties) {
+                var authorNames = [];
+                for (var p = 0; p < parties.length; p++) {
+                    var rp = parties[p]['gmd:CI_ResponsibleParty'] || {};
+                    var role = rp['gmd:role'] || {};
+                    var roleCode = role['gmd:CI_RoleCode'] || {};
+                    var rv = roleCode['@codeListValue'] || '';
+                    if (rv === 'author' || rv === 'originator' || rv === 'principalInvestigator') {
+                        var indName = rp['gmd:individualName'] || {};
+                        var nameStr = indName['gco:CharacterString'];
+                        if (nameStr && typeof nameStr === 'object') nameStr = nameStr['#text'];
+                        if (nameStr) authorNames.push(nameStr);
+                    }
+                }
+                authors = authorNames.join('; ');
+            }
+        } catch (e) {}
+
+        var year = '';
+        try {
+            var ident2 = data['gmd:identificationInfo'] || {};
+            var di2 = ident2['gmd:MD_DataIdentification'] || {};
+            var cit2 = di2['gmd:citation'] || {};
+            var ciCit2 = cit2['gmd:CI_Citation'] || {};
+            var date = ciCit2['gmd:date'];
+            if (date && !Array.isArray(date)) date = [date];
+            if (date) {
+                for (var d = 0; d < date.length; d++) {
+                    var ciDate = date[d]['gmd:CI_Date'] || {};
+                    var dateStr = ciDate['gmd:date'] || {};
+                    var dt = dateStr['gco:DateTime'] || dateStr['gco:Date'];
+                    if (dt && typeof dt === 'object') dt = dt['#text'];
+                    if (dt) { year = String(dt).substring(0, 4); break; }
+                }
+            }
+        } catch (e) {}
+
+        return { doi: doi, authors: authors, year: year };
+    }
+
+    // =====================================================
+    // CITATION COUNT (DataCite GraphQL)
+    // =====================================================
+
+    async function fetchCitationCount(doi) {
+        if (!doi) return 0;
+        var response = await fetch('https://api.datacite.org/graphql', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: doi } })
+        });
+        if (!response.ok) return 0;
+        var result = await response.json();
+        if (result.data && result.data.work) {
+            return result.data.work.citationCount || 0;
+        }
+        return 0;
+    }
+
+    // =====================================================
+    // CITATION DETAIL VIEW
+    // =====================================================
+
+    function showCitationDetail(doi, name) {
+        var panel = document.getElementById('inline-citation-panel');
+        var consoleEl = document.getElementById('inline-citation-console');
+        var titleEl = document.getElementById('inline-citation-title');
+
+        titleEl.textContent = 'Citations for ' + (name || doi);
+        consoleEl.innerHTML = '';
+        panel.style.display = 'block';
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        runCitationLookup(doi, consoleEl);
+    }
+
+    function closeInlineCitations() {
+        document.getElementById('inline-citation-panel').style.display = 'none';
+        document.getElementById('inline-citation-console').innerHTML = '';
+    }
+
+    // =====================================================
+    // CITATION LOOKUP (DataCite + OpenCitations + OpenAlex)
+    // =====================================================
+
+    async function runCitationLookup(doi, consoleEl) {
+        var _log = function(text, cls) { logTo(consoleEl, text, cls); };
+        var _logHtml = function(html) { logHtmlTo(consoleEl, html); };
+
+        _log('=== Citation Lookup ===', 'log-info');
+        _log('DOI: ' + doi, 'log-info');
+        _log('Querying DataCite, OpenCitations, and OpenAlex...', 'log-dim');
+        _log('', '');
+
+        var results = await Promise.allSettled([
+            fetchDataCiteCitations(doi),
+            fetchOpenCitations(doi),
+            fetchOpenAlexCitations(doi)
+        ]);
+
+        var fallback = function(r, name) {
+            return r.status === 'fulfilled' ? r.value : { source: name, error: String(r.reason), citations: [], reportedCount: 0 };
+        };
+        var dataciteResult = fallback(results[0], 'datacite');
+        var opencitationsResult = fallback(results[1], 'opencitations');
+        var openalexResult = fallback(results[2], 'openalex');
+
+        // Per-source status
+        _log('--- Source Results ---', 'log-divider');
+        [
+            { name: 'DataCite', result: dataciteResult },
+            { name: 'OpenCitations', result: opencitationsResult },
+            { name: 'OpenAlex', result: openalexResult }
+        ].forEach(function(s) {
+            var r = s.result;
+            if (r.error) {
+                _log('  ' + s.name + ': ' + r.error, 'log-warn');
+            } else {
+                _log('  ' + s.name + ': ' + r.citations.length + ' citations found', 'log-success');
+            }
+        });
+        _log('', '');
+
+        // Merge and deduplicate
+        var citationMap = {};
+        function addCitations(result, sourceName) {
+            result.citations.forEach(function(c) {
+                var key = c.doi || ('notitle_' + c.title.toLowerCase().substring(0, 50));
+                if (!citationMap[key]) {
+                    citationMap[key] = { doi: c.rawDoi, authors: c.authors, year: c.year, title: c.title, journal: c.journal, sources: [sourceName] };
+                } else {
+                    citationMap[key].sources.push(sourceName);
+                    if (c.authors.length > citationMap[key].authors.length) citationMap[key].authors = c.authors;
+                    if (c.journal !== 'N/A' && citationMap[key].journal === 'N/A') citationMap[key].journal = c.journal;
+                    if (c.year && !citationMap[key].year) citationMap[key].year = c.year;
+                    if (c.title !== 'Untitled' && citationMap[key].title === 'Untitled') citationMap[key].title = c.title;
+                }
+            });
+        }
+
+        addCitations(dataciteResult, 'datacite');
+        addCitations(opencitationsResult, 'opencitations');
+        addCitations(openalexResult, 'openalex');
+
+        var merged = Object.values(citationMap);
+        merged.sort(function(a, b) { return (b.year || 0) - (a.year || 0); });
+
+        _log('========== MERGED CITATIONS (' + merged.length + ' unique) ==========', 'log-divider');
+        _log('', '');
+
+        if (merged.length === 0) {
+            _log('No citations found across any source.', 'log-warn');
+            return;
+        }
+
+        merged.forEach(function(c, index) {
+            _logHtml('<span class="log-dim">[' + (index + 1) + ']  </span>' + sourceTagsHtml(c.sources));
+            _log('Authors: ' + fixEncoding(c.authors), 'log-citation');
+            _log('Year:    ' + (c.year || 'N/A'), 'log-citation');
+            _log('Title:   ' + fixEncoding(c.title), 'log-title');
+            _log('Journal: ' + fixEncoding(c.journal), 'log-citation');
+            _logHtml('<span class="log-doi">DOI:     <a href="https://doi.org/' + escapeHtml(c.doi) + '" target="_blank">https://doi.org/' + escapeHtml(c.doi) + '</a></span>');
+            _log('', '');
+        });
+
+        _log('=== Done. ' + merged.length + ' unique citation(s) across all sources. ===', 'log-success');
+    }
+
+    // =====================================================
+    // DATACITE CITATIONS FETCH
+    // =====================================================
+
+    async function fetchDataCiteCitations(doi) {
+        var query = 'query($id: ID!) { work(id: $id) { citationCount citations { totalCount nodes { doi titles { title } publicationYear creators { name givenName familyName } publisher { name } container { title } types { resourceTypeGeneral } } } } }';
+        var response = await fetch('https://api.datacite.org/graphql', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: query, variables: { id: doi } })
+        });
+        if (!response.ok) return { source: 'datacite', error: 'HTTP ' + response.status, citations: [], reportedCount: 0 };
+        var result = await response.json();
+        if (result.errors) return { source: 'datacite', error: result.errors[0].message, citations: [], reportedCount: 0 };
+
+        var work = result.data && result.data.work;
+        if (!work) return { source: 'datacite', error: 'DOI not found', citations: [], reportedCount: 0 };
+
+        var nodes = work.citations && work.citations.nodes ? work.citations.nodes : [];
+        var citations = nodes.map(function(node) {
+            return {
+                doi: normaliseDoi(node.doi),
+                rawDoi: node.doi || 'N/A',
+                authors: formatAuthors(node.creators),
+                year: node.publicationYear || null,
+                title: node.titles && node.titles[0] ? node.titles[0].title : 'Untitled',
+                journal: node.container && node.container.title ? node.container.title : (node.publisher && node.publisher.name ? node.publisher.name : 'N/A')
+            };
+        });
+
+        return { source: 'datacite', error: null, citations: citations, reportedCount: work.citationCount || 0 };
+    }
+
+    // =====================================================
+    // OPENCITATIONS FETCH
+    // =====================================================
+
+    async function fetchOpenCitations(doi) {
+        var url = 'https://opencitations.net/index/coci/api/v1/citations/' + doi;
+        var response = await fetch(url);
+        if (!response.ok) {
+            if (response.status === 404) return { source: 'opencitations', error: 'Not found', citations: [], reportedCount: 0 };
+            return { source: 'opencitations', error: 'HTTP ' + response.status, citations: [], reportedCount: 0 };
+        }
+
+        var data = await response.json();
+        if (!Array.isArray(data) || data.length === 0) {
+            return { source: 'opencitations', error: null, citations: [], reportedCount: 0 };
+        }
+
+        var citations = data.map(function(item) {
+            var citingDoi = (item.citing || '').replace(/^https?:\/\/doi\.org\//i, '');
+            var year = null;
+            if (item.creation) {
+                var yearMatch = item.creation.match(/^(\d{4})/);
+                if (yearMatch) year = parseInt(yearMatch[1]);
+            }
+            return { doi: normaliseDoi(citingDoi), rawDoi: citingDoi, authors: 'Unknown', year: year, title: 'Untitled', journal: 'N/A' };
+        });
+
+        return { source: 'opencitations', error: null, citations: citations, reportedCount: data.length };
+    }
+
+    // =====================================================
+    // OPENALEX CITATIONS FETCH
+    // =====================================================
+
+    async function fetchOpenAlexCitations(doi) {
+        var srcResponse = await fetch('https://api.openalex.org/works/doi:' + doi + '?mailto=ben@auscope.org.au');
+        if (srcResponse.status === 404) return { source: 'openalex', error: 'Not found', citations: [], reportedCount: 0 };
+        if (!srcResponse.ok) return { source: 'openalex', error: 'HTTP ' + srcResponse.status, citations: [], reportedCount: 0 };
+
+        var srcWork = await srcResponse.json();
+        var citedByCount = srcWork.cited_by_count || 0;
+        if (citedByCount === 0) return { source: 'openalex', error: null, citations: [], reportedCount: 0 };
+
+        var openAlexId = srcWork.id.replace('https://openalex.org/', '');
+        var citingUrl = 'https://api.openalex.org/works?filter=cites:' + openAlexId + '&per_page=50&sort=publication_year:desc&mailto=ben@auscope.org.au';
+        var citingResponse = await fetch(citingUrl);
+        if (!citingResponse.ok) return { source: 'openalex', error: 'Failed to fetch citing works', citations: [], reportedCount: citedByCount };
+
+        var citingData = await citingResponse.json();
+        var items = citingData.results || [];
+
+        var citations = items.map(function(item) {
+            var authors = (item.authorships || []).map(function(a) {
+                var name = a.author && a.author.display_name ? a.author.display_name : 'Unknown';
+                var parts = name.split(' ');
+                if (parts.length >= 2) return { family: parts[parts.length - 1], given: parts.slice(0, -1).join(' ') };
+                return { name: name };
+            });
+            var journal = 'N/A';
+            if (item.primary_location && item.primary_location.source) journal = item.primary_location.source.display_name || 'N/A';
+            var itemDoi = item.doi ? item.doi.replace('https://doi.org/', '') : '';
+            return { doi: normaliseDoi(itemDoi), rawDoi: itemDoi || 'N/A', authors: formatAuthors(authors), year: item.publication_year || null, title: item.title || 'Untitled', journal: journal };
+        });
+
+        return { source: 'openalex', error: null, citations: citations, reportedCount: citedByCount };
+    }
+
+    // =====================================================
+    // UTILITIES
+    // =====================================================
+
+    function logTo(el, text, className) {
+        var span = document.createElement('span');
+        span.className = className || '';
+        span.textContent = text + '\n';
+        el.appendChild(span);
+        el.scrollTop = el.scrollHeight;
+    }
+
+    function logHtmlTo(el, html) {
+        var div = document.createElement('div');
+        div.innerHTML = html + '\n';
+        el.appendChild(div);
+        el.scrollTop = el.scrollHeight;
+    }
+
+    function normaliseDoi(doi) {
+        return (doi || '').toLowerCase().replace(/^https?:\/\/doi\.org\//i, '').trim();
+    }
+
+    function fixEncoding(text) {
+        if (!text) return text;
+        return text
+            .replace(/\u00e2\u0080\u0093/g, '\u2013')
+            .replace(/\u00e2\u0080\u0094/g, '\u2014')
+            .replace(/\u00e2\u0080\u0099/g, '\u2019')
+            .replace(/\u00e2\u0080\u009c/g, '\u201c')
+            .replace(/\u00e2\u0080\u009d/g, '\u201d')
+            .replace(/\ufffd/g, '\u2013');
+    }
+
+    function escapeHtml(text) {
+        var div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function escapeAttr(text) {
+        return text.replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function formatAuthors(creators) {
+        if (!creators || creators.length === 0) return 'Unknown';
+        return creators.map(function(c) {
+            if (c.family && c.given) return c.family + ', ' + c.given.charAt(0) + '.';
+            if (c.familyName && c.givenName) return c.familyName + ', ' + c.givenName.charAt(0) + '.';
+            return c.name || c.literal || 'Unknown';
+        }).join(', ');
+    }
+
+    function sourceTagsHtml(sources) {
+        var labels = { datacite: 'DataCite', opencitations: 'OpenCitations', openalex: 'OpenAlex' };
+        return sources.map(function(s) {
+            return '<span class="source-tag tag-' + s + '">' + (labels[s] || s) + '</span>';
+        }).join('');
+    }
+
+</script>
+</body>
+</html>
