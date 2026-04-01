@@ -1,14 +1,14 @@
 {
-  "generated": "2026-03-29T04:43:45.213Z",
+  "generated": "2026-04-01T21:16:42.093Z",
   "stats": {
-    "totalPublications": 1837,
-    "totalDatasets": 190,
+    "totalPublications": 1840,
+    "totalDatasets": 202,
     "totalCitations": 41189,
     "citedPublications": 1473,
-    "citedPercent": 80.2,
+    "citedPercent": 80.1,
     "avgCitations": 22.4,
-    "uniqueJournals": 464,
-    "uniqueAuthors": 7796,
+    "uniqueJournals": 465,
+    "uniqueAuthors": 7804,
     "uniqueInstitutions": 1130,
     "uniqueCountries": 86,
     "yearRange": "1997–2026",
@@ -220,8 +220,8 @@
     },
     {
       "year": 2026,
-      "count": 54,
-      "cumulative": 1837,
+      "count": 57,
+      "cumulative": 1840,
       "citations": 8,
       "cumulativeCitations": 41189
     }
@@ -229,7 +229,7 @@
   "topSubjects": [
     {
       "topic": "Geological and Geochemical Analysis",
-      "count": 679
+      "count": 681
     },
     {
       "topic": "earthquake and tectonic studies",
@@ -237,7 +237,7 @@
     },
     {
       "topic": "High-pressure geophysics and materials",
-      "count": 327
+      "count": 328
     },
     {
       "topic": "Geochemistry and Geologic Mapping",
@@ -253,7 +253,7 @@
     },
     {
       "topic": "Geological and Geophysical Studies",
-      "count": 125
+      "count": 126
     },
     {
       "topic": "Geophysics and Gravity Measurements",
@@ -291,7 +291,7 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 364
+      "count": 367
     },
     {
       "label": "1–5",
