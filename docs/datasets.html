@@ -770,15 +770,25 @@
     // CITATION COUNT (DataCite GraphQL)
     // =====================================================
 
-    async function fetchCitationCount(doi) {
+    async function fetchCitationCount(doi, retries) {
         if (!doi) return 0;
+        if (retries === undefined) retries = 2;
         var response = await fetch('https://api.datacite.org/graphql', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: doi } })
         });
+        if (response.status === 429 && retries > 0) {
+            // Rate limited — wait and retry
+            await new Promise(function(r) { setTimeout(r, 3000); });
+            return fetchCitationCount(doi, retries - 1);
+        }
         if (!response.ok) return 0;
         var result = await response.json();
+        if (result.errors && result.errors[0] && result.errors[0].status === '429' && retries > 0) {
+            await new Promise(function(r) { setTimeout(r, 3000); });
+            return fetchCitationCount(doi, retries - 1);
+        }
         if (result.data && result.data.work) {
             return result.data.work.citationCount || 0;
         }
