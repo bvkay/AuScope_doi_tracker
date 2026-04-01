@@ -197,6 +197,14 @@
 
     <!-- ==================== LANDING VIEW ==================== -->
     <div id="view-landing" class="view active">
+        <p style="color:#4b5563; font-size:13px; line-height:1.7; margin-bottom:20px; max-width:800px;">
+            This tool provides a live view of datasets published through AuScope's research infrastructure.
+            Select a platform below to browse its datasets. Citation counts are fetched in real time from
+            <a href="https://datacite.org" target="_blank" style="color:#2563eb">DataCite</a> and clicking
+            "View" on a cited dataset shows the citing publications from DataCite,
+            <a href="https://opencitations.net" target="_blank" style="color:#2563eb">OpenCitations</a>, and
+            <a href="https://openalex.org" target="_blank" style="color:#2563eb">OpenAlex</a>.
+        </p>
         <div class="platform-list" id="platform-list"></div>
     </div>
 
@@ -346,7 +354,7 @@
         currentDatasets = datasets;
         var html = '<table class="dataset-table">';
         html += '<thead><tr>';
-        html += '<th>#</th><th>Code</th><th>Name</th><th>Authors</th><th>DOI</th><th>Year</th><th>Citations</th><th></th>';
+        html += '<th>#</th><th>Name</th><th>Authors</th><th>DOI</th><th>Year</th><th>Access</th><th>Citations</th><th></th>';
         html += '</tr></thead><tbody>';
 
         var rowNum = { n: 0 };
@@ -367,7 +375,8 @@
                 : '<span class="cite-count zero">0</span>');
 
         var indent = depth * 20;
-        var nameHtml = escapeHtml(ds.name || '');
+        var displayName = ds.code ? ds.code + ' — ' + (ds.name || '') : (ds.name || '');
+        var nameHtml = escapeHtml(displayName);
 
         var hasKids = ds.children && ds.children.length > 0;
         if (hasKids || (ds.nciUuid && !ds.childrenLoaded && !ds.isLeaf)) {
@@ -381,17 +390,23 @@
         var nameCell = '<span style="padding-left:' + indent + 'px; display:inline-block;">' + nameHtml + '</span>';
         var authorsHtml = ds.authors ? '<span style="font-size:11px">' + escapeHtml(ds.authors) + '</span>' : '';
 
+        // Access badge
+        var accessHtml = '';
+        if (ds.access === 'Open') accessHtml = '<span class="access-open">Open</span>';
+        else if (ds.access === 'Restricted') accessHtml = '<span class="access-closed">Restricted</span>';
+        else if (ds.access) accessHtml = '<span style="font-size:11px;color:#6b7280">' + escapeHtml(ds.access) + '</span>';
+
         var isNci = !!ds.nciUuid;
         var bgColor = isNci ? (depth === 0 ? '#f0f7ff' : (depth % 2 === 1 ? '#f8fafc' : '#ffffff')) : '';
         var html = '<tr' + (bgColor ? ' style="background:' + bgColor + '"' : '') + '>';
         html += '<td>' + rowNum.n + '</td>';
-        html += '<td><strong>' + escapeHtml(ds.code || '') + '</strong></td>';
         html += '<td>' + nameCell + '</td>';
         html += '<td>' + authorsHtml + '</td>';
         html += '<td>' + (ds.doi
             ? '<a class="doi-link" href="https://doi.org/' + escapeAttr(ds.doi) + '" target="_blank">' + escapeHtml(ds.doi) + '</a>'
             : '<span class="log-dim">—</span>') + '</td>';
         html += '<td>' + (ds.year || '') + '</td>';
+        html += '<td style="text-align:center">' + accessHtml + '</td>';
         html += '<td style="text-align:center">' + countHtml + '</td>';
         html += '<td>' + (ds.doi && ds.citationCount > 0
             ? '<button class="btn-sm" onclick="showCitationDetail(\'' + escapeAttr(ds.doi) + '\', \'' + escapeAttr(ds.name || '') + '\')">View</button>'
@@ -492,13 +507,23 @@
                     return c.name || 'Unknown';
                 }).join('; ');
 
+                // Determine access from rightsList
+                var access = '';
+                var rights = attrs.rightsList || [];
+                for (var r = 0; r < rights.length; r++) {
+                    var rt = (rights[r].rights || '').toLowerCase();
+                    if (rt.indexOf('open') >= 0) { access = 'Open'; break; }
+                    if (rt.indexOf('restricted') >= 0 || rt.indexOf('closed') >= 0) { access = 'Restricted'; break; }
+                }
+                if (!access && attrs.url) access = 'Open'; // DataCite-registered with URL = generally open
+
                 datasets.push({
                     code: '',
                     name: attrs.titles && attrs.titles[0] ? attrs.titles[0].title : 'Untitled',
                     doi: attrs.doi || '',
                     year: attrs.publicationYear || '',
                     authors: authors,
-                    access: '',
+                    access: access,
                     citationCount: undefined
                 });
             }
@@ -578,7 +603,28 @@
             var nw = networks[k];
             var startYr = nw.year ? nw.year.substring(0, 4) : '';
             nw.doi = doiMapExact[nw.code + '_' + startYr] || doiMapCode[nw.code] || '';
+            nw.access = 'Open';  // FDSN networks are open by definition
+            nw.authors = '';     // Will be filled from DataCite below
             datasets.push(nw);
+        }
+
+        // Fetch authors from DataCite for networks with DOIs (batches of 5)
+        var withDoi = datasets.filter(function(d) { return d.doi; });
+        for (var b = 0; b < withDoi.length; b += 5) {
+            var batch = withDoi.slice(b, b + 5);
+            await Promise.all(batch.map(function(ds) {
+                return fetch('https://api.datacite.org/dois/' + encodeURIComponent(ds.doi))
+                    .then(function(r) { return r.ok ? r.json() : null; })
+                    .then(function(data) {
+                        if (!data || !data.data) return;
+                        var creators = data.data.attributes.creators || [];
+                        ds.authors = creators.map(function(c) {
+                            if (c.familyName && c.givenName) return c.familyName + ', ' + c.givenName.charAt(0) + '.';
+                            return c.name || '';
+                        }).filter(Boolean).join('; ');
+                    })
+                    .catch(function() {});
+            }));
         }
 
         datasets.sort(function(a, b) {
@@ -624,7 +670,7 @@
                 doi: '',
                 year: '',
                 authors: '',
-                access: '',
+                access: 'Open',
                 nciUuid: child.id || child['@id'] || '',
                 children: null,
                 childrenLoaded: false,
@@ -753,7 +799,54 @@
         panel.style.display = 'block';
         panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        runCitationLookup(doi, consoleEl);
+        // Show dataset metadata first, then citation lookup
+        fetchDatasetMetadata(doi, consoleEl).then(function() {
+            runCitationLookup(doi, consoleEl);
+        });
+    }
+
+    async function fetchDatasetMetadata(doi, consoleEl) {
+        var _log = function(text, cls) { logTo(consoleEl, text, cls); };
+        var _logHtml = function(html) { logHtmlTo(consoleEl, html); };
+
+        try {
+            var response = await fetch('https://api.datacite.org/graphql', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    query: 'query($id: ID!) { work(id: $id) { doi titles { title } publicationYear creators { name givenName familyName } publisher { name } types { resourceTypeGeneral resourceType } version registered descriptions { description descriptionType } rights { rights rightsUri } } }',
+                    variables: { id: doi }
+                })
+            });
+            if (!response.ok) return;
+            var result = await response.json();
+            var work = result.data && result.data.work;
+            if (!work) return;
+
+            var title = work.titles && work.titles[0] ? work.titles[0].title : 'N/A';
+            var authors = (work.creators || []).map(function(c) {
+                if (c.familyName && c.givenName) return c.familyName + ', ' + c.givenName;
+                return c.name || 'Unknown';
+            }).join('; ');
+            var publisher = work.publisher && work.publisher.name ? work.publisher.name : 'N/A';
+            var resType = work.types ? (work.types.resourceType || work.types.resourceTypeGeneral || '') : '';
+            var rights = (work.rights || []).map(function(r) { return r.rights; }).filter(Boolean).join('; ');
+
+            _log('========== DATASET DETAILS ==========', 'log-divider');
+            _log('Title:       ' + fixEncoding(title), 'log-title');
+            _log('Type:        ' + resType, 'log-citation');
+            _log('Authors:     ' + fixEncoding(authors), 'log-citation');
+            _log('Publisher:   ' + fixEncoding(publisher), 'log-citation');
+            _log('Year:        ' + (work.publicationYear || 'N/A'), 'log-citation');
+            if (work.registered) _log('Registered:  ' + work.registered.substring(0, 10), 'log-citation');
+            if (work.version) _log('Version:     ' + work.version, 'log-citation');
+            if (rights) _log('Rights:      ' + rights, 'log-citation');
+            _logHtml('<span class="log-doi">DOI:         <a href="https://doi.org/' + escapeHtml(doi) + '" target="_blank">https://doi.org/' + escapeHtml(doi) + '</a></span>');
+            _log('=====================================', 'log-divider');
+            _log('', '');
+        } catch (e) {
+            // Silently skip if metadata fetch fails — citations will still load
+        }
     }
 
     function closeInlineCitations() {
