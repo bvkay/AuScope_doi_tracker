@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-04-05T04:44:18.332Z",
-    "total_count": 2010
+    "last_updated": "2026-04-08T02:32:05.515Z",
+    "total_count": 2011
   },
   "records": [
     {
@@ -22200,7 +22200,7 @@
       "journal": "",
       "publisher": "California Digital Library (CDL)",
       "year": 2021,
-      "cited": 0,
+      "cited": 1,
       "type": "preprint",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Geophysics and Sensor Technology; Seismology and Earthquake Studies",
@@ -24785,7 +24785,7 @@
       "journal": "",
       "publisher": "Copernicus GmbH",
       "year": 2025,
-      "cited": 0,
+      "cited": 1,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geochemistry and Geologic Mapping; Mineral Processing and Grinding; Hydrocarbon exploration and reservoir analysis",
@@ -50747,6 +50747,29 @@
         "AU"
       ],
       "dateAdded": "2026-04-05"
+    },
+    {
+      "doi": "10.1029/2025gl120111",
+      "title": "Characterization of Near‐Surface Velocity Structure at Haast, New Zealand, Using Distributed Acoustic Sensing (DAS) Measurements of Seismicity",
+      "authors": "Allan Raudsepp; Calum J. Chamberlain; Voon Hui Lai; Meghan S. Miller; John Townend",
+      "journal": "Geophysical Research Letters",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; earthquake and tectonic studies; Seismic Performance and Analysis",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Manual submission"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-04-08"
     }
   ]
 }
