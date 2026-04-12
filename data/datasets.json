@@ -1,10 +1,34 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-04-08T02:31:24.013Z",
-    "total_count": 202
+    "last_updated": "2026-04-12T04:53:31.021Z",
+    "total_count": 205
   },
   "records": [
+    {
+      "doi": "10.58024/aguaa72a888a",
+      "name": "Tanami Province apatite reconnaissance geochronology",
+      "authors": "Angus Nixon",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/aguab822541d",
+      "name": "The thermo-tectonic evolution of the Lützow-Holm Bay – Sri Lanka conjugate margin",
+      "authors": "Ferdinand Mayer-Ullmann",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agag5448cdd9",
+      "name": "Zhou et al., 2026 Northeastern Asia low-temperature thermochronology data",
+      "authors": "Jianping Zhou",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
     {
       "doi": "10.58024/agmm4f8ff9d2",
       "name": "Museums Victoria Mineralogy",
@@ -1407,7 +1431,7 @@
     },
     {
       "code": "YB",
-      "name": "Rugby MLa 4.4 RDK",
+      "name": "Rugby 2026 MLa 4.4 RDK",
       "year": 2026,
       "doi": "10.7914/g75f-4a16",
       "platform": "AusPass",
