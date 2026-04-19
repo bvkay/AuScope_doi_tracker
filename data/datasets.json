@@ -1,10 +1,26 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-04-12T04:53:31.021Z",
-    "total_count": 205
+    "last_updated": "2026-04-19T04:57:49.789Z",
+    "total_count": 207
   },
   "records": [
+    {
+      "doi": "10.58024/agcu65f8f1a9",
+      "name": "Geological Survey of Queensland (GSQ)",
+      "authors": "Aditya Priyadarshi",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agcuc86cdd4e",
+      "name": "Mica 40Ar/39Ar geochronology: Implications for LCT-pegmatite chronology",
+      "authors": "Dr Bryant Ware (0000-0002-3907-4344)",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
     {
       "doi": "10.58024/aguaa72a888a",
       "name": "Tanami Province apatite reconnaissance geochronology",
@@ -215,9 +231,9 @@
     },
     {
       "doi": "10.58024/agcu9cb45313",
-      "name": "Curnamona Province Pb isotope data",
-      "authors": "Liebmann, Janne",
-      "year": 2023,
+      "name": "Curnamona Province Pb isotope and U-Pb data data",
+      "authors": "Bryant Ware",
+      "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
     },
