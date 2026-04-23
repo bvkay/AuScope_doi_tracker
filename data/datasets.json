@@ -1,14 +1,22 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-04-19T04:57:49.789Z",
-    "total_count": 207
+    "last_updated": "2026-04-23T21:16:25.645Z",
+    "total_count": 208
   },
   "records": [
     {
+      "doi": "10.58024/aguq6128dfbc",
+      "name": "Aileron Province LCT Pegmatites, Northern Territory",
+      "authors": "Jack Stirling",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
       "doi": "10.58024/agcu65f8f1a9",
-      "name": "Geological Survey of Queensland (GSQ)",
-      "authors": "Aditya Priyadarshi",
+      "name": "Queensland Exploration Geochemistry",
+      "authors": "Mr Joseph Tang, Aditya Priyadarshi (0000-0003-2476-1536), Dr Bhavik Harish Lodhia (0000-0002-3764-2248), Ms Princy Agrahari (0009-0006-7186-8335)",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"

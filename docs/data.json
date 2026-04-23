@@ -1,14 +1,14 @@
 {
-  "generated": "2026-04-19T04:58:34.376Z",
+  "generated": "2026-04-23T21:17:08.435Z",
   "stats": {
-    "totalPublications": 2031,
-    "totalDatasets": 207,
+    "totalPublications": 2032,
+    "totalDatasets": 208,
     "totalCitations": 41856,
     "citedPublications": 1505,
     "citedPercent": 74.1,
     "avgCitations": 20.6,
     "uniqueJournals": 481,
-    "uniqueAuthors": 8018,
+    "uniqueAuthors": 8030,
     "uniqueInstitutions": 1217,
     "uniqueCountries": 88,
     "yearRange": "1997–2026",
@@ -220,8 +220,8 @@
     },
     {
       "year": 2026,
-      "count": 121,
-      "cumulative": 2031,
+      "count": 122,
+      "cumulative": 2032,
       "citations": 8,
       "cumulativeCitations": 41856
     }
@@ -249,7 +249,7 @@
     },
     {
       "topic": "Paleontology and Stratigraphy of Fossils",
-      "count": 181
+      "count": 182
     },
     {
       "topic": "Geological and Geophysical Studies",
@@ -291,7 +291,7 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 526
+      "count": 527
     },
     {
       "label": "1–5",
