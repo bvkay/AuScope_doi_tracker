@@ -404,6 +404,13 @@
         .ov-grid dd .empty { color: var(--text-muted); font-style: italic; }
         .ov-grid dd .mono { font-family: var(--mono); font-size: 12px; }
 
+        .auscope-logo {
+            height: 28px;
+            width: auto;
+            vertical-align: -8px;
+            margin-right: 10px;
+        }
+
         .creator {
             display: inline-flex;
             align-items: center;
@@ -416,20 +423,19 @@
             border-radius: 12px;
             font-size: 12px;
         }
-        .creator .orcid {
-            color: #a6ce39;
-            font-weight: 700;
-            font-family: var(--mono);
-            font-size: 10px;
-            background: white;
-            border-radius: 50%;
+        .orcid-icon {
             width: 14px;
             height: 14px;
+            vertical-align: -3px;
+            display: inline-block;
+        }
+        .orcid-link {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            border: 1px solid #a6ce39;
+            text-decoration: none !important;
+            line-height: 1;
         }
+        .orcid-link:hover { opacity: 0.75; }
         .creator .no-orcid {
             color: var(--text-muted);
             font-size: 10px;
@@ -437,6 +443,75 @@
         .creator a {
             color: inherit !important;
             text-decoration: none !important;
+        }
+        .col-authors .orcid-link {
+            margin: 0 1px 0 3px;
+        }
+
+        .affil {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: var(--text-soft);
+            margin-left: 4px;
+        }
+        .ror-icon {
+            height: 14px;
+            width: auto;
+            max-width: 38px;
+            vertical-align: -3px;
+            display: inline-block;
+        }
+        .ror-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none !important;
+            line-height: 1;
+            padding: 0 2px;
+        }
+        .ror-link:hover { opacity: 0.75; }
+        .id-badge {
+            display: inline-block;
+            padding: 0 5px;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            background: var(--bg-muted);
+            color: var(--text-soft);
+            border-radius: 3px;
+            font-family: var(--mono);
+            line-height: 14px;
+            vertical-align: 1px;
+        }
+        /* Amber "missing" pills — used wherever a DataCite slot is empty.
+           Two flavours share the colour: small mono pill next to icons,
+           and a slightly larger sans pill for stand-alone field values. */
+        .id-badge.missing,
+        .creator .no-orcid {
+            display: inline-block;
+            padding: 0 5px;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 3px;
+            font-family: var(--mono);
+            line-height: 14px;
+            vertical-align: 1px;
+        }
+        .ov-grid dd .empty {
+            display: inline-block;
+            padding: 1px 7px;
+            font-size: 11px;
+            font-weight: 500;
+            font-style: normal;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 3px;
+            font-family: var(--sans);
+            letter-spacing: 0.01em;
         }
 
         .subject {
@@ -711,12 +786,14 @@
         <!-- ========== HEADER ========== -->
         <div class="topbar">
             <div class="brand">
-                <h1><span class="accent">EarthBank</span> Dataset Tracker</h1>
+                <h1>
+                    <img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope">
+                    <span class="accent">EarthBank</span> Dataset Tracker
+                </h1>
                 <p>Inspect DataCite metadata, validate mapping, and track citations for AuScope EarthBank datasets.</p>
             </div>
             <div class="links">
-                <a href="datasets.html">All AuScope platforms</a>
-                <a href="https://commons.datacite.org/?query=client:hypc.gxglvy" target="_blank" rel="noopener">DataCite Commons ↗</a>
+                <a href="https://datacite-metadata-schema.readthedocs.io/en/4.7/" target="_blank" rel="noopener">DataCite schema reference ↗</a>
             </div>
         </div>
 
@@ -968,6 +1045,25 @@ async function fetchCitationCount(doi, retries) {
 // ============================================================
 // NORMALIZE
 // ============================================================
+function normalizeAffiliations(arr) {
+    return (arr || []).map(function(a) {
+        // Older schema: bare string
+        if (typeof a === 'string') return { name: a, id: '', idScheme: '', schemeUri: '' };
+        var id = a.affiliationIdentifier || '';
+        var scheme = a.affiliationIdentifierScheme || '';
+        // Normalise bare ROR IDs to full URI
+        if (id && scheme.toUpperCase() === 'ROR' && id.indexOf('http') !== 0) {
+            id = 'https://ror.org/' + id;
+        }
+        return {
+            name: a.name || '',
+            id: id,
+            idScheme: scheme,
+            schemeUri: a.schemeUri || a.schemeURI || ''
+        };
+    }).filter(function(a) { return a.name || a.id; });
+}
+
 function normalize(item) {
     var attrs = item.attributes || {};
     var creators = (attrs.creators || []).map(function(c) {
@@ -982,7 +1078,15 @@ function normalize(item) {
         }
         var name = c.name || '';
         if (!name && c.familyName && c.givenName) name = c.familyName + ', ' + c.givenName;
-        return { name: name || 'Unknown', orcid: orcid, family: c.familyName || '', given: c.givenName || '', affiliation: (c.affiliation || []).map(function(a) { return a.name || a; }).filter(Boolean).join('; '), raw: c };
+        return {
+            name: name || 'Unknown',
+            nameType: c.nameType || 'Personal',
+            orcid: orcid,
+            family: c.familyName || '',
+            given: c.givenName || '',
+            affiliation: normalizeAffiliations(c.affiliation),
+            raw: c
+        };
     });
 
     var contributors = (attrs.contributors || []).map(function(c) {
@@ -993,7 +1097,14 @@ function normalize(item) {
                 orcid = (ids[i].nameIdentifier || '').replace(/^https?:\/\/orcid\.org\//i, '');
             }
         }
-        return { name: c.name || ((c.familyName || '') + (c.givenName ? ', ' + c.givenName : '')), orcid: orcid, type: c.contributorType || '', raw: c };
+        return {
+            name: c.name || ((c.familyName || '') + (c.givenName ? ', ' + c.givenName : '')),
+            nameType: c.nameType || 'Personal',
+            orcid: orcid,
+            type: c.contributorType || '',
+            affiliation: normalizeAffiliations(c.affiliation),
+            raw: c
+        };
     });
 
     var titles = attrs.titles || [];
@@ -1038,6 +1149,7 @@ function normalize(item) {
         url: attrs.url || '',
         registered: attrs.registered || attrs.created || '',
         schemaVersion: attrs.schemaVersion || '',
+        alternateIdentifiers: attrs.alternateIdentifiers || [],
         // searchable text blob
         _search: '',
         citationCount: undefined,
@@ -1049,6 +1161,59 @@ function normalize(item) {
 // MAPPING SCORE
 // ============================================================
 // Each check returns: { name, status: 'good'|'warn'|'bad', note, value, weight }
+
+// Helper: ORCID coverage check for a list of people (creators or contributors).
+// Returns null if the list is empty (no people to evaluate).
+function buildOrcidCheck(people, label, weight) {
+    if (!people || people.length === 0) return null;
+    var withOrcid = people.filter(function(c) { return c.orcid; }).length;
+    var status = withOrcid === people.length ? 'good' : (withOrcid > 0 ? 'warn' : 'bad');
+    var lower = label.toLowerCase() + 's';
+    var note;
+    if (status === 'good') note = 'All ' + people.length + ' ' + lower + ' have ORCIDs.';
+    else if (status === 'warn') note = withOrcid + ' of ' + people.length + ' ' + lower + ' have ORCIDs.';
+    else note = 'No ' + lower + ' have ORCIDs.';
+    return { name: label + ' ORCIDs', status: status, weight: weight, value: withOrcid + ' / ' + people.length, note: note };
+}
+
+// Helper: affiliation/ROR coverage check for a list of people.
+// Returns null if the list is empty.
+function buildAffiliationCheck(people, label, weight) {
+    if (!people || people.length === 0) return null;
+    var total = 0, withRor = 0, withAnyId = 0;
+    people.forEach(function(c) {
+        (c.affiliation || []).forEach(function(a) {
+            total++;
+            if (a.id) withAnyId++;
+            if ((a.idScheme || '').toUpperCase() === 'ROR') withRor++;
+        });
+    });
+    var lower = label.toLowerCase();
+    var status, value, note;
+    if (total === 0) {
+        status = 'warn';
+        value = '0 affiliations';
+        note = 'No ' + lower + ' affiliations recorded — add organisations with ROR identifiers.';
+    } else if (withRor === total) {
+        status = 'good';
+        value = total + ' / ' + total + ' have ROR';
+        note = 'All ' + lower + ' affiliations identified with ROR URIs.';
+    } else if (withAnyId === total) {
+        status = 'good';
+        value = total + ' / ' + total + ' have an ID';
+        note = 'All ' + lower + ' affiliations have identifiers (not all ROR — ROR is preferred).';
+    } else if (withRor > 0 || withAnyId > 0) {
+        status = 'warn';
+        value = withRor + ' ROR · ' + withAnyId + ' any ID · ' + total + ' total';
+        note = 'Some ' + lower + ' affiliations are plain text — add ROR URIs to all for disambiguation.';
+    } else {
+        status = 'bad';
+        value = '0 / ' + total + ' have URIs';
+        note = label + ' affiliations are plain text only — add ROR URIs (affiliationIdentifier).';
+    }
+    return { name: label + ' affiliation URIs (ROR)', status: status, weight: weight, value: value, note: note };
+}
+
 function getChecks(d) {
     var checks = [];
 
@@ -1071,18 +1236,24 @@ function getChecks(d) {
         note: rtSpecific ? null : (d.resourceTypeGeneral ? 'Has generic type but no specific resourceType.' : 'No resource type specified.')
     });
 
-    // Creators
+    // Creators presence (required)
     if (d.creators.length === 0) {
         checks.push({ name: 'Creators', status: 'bad', weight: 2, value: '', note: 'No creators listed.' });
-    } else {
-        var withOrcid = d.creators.filter(function(c) { return c.orcid; }).length;
-        var status = withOrcid === d.creators.length ? 'good' : (withOrcid > 0 ? 'warn' : 'bad');
-        var note;
-        if (status === 'good') note = 'All ' + d.creators.length + ' creators have ORCIDs.';
-        else if (status === 'warn') note = withOrcid + ' of ' + d.creators.length + ' creators have ORCIDs.';
-        else note = 'No creators have ORCIDs.';
-        checks.push({ name: 'Creator ORCIDs', status: status, weight: 1.5, value: withOrcid + ' / ' + d.creators.length, note: note });
     }
+
+    // Creator + Contributor: ORCIDs and affiliation URIs
+    // Contributor checks only run when contributors are present (they're optional in DataCite).
+    var creatorOrcid = buildOrcidCheck(d.creators, 'Creator', 1.5);
+    if (creatorOrcid) checks.push(creatorOrcid);
+
+    var creatorAffil = buildAffiliationCheck(d.creators, 'Creator', 1);
+    if (creatorAffil) checks.push(creatorAffil);
+
+    var contribOrcid = buildOrcidCheck(d.contributors, 'Contributor', 0.75);
+    if (contribOrcid) checks.push(contribOrcid);
+
+    var contribAffil = buildAffiliationCheck(d.contributors, 'Contributor', 0.5);
+    if (contribAffil) checks.push(contribAffil);
 
     // Publisher
     checks.push({
@@ -1208,7 +1379,11 @@ function scoreMapping(d) {
 function buildSearchBlob(d) {
     if (d._search) return d._search;
     var bits = [d.title, d.doi, d.publisher, d.resourceType, d.resourceTypeGeneral];
-    d.creators.forEach(function(c) { bits.push(c.name); bits.push(c.orcid); });
+    d.creators.forEach(function(c) {
+        bits.push(c.name);
+        bits.push(c.orcid);
+        (c.affiliation || []).forEach(function(a) { bits.push(a.name); bits.push(a.id); });
+    });
     d.subjects.forEach(function(s) { bits.push(s.subject); });
     d.descriptions.forEach(function(dd) { bits.push(dd.description); });
     d._search = bits.filter(Boolean).join(' ').toLowerCase();
@@ -1349,12 +1524,18 @@ function updateHeaderArrows() {
 
 function renderRow(d, num) {
     var typeBadge = renderTypeBadge(d.resourceTypeGeneral, d.resourceType);
-    var authorsText = d.creators.slice(0, 3).map(function(c) {
-        return c.family ? c.family : (c.name.split(',')[0] || c.name);
+    var maxShow = 3;
+    var displayed = d.creators.slice(0, maxShow);
+    var authorsHtml = displayed.map(function(c) {
+        var last = c.family ? c.family : (c.name.split(',')[0] || c.name);
+        var icon = c.orcid
+            ? '<a href="https://orcid.org/' + escapeAttr(c.orcid) + '" target="_blank" rel="noopener" class="orcid-link" title="ORCID: ' + escapeAttr(c.orcid) + '"><img src="assets/ORCID_iD.png" class="orcid-icon" alt="ORCID iD"></a>'
+            : '';
+        return escapeHtml(last) + icon;
     }).join(', ');
-    if (d.creators.length > 3) authorsText += ' + ' + (d.creators.length - 3);
-    var withOrcid = d.creators.filter(function(c) { return c.orcid; }).length;
-    var orcidIcon = withOrcid > 0 ? '<span title="' + withOrcid + ' / ' + d.creators.length + ' have ORCID" style="color:#a6ce39;font-size:10px;font-weight:700;margin-left:4px;">iD</span>' : '';
+    if (d.creators.length > maxShow) {
+        authorsHtml += ' <span style="color:var(--text-muted)">+ ' + (d.creators.length - maxShow) + '</span>';
+    }
 
     var mapping = d.mapping;
     var mapClass = mapping.score >= 80 ? 'good' : (mapping.score >= 60 ? 'warn' : 'bad');
@@ -1363,10 +1544,10 @@ function renderRow(d, num) {
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-title">'
             + '<div class="title-line">' + escapeHtml(d.title || '(no title)') + '</div>'
-            + '<a class="doi" href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener" onclick="event.stopPropagation();">' + escapeHtml(d.doi) + '</a>'
+            + '<a class="doi" href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">' + escapeHtml(d.doi) + '</a>'
         + '</td>'
         + '<td class="col-type">' + typeBadge + '</td>'
-        + '<td class="col-authors">' + escapeHtml(authorsText) + orcidIcon + '</td>'
+        + '<td class="col-authors">' + authorsHtml + '</td>'
         + '<td class="col-year">' + (d.publicationYear || '—') + '</td>'
         + '<td class="col-mapping"><div class="mapping-bar"><div class="track"><div class="fill ' + mapClass + '" style="width:' + mapping.score + '%"></div></div><div class="pct">' + mapping.score + '%</div></div></td>'
         + '<td class="col-cites">' + renderCitePill(d) + '</td>'
@@ -1467,42 +1648,62 @@ function bindDetailTabs() {
     });
 }
 
+function renderAffiliationList(affs) {
+    if (!affs || affs.length === 0) return '';
+    var html = affs.map(function(a) {
+        var isRor = (a.idScheme || '').toUpperCase() === 'ROR';
+        var badge;
+        if (isRor && a.id) {
+            badge = '<a href="' + escapeAttr(a.id) + '" target="_blank" rel="noopener" class="ror-link" title="ROR: ' + escapeAttr(a.id) + '"><img src="assets/ror-logo.png" class="ror-icon" alt="ROR"></a>';
+        } else if (a.id) {
+            badge = '<span class="id-badge" title="' + escapeAttr(a.idScheme + ': ' + a.id) + '">' + escapeHtml(a.idScheme || 'ID') + '</span>';
+        } else {
+            badge = '<span class="id-badge missing" title="No identifier — plain text only">no URI</span>';
+        }
+        return '<span class="affil">' + escapeHtml(a.name || '(unnamed)') + ' ' + badge + '</span>';
+    }).join(' ');
+    return '<span style="color:var(--text-muted);font-size:11px;"> · </span>' + html;
+}
+
 // ----- Overview pane -----
 function renderOverviewPane(d) {
     var creators = d.creators.length === 0
-        ? '<span class="empty">— no creators —</span>'
+        ? '<span class="empty">missing</span>'
         : d.creators.map(function(c) {
             var orcid = c.orcid
-                ? '<a href="https://orcid.org/' + escapeAttr(c.orcid) + '" target="_blank" rel="noopener" class="orcid" title="ORCID: ' + escapeAttr(c.orcid) + '">iD</a>'
+                ? '<a href="https://orcid.org/' + escapeAttr(c.orcid) + '" target="_blank" rel="noopener" class="orcid-link" title="ORCID: ' + escapeAttr(c.orcid) + '"><img src="assets/ORCID_iD.png" class="orcid-icon" alt="ORCID iD"></a>'
                 : '<span class="no-orcid" title="No ORCID">no ORCID</span>';
             var name = escapeHtml(c.name);
-            var aff = c.affiliation ? '<span style="color:var(--text-muted);font-size:11px;"> · ' + escapeHtml(c.affiliation) + '</span>' : '';
+            var aff = renderAffiliationList(c.affiliation);
             return '<span class="creator">' + name + orcid + aff + '</span>';
         }).join('');
 
     var contributors = d.contributors.length === 0
-        ? '<span class="empty">— none —</span>'
+        ? '<span class="empty">none</span>'
         : d.contributors.map(function(c) {
-            var orcid = c.orcid ? '<a href="https://orcid.org/' + escapeAttr(c.orcid) + '" target="_blank" rel="noopener" class="orcid" title="' + escapeAttr(c.orcid) + '">iD</a>' : '';
+            var orcid = c.orcid
+                ? '<a href="https://orcid.org/' + escapeAttr(c.orcid) + '" target="_blank" rel="noopener" class="orcid-link" title="ORCID: ' + escapeAttr(c.orcid) + '"><img src="assets/ORCID_iD.png" class="orcid-icon" alt="ORCID iD"></a>'
+                : '<span class="no-orcid" title="No ORCID">no ORCID</span>';
             var typeLabel = c.type ? ' <span style="color:var(--text-muted);font-size:11px;">(' + escapeHtml(c.type) + ')</span>' : '';
-            return '<span class="creator">' + escapeHtml(c.name) + orcid + typeLabel + '</span>';
+            var aff = renderAffiliationList(c.affiliation);
+            return '<span class="creator">' + escapeHtml(c.name) + orcid + typeLabel + aff + '</span>';
         }).join('');
 
     var subjects = d.subjects.length === 0
-        ? '<span class="empty">— no subjects —</span>'
+        ? '<span class="empty">none</span>'
         : d.subjects.map(function(s) {
             var schemeLabel = s.subjectScheme ? ' <span style="color:var(--text-muted);font-size:10px">(' + escapeHtml(s.subjectScheme) + ')</span>' : '';
             return '<span class="subject">' + escapeHtml(s.subject) + schemeLabel + '</span>';
         }).join('');
 
     var descriptions = d.descriptions.length === 0
-        ? '<span class="empty">— no description provided —</span>'
+        ? '<span class="empty">none</span>'
         : d.descriptions.map(function(dd) {
             return '<div class="description-block"><span class="desc-type">' + escapeHtml(dd.descriptionType || 'Description') + '</span><br>' + escapeHtml(dd.description) + '</div>';
         }).join('');
 
     var rights = d.rightsList.length === 0
-        ? '<span class="empty">— not specified —</span>'
+        ? '<span class="empty">not specified</span>'
         : d.rightsList.map(function(r) {
             var uri = r.rightsUri || r.rightsURI || '';
             var name = r.rights || r.rightsIdentifier || uri || '(unknown)';
@@ -1510,7 +1711,7 @@ function renderOverviewPane(d) {
         }).join('; ');
 
     var funding = d.fundingReferences.length === 0
-        ? '<span class="empty">— none —</span>'
+        ? '<span class="empty">none</span>'
         : d.fundingReferences.map(function(f) {
             var bits = [];
             if (f.funderName) bits.push('<strong>' + escapeHtml(f.funderName) + '</strong>');
@@ -1520,7 +1721,7 @@ function renderOverviewPane(d) {
         }).join('');
 
     var geo = d.geoLocations.length === 0
-        ? '<span class="empty">— none —</span>'
+        ? '<span class="empty">none</span>'
         : d.geoLocations.map(function(g) {
             var bits = [];
             if (g.geoLocationPlace) bits.push(escapeHtml(g.geoLocationPlace));
@@ -1536,34 +1737,73 @@ function renderOverviewPane(d) {
         }).join('');
 
     var dates = d.dates.length === 0
-        ? '<span class="empty">— only publicationYear set —</span>'
+        ? '<span class="empty">only publicationYear set</span>'
         : d.dates.map(function(dt) {
             return '<div><span style="color:var(--text-muted);font-size:11px;">' + escapeHtml(dt.dateType || 'Date') + ':</span> <span class="mono">' + escapeHtml(dt.date || '') + '</span></div>';
         }).join('');
 
-    var landingUrl = d.url ? '<a href="' + escapeAttr(d.url) + '" target="_blank" rel="noopener">' + escapeHtml(d.url) + '</a>' : '<span class="empty">— none —</span>';
+    var sizesFormats;
+    if (d.sizes.length === 0 && d.formats.length === 0) {
+        sizesFormats = '<span class="empty">none</span>';
+    } else {
+        var parts = [];
+        if (d.sizes.length > 0) parts.push('<span style="color:var(--text-muted);font-size:11px;">Sizes:</span> ' + d.sizes.map(escapeHtml).join(', '));
+        if (d.formats.length > 0) parts.push('<span style="color:var(--text-muted);font-size:11px;">Formats:</span> ' + d.formats.map(escapeHtml).join(', '));
+        sizesFormats = parts.join(' · ');
+    }
+
+    // Title(s) — show all titles in the array (DataCite supports Title, Subtitle, AlternativeTitle, TranslatedTitle)
+    var titlesHtml;
+    if (!d.titles || d.titles.length === 0) {
+        titlesHtml = '<span class="empty">missing</span>';
+    } else {
+        titlesHtml = d.titles.map(function(t) {
+            var typeLabel = t.titleType
+                ? '<span style="color:var(--text-muted);font-size:10px;margin-right:6px;">' + escapeHtml(t.titleType) + ':</span>'
+                : '';
+            return '<div style="margin-bottom:2px;">' + typeLabel + escapeHtml(t.title || '(blank)') + '</div>';
+        }).join('');
+    }
+
+    var altIds;
+    if (!d.alternateIdentifiers || d.alternateIdentifiers.length === 0) {
+        altIds = '<span class="empty">none</span>';
+    } else {
+        altIds = d.alternateIdentifiers.map(function(a) {
+            var type = a.alternateIdentifierType ? '<span style="color:var(--text-muted);font-size:10px;margin-right:4px;">' + escapeHtml(a.alternateIdentifierType) + ':</span>' : '';
+            return '<div>' + type + '<span class="mono">' + escapeHtml(a.alternateIdentifier || '') + '</span></div>';
+        }).join('');
+    }
+
+    var resTypeHtml = (d.resourceTypeGeneral || d.resourceType)
+        ? escapeHtml(d.resourceTypeGeneral || '—') + (d.resourceType ? ' / ' + escapeHtml(d.resourceType) : '')
+        : '<span class="empty">missing</span>';
+
+    var landingUrl = d.url
+        ? '<a href="' + escapeAttr(d.url) + '" target="_blank" rel="noopener">' + escapeHtml(d.url) + '</a>'
+        : '<span class="empty">none</span>';
 
     return '<dl class="ov-grid">'
         + '<dt>DOI</dt><dd><span class="mono">' + escapeHtml(d.doi) + '</span> · <a href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">resolve ↗</a> · <a href="https://commons.datacite.org/doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">DataCite Commons ↗</a> · <a href="javascript:void(0)" onclick="copyToClipboard(\'' + escapeAttr(d.doi) + '\')">copy</a></dd>'
-        + '<dt>Resource type</dt><dd>' + escapeHtml(d.resourceTypeGeneral || '—') + (d.resourceType ? ' / ' + escapeHtml(d.resourceType) : '') + '</dd>'
-        + '<dt>Publisher</dt><dd>' + (d.publisher ? escapeHtml(d.publisher) : '<span class="empty">— missing —</span>') + '</dd>'
-        + '<dt>Publication year</dt><dd>' + (d.publicationYear || '<span class="empty">— missing —</span>') + '</dd>'
-        + '<dt>Version</dt><dd>' + (d.version || '<span class="empty">— none —</span>') + '</dd>'
-        + '<dt>Schema</dt><dd>' + (d.schemaVersion ? '<span class="mono">' + escapeHtml(d.schemaVersion) + '</span>' : '<span class="empty">—</span>') + '</dd>'
-        + '<dt>Language</dt><dd>' + (d.language || '<span class="empty">— none —</span>') + '</dd>'
-        + '<dt>Landing page</dt><dd>' + landingUrl + '</dd>'
-        + '<dt>Registered</dt><dd>' + (d.registered ? '<span class="mono">' + escapeHtml(d.registered.substring(0, 10)) + '</span>' : '<span class="empty">—</span>') + '</dd>'
+        + '<dt>Title(s)</dt><dd>' + titlesHtml + '</dd>'
+        + '<dt>Resource type</dt><dd>' + resTypeHtml + '</dd>'
+        + '<dt>Publisher</dt><dd>' + (d.publisher ? escapeHtml(d.publisher) : '<span class="empty">missing</span>') + '</dd>'
+        + '<dt>Publication year</dt><dd>' + (d.publicationYear || '<span class="empty">missing</span>') + '</dd>'
+        + '<dt>Version</dt><dd>' + (d.version ? escapeHtml(d.version) : '<span class="empty">none</span>') + '</dd>'
+        + '<dt>Language</dt><dd>' + (d.language ? escapeHtml(d.language) : '<span class="empty">none</span>') + '</dd>'
+        + '<dt>Landing page URL</dt><dd>' + landingUrl + '</dd>'
+        + '<dt>Schema version</dt><dd>' + (d.schemaVersion ? '<span class="mono">' + escapeHtml(d.schemaVersion) + '</span>' : '<span class="empty">none</span>') + '</dd>'
+        + '<dt>Registered</dt><dd>' + (d.registered ? '<span class="mono">' + escapeHtml(d.registered.substring(0, 10)) + '</span>' : '<span class="empty">none</span>') + '</dd>'
         + '<dt>Creators</dt><dd>' + creators + '</dd>'
         + '<dt>Contributors</dt><dd>' + contributors + '</dd>'
-        + '<dt>Subjects</dt><dd>' + subjects + '</dd>'
+        + '<dt>Subjects / keywords</dt><dd>' + subjects + '</dd>'
         + '<dt>Descriptions</dt><dd>' + descriptions + '</dd>'
         + '<dt>Rights / licence</dt><dd>' + rights + '</dd>'
-        + '<dt>Funding</dt><dd>' + funding + '</dd>'
+        + '<dt>Funding references</dt><dd>' + funding + '</dd>'
         + '<dt>Geolocations</dt><dd>' + geo + '</dd>'
         + '<dt>Dates</dt><dd>' + dates + '</dd>'
-        + '<dt>Sizes / formats</dt><dd>' + (d.sizes.length > 0 || d.formats.length > 0
-            ? (d.sizes.length > 0 ? 'Sizes: ' + d.sizes.map(escapeHtml).join(', ') : '') + (d.sizes.length > 0 && d.formats.length > 0 ? ' · ' : '') + (d.formats.length > 0 ? 'Formats: ' + d.formats.map(escapeHtml).join(', ') : '')
-            : '<span class="empty">— none —</span>') + '</dd>'
+        + '<dt>Sizes / formats</dt><dd>' + sizesFormats + '</dd>'
+        + '<dt>Alternate identifiers</dt><dd>' + altIds + '</dd>'
         + '</dl>';
 }
 
@@ -1807,10 +2047,18 @@ function syntaxHighlightJson(json) {
 function exportCsv() {
     var visible = visibleDatasets();
     if (visible.length === 0) { showToast('Nothing to export.'); return; }
-    var headers = ['DOI', 'Title', 'Type', 'ResourceType', 'Year', 'Publisher', 'Authors', 'ORCIDs', 'Subjects', 'MappingScore', 'Citations'];
+    var headers = ['DOI', 'Title', 'Type', 'ResourceType', 'Year', 'Publisher', 'Authors', 'ORCIDs', 'Affiliations', 'AffiliationRORs', 'Subjects', 'MappingScore', 'Citations'];
     var rows = visible.map(function(d) {
         var authors = d.creators.map(function(c) { return c.name; }).join('; ');
         var orcids = d.creators.map(function(c) { return c.orcid; }).filter(Boolean).join('; ');
+        var affilNames = [];
+        var affilRors = [];
+        d.creators.forEach(function(c) {
+            (c.affiliation || []).forEach(function(a) {
+                if (a.name) affilNames.push(a.name);
+                if (a.id && (a.idScheme || '').toUpperCase() === 'ROR') affilRors.push(a.id);
+            });
+        });
         var subjects = d.subjects.map(function(s) { return s.subject; }).join('; ');
         return [
             d.doi,
@@ -1821,6 +2069,8 @@ function exportCsv() {
             d.publisher,
             authors,
             orcids,
+            affilNames.join('; '),
+            affilRors.join('; '),
             subjects,
             d.mapping.score,
             typeof d.citationCount === 'number' ? d.citationCount : ''
