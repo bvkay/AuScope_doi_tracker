@@ -1360,7 +1360,11 @@ async function fetchCitationCount(doi, retries) {
     if (retries === undefined) retries = 2;
     var resp = await fetch('https://api.datacite.org/graphql', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        // text/plain makes this a CORS "simple request" (no preflight). DataCite
+        // GraphQL accepts the body as JSON regardless of declared Content-Type.
+        // Without this, opening the page from file:// (origin: null) hits a
+        // preflight failure on OPTIONS even though POST itself would be allowed.
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: doi } })
     });
     if (resp.status === 429 && retries > 0) {
@@ -2166,7 +2170,8 @@ async function fetchDataCiteCitations(doi) {
     var query = 'query($id: ID!) { work(id: $id) { citations { totalCount nodes { doi titles { title } publicationYear creators { name givenName familyName } publisher { name } container { title } types { resourceTypeGeneral } } } } }';
     var resp = await fetch('https://api.datacite.org/graphql', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        // text/plain to avoid CORS preflight — see comment in fetchCitationCount.
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ query: query, variables: { id: doi } })
     });
     if (!resp.ok) throw new Error('DataCite GraphQL ' + resp.status);
