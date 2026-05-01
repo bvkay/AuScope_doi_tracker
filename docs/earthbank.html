@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<!--
+    AuScope EarthBank — Dataset Tracker
+    Standalone interactive tool for inspecting EarthBank datasets via DataCite.
+    Surfaces full DataCite metadata, flags mapping gaps, and tracks citations
+    across DataCite, OpenCitations, and OpenAlex.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EarthBank Dataset Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-soft: #f8fafc;
+            --bg-muted: #f1f5f9;
+            --border: #e5e7eb;
+            --border-strong: #cbd5e1;
+            --text: #0f172a;
+            --text-soft: #475569;
+            --text-muted: #94a3b8;
+            --accent: #2563eb;
+            --accent-strong: #1d4ed8;
+            --accent-soft: #dbeafe;
+            --accent-bg: #eff6ff;
+            --good: #16a34a;
+            --good-bg: #dcfce7;
+            --warn: #ca8a04;
+            --warn-bg: #fef3c7;
+            --bad: #dc2626;
+            --bad-bg: #fee2e2;
+            --mono: 'SFMono-Regular', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
+            --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 28px 80px;
+        }
+
+        /* ========== HEADER ========== */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 18px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .brand h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .brand h1 .accent {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .brand p {
+            font-size: 13px;
+            color: var(--text-soft);
+            margin-top: 4px;
+        }
+        .topbar .links {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+        }
+        .topbar .links a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .topbar .links a:hover { text-decoration: underline; }
+
+        /* ========== STAT TILES ========== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 900px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+        .stat {
+            border: 1px solid var(--border);
+            background: var(--bg-soft);
+            border-radius: 6px;
+            padding: 12px 14px;
+        }
+        .stat .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .stat .value {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+        .stat .sub {
+            font-size: 11px;
+            color: var(--text-soft);
+            margin-top: 2px;
+        }
+
+        /* ========== CONTROL BAR ========== */
+        .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .controls input[type="search"],
+        .controls select {
+            font-family: var(--sans);
+            font-size: 13px;
+            padding: 7px 10px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            background: var(--bg);
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.12s, box-shadow 0.12s;
+        }
+        .controls input[type="search"] { min-width: 280px; }
+        .controls input[type="search"]:focus,
+        .controls select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+        .controls .btn {
+            font-family: var(--sans);
+            font-size: 13px;
+            padding: 7px 12px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.12s, border-color 0.12s;
+        }
+        .controls .btn:hover { background: var(--bg-muted); }
+        .controls .btn.primary {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .controls .btn.primary:hover { background: var(--accent-bg); }
+        .controls .btn.toggled {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        .controls .spacer { flex: 1; }
+        .controls .meta {
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        /* ========== TABLE ========== */
+        .table-wrap {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        table.ds {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        table.ds thead th {
+            background: var(--bg-muted);
+            color: var(--text);
+            text-align: left;
+            font-weight: 600;
+            padding: 9px 12px;
+            border-bottom: 1px solid var(--border-strong);
+            white-space: nowrap;
+            font-size: 12px;
+            user-select: none;
+        }
+        table.ds thead th.sortable { cursor: pointer; }
+        table.ds thead th.sortable:hover { color: var(--accent); }
+        table.ds thead th .arrow {
+            display: inline-block;
+            margin-left: 4px;
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+        table.ds thead th.sorted .arrow { color: var(--accent); }
+        table.ds tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        table.ds tbody tr.dataset-row { cursor: pointer; transition: background 0.08s; }
+        table.ds tbody tr.dataset-row:hover { background: var(--accent-bg); }
+        table.ds tbody tr.dataset-row.expanded { background: var(--accent-bg); }
+        table.ds tbody tr.dataset-row.expanded td { border-bottom: 1px solid var(--accent-soft); }
+
+        .col-num { width: 40px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+        .col-title { min-width: 280px; }
+        .col-title .title-line {
+            font-weight: 500;
+            color: var(--text);
+        }
+        .col-title .doi {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-soft);
+            margin-top: 2px;
+            display: inline-block;
+        }
+        .col-title .doi:hover { color: var(--accent); }
+        .col-authors {
+            font-size: 12px;
+            color: var(--text-soft);
+            max-width: 260px;
+            line-height: 1.45;
+        }
+        .col-year {
+            width: 70px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-soft);
+        }
+        .col-type { width: 110px; }
+        .col-mapping { width: 130px; }
+        .col-cites { width: 85px; text-align: center; }
+        .col-actions { width: 50px; text-align: right; }
+
+        /* badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .badge.type-dataset { background: var(--accent-soft); color: var(--accent-strong); }
+        .badge.type-physobj { background: #fef3c7; color: #92400e; }
+        .badge.type-other { background: var(--bg-muted); color: var(--text-soft); }
+
+        .cite-pill {
+            display: inline-block;
+            min-width: 32px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            font-weight: 600;
+            font-size: 12px;
+            font-variant-numeric: tabular-nums;
+        }
+        .cite-pill.zero { background: var(--bg-muted); color: var(--text-muted); }
+        .cite-pill.loading {
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* mapping bar */
+        .mapping-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mapping-bar .track {
+            position: relative;
+            flex: 1;
+            height: 6px;
+            background: var(--bg-muted);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .mapping-bar .fill {
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+        .mapping-bar .fill.good { background: var(--good); }
+        .mapping-bar .fill.warn { background: var(--warn); }
+        .mapping-bar .fill.bad { background: var(--bad); }
+        .mapping-bar .pct {
+            font-size: 11px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-soft);
+            min-width: 30px;
+            text-align: right;
+        }
+
+        .actions-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px 6px;
+            font-size: 14px;
+            color: var(--text-muted);
+            border-radius: 3px;
+            transition: color 0.1s, background 0.1s;
+        }
+        .actions-btn:hover { color: var(--accent); background: var(--accent-bg); }
+        .actions-btn .chevron {
+            display: inline-block;
+            transition: transform 0.18s;
+        }
+        tr.expanded .actions-btn .chevron { transform: rotate(180deg); }
+
+        /* ========== DETAIL PANEL ========== */
+        tr.detail-row td { padding: 0; background: var(--bg-soft); }
+        tr.detail-row .detail {
+            padding: 18px 22px 22px;
+            border-top: none;
+            border-left: 3px solid var(--accent);
+            background: var(--bg-soft);
+        }
+        .detail-tabs {
+            display: flex;
+            gap: 2px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 16px;
+        }
+        .detail-tab {
+            padding: 8px 14px;
+            font-size: 13px;
+            border: none;
+            background: transparent;
+            color: var(--text-soft);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            font-family: var(--sans);
+        }
+        .detail-tab:hover { color: var(--text); }
+        .detail-tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+            font-weight: 600;
+        }
+        .detail-tab .badge-count {
+            display: inline-block;
+            margin-left: 6px;
+            background: var(--bg-muted);
+            color: var(--text-soft);
+            padding: 0 6px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .detail-tab.active .badge-count {
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+        }
+
+        .detail-pane { display: none; }
+        .detail-pane.active { display: block; }
+
+        /* ----- Overview pane ----- */
+        .ov-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4px 16px;
+            font-size: 13px;
+        }
+        .ov-grid dt {
+            color: var(--text-muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 600;
+            padding-top: 6px;
+        }
+        .ov-grid dd {
+            color: var(--text);
+            padding: 4px 0;
+            line-height: 1.55;
+        }
+        .ov-grid dd a { color: var(--accent); text-decoration: none; }
+        .ov-grid dd a:hover { text-decoration: underline; }
+        .ov-grid dd .empty { color: var(--text-muted); font-style: italic; }
+        .ov-grid dd .mono { font-family: var(--mono); font-size: 12px; }
+
+        .creator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-right: 10px;
+            margin-bottom: 4px;
+            padding: 2px 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        .creator .orcid {
+            color: #a6ce39;
+            font-weight: 700;
+            font-family: var(--mono);
+            font-size: 10px;
+            background: white;
+            border-radius: 50%;
+            width: 14px;
+            height: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #a6ce39;
+        }
+        .creator .no-orcid {
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+        .creator a {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        .subject {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin: 2px 4px 2px 0;
+            color: var(--text-soft);
+        }
+
+        .description-block {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 10px 12px;
+            font-size: 12.5px;
+            line-height: 1.55;
+            color: var(--text);
+            margin-bottom: 6px;
+            white-space: pre-wrap;
+        }
+        .description-block .desc-type {
+            display: inline-block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* ----- Mapping check pane ----- */
+        .check-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 18px;
+        }
+        @media (max-width: 900px) {
+            .check-list { grid-template-columns: 1fr; }
+        }
+        .check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 4px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+        .check .icon {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            margin-top: 1px;
+        }
+        .check.good .icon { background: var(--good); }
+        .check.warn .icon { background: var(--warn); }
+        .check.bad .icon { background: var(--bad); }
+        .check .body { flex: 1; min-width: 0; }
+        .check .name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        .check .note {
+            font-size: 11.5px;
+            color: var(--text-soft);
+            margin-top: 2px;
+            line-height: 1.45;
+        }
+        .check .value {
+            font-size: 11.5px;
+            color: var(--text);
+            margin-top: 3px;
+            font-family: var(--mono);
+            word-break: break-word;
+        }
+
+        .summary-banner {
+            padding: 10px 14px;
+            border-radius: 5px;
+            margin-bottom: 14px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-banner.good { background: var(--good-bg); color: #166534; }
+        .summary-banner.warn { background: var(--warn-bg); color: #854d0e; }
+        .summary-banner.bad { background: var(--bad-bg); color: #991b1b; }
+
+        /* ----- Related identifiers ----- */
+        .rel-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .rel-table th {
+            background: var(--bg-muted);
+            text-align: left;
+            padding: 7px 10px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--text-soft);
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid var(--border);
+        }
+        .rel-table td {
+            padding: 7px 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .rel-table tr:last-child td { border-bottom: none; }
+        .rel-table .rel-type {
+            display: inline-block;
+            padding: 1px 7px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* ----- Citations pane ----- */
+        .cit-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .source-summary {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+        .source-summary .src {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+        .source-summary .src .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--text-muted);
+        }
+        .source-summary .src.has-data .dot { background: var(--good); }
+        .source-summary .src.error .dot { background: var(--bad); }
+
+        .citation-list {
+            list-style: none;
+        }
+        .citation-item {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-bottom: 6px;
+        }
+        .citation-item .title {
+            font-weight: 500;
+            color: var(--text);
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+        .citation-item .meta {
+            font-size: 12px;
+            color: var(--text-soft);
+            line-height: 1.5;
+        }
+        .citation-item .meta a { color: var(--accent); text-decoration: none; font-family: var(--mono); font-size: 11px; }
+        .citation-item .meta a:hover { text-decoration: underline; }
+        .citation-item .sources {
+            display: inline-flex;
+            gap: 3px;
+            margin-left: 6px;
+        }
+        .source-tag {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .tag-datacite { background: #dbeafe; color: #1e40af; }
+        .tag-opencitations { background: #fce7f3; color: #9d174d; }
+        .tag-openalex { background: #d1fae5; color: #065f46; }
+
+        /* ----- Raw JSON ----- */
+        .raw-json {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 14px 16px;
+            border-radius: 5px;
+            font-family: var(--mono);
+            font-size: 11.5px;
+            line-height: 1.55;
+            max-height: 480px;
+            overflow: auto;
+            white-space: pre;
+        }
+        .raw-json .key { color: #93c5fd; }
+        .raw-json .str { color: #86efac; }
+        .raw-json .num { color: #fbbf24; }
+        .raw-json .bool { color: #f472b6; }
+        .raw-json .null { color: #94a3b8; font-style: italic; }
+
+        /* ========== UTILITY ========== */
+        .spinner {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .empty-state {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 24px; left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            padding: 9px 16px;
+            background: var(--text);
+            color: white;
+            border-radius: 6px;
+            font-size: 13px;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- ========== HEADER ========== -->
+        <div class="topbar">
+            <div class="brand">
+                <h1><span class="accent">EarthBank</span> Dataset Tracker</h1>
+                <p>Inspect DataCite metadata, validate mapping, and track citations for AuScope EarthBank datasets.</p>
+            </div>
+            <div class="links">
+                <a href="datasets.html">All AuScope platforms</a>
+                <a href="https://commons.datacite.org/?query=client:hypc.gxglvy" target="_blank" rel="noopener">DataCite Commons ↗</a>
+            </div>
+        </div>
+
+        <!-- ========== STAT TILES ========== -->
+        <div class="stats" id="stat-tiles">
+            <div class="stat"><div class="label">Datasets</div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
+            <div class="stat"><div class="label">Datasets type</div><div class="value" id="stat-dataset">—</div><div class="sub">resourceType: Dataset</div></div>
+            <div class="stat"><div class="label">PhysicalObjects</div><div class="value" id="stat-physobj">—</div><div class="sub">samples / specimens</div></div>
+            <div class="stat"><div class="label">Total citations</div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
+            <div class="stat"><div class="label">Avg mapping</div><div class="value" id="stat-mapping">—</div><div class="sub" id="stat-mapping-sub">DataCite completeness</div></div>
+        </div>
+
+        <!-- ========== CONTROL BAR ========== -->
+        <div class="controls">
+            <input type="search" id="search-input" placeholder="Search title, author, DOI, ORCID…" autocomplete="off">
+            <select id="filter-type">
+                <option value="">All types</option>
+                <option value="Dataset">Dataset</option>
+                <option value="PhysicalObject">PhysicalObject</option>
+                <option value="Other">Other</option>
+            </select>
+            <select id="filter-year">
+                <option value="">All years</option>
+            </select>
+            <select id="sort-by">
+                <option value="year-desc">Newest first</option>
+                <option value="year-asc">Oldest first</option>
+                <option value="cites-desc">Most cited</option>
+                <option value="mapping-asc">Lowest mapping score</option>
+                <option value="mapping-desc">Highest mapping score</option>
+                <option value="title-asc">Title A→Z</option>
+            </select>
+            <button class="btn" id="toggle-issues" title="Show only datasets with mapping issues">Issues only</button>
+            <div class="spacer"></div>
+            <span class="meta" id="result-count"></span>
+            <button class="btn primary" id="export-csv" title="Download visible rows as CSV">Export CSV</button>
+            <button class="btn" id="reload-btn" title="Re-fetch from DataCite">Reload</button>
+        </div>
+
+        <!-- ========== TABLE ========== -->
+        <div class="table-wrap">
+            <table class="ds" id="ds-table">
+                <thead>
+                    <tr>
+                        <th class="col-num">#</th>
+                        <th class="col-title sortable" data-sort="title">Dataset <span class="arrow"></span></th>
+                        <th class="col-type sortable" data-sort="type">Type <span class="arrow"></span></th>
+                        <th class="col-authors">Authors</th>
+                        <th class="col-year sortable" data-sort="year">Year <span class="arrow">▼</span></th>
+                        <th class="col-mapping sortable" data-sort="mapping">Mapping <span class="arrow"></span></th>
+                        <th class="col-cites sortable" data-sort="cites">Citations <span class="arrow"></span></th>
+                        <th class="col-actions"></th>
+                    </tr>
+                </thead>
+                <tbody id="ds-tbody">
+                    <tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading from DataCite…</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+<script>
+"use strict";
+
+// ============================================================
+// STATE
+// ============================================================
+var state = {
+    raw: [],          // array of raw DataCite items
+    datasets: [],     // normalized + scored datasets
+    sortKey: 'year',
+    sortDir: 'desc',
+    filter: { search: '', type: '', year: '', issuesOnly: false },
+    expanded: new Set(),  // DOIs of expanded rows
+    citationCache: {},    // doi -> { count, fullCitations }
+    citationLoadInFlight: false
+};
+
+// ============================================================
+// ENTRY
+// ============================================================
+function init() {
+    bindControls();
+    bindRowDelegation();
+    bindDetailTabs();
+    loadDatasets();
+}
+
+function bindControls() {
+    document.getElementById('search-input').addEventListener('input', debounce(function(e) {
+        state.filter.search = e.target.value.trim().toLowerCase();
+        renderTable();
+    }, 120));
+
+    document.getElementById('filter-type').addEventListener('change', function(e) {
+        state.filter.type = e.target.value;
+        renderTable();
+    });
+
+    document.getElementById('filter-year').addEventListener('change', function(e) {
+        state.filter.year = e.target.value;
+        renderTable();
+    });
+
+    document.getElementById('sort-by').addEventListener('change', function(e) {
+        var v = e.target.value;
+        var parts = v.split('-');
+        state.sortKey = parts[0];
+        state.sortDir = parts[1];
+        renderTable();
+    });
+
+    document.getElementById('toggle-issues').addEventListener('click', function(e) {
+        state.filter.issuesOnly = !state.filter.issuesOnly;
+        e.target.classList.toggle('toggled', state.filter.issuesOnly);
+        renderTable();
+    });
+
+    document.getElementById('export-csv').addEventListener('click', exportCsv);
+    document.getElementById('reload-btn').addEventListener('click', function() {
+        state.citationCache = {};
+        loadDatasets();
+    });
+
+    // sortable headers
+    var headers = document.querySelectorAll('th.sortable');
+    headers.forEach(function(h) {
+        h.addEventListener('click', function() {
+            var key = h.getAttribute('data-sort');
+            if (state.sortKey === key) {
+                state.sortDir = state.sortDir === 'desc' ? 'asc' : 'desc';
+            } else {
+                state.sortKey = key;
+                state.sortDir = (key === 'title' || key === 'type') ? 'asc' : 'desc';
+            }
+            // sync sort dropdown if value matches
+            var sortVal = key + '-' + state.sortDir;
+            var opts = document.getElementById('sort-by').options;
+            for (var i = 0; i < opts.length; i++) {
+                if (opts[i].value === sortVal) document.getElementById('sort-by').value = sortVal;
+            }
+            renderTable();
+        });
+    });
+}
+
+// ============================================================
+// FETCH
+// ============================================================
+async function loadDatasets() {
+    setBody('<tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading EarthBank datasets from DataCite…</td></tr>');
+    try {
+        var raw = await fetchAllEarthBank();
+        state.raw = raw;
+        state.datasets = raw.map(normalize).map(function(d) {
+            d.mapping = scoreMapping(d);
+            return d;
+        });
+        populateYearFilter();
+        renderStats();
+        renderTable();
+        // Lazy: fetch citation counts in batches
+        loadCitationCounts();
+    } catch (err) {
+        setBody('<tr><td colspan="8" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
+    }
+}
+
+async function fetchAllEarthBank() {
+    var all = [];
+    var page = 1;
+    var pageSize = 100;
+    while (true) {
+        var url = 'https://api.datacite.org/dois?client-id=hypc.gxglvy'
+            + '&page[size]=' + pageSize
+            + '&page[number]=' + page
+            + '&sort=-created';
+        var resp = await fetch(url);
+        if (!resp.ok) throw new Error('DataCite returned HTTP ' + resp.status);
+        var data = await resp.json();
+        var items = data.data || [];
+        if (items.length === 0) break;
+        all = all.concat(items);
+        // Update progress
+        setBody('<tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loaded ' + all.length + ' datasets…</td></tr>');
+        if (items.length < pageSize) break;
+        page++;
+    }
+    return all;
+}
+
+async function loadCitationCounts() {
+    if (state.citationLoadInFlight) return;
+    state.citationLoadInFlight = true;
+    var withDoi = state.datasets.filter(function(d) { return d.doi; });
+    var batchSize = 5;
+    var done = 0;
+    var subEl = document.getElementById('stat-cites-sub');
+
+    for (var i = 0; i < withDoi.length; i += batchSize) {
+        var batch = withDoi.slice(i, i + batchSize);
+        await Promise.all(batch.map(function(ds) {
+            if (state.citationCache[ds.doi] && typeof state.citationCache[ds.doi].count === 'number') {
+                ds.citationCount = state.citationCache[ds.doi].count;
+                done++;
+                return Promise.resolve();
+            }
+            return fetchCitationCount(ds.doi).then(function(c) {
+                ds.citationCount = c;
+                state.citationCache[ds.doi] = state.citationCache[ds.doi] || {};
+                state.citationCache[ds.doi].count = c;
+                done++;
+            }).catch(function() {
+                ds.citationCount = 0;
+                done++;
+            });
+        }));
+        if (subEl) subEl.textContent = 'loaded ' + done + ' / ' + withDoi.length;
+        renderStats();
+        renderTableRowsOnly();  // light update — just citation pills
+    }
+    if (subEl) subEl.textContent = 'via DataCite GraphQL';
+    state.citationLoadInFlight = false;
+}
+
+async function fetchCitationCount(doi, retries) {
+    if (!doi) return 0;
+    if (retries === undefined) retries = 2;
+    var resp = await fetch('https://api.datacite.org/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: doi } })
+    });
+    if (resp.status === 429 && retries > 0) {
+        await sleep(3000);
+        return fetchCitationCount(doi, retries - 1);
+    }
+    if (!resp.ok) return 0;
+    var result = await resp.json();
+    if (result.errors && result.errors[0] && result.errors[0].status === '429' && retries > 0) {
+        await sleep(3000);
+        return fetchCitationCount(doi, retries - 1);
+    }
+    return (result.data && result.data.work) ? (result.data.work.citationCount || 0) : 0;
+}
+
+// ============================================================
+// NORMALIZE
+// ============================================================
+function normalize(item) {
+    var attrs = item.attributes || {};
+    var creators = (attrs.creators || []).map(function(c) {
+        var orcid = '';
+        var ids = c.nameIdentifiers || [];
+        for (var i = 0; i < ids.length; i++) {
+            var sch = (ids[i].nameIdentifierScheme || '').toUpperCase();
+            if (sch === 'ORCID') {
+                orcid = (ids[i].nameIdentifier || '').replace(/^https?:\/\/orcid\.org\//i, '');
+                break;
+            }
+        }
+        var name = c.name || '';
+        if (!name && c.familyName && c.givenName) name = c.familyName + ', ' + c.givenName;
+        return { name: name || 'Unknown', orcid: orcid, family: c.familyName || '', given: c.givenName || '', affiliation: (c.affiliation || []).map(function(a) { return a.name || a; }).filter(Boolean).join('; '), raw: c };
+    });
+
+    var contributors = (attrs.contributors || []).map(function(c) {
+        var orcid = '';
+        var ids = c.nameIdentifiers || [];
+        for (var i = 0; i < ids.length; i++) {
+            if ((ids[i].nameIdentifierScheme || '').toUpperCase() === 'ORCID') {
+                orcid = (ids[i].nameIdentifier || '').replace(/^https?:\/\/orcid\.org\//i, '');
+            }
+        }
+        return { name: c.name || ((c.familyName || '') + (c.givenName ? ', ' + c.givenName : '')), orcid: orcid, type: c.contributorType || '', raw: c };
+    });
+
+    var titles = attrs.titles || [];
+    var title = titles.length > 0 ? titles[0].title : '';
+
+    var types = attrs.types || {};
+    var resourceType = types.resourceType || '';
+    var resourceTypeGeneral = types.resourceTypeGeneral || '';
+
+    var rights = attrs.rightsList || [];
+    var access = '';
+    for (var r = 0; r < rights.length; r++) {
+        var rt = (rights[r].rights || '').toLowerCase();
+        if (rt.indexOf('open') >= 0) { access = 'Open'; break; }
+        if (rt.indexOf('restricted') >= 0 || rt.indexOf('closed') >= 0) { access = 'Restricted'; break; }
+    }
+    if (!access && attrs.url) access = 'Open';
+
+    return {
+        id: item.id || attrs.doi,
+        doi: attrs.doi || '',
+        title: title,
+        titles: titles,
+        creators: creators,
+        contributors: contributors,
+        publicationYear: attrs.publicationYear || null,
+        publisher: typeof attrs.publisher === 'object' ? (attrs.publisher.name || '') : (attrs.publisher || ''),
+        resourceType: resourceType,
+        resourceTypeGeneral: resourceTypeGeneral,
+        descriptions: attrs.descriptions || [],
+        subjects: attrs.subjects || [],
+        rightsList: rights,
+        access: access,
+        fundingReferences: attrs.fundingReferences || [],
+        relatedIdentifiers: attrs.relatedIdentifiers || [],
+        geoLocations: attrs.geoLocations || [],
+        dates: attrs.dates || [],
+        language: attrs.language || '',
+        sizes: attrs.sizes || [],
+        formats: attrs.formats || [],
+        version: attrs.version || '',
+        url: attrs.url || '',
+        registered: attrs.registered || attrs.created || '',
+        schemaVersion: attrs.schemaVersion || '',
+        // searchable text blob
+        _search: '',
+        citationCount: undefined,
+        _raw: attrs
+    };
+}
+
+// ============================================================
+// MAPPING SCORE
+// ============================================================
+// Each check returns: { name, status: 'good'|'warn'|'bad', note, value, weight }
+function getChecks(d) {
+    var checks = [];
+
+    // Title
+    checks.push({
+        name: 'Title',
+        status: d.title ? 'good' : 'bad',
+        weight: 2,
+        value: d.title || '',
+        note: d.title ? null : 'Missing required title.'
+    });
+
+    // Resource type
+    var rtSpecific = !!(d.resourceType && d.resourceType.length > 0);
+    checks.push({
+        name: 'Resource type',
+        status: rtSpecific ? 'good' : (d.resourceTypeGeneral ? 'warn' : 'bad'),
+        weight: 1,
+        value: d.resourceType || d.resourceTypeGeneral || '',
+        note: rtSpecific ? null : (d.resourceTypeGeneral ? 'Has generic type but no specific resourceType.' : 'No resource type specified.')
+    });
+
+    // Creators
+    if (d.creators.length === 0) {
+        checks.push({ name: 'Creators', status: 'bad', weight: 2, value: '', note: 'No creators listed.' });
+    } else {
+        var withOrcid = d.creators.filter(function(c) { return c.orcid; }).length;
+        var status = withOrcid === d.creators.length ? 'good' : (withOrcid > 0 ? 'warn' : 'bad');
+        var note;
+        if (status === 'good') note = 'All ' + d.creators.length + ' creators have ORCIDs.';
+        else if (status === 'warn') note = withOrcid + ' of ' + d.creators.length + ' creators have ORCIDs.';
+        else note = 'No creators have ORCIDs.';
+        checks.push({ name: 'Creator ORCIDs', status: status, weight: 1.5, value: withOrcid + ' / ' + d.creators.length, note: note });
+    }
+
+    // Publisher
+    checks.push({
+        name: 'Publisher',
+        status: d.publisher ? 'good' : 'bad',
+        weight: 1,
+        value: d.publisher || '',
+        note: d.publisher ? null : 'No publisher set.'
+    });
+
+    // Publication year
+    checks.push({
+        name: 'Publication year',
+        status: d.publicationYear ? 'good' : 'bad',
+        weight: 1,
+        value: String(d.publicationYear || ''),
+        note: d.publicationYear ? null : 'Missing publicationYear.'
+    });
+
+    // Description
+    var hasAbstract = d.descriptions.some(function(dd) { return (dd.descriptionType || '').toLowerCase() === 'abstract'; });
+    var hasAnyDesc = d.descriptions.length > 0;
+    checks.push({
+        name: 'Description (Abstract)',
+        status: hasAbstract ? 'good' : (hasAnyDesc ? 'warn' : 'bad'),
+        weight: 1.5,
+        value: d.descriptions.length + ' description(s)',
+        note: hasAbstract ? null : (hasAnyDesc ? 'Has descriptions but no Abstract type.' : 'No description provided.')
+    });
+
+    // Subjects/keywords
+    checks.push({
+        name: 'Subjects / keywords',
+        status: d.subjects.length >= 3 ? 'good' : (d.subjects.length > 0 ? 'warn' : 'bad'),
+        weight: 1,
+        value: d.subjects.length + ' subject(s)',
+        note: d.subjects.length === 0 ? 'No subjects/keywords for discoverability.' : (d.subjects.length < 3 ? 'Few keywords — consider adding more for discoverability.' : null)
+    });
+
+    // Rights / licence
+    var hasRightsUri = d.rightsList.some(function(r) { return r.rightsUri || r.rightsURI || r.rightsIdentifier; });
+    checks.push({
+        name: 'Rights / licence',
+        status: hasRightsUri ? 'good' : (d.rightsList.length > 0 ? 'warn' : 'bad'),
+        weight: 1.5,
+        value: d.rightsList.length > 0 ? (d.rightsList[0].rights || d.rightsList[0].rightsIdentifier || '(no text)') : '',
+        note: hasRightsUri ? null : (d.rightsList.length > 0 ? 'Rights text present but no licence URI.' : 'No licence/rights information.')
+    });
+
+    // Funding
+    checks.push({
+        name: 'Funding references',
+        status: d.fundingReferences.length > 0 ? 'good' : 'warn',
+        weight: 0.75,
+        value: d.fundingReferences.length + ' funder(s)',
+        note: d.fundingReferences.length === 0 ? 'No funding attributed.' : null
+    });
+
+    // Related identifiers
+    checks.push({
+        name: 'Related identifiers',
+        status: d.relatedIdentifiers.length > 0 ? 'good' : 'warn',
+        weight: 1.5,
+        value: d.relatedIdentifiers.length + ' related ID(s)',
+        note: d.relatedIdentifiers.length === 0 ? 'No related publications/datasets linked — citation tracking depends on this.' : null
+    });
+
+    // Geolocations
+    checks.push({
+        name: 'Geolocations',
+        status: d.geoLocations.length > 0 ? 'good' : 'warn',
+        weight: 0.75,
+        value: d.geoLocations.length + ' location(s)',
+        note: d.geoLocations.length === 0 ? 'No geographic coverage — typically expected for geoscience data.' : null
+    });
+
+    // Dates
+    checks.push({
+        name: 'Dates',
+        status: d.dates.length > 0 ? 'good' : 'warn',
+        weight: 0.5,
+        value: d.dates.length + ' date(s)',
+        note: d.dates.length === 0 ? 'Only publicationYear set — consider adding Created / Available dates.' : null
+    });
+
+    // Language
+    checks.push({
+        name: 'Language',
+        status: d.language ? 'good' : 'warn',
+        weight: 0.25,
+        value: d.language || '',
+        note: d.language ? null : 'No language specified.'
+    });
+
+    // Sizes / formats
+    var hasSizeOrFmt = d.sizes.length > 0 || d.formats.length > 0;
+    checks.push({
+        name: 'Sizes / formats',
+        status: (d.sizes.length > 0 && d.formats.length > 0) ? 'good' : (hasSizeOrFmt ? 'warn' : 'warn'),
+        weight: 0.5,
+        value: d.sizes.length + ' sizes, ' + d.formats.length + ' formats',
+        note: hasSizeOrFmt ? null : 'No size or format information.'
+    });
+
+    return checks;
+}
+
+function scoreMapping(d) {
+    var checks = getChecks(d);
+    var totalWeight = 0, scored = 0;
+    checks.forEach(function(c) {
+        totalWeight += c.weight;
+        if (c.status === 'good') scored += c.weight;
+        else if (c.status === 'warn') scored += c.weight * 0.5;
+    });
+    var pct = totalWeight > 0 ? Math.round((scored / totalWeight) * 100) : 0;
+    return { score: pct, checks: checks, totalWeight: totalWeight, scoredWeight: scored };
+}
+
+// ============================================================
+// FILTER + SORT
+// ============================================================
+function buildSearchBlob(d) {
+    if (d._search) return d._search;
+    var bits = [d.title, d.doi, d.publisher, d.resourceType, d.resourceTypeGeneral];
+    d.creators.forEach(function(c) { bits.push(c.name); bits.push(c.orcid); });
+    d.subjects.forEach(function(s) { bits.push(s.subject); });
+    d.descriptions.forEach(function(dd) { bits.push(dd.description); });
+    d._search = bits.filter(Boolean).join(' ').toLowerCase();
+    return d._search;
+}
+
+function visibleDatasets() {
+    var f = state.filter;
+    var list = state.datasets.filter(function(d) {
+        if (f.search && buildSearchBlob(d).indexOf(f.search) === -1) return false;
+        if (f.type) {
+            if (f.type === 'Other') {
+                if (d.resourceTypeGeneral === 'Dataset' || d.resourceTypeGeneral === 'PhysicalObject') return false;
+            } else {
+                if (d.resourceTypeGeneral !== f.type) return false;
+            }
+        }
+        if (f.year && String(d.publicationYear || '') !== f.year) return false;
+        if (f.issuesOnly && d.mapping.score >= 80) return false;
+        return true;
+    });
+
+    var key = state.sortKey;
+    var dir = state.sortDir === 'asc' ? 1 : -1;
+    list.sort(function(a, b) {
+        var av, bv;
+        if (key === 'title') { av = (a.title || '').toLowerCase(); bv = (b.title || '').toLowerCase(); }
+        else if (key === 'type') { av = a.resourceTypeGeneral || ''; bv = b.resourceTypeGeneral || ''; }
+        else if (key === 'year') { av = a.publicationYear || 0; bv = b.publicationYear || 0; }
+        else if (key === 'mapping') { av = a.mapping.score; bv = b.mapping.score; }
+        else if (key === 'cites') { av = a.citationCount || 0; bv = b.citationCount || 0; }
+        if (av < bv) return -1 * dir;
+        if (av > bv) return 1 * dir;
+        return 0;
+    });
+    return list;
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderStats() {
+    var ds = state.datasets;
+    var total = ds.length;
+    var datasetCount = ds.filter(function(d) { return d.resourceTypeGeneral === 'Dataset'; }).length;
+    var physobjCount = ds.filter(function(d) { return d.resourceTypeGeneral === 'PhysicalObject'; }).length;
+    var totalCites = ds.reduce(function(s, d) { return s + (d.citationCount || 0); }, 0);
+    var avgMapping = total > 0 ? Math.round(ds.reduce(function(s, d) { return s + d.mapping.score; }, 0) / total) : 0;
+    var citeKnown = ds.filter(function(d) { return typeof d.citationCount === 'number'; }).length;
+
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-total-sub').textContent = total > 0 ? 'live from DataCite' : '';
+    document.getElementById('stat-dataset').textContent = datasetCount;
+    document.getElementById('stat-physobj').textContent = physobjCount;
+    document.getElementById('stat-cites').textContent = totalCites;
+    var citesSub = document.getElementById('stat-cites-sub');
+    if (citeKnown < total && state.citationLoadInFlight) {
+        // already updated in loadCitationCounts
+    } else if (citeKnown < total && total > 0) {
+        citesSub.textContent = 'across ' + citeKnown + ' / ' + total;
+    } else if (total > 0) {
+        citesSub.textContent = 'across ' + total + ' datasets';
+    }
+    document.getElementById('stat-mapping').textContent = avgMapping + '%';
+    var mappingSubEl = document.getElementById('stat-mapping-sub');
+    if (avgMapping >= 80) mappingSubEl.textContent = 'DataCite completeness — good';
+    else if (avgMapping >= 60) mappingSubEl.textContent = 'DataCite completeness — OK';
+    else mappingSubEl.textContent = 'DataCite completeness — needs work';
+}
+
+function populateYearFilter() {
+    var years = {};
+    state.datasets.forEach(function(d) {
+        if (d.publicationYear) years[d.publicationYear] = true;
+    });
+    var sel = document.getElementById('filter-year');
+    var sorted = Object.keys(years).sort(function(a, b) { return parseInt(b) - parseInt(a); });
+    var currentVal = sel.value;
+    sel.innerHTML = '<option value="">All years</option>';
+    sorted.forEach(function(y) {
+        var opt = document.createElement('option');
+        opt.value = y; opt.textContent = y;
+        sel.appendChild(opt);
+    });
+    if (currentVal) sel.value = currentVal;
+}
+
+function setBody(html) {
+    document.getElementById('ds-tbody').innerHTML = html;
+}
+
+function renderTable() {
+    updateHeaderArrows();
+    var visible = visibleDatasets();
+    document.getElementById('result-count').textContent = visible.length + (visible.length === state.datasets.length ? '' : ' of ' + state.datasets.length) + ' datasets';
+
+    if (visible.length === 0) {
+        setBody('<tr><td colspan="8" class="empty-state">No datasets match the current filters.</td></tr>');
+        return;
+    }
+
+    var html = '';
+    visible.forEach(function(d, idx) {
+        html += renderRow(d, idx + 1);
+        if (state.expanded.has(d.doi)) {
+            html += renderDetailRow(d);
+        }
+    });
+    setBody(html);
+}
+
+function renderTableRowsOnly() {
+    // Only re-render citation pills + stats (light update during async loading)
+    var rows = document.querySelectorAll('tr.dataset-row');
+    rows.forEach(function(row) {
+        var doi = row.getAttribute('data-doi');
+        var d = state.datasets.find(function(x) { return x.doi === doi; });
+        if (!d) return;
+        var cell = row.querySelector('.col-cites');
+        if (cell) cell.innerHTML = renderCitePill(d);
+    });
+}
+
+function updateHeaderArrows() {
+    var ths = document.querySelectorAll('th.sortable');
+    ths.forEach(function(th) {
+        var key = th.getAttribute('data-sort');
+        var arrow = th.querySelector('.arrow');
+        if (key === state.sortKey) {
+            th.classList.add('sorted');
+            arrow.textContent = state.sortDir === 'desc' ? '▼' : '▲';
+        } else {
+            th.classList.remove('sorted');
+            arrow.textContent = '';
+        }
+    });
+}
+
+function renderRow(d, num) {
+    var typeBadge = renderTypeBadge(d.resourceTypeGeneral, d.resourceType);
+    var authorsText = d.creators.slice(0, 3).map(function(c) {
+        return c.family ? c.family : (c.name.split(',')[0] || c.name);
+    }).join(', ');
+    if (d.creators.length > 3) authorsText += ' + ' + (d.creators.length - 3);
+    var withOrcid = d.creators.filter(function(c) { return c.orcid; }).length;
+    var orcidIcon = withOrcid > 0 ? '<span title="' + withOrcid + ' / ' + d.creators.length + ' have ORCID" style="color:#a6ce39;font-size:10px;font-weight:700;margin-left:4px;">iD</span>' : '';
+
+    var mapping = d.mapping;
+    var mapClass = mapping.score >= 80 ? 'good' : (mapping.score >= 60 ? 'warn' : 'bad');
+
+    return '<tr class="dataset-row' + (state.expanded.has(d.doi) ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '">'
+        + '<td class="col-num">' + num + '</td>'
+        + '<td class="col-title">'
+            + '<div class="title-line">' + escapeHtml(d.title || '(no title)') + '</div>'
+            + '<a class="doi" href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener" onclick="event.stopPropagation();">' + escapeHtml(d.doi) + '</a>'
+        + '</td>'
+        + '<td class="col-type">' + typeBadge + '</td>'
+        + '<td class="col-authors">' + escapeHtml(authorsText) + orcidIcon + '</td>'
+        + '<td class="col-year">' + (d.publicationYear || '—') + '</td>'
+        + '<td class="col-mapping"><div class="mapping-bar"><div class="track"><div class="fill ' + mapClass + '" style="width:' + mapping.score + '%"></div></div><div class="pct">' + mapping.score + '%</div></div></td>'
+        + '<td class="col-cites">' + renderCitePill(d) + '</td>'
+        + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
+        + '</tr>';
+}
+
+function renderTypeBadge(general, specific) {
+    var label = specific || general || 'Unknown';
+    var cls = 'type-other';
+    if (general === 'Dataset') cls = 'type-dataset';
+    else if (general === 'PhysicalObject') cls = 'type-physobj';
+    return '<span class="badge ' + cls + '" title="resourceTypeGeneral: ' + escapeAttr(general || 'unknown') + '">' + escapeHtml(label) + '</span>';
+}
+
+function renderCitePill(d) {
+    if (typeof d.citationCount !== 'number') {
+        return '<span class="cite-pill loading">…</span>';
+    }
+    var cls = d.citationCount > 0 ? '' : 'zero';
+    return '<span class="cite-pill ' + cls + '">' + d.citationCount + '</span>';
+}
+
+function bindRowDelegation() {
+    document.getElementById('ds-tbody').addEventListener('click', function(e) {
+        // Skip if clicking a link or detail tab
+        if (e.target.closest('a')) return;
+        if (e.target.closest('.detail-tab')) return;
+        if (e.target.closest('.detail-pane')) return;
+        var row = e.target.closest('tr.dataset-row');
+        if (!row) return;
+        var doi = row.getAttribute('data-doi');
+        toggleDetail(doi);
+    });
+}
+
+function toggleDetail(doi) {
+    if (state.expanded.has(doi)) state.expanded.delete(doi);
+    else state.expanded.add(doi);
+    renderTable();
+    if (state.expanded.has(doi)) {
+        // scroll into view nicely
+        setTimeout(function() {
+            var rows = document.querySelectorAll('tr.dataset-row');
+            var row = null;
+            for (var i = 0; i < rows.length; i++) {
+                if (rows[i].getAttribute('data-doi') === doi) { row = rows[i]; break; }
+            }
+            if (row) {
+                var rect = row.getBoundingClientRect();
+                if (rect.top < 80) row.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 50);
+    }
+}
+
+// ============================================================
+// DETAIL PANEL
+// ============================================================
+function renderDetailRow(d) {
+    return '<tr class="detail-row"><td colspan="8"><div class="detail" data-doi="' + escapeAttr(d.doi) + '">'
+        + '<div class="detail-tabs">'
+            + '<button class="detail-tab active" data-pane="overview">Overview</button>'
+            + '<button class="detail-tab" data-pane="mapping">Mapping check <span class="badge-count">' + d.mapping.score + '%</span></button>'
+            + '<button class="detail-tab" data-pane="related">Related <span class="badge-count">' + d.relatedIdentifiers.length + '</span></button>'
+            + '<button class="detail-tab" data-pane="citations">Citations <span class="badge-count">' + (typeof d.citationCount === 'number' ? d.citationCount : '…') + '</span></button>'
+            + '<button class="detail-tab" data-pane="raw">Raw JSON</button>'
+        + '</div>'
+        + '<div class="detail-pane active" data-pane="overview">' + renderOverviewPane(d) + '</div>'
+        + '<div class="detail-pane" data-pane="mapping">' + renderMappingPane(d) + '</div>'
+        + '<div class="detail-pane" data-pane="related">' + renderRelatedPane(d) + '</div>'
+        + '<div class="detail-pane" data-pane="citations" data-loaded="false"><div class="empty-state"><span class="spinner"></span> Click to load citations.</div></div>'
+        + '<div class="detail-pane" data-pane="raw">' + renderRawPane(d) + '</div>'
+        + '</div></td></tr>';
+}
+
+function bindDetailTabs() {
+    // Use event delegation — table re-renders frequently
+    document.getElementById('ds-tbody').addEventListener('click', function(e) {
+        var tab = e.target.closest('.detail-tab');
+        if (!tab) return;
+        var detail = tab.closest('.detail');
+        if (!detail) return;
+        var paneName = tab.getAttribute('data-pane');
+        var tabs = detail.querySelectorAll('.detail-tab');
+        var panes = detail.querySelectorAll('.detail-pane');
+        tabs.forEach(function(t) { t.classList.toggle('active', t === tab); });
+        panes.forEach(function(p) { p.classList.toggle('active', p.getAttribute('data-pane') === paneName); });
+        // Lazy-load citations
+        if (paneName === 'citations') {
+            var pane = detail.querySelector('.detail-pane[data-pane="citations"]');
+            if (pane && pane.getAttribute('data-loaded') !== 'true') {
+                var doi = detail.getAttribute('data-doi');
+                loadCitationsInto(doi, pane);
+                pane.setAttribute('data-loaded', 'true');
+            }
+        }
+    });
+}
+
+// ----- Overview pane -----
+function renderOverviewPane(d) {
+    var creators = d.creators.length === 0
+        ? '<span class="empty">— no creators —</span>'
+        : d.creators.map(function(c) {
+            var orcid = c.orcid
+                ? '<a href="https://orcid.org/' + escapeAttr(c.orcid) + '" target="_blank" rel="noopener" class="orcid" title="ORCID: ' + escapeAttr(c.orcid) + '">iD</a>'
+                : '<span class="no-orcid" title="No ORCID">no ORCID</span>';
+            var name = escapeHtml(c.name);
+            var aff = c.affiliation ? '<span style="color:var(--text-muted);font-size:11px;"> · ' + escapeHtml(c.affiliation) + '</span>' : '';
+            return '<span class="creator">' + name + orcid + aff + '</span>';
+        }).join('');
+
+    var contributors = d.contributors.length === 0
+        ? '<span class="empty">— none —</span>'
+        : d.contributors.map(function(c) {
+            var orcid = c.orcid ? '<a href="https://orcid.org/' + escapeAttr(c.orcid) + '" target="_blank" rel="noopener" class="orcid" title="' + escapeAttr(c.orcid) + '">iD</a>' : '';
+            var typeLabel = c.type ? ' <span style="color:var(--text-muted);font-size:11px;">(' + escapeHtml(c.type) + ')</span>' : '';
+            return '<span class="creator">' + escapeHtml(c.name) + orcid + typeLabel + '</span>';
+        }).join('');
+
+    var subjects = d.subjects.length === 0
+        ? '<span class="empty">— no subjects —</span>'
+        : d.subjects.map(function(s) {
+            var schemeLabel = s.subjectScheme ? ' <span style="color:var(--text-muted);font-size:10px">(' + escapeHtml(s.subjectScheme) + ')</span>' : '';
+            return '<span class="subject">' + escapeHtml(s.subject) + schemeLabel + '</span>';
+        }).join('');
+
+    var descriptions = d.descriptions.length === 0
+        ? '<span class="empty">— no description provided —</span>'
+        : d.descriptions.map(function(dd) {
+            return '<div class="description-block"><span class="desc-type">' + escapeHtml(dd.descriptionType || 'Description') + '</span><br>' + escapeHtml(dd.description) + '</div>';
+        }).join('');
+
+    var rights = d.rightsList.length === 0
+        ? '<span class="empty">— not specified —</span>'
+        : d.rightsList.map(function(r) {
+            var uri = r.rightsUri || r.rightsURI || '';
+            var name = r.rights || r.rightsIdentifier || uri || '(unknown)';
+            return uri ? '<a href="' + escapeAttr(uri) + '" target="_blank" rel="noopener">' + escapeHtml(name) + '</a>' : escapeHtml(name);
+        }).join('; ');
+
+    var funding = d.fundingReferences.length === 0
+        ? '<span class="empty">— none —</span>'
+        : d.fundingReferences.map(function(f) {
+            var bits = [];
+            if (f.funderName) bits.push('<strong>' + escapeHtml(f.funderName) + '</strong>');
+            if (f.awardNumber) bits.push(escapeHtml(f.awardNumber));
+            if (f.awardTitle) bits.push('<em>' + escapeHtml(f.awardTitle) + '</em>');
+            return '<div style="margin-bottom:3px;">' + bits.join(' — ') + '</div>';
+        }).join('');
+
+    var geo = d.geoLocations.length === 0
+        ? '<span class="empty">— none —</span>'
+        : d.geoLocations.map(function(g) {
+            var bits = [];
+            if (g.geoLocationPlace) bits.push(escapeHtml(g.geoLocationPlace));
+            if (g.geoLocationPoint) {
+                var p = g.geoLocationPoint;
+                bits.push('<span class="mono">' + p.pointLatitude + ', ' + p.pointLongitude + '</span>');
+            }
+            if (g.geoLocationBox) {
+                var b = g.geoLocationBox;
+                bits.push('<span class="mono">box: ' + b.southBoundLatitude + ',' + b.westBoundLongitude + ' → ' + b.northBoundLatitude + ',' + b.eastBoundLongitude + '</span>');
+            }
+            return '<div>' + bits.join(' · ') + '</div>';
+        }).join('');
+
+    var dates = d.dates.length === 0
+        ? '<span class="empty">— only publicationYear set —</span>'
+        : d.dates.map(function(dt) {
+            return '<div><span style="color:var(--text-muted);font-size:11px;">' + escapeHtml(dt.dateType || 'Date') + ':</span> <span class="mono">' + escapeHtml(dt.date || '') + '</span></div>';
+        }).join('');
+
+    var landingUrl = d.url ? '<a href="' + escapeAttr(d.url) + '" target="_blank" rel="noopener">' + escapeHtml(d.url) + '</a>' : '<span class="empty">— none —</span>';
+
+    return '<dl class="ov-grid">'
+        + '<dt>DOI</dt><dd><span class="mono">' + escapeHtml(d.doi) + '</span> · <a href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">resolve ↗</a> · <a href="https://commons.datacite.org/doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">DataCite Commons ↗</a> · <a href="javascript:void(0)" onclick="copyToClipboard(\'' + escapeAttr(d.doi) + '\')">copy</a></dd>'
+        + '<dt>Resource type</dt><dd>' + escapeHtml(d.resourceTypeGeneral || '—') + (d.resourceType ? ' / ' + escapeHtml(d.resourceType) : '') + '</dd>'
+        + '<dt>Publisher</dt><dd>' + (d.publisher ? escapeHtml(d.publisher) : '<span class="empty">— missing —</span>') + '</dd>'
+        + '<dt>Publication year</dt><dd>' + (d.publicationYear || '<span class="empty">— missing —</span>') + '</dd>'
+        + '<dt>Version</dt><dd>' + (d.version || '<span class="empty">— none —</span>') + '</dd>'
+        + '<dt>Schema</dt><dd>' + (d.schemaVersion ? '<span class="mono">' + escapeHtml(d.schemaVersion) + '</span>' : '<span class="empty">—</span>') + '</dd>'
+        + '<dt>Language</dt><dd>' + (d.language || '<span class="empty">— none —</span>') + '</dd>'
+        + '<dt>Landing page</dt><dd>' + landingUrl + '</dd>'
+        + '<dt>Registered</dt><dd>' + (d.registered ? '<span class="mono">' + escapeHtml(d.registered.substring(0, 10)) + '</span>' : '<span class="empty">—</span>') + '</dd>'
+        + '<dt>Creators</dt><dd>' + creators + '</dd>'
+        + '<dt>Contributors</dt><dd>' + contributors + '</dd>'
+        + '<dt>Subjects</dt><dd>' + subjects + '</dd>'
+        + '<dt>Descriptions</dt><dd>' + descriptions + '</dd>'
+        + '<dt>Rights / licence</dt><dd>' + rights + '</dd>'
+        + '<dt>Funding</dt><dd>' + funding + '</dd>'
+        + '<dt>Geolocations</dt><dd>' + geo + '</dd>'
+        + '<dt>Dates</dt><dd>' + dates + '</dd>'
+        + '<dt>Sizes / formats</dt><dd>' + (d.sizes.length > 0 || d.formats.length > 0
+            ? (d.sizes.length > 0 ? 'Sizes: ' + d.sizes.map(escapeHtml).join(', ') : '') + (d.sizes.length > 0 && d.formats.length > 0 ? ' · ' : '') + (d.formats.length > 0 ? 'Formats: ' + d.formats.map(escapeHtml).join(', ') : '')
+            : '<span class="empty">— none —</span>') + '</dd>'
+        + '</dl>';
+}
+
+// ----- Mapping check pane -----
+function renderMappingPane(d) {
+    var checks = d.mapping.checks;
+    var bannerCls = d.mapping.score >= 80 ? 'good' : (d.mapping.score >= 60 ? 'warn' : 'bad');
+    var bannerMsg;
+    if (d.mapping.score >= 80) bannerMsg = 'DataCite mapping is strong.';
+    else if (d.mapping.score >= 60) bannerMsg = 'DataCite mapping is workable but has gaps worth filling.';
+    else bannerMsg = 'DataCite mapping has significant gaps.';
+
+    var counts = { good: 0, warn: 0, bad: 0 };
+    checks.forEach(function(c) { counts[c.status]++; });
+
+    var html = '<div class="summary-banner ' + bannerCls + '"><strong>' + d.mapping.score + '% complete</strong> · ' + bannerMsg + ' (' + counts.good + ' ✓ · ' + counts.warn + ' ⚠ · ' + counts.bad + ' ✗)</div>';
+    html += '<ul class="check-list">';
+    checks.forEach(function(c) {
+        var icon = c.status === 'good' ? '✓' : (c.status === 'warn' ? '!' : '✗');
+        html += '<li class="check ' + c.status + '">'
+            + '<div class="icon">' + icon + '</div>'
+            + '<div class="body">'
+                + '<div class="name">' + escapeHtml(c.name) + '</div>'
+                + (c.value ? '<div class="value">' + escapeHtml(String(c.value).substring(0, 200)) + '</div>' : '')
+                + (c.note ? '<div class="note">' + escapeHtml(c.note) + '</div>' : '')
+            + '</div>'
+        + '</li>';
+    });
+    html += '</ul>';
+    return html;
+}
+
+// ----- Related identifiers pane -----
+function renderRelatedPane(d) {
+    if (d.relatedIdentifiers.length === 0) {
+        return '<div class="empty-state">No related identifiers declared in the DataCite record.<br><small>Adding <code>relatedIdentifiers</code> with relations like <code>IsCitedBy</code>, <code>IsSupplementTo</code>, or <code>IsDescribedBy</code> links this dataset to publications, software, and other works.</small></div>';
+    }
+    var html = '<table class="rel-table"><thead><tr><th>Relation</th><th>Identifier</th><th>Type</th><th>Resource</th></tr></thead><tbody>';
+    d.relatedIdentifiers.forEach(function(r) {
+        var idVal = r.relatedIdentifier || '';
+        var idLink;
+        if ((r.relatedIdentifierType || '').toUpperCase() === 'DOI') {
+            idLink = '<a href="https://doi.org/' + escapeAttr(idVal) + '" target="_blank" rel="noopener" class="mono" style="font-size:11px;color:var(--accent);text-decoration:none;">' + escapeHtml(idVal) + '</a>';
+        } else if ((r.relatedIdentifierType || '').toUpperCase() === 'URL') {
+            idLink = '<a href="' + escapeAttr(idVal) + '" target="_blank" rel="noopener" class="mono" style="font-size:11px;color:var(--accent);text-decoration:none;">' + escapeHtml(idVal) + '</a>';
+        } else {
+            idLink = '<span class="mono" style="font-size:11px;">' + escapeHtml(idVal) + '</span>';
+        }
+        html += '<tr>'
+            + '<td><span class="rel-type">' + escapeHtml(r.relationType || '') + '</span></td>'
+            + '<td>' + idLink + '</td>'
+            + '<td style="font-size:11px;color:var(--text-soft);">' + escapeHtml(r.relatedIdentifierType || '') + '</td>'
+            + '<td style="font-size:11px;color:var(--text-soft);">' + escapeHtml(r.resourceTypeGeneral || '') + '</td>'
+        + '</tr>';
+    });
+    html += '</tbody></table>';
+    return html;
+}
+
+// ----- Citations pane (lazy) -----
+async function loadCitationsInto(doi, pane) {
+    pane.innerHTML = '<div class="empty-state"><span class="spinner"></span> Querying DataCite, OpenCitations, and OpenAlex…</div>';
+    try {
+        var results = await Promise.allSettled([
+            fetchDataCiteCitations(doi),
+            fetchOpenCitations(doi),
+            fetchOpenAlexCitations(doi)
+        ]);
+        var fb = function(r, n) { return r.status === 'fulfilled' ? r.value : { source: n, error: String(r.reason), citations: [], reportedCount: 0 }; };
+        var datacite = fb(results[0], 'datacite');
+        var oc = fb(results[1], 'opencitations');
+        var oa = fb(results[2], 'openalex');
+
+        var map = {};
+        function add(res, src) {
+            res.citations.forEach(function(c) {
+                var key = c.doi || ('notitle_' + (c.title || '').toLowerCase().substring(0, 50));
+                if (!map[key]) {
+                    map[key] = { doi: c.rawDoi, authors: c.authors, year: c.year, title: c.title, journal: c.journal, sources: [src] };
+                } else {
+                    map[key].sources.push(src);
+                    if (c.authors && c.authors.length > (map[key].authors || '').length) map[key].authors = c.authors;
+                    if (c.journal && c.journal !== 'N/A' && map[key].journal === 'N/A') map[key].journal = c.journal;
+                    if (c.year && !map[key].year) map[key].year = c.year;
+                    if (c.title && c.title !== 'Untitled' && map[key].title === 'Untitled') map[key].title = c.title;
+                }
+            });
+        }
+        add(datacite, 'datacite');
+        add(oc, 'opencitations');
+        add(oa, 'openalex');
+
+        var merged = Object.values(map).sort(function(a, b) { return (b.year || 0) - (a.year || 0); });
+
+        // Cache
+        state.citationCache[doi] = state.citationCache[doi] || {};
+        state.citationCache[doi].fullCitations = merged;
+        state.citationCache[doi].sources = { datacite: datacite, opencitations: oc, openalex: oa };
+
+        var html = '<div class="cit-toolbar">';
+        html += '<div class="source-summary">'
+            + renderSrcChip('DataCite', datacite)
+            + renderSrcChip('OpenCitations', oc)
+            + renderSrcChip('OpenAlex', oa)
+            + '</div>';
+        html += '<div style="font-size:12px;color:var(--text-soft);"><strong>' + merged.length + '</strong> unique citation' + (merged.length === 1 ? '' : 's') + '</div>';
+        html += '</div>';
+
+        if (merged.length === 0) {
+            html += '<div class="empty-state">No citations found across any source.</div>';
+        } else {
+            html += '<ul class="citation-list">';
+            merged.forEach(function(c, idx) {
+                var srcTags = c.sources.map(function(s) { return '<span class="source-tag tag-' + s + '">' + s + '</span>'; }).join('');
+                var doiLink = c.doi && c.doi !== 'N/A' ? '<a href="https://doi.org/' + escapeAttr(c.doi) + '" target="_blank" rel="noopener">' + escapeHtml(c.doi) + '</a>' : '<span style="color:var(--text-muted)">no DOI</span>';
+                html += '<li class="citation-item">'
+                    + '<div class="title">' + (idx + 1) + '. ' + escapeHtml(fixEncoding(c.title || 'Untitled')) + '<span class="sources">' + srcTags + '</span></div>'
+                    + '<div class="meta">'
+                    + escapeHtml(fixEncoding(c.authors || 'Unknown')) + ' · '
+                    + (c.year || '?') + ' · '
+                    + (c.journal && c.journal !== 'N/A' ? escapeHtml(fixEncoding(c.journal)) + ' · ' : '')
+                    + doiLink
+                    + '</div>'
+                + '</li>';
+            });
+            html += '</ul>';
+        }
+
+        pane.innerHTML = html;
+    } catch (e) {
+        pane.innerHTML = '<div class="empty-state" style="color:var(--bad)">Error loading citations: ' + escapeHtml(e.message) + '</div>';
+    }
+}
+
+function renderSrcChip(label, result) {
+    var cls = 'src';
+    var text;
+    if (result.error) { cls += ' error'; text = label + ': ' + result.error; }
+    else if (result.citations.length > 0) { cls += ' has-data'; text = label + ': ' + result.citations.length; }
+    else { text = label + ': 0'; }
+    return '<span class="' + cls + '" title="' + escapeAttr(text) + '"><span class="dot"></span>' + escapeHtml(text) + '</span>';
+}
+
+async function fetchDataCiteCitations(doi) {
+    var query = 'query($id: ID!) { work(id: $id) { citationCount citations { totalCount nodes { doi titles { title } publicationYear creators { name givenName familyName } publisher { name } container { title } types { resourceTypeGeneral } } } } }';
+    var resp = await fetch('https://api.datacite.org/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: query, variables: { id: doi } })
+    });
+    if (!resp.ok) return { source: 'datacite', error: 'HTTP ' + resp.status, citations: [], reportedCount: 0 };
+    var result = await resp.json();
+    if (result.errors) return { source: 'datacite', error: result.errors[0].message, citations: [], reportedCount: 0 };
+    var work = result.data && result.data.work;
+    if (!work) return { source: 'datacite', error: 'DOI not found', citations: [], reportedCount: 0 };
+    var nodes = (work.citations && work.citations.nodes) ? work.citations.nodes : [];
+    var citations = nodes.map(function(n) {
+        return {
+            doi: normaliseDoi(n.doi),
+            rawDoi: n.doi || 'N/A',
+            authors: formatAuthors(n.creators),
+            year: n.publicationYear || null,
+            title: n.titles && n.titles[0] ? n.titles[0].title : 'Untitled',
+            journal: n.container && n.container.title ? n.container.title : (n.publisher && n.publisher.name ? n.publisher.name : 'N/A')
+        };
+    });
+    return { source: 'datacite', error: null, citations: citations, reportedCount: work.citationCount || 0 };
+}
+
+async function fetchOpenCitations(doi) {
+    var resp = await fetch('https://opencitations.net/index/coci/api/v1/citations/' + doi);
+    if (!resp.ok) {
+        if (resp.status === 404) return { source: 'opencitations', error: 'Not found', citations: [], reportedCount: 0 };
+        return { source: 'opencitations', error: 'HTTP ' + resp.status, citations: [], reportedCount: 0 };
+    }
+    var data = await resp.json();
+    if (!Array.isArray(data) || data.length === 0) return { source: 'opencitations', error: null, citations: [], reportedCount: 0 };
+    var citations = data.map(function(item) {
+        var citingDoi = (item.citing || '').replace(/^https?:\/\/doi\.org\//i, '');
+        var year = null;
+        if (item.creation) {
+            var m = item.creation.match(/^(\d{4})/);
+            if (m) year = parseInt(m[1]);
+        }
+        return { doi: normaliseDoi(citingDoi), rawDoi: citingDoi, authors: 'Unknown', year: year, title: 'Untitled', journal: 'N/A' };
+    });
+    return { source: 'opencitations', error: null, citations: citations, reportedCount: data.length };
+}
+
+async function fetchOpenAlexCitations(doi) {
+    var sr = await fetch('https://api.openalex.org/works/doi:' + doi + '?mailto=ben@auscope.org.au');
+    if (sr.status === 404) return { source: 'openalex', error: 'Not found', citations: [], reportedCount: 0 };
+    if (!sr.ok) return { source: 'openalex', error: 'HTTP ' + sr.status, citations: [], reportedCount: 0 };
+    var src = await sr.json();
+    var n = src.cited_by_count || 0;
+    if (n === 0) return { source: 'openalex', error: null, citations: [], reportedCount: 0 };
+    var oid = src.id.replace('https://openalex.org/', '');
+    var cr = await fetch('https://api.openalex.org/works?filter=cites:' + oid + '&per_page=50&sort=publication_year:desc&mailto=ben@auscope.org.au');
+    if (!cr.ok) return { source: 'openalex', error: 'Failed to fetch citing works', citations: [], reportedCount: n };
+    var cd = await cr.json();
+    var items = cd.results || [];
+    var citations = items.map(function(item) {
+        var authors = (item.authorships || []).map(function(a) {
+            var name = (a.author && a.author.display_name) || 'Unknown';
+            var parts = name.split(' ');
+            if (parts.length >= 2) return { family: parts[parts.length - 1], given: parts.slice(0, -1).join(' ') };
+            return { name: name };
+        });
+        var journal = 'N/A';
+        if (item.primary_location && item.primary_location.source) journal = item.primary_location.source.display_name || 'N/A';
+        var iDoi = item.doi ? item.doi.replace('https://doi.org/', '') : '';
+        return { doi: normaliseDoi(iDoi), rawDoi: iDoi || 'N/A', authors: formatAuthors(authors), year: item.publication_year || null, title: item.title || 'Untitled', journal: journal };
+    });
+    return { source: 'openalex', error: null, citations: citations, reportedCount: n };
+}
+
+// ----- Raw JSON pane -----
+function renderRawPane(d) {
+    var json = JSON.stringify(d._raw, null, 2);
+    return '<pre class="raw-json">' + syntaxHighlightJson(json) + '</pre>';
+}
+
+function syntaxHighlightJson(json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+        var cls = 'num';
+        if (/^"/.test(match)) {
+            cls = /:$/.test(match) ? 'key' : 'str';
+        } else if (/true|false/.test(match)) {
+            cls = 'bool';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+}
+
+// ============================================================
+// EXPORT
+// ============================================================
+function exportCsv() {
+    var visible = visibleDatasets();
+    if (visible.length === 0) { showToast('Nothing to export.'); return; }
+    var headers = ['DOI', 'Title', 'Type', 'ResourceType', 'Year', 'Publisher', 'Authors', 'ORCIDs', 'Subjects', 'MappingScore', 'Citations'];
+    var rows = visible.map(function(d) {
+        var authors = d.creators.map(function(c) { return c.name; }).join('; ');
+        var orcids = d.creators.map(function(c) { return c.orcid; }).filter(Boolean).join('; ');
+        var subjects = d.subjects.map(function(s) { return s.subject; }).join('; ');
+        return [
+            d.doi,
+            d.title,
+            d.resourceTypeGeneral,
+            d.resourceType,
+            d.publicationYear || '',
+            d.publisher,
+            authors,
+            orcids,
+            subjects,
+            d.mapping.score,
+            typeof d.citationCount === 'number' ? d.citationCount : ''
+        ];
+    });
+    var csv = [headers].concat(rows).map(function(r) {
+        return r.map(function(v) {
+            v = v == null ? '' : String(v);
+            if (v.indexOf(',') >= 0 || v.indexOf('"') >= 0 || v.indexOf('\n') >= 0) v = '"' + v.replace(/"/g, '""') + '"';
+            return v;
+        }).join(',');
+    }).join('\n');
+    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'earthbank-datasets-' + new Date().toISOString().substring(0, 10) + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Exported ' + visible.length + ' datasets to CSV.');
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function debounce(fn, ms) {
+    var t;
+    return function() {
+        var args = arguments, ctx = this;
+        clearTimeout(t);
+        t = setTimeout(function() { fn.apply(ctx, args); }, ms);
+    };
+}
+
+function sleep(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
+
+function escapeHtml(t) {
+    if (t == null) return '';
+    var div = document.createElement('div');
+    div.textContent = String(t);
+    return div.innerHTML;
+}
+
+function escapeAttr(t) {
+    return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function normaliseDoi(doi) { return (doi || '').toLowerCase().replace(/^https?:\/\/doi\.org\//i, '').trim(); }
+
+function fixEncoding(text) {
+    if (!text) return text;
+    return text
+        .replace(/\u00e2\u0080\u0093/g, '\u2013')
+        .replace(/\u00e2\u0080\u0094/g, '\u2014')
+        .replace(/\u00e2\u0080\u0099/g, '\u2019')
+        .replace(/\u00e2\u0080\u009c/g, '\u201c')
+        .replace(/\u00e2\u0080\u009d/g, '\u201d')
+        .replace(/\ufffd/g, '\u2013');
+}
+
+function formatAuthors(creators) {
+    if (!creators || creators.length === 0) return 'Unknown';
+    return creators.map(function(c) {
+        if (c.family && c.given) return c.family + ', ' + c.given.charAt(0) + '.';
+        if (c.familyName && c.givenName) return c.familyName + ', ' + c.givenName.charAt(0) + '.';
+        return c.name || c.literal || 'Unknown';
+    }).join(', ');
+}
+
+function copyToClipboard(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function() {
+            showToast('DOI copied: ' + text);
+        }).catch(function() { fallbackCopy(text); });
+    } else {
+        fallbackCopy(text);
+    }
+}
+function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast('DOI copied: ' + text); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+var toastTimer;
+function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function() { t.classList.remove('show'); }, 2200);
+}
+
+// Bootstrap (script is at end of body, DOM is available)
+init();
+
+</script>
+</body>
+</html>
