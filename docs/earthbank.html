@@ -562,6 +562,48 @@
             margin: 2px 4px 2px 0;
             color: var(--text-soft);
         }
+        .subject a.term-link {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-muted);
+        }
+        .subject a.term-link:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        .scheme-badge {
+            display: inline-block;
+            padding: 0 5px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            border-radius: 3px;
+            font-family: var(--mono);
+            line-height: 14px;
+            vertical-align: 1px;
+            margin-left: 4px;
+            text-decoration: none !important;
+            white-space: nowrap;
+        }
+        a.scheme-badge:hover { opacity: 0.85; }
+        /* ANZSRC-FOR — canonical Australian vocabulary, given the green "preferred" treatment */
+        .scheme-badge.scheme-for { background: #16a34a; color: white; }
+        .scheme-badge.scheme-seo { background: #0891b2; color: white; }
+        /* Other recognised international vocabularies */
+        .scheme-badge.scheme-known { background: var(--accent); color: white; }
+        /* Has a scheme name but not one we recognise */
+        .scheme-badge.scheme-other {
+            background: var(--bg-muted);
+            color: var(--text-soft);
+            border: 1px solid var(--border);
+        }
+        /* No scheme at all — amber, matching the no-ORCID / no-URI pattern */
+        .scheme-badge.scheme-missing {
+            background: #fef3c7;
+            color: #92400e;
+            font-weight: 600;
+            font-family: var(--mono);
+        }
 
         .description-block {
             background: var(--bg);
@@ -723,12 +765,21 @@
             list-style: none;
         }
         .citation-item {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 12px;
+            align-items: start;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 4px;
             padding: 10px 14px;
             margin-bottom: 6px;
         }
+        .citation-item.is-gap-novel { border-left: 3px solid var(--warn); padding-left: 11px; }
+        .citation-item.is-gap-known { border-left: 3px solid var(--border-strong); padding-left: 11px; }
+        .citation-item.is-declared-only { background: var(--bg-soft); }
+        .citation-item .cit-status { padding-top: 1px; }
+        .citation-item .cit-body { min-width: 0; }
         .citation-item .title {
             font-weight: 500;
             color: var(--text);
@@ -759,6 +810,103 @@
         .tag-datacite { background: #dbeafe; color: #1e40af; }
         .tag-opencitations { background: #fce7f3; color: #9d174d; }
         .tag-openalex { background: #d1fae5; color: #065f46; }
+
+        /* ----- Citation reciprocity ----- */
+        .recip-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 14px;
+            border-radius: 5px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+            border: 1px solid;
+        }
+        .recip-banner.good { background: var(--good-bg); border-color: #86efac; }
+        .recip-banner.warn { background: var(--warn-bg); border-color: #fcd34d; }
+        .recip-banner.neutral { background: var(--bg-soft); border-color: var(--border); }
+        .recip-banner .recip-headline {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            display: block;
+        }
+        .recip-pills {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .recip-pill {
+            display: inline-flex;
+            align-items: baseline;
+            padding: 3px 10px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--text);
+            white-space: nowrap;
+        }
+        .recip-pill strong {
+            margin-right: 4px;
+            font-variant-numeric: tabular-nums;
+        }
+        .recip-pill.gap { border-color: #f59e0b; color: #92400e; background: #fffbeb; }
+        .recip-pill.gap-known { border-color: var(--border-strong); color: var(--text-soft); background: var(--bg-soft); }
+        .recip-pill.info { border-color: var(--border-strong); color: var(--text-soft); }
+
+        .copy-gaps-btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #f59e0b;
+            background: white;
+            color: #92400e;
+            font-family: var(--sans);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .copy-gaps-btn:hover { background: #fffbeb; }
+
+        .recip-badge {
+            display: inline-block;
+            padding: 1px 7px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+        .recip-badge.declared { background: var(--good-bg); color: #166534; }
+        .recip-badge.gap { background: #fef3c7; color: #92400e; }
+        .recip-badge.gap-known { background: var(--bg-muted); color: #475569; border: 1px solid var(--border-strong); padding: 0 6px; }
+        .recip-badge.declared-only { background: var(--bg-muted); color: var(--text-soft); }
+        .recip-badge.no-doi { background: var(--bg-muted); color: var(--text-muted); }
+        .recip-badge .relation {
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 10px;
+            color: inherit;
+            opacity: 0.85;
+            margin-left: 2px;
+        }
+
+        /* Gap counter on the Citations tab label */
+        .detail-tab .badge-count.gap-count {
+            background: #fef3c7;
+            color: #92400e;
+            margin-left: 4px;
+        }
+        .detail-tab.active .badge-count.gap-count {
+            background: #fef3c7;
+            color: #92400e;
+        }
 
         /* ----- Raw JSON ----- */
         .raw-json {
@@ -816,6 +964,188 @@
             opacity: 1;
             transform: translateX(-50%) translateY(0);
         }
+
+        /* ========== HOVER TOOLTIPS ========== */
+        /* Any element with `data-tip="..."` gets a styled hover tooltip.
+           Use the .info-i element for a small "(i)" badge that explains
+           a nearby field. Use data-tip directly on badges/pills to enrich
+           their hover affordance. */
+        [data-tip] {
+            position: relative;
+        }
+        [data-tip]::after {
+            content: attr(data-tip);
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            background: #0f172a;
+            color: #f1f5f9;
+            padding: 8px 11px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 400;
+            font-style: normal;
+            font-family: var(--sans);
+            line-height: 1.45;
+            letter-spacing: 0;
+            text-transform: none;
+            white-space: normal;
+            width: max-content;
+            max-width: 280px;
+            text-align: left;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s 0.1s;
+            z-index: 100;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+        }
+        [data-tip]::before {
+            content: '';
+            position: absolute;
+            top: calc(100% + 2px);
+            left: 1px;
+            border: 6px solid transparent;
+            border-bottom-color: #0f172a;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s 0.1s;
+            z-index: 100;
+        }
+        [data-tip]:hover::after,
+        [data-tip]:hover::before { opacity: 1; }
+
+        .info-i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-muted);
+            color: var(--text-soft);
+            font-size: 10px;
+            font-weight: 700;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            cursor: help;
+            margin-left: 5px;
+            vertical-align: 1px;
+            user-select: none;
+            line-height: 1;
+            border: 1px solid transparent;
+            transition: background 0.12s, color 0.12s, border-color 0.12s;
+        }
+        .info-i:hover {
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            border-color: var(--accent);
+        }
+
+        /* ========== FLEET SUMMARY PANEL ========== */
+        .fleet-panel {
+            border: 1px solid var(--border);
+            background: var(--bg-soft);
+            border-radius: 6px;
+            margin-bottom: 14px;
+        }
+        .fleet-panel > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+        }
+        .fleet-panel > summary::-webkit-details-marker { display: none; }
+        .fleet-panel > summary::after {
+            content: '▾';
+            margin-left: auto;
+            color: var(--text-muted);
+            transition: transform 0.15s;
+            font-size: 11px;
+        }
+        .fleet-panel[open] > summary::after { transform: rotate(180deg); }
+        .fleet-panel .fleet-context {
+            font-weight: 400;
+            color: var(--text-soft);
+            font-size: 12px;
+        }
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 0 14px 14px;
+        }
+        @media (max-width: 900px) {
+            .fleet-grid { grid-template-columns: 1fr; }
+        }
+        .fleet-section {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 10px 12px;
+        }
+        .fleet-section h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .fleet-item {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 4px 6px;
+            margin: 0 -6px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12.5px;
+            transition: background 0.1s;
+        }
+        .fleet-item:hover { background: var(--accent-bg); }
+        .fleet-item.active { background: var(--accent-soft); color: var(--accent-strong); font-weight: 500; }
+        .fleet-item.zero { color: var(--text-muted); cursor: default; }
+        .fleet-item.zero:hover { background: transparent; }
+        .fleet-item .count {
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+            min-width: 30px;
+            text-align: right;
+            color: var(--text);
+        }
+        .fleet-item.zero .count { color: var(--text-muted); font-weight: 400; }
+        .fleet-item.active .count { color: var(--accent-strong); }
+        .fleet-item .label { flex: 1; line-height: 1.4; }
+
+        .fleet-filter-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 4px 2px 10px;
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+        .fleet-filter-chip button {
+            background: transparent;
+            border: none;
+            color: var(--accent-strong);
+            cursor: pointer;
+            padding: 0 5px;
+            font-size: 14px;
+            line-height: 1;
+            border-radius: 50%;
+        }
+        .fleet-filter-chip button:hover { background: rgba(37, 99, 235, 0.15); }
     </style>
 </head>
 <body>
@@ -837,11 +1167,11 @@
 
         <!-- ========== STAT TILES ========== -->
         <div class="stats" id="stat-tiles">
-            <div class="stat"><div class="label">Datasets</div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
-            <div class="stat"><div class="label">Datasets type</div><div class="value" id="stat-dataset">—</div><div class="sub">resourceType: Dataset</div></div>
-            <div class="stat"><div class="label">PhysicalObjects</div><div class="value" id="stat-physobj">—</div><div class="sub">samples / specimens</div></div>
-            <div class="stat"><div class="label">Total citations</div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
-            <div class="stat"><div class="label">Avg mapping</div><div class="value" id="stat-mapping">—</div><div class="sub" id="stat-mapping-sub">DataCite completeness</div></div>
+            <div class="stat"><div class="label">Datasets <span class="info-i" data-tip="Total DOIs registered to the EarthBank DataCite client (hypc.gxglvy). Includes both Dataset and PhysicalObject resourceType records.">i</span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
+            <div class="stat"><div class="label">Datasets type <span class="info-i" data-tip="Records with resourceTypeGeneral=Dataset. The most common type for EarthBank — geochemistry compilations, supplementary tables, etc.">i</span></div><div class="value" id="stat-dataset">—</div><div class="sub">resourceType: Dataset</div></div>
+            <div class="stat"><div class="label">PhysicalObjects <span class="info-i" data-tip="Records with resourceTypeGeneral=PhysicalObject — typically physical samples (rocks, mineral specimens) issued individual DOIs via IGSN-style sample registration.">i</span></div><div class="value" id="stat-physobj">—</div><div class="sub">samples / specimens</div></div>
+            <div class="stat"><div class="label">Total citations <span class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all datasets. Loaded in batches after page load — may show 0 briefly.">i</span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
+            <div class="stat"><div class="label">Avg mapping <span class="info-i" data-tip="Mean DataCite mapping completeness score across all datasets, weighted by field importance. Title/creators/year carry the highest weight; language/sizes the lowest. Open a dataset and check the Mapping tab to see the breakdown.">i</span></div><div class="value" id="stat-mapping">—</div><div class="sub" id="stat-mapping-sub">DataCite completeness</div></div>
         </div>
 
         <!-- ========== CONTROL BAR ========== -->
@@ -870,6 +1200,15 @@
             <button class="btn primary" id="export-csv" title="Download visible rows as CSV">Export CSV</button>
             <button class="btn" id="reload-btn" title="Re-fetch from DataCite">Reload</button>
         </div>
+
+        <!-- ========== FLEET SUMMARY ========== -->
+        <details class="fleet-panel" id="fleet-panel">
+            <summary>
+                Fleet summary
+                <span class="fleet-context"></span>
+            </summary>
+            <div class="fleet-grid"></div>
+        </details>
 
         <!-- ========== TABLE ========== -->
         <div class="table-wrap">
@@ -936,10 +1275,93 @@ var state = {
     sortKey: 'year',
     sortDir: 'desc',
     filter: { search: '', type: '', year: '', issuesOnly: false },
+    fleetFilter: null,  // { id, label, predicate } — set when user clicks a fleet item
     expanded: new Set(),  // DOIs of expanded rows
     citationCache: {},    // doi -> { count, fullCitations }
     citationLoadInFlight: false
 };
+
+// Fleet summary categories. Each item is a clickable predicate that filters
+// the table to records matching the gap. Counts are recomputed against the
+// currently-filtered (non-fleet) record set so the panel reflects whatever
+// type/year/search the user has set.
+var fleetCategories = [
+    {
+        section: 'People & affiliations',
+        items: [
+            { id: 'no-orcid-any', label: 'No personal creators have ORCIDs', predicate: function(d) {
+                var personals = d.creators.filter(function(c) { return (c.nameType || 'Personal') !== 'Organizational'; });
+                return personals.length > 0 && personals.every(function(c) { return !c.orcid; });
+            }},
+            { id: 'partial-orcid', label: 'Some personal creators missing ORCIDs', predicate: function(d) {
+                var personals = d.creators.filter(function(c) { return (c.nameType || 'Personal') !== 'Organizational'; });
+                if (personals.length === 0) return false;
+                var withOrcid = personals.filter(function(c) { return c.orcid; }).length;
+                return withOrcid > 0 && withOrcid < personals.length;
+            }},
+            { id: 'no-affil', label: 'No personal-creator affiliations recorded', predicate: function(d) {
+                var personals = d.creators.filter(function(c) { return (c.nameType || 'Personal') !== 'Organizational'; });
+                return personals.length > 0 && personals.every(function(c) { return !c.affiliation || c.affiliation.length === 0; });
+            }},
+            { id: 'no-ror', label: 'Affiliations have no ROR URI', predicate: function(d) {
+                var hasAffil = false, hasRor = false;
+                d.creators.forEach(function(c) {
+                    (c.affiliation || []).forEach(function(a) {
+                        hasAffil = true;
+                        if ((a.idScheme || '').toUpperCase() === 'ROR') hasRor = true;
+                    });
+                });
+                return hasAffil && !hasRor;
+            }},
+            { id: 'no-name-parts', label: 'Personal creators missing structured names', predicate: function(d) {
+                return d.creators.some(function(c) {
+                    return (c.nameType || 'Personal') !== 'Organizational' && (!c.family || !c.given);
+                });
+            }}
+        ]
+    },
+    {
+        section: 'Subjects & licence',
+        items: [
+            { id: 'no-subjects', label: 'No subjects recorded', predicate: function(d) { return d.subjects.length === 0; }},
+            { id: 'subjects-no-scheme', label: 'Subjects free-text only (no scheme)', predicate: function(d) {
+                return d.subjects.length > 0 && d.subjects.every(function(s) { return !s.subjectScheme && !s.schemeUri; });
+            }},
+            { id: 'subjects-no-uri', label: 'Subjects have scheme but no valueUri', predicate: function(d) {
+                return d.subjects.length > 0 && d.subjects.some(function(s) { return (s.subjectScheme || s.schemeUri) && !s.valueUri; });
+            }},
+            { id: 'no-licence-uri', label: 'No licence URI', predicate: function(d) {
+                return d.rightsList.length === 0 || d.rightsList.every(function(r) { return !r.rightsUri && !r.rightsURI && !r.rightsIdentifier; });
+            }},
+            { id: 'unknown-licence', label: 'Licence URI not from known registry', predicate: function(d) {
+                if (d.rightsList.length === 0) return false;
+                var anyKnown = false, anyUri = false;
+                d.rightsList.forEach(function(r) {
+                    var det = detectLicence(r);
+                    if (det) {
+                        anyUri = true;
+                        if (det.known) anyKnown = true;
+                    }
+                });
+                return anyUri && !anyKnown;
+            }}
+        ]
+    },
+    {
+        section: 'Funding & content',
+        items: [
+            { id: 'no-funding', label: 'No funding attributed', predicate: function(d) { return d.fundingReferences.length === 0; }},
+            { id: 'funder-no-id', label: 'Funders without identifiers', predicate: function(d) {
+                return d.fundingReferences.length > 0 && d.fundingReferences.every(function(f) { return !f.funderIdentifier; });
+            }},
+            { id: 'no-abstract', label: 'No Abstract description', predicate: function(d) {
+                return !d.descriptions.some(function(dd) { return (dd.descriptionType || '').toLowerCase() === 'abstract'; });
+            }},
+            { id: 'no-related', label: 'No related identifiers', predicate: function(d) { return d.relatedIdentifiers.length === 0; }},
+            { id: 'no-geo', label: 'No geolocations', predicate: function(d) { return d.geoLocations.length === 0; }}
+        ]
+    }
+];
 
 // ============================================================
 // ENTRY
@@ -948,6 +1370,7 @@ function init() {
     bindControls();
     bindRowDelegation();
     bindDetailTabs();
+    bindFleetClicks();
     loadDatasets();
 }
 
@@ -1168,6 +1591,8 @@ function normalize(item) {
             name: c.name || ((c.familyName || '') + (c.givenName ? ', ' + c.givenName : '')),
             nameType: c.nameType || 'Personal',
             orcid: orcid,
+            family: c.familyName || '',
+            given: c.givenName || '',
             type: c.contributorType || '',
             affiliation: normalizeAffiliations(c.affiliation),
             raw: c
@@ -1281,6 +1706,256 @@ function buildAffiliationCheck(people, label, weight) {
     return { name: label + ' affiliation URIs (ROR)', status: status, weight: weight, value: value, note: note };
 }
 
+// Detect a recognised licence from a rightsList entry. Checks (in priority order)
+// the SPDX rightsIdentifier, then known URI patterns. Returns { class, label, known }
+// where known=true means the URI is from a registry aggregators recognise.
+function detectLicence(r) {
+    var uri = (r.rightsUri || r.rightsURI || '').toString().toLowerCase();
+    var id = (r.rightsIdentifier || '').toString();
+    var idScheme = (r.rightsIdentifierScheme || '').toString().toUpperCase();
+
+    // Creative Commons URI — extract canonical SPDX-style label from the path
+    if (uri.indexOf('creativecommons.org/licenses/') >= 0) {
+        var m = uri.match(/\/licenses\/([a-z\-]+)\/(\d+(?:\.\d+)?)/);
+        var label = m ? 'CC-' + m[1].toUpperCase() + '-' + m[2] : 'CC';
+        return { class: 'cc', label: label, known: true };
+    }
+    if (uri.indexOf('creativecommons.org/publicdomain/zero/') >= 0) {
+        var mz = uri.match(/zero\/(\d+(?:\.\d+)?)/);
+        return { class: 'cc', label: mz ? 'CC0-' + mz[1] : 'CC0', known: true };
+    }
+    if (uri.indexOf('creativecommons.org/publicdomain/mark/') >= 0) {
+        return { class: 'cc', label: 'CC-PDM-1.0', known: true };
+    }
+
+    // SPDX identifier (with explicit scheme)
+    if (idScheme === 'SPDX' && id) {
+        return { class: 'spdx', label: id, known: true };
+    }
+
+    // SPDX licence pages — strip .html and use SPDX-canonical casing
+    if (uri.indexOf('spdx.org/licenses/') >= 0) {
+        var ms = uri.match(/\/licenses\/([^\/\.]+)/);
+        var spdxLabel = ms ? ms[1].toUpperCase().replace(/-(\d)/g, '-$1') : 'SPDX';
+        return { class: 'spdx', label: spdxLabel, known: true };
+    }
+
+    // OSI-approved licence pages
+    if (uri.indexOf('opensource.org/licenses/') >= 0) {
+        var mo = uri.match(/\/licenses\/([^\/]+)/);
+        return { class: 'osi', label: mo ? mo[1].toUpperCase() : 'OSI', known: true };
+    }
+
+    // Open Data Commons
+    if (uri.indexOf('opendatacommons.org/licenses/') >= 0) {
+        var md = uri.match(/\/licenses\/([a-z\-]+)/);
+        return { class: 'odc', label: md ? 'ODC-' + md[1].toUpperCase() : 'ODC', known: true };
+    }
+
+    // URI present but unrecognised
+    if (uri) return { class: 'unknown', label: 'custom URI', known: false };
+
+    return null;
+}
+
+// Helper: licence machine-readability check — passes when rights entries point
+// to a recognised licence registry (CC, SPDX, OSI, ODC) rather than a custom URI
+// or plain text. Skips when no rights are recorded (the presence check handles that).
+function buildLicenceQualityCheck(d, weight) {
+    if (!d.rightsList || d.rightsList.length === 0) return null;
+    var total = d.rightsList.length;
+    var withKnown = 0, withAnyUri = 0;
+    d.rightsList.forEach(function(r) {
+        var detected = detectLicence(r);
+        if (detected) {
+            withAnyUri++;
+            if (detected.known) withKnown++;
+        }
+    });
+
+    var status, value, note;
+    if (withKnown === total) {
+        status = 'good';
+        value = total + ' / ' + total + ' machine-readable';
+        note = 'All rights entries point to a known licence registry (CC, SPDX, OSI, or ODC).';
+    } else if (withKnown > 0 && withAnyUri === total) {
+        status = 'warn';
+        value = withKnown + ' known · ' + withAnyUri + ' total URIs';
+        note = 'Some licence URIs are recognised, others are custom — prefer SPDX/CC URIs for FAIR machine-readability.';
+    } else if (withAnyUri === total) {
+        status = 'warn';
+        value = total + ' / ' + total + ' have URIs (none recognised)';
+        note = 'Rights URIs present but not from CC/SPDX/OSI/ODC — aggregators may not recognise these as standard licences.';
+    } else if (withAnyUri > 0) {
+        status = 'warn';
+        value = withAnyUri + ' / ' + total + ' have URIs';
+        note = 'Some rights entries have URIs, others are plain text only.';
+    } else {
+        status = 'bad';
+        value = '0 / ' + total + ' have URIs';
+        note = 'Rights entries are plain text only — add rightsUri pointing to a known licence (e.g., https://creativecommons.org/licenses/by/4.0/).';
+    }
+
+    return {
+        name: 'Licence machine-readable',
+        status: status,
+        weight: weight,
+        value: value,
+        note: note,
+        help: 'Aggregators (B2FIND, OpenAIRE, Google Dataset Search) and reusability checks look for rightsUri pointing to canonical registries — Creative Commons, SPDX, OSI, or Open Data Commons. Plain-text rights are human-readable but not interoperable. Setting rightsIdentifier with rightsIdentifierScheme="SPDX" (e.g., "CC-BY-4.0") is also recognised.'
+    };
+}
+
+// Helper: structured name parts check — verifies personal creators/contributors
+// have familyName + givenName populated as separate fields, not just the
+// free-form name. Skips when no personal people exist (organizational-only).
+function buildNameStructureCheck(people, label, weight) {
+    if (!people || people.length === 0) return null;
+    var personals = people.filter(function(p) { return (p.nameType || 'Personal') !== 'Organizational'; });
+    if (personals.length === 0) return null;
+    var withParts = personals.filter(function(p) { return p.family && p.given; }).length;
+    var status = withParts === personals.length ? 'good' : (withParts > 0 ? 'warn' : 'bad');
+    var lower = label.toLowerCase() + 's';
+    var note;
+    if (status === 'good') note = 'All ' + personals.length + ' personal ' + lower + ' have familyName + givenName.';
+    else if (status === 'warn') note = withParts + ' of ' + personals.length + ' personal ' + lower + ' have structured name parts.';
+    else note = 'No personal ' + lower + ' have familyName + givenName — only the free-text name field is populated.';
+    return {
+        name: label + ' name parts',
+        status: status,
+        weight: weight,
+        value: withParts + ' / ' + personals.length,
+        note: note,
+        help: 'DataCite recommends populating familyName and givenName as separate fields for personal creators/contributors, not just the free-text name. Structured name parts disambiguate authors and support reliable citation formatting downstream.'
+    };
+}
+
+// Helper: funder identifier check — verifies fundingReferences entries have
+// a funderIdentifier (preferably Crossref Funder ID or ROR). Skips when no
+// funders are recorded (the presence check handles that case).
+function buildFunderIdentifierCheck(d, weight) {
+    if (!d.fundingReferences || d.fundingReferences.length === 0) return null;
+    var total = d.fundingReferences.length;
+    var withId = 0, withCrossrefOrRor = 0;
+    d.fundingReferences.forEach(function(f) {
+        if (f.funderIdentifier) {
+            withId++;
+            var type = (f.funderIdentifierType || '').toUpperCase();
+            if (type === 'CROSSREF FUNDER ID' || type === 'CROSSREF' || type === 'ROR') {
+                withCrossrefOrRor++;
+            }
+        }
+    });
+
+    var status, value, note;
+    if (withCrossrefOrRor === total) {
+        status = 'good';
+        value = total + ' / ' + total + ' have Crossref/ROR ID';
+        note = 'All funders identified with Crossref Funder IDs or ROR URIs.';
+    } else if (withId === total) {
+        status = 'good';
+        value = total + ' / ' + total + ' have an ID';
+        note = 'All funders have identifiers (not all Crossref/ROR — these are preferred).';
+    } else if (withId > 0) {
+        status = 'warn';
+        value = withCrossrefOrRor + ' Crossref/ROR · ' + withId + ' any ID · ' + total + ' total';
+        note = 'Some funders are plain text — add funderIdentifier to all for disambiguation.';
+    } else {
+        status = 'bad';
+        value = '0 / ' + total + ' have URIs';
+        note = 'Funders are plain text only — add funderIdentifier with type "Crossref Funder ID" or "ROR".';
+    }
+
+    return {
+        name: 'Funder identifiers',
+        status: status,
+        weight: weight,
+        value: value,
+        note: note,
+        help: 'Funder identifiers (Crossref Funder ID like https://doi.org/10.13039/501100000923 for ARC, or ROR like https://ror.org/05mmh0f86) uniquely identify funding bodies. Without them, "Australian Research Council" is just a string that grants databases and impact aggregators can\'t reliably link.'
+    };
+}
+
+// Helper: subject vocabulary check — grades whether subjects use a controlled
+// vocabulary (subjectScheme + valueUri) rather than free text.
+// Returns null if there are no subjects (the presence check covers that case).
+function buildSubjectVocabularyCheck(d, weight) {
+    if (!d.subjects || d.subjects.length === 0) return null;
+    var total = d.subjects.length;
+    var withScheme = 0, withValueUri = 0;
+    d.subjects.forEach(function(s) {
+        if (s.subjectScheme || s.schemeUri) withScheme++;
+        if (s.valueUri) withValueUri++;
+    });
+
+    var status, value, note;
+    if (withScheme === total && withValueUri === total) {
+        status = 'good';
+        value = total + ' / ' + total + ' fully keyed';
+        note = 'All subjects have subjectScheme + valueUri — fully machine-dereferenceable.';
+    } else if (withScheme === total) {
+        status = 'good';
+        value = total + ' / ' + total + ' have scheme';
+        note = 'All subjects have subjectScheme. Adding valueUri to each makes them resolvable.';
+    } else if (withScheme > 0) {
+        status = 'warn';
+        value = withScheme + ' scheme · ' + withValueUri + ' valueUri · ' + total + ' total';
+        note = 'Partial vocabulary keying — add subjectScheme and valueUri to all subjects.';
+    } else {
+        status = 'bad';
+        value = '0 / ' + total + ' have a scheme';
+        note = 'Subjects are free text only — add subjectScheme (e.g., ANZSRC-FOR) and valueUri.';
+    }
+
+    return {
+        name: 'Subject vocabulary',
+        status: status,
+        weight: weight,
+        value: value,
+        note: note,
+        help: 'Free-text subjects are findable but not interoperable. Adding subjectScheme (e.g., "ANZSRC-FOR") and valueUri (e.g., "https://linked.data.gov.au/def/anzsrc-for/2020/370401") makes subjects machine-readable and dereferenceable. For Australian research, ANZSRC-FOR is the canonical vocabulary.'
+    };
+}
+
+// Detect a recognised subject scheme by name and/or schemeUri. Returns
+// { class, label, isPreferred } where isPreferred=true for ANZSRC-FOR (the
+// canonical AU vocabulary).
+function detectSubjectScheme(s) {
+    var scheme = (s.subjectScheme || '').toString();
+    var schemeUri = (s.schemeUri || '').toString().toLowerCase();
+    var schemeUpper = scheme.toUpperCase();
+
+    if (/ANZSRC[\-_\s]?FOR|FIELDS?\s+OF\s+RESEARCH|^FOR$/i.test(scheme)
+        || schemeUri.indexOf('anzsrc-for') >= 0
+        || schemeUri.indexOf('fields-of-research') >= 0) {
+        return { class: 'scheme-for', label: 'ANZSRC-FOR', isPreferred: true };
+    }
+    if (/ANZSRC[\-_\s]?SEO|SOCIO[\-_\s]?ECONOMIC/i.test(scheme)
+        || schemeUri.indexOf('anzsrc-seo') >= 0) {
+        return { class: 'scheme-seo', label: 'ANZSRC-SEO', isPreferred: false };
+    }
+    if (/GCMD/i.test(scheme) || schemeUri.indexOf('gcmd') >= 0) {
+        return { class: 'scheme-known', label: 'GCMD', isPreferred: false };
+    }
+    if (/GEOSCIML|GEOSCIENCE/i.test(scheme) || schemeUri.indexOf('geosciml') >= 0) {
+        return { class: 'scheme-known', label: 'GeoSciML', isPreferred: false };
+    }
+    if (/INSPIRE/i.test(scheme) || schemeUri.indexOf('inspire') >= 0) {
+        return { class: 'scheme-known', label: 'INSPIRE', isPreferred: false };
+    }
+    if (/DDC|DEWEY/i.test(scheme)) {
+        return { class: 'scheme-known', label: 'DDC', isPreferred: false };
+    }
+    if (/LCSH|LIBRARY OF CONGRESS/i.test(scheme)) {
+        return { class: 'scheme-known', label: 'LCSH', isPreferred: false };
+    }
+    if (scheme) {
+        // Has scheme but unrecognised — show whatever name they used
+        return { class: 'scheme-other', label: scheme, isPreferred: false };
+    }
+    return null; // no scheme at all
+}
+
 function getChecks(d) {
     var checks = [];
 
@@ -1290,7 +1965,8 @@ function getChecks(d) {
         status: d.title ? 'good' : 'bad',
         weight: 2,
         value: d.title || '',
-        note: d.title ? null : 'Missing required title.'
+        note: d.title ? null : 'Missing required title.',
+        help: 'DataCite requires at least one title. Multiple titles can be added with types: Subtitle, AlternativeTitle, TranslatedTitle, Other.'
     });
 
     // Resource type
@@ -1300,27 +1976,49 @@ function getChecks(d) {
         status: rtSpecific ? 'good' : (d.resourceTypeGeneral ? 'warn' : 'bad'),
         weight: 1,
         value: d.resourceType || d.resourceTypeGeneral || '',
-        note: rtSpecific ? null : (d.resourceTypeGeneral ? 'Has generic type but no specific resourceType.' : 'No resource type specified.')
+        note: rtSpecific ? null : (d.resourceTypeGeneral ? 'Has generic type but no specific resourceType.' : 'No resource type specified.'),
+        help: 'DataCite uses two type fields: resourceTypeGeneral (controlled vocabulary like Dataset, PhysicalObject, Software, Collection) and resourceType (free-text specific type like "Geochemistry data" or "Apatite fission-track sample"). Best practice: provide both.'
     });
 
     // Creators presence (required)
     if (d.creators.length === 0) {
-        checks.push({ name: 'Creators', status: 'bad', weight: 2, value: '', note: 'No creators listed.' });
+        checks.push({
+            name: 'Creators',
+            status: 'bad', weight: 2, value: '', note: 'No creators listed.',
+            help: 'DataCite requires at least one creator. Each creator should have nameType=Personal or Organizational, with familyName + givenName for persons.'
+        });
     }
 
     // Creator + Contributor: ORCIDs and affiliation URIs
-    // Contributor checks only run when contributors are present (they're optional in DataCite).
     var creatorOrcid = buildOrcidCheck(d.creators, 'Creator', 1.5);
-    if (creatorOrcid) checks.push(creatorOrcid);
+    if (creatorOrcid) {
+        creatorOrcid.help = 'ORCID iDs uniquely identify researchers across institutions and over career changes. Add to creators[].nameIdentifiers with nameIdentifierScheme=ORCID and nameIdentifier as the full ORCID URI.';
+        checks.push(creatorOrcid);
+    }
 
     var creatorAffil = buildAffiliationCheck(d.creators, 'Creator', 1);
-    if (creatorAffil) checks.push(creatorAffil);
+    if (creatorAffil) {
+        creatorAffil.help = 'ROR (Research Organization Registry) URIs uniquely identify research organisations. Add to creators[].affiliation[] with name + affiliationIdentifier (the ROR URL) + affiliationIdentifierScheme=ROR.';
+        checks.push(creatorAffil);
+    }
+
+    var creatorNames = buildNameStructureCheck(d.creators, 'Creator', 0.5);
+    if (creatorNames) checks.push(creatorNames);
 
     var contribOrcid = buildOrcidCheck(d.contributors, 'Contributor', 0.75);
-    if (contribOrcid) checks.push(contribOrcid);
+    if (contribOrcid) {
+        contribOrcid.help = 'Contributors who are people should also have ORCID iDs. Same nameIdentifiers structure as creators.';
+        checks.push(contribOrcid);
+    }
 
     var contribAffil = buildAffiliationCheck(d.contributors, 'Contributor', 0.5);
-    if (contribAffil) checks.push(contribAffil);
+    if (contribAffil) {
+        contribAffil.help = 'Contributors\' affiliations benefit from ROR URIs the same way creators\' do.';
+        checks.push(contribAffil);
+    }
+
+    var contribNames = buildNameStructureCheck(d.contributors, 'Contributor', 0.25);
+    if (contribNames) checks.push(contribNames);
 
     // Publisher
     checks.push({
@@ -1328,7 +2026,8 @@ function getChecks(d) {
         status: d.publisher ? 'good' : 'bad',
         weight: 1,
         value: d.publisher || '',
-        note: d.publisher ? null : 'No publisher set.'
+        note: d.publisher ? null : 'No publisher set.',
+        help: 'The entity responsible for publishing/curating the dataset. For EarthBank records this is typically "AuScope EarthBank" or similar.'
     });
 
     // Publication year
@@ -1337,7 +2036,8 @@ function getChecks(d) {
         status: d.publicationYear ? 'good' : 'bad',
         weight: 1,
         value: String(d.publicationYear || ''),
-        note: d.publicationYear ? null : 'Missing publicationYear.'
+        note: d.publicationYear ? null : 'Missing publicationYear.',
+        help: 'Year the dataset was made publicly available. Required field. Note: this is distinct from the dates array (Created, Available, Updated, etc.).'
     });
 
     // Description
@@ -1348,36 +2048,52 @@ function getChecks(d) {
         status: hasAbstract ? 'good' : (hasAnyDesc ? 'warn' : 'bad'),
         weight: 1.5,
         value: d.descriptions.length + ' description(s)',
-        note: hasAbstract ? null : (hasAnyDesc ? 'Has descriptions but no Abstract type.' : 'No description provided.')
+        note: hasAbstract ? null : (hasAnyDesc ? 'Has descriptions but no Abstract type.' : 'No description provided.'),
+        help: 'Free-text description with descriptionType. Recognised types: Abstract (most important — used for discovery), Methods, TechnicalInfo, SeriesInformation, TableOfContents, Other.'
     });
 
-    // Subjects/keywords
+    // Subjects/keywords (presence)
     checks.push({
         name: 'Subjects / keywords',
         status: d.subjects.length >= 3 ? 'good' : (d.subjects.length > 0 ? 'warn' : 'bad'),
-        weight: 1,
+        weight: 0.75,
         value: d.subjects.length + ' subject(s)',
-        note: d.subjects.length === 0 ? 'No subjects/keywords for discoverability.' : (d.subjects.length < 3 ? 'Few keywords — consider adding more for discoverability.' : null)
+        note: d.subjects.length === 0 ? 'No subjects/keywords for discoverability.' : (d.subjects.length < 3 ? 'Few keywords — consider adding more for discoverability.' : null),
+        help: 'Topical keywords. Aim for at least three to support discovery. Quality of vocabulary keying is scored separately by "Subject vocabulary".'
     });
 
-    // Rights / licence
+    // Subject vocabulary (quality — only if subjects exist)
+    var subjectVocab = buildSubjectVocabularyCheck(d, 0.75);
+    if (subjectVocab) checks.push(subjectVocab);
+
+    // Rights / licence (presence)
     var hasRightsUri = d.rightsList.some(function(r) { return r.rightsUri || r.rightsURI || r.rightsIdentifier; });
     checks.push({
         name: 'Rights / licence',
         status: hasRightsUri ? 'good' : (d.rightsList.length > 0 ? 'warn' : 'bad'),
-        weight: 1.5,
+        weight: 0.75,
         value: d.rightsList.length > 0 ? (d.rightsList[0].rights || d.rightsList[0].rightsIdentifier || '(no text)') : '',
-        note: hasRightsUri ? null : (d.rightsList.length > 0 ? 'Rights text present but no licence URI.' : 'No licence/rights information.')
+        note: hasRightsUri ? null : (d.rightsList.length > 0 ? 'Rights text present but no licence URI.' : 'No licence/rights information.'),
+        help: 'rightsList must contain at least one entry. Quality of the licence URI (whether it points to a recognised registry) is scored separately by "Licence machine-readable".'
     });
 
-    // Funding
+    // Licence machine-readable (quality — only if rights exist)
+    var licenceQuality = buildLicenceQualityCheck(d, 0.75);
+    if (licenceQuality) checks.push(licenceQuality);
+
+    // Funding (presence)
     checks.push({
         name: 'Funding references',
         status: d.fundingReferences.length > 0 ? 'good' : 'warn',
-        weight: 0.75,
+        weight: 0.5,
         value: d.fundingReferences.length + ' funder(s)',
-        note: d.fundingReferences.length === 0 ? 'No funding attributed.' : null
+        note: d.fundingReferences.length === 0 ? 'No funding attributed.' : null,
+        help: 'fundingReferences with funderName + awardNumber attributes the work to grants. Identifier quality is scored separately by "Funder identifiers".'
     });
+
+    // Funder identifiers (quality — only if funding exists)
+    var funderIds = buildFunderIdentifierCheck(d, 0.5);
+    if (funderIds) checks.push(funderIds);
 
     // Related identifiers
     checks.push({
@@ -1385,7 +2101,8 @@ function getChecks(d) {
         status: d.relatedIdentifiers.length > 0 ? 'good' : 'warn',
         weight: 1.5,
         value: d.relatedIdentifiers.length + ' related ID(s)',
-        note: d.relatedIdentifiers.length === 0 ? 'No related publications/datasets linked — citation tracking depends on this.' : null
+        note: d.relatedIdentifiers.length === 0 ? 'No related publications/datasets linked — citation tracking depends on this.' : null,
+        help: 'Links to other DOIs with relations like IsCitedBy, IsSupplementTo, IsDescribedBy, IsPartOf, etc. Reciprocal citation linking and supplement-paper traversal both depend on these.'
     });
 
     // Geolocations
@@ -1394,7 +2111,8 @@ function getChecks(d) {
         status: d.geoLocations.length > 0 ? 'good' : 'warn',
         weight: 0.75,
         value: d.geoLocations.length + ' location(s)',
-        note: d.geoLocations.length === 0 ? 'No geographic coverage — typically expected for geoscience data.' : null
+        note: d.geoLocations.length === 0 ? 'No geographic coverage — typically expected for geoscience data.' : null,
+        help: 'Spatial extent — geoLocationPlace (text), geoLocationPoint (lat/lon), geoLocationBox (bounding box), or geoLocationPolygon. Helps spatial discovery in portals.'
     });
 
     // Dates
@@ -1403,7 +2121,8 @@ function getChecks(d) {
         status: d.dates.length > 0 ? 'good' : 'warn',
         weight: 0.5,
         value: d.dates.length + ' date(s)',
-        note: d.dates.length === 0 ? 'Only publicationYear set — consider adding Created / Available dates.' : null
+        note: d.dates.length === 0 ? 'Only publicationYear set — consider adding Created / Available dates.' : null,
+        help: 'Beyond publicationYear, the dates array tracks lifecycle events with dateType: Created, Available, Updated, Submitted, Issued, Accepted, Valid, Withdrawn, Collected, Copyrighted.'
     });
 
     // Language
@@ -1412,7 +2131,8 @@ function getChecks(d) {
         status: d.language ? 'good' : 'warn',
         weight: 0.25,
         value: d.language || '',
-        note: d.language ? null : 'No language specified.'
+        note: d.language ? null : 'No language specified.',
+        help: 'IETF BCP 47 language tag, e.g., "en" or "en-AU". For datasets without natural-language content, "en" is the conventional choice.'
     });
 
     // Sizes / formats
@@ -1422,7 +2142,8 @@ function getChecks(d) {
         status: (d.sizes.length > 0 && d.formats.length > 0) ? 'good' : (hasSizeOrFmt ? 'warn' : 'warn'),
         weight: 0.5,
         value: d.sizes.length + ' sizes, ' + d.formats.length + ' formats',
-        note: hasSizeOrFmt ? null : 'No size or format information.'
+        note: hasSizeOrFmt ? null : 'No size or format information.',
+        help: 'sizes (e.g., "300 KB") and formats (e.g., "text/csv", "application/zip", "CSV") help downstream consumers know what they\'re downloading.'
     });
 
     return checks;
@@ -1451,7 +2172,17 @@ function buildSearchBlob(d) {
         bits.push(c.orcid);
         (c.affiliation || []).forEach(function(a) { bits.push(a.name); bits.push(a.id); });
     });
-    d.subjects.forEach(function(s) { bits.push(s.subject); });
+    d.subjects.forEach(function(s) {
+        bits.push(s.subject);
+        bits.push(s.subjectScheme);
+        bits.push(s.valueUri);
+    });
+    (d.fundingReferences || []).forEach(function(f) {
+        bits.push(f.funderName);
+        bits.push(f.funderIdentifier);
+        bits.push(f.awardNumber);
+        bits.push(f.awardTitle);
+    });
     d.descriptions.forEach(function(dd) { bits.push(dd.description); });
     d._search = bits.filter(Boolean).join(' ').toLowerCase();
     return d._search;
@@ -1470,6 +2201,7 @@ function visibleDatasets() {
         }
         if (f.year && String(d.publicationYear || '') !== f.year) return false;
         if (f.issuesOnly && d.mapping.score >= 80) return false;
+        if (state.fleetFilter && !state.fleetFilter.predicate(d)) return false;
         return true;
     });
 
@@ -1487,6 +2219,123 @@ function visibleDatasets() {
         return 0;
     });
     return list;
+}
+
+// ============================================================
+// FLEET SUMMARY
+// ============================================================
+// Compute fleet stats over the same record set the table sees, but excluding
+// the fleet filter itself — otherwise clicking an item would shrink the panel
+// it's clicked from. Type/year/search filters DO apply, so the panel respects
+// what the user is currently looking at.
+function computeFleetStats() {
+    var f = state.filter;
+    var contextRecords = state.datasets.filter(function(d) {
+        if (f.search && buildSearchBlob(d).indexOf(f.search) === -1) return false;
+        if (f.type) {
+            if (f.type === 'Other') {
+                if (d.resourceTypeGeneral === 'Dataset' || d.resourceTypeGeneral === 'PhysicalObject') return false;
+            } else {
+                if (d.resourceTypeGeneral !== f.type) return false;
+            }
+        }
+        if (f.year && String(d.publicationYear || '') !== f.year) return false;
+        if (f.issuesOnly && d.mapping.score >= 80) return false;
+        return true;
+    });
+
+    var sections = fleetCategories.map(function(s) {
+        return {
+            section: s.section,
+            items: s.items.map(function(item) {
+                return {
+                    id: item.id,
+                    label: item.label,
+                    count: contextRecords.filter(item.predicate).length
+                };
+            })
+        };
+    });
+
+    return { total: contextRecords.length, sections: sections };
+}
+
+function renderFleetPanel() {
+    var grid = document.querySelector('.fleet-grid');
+    var contextEl = document.querySelector('.fleet-context');
+    if (!grid) return;
+    if (state.datasets.length === 0) {
+        grid.innerHTML = '';
+        if (contextEl) contextEl.textContent = '';
+        return;
+    }
+
+    var stats = computeFleetStats();
+    var f = state.filter;
+    var anyFilterActive = !!(f.search || f.type || f.year || f.issuesOnly);
+    if (contextEl) {
+        contextEl.textContent = '· ' + stats.total + ' records'
+            + (anyFilterActive ? ' (filtered)' : '')
+            + ' · click any line to filter the table';
+    }
+
+    var html = '';
+    stats.sections.forEach(function(section) {
+        html += '<div class="fleet-section">';
+        html += '<h4>' + escapeHtml(section.section) + '</h4>';
+        section.items.forEach(function(item) {
+            var isActive = state.fleetFilter && state.fleetFilter.id === item.id;
+            var isZero = item.count === 0;
+            var classes = 'fleet-item';
+            if (isActive) classes += ' active';
+            if (isZero) classes += ' zero';
+            html += '<div class="' + classes + '" data-fleet-id="' + escapeAttr(item.id) + '">'
+                + '<span class="count">' + item.count + '</span>'
+                + '<span class="label">' + escapeHtml(item.label) + '</span>'
+                + '</div>';
+        });
+        html += '</div>';
+    });
+    grid.innerHTML = html;
+}
+
+function bindFleetClicks() {
+    var grid = document.querySelector('.fleet-grid');
+    if (!grid) return;
+    grid.addEventListener('click', function(e) {
+        var item = e.target.closest('.fleet-item');
+        if (!item || item.classList.contains('zero')) return;
+        toggleFleetFilter(item.getAttribute('data-fleet-id'));
+    });
+}
+
+function toggleFleetFilter(id) {
+    if (state.fleetFilter && state.fleetFilter.id === id) {
+        state.fleetFilter = null;
+    } else {
+        var found = null;
+        for (var i = 0; i < fleetCategories.length && !found; i++) {
+            for (var j = 0; j < fleetCategories[i].items.length; j++) {
+                if (fleetCategories[i].items[j].id === id) {
+                    found = fleetCategories[i].items[j];
+                    break;
+                }
+            }
+        }
+        if (found) {
+            state.fleetFilter = { id: found.id, label: found.label, predicate: found.predicate };
+            var panel = document.getElementById('fleet-panel');
+            if (panel) panel.open = true;
+        }
+    }
+    renderFleetPanel();
+    renderTable();
+}
+
+function clearFleetFilter() {
+    state.fleetFilter = null;
+    renderFleetPanel();
+    renderTable();
 }
 
 // ============================================================
@@ -1545,7 +2394,15 @@ function setBody(html) {
 function renderTable() {
     updateHeaderArrows();
     var visible = visibleDatasets();
-    document.getElementById('result-count').textContent = visible.length + (visible.length === state.datasets.length ? '' : ' of ' + state.datasets.length) + ' datasets';
+    var resultEl = document.getElementById('result-count');
+    var msg = visible.length + (visible.length === state.datasets.length ? '' : ' of ' + state.datasets.length) + ' datasets';
+    if (state.fleetFilter) {
+        msg += '<span class="fleet-filter-chip">' + escapeHtml(state.fleetFilter.label)
+            + ' <button onclick="clearFleetFilter()" title="Clear fleet filter">×</button></span>';
+    }
+    resultEl.innerHTML = msg;
+
+    renderFleetPanel();
 
     if (visible.length === 0) {
         setBody('<tr><td colspan="8" class="empty-state">No datasets match the current filters.</td></tr>');
@@ -1675,12 +2532,25 @@ function toggleDetail(doi) {
 // DETAIL PANEL
 // ============================================================
 function renderDetailRow(d) {
+    // Show the cached reciprocity gap count on the Citations tab, if we've loaded it before
+    var citCache = state.citationCache[d.doi];
+    var citTabBadge;
+    if (citCache && citCache.reciprocity) {
+        var r = citCache.reciprocity;
+        var gapBadge = r.gaps > 0
+            ? '<span class="badge-count gap-count">' + r.gaps + ' gap' + (r.gaps === 1 ? '' : 's') + '</span>'
+            : '';
+        citTabBadge = '<span class="badge-count">' + r.total + '</span>' + gapBadge;
+    } else {
+        citTabBadge = '<span class="badge-count">' + (typeof d.citationCount === 'number' ? d.citationCount : '…') + '</span>';
+    }
+
     return '<tr class="detail-row"><td colspan="8"><div class="detail" data-doi="' + escapeAttr(d.doi) + '">'
         + '<div class="detail-tabs">'
             + '<button class="detail-tab active" data-pane="overview">Overview</button>'
             + '<button class="detail-tab" data-pane="mapping">Mapping check <span class="badge-count">' + d.mapping.score + '%</span></button>'
             + '<button class="detail-tab" data-pane="related">Related <span class="badge-count">' + d.relatedIdentifiers.length + '</span></button>'
-            + '<button class="detail-tab" data-pane="citations">Citations <span class="badge-count">' + (typeof d.citationCount === 'number' ? d.citationCount : '…') + '</span></button>'
+            + '<button class="detail-tab" data-pane="citations">Citations ' + citTabBadge + '</button>'
             + '<button class="detail-tab" data-pane="raw">Raw JSON</button>'
         + '</div>'
         + '<div class="detail-pane active" data-pane="overview">' + renderOverviewPane(d) + '</div>'
@@ -1708,7 +2578,8 @@ function bindDetailTabs() {
             var pane = detail.querySelector('.detail-pane[data-pane="citations"]');
             if (pane && pane.getAttribute('data-loaded') !== 'true') {
                 var doi = detail.getAttribute('data-doi');
-                loadCitationsInto(doi, pane);
+                var dataset = state.datasets.find(function(x) { return x.doi === doi; });
+                loadCitationsInto(dataset, pane);
                 pane.setAttribute('data-loaded', 'true');
             }
         }
@@ -1730,6 +2601,54 @@ function renderAffiliationList(affs) {
         return '<span class="affil">' + escapeHtml(a.name || '(unnamed)') + ' ' + badge + '</span>';
     }).join(' ');
     return '<span style="color:var(--text-muted);font-size:11px;"> · </span>' + html;
+}
+
+function renderFunderIdBadge(f) {
+    if (!f.funderIdentifier) {
+        return '<span class="scheme-badge scheme-missing" title="No funderIdentifier — plain text only, not machine-readable">no URI</span>';
+    }
+    var type = (f.funderIdentifierType || '').toUpperCase();
+    if (type === 'ROR') {
+        return '<a href="' + escapeAttr(f.funderIdentifier) + '" target="_blank" rel="noopener" class="ror-link" title="ROR: ' + escapeAttr(f.funderIdentifier) + '"><img src="assets/ror-logo.png" class="ror-icon" alt="ROR" data-fallback="ror"></a>';
+    }
+    if (type === 'CROSSREF FUNDER ID' || type === 'CROSSREF') {
+        return '<a href="' + escapeAttr(f.funderIdentifier) + '" target="_blank" rel="noopener" class="scheme-badge scheme-known" title="Crossref Funder ID: ' + escapeAttr(f.funderIdentifier) + '">Crossref</a>';
+    }
+    var label = f.funderIdentifierType || 'ID';
+    return '<a href="' + escapeAttr(f.funderIdentifier) + '" target="_blank" rel="noopener" class="scheme-badge scheme-other" title="' + escapeAttr((f.funderIdentifierType || 'Identifier') + ': ' + f.funderIdentifier) + '">' + escapeHtml(label) + '</a>';
+}
+
+function renderSubjectChip(s) {
+    var term = escapeHtml(s.subject || '(blank)');
+    var detected = detectSubjectScheme(s);
+    var hasValueUri = !!s.valueUri;
+
+    // Term link (or plain text)
+    var termHtml;
+    if (hasValueUri) {
+        termHtml = '<a href="' + escapeAttr(s.valueUri) + '" target="_blank" rel="noopener" class="term-link" title="Resolve to vocabulary entry">' + term + '</a>';
+    } else {
+        termHtml = term;
+    }
+
+    // Scheme badge
+    var badgeHtml;
+    if (detected) {
+        var tipParts = [];
+        if (s.subjectScheme) tipParts.push('Scheme: ' + s.subjectScheme);
+        if (s.schemeUri) tipParts.push(s.schemeUri);
+        if (s.valueUri) tipParts.push('Value: ' + s.valueUri);
+        var tip = tipParts.join(' · ');
+        if (s.schemeUri) {
+            badgeHtml = '<a href="' + escapeAttr(s.schemeUri) + '" target="_blank" rel="noopener" class="scheme-badge ' + detected.class + '" title="' + escapeAttr(tip) + '">' + escapeHtml(detected.label) + '</a>';
+        } else {
+            badgeHtml = '<span class="scheme-badge ' + detected.class + '" title="' + escapeAttr(tip) + '">' + escapeHtml(detected.label) + '</span>';
+        }
+    } else {
+        badgeHtml = '<span class="scheme-badge scheme-missing" title="No subjectScheme — plain text only, not machine-readable">no scheme</span>';
+    }
+
+    return '<span class="subject">' + termHtml + badgeHtml + '</span>';
 }
 
 // ----- Overview pane -----
@@ -1758,10 +2677,7 @@ function renderOverviewPane(d) {
 
     var subjects = d.subjects.length === 0
         ? '<span class="empty">none</span>'
-        : d.subjects.map(function(s) {
-            var schemeLabel = s.subjectScheme ? ' <span style="color:var(--text-muted);font-size:10px">(' + escapeHtml(s.subjectScheme) + ')</span>' : '';
-            return '<span class="subject">' + escapeHtml(s.subject) + schemeLabel + '</span>';
-        }).join('');
+        : d.subjects.map(renderSubjectChip).join('');
 
     var descriptions = d.descriptions.length === 0
         ? '<span class="empty">none</span>'
@@ -1772,19 +2688,42 @@ function renderOverviewPane(d) {
     var rights = d.rightsList.length === 0
         ? '<span class="empty">not specified</span>'
         : d.rightsList.map(function(r) {
+            var detected = detectLicence(r);
+            var displayName = r.rights || r.rightsIdentifier
+                || (detected && detected.label !== 'custom URI' ? detected.label : '(unknown)');
             var uri = r.rightsUri || r.rightsURI || '';
-            var name = r.rights || r.rightsIdentifier || uri || '(unknown)';
-            return uri ? '<a href="' + escapeAttr(uri) + '" target="_blank" rel="noopener">' + escapeHtml(name) + '</a>' : escapeHtml(name);
-        }).join('; ');
+            var nameHtml = uri
+                ? '<a href="' + escapeAttr(uri) + '" target="_blank" rel="noopener">' + escapeHtml(displayName) + '</a>'
+                : escapeHtml(displayName);
+            var badge;
+            if (detected && detected.known) {
+                badge = '<span class="scheme-badge scheme-known" title="Recognised licence registry">' + escapeHtml(detected.label) + '</span>';
+            } else if (detected) {
+                badge = '<span class="scheme-badge scheme-other" title="URI present but not from a recognised licence registry (CC, SPDX, OSI, ODC)">custom URI</span>';
+            } else {
+                badge = '<span class="scheme-badge scheme-missing" title="No rightsUri — plain text only, not machine-readable">no URI</span>';
+            }
+            return '<div style="margin-bottom:3px;">' + nameHtml + ' ' + badge + '</div>';
+        }).join('');
 
     var funding = d.fundingReferences.length === 0
         ? '<span class="empty">none</span>'
         : d.fundingReferences.map(function(f) {
-            var bits = [];
-            if (f.funderName) bits.push('<strong>' + escapeHtml(f.funderName) + '</strong>');
-            if (f.awardNumber) bits.push(escapeHtml(f.awardNumber));
-            if (f.awardTitle) bits.push('<em>' + escapeHtml(f.awardTitle) + '</em>');
-            return '<div style="margin-bottom:3px;">' + bits.join(' — ') + '</div>';
+            var nameHtml = f.funderName
+                ? '<strong>' + escapeHtml(f.funderName) + '</strong>'
+                : '<span class="empty">unnamed funder</span>';
+            var idBadge = renderFunderIdBadge(f);
+            var awardParts = [];
+            if (f.awardNumber) {
+                if (f.awardUri) {
+                    awardParts.push('<a href="' + escapeAttr(f.awardUri) + '" target="_blank" rel="noopener">' + escapeHtml(f.awardNumber) + '</a>');
+                } else {
+                    awardParts.push(escapeHtml(f.awardNumber));
+                }
+            }
+            if (f.awardTitle) awardParts.push('<em>' + escapeHtml(f.awardTitle) + '</em>');
+            var awardHtml = awardParts.length > 0 ? ' — ' + awardParts.join(' — ') : '';
+            return '<div style="margin-bottom:3px;">' + nameHtml + ' ' + idBadge + awardHtml + '</div>';
         }).join('');
 
     var geo = d.geoLocations.length === 0
@@ -1813,10 +2752,18 @@ function renderOverviewPane(d) {
     if (d.sizes.length === 0 && d.formats.length === 0) {
         sizesFormats = '<span class="empty">none</span>';
     } else {
-        var parts = [];
-        if (d.sizes.length > 0) parts.push('<span style="color:var(--text-muted);font-size:11px;">Sizes:</span> ' + d.sizes.map(escapeHtml).join(', '));
-        if (d.formats.length > 0) parts.push('<span style="color:var(--text-muted);font-size:11px;">Formats:</span> ' + d.formats.map(escapeHtml).join(', '));
-        sizesFormats = parts.join(' · ');
+        var sfParts = [];
+        if (d.sizes.length > 0) {
+            sfParts.push('<div style="margin-bottom:3px;"><span style="color:var(--text-muted);font-size:11px;margin-right:4px;">Sizes:</span>'
+                + d.sizes.map(function(s) { return '<span class="subject">' + escapeHtml(s) + '</span>'; }).join('')
+                + '</div>');
+        }
+        if (d.formats.length > 0) {
+            sfParts.push('<div><span style="color:var(--text-muted);font-size:11px;margin-right:4px;">Formats:</span>'
+                + d.formats.map(function(s) { return '<span class="subject">' + escapeHtml(s) + '</span>'; }).join('')
+                + '</div>');
+        }
+        sizesFormats = sfParts.join('');
     }
 
     // Title(s) — show all titles in the array (DataCite supports Title, Subtitle, AlternativeTitle, TranslatedTitle)
@@ -1890,10 +2837,11 @@ function renderMappingPane(d) {
     html += '<ul class="check-list">';
     checks.forEach(function(c) {
         var icon = c.status === 'good' ? '✓' : (c.status === 'warn' ? '!' : '✗');
+        var nameWithTip = escapeHtml(c.name) + (c.help ? infoTip(c.help) : '');
         html += '<li class="check ' + c.status + '">'
             + '<div class="icon">' + icon + '</div>'
             + '<div class="body">'
-                + '<div class="name">' + escapeHtml(c.name) + '</div>'
+                + '<div class="name">' + nameWithTip + '</div>'
                 + (c.value ? '<div class="value">' + escapeHtml(String(c.value).substring(0, 200)) + '</div>' : '')
                 + (c.note ? '<div class="note">' + escapeHtml(c.note) + '</div>' : '')
             + '</div>'
@@ -1931,7 +2879,25 @@ function renderRelatedPane(d) {
 }
 
 // ----- Citations pane (lazy) -----
-async function loadCitationsInto(doi, pane) {
+// Relations from a dataset's relatedIdentifiers that imply a paper-cites-dataset link.
+// IsCitedBy is the canonical reciprocal of "Cites"; the others are stronger relations
+// (a paper that supplements/describes/documents a dataset inevitably cites it).
+var CITING_RELATIONS = ['IsCitedBy', 'IsReferencedBy', 'IsSupplementTo', 'IsDescribedBy', 'IsDocumentedBy'];
+
+async function loadCitationsInto(d, pane) {
+    if (!d) {
+        pane.innerHTML = '<div class="empty-state" style="color:var(--bad)">Dataset not found.</div>';
+        return;
+    }
+    var doi = d.doi;
+
+    // Cache hit — render instantly, no network round-trip
+    var cached = state.citationCache[doi];
+    if (cached && cached.fullCitations && cached.reciprocity) {
+        renderCitationsPane(d, cached.fullCitations, cached.reciprocity, cached.sources || {}, pane);
+        return;
+    }
+
     pane.innerHTML = '<div class="empty-state"><span class="spinner"></span> Querying DataCite, OpenCitations, and OpenAlex…</div>';
     try {
         var results = await Promise.allSettled([
@@ -1944,12 +2910,13 @@ async function loadCitationsInto(doi, pane) {
         var oc = fb(results[1], 'opencitations');
         var oa = fb(results[2], 'openalex');
 
+        // Merge external citations across sources
         var map = {};
         function add(res, src) {
             res.citations.forEach(function(c) {
                 var key = c.doi || ('notitle_' + (c.title || '').toLowerCase().substring(0, 50));
                 if (!map[key]) {
-                    map[key] = { doi: c.rawDoi, authors: c.authors, year: c.year, title: c.title, journal: c.journal, sources: [src] };
+                    map[key] = { doi: c.rawDoi, normDoi: normaliseDoi(c.doi || c.rawDoi), authors: c.authors, year: c.year, title: c.title, journal: c.journal, sources: [src] };
                 } else {
                     map[key].sources.push(src);
                     if (c.authors && c.authors.length > (map[key].authors || '').length) map[key].authors = c.authors;
@@ -1962,46 +2929,278 @@ async function loadCitationsInto(doi, pane) {
         add(datacite, 'datacite');
         add(oc, 'opencitations');
         add(oa, 'openalex');
+        var merged = Object.values(map);
 
-        var merged = Object.values(map).sort(function(a, b) { return (b.year || 0) - (a.year || 0); });
+        var analysis = analyseReciprocity(d, merged);
+        merged = analysis.merged;
+        var stats = analysis.stats;
 
-        // Cache
+        // Cache for fast re-render and badge persistence
         state.citationCache[doi] = state.citationCache[doi] || {};
         state.citationCache[doi].fullCitations = merged;
         state.citationCache[doi].sources = { datacite: datacite, opencitations: oc, openalex: oa };
+        state.citationCache[doi].reciprocity = stats;
 
-        var html = '<div class="cit-toolbar">';
-        html += '<div class="source-summary">'
-            + renderSrcChip('DataCite', datacite)
-            + renderSrcChip('OpenCitations', oc)
-            + renderSrcChip('OpenAlex', oa)
-            + '</div>';
-        html += '<div style="font-size:12px;color:var(--text-soft);"><strong>' + merged.length + '</strong> unique citation' + (merged.length === 1 ? '' : 's') + '</div>';
-        html += '</div>';
-
-        if (merged.length === 0) {
-            html += '<div class="empty-state">No citations found across any source.</div>';
-        } else {
-            html += '<ul class="citation-list">';
-            merged.forEach(function(c, idx) {
-                var srcTags = c.sources.map(function(s) { return '<span class="source-tag tag-' + s + '">' + s + '</span>'; }).join('');
-                var doiLink = c.doi && c.doi !== 'N/A' ? '<a href="https://doi.org/' + escapeAttr(c.doi) + '" target="_blank" rel="noopener">' + escapeHtml(c.doi) + '</a>' : '<span style="color:var(--text-muted)">no DOI</span>';
-                html += '<li class="citation-item">'
-                    + '<div class="title">' + (idx + 1) + '. ' + escapeHtml(fixEncoding(c.title || 'Untitled')) + '<span class="sources">' + srcTags + '</span></div>'
-                    + '<div class="meta">'
-                    + escapeHtml(fixEncoding(c.authors || 'Unknown')) + ' · '
-                    + (c.year || '?') + ' · '
-                    + (c.journal && c.journal !== 'N/A' ? escapeHtml(fixEncoding(c.journal)) + ' · ' : '')
-                    + doiLink
-                    + '</div>'
-                + '</li>';
-            });
-            html += '</ul>';
-        }
-
-        pane.innerHTML = html;
+        renderCitationsPane(d, merged, stats, { datacite: datacite, opencitations: oc, openalex: oa }, pane);
     } catch (e) {
         pane.innerHTML = '<div class="empty-state" style="color:var(--bad)">Error loading citations: ' + escapeHtml(e.message) + '</div>';
+    }
+}
+
+// Build an info "(i)" icon with a hover tooltip. Use sparingly — only where
+// a one-line explanation genuinely helps the reader understand a DataCite
+// concept or page-specific term.
+function infoTip(text) {
+    return ' <span class="info-i" data-tip="' + escapeAttr(text) + '">i</span>';
+}
+
+// Compute reciprocity status for a list of merged external citations against
+// the dataset's declared relatedIdentifiers. Returns { merged, stats }.
+//
+// The "gap" state is split into two sub-states based on whether DataCite is
+// already aware of the citation via auto-discovery (typically Crossref
+// reference data). This matters because:
+//   - "echo gap" (gap-known): DataCite knows the link, dataset record doesn't
+//     echo it. Adding IsCitedBy here is a self-description improvement, but
+//     the citation is already discoverable via the global graph.
+//   - "novel gap" (gap-novel): only OpenCitations / OpenAlex have the link.
+//     Adding IsCitedBy here actually contributes new information to DataCite.
+function analyseReciprocity(d, merged) {
+    var declared = (d.relatedIdentifiers || [])
+        .filter(function(r) {
+            return CITING_RELATIONS.indexOf(r.relationType) >= 0
+                && (r.relatedIdentifierType || '').toUpperCase() === 'DOI'
+                && r.relatedIdentifier;
+        })
+        .map(function(r) {
+            return {
+                doi: normaliseDoi(r.relatedIdentifier),
+                rawDoi: r.relatedIdentifier,
+                relationType: r.relationType
+            };
+        });
+    var declaredMap = {};
+    declared.forEach(function(x) { if (x.doi) declaredMap[x.doi] = x; });
+
+    // Tag external citations
+    var externalDoiSet = {};
+    merged.forEach(function(c) { if (c.normDoi) externalDoiSet[c.normDoi] = true; });
+    merged.forEach(function(c) {
+        if (!c.normDoi) { c.reciprocity = 'no-doi'; return; }
+        if (declaredMap[c.normDoi]) {
+            c.reciprocity = 'declared';
+            c.declaredRelation = declaredMap[c.normDoi].relationType;
+        } else {
+            // Split based on whether DataCite is already a source for this citation.
+            // If yes → DataCite's graph already has it via Crossref/auto-discovery,
+            // so the dataset record just hasn't echoed it. If no → only external
+            // sources know about it; adding IsCitedBy adds new information to DataCite.
+            if (c.sources && c.sources.indexOf('datacite') >= 0) {
+                c.reciprocity = 'gap-known';
+            } else {
+                c.reciprocity = 'gap-novel';
+            }
+        }
+    });
+
+    // Add declared-only entries
+    declared.forEach(function(x) {
+        if (x.doi && !externalDoiSet[x.doi]) {
+            merged.push({
+                doi: x.rawDoi,
+                normDoi: x.doi,
+                title: '(declared in DataCite — not yet confirmed by external citation index)',
+                authors: 'Unknown',
+                year: null,
+                journal: 'N/A',
+                sources: [],
+                reciprocity: 'declared-only',
+                declaredRelation: x.relationType
+            });
+        }
+    });
+
+    // Sort: novel gaps first (highest curation value), then echo gaps,
+    // then declared, then declared-only, then no-doi. Year-desc within each band.
+    var rank = { 'gap-novel': 0, 'gap-known': 1, 'declared': 2, 'declared-only': 3, 'no-doi': 4 };
+    merged.sort(function(a, b) {
+        var ra = rank[a.reciprocity] !== undefined ? rank[a.reciprocity] : 99;
+        var rb = rank[b.reciprocity] !== undefined ? rank[b.reciprocity] : 99;
+        if (ra !== rb) return ra - rb;
+        return (b.year || 0) - (a.year || 0);
+    });
+
+    // Stats
+    var stats = {
+        total: merged.length, external: 0, declared: 0,
+        gaps: 0, gapsNovel: 0, gapsKnown: 0,
+        declaredOnly: 0, noDoi: 0, totalDeclared: 0
+    };
+    merged.forEach(function(c) {
+        if (c.reciprocity === 'declared') stats.declared++;
+        else if (c.reciprocity === 'gap-novel') { stats.gaps++; stats.gapsNovel++; }
+        else if (c.reciprocity === 'gap-known') { stats.gaps++; stats.gapsKnown++; }
+        else if (c.reciprocity === 'declared-only') stats.declaredOnly++;
+        else if (c.reciprocity === 'no-doi') stats.noDoi++;
+    });
+    stats.external = stats.declared + stats.gaps + stats.noDoi;
+    stats.totalDeclared = stats.declared + stats.declaredOnly;
+
+    return { merged: merged, stats: stats };
+}
+
+function renderCitationsPane(d, merged, stats, sources, pane) {
+    var html = '';
+    html += renderReciprocityBanner(stats, d.doi);
+
+    html += '<div class="cit-toolbar">';
+    html += '<div class="source-summary">'
+        + renderSrcChip('DataCite', sources.datacite || { citations: [] })
+        + renderSrcChip('OpenCitations', sources.opencitations || { citations: [] })
+        + renderSrcChip('OpenAlex', sources.openalex || { citations: [] })
+        + '</div>';
+    html += '<div style="font-size:12px;color:var(--text-soft);"><strong>' + merged.length + '</strong> entr' + (merged.length === 1 ? 'y' : 'ies') + ' total</div>';
+    html += '</div>';
+
+    if (merged.length === 0) {
+        html += '<div class="empty-state">No citations found across any source, and no relatedIdentifiers declared in the DataCite record.</div>';
+    } else {
+        html += '<ul class="citation-list">';
+        merged.forEach(function(c, idx) { html += renderCitationItem(c, idx); });
+        html += '</ul>';
+    }
+
+    pane.innerHTML = html;
+
+    // Wire up "Copy gap DOIs" button
+    var copyBtn = pane.querySelector('.copy-gaps-btn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            var gapDois = merged.filter(function(c) { return c.reciprocity === 'gap'; })
+                                .map(function(c) { return c.doi || c.normDoi; })
+                                .filter(Boolean);
+            copyToClipboard(gapDois.join('\n'));
+            showToast(gapDois.length + ' gap DOI' + (gapDois.length === 1 ? '' : 's') + ' copied — paste as IsCitedBy relations in DataCite');
+        });
+    }
+
+    updateCitationTabBadge(d.doi, stats);
+}
+
+function renderReciprocityBanner(stats, doi) {
+    if (stats.total === 0) return '';
+    var bannerCls;
+    var headline;
+    if (stats.gaps === 0 && stats.external > 0) {
+        bannerCls = 'good';
+        headline = '✓ All discovered citations are declared in DataCite.';
+    } else if (stats.gapsNovel > 0) {
+        bannerCls = 'warn';
+        headline = stats.gapsNovel + ' citation' + (stats.gapsNovel === 1 ? '' : 's') + ' found only in external sources — DataCite\'s graph doesn\'t have ' + (stats.gapsNovel === 1 ? 'this link' : 'these links') + ' yet.';
+    } else if (stats.gapsKnown > 0) {
+        bannerCls = 'warn';
+        headline = stats.gapsKnown + ' citation' + (stats.gapsKnown === 1 ? '' : 's') + ' already in DataCite — declaring IsCitedBy in this record would echo ' + (stats.gapsKnown === 1 ? 'it' : 'them') + '.';
+    } else {
+        bannerCls = 'neutral';
+        headline = stats.declaredOnly + ' relation' + (stats.declaredOnly === 1 ? '' : 's') + ' declared in DataCite — no external citation source has confirmed yet.';
+    }
+
+    var html = '<div class="recip-banner ' + bannerCls + '">';
+    html += '<div>';
+    html += '<span class="recip-headline">' + escapeHtml(headline) + '</span>';
+    html += '<div class="recip-pills">';
+    if (stats.external > 0) {
+        html += '<span class="recip-pill"><strong>' + stats.external + '</strong> found externally'
+            + infoTip('Citations to this dataset that DataCite, OpenCitations, or OpenAlex have indexed. DataCite picks up citations automatically when the citing paper (registered with Crossref) declares the dataset DOI in its references.')
+            + '</span>';
+    }
+    html += '<span class="recip-pill"><strong>' + stats.totalDeclared + '</strong> declared in DataCite'
+        + infoTip('Relations in this dataset\'s relatedIdentifiers array. Counted relations: IsCitedBy, IsReferencedBy, IsSupplementTo, IsDescribedBy, IsDocumentedBy.')
+        + '</span>';
+    if (stats.gapsNovel > 0) {
+        html += '<span class="recip-pill gap"><strong>' + stats.gapsNovel + '</strong> novel gap' + (stats.gapsNovel === 1 ? '' : 's')
+            + infoTip('Citation only OpenCitations or OpenAlex know about — DataCite doesn\'t have the link in its citation graph. Adding IsCitedBy to this dataset record contributes new information to the global graph.')
+            + '</span>';
+    }
+    if (stats.gapsKnown > 0) {
+        html += '<span class="recip-pill gap-known"><strong>' + stats.gapsKnown + '</strong> echo gap' + (stats.gapsKnown === 1 ? '' : 's')
+            + infoTip('Citation DataCite already discovered (typically because the citing paper declared the reference in Crossref). Adding IsCitedBy to this record echoes information that already exists in the citation graph — useful for self-description but not strictly necessary.')
+            + '</span>';
+    }
+    if (stats.declaredOnly > 0) {
+        html += '<span class="recip-pill info"><strong>' + stats.declaredOnly + '</strong> declared only'
+            + infoTip('Relations declared in this record\'s relatedIdentifiers array that no external citation index has confirmed yet. Either the citing work is too recent to be indexed, or the relation may need verification.')
+            + '</span>';
+    }
+    if (stats.noDoi > 0) {
+        html += '<span class="recip-pill info"><strong>' + stats.noDoi + '</strong> no DOI'
+            + infoTip('Citation found without a DOI — reciprocity cannot be determined automatically.')
+            + '</span>';
+    }
+    html += '</div></div>';
+    if (stats.gaps > 0) {
+        html += '<button class="copy-gaps-btn" data-doi="' + escapeAttr(doi) + '" data-tip="Copies all gap DOIs to clipboard, novel gaps first. Paste into DataCite Fabrica as IsCitedBy relations.">Copy ' + stats.gaps + ' gap DOI' + (stats.gaps === 1 ? '' : 's') + '</button>';
+    }
+    html += '</div>';
+    return html;
+}
+
+function renderCitationItem(c, idx) {
+    var srcTags = (c.sources || []).map(function(s) {
+        return '<span class="source-tag tag-' + s + '">' + s + '</span>';
+    }).join('');
+    var doiLink = c.doi && c.doi !== 'N/A'
+        ? '<a href="https://doi.org/' + escapeAttr(c.doi) + '" target="_blank" rel="noopener">' + escapeHtml(c.doi) + '</a>'
+        : '<span style="color:var(--text-muted)">no DOI</span>';
+
+    var recipBadge = '';
+    var relText = c.declaredRelation
+        ? '<span class="relation">(' + escapeHtml(c.declaredRelation) + ')</span>'
+        : '';
+    if (c.reciprocity === 'declared') {
+        recipBadge = '<span class="recip-badge declared" data-tip="Reciprocally declared: external citation sources found this paper, and this dataset\'s relatedIdentifiers array also declares the link as ' + escapeAttr(c.declaredRelation || 'related') + '.">↔ declared ' + relText + '</span>';
+    } else if (c.reciprocity === 'gap-novel') {
+        recipBadge = '<span class="recip-badge gap" data-tip="Found only in OpenCitations / OpenAlex. DataCite\'s citation graph doesn\'t have this link yet. Declaring IsCitedBy for this DOI in the dataset record adds new information to DataCite.">⚠ novel gap</span>';
+    } else if (c.reciprocity === 'gap-known') {
+        recipBadge = '<span class="recip-badge gap-known" data-tip="DataCite already has this citation discovered (typically via Crossref reference data on the citing paper). Adding IsCitedBy in this record echoes information that\'s already in the global graph — improves self-description but lower priority than novel gaps.">⚠ echo gap</span>';
+    } else if (c.reciprocity === 'declared-only') {
+        recipBadge = '<span class="recip-badge declared-only" data-tip="Declared in this record\'s relatedIdentifiers as ' + escapeAttr(c.declaredRelation || 'related') + ', but no external citation index has confirmed it yet. Either the citing work is too recent to index, or the relation may need verification.">○ declared only ' + relText + '</span>';
+    } else if (c.reciprocity === 'no-doi') {
+        recipBadge = '<span class="recip-badge no-doi" data-tip="No DOI available — reciprocity cannot be determined automatically.">no DOI</span>';
+    }
+
+    var itemClass = 'citation-item';
+    if (c.reciprocity === 'gap-novel') itemClass += ' is-gap-novel';
+    else if (c.reciprocity === 'gap-known') itemClass += ' is-gap-known';
+    else if (c.reciprocity === 'declared-only') itemClass += ' is-declared-only';
+
+    return '<li class="' + itemClass + '">'
+        + '<div class="cit-status">' + recipBadge + '</div>'
+        + '<div class="cit-body">'
+        + '<div class="title">' + (idx + 1) + '. ' + escapeHtml(fixEncoding(c.title || 'Untitled')) + (srcTags ? '<span class="sources">' + srcTags + '</span>' : '') + '</div>'
+        + '<div class="meta">'
+        + escapeHtml(fixEncoding(c.authors || 'Unknown')) + ' · '
+        + (c.year || '?') + ' · '
+        + (c.journal && c.journal !== 'N/A' ? escapeHtml(fixEncoding(c.journal)) + ' · ' : '')
+        + doiLink
+        + '</div>'
+        + '</div>'
+        + '</li>';
+}
+
+function updateCitationTabBadge(doi, stats) {
+    // Find the open detail panel for this DOI and patch its Citations tab label in place.
+    var details = document.querySelectorAll('.detail');
+    for (var i = 0; i < details.length; i++) {
+        if (details[i].getAttribute('data-doi') !== doi) continue;
+        var tab = details[i].querySelector('.detail-tab[data-pane="citations"]');
+        if (!tab) return;
+        var totalBadge = '<span class="badge-count">' + stats.total + '</span>';
+        var gapBadge = stats.gaps > 0
+            ? '<span class="badge-count gap-count">' + stats.gaps + ' gap' + (stats.gaps === 1 ? '' : 's') + '</span>'
+            : '';
+        tab.innerHTML = 'Citations ' + totalBadge + gapBadge;
+        return;
     }
 }
 
