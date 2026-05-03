@@ -1,10 +1,18 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-04-29T06:29:56.209Z",
-    "total_count": 208
+    "last_updated": "2026-05-03T05:37:31.283Z",
+    "total_count": 209
   },
   "records": [
+    {
+      "doi": "10.58024/aguq3f7313ab",
+      "name": "Francese Mineral Collection Queensland Museum (Pilot release)",
+      "authors": "Stirling, J.",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
     {
       "doi": "10.58024/aguq6128dfbc",
       "name": "Aileron Province LCT Pegmatites, Northern Territory",
