@@ -1,14 +1,14 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-05-03T05:37:31.283Z",
+    "last_updated": "2026-05-10T05:43:54.916Z",
     "total_count": 209
   },
   "records": [
     {
       "doi": "10.58024/aguq3f7313ab",
-      "name": "Francese Mineral Collection Queensland Museum (Pilot release)",
-      "authors": "Stirling, J.",
+      "name": "Francese Mineral Collection Queensland Museum",
+      "authors": "Stirling, J., Syme, C., Spring, K.",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -24,7 +24,7 @@
     {
       "doi": "10.58024/agcu65f8f1a9",
       "name": "Queensland Exploration Geochemistry",
-      "authors": "Mr Joseph Tang, Aditya Priyadarshi (0000-0003-2476-1536), Dr Bhavik Harish Lodhia (0000-0002-3764-2248), Ms Princy Agrahari (0009-0006-7186-8335)",
+      "authors": "Tang, J., Priyadarshi, A., Lodhia, B., Agrahari, P.",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -32,7 +32,7 @@
     {
       "doi": "10.58024/agcuc86cdd4e",
       "name": "Mica 40Ar/39Ar geochronology: Implications for LCT-pegmatite chronology",
-      "authors": "Dr Bryant Ware (0000-0002-3907-4344)",
+      "authors": "Ware, B.",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -88,8 +88,8 @@
     {
       "doi": "10.58024/agua531ecf21",
       "name": "East Antarctica FMU",
-      "authors": "Mayer-Ullmann, Ferdinand",
-      "year": 2025,
+      "authors": "Mulder, J., Nixon, A., Boone, S., Hand, M., Halpin, J.",
+      "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
     },
@@ -248,7 +248,7 @@
     {
       "doi": "10.58024/agcu9cb45313",
       "name": "Curnamona Province Pb isotope and U-Pb data data",
-      "authors": "Dr Janne Liebmann (0000-0002-0739-3148), Dr Bryant Ware (0000-0002-3907-4344), Prof Chris Kirkland (0000-0003-3367-8961), Dr David Mole (0000-0001-7888-5943), Dr Geoff Fraser (0000-0001-9504-2331), Brandon Mahan (0000-0002-5371-0730), Ashlea Wainwright (0000-0003-3493-0292), Roland Maas (0000-0003-0567-5640)",
+      "authors": "Liebmann, J., Ware, B., Kirkland, C., Mole, D., Fraser, G., Mahan, B., Wainwright, A., Maas, R.",
       "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -296,7 +296,7 @@
     {
       "doi": "10.58024/agcud93d7eb1",
       "name": "A crustal Pb isotope map of southeastern Australia",
-      "authors": "Dr Janne Liebmann (0000-0002-0739-3148), Dr Bryant Ware (0000-0002-3907-4344), Dr David Mole (0000-0001-7888-5943), Prof Chris Kirkland (0000-0003-3367-8961), Dr Geoff Fraser (0000-0001-9504-2331), Dr Kathryn Waltenberg (0000-0002-1629-0597), Dr Simon Bodorkos (0000-0001-8605-0276), Dr David Huston (0000-0002-1740-6336), Prof Noreen Evans (0000-0002-7615-8328), Mr Brad McDonald, Dr Kai Rankenburg (0000-0003-3708-9304), Priyanjan Datta (0009-0008-9208-4745), A. Prof Svetlana Tessalina (0000-0002-2881-9232)",
+      "authors": "Liebmann, J., Ware, B., Mole, D., Kirkland, C., Fraser, G., Waltenberg, K., Bodorkos, S., Huston, D., Evans, N., McDonald, B., Rankenburg, K., Datta, P., Tessalina, A.",
       "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
