@@ -562,6 +562,60 @@
             margin: 2px 4px 2px 0;
             color: var(--text-soft);
         }
+        .extent-chip {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 5px;
+            padding: 3px 10px;
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-soft);
+            border-radius: 4px;
+            margin: 2px 6px 2px 0;
+        }
+        .extent-chip .num {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--accent-strong);
+            font-variant-numeric: tabular-nums;
+        }
+        .extent-chip .unit {
+            font-size: 11px;
+            color: var(--text-soft);
+        }
+        .extent-chip.plain {
+            background: var(--bg);
+            border-color: var(--border);
+        }
+        .extent-chip.plain .num { color: var(--text); }
+        .format-chip {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            background: var(--bg-muted);
+            border-radius: 4px;
+            margin: 2px 4px 2px 0;
+            color: var(--text-soft);
+            font-family: var(--mono);
+        }
+        .contrib-type {
+            display: inline-block;
+            padding: 0 6px;
+            border-radius: 3px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            background: var(--bg-muted);
+            color: var(--text-soft);
+            margin-left: 5px;
+            font-family: var(--mono);
+            line-height: 15px;
+            vertical-align: 1px;
+        }
+        .contrib-type.contact { background: #fef3c7; color: #92400e; }
+        .contrib-type.host { background: #dbeafe; color: #1e40af; }
+        .contrib-type.sponsor { background: #dcfce7; color: #166534; }
+        .contrib-type.collector { background: #ede9fe; color: #5b21b6; }
         .subject a.term-link {
             color: var(--text);
             text-decoration: none;
@@ -1327,8 +1381,10 @@ var fleetCategories = [
             { id: 'subjects-no-scheme', label: 'Subjects free-text only (no scheme)', predicate: function(d) {
                 return d.subjects.length > 0 && d.subjects.every(function(s) { return !s.subjectScheme && !s.schemeUri; });
             }},
-            { id: 'subjects-no-uri', label: 'Subjects have scheme but no valueUri', predicate: function(d) {
-                return d.subjects.length > 0 && d.subjects.some(function(s) { return (s.subjectScheme || s.schemeUri) && !s.valueUri; });
+            { id: 'subjects-no-uri', label: 'Subjects keyed but not resolvable', predicate: function(d) {
+                return d.subjects.length > 0 && d.subjects.some(function(s) {
+                    return (s.subjectScheme || s.schemeUri) && !s.valueUri && !s.classificationCode;
+                });
             }},
             { id: 'no-licence-uri', label: 'No licence URI', predicate: function(d) {
                 return d.rightsList.length === 0 || d.rightsList.every(function(r) { return !r.rightsUri && !r.rightsURI && !r.rightsIdentifier; });
@@ -1459,7 +1515,16 @@ async function fetchAllEarthBank() {
     var page = 1;
     var pageSize = 100;
     while (true) {
+        // affiliation=true and publisher=true are REQUIRED on the collection
+        // endpoint. Without them DataCite returns a summarised form: affiliation
+        // collapsed to a plain name string and publisher to a plain string,
+        // stripping ROR affiliationIdentifier and the re3data publisherIdentifier.
+        // The single-DOI endpoint returns the full form by default; the
+        // collection endpoint does not. Omitting these flags causes every
+        // affiliation/publisher identifier check to false-negative.
         var url = 'https://api.datacite.org/dois?client-id=hypc.gxglvy'
+            + '&affiliation=true'
+            + '&publisher=true'
             + '&page[size]=' + pageSize
             + '&page[number]=' + page
             + '&sort=-created';
@@ -1624,6 +1689,8 @@ function normalize(item) {
         contributors: contributors,
         publicationYear: attrs.publicationYear || null,
         publisher: typeof attrs.publisher === 'object' ? (attrs.publisher.name || '') : (attrs.publisher || ''),
+        publisherIdentifier: (typeof attrs.publisher === 'object' && attrs.publisher) ? (attrs.publisher.publisherIdentifier || '') : '',
+        publisherIdentifierScheme: (typeof attrs.publisher === 'object' && attrs.publisher) ? (attrs.publisher.publisherIdentifierScheme || '') : '',
         resourceType: resourceType,
         resourceTypeGeneral: resourceTypeGeneral,
         descriptions: attrs.descriptions || [],
@@ -1632,6 +1699,7 @@ function normalize(item) {
         access: access,
         fundingReferences: attrs.fundingReferences || [],
         relatedIdentifiers: attrs.relatedIdentifiers || [],
+        relatedItems: attrs.relatedItems || [],
         geoLocations: attrs.geoLocations || [],
         dates: attrs.dates || [],
         language: attrs.language || '',
@@ -1640,6 +1708,9 @@ function normalize(item) {
         version: attrs.version || '',
         url: attrs.url || '',
         registered: attrs.registered || attrs.created || '',
+        updated: attrs.updated || '',
+        state: attrs.state || '',
+        metadataVersion: (attrs.metadataVersion !== undefined && attrs.metadataVersion !== null) ? attrs.metadataVersion : '',
         schemaVersion: attrs.schemaVersion || '',
         alternateIdentifiers: attrs.alternateIdentifiers || [],
         // searchable text blob
@@ -1877,34 +1948,45 @@ function buildFunderIdentifierCheck(d, weight) {
 }
 
 // Helper: subject vocabulary check — grades whether subjects use a controlled
-// vocabulary (subjectScheme + valueUri) rather than free text.
+// vocabulary rather than free text. A subject counts as "keyed" if it has a
+// subjectScheme AND a machine-resolvable code: either a valueUri (URI-based
+// vocabularies) OR a classificationCode (code-based vocabularies like
+// ANZSRC-FOR, which EarthBank populates with the FOR code, e.g. "370502").
 // Returns null if there are no subjects (the presence check covers that case).
 function buildSubjectVocabularyCheck(d, weight) {
     if (!d.subjects || d.subjects.length === 0) return null;
     var total = d.subjects.length;
-    var withScheme = 0, withValueUri = 0;
+    var withScheme = 0, withKey = 0;
     d.subjects.forEach(function(s) {
         if (s.subjectScheme || s.schemeUri) withScheme++;
-        if (s.valueUri) withValueUri++;
+        if (s.valueUri || s.classificationCode) withKey++;
     });
+    var noScheme = total - withScheme;            // free-text keywords, no scheme at all
+    var schemeNoCode = withScheme - withKey;      // has scheme but no valueUri/classificationCode
 
     var status, value, note;
-    if (withScheme === total && withValueUri === total) {
+    if (withScheme === total && withKey === total) {
         status = 'good';
         value = total + ' / ' + total + ' fully keyed';
-        note = 'All subjects have subjectScheme + valueUri — fully machine-dereferenceable.';
-    } else if (withScheme === total) {
+        note = 'All subjects have a scheme + resolvable code (valueUri or classificationCode).';
+    } else if (withKey > 0 && noScheme === 0) {
+        // Every subject has a scheme; some lack a resolvable code (e.g. GCMD/FOS
+        // text-only schemes). This is the realistic "good" EarthBank state.
         status = 'good';
-        value = total + ' / ' + total + ' have scheme';
-        note = 'All subjects have subjectScheme. Adding valueUri to each makes them resolvable.';
+        value = withKey + ' coded · ' + schemeNoCode + ' scheme-only · ' + total + ' total';
+        note = 'All subjects are scheme-tagged. ' + schemeNoCode + ' have a scheme but no resolvable code (e.g. GCMD/FOS) — acceptable, though valueUri/classificationCode is stronger.';
+    } else if (withKey > 0) {
+        status = 'warn';
+        value = withKey + ' coded · ' + schemeNoCode + ' scheme-only · ' + noScheme + ' free-text · ' + total + ' total';
+        note = noScheme + ' subject(s) are free-text keywords with no scheme. ' + withKey + ' are properly coded (ANZSRC-FOR). Adding a scheme to the free-text terms would complete the vocabulary keying.';
     } else if (withScheme > 0) {
         status = 'warn';
-        value = withScheme + ' scheme · ' + withValueUri + ' valueUri · ' + total + ' total';
-        note = 'Partial vocabulary keying — add subjectScheme and valueUri to all subjects.';
+        value = withScheme + ' scheme-only · ' + noScheme + ' free-text · ' + total + ' total';
+        note = 'Subjects have schemes but none carry a resolvable code (valueUri or classificationCode). Add ANZSRC-FOR codes for machine-readable classification.';
     } else {
         status = 'bad';
         value = '0 / ' + total + ' have a scheme';
-        note = 'Subjects are free text only — add subjectScheme (e.g., ANZSRC-FOR) and valueUri.';
+        note = 'Subjects are free text only — add subjectScheme (e.g., ANZSRC-FOR) with a code or valueUri.';
     }
 
     return {
@@ -1913,7 +1995,7 @@ function buildSubjectVocabularyCheck(d, weight) {
         weight: weight,
         value: value,
         note: note,
-        help: 'Free-text subjects are findable but not interoperable. Adding subjectScheme (e.g., "ANZSRC-FOR") and valueUri (e.g., "https://linked.data.gov.au/def/anzsrc-for/2020/370401") makes subjects machine-readable and dereferenceable. For Australian research, ANZSRC-FOR is the canonical vocabulary.'
+        help: 'Free-text subjects are findable but not interoperable. A controlled vocabulary needs subjectScheme (e.g., "ANZSRC Fields of Research") plus a machine-resolvable code — either valueUri (e.g., "https://linked.data.gov.au/def/anzsrc-for/2020/370502") or classificationCode (e.g., "370502"). EarthBank uses classificationCode for ANZSRC-FOR. For Australian research, ANZSRC-FOR is the canonical vocabulary.'
     };
 }
 
@@ -2029,6 +2111,20 @@ function getChecks(d) {
         note: d.publisher ? null : 'No publisher set.',
         help: 'The entity responsible for publishing/curating the dataset. For EarthBank records this is typically "AuScope EarthBank" or similar.'
     });
+
+    // Publisher identifier (quality — only graded when a publisher exists)
+    if (d.publisher) {
+        var pidScheme = (d.publisherIdentifierScheme || '').toLowerCase();
+        var pidGood = !!d.publisherIdentifier;
+        checks.push({
+            name: 'Publisher identifier',
+            status: pidGood ? 'good' : 'warn',
+            weight: 0.5,
+            value: pidGood ? (d.publisherIdentifierScheme || 'identified') : 'no identifier',
+            note: pidGood ? null : 'Publisher named but no publisherIdentifier — add a re3data ID for the publishing repository.',
+            help: 'A publisherIdentifier (preferably a re3data ID like https://doi.org/10.17616/R31NJNAO for the AuScope EarthBank repository) makes the publishing repository machine-identifiable, the same way ROR does for affiliations and Crossref Funder ID does for funders.'
+        });
+    }
 
     // Publication year
     checks.push({
@@ -2176,6 +2272,7 @@ function buildSearchBlob(d) {
         bits.push(s.subject);
         bits.push(s.subjectScheme);
         bits.push(s.valueUri);
+        bits.push(s.classificationCode);
     });
     (d.fundingReferences || []).forEach(function(f) {
         bits.push(f.funderName);
@@ -2623,7 +2720,9 @@ function renderSubjectChip(s) {
     var detected = detectSubjectScheme(s);
     var hasValueUri = !!s.valueUri;
 
-    // Term link (or plain text)
+    // Term link (or plain text). valueUri is preferred; if only a
+    // classificationCode is present there's no URL to link to, so the term
+    // stays plain text but the code is surfaced in the badge + tooltip.
     var termHtml;
     if (hasValueUri) {
         termHtml = '<a href="' + escapeAttr(s.valueUri) + '" target="_blank" rel="noopener" class="term-link" title="Resolve to vocabulary entry">' + term + '</a>';
@@ -2637,12 +2736,17 @@ function renderSubjectChip(s) {
         var tipParts = [];
         if (s.subjectScheme) tipParts.push('Scheme: ' + s.subjectScheme);
         if (s.schemeUri) tipParts.push(s.schemeUri);
+        if (s.classificationCode) tipParts.push('Code: ' + s.classificationCode);
         if (s.valueUri) tipParts.push('Value: ' + s.valueUri);
         var tip = tipParts.join(' · ');
+        // Append the classification code to the badge label when present
+        // (e.g. "ANZSRC-FOR 370502") so the actual code is visible at a glance.
+        var badgeLabel = detected.label;
+        if (s.classificationCode) badgeLabel += ' ' + s.classificationCode;
         if (s.schemeUri) {
-            badgeHtml = '<a href="' + escapeAttr(s.schemeUri) + '" target="_blank" rel="noopener" class="scheme-badge ' + detected.class + '" title="' + escapeAttr(tip) + '">' + escapeHtml(detected.label) + '</a>';
+            badgeHtml = '<a href="' + escapeAttr(s.schemeUri) + '" target="_blank" rel="noopener" class="scheme-badge ' + detected.class + '" title="' + escapeAttr(tip) + '">' + escapeHtml(badgeLabel) + '</a>';
         } else {
-            badgeHtml = '<span class="scheme-badge ' + detected.class + '" title="' + escapeAttr(tip) + '">' + escapeHtml(detected.label) + '</span>';
+            badgeHtml = '<span class="scheme-badge ' + detected.class + '" title="' + escapeAttr(tip) + '">' + escapeHtml(badgeLabel) + '</span>';
         }
     } else {
         badgeHtml = '<span class="scheme-badge scheme-missing" title="No subjectScheme — plain text only, not machine-readable">no scheme</span>';
@@ -2664,13 +2768,22 @@ function renderOverviewPane(d) {
             return '<span class="creator">' + name + orcid + aff + '</span>';
         }).join('');
 
+    var contribTypeClass = function(t) {
+        if (t === 'ContactPerson') return 'contact';
+        if (t === 'HostingInstitution') return 'host';
+        if (t === 'Sponsor') return 'sponsor';
+        if (t === 'DataCollector' || t === 'DataCurator' || t === 'DataManager') return 'collector';
+        return '';
+    };
     var contributors = d.contributors.length === 0
         ? '<span class="empty">none</span>'
         : d.contributors.map(function(c) {
             var orcid = c.orcid
                 ? '<a href="https://orcid.org/' + escapeAttr(c.orcid) + '" target="_blank" rel="noopener" class="orcid-link" title="ORCID: ' + escapeAttr(c.orcid) + '"><img src="assets/ORCID_iD.png" class="orcid-icon" alt="ORCID iD" data-fallback="orcid"></a>'
                 : '<span class="no-orcid" title="No ORCID">no ORCID</span>';
-            var typeLabel = c.type ? ' <span style="color:var(--text-muted);font-size:11px;">(' + escapeHtml(c.type) + ')</span>' : '';
+            var typeLabel = c.type
+                ? ' <span class="contrib-type ' + contribTypeClass(c.type) + '" title="contributorType">' + escapeHtml(c.type) + '</span>'
+                : '';
             var aff = renderAffiliationList(c.affiliation);
             return '<span class="creator">' + escapeHtml(c.name) + orcid + typeLabel + aff + '</span>';
         }).join('');
@@ -2754,14 +2867,29 @@ function renderOverviewPane(d) {
     } else {
         var sfParts = [];
         if (d.sizes.length > 0) {
-            sfParts.push('<div style="margin-bottom:3px;"><span style="color:var(--text-muted);font-size:11px;margin-right:4px;">Sizes:</span>'
-                + d.sizes.map(function(s) { return '<span class="subject">' + escapeHtml(s) + '</span>'; }).join('')
-                + '</div>');
+            // EarthBank sizes follow a "<number> <unit>" convention (e.g.
+            // "37 Fission Track data points"). Parse the leading number so it
+            // can be visually emphasised — these counts are the core data
+            // signature of a geochemistry record.
+            var chips = d.sizes.map(function(s) {
+                var str = String(s).trim();
+                var match = str.match(/^([\d,]+(?:\.\d+)?)\s+(.+)$/);
+                if (match) {
+                    return '<span class="extent-chip"><span class="num">' + escapeHtml(match[1])
+                        + '</span><span class="unit">' + escapeHtml(match[2]) + '</span></span>';
+                }
+                // Doesn't fit the count+unit pattern (e.g. a byte size like
+                // "1.2 MB" still matches above; truly free-form falls here)
+                return '<span class="extent-chip plain"><span class="num">' + escapeHtml(str) + '</span></span>';
+            }).join('');
+            sfParts.push('<div style="margin-bottom:5px;">' + chips + '</div>');
         }
         if (d.formats.length > 0) {
             sfParts.push('<div><span style="color:var(--text-muted);font-size:11px;margin-right:4px;">Formats:</span>'
-                + d.formats.map(function(s) { return '<span class="subject">' + escapeHtml(s) + '</span>'; }).join('')
+                + d.formats.map(function(s) { return '<span class="format-chip">' + escapeHtml(s) + '</span>'; }).join('')
                 + '</div>');
+        } else {
+            sfParts.push('<div><span style="color:var(--text-muted);font-size:11px;">Formats: </span><span class="scheme-badge scheme-missing" title="No formats declared — add MIME types (e.g. text/csv) for machine-readability">none</span></div>');
         }
         sizesFormats = sfParts.join('');
     }
@@ -2797,17 +2925,71 @@ function renderOverviewPane(d) {
         ? '<a href="' + escapeAttr(d.url) + '" target="_blank" rel="noopener">' + escapeHtml(d.url) + '</a>'
         : '<span class="empty">none</span>';
 
+    // Publisher with re3data identifier badge (mirrors the ROR/Crossref grammar
+    // used elsewhere — a recognised identifier gets a coloured pill).
+    var publisherHtml;
+    if (!d.publisher) {
+        publisherHtml = '<span class="empty">missing</span>';
+    } else {
+        publisherHtml = escapeHtml(d.publisher);
+        if (d.publisherIdentifier) {
+            var scheme = (d.publisherIdentifierScheme || '').toLowerCase();
+            var pidLabel = d.publisherIdentifierScheme || 'ID';
+            var cls = (scheme === 're3data') ? 'scheme-known' : 'scheme-other';
+            publisherHtml += ' <a href="' + escapeAttr(d.publisherIdentifier) + '" target="_blank" rel="noopener" class="scheme-badge ' + cls + '" title="' + escapeAttr((d.publisherIdentifierScheme || 'Identifier') + ': ' + d.publisherIdentifier) + '">' + escapeHtml(pidLabel) + '</a>';
+        } else {
+            publisherHtml += ' <span class="scheme-badge scheme-missing" title="No publisherIdentifier — add a re3data ID for the publishing repository">no ID</span>';
+        }
+    }
+
+    // Related items — DataCite relatedItems (e.g. project membership). Not the
+    // same as relatedIdentifiers (which point to DOIs); relatedItems describe
+    // an associated resource inline (project, collection, etc.).
+    var relatedItemsHtml;
+    if (!d.relatedItems || d.relatedItems.length === 0) {
+        relatedItemsHtml = '<span class="empty">none</span>';
+    } else {
+        relatedItemsHtml = d.relatedItems.map(function(ri) {
+            var t = (ri.titles && ri.titles[0]) ? (ri.titles[0].title || '') : '';
+            var rel = ri.relationType ? escapeHtml(ri.relationType) : 'Related';
+            var itemType = ri.relatedItemType ? ' <span style="color:var(--text-muted);font-size:10px;">[' + escapeHtml(ri.relatedItemType) + ']</span>' : '';
+            return '<div style="margin-bottom:2px;"><span style="color:var(--text-muted);font-size:11px;margin-right:4px;">' + rel + ':</span>'
+                + escapeHtml(t || '(untitled related item)') + itemType + '</div>';
+        }).join('');
+    }
+
+    // Registered + Updated together — "Updated" is the field that answers the
+    // recurring "is the tool showing current data?" question at a glance.
+    var regUpd = '';
+    regUpd += d.registered
+        ? '<span class="mono">' + escapeHtml(d.registered.substring(0, 10)) + '</span> registered'
+        : '<span class="empty">registered: none</span>';
+    if (d.updated) {
+        regUpd += ' · <span class="mono">' + escapeHtml(d.updated.substring(0, 10)) + '</span> updated';
+    }
+
+    // Compact diagnostic line — metadata version + DOI state. Plumbing, not FAIR
+    // metadata, but directly useful for "am I looking at the version I published".
+    var diag = [];
+    if (d.metadataVersion !== '') diag.push('metadata v' + escapeHtml(String(d.metadataVersion)));
+    if (d.state) {
+        var stateCls = d.state === 'findable' ? 'good' : 'warn';
+        diag.push('<span class="recip-badge ' + stateCls + '" style="text-transform:none;">' + escapeHtml(d.state) + '</span>');
+    }
+    if (d.schemaVersion) diag.push('<span class="mono" style="font-size:11px;">' + escapeHtml(d.schemaVersion.replace('http://datacite.org/schema/', 'schema ')) + '</span>');
+    var diagHtml = diag.length > 0 ? diag.join(' &nbsp;·&nbsp; ') : '<span class="empty">none</span>';
+
     return '<dl class="ov-grid">'
         + '<dt>DOI</dt><dd><span class="mono">' + escapeHtml(d.doi) + '</span> · <a href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">resolve ↗</a> · <a href="https://commons.datacite.org/doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">DataCite Commons ↗</a> · <a href="javascript:void(0)" onclick="copyToClipboard(\'' + escapeAttr(d.doi) + '\')">copy</a></dd>'
         + '<dt>Title(s)</dt><dd>' + titlesHtml + '</dd>'
         + '<dt>Resource type</dt><dd>' + resTypeHtml + '</dd>'
-        + '<dt>Publisher</dt><dd>' + (d.publisher ? escapeHtml(d.publisher) : '<span class="empty">missing</span>') + '</dd>'
+        + '<dt>Publisher</dt><dd>' + publisherHtml + '</dd>'
         + '<dt>Publication year</dt><dd>' + (d.publicationYear || '<span class="empty">missing</span>') + '</dd>'
         + '<dt>Version</dt><dd>' + (d.version ? escapeHtml(d.version) : '<span class="empty">none</span>') + '</dd>'
         + '<dt>Language</dt><dd>' + (d.language ? escapeHtml(d.language) : '<span class="empty">none</span>') + '</dd>'
         + '<dt>Landing page URL</dt><dd>' + landingUrl + '</dd>'
-        + '<dt>Schema version</dt><dd>' + (d.schemaVersion ? '<span class="mono">' + escapeHtml(d.schemaVersion) + '</span>' : '<span class="empty">none</span>') + '</dd>'
-        + '<dt>Registered</dt><dd>' + (d.registered ? '<span class="mono">' + escapeHtml(d.registered.substring(0, 10)) + '</span>' : '<span class="empty">none</span>') + '</dd>'
+        + '<dt>Registered / updated</dt><dd>' + regUpd + '</dd>'
+        + '<dt>Record status</dt><dd>' + diagHtml + '</dd>'
         + '<dt>Creators</dt><dd>' + creators + '</dd>'
         + '<dt>Contributors</dt><dd>' + contributors + '</dd>'
         + '<dt>Subjects / keywords</dt><dd>' + subjects + '</dd>'
@@ -2815,8 +2997,9 @@ function renderOverviewPane(d) {
         + '<dt>Rights / licence</dt><dd>' + rights + '</dd>'
         + '<dt>Funding references</dt><dd>' + funding + '</dd>'
         + '<dt>Geolocations</dt><dd>' + geo + '</dd>'
+        + '<dt>Related items</dt><dd>' + relatedItemsHtml + '</dd>'
         + '<dt>Dates</dt><dd>' + dates + '</dd>'
-        + '<dt>Sizes / formats</dt><dd>' + sizesFormats + '</dd>'
+        + '<dt>Data extent</dt><dd>' + sizesFormats + '</dd>'
         + '<dt>Alternate identifiers</dt><dd>' + altIds + '</dd>'
         + '</dl>';
 }
