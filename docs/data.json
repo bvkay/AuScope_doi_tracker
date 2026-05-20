@@ -1,18 +1,18 @@
 {
-  "generated": "2026-05-17T05:55:55.511Z",
+  "generated": "2026-05-20T06:14:32.045Z",
   "stats": {
-    "totalPublications": 2831,
+    "totalPublications": 2835,
     "totalDatasets": 209,
     "totalCitations": 65067,
     "citedPublications": 2236,
-    "citedPercent": 79,
+    "citedPercent": 78.9,
     "avgCitations": 23,
     "uniqueJournals": 589,
-    "uniqueAuthors": 10588,
+    "uniqueAuthors": 10606,
     "uniqueInstitutions": 1237,
     "uniqueCountries": 90,
     "yearRange": "1997–2026",
-    "noSubjectCount": 54
+    "noSubjectCount": 55
   },
   "publicationsByYear": [
     {
@@ -220,8 +220,8 @@
     },
     {
       "year": 2026,
-      "count": 153,
-      "cumulative": 2831,
+      "count": 157,
+      "cumulative": 2835,
       "citations": 9,
       "cumulativeCitations": 65067
     }
@@ -233,15 +233,15 @@
     },
     {
       "topic": "earthquake and tectonic studies",
-      "count": 755
+      "count": 756
     },
     {
       "topic": "High-pressure geophysics and materials",
-      "count": 568
+      "count": 569
     },
     {
       "topic": "Geochemistry and Geologic Mapping",
-      "count": 486
+      "count": 487
     },
     {
       "topic": "Geology and Paleoclimatology Research",
@@ -273,11 +273,11 @@
     },
     {
       "topic": "Geophysics and Gravity Measurements",
-      "count": 135
+      "count": 136
     },
     {
       "topic": "GNSS positioning and interference",
-      "count": 130
+      "count": 131
     },
     {
       "topic": "Geomagnetism and Paleomagnetism Studies",
@@ -291,7 +291,7 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 595
+      "count": 599
     },
     {
       "label": "1–5",

@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-05-17T05:55:55.398Z",
-    "total_count": 2831
+    "last_updated": "2026-05-20T06:14:31.921Z",
+    "total_count": 2835
   },
   "records": [
     {
@@ -69935,6 +69935,97 @@
         "AU"
       ],
       "dateAdded": "2026-05-17"
+    },
+    {
+      "doi": "10.1080/08120099.2026.2653999",
+      "title": "MyLogger: fast logging with HyLogger spectral mineralogy",
+      "authors": "J. M. Stromberg; C. Laukamp; E. J. Hill; A. Rodger",
+      "journal": "Australian Journal of Earth Sciences",
+      "publisher": "Informa UK Limited",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "No",
+      "subject": "Mineral Processing and Grinding; Geochemistry and Geologic Mapping; Mineralogy and Gemology Studies",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Manual submission"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-05-20"
+    },
+    {
+      "doi": "10.1029/2025cn000313",
+      "title": "Building a Continental‐Scale Geodetic Network: The Plate Boundary Observatory (PBO)",
+      "authors": "Emily E. Zawacki; Michael E. Jackson; Glen S. Mattioli; David J. Mencin; Karl Feaux; Donna J. Charlevoix",
+      "journal": "Perspectives of Earth and Space Scientists",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; Geophysics and Gravity Measurements; High-pressure geophysics and materials",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Manual submission"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-05-20"
+    },
+    {
+      "doi": "10.5194/egusphere-2026-1936",
+      "title": "Mapping JUICE’s Journey: PRIDE observations from the Lunar-Earth Gravity Assist",
+      "authors": "Guifré Molera Calvés; Oliver James White; Jasper Edwards; Dominic Dirkx; Giuseppe Cimò; Tatiana Bocanegra-Bahamon; Sam Fayolle; Judit Fogasy; Sándor Frey; Luigi Gisolfi; Leonid I. Gurvits; Valery Lainey; Vidhya Pallichadath; Krisztina Perger; Sergei Pogrebenko; Jonathan Quick; Noor Masdiana Md Said; Alfonso Sánchez Rodríguez",
+      "journal": "",
+      "publisher": "Copernicus GmbH",
+      "year": 2026,
+      "cited": 0,
+      "type": "posted content",
+      "isOA": "Yes",
+      "subject": "GNSS positioning and interference; Radio Astronomy Observations and Technology; Ionosphere and magnetosphere dynamics",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Manual submission"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-05-20"
+    },
+    {
+      "doi": "10.3929/ethz-c-000797340",
+      "title": "Insights into early continental crust formation from the most ancient heart of Scotland",
+      "authors": "Silvia Volante",
+      "journal": "Open MIND",
+      "publisher": "",
+      "year": 2026,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Manual submission"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-05-20"
     }
   ]
 }
