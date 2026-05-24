@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-05-20T06:14:31.921Z",
-    "total_count": 2835
+    "last_updated": "2026-05-24T06:10:14.744Z",
+    "total_count": 2841
   },
   "records": [
     {
@@ -284,7 +284,7 @@
       "journal": "Geoscience Letters",
       "publisher": "Springer Nature",
       "year": 2025,
-      "cited": 0,
+      "cited": 1,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Mineralogy and Gemology Studies; Geomagnetism and Paleomagnetism Studies",
@@ -580,7 +580,7 @@
       "journal": "Communications Earth & Environment",
       "publisher": "Nature Portfolio",
       "year": 2025,
-      "cited": 2,
+      "cited": 3,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Climate variability and models; Atmospheric and Environmental Gas Dynamics",
@@ -2290,7 +2290,7 @@
       "journal": "Biology",
       "publisher": "Multidisciplinary Digital Publishing Institute",
       "year": 2023,
-      "cited": 5,
+      "cited": 6,
       "type": "article",
       "isOA": "Yes",
       "subject": "Forensic Anthropology and Bioarchaeology Studies; Archaeology and ancient environmental studies; Isotope Analysis in Ecology",
@@ -2527,7 +2527,7 @@
       "journal": "Nature",
       "publisher": "Nature Portfolio",
       "year": 2023,
-      "cited": 53,
+      "cited": 55,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -4501,7 +4501,7 @@
       "journal": "",
       "publisher": "California Digital Library (CDL)",
       "year": 2022,
-      "cited": 0,
+      "cited": 1,
       "type": "preprint",
       "isOA": "Yes",
       "subject": "Data Quality and Management; Geochemistry and Geologic Mapping; Research Data Management Practices",
@@ -5084,12 +5084,14 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
+        "GNS Science",
         "Geoscience Australia",
         "Australian National University",
         "United States Geological Survey",
-        "University of Adelaide"
+        "The University of Adelaide"
       ],
       "countries": [
+        "NZ",
         "AU",
         "US"
       ],
@@ -6056,7 +6058,7 @@
       "journal": "Zenodo (CERN European Organization for Nuclear Research)",
       "publisher": "European Organization for Nuclear Research",
       "year": 2021,
-      "cited": 0,
+      "cited": 1,
       "type": "article",
       "isOA": "Yes",
       "subject": "Research Data Management Practices",
@@ -6525,10 +6527,11 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
-        "University of Adelaide",
+        "The University of Adelaide",
         "Geoscience Australia",
         "Geological Survey of Western Australia",
-        "University of Queensland"
+        "Department of State Development",
+        "The University of Queensland"
       ],
       "countries": [
         "AU"
@@ -6756,7 +6759,7 @@
       "journal": "Minerals",
       "publisher": "Multidisciplinary Digital Publishing Institute",
       "year": 2021,
-      "cited": 122,
+      "cited": 123,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geochemistry and Geologic Mapping; Mineral Processing and Grinding; Remote-Sensing Image Classification",
@@ -8439,7 +8442,7 @@
       "journal": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
       "publisher": "Copernicus Publications",
       "year": 2019,
-      "cited": 6,
+      "cited": 7,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological Modeling and Analysis; 3D Modeling in Geospatial Applications; Geographic Information Systems Studies",
@@ -9419,7 +9422,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2018,
-      "cited": 723,
+      "cited": 724,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Geological formations and processes; Geological Modeling and Analysis",
@@ -9546,7 +9549,7 @@
       "journal": "Frontiers in Physiology",
       "publisher": "Frontiers Media",
       "year": 2018,
-      "cited": 121,
+      "cited": 122,
       "type": "article",
       "isOA": "Yes",
       "subject": "Coral and Marine Ecosystems Studies; Coastal wetland ecosystem dynamics; Plant and animal studies",
@@ -10140,10 +10143,11 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
+        "ARC Centre of Excellence for Core to Crust Fluid Systems",
         "University of New England",
-        "Macquarie University",
         "Australian Research Council",
-        "University of Sydney"
+        "Macquarie University",
+        "The University of Sydney"
       ],
       "countries": [
         "AU"
@@ -10219,7 +10223,7 @@
       "journal": "Water Resources Research",
       "publisher": "Wiley",
       "year": 2017,
-      "cited": 158,
+      "cited": 159,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysics and Gravity Measurements; Soil Moisture and Remote Sensing; Geophysical and Geoelectrical Methods",
@@ -10857,7 +10861,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2016,
-      "cited": 68,
+      "cited": 69,
       "type": "article",
       "isOA": "Yes",
       "subject": "Cryospheric studies and observations; Geology and Paleoclimatology Research; Landslides and related hazards",
@@ -11189,7 +11193,8 @@
       "dateAdded": "2026-03-24",
       "institutions": [
         "Australian National University",
-        "Universidad Complutense de Madrid"
+        "Universidad Complutense de Madrid",
+        "Instituto de Geociencias"
       ],
       "countries": [
         "AU",
@@ -11631,16 +11636,19 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
-        "Science Factory",
         "Curtin University",
+        "Science Factory",
         "University College London",
         "Canberra (United Kingdom)",
-        "University of Melbourne"
+        "TechnipFMC (Germany)",
+        "The University of Melbourne",
+        "IS Instruments (United Kingdom)"
       ],
       "countries": [
-        "US",
         "AU",
-        "GB"
+        "US",
+        "GB",
+        "DE"
       ],
       "authorCount": 9
     },
@@ -11842,7 +11850,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2014,
-      "cited": 2608,
+      "cited": 2613,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Maritime and Coastal Archaeology",
@@ -12804,7 +12812,7 @@
       "journal": "Engineering Journal",
       "publisher": "Chulalongkorn University",
       "year": 2011,
-      "cited": 36,
+      "cited": 37,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysics and Gravity Measurements; GNSS positioning and interference; Historical Geography and Cartography",
@@ -13720,7 +13728,7 @@
       "journal": "Australian Journal of Earth Sciences",
       "publisher": "Informa UK Limited",
       "year": 2016,
-      "cited": 106,
+      "cited": 107,
       "type": "journal article,  review",
       "isOA": "No",
       "subject": "Geochemistry and Geologic Mapping; Mineral Processing and Grinding; Hydrocarbon exploration and reservoir analysis",
@@ -15437,7 +15445,7 @@
       "journal": "Rock Mechanics and Rock Engineering",
       "publisher": "Springer Science+Business Media",
       "year": 2022,
-      "cited": 57,
+      "cited": 58,
       "type": "article",
       "isOA": "Yes",
       "subject": "Mineral Processing and Grinding; Geochemistry and Geologic Mapping; Drilling and Well Engineering",
@@ -16027,7 +16035,7 @@
       "journal": "Contributions to Mineralogy and Petrology",
       "publisher": "Springer Science+Business Media",
       "year": 2024,
-      "cited": 3,
+      "cited": 4,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geochemistry and Geologic Mapping",
@@ -17969,7 +17977,7 @@
       "journal": "Meteoritics and Planetary Science",
       "publisher": "Wiley",
       "year": 2019,
-      "cited": 58,
+      "cited": 59,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geology and Paleoclimatology Research; Planetary Science and Exploration",
@@ -18993,7 +19001,7 @@
       "journal": "Geology",
       "publisher": "Geological Society of America",
       "year": 2021,
-      "cited": 73,
+      "cited": 74,
       "type": "article",
       "isOA": "Yes",
       "subject": "Metal Extraction and Bioleaching; Minerals Flotation and Separation Techniques; Mineral Processing and Grinding",
@@ -19392,7 +19400,7 @@
       "journal": "Advances in Space Research",
       "publisher": "Elsevier BV",
       "year": 2024,
-      "cited": 10,
+      "cited": 11,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Ionosphere and magnetosphere dynamics; Geophysics and Gravity Measurements",
@@ -19746,7 +19754,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2023,
-      "cited": 248,
+      "cited": 252,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; earthquake and tectonic studies; Geophysics and Gravity Measurements",
@@ -20188,7 +20196,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2020,
-      "cited": 24,
+      "cited": 25,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Advanced Measurement and Metrology Techniques",
@@ -20301,7 +20309,7 @@
       "journal": "Physical review. D/Physical review. D.",
       "publisher": "American Physical Society",
       "year": 2025,
-      "cited": 7,
+      "cited": 8,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astrophysical Phenomena and Observations; Pulsars and Gravitational Waves Research; Astrophysics and Cosmic Phenomena",
@@ -20813,7 +20821,7 @@
       "journal": "The Astrophysical Journal Letters",
       "publisher": "IOP Publishing",
       "year": 2024,
-      "cited": 95,
+      "cited": 96,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astrophysics and Cosmic Phenomena; Astrophysical Phenomena and Observations; Gamma-ray bursts and supernovae",
@@ -23669,7 +23677,7 @@
       "journal": "Frontiers in Earth Science",
       "publisher": "Frontiers Media",
       "year": 2020,
-      "cited": 40,
+      "cited": 41,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; Earthquake Detection and Analysis",
@@ -25106,7 +25114,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2025,
-      "cited": 2,
+      "cited": 3,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Geomagnetism and Paleomagnetism Studies; Methane Hydrates and Related Phenomena",
@@ -49039,7 +49047,7 @@
       "journal": "Seismological Research Letters",
       "publisher": "Seismological Society of America",
       "year": 2014,
-      "cited": 26,
+      "cited": 27,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; earthquake and tectonic studies",
@@ -70026,6 +70034,163 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-05-20"
+    },
+    {
+      "doi": "10.48550/arxiv.2308.15381",
+      "title": "A Search for Pulsars around Sgr A* in the First Event Horizon Telescope Data Set",
+      "authors": "Pablo Torné; Kuo Liu; Ralph P. Eatough; J. Wongphechauxsorn; J. M. Cordes; G. Desvignes; Mariafelicia De Laurentis; M. Krämer; S. M. Ransom; Shami Chatterjee; Robert Wharton; R. Karuppusamy; Lindy Blackburn; Michaël Janssen; Chi‐kwan Chan; G. Crew; Lynn D. Matthews; C. Goddi; Helge Rottmann; Jan Wagner; Salvador Sánchez; Ignacio Ruiz; Federico Abbate; Geoffrey C. Bower; Juan J. Salamanca; Arturo I. Gomez-Ruiz; Alfredo Herrera–Aguilar; Jiang, Wu; Ru-Sen Lu; Ue‐Li Pen; Alexander W. Raymond; Lijing Shao; Zhi-Qiang Shen; G. Paubert; M. Sánchez‐Portal; C. Krämer; Manuel Castillo; S. Navarro; John David; K. Schüster; Michael D. Johnson; K. L. J. Rygl; Kazunori Akiyama; A. Alberdi; W. Alef; Juan Carlos Algaba; Richard Anantua; Keiichi Asada; Rebecca Azulay; U. Bach; Anne-Kathrin Baczko; David Ball; Mislav Baloković; John Barrett; Michi Bauboeck; B. A. Benson; Dan Bintley; R. Blundell; Katherine L. Bouman; Hope Boyce; Michael Bremer; Christiaan D. Brinkerink; Roger Brissenden; S. Britzen; Avery E. Broderick; Dominique Broguière; Thomas Bronzwaer; Sandra Bustamante; Do‐Young Byun; J. E. Carlstrom; Chiara Ceccobello; Andrew Chael; Dominic O. Chang; Koushik Chatterjee; Ming‐Tang Chen; Xiaopeng Cheng; Xiaopeng Cheng; Ilje Cho; Pierre Christian; Nicholas S. Conroy; J. E. Conway; T. M. Crawford; Alejandro Cruz-Osorio; Yuzhu Cui; Rohan Dahale; Jordy Davelaar; Roger Deane; Jessica Dempsey; Jason Dexter; Vedant Dhruv; Sheperd S. Doeleman; Sean Dougal; Sergio A. Dzib; Razieh Emami; H. Falcke; Joseph Farah; Vincent L. Fish; Ed Fomalont; H. Alyson Ford; Marianna Foschi",
+      "journal": "arXiv (Cornell University)",
+      "publisher": "Cornell University",
+      "year": 2023,
+      "cited": 2,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Pulsars and Gravitational Waves Research; Radio Astronomy Observations and Technology; Astrophysical Phenomena and Observations",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Katherine VLBI"
+      ],
+      "authorCount": 100,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-05-24"
+    },
+    {
+      "doi": "10.5194/gc-9-223-2026",
+      "title": "Increasing earthquake awareness: seismo-at-school Switzerland",
+      "authors": "Maren Böse; Nadja Valenzuela; György Hetényi; Romain Roduit; Irina Dallo; Kerstin Bircher; John Clinton; Urs Fässler; Florian Haslinger; Tanja Jaeger; Michèle Marti; Roman Racine; Anne Sauron; Shiba Subedi; Stefan Wiemer",
+      "journal": "Geoscience Communication",
+      "publisher": "",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Seismology and Earthquake Studies; Seismic Waves and Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Australian Seismometers in Schools"
+      ],
+      "authorCount": 15,
+      "institutions": [
+        "ETH Zurich",
+        "University of Lausanne",
+        "HES-SO Valais-Wallis",
+        "Federal Office for the Environment",
+        "Nepal Academy of Science and Technology"
+      ],
+      "countries": [
+        "CH",
+        "NP"
+      ],
+      "dateAdded": "2026-05-24"
+    },
+    {
+      "doi": "10.64898/2026.05.18.725901",
+      "title": "Macroevolutionary dynamics of beetles reveal long-term coupling with vascular plant diversification",
+      "authors": "Jules Ferreira; David Peris; Corentin Jouault; Fabien L. Condamine",
+      "journal": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "publisher": "Cold Spring Harbor Laboratory",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Evolution and Paleontology Studies; Coleoptera Taxonomy and Distribution; Evolution and Genetic Dynamics",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "GPlates"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Institut Botànic de Barcelona",
+        "Universitat de Barcelona",
+        "Museum of the History of Science",
+        "Centre National de la Recherche Scientifique",
+        "Institut des Sciences de l'Evolution de Montpellier"
+      ],
+      "countries": [
+        "ES",
+        "GB",
+        "FR"
+      ],
+      "dateAdded": "2026-05-24"
+    },
+    {
+      "doi": "10.5281/zenodo.20190230",
+      "title": "FIGURE ST3-3. Synonymizing scenarios under p = 0.05, q = 0.025 (left) and p = 0.02, q = 0.01 (right). Each vertex represents a species, and color represents its geographic distribution. in Diversification dynamics of the Mesozoic ostracod family Cyprideidae Martin, 1940: Disentangling taxonomic inflation and environmental drivers Wonseop Lim",
+      "authors": "Wonseop Lim",
+      "journal": "Open MIND",
+      "publisher": "",
+      "year": 2025,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "GPlates"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-05-24"
+    },
+    {
+      "doi": "10.1002/ece3.73280",
+      "title": "ENHYDROSS: A New Mechanistic Model Supports the Trans-Oceanic Dispersal Capability of Terrestrial Vertebrates.",
+      "authors": "Alexandros Pantelides; Paul Upchurch; Philip D Mannion; Elias Gravanis; Donald M Henderson; Phaedon Kyriakidis",
+      "journal": "Ecology and Evolution",
+      "publisher": "Wiley",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Mechanistic model; Dispersal Distance; Cost Of Transport",
+      "sources": [
+        "Europe PMC"
+      ],
+      "searchTerms": [
+        "GPlates"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-05-24"
+    },
+    {
+      "doi": "10.5194/egusphere-2026-2528",
+      "title": "High-Performance Geodynamics on GPUs Using the PETSc CUDA Backend (GAUZZ v1.0.0)",
+      "authors": "Kyeong-Min Lee; Deok-Kyu Jang; Cedric Thieulot; Byung‐Dal So",
+      "journal": "",
+      "publisher": "Copernicus GmbH",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Advanced Numerical Methods in Computational Mathematics; CO2 Sequestration and Geologic Interactions; Matrix Theory and Algorithms",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Underworld2"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Kangwon National University",
+        "Utrecht University"
+      ],
+      "countries": [
+        "KR",
+        "NL"
+      ],
+      "dateAdded": "2026-05-24"
     }
   ]
 }
