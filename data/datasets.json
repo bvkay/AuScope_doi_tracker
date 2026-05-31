@@ -1,7 +1,7 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-05-24T06:09:33.199Z",
+    "last_updated": "2026-05-31T06:29:01.146Z",
     "total_count": 210
   },
   "records": [
@@ -16,7 +16,7 @@
     {
       "doi": "10.58024/aguq3f7313ab",
       "name": "Francese Mineral Collection Queensland Museum",
-      "authors": "Stirling, J., Syme, C., Spring, K.",
+      "authors": "Stirling, J., Spring, K., Syme, C.",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -32,7 +32,7 @@
     {
       "doi": "10.58024/agcu65f8f1a9",
       "name": "Queensland Exploration Geochemistry",
-      "authors": "Tang, J., Priyadarshi, A., Lodhia, B., Agrahari, P.",
+      "authors": "Tang, J., Lodhia, B., Priyadarshi, A., Agrahari, P.",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -48,7 +48,7 @@
     {
       "doi": "10.58024/aguaa72a888a",
       "name": "Tanami Province apatite reconnaissance geochronology",
-      "authors": "Angus Nixon",
+      "authors": "Nixon, A.",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -96,7 +96,7 @@
     {
       "doi": "10.58024/agua531ecf21",
       "name": "East Antarctica FMU",
-      "authors": "Mulder, J., Nixon, A., Boone, S., Hand, M., Halpin, J.",
+      "authors": "hand, m., Mulder, J., Boone, S., Halpin, J., Nixon, A.",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -136,7 +136,7 @@
     {
       "doi": "10.58024/aguqd44783c4",
       "name": "Apatite Geochemistry and Geochronology, Ernest Henry IOCG, Australia",
-      "authors": "Wang, X., Zhou, R., Kontonikas-Charos, A., Belousova, E., Dhnaram, C., Lisitsin, V., Kearney, L.",
+      "authors": "Wang, X., Zhou, R., Lisitsin, V., Dhnaram, C., Belousova, E., Kontonikas-Charos, A., Kearney, L.",
       "year": 2026,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -248,7 +248,7 @@
     {
       "doi": "10.58024/agua6e7b32b9",
       "name": "Central Asia thermochronology compilation",
-      "authors": "Boone, Samuel",
+      "authors": "Nixon, A., Glorie, A., Boone, S., Kohlmann, F., Meeuws, F.",
       "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -431,9 +431,9 @@
     },
     {
       "doi": "10.58024/agcu3b1e8746",
-      "name": "Supplementary Tables",
-      "authors": "Liebmann, Janne",
-      "year": 2023,
+      "name": "Albany and Shap K-feldspar",
+      "authors": "Liebmann, J., Ware, B., Hartnady, M., Kirkland, C., Timms, A., Evans, N.",
+      "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
     },
@@ -1384,7 +1384,7 @@
     {
       "code": "IU",
       "name": "Global Seismograph Network (GSN - IRIS/USGS) (GSN)",
-      "year": 2000,
+      "year": 1988,
       "doi": "10.7914/SN/IU",
       "platform": "AusPass",
       "type": "Seismic Network"
