@@ -1241,6 +1241,13 @@ function normalize(n) {
 
     return {
         code: n.code,
+        // Unique per-deployment key. Network codes are NOT unique — many
+        // codes get reused for sequential deployments (e.g. "1H" was used for
+        // a 2010 deployment AND for the 2024 Mundi Mundi deployment). Looking
+        // up by code alone returned the FIRST deployment with that code,
+        // causing later deployments to show the earlier deployment's data
+        // (citations, etc.). Pairing with startTime makes it unique.
+        rowKey: (n.code || '') + '|' + (n.startTime || ''),
         description: n.description,
         startTime: n.startTime,
         endTime: n.endTime,
@@ -1682,7 +1689,7 @@ function renderTable() {
     var html = '';
     visible.forEach(function(n, idx) {
         html += renderRow(n, idx + 1);
-        if (state.expanded.has(n.code)) html += renderDetailRow(n);
+        if (state.expanded.has(n.rowKey)) html += renderDetailRow(n);
     });
     setBody(html);
 }
@@ -1690,8 +1697,8 @@ function renderTable() {
 function renderTableRowsOnly() {
     var rows = document.querySelectorAll('tr.network-row');
     rows.forEach(function(row) {
-        var code = row.getAttribute('data-code');
-        var n = state.networks.find(function(x) { return x.code === code; });
+        var key = row.getAttribute('data-key');
+        var n = state.networks.find(function(x) { return x.rowKey === key; });
         if (!n) return;
         var cell = row.querySelector('.col-cites');
         if (cell) cell.innerHTML = renderCitePill(n);
@@ -1708,7 +1715,7 @@ function renderRow(n, num) {
         ? '<a class="doi" href="https://doi.org/' + escapeAttr(n.doi) + '" target="_blank" rel="noopener">' + escapeHtml(n.doi) + '</a>'
         : '<span style="font-size:11px;color:var(--text-muted);">no DOI</span>';
 
-    return '<tr class="network-row' + (state.expanded.has(n.code) ? ' expanded' : '') + '" data-code="' + escapeAttr(n.code) + '">'
+    return '<tr class="network-row' + (state.expanded.has(n.rowKey) ? ' expanded' : '') + '" data-key="' + escapeAttr(n.rowKey) + '" data-code="' + escapeAttr(n.code) + '">'
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-code">' + escapeHtml(n.code) + '</td>'
         + '<td class="col-desc">'
@@ -1743,13 +1750,13 @@ function bindRowDelegation() {
         if (e.target.closest('.detail-pane')) return;
         var row = e.target.closest('tr.network-row');
         if (!row) return;
-        toggleDetail(row.getAttribute('data-code'));
+        toggleDetail(row.getAttribute('data-key'));
     });
 }
 
-function toggleDetail(code) {
-    if (state.expanded.has(code)) state.expanded.delete(code);
-    else state.expanded.add(code);
+function toggleDetail(rowKey) {
+    if (state.expanded.has(rowKey)) state.expanded.delete(rowKey);
+    else state.expanded.add(rowKey);
     renderTable();
 }
 
@@ -1769,7 +1776,7 @@ function renderDetailRow(n) {
         citTabBadge = '<span class="badge-count">' + (typeof n.citationCount === 'number' ? n.citationCount : '…') + '</span>';
     }
 
-    return '<tr class="detail-row"><td colspan="8"><div class="detail" data-code="' + escapeAttr(n.code) + '">'
+    return '<tr class="detail-row"><td colspan="8"><div class="detail" data-key="' + escapeAttr(n.rowKey) + '" data-code="' + escapeAttr(n.code) + '">'
         + '<div class="detail-tabs">'
             + '<button class="detail-tab active" data-pane="overview">Overview</button>'
             + '<button class="detail-tab" data-pane="stations">Stations <span class="badge-count">' + n.totalStations + '</span></button>'
@@ -1795,8 +1802,8 @@ function bindDetailTabs() {
         tabs.forEach(function(t) { t.classList.toggle('active', t === tab); });
         panes.forEach(function(p) { p.classList.toggle('active', p.getAttribute('data-pane') === paneName); });
 
-        var code = detail.getAttribute('data-code');
-        var network = state.networks.find(function(x) { return x.code === code; });
+        var key = detail.getAttribute('data-key');
+        var network = state.networks.find(function(x) { return x.rowKey === key; });
         if (!network) return;
 
         if (paneName === 'stations') {
