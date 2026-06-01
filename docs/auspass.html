@@ -1404,15 +1404,24 @@ async function loadCitationCounts() {
 async function fetchCitationCount(doi, retries) {
     if (!doi) return 0;
     if (retries === undefined) retries = 2;
+    // Normalise to lowercase. AusPass DOIs from FDSN often have uppercase
+    // segments (e.g. "10.7914/SN/1E_2013"); DataCite's GraphQL endpoint
+    // appears stricter than its REST API and 400s on those. DataCite treats
+    // DOIs as case-insensitive so lowercasing is safe and canonical.
+    var lcDoi = doi.toLowerCase();
+    // DEBUG — remove once 400s are diagnosed
+    console.log('[fetchCitationCount] original:', doi, '| sending:', lcDoi);
     var resp = await fetch('https://api.datacite.org/graphql', {
         method: 'POST',
-        // text/plain makes this a CORS "simple request" so the browser skips
-        // the preflight OPTIONS check. DataCite GraphQL parses the body as
-        // JSON regardless of declared Content-Type. With application/json the
-        // browser preflights and DataCite returns 400, breaking the page.
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: doi } })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: lcDoi } })
     });
+    // DEBUG — log the response status and body so we can see what DataCite says
+    if (!resp.ok) {
+        var errBody = '';
+        try { errBody = await resp.clone().text(); } catch (e) {}
+        console.warn('[fetchCitationCount] ' + resp.status + ' for ' + lcDoi + ' — body:', errBody.substring(0, 400));
+    }
     if (resp.status === 429 && retries > 0) {
         await sleep(3000);
         return fetchCitationCount(doi, retries - 1);
@@ -2300,13 +2309,21 @@ function renderCitationItem(c) {
 
 // ----- Source fetchers -----
 async function fetchDataCiteCitations(doi) {
+    var lcDoi = (doi || '').toLowerCase();
+    // DEBUG — remove once 400s are diagnosed
+    console.log('[fetchDataCiteCitations] original:', doi, '| sending:', lcDoi);
     var query = 'query($id: ID!) { work(id: $id) { citations { totalCount nodes { doi titles { title } publicationYear creators { name givenName familyName } publisher { name } container { title } types { resourceTypeGeneral } } } } }';
     var resp = await fetch('https://api.datacite.org/graphql', {
         method: 'POST',
-        // text/plain to skip CORS preflight — see comment in fetchCitationCount.
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({ query: query, variables: { id: doi } })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: query, variables: { id: lcDoi } })
     });
+    // DEBUG — log the response status and body so we can see what DataCite says
+    if (!resp.ok) {
+        var errBody = '';
+        try { errBody = await resp.clone().text(); } catch (e) {}
+        console.warn('[fetchDataCiteCitations] ' + resp.status + ' for ' + lcDoi + ' — body:', errBody.substring(0, 400));
+    }
     if (!resp.ok) throw new Error('DataCite GraphQL ' + resp.status);
     var data = await resp.json();
     if (data.errors) throw new Error(data.errors[0].message || 'DataCite GraphQL error');
