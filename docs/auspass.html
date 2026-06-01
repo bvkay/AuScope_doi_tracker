@@ -628,6 +628,42 @@
         .contrib-type.host { background: #dbeafe; color: #1e40af; }
         .contrib-type.sponsor { background: #dcfce7; color: #166534; }
 
+        .extent-chip {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 5px;
+            padding: 3px 10px;
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-soft);
+            border-radius: 4px;
+            margin: 2px 6px 2px 0;
+        }
+        .extent-chip .num {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--accent-strong);
+            font-variant-numeric: tabular-nums;
+        }
+        .extent-chip .unit {
+            font-size: 11px;
+            color: var(--text-soft);
+        }
+        .extent-chip.plain {
+            background: var(--bg-soft);
+            border-color: var(--border);
+        }
+        .extent-chip.plain .num { color: var(--text); }
+        .format-chip {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            background: var(--bg-muted);
+            border-radius: 4px;
+            margin: 2px 4px 2px 0;
+            color: var(--text-soft);
+            font-family: var(--mono);
+        }
+
         /* ----- Stations pane ----- */
         .stations-table {
             width: 100%;
@@ -1320,6 +1356,16 @@ function applyDataCite(network, attrs) {
     network.descriptions = attrs.descriptions || [];
     network.relatedIdentifiers = attrs.relatedIdentifiers || [];
     network.rightsList = attrs.rightsList || [];
+    // DataCite formal collection dates (distinct from FDSN operational period).
+    // E.g. {dateType:"Collected", date:"2022/2022"} — the declared data
+    // collection period as published in the DataCite record.
+    network.datacietDates = attrs.dates || [];
+    network.dataciteSizes = attrs.sizes || [];
+    network.dataciteFormats = attrs.formats || [];
+    // Record freshness — answers "is the tool seeing the current version?"
+    // Useful immediately after FDSN registry updates propagate to DataCite.
+    network.dataciteUpdated = attrs.updated || '';
+    network.dataciteRegistered = attrs.registered || attrs.created || '';
 }
 
 async function loadCitationCounts() {
@@ -1360,10 +1406,10 @@ async function fetchCitationCount(doi, retries) {
     if (retries === undefined) retries = 2;
     var resp = await fetch('https://api.datacite.org/graphql', {
         method: 'POST',
-        // text/plain makes this a CORS "simple request" (no preflight). DataCite
-        // GraphQL accepts the body as JSON regardless of declared Content-Type.
-        // Without this, opening the page from file:// (origin: null) hits a
-        // preflight failure on OPTIONS even though POST itself would be allowed.
+        // text/plain makes this a CORS "simple request" so the browser skips
+        // the preflight OPTIONS check. DataCite GraphQL parses the body as
+        // JSON regardless of declared Content-Type. With application/json the
+        // browser preflights and DataCite returns 400, breaking the page.
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: doi } })
     });
@@ -1859,18 +1905,105 @@ function renderOverviewPane(n) {
         contributors = '<span class="empty">no contributors recorded</span>';
     }
 
+    // Declared citing papers — the IsCitedBy/IsDocumentedBy/IsSupplementTo/etc.
+    // entries the network record explicitly declares. Distinct from the
+    // Citations tab (which fetches external citations and finds gaps). When
+    // empty, this is a curation prompt: add references via FDSN.org.
+    var citingRelTypes = { IsCitedBy:1, IsReferencedBy:1, IsSupplementTo:1, IsDescribedBy:1, IsDocumentedBy:1 };
+    var declaredCiting = (n.relatedIdentifiers || []).filter(function(r) {
+        return r.relatedIdentifierType === 'DOI' && citingRelTypes[r.relationType];
+    });
+    var declaredPapersHtml;
+    if (n.doi) {
+        if (declaredCiting.length === 0) {
+            declaredPapersHtml = '<span class="empty">none declared yet — add via the "Add reference" field on FDSN.org. The Citations tab will surface candidate papers found in external sources.</span>';
+        } else {
+            declaredPapersHtml = declaredCiting.map(function(r) {
+                var d = (r.relatedIdentifier || '').replace(/^https?:\/\/(dx\.)?doi\.org\//i, '');
+                return '<div style="margin-bottom:3px;">'
+                    + '<span style="color:var(--text-muted);font-size:11px;margin-right:6px;">' + escapeHtml(r.relationType) + ':</span>'
+                    + '<a href="https://doi.org/' + escapeAttr(d) + '" target="_blank" rel="noopener" class="mono" style="font-size:12px;">' + escapeHtml(d) + '</a>'
+                    + '</div>';
+            }).join('');
+        }
+    } else {
+        declaredPapersHtml = '<span class="empty">no DOI registered — citing papers can\'t be declared without one</span>';
+    }
+
+    // DataCite-declared collection dates (e.g. dateType="Collected", date="2022/2022").
+    // Distinct from the FDSN operational period above — this is the formally
+    // published data collection date from the DataCite record.
+    var dataciteDatesHtml;
+    if (n.datacietDates && n.datacietDates.length > 0) {
+        dataciteDatesHtml = n.datacietDates.map(function(dt) {
+            var dtype = dt.dateType || 'Date';
+            var info = dt.dateInformation ? ' <span style="color:var(--text-muted);font-size:11px;">(' + escapeHtml(dt.dateInformation) + ')</span>' : '';
+            return '<div><span style="color:var(--text-muted);font-size:11px;margin-right:6px;">' + escapeHtml(dtype) + ':</span><span class="mono">' + escapeHtml(dt.date || '') + '</span>' + info + '</div>';
+        }).join('');
+    } else if (n.doi) {
+        dataciteDatesHtml = '<span class="empty">none declared in DataCite — operating period above comes from FDSN</span>';
+    } else {
+        dataciteDatesHtml = '<span class="empty">no DataCite record</span>';
+    }
+
+    // Sizes + formats — operational data extent when declared.
+    var extentHtml;
+    if ((n.dataciteSizes && n.dataciteSizes.length > 0) || (n.dataciteFormats && n.dataciteFormats.length > 0)) {
+        var parts = [];
+        if (n.dataciteSizes && n.dataciteSizes.length > 0) {
+            var chips = n.dataciteSizes.map(function(s) {
+                var str = String(s).trim();
+                var match = str.match(/^([\d,]+(?:\.\d+)?)\s+(.+)$/);
+                if (match) {
+                    return '<span class="extent-chip"><span class="num">' + escapeHtml(match[1])
+                        + '</span><span class="unit">' + escapeHtml(match[2]) + '</span></span>';
+                }
+                return '<span class="extent-chip plain"><span class="num">' + escapeHtml(str) + '</span></span>';
+            }).join('');
+            parts.push('<div style="margin-bottom:4px;">' + chips + '</div>');
+        }
+        if (n.dataciteFormats && n.dataciteFormats.length > 0) {
+            parts.push('<div><span style="color:var(--text-muted);font-size:11px;margin-right:6px;">Formats:</span>'
+                + n.dataciteFormats.map(function(f) { return '<span class="format-chip">' + escapeHtml(f) + '</span>'; }).join('') + '</div>');
+        }
+        extentHtml = parts.join('');
+    } else if (n.doi) {
+        extentHtml = '<span class="empty">no size or format declared</span>';
+    } else {
+        extentHtml = '<span class="empty">no DataCite record</span>';
+    }
+
+    // Record freshness — registered date and last update. Mirrors the EarthBank
+    // fix; lets the user diagnose at a glance whether DataCite has propagated
+    // a recent FDSN registry change.
+    var freshnessHtml = '';
+    if (n.dataciteRegistered) {
+        freshnessHtml += '<span class="mono">' + escapeHtml(n.dataciteRegistered.substring(0, 10)) + '</span> registered';
+    }
+    if (n.dataciteUpdated) {
+        if (freshnessHtml) freshnessHtml += ' · ';
+        freshnessHtml += '<span class="mono">' + escapeHtml(n.dataciteUpdated.substring(0, 10)) + '</span> updated';
+    }
+    if (!freshnessHtml) {
+        freshnessHtml = n.doi ? '<span class="empty">unknown</span>' : '<span class="empty">no DataCite record</span>';
+    }
+
     return '<dl class="ov-grid">'
         + '<dt>Network code</dt><dd><span class="mono" style="font-weight:600;">' + escapeHtml(n.code) + '</span> · ' + fdsnLink + '</dd>'
         + '<dt>Description</dt><dd>' + description + '</dd>'
         + '<dt>Status</dt><dd>' + (n.status === 'active'
             ? '<span class="badge status-active">Active</span> · still collecting data'
             : '<span class="badge status-concluded">Concluded</span>') + '</dd>'
-        + '<dt>Operating period</dt><dd><span class="mono">' + escapeHtml(n.startTime || '') + '</span>'
+        + '<dt>Operating period <span class="info-i" data-tip="From the FDSN station service — when the network was operationally active.">i</span></dt><dd><span class="mono">' + escapeHtml(n.startTime || '') + '</span>'
             + (n.endTime ? ' &nbsp;→&nbsp; <span class="mono">' + escapeHtml(n.endTime) + '</span>' : ' &nbsp;→&nbsp; <em style="color:var(--text-soft)">ongoing</em>') + '</dd>'
+        + '<dt>Collection dates <span class="info-i" data-tip="From the DataCite record (dates array) — the formally declared data collection period.">i</span></dt><dd>' + dataciteDatesHtml + '</dd>'
         + '<dt>Stations</dt><dd>' + n.totalStations + ' total · see Stations tab for inventory</dd>'
         + '<dt>DOI</dt><dd>' + doiBlock + '</dd>'
+        + '<dt>Record updated <span class="info-i" data-tip="When DataCite last updated this record. After making changes via FDSN.org, propagation to DataCite typically takes a day or two.">i</span></dt><dd>' + freshnessHtml + '</dd>'
         + '<dt>Operator(s) <span class="info-i" data-tip="From DataCite creators field — typically the research team that deployed and operated the network.">i</span></dt><dd>' + creators + '</dd>'
         + '<dt>Contributors <span class="info-i" data-tip="From DataCite contributors field — institutions hosting the network (HostingInstitution), people to contact (ContactPerson), and funding/supporting bodies (Sponsor). Add via the FDSN.org registration form.">i</span></dt><dd>' + contributors + '</dd>'
+        + '<dt>Declared citing papers <span class="info-i" data-tip="DOIs declared in this network\'s relatedIdentifiers as IsCitedBy / IsDocumentedBy / etc. Add via FDSN.org\'s &quot;Add reference&quot; field. The Citations tab cross-checks these against papers found in external citation sources.">i</span></dt><dd>' + declaredPapersHtml + '</dd>'
+        + '<dt>Data extent <span class="info-i" data-tip="From DataCite sizes/formats fields when declared (e.g. SEED data volume).">i</span></dt><dd>' + extentHtml + '</dd>'
         + '<dt>Rights / licence</dt><dd>' + rights + '</dd>'
         + '</dl>';
 }
@@ -2170,7 +2303,7 @@ async function fetchDataCiteCitations(doi) {
     var query = 'query($id: ID!) { work(id: $id) { citations { totalCount nodes { doi titles { title } publicationYear creators { name givenName familyName } publisher { name } container { title } types { resourceTypeGeneral } } } } }';
     var resp = await fetch('https://api.datacite.org/graphql', {
         method: 'POST',
-        // text/plain to avoid CORS preflight — see comment in fetchCitationCount.
+        // text/plain to skip CORS preflight — see comment in fetchCitationCount.
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ query: query, variables: { id: doi } })
     });
