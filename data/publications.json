@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-06-07T06:39:38.534Z",
-    "total_count": 2865
+    "last_updated": "2026-06-14T06:50:44.350Z",
+    "total_count": 2874
   },
   "records": [
     {
@@ -2034,7 +2034,7 @@
       "journal": "Earth Planets and Space",
       "publisher": "Springer Nature",
       "year": 2023,
-      "cited": 1,
+      "cited": 2,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; Geology and Paleoclimatology Research",
@@ -2595,7 +2595,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2023,
-      "cited": 15,
+      "cited": 16,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; Radioactive element chemistry and processing",
@@ -2774,7 +2774,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "EarthByte"
+        "EarthByte",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -3239,7 +3240,8 @@
       "searchTerms": [
         "AuScope",
         "National Virtual Core Library",
-        "Characterisation AuScope"
+        "Characterisation AuScope",
+        "Hylogger CSIRO"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -3379,7 +3381,7 @@
       "journal": "Geoscience Data Journal",
       "publisher": "Wiley",
       "year": 2023,
-      "cited": 24,
+      "cited": 25,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological formations and processes; Geological and Geophysical Studies; Seismic Imaging and Inversion Techniques",
@@ -3528,7 +3530,7 @@
       "journal": "Nature Reviews Earth & Environment",
       "publisher": "Nature Portfolio",
       "year": 2023,
-      "cited": 31,
+      "cited": 32,
       "type": "review",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Geological and Geochemical Analysis; Geological formations and processes",
@@ -3570,7 +3572,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2023,
-      "cited": 16,
+      "cited": 17,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; earthquake and tectonic studies",
@@ -3750,7 +3752,8 @@
         "Crossref"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -4809,7 +4812,7 @@
       "journal": "Basin Research",
       "publisher": "Wiley",
       "year": 2022,
-      "cited": 20,
+      "cited": 21,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; Geochemistry and Geologic Mapping",
@@ -5192,7 +5195,7 @@
       "journal": "Meteoritics and Planetary Science",
       "publisher": "Wiley",
       "year": 2022,
-      "cited": 12,
+      "cited": 13,
       "type": "article",
       "isOA": "Yes",
       "subject": "Planetary Science and Exploration; Astro and Planetary Science; Geology and Paleoclimatology Research",
@@ -6297,7 +6300,9 @@
       "dateAdded": "2026-03-24",
       "institutions": [
         "Australian National University",
-        "National Computational Infrastructure"
+        "National Computational Infrastructure",
+        "AuScope",
+        "University of Canberra"
       ],
       "countries": [
         "AU"
@@ -7657,7 +7662,7 @@
       "journal": "Science",
       "publisher": "American Association for the Advancement of Science",
       "year": 2020,
-      "cited": 376,
+      "cited": 377,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; Earthquake Detection and Analysis",
@@ -8497,7 +8502,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2019,
-      "cited": 72,
+      "cited": 73,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -8633,10 +8638,12 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
-        "University of Sydney"
+        "The University of Sydney",
+        "Shell (Netherlands)"
       ],
       "countries": [
-        "AU"
+        "AU",
+        "NL"
       ],
       "authorCount": 5
     },
@@ -8729,7 +8736,7 @@
       "journal": "Astronomy and Astrophysics",
       "publisher": "EDP Sciences",
       "year": 2019,
-      "cited": 31,
+      "cited": 32,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astrophysics and Cosmic Phenomena; Radio Astronomy Observations and Technology; Galaxies: Formation, Evolution, Phenomena",
@@ -9309,7 +9316,7 @@
       "journal": "Geoscience Frontiers",
       "publisher": "Elsevier BV",
       "year": 2018,
-      "cited": 32,
+      "cited": 33,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -9422,7 +9429,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2018,
-      "cited": 727,
+      "cited": 734,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Geological formations and processes; Geological Modeling and Analysis",
@@ -9936,10 +9943,12 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
+        "Institute of Geology and Geophysics",
         "University of Chinese Academy of Sciences",
         "Australian National University"
       ],
       "countries": [
+        "AZ",
         "CN",
         "AU"
       ],
@@ -10281,7 +10290,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2017,
-      "cited": 30,
+      "cited": 31,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Ionosphere and magnetosphere dynamics",
@@ -10968,7 +10977,7 @@
       "journal": "PLoS ONE",
       "publisher": "Public Library of Science",
       "year": 2016,
-      "cited": 68,
+      "cited": 69,
       "type": "article",
       "isOA": "Yes",
       "subject": "Methane Hydrates and Related Phenomena; Geological and Geophysical Studies; Geological Modeling and Analysis",
@@ -11606,14 +11615,17 @@
         "Australian National University",
         "American Petroleum Institute",
         "University of Aberdeen",
+        "Department of State Development",
         "University of California, Berkeley",
         "Geological Survey of Western Australia",
-        "University of Tasmania"
+        "University of Tasmania",
+        "Hydrosolutions (Switzerland)"
       ],
       "countries": [
         "AU",
         "US",
-        "GB"
+        "GB",
+        "CH"
       ],
       "authorCount": 8
     },
@@ -11738,7 +11750,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2014,
-      "cited": 128,
+      "cited": 129,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; earthquake and tectonic studies; Geological formations and processes",
@@ -11850,7 +11862,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2014,
-      "cited": 2623,
+      "cited": 2628,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Maritime and Coastal Archaeology",
@@ -12245,7 +12257,7 @@
       "journal": "Tectonics",
       "publisher": "Wiley",
       "year": 2013,
-      "cited": 160,
+      "cited": 161,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
@@ -12433,10 +12445,12 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
-        "Australian National University"
+        "Australian National University",
+        "Planetary Science Institute"
       ],
       "countries": [
-        "AU"
+        "AU",
+        "US"
       ],
       "authorCount": 3
     },
@@ -12484,7 +12498,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2012,
-      "cited": 79,
+      "cited": 81,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Waves and Analysis; Geophysical Methods and Applications",
@@ -13079,9 +13093,12 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
+        "Australian National University",
+        "Geoscience Australia",
         "Schlumberger (Ireland)"
       ],
       "countries": [
+        "AU",
         "IE"
       ],
       "authorCount": 2
@@ -13182,7 +13199,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2008,
-      "cited": 2053,
+      "cited": 2055,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -15547,7 +15564,7 @@
       "journal": "Earth system science data",
       "publisher": "Copernicus Publications",
       "year": 2021,
-      "cited": 9,
+      "cited": 10,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geochemistry and Geologic Mapping; Remote-Sensing Image Classification; Soil Geostatistics and Mapping",
@@ -16180,7 +16197,7 @@
       "journal": "Geostandards and Geoanalytical Research",
       "publisher": "Wiley",
       "year": 2023,
-      "cited": 6,
+      "cited": 7,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials",
@@ -17360,7 +17377,7 @@
       "journal": "Quaternary Science Reviews",
       "publisher": "Elsevier BV",
       "year": 2024,
-      "cited": 2,
+      "cited": 3,
       "type": "article",
       "isOA": "Yes",
       "subject": "Pleistocene-Era Hominins and Archaeology; Archaeology and ancient environmental studies; Geological and Geochemical Analysis",
@@ -18013,7 +18030,7 @@
       "journal": "Journal of Petrology",
       "publisher": "Oxford University Press",
       "year": 2019,
-      "cited": 98,
+      "cited": 99,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide; earthquake and tectonic studies",
@@ -18232,7 +18249,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2013,
-      "cited": 332,
+      "cited": 333,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Geological and Geochemical Analysis",
@@ -19754,7 +19771,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2023,
-      "cited": 265,
+      "cited": 266,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; earthquake and tectonic studies; Geophysics and Gravity Measurements",
@@ -20821,7 +20838,7 @@
       "journal": "The Astrophysical Journal Letters",
       "publisher": "IOP Publishing",
       "year": 2024,
-      "cited": 99,
+      "cited": 101,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astrophysics and Cosmic Phenomena; Astrophysical Phenomena and Observations; Gamma-ray bursts and supernovae",
@@ -21476,7 +21493,7 @@
       "journal": "Astronomy and Astrophysics",
       "publisher": "EDP Sciences",
       "year": 2014,
-      "cited": 271,
+      "cited": 273,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astrophysics and Star Formation Studies; Stellar, planetary, and galactic studies; Galaxies: Formation, Evolution, Phenomena",
@@ -21869,7 +21886,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2025,
-      "cited": 3,
+      "cited": 4,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; earthquake and tectonic studies",
@@ -23479,7 +23496,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2024,
-      "cited": 9,
+      "cited": 10,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
@@ -23706,7 +23723,7 @@
       "journal": "Frontiers in Earth Science",
       "publisher": "Frontiers Media",
       "year": 2020,
-      "cited": 49,
+      "cited": 50,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Geophysics and Sensor Technology; Seismology and Earthquake Studies",
@@ -25460,7 +25477,7 @@
       "journal": "Science",
       "publisher": "American Association for the Advancement of Science",
       "year": 2024,
-      "cited": 54,
+      "cited": 55,
       "type": "article",
       "isOA": "Yes",
       "subject": "Coral and Marine Ecosystems Studies; Marine Biology and Ecology Research; Marine and fisheries research",
@@ -25683,7 +25700,7 @@
       "journal": "Nature Geoscience",
       "publisher": "Nature Portfolio",
       "year": 2023,
-      "cited": 23,
+      "cited": 24,
       "type": "article",
       "isOA": "Yes",
       "subject": "Evolution and Paleontology Studies; Geology and Paleoclimatology Research; Paleontology and Stratigraphy of Fossils",
@@ -32607,7 +32624,7 @@
       "journal": "Remote Sensing",
       "publisher": "Multidisciplinary Digital Publishing Institute",
       "year": 2024,
-      "cited": 2,
+      "cited": 3,
       "type": "article",
       "isOA": "Yes",
       "subject": "Topic Modeling; Biomedical Text Mining and Ontologies; Natural Language Processing Techniques",
@@ -48806,10 +48823,12 @@
       ],
       "authorCount": 2,
       "institutions": [
-        "Geoscience Australia"
+        "Geoscience Australia",
+        "Jazan University"
       ],
       "countries": [
-        "AU"
+        "AU",
+        "SA"
       ],
       "dateAdded": "2026-04-05"
     },
@@ -49266,7 +49285,7 @@
       "title": "Aleutian Arc Initiation at 56 Ma: Tectonic and climatic implications",
       "authors": "Sabin Zahirovic; Kaj Hoernle; Dietmar Müller",
       "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
+      "publisher": "GEOMAR Helmholtz Centre for Ocean Research Kiel",
       "year": 2026,
       "cited": 0,
       "type": "dataset",
@@ -51615,8 +51634,8 @@
       "doi": "10.5061/dryad.wpzgmsbwx",
       "title": "Aleutian Arc initiation at 56 Ma: Ar/Ar whole rock and mineral and U/Pb zircon age data and whole rock major and trace element and Sr-Nd-Pb isotope data",
       "authors": "Kaj Hoernle; Brian Jicha; Folkmar Hauff; Marcel Guillong",
-      "journal": "DRYAD",
-      "publisher": "",
+      "journal": "Helmholtz Centre for Ocean Research Kiel (GEOMAR)",
+      "publisher": "GEOMAR Helmholtz Centre for Ocean Research Kiel",
       "year": 2026,
       "cited": 0,
       "type": "dataset",
@@ -70859,6 +70878,251 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-06-07"
+    },
+    {
+      "doi": "10.1080/18366503.2026.2684382",
+      "title": "A national vision for science-enabled coastal and urban development in Australia",
+      "authors": "Ryan Lowe; Pascal Perez; Daniel Ierodiaconou; Rebecca Zitoun; Katherine A. Dafforn; Ben S. Hague; William Glamore; Madelaine Hooper; Jennifer Jenkins; Graziela Miot da Silva; Mariana Mayer‐Pinto; Rebecca L. Morris; Luke Twomey; Xiao Hua Wang; Alexander V. Babanin; Jonathan Barratt; Melanie J. Bishop; Capri Jolliffe; Marzieh H. Derkani; Carmen E. Elrick‐Barr; David A. Griffin; Jeff E. Hansen; Salman Khan; Jana Mrazova; Abbie A. Rogers; Arnold van Rooijen; S Smithers; Kristen D. Splinter; Stephen E. Swearer; Ana Vila‐Concejo; Greg Williams",
+      "journal": "Australian Journal of Maritime & Ocean Affairs",
+      "publisher": "Taylor & Francis",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Coastal and Marine Management; New Zealand Economic and Social Studies; Environmental, Ecological, and Cultural Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope",
+        "Simulation Analysis Modelling AuScope",
+        "International Collaboration AuScope"
+      ],
+      "authorCount": 31,
+      "institutions": [
+        "The University of Western Australia",
+        "The University of Melbourne",
+        "Australian Urban Research Infrastructure Network",
+        "Deakin University",
+        "Integrated Marine Observing System",
+        "Macquarie University",
+        "UNSW Sydney",
+        "Bureau of Meteorology",
+        "Global Health Strategies (United States)",
+        "National Computational Infrastructure",
+        "Division of Biological Infrastructure",
+        "Flinders University",
+        "Western Australian Marine Science Institution",
+        "Canberra (United Kingdom)",
+        "UNSW Canberra",
+        "Celsius Therapeutics (United States)",
+        "University of the Sunshine Coast",
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "Frankston Hospital",
+        "James Cook University",
+        "The University of Sydney"
+      ],
+      "countries": [
+        "AU",
+        "US",
+        "GB"
+      ],
+      "dateAdded": "2026-06-14"
+    },
+    {
+      "doi": "10.26186/151047",
+      "title": "South Australia Gravity Survey",
+      "authors": "Commonwealth of Australia (Geoscience Australia); N. Darbeheshti",
+      "journal": "Geoscience Australia",
+      "publisher": "",
+      "year": 2026,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Geoscience Australia",
+        "Shahid Beheshti University"
+      ],
+      "countries": [
+        "AU",
+        "IR"
+      ],
+      "dateAdded": "2026-06-14"
+    },
+    {
+      "doi": "10.31577/geolcarp.2024.13",
+      "title": "Implication of Cenozoic tectono-sedimentary evolution for the geoenergy potential in the NW Transcarpathian Basin",
+      "authors": "Viktória Subová; Samuel Rybár; Natália Hudáčková; Michal Jamrich; Fred Jourdan; Celia Mayers; Ľubomír Sliva",
+      "journal": "Geologica Carpathica",
+      "publisher": "De Gruyter Open",
+      "year": 2024,
+      "cited": 4,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological Formations and Processes Exploration; Mining and Gasification Technologies; Geological Studies and Exploration",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Western Australia Argon Isotope Facility"
+      ],
+      "authorCount": 7,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-06-14"
+    },
+    {
+      "doi": "10.22323/1.056.0003",
+      "title": "Pulsar Glitch Substructure &amp; The Pulsar EOS",
+      "authors": "Richard Dodson",
+      "journal": "Proceedings of Bursts, Pulses and Flickering: wide-field monitoring of the dynamic radio sky — PoS(Dynamic2007)",
+      "publisher": "Sissa Medialab",
+      "year": 2008,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysics and Gravity Measurements; Pulsars and Gravitational Waves Research; GNSS positioning and interference",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Mt Pleasant VLBI"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-06-14"
+    },
+    {
+      "doi": "10.1038/s41467-026-74134-5",
+      "title": "How subduction evolution drives sediment-hosted mineralisation along craton edges.",
+      "authors": "Hojat Shirmard; Ben Mather; Ehsan Farahbakhsh; Craig O'Neill; R Dietmar Müller",
+      "journal": "Nature Communications",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
+      "sources": [
+        "Europe PMC"
+      ],
+      "searchTerms": [
+        "EarthByte"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-06-14"
+    },
+    {
+      "doi": "10.3389/fmars.2026.1814789",
+      "title": "Molecular phylogeny and fossil records reveal the origin and evolutionary history of deep-sea Ophiuroidea",
+      "authors": "Han Yan; Zhongli Sha; Shao’e Sun",
+      "journal": "Frontiers in Marine Science",
+      "publisher": "Frontiers Media",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Echinoderm biology and ecology; Marine Biology and Ecology Research; Marine Ecology and Invasive Species",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "GPlates"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "South China Sea Institute Of Oceanology",
+        "University of Chinese Academy of Sciences"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "dateAdded": "2026-06-14"
+    },
+    {
+      "doi": "10.31223/x52n3q",
+      "title": "Historical biogeography of Middle-East mangroves: paleobotanical evidence",
+      "authors": "Valentı́ Rull",
+      "journal": "",
+      "publisher": "California Digital Library (CDL)",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological formations and processes; Coastal wetland ecosystem dynamics; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "GPlates"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "Institute of Paleoprimatology Human Paleontology Evolution and Paleoenvironments"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "dateAdded": "2026-06-14"
+    },
+    {
+      "doi": "10.1017/pab.2026.10101",
+      "title": "Rebuilding the taxonomic tree structure after a major mass extinction: a case study on taxonomic distinctness of marine Triassic bivalves",
+      "authors": "María Gabriela Suárez; Michael Hautmann",
+      "journal": "Paleobiology",
+      "publisher": "Cambridge University Press",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Paleontology and Stratigraphy of Fossils; Paleontology and Evolutionary Biology; Evolution and Paleontology Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "GPlates"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Zurich"
+      ],
+      "countries": [
+        "CH"
+      ],
+      "dateAdded": "2026-06-14"
+    },
+    {
+      "doi": "10.1093/nsr/nwag230",
+      "title": "From manganese mineral evolution history to atmospheric oxygen reconstruction.",
+      "authors": "Yan Li; Ziyi Zhuang; Xinran Xu; Rongzhang Yin; Yanzhang Li; Yadong Wang; Chunjiang Li; Yong Lai; Yanan Zhang; Huan Ye; Zhaoyang Hu; Anhuai Lu; Robert M Hazen; Xiangzhi Bai",
+      "journal": "National Science Review",
+      "publisher": "Oxford University Press (OUP)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Deep Learning; Mn Crystal Chemistry; Mn Mineral Dataset",
+      "sources": [
+        "Europe PMC"
+      ],
+      "searchTerms": [
+        "GPlates"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-06-14"
     }
   ]
 }
