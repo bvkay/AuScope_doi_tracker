@@ -1,10 +1,18 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-06-14T06:49:56.309Z",
+    "last_updated": "2026-06-21T07:08:04.902Z",
     "total_count": 210
   },
   "records": [
+    {
+      "doi": "10.58024/agcu9d1e3166",
+      "name": "Pb isotope data",
+      "authors": "Liebmann, J., Kirkland, C., Hartnady, M., Spencer, C.",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
     {
       "doi": "10.58024/agwa9353beb7",
       "name": "The OSNACA Project: Samples",
@@ -1422,14 +1430,6 @@
       "type": "Seismic Network"
     },
     {
-      "code": "VW",
-      "name": "University of Melbourne Seismic Network VW: (VICWAVE)",
-      "year": 2000,
-      "doi": "10.7914/8csc-8z27",
-      "platform": "AusPass",
-      "type": "Seismic Network"
-    },
-    {
       "code": "WG",
       "name": "WA Array",
       "year": 2022,
@@ -1489,7 +1489,7 @@
       "code": "Z9",
       "name": "Casey-Wilkins Adaptable Array",
       "year": 2022,
-      "doi": "10.7914/SN/Z9_2021",
+      "doi": "10.7914/fa5t-3w59",
       "platform": "AusPass",
       "type": "Seismic Network"
     },
