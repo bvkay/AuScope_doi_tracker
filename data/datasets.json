@@ -1,10 +1,18 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-06-28T06:35:53.154Z",
-    "total_count": 210
+    "last_updated": "2026-07-05T06:22:39.169Z",
+    "total_count": 212
   },
   "records": [
+    {
+      "doi": "10.58024/agag3126b4ca",
+      "name": "Broken Hill Geochronology",
+      "authors": "Boone, S., Dalton, H., Ware, B.",
+      "year": 2025,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
     {
       "doi": "10.58024/agcu9d1e3166",
       "name": "Pb isotope data",
@@ -930,6 +938,14 @@
       "name": "South Island Seismology at the Speed of Light Experiment",
       "year": 2023,
       "doi": "10.7914/bfp8-xv25",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "2B",
+      "name": "DAS Addition for Seismology and Hydrology (DASH)",
+      "year": 2026,
+      "doi": "10.7914/hwmy-0n24",
       "platform": "AusPass",
       "type": "Seismic Network"
     },
