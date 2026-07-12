@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-07-05T06:22:39.169Z",
-    "total_count": 212
+    "last_updated": "2026-07-12T05:44:58.012Z",
+    "total_count": 213
   },
   "records": [
     {
@@ -844,6 +844,14 @@
       "year": 2022,
       "platform": "EarthBank",
       "type": "Dataset"
+    },
+    {
+      "code": "1B",
+      "name": "Maunakea Observatory DAS Experiment",
+      "year": 2026,
+      "doi": "10.7914/1wr3-b906",
+      "platform": "AusPass",
+      "type": "Seismic Network"
     },
     {
       "code": "1E",
