@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-07-19T05:41:39.542Z",
-    "total_count": 3031
+    "last_updated": "2026-07-26T05:50:20.070Z",
+    "total_count": 3064
   },
   "records": [
     {
@@ -673,7 +673,7 @@
       "journal": "Communications Earth & Environment",
       "publisher": "Nature Portfolio",
       "year": 2025,
-      "cited": 1,
+      "cited": 2,
       "type": "article",
       "isOA": "Yes",
       "subject": "Paleontology and Stratigraphy of Fossils; Marine Biology and Ecology Research; Methane Hydrates and Related Phenomena",
@@ -842,7 +842,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2025,
-      "cited": 3,
+      "cited": 4,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; Geochemistry and Geologic Mapping",
@@ -1284,10 +1284,12 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
-        "China Earthquake Administration",
-        "Institute of Geology, China Earthquake Administration"
+        "Institute of Geology, China Earthquake Administration",
+        "The University of Texas at Austin",
+        "China Earthquake Administration"
       ],
       "countries": [
+        "US",
         "CN"
       ],
       "authorCount": 1
@@ -1485,7 +1487,7 @@
       "journal": "Earthquake Engineering & Structural Dynamics",
       "publisher": "Wiley",
       "year": 2024,
-      "cited": 3,
+      "cited": 4,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological Modeling and Analysis; Advanced Computational Techniques and Applications; Scientific Computing and Data Management",
@@ -1707,7 +1709,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2024,
-      "cited": 1,
+      "cited": 2,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Radio Astronomy Observations and Technology; Astrophysics and Cosmic Phenomena",
@@ -3635,7 +3637,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2023,
-      "cited": 5,
+      "cited": 6,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Ionosphere and magnetosphere dynamics",
@@ -3743,7 +3745,7 @@
       "journal": "Geostandards and Geoanalytical Research",
       "publisher": "Wiley",
       "year": 2023,
-      "cited": 25,
+      "cited": 27,
       "type": "article",
       "isOA": "Yes",
       "subject": "Isotope Analysis in Ecology; Geological and Geochemical Analysis; Geology and Paleoclimatology Research",
@@ -4291,7 +4293,7 @@
       "journal": "Nature Communications",
       "publisher": "Nature Portfolio",
       "year": 2022,
-      "cited": 23,
+      "cited": 24,
       "type": "article",
       "isOA": "Yes",
       "subject": "Paleontology and Stratigraphy of Fossils; Geological and Geochemical Analysis; Geochemistry and Elemental Analysis",
@@ -4780,7 +4782,7 @@
       "journal": "Nature Communications",
       "publisher": "Nature Portfolio",
       "year": 2022,
-      "cited": 11,
+      "cited": 12,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
@@ -4874,7 +4876,7 @@
       "journal": "Nature Communications",
       "publisher": "Nature Portfolio",
       "year": 2022,
-      "cited": 50,
+      "cited": 51,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -5051,7 +5053,7 @@
       "journal": "Mineral Economics",
       "publisher": "Springer Science+Business Media",
       "year": 2022,
-      "cited": 46,
+      "cited": 47,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geochemistry and Geologic Mapping; Mineral Processing and Grinding",
@@ -5152,7 +5154,8 @@
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
-        "University of Zagreb"
+        "University of Zagreb",
+        "Croatian National Bank"
       ],
       "countries": [
         "HR"
@@ -5293,7 +5296,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2022,
-      "cited": 6,
+      "cited": 7,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Ionosphere and magnetosphere dynamics",
@@ -6698,7 +6701,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2021,
-      "cited": 11,
+      "cited": 12,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Advanced Measurement and Metrology Techniques",
@@ -6764,7 +6767,7 @@
       "journal": "Minerals",
       "publisher": "Multidisciplinary Digital Publishing Institute",
       "year": 2021,
-      "cited": 129,
+      "cited": 130,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geochemistry and Geologic Mapping; Mineral Processing and Grinding; Remote-Sensing Image Classification",
@@ -6794,7 +6797,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2021,
-      "cited": 26,
+      "cited": 27,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; Geophysical Methods and Applications",
@@ -7109,7 +7112,8 @@
       "dateAdded": "2026-03-24",
       "institutions": [
         "Curtin University",
-        "Station d’Écologie Théorique et Expérimentale"
+        "Station d’Écologie Théorique et Expérimentale",
+        "Centre National de la Recherche Scientifique"
       ],
       "countries": [
         "AU",
@@ -7515,7 +7519,7 @@
       "journal": "Astronomy and Astrophysics",
       "publisher": "EDP Sciences",
       "year": 2020,
-      "cited": 302,
+      "cited": 304,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysics and Gravity Measurements; Stellar, planetary, and galactic studies; Solar and Space Plasma Dynamics",
@@ -7664,7 +7668,7 @@
       "journal": "Science",
       "publisher": "American Association for the Advancement of Science",
       "year": 2020,
-      "cited": 382,
+      "cited": 383,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; Earthquake Detection and Analysis",
@@ -7877,7 +7881,7 @@
       "journal": "Earth Planets and Space",
       "publisher": "Springer Nature",
       "year": 2020,
-      "cited": 16,
+      "cited": 17,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Ionosphere and magnetosphere dynamics",
@@ -8060,7 +8064,7 @@
       "journal": "The Journal of Open Source Software",
       "publisher": "Open Journals",
       "year": 2020,
-      "cited": 70,
+      "cited": 72,
       "type": "article",
       "isOA": "Yes",
       "subject": "Methane Hydrates and Related Phenomena; Geological Modeling and Analysis; Computational Physics and Python Applications",
@@ -8158,7 +8162,7 @@
       "journal": "Earth Planets and Space",
       "publisher": "Springer Nature",
       "year": 2020,
-      "cited": 86,
+      "cited": 87,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Waves and Analysis",
@@ -8510,7 +8514,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2019,
-      "cited": 75,
+      "cited": 76,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -9471,7 +9475,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2018,
-      "cited": 19,
+      "cited": 20,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; Geological and Geophysical Studies Worldwide",
@@ -10003,7 +10007,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2017,
-      "cited": 85,
+      "cited": 86,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geochemical Analysis",
@@ -10642,7 +10646,7 @@
       "journal": "Journal of Petrology",
       "publisher": "Oxford University Press",
       "year": 2016,
-      "cited": 65,
+      "cited": 66,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
@@ -10909,7 +10913,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2016,
-      "cited": 23,
+      "cited": 24,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Waves and Analysis; Geological formations and processes",
@@ -11872,7 +11876,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2014,
-      "cited": 2666,
+      "cited": 2669,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Maritime and Coastal Archaeology",
@@ -12271,7 +12275,7 @@
       "journal": "Tectonics",
       "publisher": "Wiley",
       "year": 2013,
-      "cited": 162,
+      "cited": 163,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
@@ -12475,7 +12479,7 @@
       "journal": "Geophysics",
       "publisher": "Society of Exploration Geophysicists",
       "year": 2012,
-      "cited": 211,
+      "cited": 212,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Geophysical Methods and Applications",
@@ -13213,7 +13217,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2008,
-      "cited": 2076,
+      "cited": 2079,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -16571,7 +16575,7 @@
       "journal": "Geochemistry",
       "publisher": "Elsevier BV",
       "year": 2020,
-      "cited": 49,
+      "cited": 50,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Planetary Science and Exploration; Geological and Geochemical Analysis",
@@ -17851,7 +17855,7 @@
       "journal": "Meteoritics and Planetary Science",
       "publisher": "Wiley",
       "year": 2021,
-      "cited": 7,
+      "cited": 8,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Planetary Science and Exploration; Isotope Analysis in Ecology",
@@ -18323,12 +18327,14 @@
         "University of Bergen",
         "British Geological Survey",
         "Natural Environment Research Council",
+        "Arizona State University",
         "Curtin University",
         "National Directorate of Geology"
       ],
       "countries": [
         "NO",
         "GB",
+        "US",
         "AU",
         "MZ"
       ],
@@ -18712,7 +18718,7 @@
       "journal": "Nature Communications",
       "publisher": "Nature Portfolio",
       "year": 2025,
-      "cited": 7,
+      "cited": 8,
       "type": "article",
       "isOA": "Yes",
       "subject": "Metal Extraction and Bioleaching; Minerals Flotation and Separation Techniques; Metallurgical Processes and Thermodynamics",
@@ -19042,7 +19048,7 @@
       "journal": "Geology",
       "publisher": "Geological Society of America",
       "year": 2021,
-      "cited": 79,
+      "cited": 81,
       "type": "article",
       "isOA": "Yes",
       "subject": "Metal Extraction and Bioleaching; Minerals Flotation and Separation Techniques; Mineral Processing and Grinding",
@@ -19584,7 +19590,7 @@
       "publisher": "Springer Nature",
       "year": 2024,
       "cited": 0,
-      "type": "book chapter",
+      "type": "conference paper",
       "isOA": "Yes",
       "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Geophysics and Gravity Measurements; Advanced SAR Imaging Techniques",
       "sources": [
@@ -19737,7 +19743,7 @@
       "publisher": "Sissa Medialab",
       "year": 2023,
       "cited": 0,
-      "type": "article",
+      "type": "conference paper",
       "isOA": "Yes",
       "subject": "Astrophysics and Cosmic Phenomena; Radio Astronomy Observations and Technology; Neutrino Physics Research",
       "sources": [
@@ -19795,7 +19801,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2023,
-      "cited": 277,
+      "cited": 284,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; earthquake and tectonic studies; Geophysics and Gravity Measurements",
@@ -43289,7 +43295,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2023,
-      "cited": 29,
+      "cited": 30,
       "type": "journal article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; earthquake and tectonic studies",
@@ -46251,7 +46257,7 @@
       "journal": "Nature Communications",
       "publisher": "Springer Science and Business Media LLC",
       "year": 2026,
-      "cited": 0,
+      "cited": 1,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "Geochemistry and Elemental Analysis; Clay minerals and soil interactions; Geological and Geochemical Analysis",
@@ -48723,7 +48729,7 @@
       "publisher": "Copernicus GmbH",
       "year": 2025,
       "cited": 0,
-      "type": "preprint",
+      "type": "conference abstract",
       "isOA": "Yes",
       "subject": "Radio Astronomy Observations and Technology; Geophysics and Gravity Measurements; Ionosphere and magnetosphere dynamics",
       "sources": [
@@ -71604,7 +71610,7 @@
     {
       "doi": "10.1038/s41467-026-72076-6",
       "title": "Insights into early continental crust formation from the most ancient heart of Scotland.",
-      "authors": "Silvia Volante; Fernanda Torres-Mancinelli; Jonas Kaempf; Vitor Barrote; Tim Johnson; Christopher Kirkland; Maria Rosa Scicchitano; Lorenzo Tavazzani; Sampriti Basak; Anne-Sophie Bouvier; Annika Dziggel; Axel Gerdes",
+      "authors": "Silvia Volante; Fernanda Torres-Mancinelli; Jonas Kaempf; Vitor Barrote; Tim Johnson; Christopher L. Kirkland; Maria Rosa Scicchitano; Lorenzo Tavazzani; Sampriti Basak; Anne‐Sophie Bouvier; Annika Dziggel; Axel Gerdes",
       "journal": "Nature Communications",
       "publisher": "Springer Science and Business Media LLC",
       "year": 2026,
@@ -74902,6 +74908,766 @@
         "CN"
       ],
       "dateAdded": "2026-07-19"
+    },
+    {
+      "doi": "10.82388/wxmy79ze",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/fjac53j6",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/c8gf4j5z",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/ygxhw2p5",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/e294x5mk",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/ikfwp4qj",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/2uztc2j6",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/pqespgbo",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/vboc9r8p",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/v87pd2ab",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/ko3rieyt",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/8hjqyq4t",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/2q8fbpjg",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/sp7hw1av",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/gtayqn61",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2006,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/kep0frad",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/51qz0g08",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/doj4kua9",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/yj8w25ci",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/2nyr7j3t",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/54bgwbw9",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/ibnrh5rj",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/1rxfmy67",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/05hyhja8",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/w0tttqt9",
+      "title": "Earth Data PR6-24 Logger",
+      "authors": "Earth Data Ltd",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2008,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/nu632xx4",
+      "title": "Broadband Magnetotelluric survey of the Newer Volcanic Province (2019)",
+      "authors": "Adelaide University",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2026,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.82388/bt6orvhn",
+      "title": "Magnetotelluric and Passive Seismic Survey of the Vulcan IOCG Prospect (2022)",
+      "authors": "Adelaide University",
+      "journal": "AuScope Instruments Repository",
+      "publisher": "",
+      "year": 2026,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.4401/ag-9546",
+      "title": "A structured metadata model for sharing data from rock deformation laboratory experiments",
+      "authors": "Stefano Aretusini; Manuela Sbarra; M. Cocco",
+      "journal": "Annals of Geophysics",
+      "publisher": "National Institute of Geophysics and Volcanology",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Optics and Image Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Istituto Nazionale di Geofisica e Vulcanologia"
+      ],
+      "countries": [
+        "IT"
+      ],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.5194/gmd-19-6571-2026",
+      "title": "Modelling diffusion, decay and ingrowth of U–Pb isotopes in zircon",
+      "authors": "B. Knight; Chris Clark",
+      "journal": "Geoscientific model development",
+      "publisher": "Copernicus Publications",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Radioactive element chemistry and processing; Nuclear Materials and Properties; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Curtin University"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.1016/j.epsl.2026.120200",
+      "title": "Olivine megacrysts in the Åheim orogenic dunite: Implications of a coarse-grained upper mantle",
+      "authors": "Hadrien Henry; William L. Griffin; Suzanne Y. O’Reilly; Neil Meunier-Mili; Georges Ceuleneer; Michel Grégoire",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Mineralogy and Gemology Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "Centre National de la Recherche Scientifique",
+        "ARC Centre of Excellence for Core to Crust Fluid Systems",
+        "Géosciences Environnement Toulouse",
+        "Institut de Recherche pour le Développement"
+      ],
+      "countries": [
+        "FR",
+        "AU"
+      ],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.1016/j.chemgeo.2026.123615",
+      "title": "Tracing provenance and diagenetic history of Mesoproterozoic organic-rich shales from the McArthur Basin, Australia, using coupled Rb-Sr and K-Ar illite dating",
+      "authors": "Yaser Noorian; Juraj Farkaš; Alan S. Collins; Claudio Delle Piane; Andrew Todd; Sarah Gilbert; Rong Fan; Cecilia Loyola",
+      "journal": "Chemical Geology",
+      "publisher": "Elsevier BV",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Clay minerals and soil interactions; Geochemistry and Elemental Analysis; Hydrocarbon exploration and reservoir analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "The University of Adelaide",
+        "Australian Resources Research Centre",
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "Mineral Resources"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.63929/22020586.2024.1.070",
+      "title": "WA Array and MT - Phase 1 and 2 updates",
+      "authors": "Ruth E. Murdie; Huaiyu Yuan; Reza Ebrahimi; John P. O'Donnell; Sasha Banaszczyk; Nadir de Souza Kovacs; Erin Gray; Robert Pickle",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2024,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "Demos",
+        "Australian National University"
+      ],
+      "countries": [
+        "US",
+        "AU"
+      ],
+      "dateAdded": "2026-07-26"
+    },
+    {
+      "doi": "10.63929/22020586.2024.1.100",
+      "title": "Modernising Australian geophysics datasets to enable Nationalscale multiphysics computation at Exascale: one size can no longer fit all.",
+      "authors": "Lesley Wyborn; Nigel Rees; Rebecca Farrington; Ben Evans; Hannes Hollmann; Jo Croucher; Rui Yang; Tim Rawling",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2024,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "Australian National University",
+        "The University of Melbourne"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-07-26"
     }
   ]
 }
