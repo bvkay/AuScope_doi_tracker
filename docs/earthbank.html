@@ -3259,7 +3259,7 @@ function renderCitationsPane(d, merged, stats, sources, pane) {
     var copyBtn = pane.querySelector('.copy-gaps-btn');
     if (copyBtn) {
         copyBtn.addEventListener('click', function() {
-            var gapDois = merged.filter(function(c) { return c.reciprocity === 'gap'; })
+            var gapDois = merged.filter(function(c) { return c.reciprocity === 'gap-novel' || c.reciprocity === 'gap-known'; })
                                 .map(function(c) { return c.doi || c.normDoi; })
                                 .filter(Boolean);
             copyToClipboard(gapDois.join('\n'));
