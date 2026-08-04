@@ -1,0 +1,4609 @@
+{
+  "metadata": {
+    "generated": "2026-04-29T09:11:56.510Z",
+    "total_candidates": 424,
+    "looked_up": 150,
+    "min_papers_threshold": 2,
+    "partner_corroboration_weight": 2
+  },
+  "candidates": [
+    {
+      "orcid": "0000-0002-8678-412x",
+      "count": 48,
+      "tiers": {
+        "candidate-strong": 48
+      },
+      "partnerHits": 48,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08123985.2024.2385099",
+          "year": 2024,
+          "title": "Low resistivity anomalies in the upper crust of the Midlands of Tasmania from combined magnetotellur"
+        },
+        {
+          "doi": "10.1080/08123985.2024.2392802",
+          "year": 2024,
+          "title": "Resistivity anomalies in the shallow and deep crust beneath West Tasmania from a broadband magnetote"
+        },
+        {
+          "doi": "10.1080/08123985.2023.2281615",
+          "year": 2023,
+          "title": "Comparative 3D inversion of magnetotelluric phase tensors and impedances reveals electrically anisot"
+        }
+      ],
+      "name": "Stephan Thiel",
+      "institution": "Commonwealth Scientific and Industrial Research Organisation",
+      "country": "AU",
+      "worksCount": 169,
+      "citedBy": 3617
+    },
+    {
+      "orcid": "0000-0003-3685-174x",
+      "count": 42,
+      "tiers": {
+        "verified": 4,
+        "candidate-strong": 31,
+        "candidate-review": 7
+      },
+      "partnerHits": 35,
+      "samplePapers": [
+        {
+          "doi": "10.22541/essoar.174172253.34402506/v1",
+          "year": 2025,
+          "title": "Subduction system response to ribbon collision: implications on the intra-plate force balance and th"
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-3359",
+          "year": 2025,
+          "title": "Ambient Noise Tomography for Natural Hydrogen Exploration: A Case Study from the Gawler Craton, Sout"
+        },
+        {
+          "doi": "10.5194/esurf-12-301-2024",
+          "year": 2024,
+          "title": "Flexural isostatic response of continental-scale deltas to climatically driven sea level changes"
+        }
+      ],
+      "name": "Louis Moresi",
+      "institution": "",
+      "country": "",
+      "worksCount": 2,
+      "citedBy": 0
+    },
+    {
+      "orcid": "0000-0002-9193-5092",
+      "count": 38,
+      "tiers": {
+        "candidate-strong": 34,
+        "candidate-review": 4
+      },
+      "partnerHits": 34,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-2025-4168",
+          "year": 2025,
+          "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth"
+        },
+        {
+          "doi": "10.5194/gmd-17-5057-2024",
+          "year": 2024,
+          "title": "Automatic adjoint-based inversion schemes for geodynamics: reconstructing the evolution of Earth's m"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-6863",
+          "year": 2024,
+          "title": "Modelling Glacial Isostatic Adjustment in Firedrake&amp;#160;"
+        }
+      ],
+      "name": "Stephan C. Kramer",
+      "institution": "Imperial College London",
+      "country": "GB",
+      "worksCount": 171,
+      "citedBy": 2531
+    },
+    {
+      "orcid": "0000-0002-6977-291x",
+      "count": 34,
+      "tiers": {
+        "candidate-strong": 33,
+        "candidate-review": 1
+      },
+      "partnerHits": 33,
+      "samplePapers": [
+        {
+          "doi": "10.1038/s41561-023-01201-7",
+          "year": 2023,
+          "title": "Post-subduction tectonics induced by extension from a lithospheric drip"
+        },
+        {
+          "doi": "10.1029/2021jb022930",
+          "year": 2022,
+          "title": "SASSY21 : A 3‐D Seismic Structural Model of the Lithosphere and Underlying Mantle Beneath Southeast "
+        },
+        {
+          "doi": "10.1029/2022gc010563",
+          "year": 2022,
+          "title": "SASSIER22: Full‐Waveform Tomography of the Eastern Indonesian Region That Includes Topography, Bathy"
+        }
+      ],
+      "name": "Nicholas Rawlinson",
+      "institution": "University of Cambridge",
+      "country": "GB",
+      "worksCount": 326,
+      "citedBy": 6328
+    },
+    {
+      "orcid": "0000-0002-3883-5498",
+      "count": 40,
+      "tiers": {
+        "candidate-strong": 11,
+        "verified": 5,
+        "candidate-review": 24
+      },
+      "partnerHits": 16,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gr.2023.10.013",
+          "year": 2023,
+          "title": "Interactions of magmas and highly reduced fluids during intraplate volcanism, Mt Carmel, Israel: Imp"
+        },
+        {
+          "doi": "10.1016/j.gr.2023.05.012",
+          "year": 2023,
+          "title": "Multi-mineral geochronology of kimberlites, kamafugites and alkaline-carbonatite rocks, SW São Franc"
+        },
+        {
+          "doi": "10.1111/ggr.12419",
+          "year": 2022,
+          "title": "AusGeochem: An Open Platform for Geochemical Data Preservation, Dissemination and Synthesis"
+        }
+      ],
+      "name": "Suzanne Y. O’Reilly",
+      "institution": "Australian Research Council",
+      "country": "AU",
+      "worksCount": 795,
+      "citedBy": 51158
+    },
+    {
+      "orcid": "0000-0001-6134-9351",
+      "count": 24,
+      "tiers": {
+        "candidate-strong": 22,
+        "candidate-review": 2
+      },
+      "partnerHits": 22,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2024jb030470",
+          "year": 2025,
+          "title": "Trans‐Conceptual Sampling: Bayesian Inference With Competing Assumptions"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-16036",
+          "year": 2024,
+          "title": "An Independent State sampler for Trans-dimensional Bayesian Inference"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-14483",
+          "year": 2024,
+          "title": "CoFI - Linking geoscience inference problems with tools for their solution"
+        }
+      ],
+      "name": "A. P. Valentine",
+      "institution": "Durham University",
+      "country": "GB",
+      "worksCount": 103,
+      "citedBy": 1333
+    },
+    {
+      "orcid": "0000-0003-2206-5350",
+      "count": 24,
+      "tiers": {
+        "candidate-strong": 22,
+        "candidate-review": 2
+      },
+      "partnerHits": 22,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggae055",
+          "year": 2024,
+          "title": "Near-source effects on DAS recording: implications for tap tests"
+        },
+        {
+          "doi": "10.31223/x54x2q",
+          "year": 2024,
+          "title": "Near-source effects on DAS recording: implications for tap tests"
+        },
+        {
+          "doi": "10.1093/gji/ggad035",
+          "year": 2023,
+          "title": "Refining the Moho across the Australian continent"
+        }
+      ],
+      "name": "B. L. N. Kennett",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 644,
+      "citedBy": 27622
+    },
+    {
+      "orcid": "0000-0002-2231-2553",
+      "count": 21,
+      "tiers": {
+        "candidate-strong": 19,
+        "candidate-review": 2
+      },
+      "partnerHits": 19,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2023gc011180",
+          "year": 2024,
+          "title": "The Role of Slab Remnants in Modulating Free Subduction Dynamics: A 3‐D Spherical Numerical Study"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-4710",
+          "year": 2023,
+          "title": "Controls on the Dynamics of Subducting Slabs in a 3-D Spherical Shell Domain"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-14049",
+          "year": 2023,
+          "title": "A 3-D numerical investigation of the impact of buoyant features on subduction dynamics and stress"
+        }
+      ],
+      "name": "Saskia Goes",
+      "institution": "Imperial College London",
+      "country": "GB",
+      "worksCount": 267,
+      "citedBy": 7707
+    },
+    {
+      "orcid": "0000-0002-7743-7812",
+      "count": 19,
+      "tiers": {
+        "candidate-strong": 19
+      },
+      "partnerHits": 19,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08120099.2025.2608806",
+          "year": 2026,
+          "title": "Magnetotelluric constraints on natural hydrogen potential in the southern Gawler Craton, Australia"
+        },
+        {
+          "doi": "10.1016/j.gr.2025.04.001",
+          "year": 2025,
+          "title": "Lithospheric architecture of the Curnamona Province, Australia"
+        },
+        {
+          "doi": "10.1016/j.tecto.2025.230737",
+          "year": 2025,
+          "title": "Crustal structure of the Curnamona Province in Australia by ambient noise tomography"
+        }
+      ],
+      "name": "Goran Boren",
+      "institution": "The University of Adelaide",
+      "country": "AU",
+      "worksCount": 26,
+      "citedBy": 353
+    },
+    {
+      "orcid": "0000-0001-5976-4943",
+      "count": 25,
+      "tiers": {
+        "verified": 17,
+        "candidate-strong": 4,
+        "candidate-review": 4
+      },
+      "partnerHits": 16,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-21605",
+          "year": 2025,
+          "title": "Status, issues and challenges with FAIRness of seismological waveform data and beyond"
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-21367",
+          "year": 2025,
+          "title": "AuScope&amp;#8217;s Research Data Systems: Operationalising FAIR place-based research through collab"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-14052",
+          "year": 2024,
+          "title": "Who has got what where? FAIR-ly coordinating multiple levels of geophysical data products over distr"
+        }
+      ],
+      "name": "Lesley Wyborn",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 289,
+      "citedBy": 2944
+    },
+    {
+      "orcid": "0000-0002-1316-3170",
+      "count": 19,
+      "tiers": {
+        "candidate-strong": 19
+      },
+      "partnerHits": 19,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2025tc009057",
+          "year": 2025,
+          "title": "Raising the Roof of the World: Intra‐Crustal Asian Mantle Supports the Himalayan‐Tibetan Orogen"
+        },
+        {
+          "doi": "10.5194/egusphere-2025-4168",
+          "year": 2025,
+          "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth"
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-13762",
+          "year": 2025,
+          "title": "Unveiling Late Cenozoic Dynamic Topography Evolution Using Non-Linear Adjoint Models"
+        }
+      ],
+      "name": "Siavash Ghelichkhan",
+      "institution": "",
+      "country": "",
+      "worksCount": 81,
+      "citedBy": 1144
+    },
+    {
+      "orcid": "0000-0002-7393-6112",
+      "count": 19,
+      "tiers": {
+        "candidate-strong": 17,
+        "candidate-review": 2
+      },
+      "partnerHits": 17,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2018gc008022",
+          "year": 2018,
+          "title": "Trans‐Dimensional Surface Reconstruction With Different Classes of Parameterization"
+        },
+        {
+          "doi": "10.1038/srep12046",
+          "year": 2015,
+          "title": "Using Benford’s law to investigate Natural Hazard dataset homogeneity"
+        },
+        {
+          "doi": "10.1002/2014gc005309",
+          "year": 2014,
+          "title": "REDBACK: Open-source software for efficient noise-reduction in plate kinematic reconstructions"
+        }
+      ],
+      "name": "Thomas Bodin",
+      "institution": "Institut de Ciències del Mar",
+      "country": "ES",
+      "worksCount": 284,
+      "citedBy": 4293
+    },
+    {
+      "orcid": "0000-0001-7295-6691",
+      "count": 18,
+      "tiers": {
+        "candidate-strong": 17,
+        "candidate-review": 1
+      },
+      "partnerHits": 17,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-14527",
+          "year": 2025,
+          "title": "2D Bayesian transdimensional inversion for b-value variations"
+        },
+        {
+          "doi": "10.1029/2024gc012123",
+          "year": 2025,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 2. Geodynamical Simulations"
+        },
+        {
+          "doi": "10.1029/2023gc011387",
+          "year": 2024,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 1. Geochemical Trends"
+        }
+      ],
+      "name": "Rhys Hawkins",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 76,
+      "citedBy": 991
+    },
+    {
+      "orcid": "0000-0001-7072-490x",
+      "count": 18,
+      "tiers": {
+        "candidate-strong": 17,
+        "candidate-review": 1
+      },
+      "partnerHits": 17,
+      "samplePapers": [
+        {
+          "doi": "10.1130/g52735.1",
+          "year": 2024,
+          "title": "Opening of the North Atlantic Ocean and the rise of Scandinavian mountains"
+        },
+        {
+          "doi": "10.5194/egusphere-egu22-6661",
+          "year": 2022,
+          "title": "Ocean break-up and related mountain rise controlled by a continentalcrustal root"
+        },
+        {
+          "doi": "10.1029/2020jb021557",
+          "year": 2021,
+          "title": "Lowermost Mantle Shear‐Velocity Structure From Hierarchical Trans‐Dimensional Bayesian Tomography"
+        }
+      ],
+      "name": "‪Hrvoje Tkalčić",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 376,
+      "citedBy": 4291
+    },
+    {
+      "orcid": "0000-0001-6809-438x",
+      "count": 17,
+      "tiers": {
+        "candidate-strong": 17
+      },
+      "partnerHits": 17,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggaf026",
+          "year": 2025,
+          "title": "PyDRex: predicting crystallographic preferred orientation in peridotites under steady-state and time"
+        },
+        {
+          "doi": "10.5194/egusphere-2025-4168",
+          "year": 2025,
+          "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth"
+        },
+        {
+          "doi": "10.1029/2024gc012123",
+          "year": 2025,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 2. Geodynamical Simulations"
+        }
+      ],
+      "name": "Thomas Duvernay",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 38,
+      "citedBy": 142
+    },
+    {
+      "orcid": "0000-0001-7577-3604",
+      "count": 17,
+      "tiers": {
+        "candidate-strong": 17
+      },
+      "partnerHits": 17,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-2025-4168",
+          "year": 2025,
+          "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth"
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-13762",
+          "year": 2025,
+          "title": "Unveiling Late Cenozoic Dynamic Topography Evolution Using Non-Linear Adjoint Models"
+        },
+        {
+          "doi": "10.5194/gmd-17-5057-2024",
+          "year": 2024,
+          "title": "Automatic adjoint-based inversion schemes for geodynamics: reconstructing the evolution of Earth's m"
+        }
+      ],
+      "name": "A. H. Gibson",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 83,
+      "citedBy": 584
+    },
+    {
+      "orcid": "0000-0001-9187-3138",
+      "count": 18,
+      "tiers": {
+        "candidate-strong": 14,
+        "candidate-review": 4
+      },
+      "partnerHits": 14,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu26-4571",
+          "year": 2026,
+          "title": "Seismic anisotropy analysis across Southwestern Australia reveals ENE‐trending lithospheric architec"
+        },
+        {
+          "doi": "10.1029/2025gc012589",
+          "year": 2025,
+          "title": "Seismic Anisotropy Analysis Across Southwestern Australia Reveals ENE‐Trending Lithospheric Architec"
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-2956",
+          "year": 2025,
+          "title": "Significant anisotropic fabric across South Western Australia and the Yilgarn Craton revealed by the"
+        }
+      ],
+      "name": "C. M. Eakin",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 102,
+      "citedBy": 836
+    },
+    {
+      "orcid": "0000-0002-0980-2566",
+      "count": 26,
+      "tiers": {
+        "candidate-strong": 10,
+        "candidate-review": 16
+      },
+      "partnerHits": 10,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gr.2023.10.013",
+          "year": 2023,
+          "title": "Interactions of magmas and highly reduced fluids during intraplate volcanism, Mt Carmel, Israel: Imp"
+        },
+        {
+          "doi": "10.1016/j.gr.2023.05.012",
+          "year": 2023,
+          "title": "Multi-mineral geochronology of kimberlites, kamafugites and alkaline-carbonatite rocks, SW São Franc"
+        },
+        {
+          "doi": "10.2138/am-2021-7934",
+          "year": 2021,
+          "title": "Immiscible metallic melts in the upper mantle beneath Mount Carmel, Israel: Silicides, phosphides, a"
+        }
+      ],
+      "name": "William L. Griffin",
+      "institution": "Australian Research Council",
+      "country": "AU",
+      "worksCount": 1250,
+      "citedBy": 83555
+    },
+    {
+      "orcid": "0000-0002-1321-7319",
+      "count": 19,
+      "tiers": {
+        "verified": 15,
+        "candidate-strong": 1,
+        "candidate-review": 3
+      },
+      "partnerHits": 13,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-21367",
+          "year": 2025,
+          "title": "AuScope&amp;#8217;s Research Data Systems: Operationalising FAIR place-based research through collab"
+        },
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.2138/gselements.19.3.136",
+          "year": 2023,
+          "title": "Innovating and Networking Global Geochemical Data Resources Through OneGeochemistry"
+        }
+      ],
+      "name": "Alexander Prent",
+      "institution": "Curtin University",
+      "country": "AU",
+      "worksCount": 44,
+      "citedBy": 195
+    },
+    {
+      "orcid": "0000-0001-8578-0154",
+      "count": 15,
+      "tiers": {
+        "candidate-strong": 14,
+        "candidate-review": 1
+      },
+      "partnerHits": 14,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-10905",
+          "year": 2025,
+          "title": "Late Archaean basalts from the Yilgarn craton record evidence of thin lithosphere prior to cratonisa"
+        },
+        {
+          "doi": "10.1029/2024gc012123",
+          "year": 2025,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 2. Geodynamical Simulations"
+        },
+        {
+          "doi": "10.1029/2023gc011387",
+          "year": 2024,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 1. Geochemical Trends"
+        }
+      ],
+      "name": "I. H. Campbell",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 472,
+      "citedBy": 33131
+    },
+    {
+      "orcid": "0000-0001-5727-2531",
+      "count": 15,
+      "tiers": {
+        "candidate-strong": 14,
+        "candidate-review": 1
+      },
+      "partnerHits": 14,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-2025-5615",
+          "year": 2025,
+          "title": "From Strong Plates to Weak Boundaries: Strain Localization in the Lithospheric Mantle with Low- to H"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-9359",
+          "year": 2024,
+          "title": "From intraplate weakening to plate boundary: New diagnostics to quantify rheological controls on def"
+        },
+        {
+          "doi": "10.1029/2022jb024494",
+          "year": 2022,
+          "title": "The Effect of a Weak Asthenospheric Layer on Surface Kinematics, Subduction Dynamics and Slab Morpho"
+        }
+      ],
+      "name": "Fanny Garel",
+      "institution": "Centre National de la Recherche Scientifique",
+      "country": "FR",
+      "worksCount": 74,
+      "citedBy": 987
+    },
+    {
+      "orcid": "0000-0002-8964-7331",
+      "count": 14,
+      "tiers": {
+        "candidate-strong": 13,
+        "candidate-review": 1
+      },
+      "partnerHits": 13,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu26-3644",
+          "year": 2026,
+          "title": "CoFI - The Common Framework for Inference: A software platform for experimentation, education and ap"
+        },
+        {
+          "doi": "10.5194/egusphere-egu26-2663",
+          "year": 2026,
+          "title": "Trans-Conceptual Inversion: Bayesian Inference with Competing Assumptions"
+        },
+        {
+          "doi": "10.1029/2024jb030470",
+          "year": 2025,
+          "title": "Trans‐Conceptual Sampling: Bayesian Inference With Competing Assumptions"
+        }
+      ],
+      "name": "Juerg Hauser",
+      "institution": "Commonwealth Scientific and Industrial Research Organisation",
+      "country": "AU",
+      "worksCount": 73,
+      "citedBy": 481
+    },
+    {
+      "orcid": "0000-0002-0738-0187",
+      "count": 14,
+      "tiers": {
+        "candidate-strong": 12,
+        "candidate-review": 2
+      },
+      "partnerHits": 12,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2025gl120111",
+          "year": 2026,
+          "title": "Characterization of Near‐Surface Velocity Structure at Haast, New Zealand, Using Distributed Acousti"
+        },
+        {
+          "doi": "10.1785/0320240031",
+          "year": 2024,
+          "title": "Passive Seismic Imaging of Urban Environments Using Distributed Acoustic Sensing: A Case Study from "
+        },
+        {
+          "doi": "10.1029/2024jh000356",
+          "year": 2024,
+          "title": "Unsupervised Coherent Noise Removal From Seismological Distributed Acoustic Sensing Data"
+        }
+      ],
+      "name": "Voon Hui Lai",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 53,
+      "citedBy": 480
+    },
+    {
+      "orcid": "0000-0002-4083-6529",
+      "count": 15,
+      "tiers": {
+        "candidate-strong": 11,
+        "candidate-review": 4
+      },
+      "partnerHits": 11,
+      "samplePapers": [
+        {
+          "doi": "10.1038/s41561-023-01201-7",
+          "year": 2023,
+          "title": "Post-subduction tectonics induced by extension from a lithospheric drip"
+        },
+        {
+          "doi": "10.5194/gmd-14-1899-2021",
+          "year": 2021,
+          "title": "Analytical solutions for mantle flow in cylindrical and spherical shells"
+        },
+        {
+          "doi": "10.21203/rs.3.rs-861968/v1",
+          "year": 2021,
+          "title": "Effects of post-subduction processes on continental lithosphere"
+        }
+      ],
+      "name": "C. R. Wilson",
+      "institution": "Carnegie Institution for Science",
+      "country": "US",
+      "worksCount": 112,
+      "citedBy": 2505
+    },
+    {
+      "orcid": "0000-0002-8941-7173",
+      "count": 13,
+      "tiers": {
+        "candidate-strong": 12,
+        "candidate-review": 1
+      },
+      "partnerHits": 12,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2021jb022930",
+          "year": 2022,
+          "title": "SASSY21 : A 3‐D Seismic Structural Model of the Lithosphere and Underlying Mantle Beneath Southeast "
+        },
+        {
+          "doi": "10.1029/2022gc010563",
+          "year": 2022,
+          "title": "SASSIER22: Full‐Waveform Tomography of the Eastern Indonesian Region That Includes Topography, Bathy"
+        },
+        {
+          "doi": "10.1002/essoar.10511562.1",
+          "year": 2022,
+          "title": "SASSIER22: Full-waveform tomography of the eastern Indonesian region that includes surface topograph"
+        }
+      ],
+      "name": "Sri Widiyantoro",
+      "institution": "Bandung Institute of Technology",
+      "country": "ID",
+      "worksCount": 382,
+      "citedBy": 7758
+    },
+    {
+      "orcid": "0000-0001-8826-3021",
+      "count": 12,
+      "tiers": {
+        "candidate-strong": 12
+      },
+      "partnerHits": 12,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-14527",
+          "year": 2025,
+          "title": "2D Bayesian transdimensional inversion for b-value variations"
+        },
+        {
+          "doi": "10.1029/2024gl112563",
+          "year": 2025,
+          "title": "Interseismic Coupling Along the Java‐Timor Subduction‐Collision Zone at East Indonesia"
+        },
+        {
+          "doi": "10.1016/j.rse.2024.114063",
+          "year": 2024,
+          "title": "Co-seismic and post-seismic deformation associated with the 2018 Lombok, Indonesia, earthquake seque"
+        }
+      ],
+      "name": "Phil R. Cummins",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 252,
+      "citedBy": 5574
+    },
+    {
+      "orcid": "0000-0003-1750-1576",
+      "count": 12,
+      "tiers": {
+        "candidate-strong": 12
+      },
+      "partnerHits": 12,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.epsl.2025.119467",
+          "year": 2025,
+          "title": "Ghost plumes hidden beneath Earth’s continents"
+        },
+        {
+          "doi": "10.21203/rs.3.rs-4526590/v1",
+          "year": 2024,
+          "title": "Ghost Plumes Hidden Beneath Earth’s Continents"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-7075",
+          "year": 2024,
+          "title": "Absence of surface volcanism and the indeterminate evidence for continental mantle plumes"
+        }
+      ],
+      "name": "Giampiero Iaffaldano",
+      "institution": "University of Parma",
+      "country": "IT",
+      "worksCount": 114,
+      "citedBy": 1533
+    },
+    {
+      "orcid": "0000-0002-6592-9270",
+      "count": 16,
+      "tiers": {
+        "candidate-strong": 5,
+        "verified": 7,
+        "candidate-review": 4
+      },
+      "partnerHits": 10,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-10905",
+          "year": 2025,
+          "title": "Late Archaean basalts from the Yilgarn craton record evidence of thin lithosphere prior to cratonisa"
+        },
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.2138/gselements.19.3.136",
+          "year": 2023,
+          "title": "Innovating and Networking Global Geochemical Data Resources Through OneGeochemistry"
+        }
+      ],
+      "name": "Marthe Klöcking",
+      "institution": "University of Münster",
+      "country": "DE",
+      "worksCount": 67,
+      "citedBy": 335
+    },
+    {
+      "orcid": "0000-0003-2895-9005",
+      "count": 12,
+      "tiers": {
+        "candidate-strong": 12
+      },
+      "partnerHits": 12,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2023gc011180",
+          "year": 2024,
+          "title": "The Role of Slab Remnants in Modulating Free Subduction Dynamics: A 3‐D Spherical Numerical Study"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-4710",
+          "year": 2023,
+          "title": "Controls on the Dynamics of Subducting Slabs in a 3-D Spherical Shell Domain"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-14049",
+          "year": 2023,
+          "title": "A 3-D numerical investigation of the impact of buoyant features on subduction dynamics and stress"
+        }
+      ],
+      "name": "Lior Suchoy",
+      "institution": "Imperial College London",
+      "country": "GB",
+      "worksCount": 17,
+      "citedBy": 47
+    },
+    {
+      "orcid": "0000-0002-9784-9865",
+      "count": 11,
+      "tiers": {
+        "candidate-strong": 11
+      },
+      "partnerHits": 11,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2021jb022930",
+          "year": 2022,
+          "title": "SASSY21 : A 3‐D Seismic Structural Model of the Lithosphere and Underlying Mantle Beneath Southeast "
+        },
+        {
+          "doi": "10.1029/2022gc010563",
+          "year": 2022,
+          "title": "SASSIER22: Full‐Waveform Tomography of the Eastern Indonesian Region That Includes Topography, Bathy"
+        },
+        {
+          "doi": "10.1002/essoar.10511562.1",
+          "year": 2022,
+          "title": "SASSIER22: Full-waveform tomography of the eastern Indonesian region that includes surface topograph"
+        }
+      ],
+      "name": "Pepen Supendi",
+      "institution": "Meteorological, Climatological, And Geophysical Agency",
+      "country": "ID",
+      "worksCount": 166,
+      "citedBy": 1494
+    },
+    {
+      "orcid": "0000-0002-8124-6242",
+      "count": 11,
+      "tiers": {
+        "candidate-strong": 11
+      },
+      "partnerHits": 11,
+      "samplePapers": [
+        {
+          "doi": "10.1007/978-3-030-58631-7_192",
+          "year": 2021,
+          "title": "Inverse Theory, Monte Carlo Method"
+        },
+        {
+          "doi": "10.1007/978-3-030-10475-7_192-1",
+          "year": 2020,
+          "title": "Inverse Theory, Monte Carlo Method"
+        },
+        {
+          "doi": "10.1098/rsta.2011.0547",
+          "year": 2013,
+          "title": "Transdimensional inference in the geosciences"
+        }
+      ],
+      "name": "Kerry Gallagher",
+      "institution": "Centre National de la Recherche Scientifique",
+      "country": "FR",
+      "worksCount": 243,
+      "citedBy": 12663
+    },
+    {
+      "orcid": "0000-0002-8458-3746",
+      "count": 17,
+      "tiers": {
+        "candidate-strong": 1,
+        "verified": 6,
+        "candidate-review": 10
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-10999",
+          "year": 2025,
+          "title": "Chemical and thermal state of oceanic lithosphere reconstructed by petit-spot mantle xenoliths from "
+        },
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        }
+      ],
+      "name": "Yoann Gréau",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 59,
+      "citedBy": 755
+    },
+    {
+      "orcid": "0000-0002-7419-8545",
+      "count": 11,
+      "tiers": {
+        "candidate-strong": 10,
+        "candidate-review": 1
+      },
+      "partnerHits": 10,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.ejrh.2021.100841",
+          "year": 2021,
+          "title": "Constraining regional-scale groundwater transport predictions with multiple geophysical techniques"
+        },
+        {
+          "doi": "10.1080/08120099.2016.1261942",
+          "year": 2016,
+          "title": "Groundwater flow underneath mound spring tufas from geophysical surveys in the southwestern Great Ar"
+        },
+        {
+          "doi": "10.1016/j.jappgeo.2013.06.007",
+          "year": 2013,
+          "title": "The importance of including conductivity and dielectric permittivity information when processing low"
+        }
+      ],
+      "name": "Michael Hatch",
+      "institution": "University of Adelaide",
+      "country": "AU",
+      "worksCount": 56,
+      "citedBy": 307
+    },
+    {
+      "orcid": "0000-0003-4310-3862",
+      "count": 10,
+      "tiers": {
+        "candidate-strong": 10
+      },
+      "partnerHits": 10,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-2025-4168",
+          "year": 2025,
+          "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth"
+        },
+        {
+          "doi": "10.1029/2024gc012123",
+          "year": 2025,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 2. Geodynamical Simulations"
+        },
+        {
+          "doi": "10.1029/2023gc011387",
+          "year": 2024,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 1. Geochemical Trends"
+        }
+      ],
+      "name": "Mark Hoggard",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 138,
+      "citedBy": 2117
+    },
+    {
+      "orcid": "0000-0002-2520-7580",
+      "count": 10,
+      "tiers": {
+        "candidate-strong": 10
+      },
+      "partnerHits": 10,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2023gc011180",
+          "year": 2024,
+          "title": "The Role of Slab Remnants in Modulating Free Subduction Dynamics: A 3‐D Spherical Numerical Study"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-4710",
+          "year": 2023,
+          "title": "Controls on the Dynamics of Subducting Slabs in a 3-D Spherical Shell Domain"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-14049",
+          "year": 2023,
+          "title": "A 3-D numerical investigation of the impact of buoyant features on subduction dynamics and stress"
+        }
+      ],
+      "name": "Fangqin Chen",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 19,
+      "citedBy": 74
+    },
+    {
+      "orcid": "0000-0001-9528-7304",
+      "count": 10,
+      "tiers": {
+        "candidate-strong": 10
+      },
+      "partnerHits": 10,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2021jb022930",
+          "year": 2022,
+          "title": "SASSY21 : A 3‐D Seismic Structural Model of the Lithosphere and Underlying Mantle Beneath Southeast "
+        },
+        {
+          "doi": "10.1029/2022gc010563",
+          "year": 2022,
+          "title": "SASSIER22: Full‐Waveform Tomography of the Eastern Indonesian Region That Includes Topography, Bathy"
+        },
+        {
+          "doi": "10.1002/essoar.10511562.1",
+          "year": 2022,
+          "title": "SASSIER22: Full-waveform tomography of the eastern Indonesian region that includes surface topograph"
+        }
+      ],
+      "name": "Deborah Wehner",
+      "institution": "Amazon (United States)",
+      "country": "US",
+      "worksCount": 20,
+      "citedBy": 78
+    },
+    {
+      "orcid": "0000-0003-1361-440x",
+      "count": 10,
+      "tiers": {
+        "candidate-strong": 10
+      },
+      "partnerHits": 10,
+      "samplePapers": [
+        {
+          "doi": "10.1038/s41598-022-11921-2",
+          "year": 2022,
+          "title": "Lithospheric conductors reveal source regions of convergent margin mineral systems"
+        },
+        {
+          "doi": "10.1038/s41598-021-94531-8",
+          "year": 2021,
+          "title": "Lower crustal resistivity signature of an orogenic gold system"
+        },
+        {
+          "doi": "10.5281/zenodo.7691210",
+          "year": 2021,
+          "title": "The Delamerian Orogen- An overview of the resistivity structure across scales"
+        }
+      ],
+      "name": "Alison Kirkby",
+      "institution": "GNS Science",
+      "country": "NZ",
+      "worksCount": 53,
+      "citedBy": 429
+    },
+    {
+      "orcid": "0000-0002-1832-8245",
+      "count": 10,
+      "tiers": {
+        "candidate-strong": 10
+      },
+      "partnerHits": 10,
+      "samplePapers": [
+        {
+          "doi": "10.1007/s00024-018-1784-2",
+          "year": 2018,
+          "title": "Pareto-Optimal Multi-objective Inversion of Geophysical Data"
+        },
+        {
+          "doi": "10.1002/2015jb012541",
+          "year": 2016,
+          "title": "Relating permeability and electrical resistivity in fractures using random resistor network models"
+        },
+        {
+          "doi": "10.1016/j.geothermics.2016.11.005",
+          "year": 2016,
+          "title": "Magnetotelluric monitoring of permeability enhancement at enhanced geothermal system project"
+        }
+      ],
+      "name": "Lars Krieger",
+      "institution": "",
+      "country": "",
+      "worksCount": 36,
+      "citedBy": 566
+    },
+    {
+      "orcid": "0000-0002-1270-4377",
+      "count": 10,
+      "tiers": {
+        "verified": 7,
+        "candidate-strong": 2,
+        "candidate-review": 1
+      },
+      "partnerHits": 9,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2025gc012769",
+          "year": 2026,
+          "title": "Subduction System Response to Ribbon Collision: Implications on the Intra‐Plate Force Balance and th"
+        },
+        {
+          "doi": "10.5194/egusphere-egu26-18847",
+          "year": 2026,
+          "title": "Developing a Blueprint for Open Science in the AuScope Research Infrastructure by Enabling Vertical "
+        },
+        {
+          "doi": "10.22541/essoar.174172253.34402506/v1",
+          "year": 2025,
+          "title": "Subduction system response to ribbon collision: implications on the intra-plate force balance and th"
+        }
+      ],
+      "name": "Sara Polanco",
+      "institution": "Newcastle City Council",
+      "country": "GB",
+      "worksCount": 19,
+      "citedBy": 50
+    },
+    {
+      "orcid": "0000-0002-8550-5256",
+      "count": 10,
+      "tiers": {
+        "candidate-strong": 9,
+        "candidate-review": 1
+      },
+      "partnerHits": 9,
+      "samplePapers": [
+        {
+          "doi": "10.1785/0220250308",
+          "year": 2026,
+          "title": "A New High-Resolution Seismic Catalog for Southwestern Australia (2020–2025) and Analysis of Long-Te"
+        },
+        {
+          "doi": "10.5194/egusphere-egu26-4571",
+          "year": 2026,
+          "title": "Seismic anisotropy analysis across Southwestern Australia reveals ENE‐trending lithospheric architec"
+        },
+        {
+          "doi": "10.1785/0220250167",
+          "year": 2026,
+          "title": "SEED-Vault: A New Software Package for Browsing, Downloading, and Archiving Continuous and Event-Bas"
+        }
+      ],
+      "name": "Robert Pickle",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 26,
+      "citedBy": 82
+    },
+    {
+      "orcid": "0000-0003-2417-2686",
+      "count": 9,
+      "tiers": {
+        "candidate-strong": 9
+      },
+      "partnerHits": 9,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggag002",
+          "year": 2026,
+          "title": "Transport-map proposals for efficient Markov Chain Monte Carlo"
+        },
+        {
+          "doi": "10.5194/egusphere-egu26-3644",
+          "year": 2026,
+          "title": "CoFI - The Common Framework for Inference: A software platform for experimentation, education and ap"
+        },
+        {
+          "doi": "10.1785/0220240275",
+          "year": 2025,
+          "title": "BayesBay: A Versatile Bayesian Inversion Framework Written in Python"
+        }
+      ],
+      "name": "Fabrizio Magrini",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 54,
+      "citedBy": 278
+    },
+    {
+      "orcid": "0000-0001-6216-1262",
+      "count": 9,
+      "tiers": {
+        "verified": 5,
+        "candidate-strong": 4
+      },
+      "partnerHits": 9,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-21367",
+          "year": 2025,
+          "title": "AuScope&amp;#8217;s Research Data Systems: Operationalising FAIR place-based research through collab"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-14052",
+          "year": 2024,
+          "title": "Who has got what where? FAIR-ly coordinating multiple levels of geophysical data products over distr"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-13522",
+          "year": 2024,
+          "title": "Developing cutting-edge geophysical data and software infrastructure to future-proof national scale "
+        }
+      ],
+      "name": "Nigel Rees",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 17,
+      "citedBy": 5
+    },
+    {
+      "orcid": "0000-0003-1838-3479",
+      "count": 9,
+      "tiers": {
+        "candidate-strong": 9
+      },
+      "partnerHits": 9,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08123985.2024.2378132",
+          "year": 2024,
+          "title": "Magnetotelluric imaging of an iron-oxide copper gold (IOCG) deposit under thick cover"
+        },
+        {
+          "doi": "10.1080/08123985.2024.2371001",
+          "year": 2024,
+          "title": "Ambient noise tomography of an iron-oxide copper–gold (IOCG) deposit under thick cover"
+        },
+        {
+          "doi": "10.1080/08123985.2024.2391571",
+          "year": 2024,
+          "title": "Fuzzy c-mean (FCM) integration of geophysical data from an iron-oxide copper gold (IOCG) deposit und"
+        }
+      ],
+      "name": "Simon Carter",
+      "institution": "The University of Melbourne",
+      "country": "AU",
+      "worksCount": 132,
+      "citedBy": 2167
+    },
+    {
+      "orcid": "0000-0002-9316-7605",
+      "count": 11,
+      "tiers": {
+        "candidate-strong": 8,
+        "candidate-review": 3
+      },
+      "partnerHits": 8,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08123985.2024.2385099",
+          "year": 2024,
+          "title": "Low resistivity anomalies in the upper crust of the Midlands of Tasmania from combined magnetotellur"
+        },
+        {
+          "doi": "10.1080/08123985.2024.2392802",
+          "year": 2024,
+          "title": "Resistivity anomalies in the shallow and deep crust beneath West Tasmania from a broadband magnetote"
+        },
+        {
+          "doi": "10.1080/22020586.2019.12073163",
+          "year": 2019,
+          "title": "AusArray: Toward updatable, high-resolution seismic velocity models of the Australian lithosphere"
+        }
+      ],
+      "name": "Anya M. Reading",
+      "institution": "University of Tasmania",
+      "country": "AU",
+      "worksCount": 223,
+      "citedBy": 3482
+    },
+    {
+      "orcid": "0000-0003-3891-5444",
+      "count": 9,
+      "tiers": {
+        "candidate-strong": 9
+      },
+      "partnerHits": 9,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2022gc010386",
+          "year": 2022,
+          "title": "The Role of Lithospheric‐Deep Mantle Interactions on the Style and Stress Evolution of Arc‐Continent"
+        },
+        {
+          "doi": "10.5194/egusphere-egu21-13842",
+          "year": 2021,
+          "title": "Dynamics of arc-continent collision: the role of crustal-mantle dynamics on controlling the spatio-t"
+        },
+        {
+          "doi": "10.21105/joss.01797",
+          "year": 2020,
+          "title": "Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud"
+        }
+      ],
+      "name": "Romain Beucher",
+      "institution": "Australian Institute of Criminology",
+      "country": "AU",
+      "worksCount": 102,
+      "citedBy": 925
+    },
+    {
+      "orcid": "0000-0003-2274-7933",
+      "count": 11,
+      "tiers": {
+        "verified": 7,
+        "candidate-review": 4
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        },
+        {
+          "doi": "10.1111/ggr.12419",
+          "year": 2022,
+          "title": "AusGeochem: An Open Platform for Geochemical Data Preservation, Dissemination and Synthesis"
+        }
+      ],
+      "name": "Samuel Boone",
+      "institution": "The University of Sydney",
+      "country": "AU",
+      "worksCount": 62,
+      "citedBy": 418
+    },
+    {
+      "orcid": "0000-0003-3638-1864",
+      "count": 10,
+      "tiers": {
+        "verified": 6,
+        "candidate-strong": 1,
+        "candidate-review": 3
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu26-16338",
+          "year": 2026,
+          "title": "Today’s research for tomorrow’s challenges – building national research infrastructure across the fu"
+        },
+        {
+          "doi": "10.5194/egusphere-egu26-18847",
+          "year": 2026,
+          "title": "Developing a Blueprint for Open Science in the AuScope Research Infrastructure by Enabling Vertical "
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-21367",
+          "year": 2025,
+          "title": "AuScope&amp;#8217;s Research Data Systems: Operationalising FAIR place-based research through collab"
+        }
+      ],
+      "name": "Angus Nixon",
+      "institution": "The University of Adelaide",
+      "country": "AU",
+      "worksCount": 55,
+      "citedBy": 443
+    },
+    {
+      "orcid": "0000-0001-5023-4655",
+      "count": 14,
+      "tiers": {
+        "candidate-strong": 5,
+        "candidate-review": 9
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu26-5257",
+          "year": 2026,
+          "title": "Distribution of volatiles in mantle xenoliths at nano-lengthscales visualized with Photo-induced For"
+        },
+        {
+          "doi": "10.1029/2024gc012128",
+          "year": 2025,
+          "title": "Ultra‐Mafic Cumulates From Kaupulehu, Hualālai Volcano, Hawai'i: Geochemical Resetting of Mantle‐Inh"
+        },
+        {
+          "doi": "10.5194/egusphere-egu21-2268",
+          "year": 2021,
+          "title": "&amp;#160;Self-weakening feedbacks in the ductile lithospheric mantle: looking for a realistic mantl"
+        }
+      ],
+      "name": "Sylvie Demouchy",
+      "institution": "Centre National de la Recherche Scientifique",
+      "country": "FR",
+      "worksCount": 168,
+      "citedBy": 3677
+    },
+    {
+      "orcid": "0000-0003-1425-3925",
+      "count": 8,
+      "tiers": {
+        "candidate-strong": 8
+      },
+      "partnerHits": 8,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2025jb031274",
+          "year": 2025,
+          "title": "Insights Into the Archean to Phanerozoic Evolution of Southwest Australia From Seismic Ambient Noise"
+        },
+        {
+          "doi": "10.1029/2025gc012589",
+          "year": 2025,
+          "title": "Seismic Anisotropy Analysis Across Southwestern Australia Reveals ENE‐Trending Lithospheric Architec"
+        },
+        {
+          "doi": "10.1029/2023gl104935",
+          "year": 2024,
+          "title": "Seismic Evidence for a Transcrustal Magmatic Pathway Contributing to Critical Metal Deposits"
+        }
+      ],
+      "name": "Ping Zhang",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 86,
+      "citedBy": 1105
+    },
+    {
+      "orcid": "0009-0002-2931-5340",
+      "count": 8,
+      "tiers": {
+        "candidate-strong": 8
+      },
+      "partnerHits": 8,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2024gc012123",
+          "year": 2025,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 2. Geodynamical Simulations"
+        },
+        {
+          "doi": "10.1029/2023gc011288",
+          "year": 2024,
+          "title": "Coupled Geodynamical‐Geochemical Perspectives on the Generation and Composition of Mid‐Ocean Ridge B"
+        },
+        {
+          "doi": "10.1029/2023gc011387",
+          "year": 2024,
+          "title": "Investigating the Lid Effect on the Generation of Ocean Island Basalts: 1. Geochemical Trends"
+        }
+      ],
+      "name": "Shihao Jiang",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 13,
+      "citedBy": 419
+    },
+    {
+      "orcid": "0000-0003-4480-9584",
+      "count": 8,
+      "tiers": {
+        "candidate-strong": 8
+      },
+      "partnerHits": 8,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08123985.2024.2390959",
+          "year": 2024,
+          "title": "Introduction to the magnetotellurics special issue of exploration geophysics"
+        },
+        {
+          "doi": "10.1038/s41598-022-11921-2",
+          "year": 2022,
+          "title": "Lithospheric conductors reveal source regions of convergent margin mineral systems"
+        },
+        {
+          "doi": "10.1038/s41598-021-94531-8",
+          "year": 2021,
+          "title": "Lower crustal resistivity signature of an orogenic gold system"
+        }
+      ],
+      "name": "Jingming Duan",
+      "institution": "Geoscience Australia",
+      "country": "AU",
+      "worksCount": 65,
+      "citedBy": 526
+    },
+    {
+      "orcid": "0000-0002-6143-5636",
+      "count": 9,
+      "tiers": {
+        "verified": 7,
+        "candidate-review": 2
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        }
+      ],
+      "name": "Fabian Kohlmann",
+      "institution": "Presbyterian Theological College",
+      "country": "AU",
+      "worksCount": 65,
+      "citedBy": 296
+    },
+    {
+      "orcid": "0000-0002-2776-0574",
+      "count": 9,
+      "tiers": {
+        "verified": 7,
+        "candidate-review": 2
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        },
+        {
+          "doi": "10.1111/ggr.12419",
+          "year": 2022,
+          "title": "AusGeochem: An Open Platform for Geochemical Data Preservation, Dissemination and Synthesis"
+        }
+      ],
+      "name": "Brent McInnes",
+      "institution": "Curtin University",
+      "country": "AU",
+      "worksCount": 185,
+      "citedBy": 4059
+    },
+    {
+      "orcid": "0000-0002-2207-6837",
+      "count": 8,
+      "tiers": {
+        "verified": 1,
+        "candidate-strong": 6,
+        "candidate-review": 1
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.22541/essoar.174172253.34402506/v1",
+          "year": 2025,
+          "title": "Subduction system response to ribbon collision: implications on the intra-plate force balance and th"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-12690",
+          "year": 2024,
+          "title": "Model Atlas of the Earth (M@TE): advancing the interoperability of digital twins"
+        },
+        {
+          "doi": "10.1029/2019tc005894",
+          "year": 2020,
+          "title": "The Fingerprints of Flexure in Slab Seismicity"
+        }
+      ],
+      "name": "Dan Sandiford",
+      "institution": "The University of Melbourne",
+      "country": "AU",
+      "worksCount": 53,
+      "citedBy": 592
+    },
+    {
+      "orcid": "0000-0003-4040-925x",
+      "count": 8,
+      "tiers": {
+        "candidate-strong": 7,
+        "candidate-review": 1
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2024gl112563",
+          "year": 2025,
+          "title": "Interseismic Coupling Along the Java‐Timor Subduction‐Collision Zone at East Indonesia"
+        },
+        {
+          "doi": "10.1016/j.rse.2024.114063",
+          "year": 2024,
+          "title": "Co-seismic and post-seismic deformation associated with the 2018 Lombok, Indonesia, earthquake seque"
+        },
+        {
+          "doi": "10.1029/2022jb024810",
+          "year": 2023,
+          "title": "New Insights Into Crustal Deformation of the Indonesia–Australia–New Guinea Collision Zone From a Br"
+        }
+      ],
+      "name": "S. McClusky",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 161,
+      "citedBy": 12408
+    },
+    {
+      "orcid": "0000-0003-3512-7856",
+      "count": 8,
+      "tiers": {
+        "candidate-strong": 7,
+        "candidate-review": 1
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2025jb031274",
+          "year": 2025,
+          "title": "Insights Into the Archean to Phanerozoic Evolution of Southwest Australia From Seismic Ambient Noise"
+        },
+        {
+          "doi": "10.1029/2025gl117119",
+          "year": 2025,
+          "title": "Building Blocks of Cratonic Lithosphere in Southwestern Australia: Early Results of WA Array"
+        },
+        {
+          "doi": "10.1093/gji/ggad035",
+          "year": 2023,
+          "title": "Refining the Moho across the Australian continent"
+        }
+      ],
+      "name": "Huaiyu Yuan",
+      "institution": "Geological Survey of Western Australia",
+      "country": "AU",
+      "worksCount": 126,
+      "citedBy": 3186
+    },
+    {
+      "orcid": "0000-0001-7036-1977",
+      "count": 10,
+      "tiers": {
+        "verified": 7,
+        "candidate-strong": 1,
+        "candidate-review": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.2138/gselements.19.3.136",
+          "year": 2023,
+          "title": "Innovating and Networking Global Geochemical Data Resources Through OneGeochemistry"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-15749",
+          "year": 2023,
+          "title": "The WorldFAIR project: enabling global interdisciplinary cooperation on integrating FAIR Data policy"
+        }
+      ],
+      "name": "Kerstin Lehnert",
+      "institution": "Lamont-Doherty Earth Observatory",
+      "country": "US",
+      "worksCount": 357,
+      "citedBy": 2246
+    },
+    {
+      "orcid": "0000-0001-5140-8602",
+      "count": 10,
+      "tiers": {
+        "verified": 7,
+        "candidate-strong": 1,
+        "candidate-review": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.2138/gselements.19.3.136",
+          "year": 2023,
+          "title": "Innovating and Networking Global Geochemical Data Resources Through OneGeochemistry"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-15749",
+          "year": 2023,
+          "title": "The WorldFAIR project: enabling global interdisciplinary cooperation on integrating FAIR Data policy"
+        }
+      ],
+      "name": "Kirsten Elger",
+      "institution": "GFZ Helmholtz Centre for Geosciences",
+      "country": "DE",
+      "worksCount": 202,
+      "citedBy": 1622
+    },
+    {
+      "orcid": "0000-0002-5059-2281",
+      "count": 10,
+      "tiers": {
+        "verified": 7,
+        "candidate-strong": 1,
+        "candidate-review": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.2138/gselements.19.3.136",
+          "year": 2023,
+          "title": "Innovating and Networking Global Geochemical Data Resources Through OneGeochemistry"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-15749",
+          "year": 2023,
+          "title": "The WorldFAIR project: enabling global interdisciplinary cooperation on integrating FAIR Data policy"
+        }
+      ],
+      "name": "Dominik C. Hezel",
+      "institution": "Goethe University Frankfurt",
+      "country": "DE",
+      "worksCount": 165,
+      "citedBy": 2078
+    },
+    {
+      "orcid": "0000-0002-2530-1606",
+      "count": 8,
+      "tiers": {
+        "candidate-strong": 7,
+        "candidate-review": 1
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggad035",
+          "year": 2023,
+          "title": "Refining the Moho across the Australian continent"
+        },
+        {
+          "doi": "10.31223/x5s076",
+          "year": 2023,
+          "title": "Refining the Moho across the Australian continent"
+        },
+        {
+          "doi": "10.1080/22020586.2019.12073163",
+          "year": 2019,
+          "title": "AusArray: Toward updatable, high-resolution seismic velocity models of the Australian lithosphere"
+        }
+      ],
+      "name": "A. Gorbatov",
+      "institution": "Geoscience Australia",
+      "country": "AU",
+      "worksCount": 66,
+      "citedBy": 1454
+    },
+    {
+      "orcid": "0000-0002-2088-7433",
+      "count": 10,
+      "tiers": {
+        "candidate-strong": 6,
+        "candidate-review": 4
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1038/nature13033",
+          "year": 2014,
+          "title": "Dynamics of continental accretion"
+        },
+        {
+          "doi": "10.1016/j.gsf.2014.07.002",
+          "year": 2014,
+          "title": "Geodynamics of oceanic plateau and plume head accretion and their role in Phanerozoic orogenic syste"
+        },
+        {
+          "doi": "10.1029/2008jb005650",
+          "year": 2009,
+          "title": "Basement interpretations from airborne magnetic and gravity data over the Lambert Rift region of Eas"
+        }
+      ],
+      "name": "Peter Betts",
+      "institution": "Department of Environment, Land, Water and Planning",
+      "country": "AU",
+      "worksCount": 273,
+      "citedBy": 7001
+    },
+    {
+      "orcid": "0000-0003-0646-9830",
+      "count": 12,
+      "tiers": {
+        "candidate-strong": 5,
+        "candidate-review": 7
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1007/s11242-005-5998-2",
+          "year": 2006,
+          "title": "Quantifying Uncertainty in Flow Functions Derived from SCAL Data"
+        },
+        {
+          "doi": "10.3997/2214-4609.201402500",
+          "year": 2006,
+          "title": "Quantification of Uncertainty in Coarse-Scale Relative Permeabilities Due to Sub-Grid Heterogeneity"
+        },
+        {
+          "doi": "10.1016/j.petrol.2004.02.011",
+          "year": 2004,
+          "title": "Prediction under uncertainty in reservoir modeling"
+        }
+      ],
+      "name": "Sam Subbey",
+      "institution": "Norwegian Institute of Marine Research",
+      "country": "NO",
+      "worksCount": 77,
+      "citedBy": 970
+    },
+    {
+      "orcid": "0000-0002-4232-6514",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 7
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2024gl112563",
+          "year": 2025,
+          "title": "Interseismic Coupling Along the Java‐Timor Subduction‐Collision Zone at East Indonesia"
+        },
+        {
+          "doi": "10.1016/j.rse.2024.114063",
+          "year": 2024,
+          "title": "Co-seismic and post-seismic deformation associated with the 2018 Lombok, Indonesia, earthquake seque"
+        },
+        {
+          "doi": "10.1029/2022jb024810",
+          "year": 2023,
+          "title": "New Insights Into Crustal Deformation of the Indonesia–Australia–New Guinea Collision Zone From a Br"
+        }
+      ],
+      "name": "Siyuan Zhao",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 10,
+      "citedBy": 76
+    },
+    {
+      "orcid": "0000-0002-3805-9257",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 7
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2025tc009057",
+          "year": 2025,
+          "title": "Raising the Roof of the World: Intra‐Crustal Asian Mantle Supports the Himalayan‐Tibetan Orogen"
+        },
+        {
+          "doi": "10.1016/j.epsl.2025.119467",
+          "year": 2025,
+          "title": "Ghost plumes hidden beneath Earth’s continents"
+        },
+        {
+          "doi": "10.21203/rs.3.rs-4526590/v1",
+          "year": 2024,
+          "title": "Ghost Plumes Hidden Beneath Earth’s Continents"
+        }
+      ],
+      "name": "Simone Pilia",
+      "institution": "",
+      "country": "",
+      "worksCount": 108,
+      "citedBy": 724
+    },
+    {
+      "orcid": "0000-0002-8756-2457",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 7
+      },
+      "partnerHits": 7,
+      "samplePapers": [
+        {
+          "doi": "10.1785/0220220348",
+          "year": 2023,
+          "title": "Hypocenter, Fault Plane, and Rupture Characterization of Australian Earthquakes: Application to the "
+        },
+        {
+          "doi": "10.1080/14432471.2022.2057678",
+          "year": 2022,
+          "title": "Rapid deployment for earthquake aftershock monitoring in southwest Western Australia – the Arthur Ri"
+        },
+        {
+          "doi": "10.1080/14432471.2020.1828423",
+          "year": 2020,
+          "title": "Geological Survey of Western Australia: SWAN takes off - a new seismic monitoring project in Western"
+        }
+      ],
+      "name": "M. Salmon",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 56,
+      "citedBy": 2264
+    },
+    {
+      "orcid": "0000-0003-2656-0260",
+      "count": 13,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 9
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2020gc009267",
+          "year": 2020,
+          "title": "Influence of Subduction Zone Dynamics on Interface Shear Stress and Potential Relationship With Seis"
+        },
+        {
+          "doi": "10.1002/2014gc005257",
+          "year": 2014,
+          "title": "Interaction of subducted slabs with the mantle transition‐zone: A regime diagram from 2‐D thermo‐mec"
+        },
+        {
+          "doi": "10.5194/gmd-6-1095-2013",
+          "year": 2013,
+          "title": "A hierarchical mesh refinement technique for global 3-D spherical mantle convection modelling"
+        }
+      ],
+      "name": "J. H. Davies",
+      "institution": "Cardiff University",
+      "country": "GB",
+      "worksCount": 282,
+      "citedBy": 12960
+    },
+    {
+      "orcid": "0000-0002-6719-2671",
+      "count": 8,
+      "tiers": {
+        "verified": 6,
+        "candidate-strong": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu24-13522",
+          "year": 2024,
+          "title": "Developing cutting-edge geophysical data and software infrastructure to future-proof national scale "
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-12864",
+          "year": 2023,
+          "title": "Who Done It? Reproducibility of Data Products Also Requires Lineage to Determine Impact and Give Cre"
+        },
+        {
+          "doi": "10.5281/zenodo.7980192",
+          "year": 2023,
+          "title": "Building a National High-Resolution Geophysics Reference Collection for 2030 Computation"
+        }
+      ],
+      "name": "Ben Evans",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 90,
+      "citedBy": 871
+    },
+    {
+      "orcid": "0000-0002-3907-4344",
+      "count": 8,
+      "tiers": {
+        "verified": 6,
+        "candidate-review": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        }
+      ],
+      "name": "Bryant Ware",
+      "institution": "Curtin University",
+      "country": "AU",
+      "worksCount": 70,
+      "citedBy": 399
+    },
+    {
+      "orcid": "0000-0002-7161-1875",
+      "count": 8,
+      "tiers": {
+        "verified": 6,
+        "candidate-review": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        },
+        {
+          "doi": "10.1111/ggr.12419",
+          "year": 2022,
+          "title": "AusGeochem: An Open Platform for Geochemical Data Preservation, Dissemination and Synthesis"
+        }
+      ],
+      "name": "Wayne Noble",
+      "institution": "Presbyterian Theological College",
+      "country": "AU",
+      "worksCount": 54,
+      "citedBy": 134
+    },
+    {
+      "orcid": "0000-0003-2114-9894",
+      "count": 8,
+      "tiers": {
+        "verified": 6,
+        "candidate-review": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        },
+        {
+          "doi": "10.1111/ggr.12419",
+          "year": 2022,
+          "title": "AusGeochem: An Open Platform for Geochemical Data Preservation, Dissemination and Synthesis"
+        }
+      ],
+      "name": "Hayden Dalton",
+      "institution": "University of Melbourne",
+      "country": "AU",
+      "worksCount": 69,
+      "citedBy": 677
+    },
+    {
+      "orcid": "0000-0003-0496-0028",
+      "count": 8,
+      "tiers": {
+        "verified": 6,
+        "candidate-review": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.1111/ggr.12419",
+          "year": 2022,
+          "title": "AusGeochem: An Open Platform for Geochemical Data Preservation, Dissemination and Synthesis"
+        },
+        {
+          "doi": "10.5194/egusphere-egu22-13429",
+          "year": 2022,
+          "title": "AusGeochem: an Australian AuScope Geochemistry Network data platform for laboratories and their user"
+        }
+      ],
+      "name": "Andrew Gleadow",
+      "institution": "The University of Melbourne",
+      "country": "AU",
+      "worksCount": 257,
+      "citedBy": 14574
+    },
+    {
+      "orcid": "0000-0001-5064-5454",
+      "count": 8,
+      "tiers": {
+        "verified": 6,
+        "candidate-review": 2
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        },
+        {
+          "doi": "10.1111/ggr.12419",
+          "year": 2022,
+          "title": "AusGeochem: An Open Platform for Geochemical Data Preservation, Dissemination and Synthesis"
+        }
+      ],
+      "name": "Barry P. Kohn",
+      "institution": "The University of Melbourne",
+      "country": "AU",
+      "worksCount": 335,
+      "citedBy": 9489
+    },
+    {
+      "orcid": "0000-0001-5153-3040",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 6,
+        "candidate-review": 1
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu26-1022",
+          "year": 2026,
+          "title": "Bayesian Model Comparison of Inner Core Anisotropy Models"
+        },
+        {
+          "doi": "10.1016/j.pepi.2025.107423",
+          "year": 2025,
+          "title": "Quantitative assessment of tomographic proxies for lowermost mantle composition and mineralogy"
+        },
+        {
+          "doi": "10.1016/j.epsl.2023.118296",
+          "year": 2023,
+          "title": "Compressibility of ferropericlase at high-temperature: Evidence for the iron spin crossover in seism"
+        }
+      ],
+      "name": "Paula Koelemeijer",
+      "institution": "University of Oxford",
+      "country": "GB",
+      "worksCount": 109,
+      "citedBy": 1430
+    },
+    {
+      "orcid": "0000-0002-6591-9777",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 6,
+        "candidate-review": 1
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2025jb031274",
+          "year": 2025,
+          "title": "Insights Into the Archean to Phanerozoic Evolution of Southwest Australia From Seismic Ambient Noise"
+        },
+        {
+          "doi": "10.1029/2025gl117119",
+          "year": 2025,
+          "title": "Building Blocks of Cratonic Lithosphere in Southwestern Australia: Early Results of WA Array"
+        },
+        {
+          "doi": "10.1093/gji/ggad035",
+          "year": 2023,
+          "title": "Refining the Moho across the Australian continent"
+        }
+      ],
+      "name": "Klaus Gessner",
+      "institution": "Geological Survey of Western Australia",
+      "country": "AU",
+      "worksCount": 154,
+      "citedBy": 2961
+    },
+    {
+      "orcid": "0000-0002-8768-2782",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 6,
+        "candidate-review": 1
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-3359",
+          "year": 2025,
+          "title": "Ambient Noise Tomography for Natural Hydrogen Exploration: A Case Study from the Gawler Craton, Sout"
+        },
+        {
+          "doi": "10.1785/0220250046",
+          "year": 2025,
+          "title": "Illuminating Subsurface Structures Beneath Lake George Fault Zone, Southeast Australia with Traffic "
+        },
+        {
+          "doi": "10.1785/0320240031",
+          "year": 2024,
+          "title": "Passive Seismic Imaging of Urban Environments Using Distributed Acoustic Sensing: A Case Study from "
+        }
+      ],
+      "name": "Chengxin Jiang",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 70,
+      "citedBy": 993
+    },
+    {
+      "orcid": "0000-0001-6593-0776",
+      "count": 9,
+      "tiers": {
+        "candidate-strong": 5,
+        "candidate-review": 4
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1785/0220230180",
+          "year": 2023,
+          "title": "The Global DAS Month of February 2023"
+        },
+        {
+          "doi": "10.1029/2018gc007962",
+          "year": 2018,
+          "title": "Seismic Imaging of the Alaska Subduction Zone: Implications for Slab Geometry and Volcanism"
+        },
+        {
+          "doi": "10.1130/l701.1",
+          "year": 2018,
+          "title": "Multiscale crustal architecture of Alaska inferred from P receiver functions"
+        }
+      ],
+      "name": "Robert Porritt",
+      "institution": "Sandia National Laboratories",
+      "country": "US",
+      "worksCount": 115,
+      "citedBy": 954
+    },
+    {
+      "orcid": "0000-0002-5656-4564",
+      "count": 13,
+      "tiers": {
+        "candidate-strong": 3,
+        "candidate-review": 10
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.1130/g48246.1",
+          "year": 2021,
+          "title": "Inherited lithospheric structures control arc-continent collisional heterogeneity"
+        },
+        {
+          "doi": "10.1029/2021gc010099",
+          "year": 2021,
+          "title": "Tectonic Inheritance During Plate Boundary Evolution in Southern California Constrained From Seismic"
+        },
+        {
+          "doi": "10.1002/essoar.10507775.1",
+          "year": 2021,
+          "title": "Tectonic inheritance during plate boundary evolution in southern California constrained from seismic"
+        }
+      ],
+      "name": "Thorsten W. Becker",
+      "institution": "The University of Texas at Austin",
+      "country": "US",
+      "worksCount": 1,
+      "citedBy": 0
+    },
+    {
+      "orcid": "0000-0002-7017-620x",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.5281/zenodo.19078765",
+          "year": 2026,
+          "title": "Earthquake catalogue for Wairakei-Tauhara geothermal field, New Zealand: September–November 2023"
+        },
+        {
+          "doi": "10.1029/2025gc012317",
+          "year": 2025,
+          "title": "Temporal Evolution of Seismicity in the Central Southern Alps, New Zealand: Evidence for Rainfall‐Tr"
+        },
+        {
+          "doi": "10.1029/2024jh000356",
+          "year": 2024,
+          "title": "Unsupervised Coherent Noise Removal From Seismological Distributed Acoustic Sensing Data"
+        }
+      ],
+      "name": "John Townend",
+      "institution": "Victoria University of Wellington",
+      "country": "NZ",
+      "worksCount": 402,
+      "citedBy": 9451
+    },
+    {
+      "orcid": "0000-0001-5911-6022",
+      "count": 8,
+      "tiers": {
+        "verified": 6,
+        "candidate-strong": 1,
+        "candidate-review": 1
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-21367",
+          "year": 2025,
+          "title": "AuScope&amp;#8217;s Research Data Systems: Operationalising FAIR place-based research through collab"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-7376",
+          "year": 2024,
+          "title": "Building A Trustworthy Data Repository for Australian Geoscience Research Communities"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-12864",
+          "year": 2023,
+          "title": "Who Done It? Reproducibility of Data Products Also Requires Lineage to Determine Impact and Give Cre"
+        }
+      ],
+      "name": "Jens Klump",
+      "institution": "Commonwealth Scientific and Industrial Research Organisation",
+      "country": "AU",
+      "worksCount": 279,
+      "citedBy": 1493
+    },
+    {
+      "orcid": "0000-0003-4515-9296",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu24-12690",
+          "year": 2024,
+          "title": "Model Atlas of the Earth (M@TE): advancing the interoperability of digital twins"
+        },
+        {
+          "doi": "10.21105/joss.01797",
+          "year": 2020,
+          "title": "Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud"
+        },
+        {
+          "doi": "10.21105/joss.01136",
+          "year": 2019,
+          "title": "UWGeodynamics: A teaching and research tool for numerical geodynamic modelling"
+        }
+      ],
+      "name": "Julian Giordani",
+      "institution": "The University of Sydney",
+      "country": "AU",
+      "worksCount": 41,
+      "citedBy": 130
+    },
+    {
+      "orcid": "0000-0001-7054-807x",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2023gc011288",
+          "year": 2024,
+          "title": "Coupled Geodynamical‐Geochemical Perspectives on the Generation and Composition of Mid‐Ocean Ridge B"
+        },
+        {
+          "doi": "10.46427/gold2024.21236",
+          "year": 2024,
+          "title": "Coupled Geodynamical-Geochemical Perspectives on the Generation and Composition of Mid-Ocean Ridge B"
+        },
+        {
+          "doi": "10.22541/essoar.169711689.99250544/v1",
+          "year": 2023,
+          "title": "Coupled Geodynamical-Geochemical Perspectives on the Generation and Composition of Mid-Ocean Ridge B"
+        }
+      ],
+      "name": "Patrick Ball",
+      "institution": "",
+      "country": "",
+      "worksCount": 30,
+      "citedBy": 352
+    },
+    {
+      "orcid": "0000-0002-4370-7298",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1038/s41561-023-01201-7",
+          "year": 2023,
+          "title": "Post-subduction tectonics induced by extension from a lithospheric drip"
+        },
+        {
+          "doi": "10.1029/2022gc010563",
+          "year": 2022,
+          "title": "SASSIER22: Full‐Waveform Tomography of the Eastern Indonesian Region That Includes Topography, Bathy"
+        },
+        {
+          "doi": "10.1002/essoar.10511562.1",
+          "year": 2022,
+          "title": "SASSIER22: Full-waveform tomography of the eastern Indonesian region that includes surface topograph"
+        }
+      ],
+      "name": "Tim Greenfield",
+      "institution": "University of Cambridge",
+      "country": "GB",
+      "worksCount": 82,
+      "citedBy": 1582
+    },
+    {
+      "orcid": "0000-0001-8850-4358",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2021jb022930",
+          "year": 2022,
+          "title": "SASSY21 : A 3‐D Seismic Structural Model of the Lithosphere and Underlying Mantle Beneath Southeast "
+        },
+        {
+          "doi": "10.1002/essoar.10507767.1",
+          "year": 2021,
+          "title": "SASSY21: A 3-D seismic structural model of the lithosphere and underlying mantle beneath Southeast A"
+        },
+        {
+          "doi": "10.5194/egusphere-egu21-1586",
+          "year": 2021,
+          "title": "Towards 3D Multiscale Adjoint Waveform Tomography of the Lithosphere and Underlying Mantle beneath S"
+        }
+      ],
+      "name": "Nienke Blom",
+      "institution": "University of Cambridge",
+      "country": "GB",
+      "worksCount": 45,
+      "citedBy": 211
+    },
+    {
+      "orcid": "0000-0002-9603-0014",
+      "count": 8,
+      "tiers": {
+        "candidate-strong": 5,
+        "candidate-review": 3
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1785/0220210281",
+          "year": 2022,
+          "title": "Mantle Flow Deflected by Arc–Continent Collision and Continental Subduction in Eastern Indonesia"
+        },
+        {
+          "doi": "10.1130/g48246.1",
+          "year": 2021,
+          "title": "Inherited lithospheric structures control arc-continent collisional heterogeneity"
+        },
+        {
+          "doi": "10.1029/2019gl086472",
+          "year": 2020,
+          "title": "Fate of Forearc Lithosphere at Arc‐Continent Collision Zones: Evidence From Local Earthquake Tomogra"
+        }
+      ],
+      "name": "Cooper W. Harris",
+      "institution": "University of Southern California",
+      "country": "US",
+      "worksCount": 14,
+      "citedBy": 177
+    },
+    {
+      "orcid": "0000-0001-7540-3515",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2022gc010363",
+          "year": 2022,
+          "title": "Continental Magmatism: The Surface Manifestation of Dynamic Interactions Between Cratonic Lithospher"
+        },
+        {
+          "doi": "10.1002/essoar.10510305.1",
+          "year": 2022,
+          "title": "Continental Magmatism: The Surface Manifestation of Dynamic Interactions Between Cratonic Lithospher"
+        },
+        {
+          "doi": "10.1029/2021gc009953",
+          "year": 2021,
+          "title": "Linking Intraplate Volcanism to Lithospheric Structure and Asthenospheric Flow"
+        }
+      ],
+      "name": "Christopher Mathews",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 7,
+      "citedBy": 88
+    },
+    {
+      "orcid": "0000-0001-6324-3470",
+      "count": 10,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 6
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.5281/zenodo.7691218",
+          "year": 2021,
+          "title": "Continental shelf marine MT feasibility study in the Spencer Gulf, South Australia"
+        },
+        {
+          "doi": "10.1016/j.tecto.2004.07.060",
+          "year": 2004,
+          "title": "Hawaiian hot-spot swell structure from seafloor MT sounding"
+        },
+        {
+          "doi": "10.1029/2000gl011473",
+          "year": 2000,
+          "title": "Episodic melt transport at mid‐ocean ridges inferred from magnetotelluric sounding"
+        }
+      ],
+      "name": "Steven Constable",
+      "institution": "Scripps Institution of Oceanography",
+      "country": "US",
+      "worksCount": 292,
+      "citedBy": 13166
+    },
+    {
+      "orcid": "0000-0002-9688-9611",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1007/s00024-018-1870-5",
+          "year": 2018,
+          "title": "Probabilistic Magnetotelluric Inversion with Adaptive Regularisation Using the No-U-Turns Sampler"
+        },
+        {
+          "doi": "10.1071/aseg2018abp039",
+          "year": 2018,
+          "title": "Electrical Resistivity Maps of the Australian Lower Crust"
+        },
+        {
+          "doi": "10.1016/j.geothermics.2016.11.005",
+          "year": 2016,
+          "title": "Magnetotelluric monitoring of permeability enhancement at enhanced geothermal system project"
+        }
+      ],
+      "name": "Yohannes Lemma Didana",
+      "institution": "The University of Adelaide",
+      "country": "AU",
+      "worksCount": 12,
+      "citedBy": 278
+    },
+    {
+      "orcid": "0000-0002-6813-5265",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggw345",
+          "year": 2016,
+          "title": "Generalized poroviscoelastic model based on effective Biot theory and its application to borehole gu"
+        },
+        {
+          "doi": "10.4236/jamp.2015.33047",
+          "year": 2015,
+          "title": "Subdomain Chebyshev Spectral Method for 2D and 3D Numerical Differentiations in a Curved Coordinate "
+        },
+        {
+          "doi": "10.4236/jemaa.2015.73009",
+          "year": 2015,
+          "title": "Integrated and Explicit Boundary Conditions of Electromagnetic Fields at Arbitrary Interfaces betwee"
+        }
+      ],
+      "name": "Bing Zhou",
+      "institution": "Khalifa University of Science and Technology",
+      "country": "AE",
+      "worksCount": 153,
+      "citedBy": 2997
+    },
+    {
+      "orcid": "0000-0002-0439-0224",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.jvolgeores.2014.10.002",
+          "year": 2014,
+          "title": "Characterisation of induced fracture networks within an enhanced geothermal system using anisotropic"
+        },
+        {
+          "doi": "10.1071/aseg2013ab155",
+          "year": 2013,
+          "title": "Anisotropic forward modelling of geothermal fluid using 2-dimensional electrical anisotropy"
+        },
+        {
+          "doi": "10.1029/2012gl053080",
+          "year": 2012,
+          "title": "Magnetotelluric monitoring of a fluid injection: Example from an enhanced geothermal system"
+        }
+      ],
+      "name": "Jared Peacock",
+      "institution": "",
+      "country": "",
+      "worksCount": 1,
+      "citedBy": 0
+    },
+    {
+      "orcid": "0000-0001-5752-7717",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1071/aseg2012ab308",
+          "year": 2012,
+          "title": "From Surface to Mantle; An Overview of Downloadable MT Data from South Australia"
+        },
+        {
+          "doi": "10.1144/0016-76492010-034",
+          "year": 2011,
+          "title": "Magnetotelluric constraints on the tectonic setting of Grenville-aged orogenesis in central Australi"
+        },
+        {
+          "doi": "10.1130/g30175a.1",
+          "year": 2009,
+          "title": "Magnetotelluric constraints on subduction polarity: Reversing reconstruction models for Proterozoic "
+        }
+      ],
+      "name": "Kate Selway",
+      "institution": "Grantmakers for Effective Organizations",
+      "country": "US",
+      "worksCount": 83,
+      "citedBy": 1523
+    },
+    {
+      "orcid": "0000-0001-8012-6145",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2011jb008535",
+          "year": 2011,
+          "title": "Influence of lateral slab edge distance on plate velocity, trench velocity, and subduction partition"
+        },
+        {
+          "doi": "10.1126/science.1190366",
+          "year": 2010,
+          "title": "Cenozoic Tectonics of Western North America Controlled by Evolving Width of Farallon Slab"
+        },
+        {
+          "doi": "10.1016/j.tecto.2009.08.041",
+          "year": 2009,
+          "title": "A regime diagram for subduction styles from 3-D numerical models of free subduction"
+        }
+      ],
+      "name": "D. R. Stegman",
+      "institution": "Scripps Institution of Oceanography",
+      "country": "US",
+      "worksCount": 136,
+      "citedBy": 3739
+    },
+    {
+      "orcid": "0000-0001-5714-0635",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08120090903246238",
+          "year": 2009,
+          "title": "Illite crystallinity and the b-spacing values of white micas and their implications for gold mineral"
+        },
+        {
+          "doi": "10.1080/08120090600827512",
+          "year": 2006,
+          "title": "3D structural modelling and implications for targeting gold mineralisation in western Victoria"
+        },
+        {
+          "doi": "10.1080/08120090600827496",
+          "year": 2006,
+          "title": "Factors controlling the location of gold mineralisation around basalt domes in the stawell corridor:"
+        }
+      ],
+      "name": "Christopher J.L. Wilson",
+      "institution": "University of Melbourne",
+      "country": "AU",
+      "worksCount": 131,
+      "citedBy": 5434
+    },
+    {
+      "orcid": "0000-0003-3785-3704",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 6
+      },
+      "partnerHits": 6,
+      "samplePapers": [
+        {
+          "doi": "10.1071/eg06231",
+          "year": 2006,
+          "title": "Two-dimensional Magnetotelluric Analysis of Three-dimensional Bodies: a Case Study From South Austra"
+        },
+        {
+          "doi": "10.1029/2005gl022934",
+          "year": 2005,
+          "title": "Rifting of a passive margin and development of a lower‐crustal detachment zone: Evidence from marine"
+        },
+        {
+          "doi": "10.1111/j.1365-246x.2004.02174.x",
+          "year": 2004,
+          "title": "Seeking a seafloor magnetic signal from the Antarctic circumpolar current"
+        }
+      ],
+      "name": "F. E. M. Lilley",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 134,
+      "citedBy": 2273
+    },
+    {
+      "orcid": "0000-0002-6707-3103",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 5,
+        "candidate-review": 2
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1785/0220250308",
+          "year": 2026,
+          "title": "A New High-Resolution Seismic Catalog for Southwestern Australia (2020–2025) and Analysis of Long-Te"
+        },
+        {
+          "doi": "10.1785/0220230185",
+          "year": 2024,
+          "title": "Rupture Pattern of the 2015 Alor Earthquake Sequence, Indonesia"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-15181",
+          "year": 2024,
+          "title": "Unravelling the intraplate 2019 Broome earthquake in the North West Shelf, Australia, through 3D CMT"
+        }
+      ],
+      "name": "Sima Mousavi",
+      "institution": "University of Canberra",
+      "country": "AU",
+      "worksCount": 25,
+      "citedBy": 132
+    },
+    {
+      "orcid": "0000-0001-7510-0223",
+      "count": 11,
+      "tiers": {
+        "candidate-strong": 3,
+        "candidate-review": 8
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.1038/s43247-025-03026-1",
+          "year": 2025,
+          "title": "Open- versus closed-system magmatism on Mars revealed by shergottites"
+        },
+        {
+          "doi": "10.1016/j.chemgeo.2024.121985",
+          "year": 2024,
+          "title": "Fluid loss to the fore-arc controls the recycling efficiency of nitrogen in subduction zones"
+        },
+        {
+          "doi": "10.2139/ssrn.4471562",
+          "year": 2023,
+          "title": "Fluid Loss to the Fore-Arc Controls the Recycling Efficiency of Nitrogen in Subduction Zones"
+        }
+      ],
+      "name": "Stephen Foley",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 418,
+      "citedBy": 20254
+    },
+    {
+      "orcid": "0000-0002-9757-745x",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 5,
+        "candidate-review": 2
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.26180/5f4dc2c4e94e0",
+          "year": 2020,
+          "title": "AuScope Geothermal Demonstrators - Latrobe Valley, Victoria, Australia"
+        },
+        {
+          "doi": "10.1029/2019tc005894",
+          "year": 2020,
+          "title": "The Fingerprints of Flexure in Slab Seismicity"
+        },
+        {
+          "doi": "10.31223/osf.io/b7rj9",
+          "year": 2019,
+          "title": "The fingerprints of flexure in slab seismicity"
+        }
+      ],
+      "name": "Mike Sandiford",
+      "institution": "The University of Melbourne",
+      "country": "AU",
+      "worksCount": 282,
+      "citedBy": 8373
+    },
+    {
+      "orcid": "0000-0002-0138-737x",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 5,
+        "candidate-review": 1
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-2025-5615",
+          "year": 2025,
+          "title": "From Strong Plates to Weak Boundaries: Strain Localization in the Lithospheric Mantle with Low- to H"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-9359",
+          "year": 2024,
+          "title": "From intraplate weakening to plate boundary: New diagnostics to quantify rheological controls on def"
+        },
+        {
+          "doi": "10.5194/egusphere-egu21-2268",
+          "year": 2021,
+          "title": "&amp;#160;Self-weakening feedbacks in the ductile lithospheric mantle: looking for a realistic mantl"
+        }
+      ],
+      "name": "Catherine Thoraval",
+      "institution": "Centre National de la Recherche Scientifique",
+      "country": "FR",
+      "worksCount": 40,
+      "citedBy": 748
+    },
+    {
+      "orcid": "0000-0003-3566-1557",
+      "count": 6,
+      "tiers": {
+        "verified": 2,
+        "candidate-strong": 3,
+        "candidate-review": 1
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.5194/esurf-12-301-2024",
+          "year": 2024,
+          "title": "Flexural isostatic response of continental-scale deltas to climatically driven sea level changes"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-12690",
+          "year": 2024,
+          "title": "Model Atlas of the Earth (M@TE): advancing the interoperability of digital twins"
+        },
+        {
+          "doi": "10.2139/ssrn.4893624",
+          "year": 2024,
+          "title": "The Influence of a Sub-Lithospheric Layer Width on the Partitioning of the Induced Mantle Flow, Surf"
+        }
+      ],
+      "name": "Ben Mather",
+      "institution": "The University of Sydney",
+      "country": "AU",
+      "worksCount": 89,
+      "citedBy": 494
+    },
+    {
+      "orcid": "0000-0002-6702-8759",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 5,
+        "candidate-review": 1
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1111/j.1365-246x.2003.02137.x",
+          "year": 2004,
+          "title": "Three-dimensional empirical traveltimes: construction and applications"
+        },
+        {
+          "doi": "10.1111/j.1365-246x.2004.02123.x",
+          "year": 2004,
+          "title": "Constraints on earthquake epicentres independent of seismic velocity models"
+        },
+        {
+          "doi": "10.1029/2000jb000035",
+          "year": 2002,
+          "title": "Hypocenter location by pattern recognition"
+        }
+      ],
+      "name": "Ólafur Guðmundsson",
+      "institution": "Uppsala University",
+      "country": "SE",
+      "worksCount": 177,
+      "citedBy": 3594
+    },
+    {
+      "orcid": "0000-0003-1524-2312",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2025gc012589",
+          "year": 2025,
+          "title": "Seismic Anisotropy Analysis Across Southwestern Australia Reveals ENE‐Trending Lithospheric Architec"
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-2956",
+          "year": 2025,
+          "title": "Significant anisotropic fabric across South Western Australia and the Yilgarn Craton revealed by the"
+        },
+        {
+          "doi": "10.1093/gji/ggad035",
+          "year": 2023,
+          "title": "Refining the Moho across the Australian continent"
+        }
+      ],
+      "name": "J. P. O’Donnell",
+      "institution": "Geological Survey of Western Australia",
+      "country": "AU",
+      "worksCount": 74,
+      "citedBy": 1034
+    },
+    {
+      "orcid": "0000-0002-6824-3610",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08123985.2024.2378132",
+          "year": 2024,
+          "title": "Magnetotelluric imaging of an iron-oxide copper gold (IOCG) deposit under thick cover"
+        },
+        {
+          "doi": "10.1080/08123985.2024.2391571",
+          "year": 2024,
+          "title": "Fuzzy c-mean (FCM) integration of geophysical data from an iron-oxide copper gold (IOCG) deposit und"
+        },
+        {
+          "doi": "10.1016/j.epsl.2018.11.008",
+          "year": 2018,
+          "title": "Tungsten isotopes in mantle plumes: Heads it's positive, tails it's negative"
+        }
+      ],
+      "name": "T. D. Jones",
+      "institution": "",
+      "country": "",
+      "worksCount": 23,
+      "citedBy": 354
+    },
+    {
+      "orcid": "0000-0002-5586-2607",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1785/0320240031",
+          "year": 2024,
+          "title": "Passive Seismic Imaging of Urban Environments Using Distributed Acoustic Sensing: A Case Study from "
+        },
+        {
+          "doi": "10.1029/2021jb022139",
+          "year": 2021,
+          "title": "Inflation and Asymmetric Collapse at Kīlauea Summit During the 2018 Eruption From Seismic and Infras"
+        },
+        {
+          "doi": "10.1002/essoar.10506637.1",
+          "year": 2021,
+          "title": "Inflation and Asymmetric Collapse at Kilauea Summit during the 2018 Eruption from Seismic and Infras"
+        }
+      ],
+      "name": "Zhongwen Zhan",
+      "institution": "California Institute of Technology",
+      "country": "US",
+      "worksCount": 255,
+      "citedBy": 6476
+    },
+    {
+      "orcid": "0000-0003-0445-8812",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 3
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.chemgeo.2024.121985",
+          "year": 2024,
+          "title": "Fluid loss to the fore-arc controls the recycling efficiency of nitrogen in subduction zones"
+        },
+        {
+          "doi": "10.2139/ssrn.4471562",
+          "year": 2023,
+          "title": "Fluid Loss to the Fore-Arc Controls the Recycling Efficiency of Nitrogen in Subduction Zones"
+        },
+        {
+          "doi": "10.1016/j.epsl.2019.05.037",
+          "year": 2019,
+          "title": "Reconciling petrological and isotopic mixing mechanisms in the Pitcairn mantle plume using stable Fe"
+        }
+      ],
+      "name": "Gregory M. Yaxley",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 163,
+      "citedBy": 9499
+    },
+    {
+      "orcid": "0000-0002-2826-1793",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 4,
+        "verified": 1
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08123985.2024.2392802",
+          "year": 2024,
+          "title": "Resistivity anomalies in the shallow and deep crust beneath West Tasmania from a broadband magnetote"
+        },
+        {
+          "doi": "10.1080/22020586.2019.12073154",
+          "year": 2019,
+          "title": "2018 Southeast Lachlan Seismic Survey: New Heights"
+        },
+        {
+          "doi": "10.1080/08120099.2013.826735",
+          "year": 2013,
+          "title": "Crustal architecture of the Capricorn Orogen, Western Australia and associated metallogeny"
+        }
+      ],
+      "name": "T. Fomin",
+      "institution": "Geoscience Australia",
+      "country": "AU",
+      "worksCount": 50,
+      "citedBy": 467
+    },
+    {
+      "orcid": "0000-0002-1534-6704",
+      "count": 7,
+      "tiers": {
+        "verified": 5,
+        "candidate-strong": 1,
+        "candidate-review": 1
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-15749",
+          "year": 2023,
+          "title": "The WorldFAIR project: enabling global interdisciplinary cooperation on integrating FAIR Data policy"
+        },
+        {
+          "doi": "10.5281/zenodo.7963470",
+          "year": 2023,
+          "title": "WorldFAIR Project (MS6) Geochemistry Scientific Content Component"
+        }
+      ],
+      "name": "Geertje ter Maat",
+      "institution": "University of Applied Sciences Utrecht",
+      "country": "NL",
+      "worksCount": 57,
+      "citedBy": 159
+    },
+    {
+      "orcid": "0000-0003-1821-4114",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggad002",
+          "year": 2023,
+          "title": "Reply to comment on Geophysical inversion and Optimal Transport, 231, 172–198, by Okazaki &amp; Ueda"
+        },
+        {
+          "doi": "10.1093/gji/ggac151",
+          "year": 2022,
+          "title": "Geophysical inversion and optimal transport"
+        },
+        {
+          "doi": "10.2138/am-2018-6152",
+          "year": 2018,
+          "title": "The inverse problem of unpolarized infrared spectroscopy of geological materials: Estimation from no"
+        }
+      ],
+      "name": "Andrew Jackson",
+      "institution": "Memorial Sloan Kettering Cancer Center",
+      "country": "US",
+      "worksCount": 205,
+      "citedBy": 5738
+    },
+    {
+      "orcid": "0000-0002-8459-0823",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gr.2023.10.013",
+          "year": 2023,
+          "title": "Interactions of magmas and highly reduced fluids during intraplate volcanism, Mt Carmel, Israel: Imp"
+        },
+        {
+          "doi": "10.2138/am-2021-7934",
+          "year": 2021,
+          "title": "Immiscible metallic melts in the upper mantle beneath Mount Carmel, Israel: Silicides, phosphides, a"
+        },
+        {
+          "doi": "10.3390/min11070780",
+          "year": 2021,
+          "title": "Nitrogen under Super-Reducing Conditions: Ti Oxynitride Melts in Xenolithic Corundum Aggregates from"
+        }
+      ],
+      "name": "Sarah Gain",
+      "institution": "ARC Centre of Excellence for Core to Crust Fluid Systems",
+      "country": "AU",
+      "worksCount": 45,
+      "citedBy": 1203
+    },
+    {
+      "orcid": "0000-0001-6873-7816",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gr.2023.10.013",
+          "year": 2023,
+          "title": "Interactions of magmas and highly reduced fluids during intraplate volcanism, Mt Carmel, Israel: Imp"
+        },
+        {
+          "doi": "10.2138/am-2021-7934",
+          "year": 2021,
+          "title": "Immiscible metallic melts in the upper mantle beneath Mount Carmel, Israel: Silicides, phosphides, a"
+        },
+        {
+          "doi": "10.3390/min11070780",
+          "year": 2021,
+          "title": "Nitrogen under Super-Reducing Conditions: Ti Oxynitride Melts in Xenolithic Corundum Aggregates from"
+        }
+      ],
+      "name": "Martin Saunders",
+      "institution": "The University of Western Australia",
+      "country": "AU",
+      "worksCount": 443,
+      "citedBy": 14254
+    },
+    {
+      "orcid": "0000-0002-0368-7341",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.26180/5f4dc2c4e94e0",
+          "year": 2020,
+          "title": "AuScope Geothermal Demonstrators - Latrobe Valley, Victoria, Australia"
+        },
+        {
+          "doi": "10.21105/joss.01797",
+          "year": 2020,
+          "title": "Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud"
+        },
+        {
+          "doi": "10.5281/zenodo.1445812",
+          "year": 2018,
+          "title": "underworldcode/underworld1: Final version of UW1"
+        }
+      ],
+      "name": "Steve Quenette",
+      "institution": "Australian Regenerative Medicine Institute",
+      "country": "AU",
+      "worksCount": 41,
+      "citedBy": 575
+    },
+    {
+      "orcid": "0000-0001-7192-5391",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 3
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1175/jcli-d-17-0679.1",
+          "year": 2018,
+          "title": "Multitechnique Assessment of the Interannual to Multidecadal Variability in Steric Sea Levels: A Com"
+        },
+        {
+          "doi": "10.5194/tc-12-3187-2018",
+          "year": 2018,
+          "title": "A statistical fracture model for Antarctic ice shelves and glaciers"
+        },
+        {
+          "doi": "10.5194/tc-2017-98",
+          "year": 2017,
+          "title": "A statistical fracture model for Antarctic glaciers"
+        }
+      ],
+      "name": "Paul Tregoning",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 207,
+      "citedBy": 6624
+    },
+    {
+      "orcid": "0000-0001-7863-524x",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1186/s40623-018-0791-y",
+          "year": 2018,
+          "title": "Time-lapse inversion of one-dimensional magnetotelluric data"
+        },
+        {
+          "doi": "10.1071/aseg2016ab231",
+          "year": 2016,
+          "title": "Monitoring of unconventional resources using magnetotellurics"
+        },
+        {
+          "doi": "10.1190/tle35010064.1",
+          "year": 2015,
+          "title": "Magnetotelluric monitoring of coal-seam gas and shale-gas resource development in Australia"
+        }
+      ],
+      "name": "Nigel Rees",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 15,
+      "citedBy": 52
+    },
+    {
+      "orcid": "0000-0002-0028-2779",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggw345",
+          "year": 2016,
+          "title": "Generalized poroviscoelastic model based on effective Biot theory and its application to borehole gu"
+        },
+        {
+          "doi": "10.1081/22020586.2010.12041896",
+          "year": 2010,
+          "title": "Improved imaging of the subsurface using a gravity and magnetotelluric joint inversion"
+        },
+        {
+          "doi": "10.1071/aseg2009ab045",
+          "year": 2009,
+          "title": "Joint inversion of gravity and magnetotelluric data"
+        }
+      ],
+      "name": "Stewart Greenhalgh",
+      "institution": "ETH Zurich",
+      "country": "CH",
+      "worksCount": 369,
+      "citedBy": 5734
+    },
+    {
+      "orcid": "0000-0001-5399-6292",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 5
+      },
+      "partnerHits": 5,
+      "samplePapers": [
+        {
+          "doi": "10.1007/s10040-011-0760-z",
+          "year": 2011,
+          "title": "The role of in situ stress in determining hydraulic connectivity in a fractured rock aquifer (Austra"
+        },
+        {
+          "doi": "10.1190/1.3575286",
+          "year": 2011,
+          "title": "Locating groundwater resources for Aboriginal communities in remote and arid parts of South Australi"
+        },
+        {
+          "doi": "10.1007/s10040-011-0778-2",
+          "year": 2011,
+          "title": "Erratum: The role of in situ stress in determining hydraulic connectivity in a fractured rock aquife"
+        }
+      ],
+      "name": "Craig T. Simmons",
+      "institution": "Flinders University",
+      "country": "AU",
+      "worksCount": 417,
+      "citedBy": 16963
+    },
+    {
+      "orcid": "0000-0002-8346-9140",
+      "count": 7,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 3
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1007/s11242-005-5998-2",
+          "year": 2006,
+          "title": "Quantifying Uncertainty in Flow Functions Derived from SCAL Data"
+        },
+        {
+          "doi": "10.3997/2214-4609.201402499",
+          "year": 2006,
+          "title": "The Impact of Data Errors on Uncertainty Analysis"
+        },
+        {
+          "doi": "10.1137/s1064827503426747",
+          "year": 2004,
+          "title": "The Impact of Uncertain Centrifuge Capillary Pressure on Reservoir Simulation"
+        }
+      ],
+      "name": "Mike Christie",
+      "institution": "Aberystwyth University",
+      "country": "GB",
+      "worksCount": 276,
+      "citedBy": 11184
+    },
+    {
+      "orcid": "0000-0001-6037-5566",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 2
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-10905",
+          "year": 2025,
+          "title": "Late Archaean basalts from the Yilgarn craton record evidence of thin lithosphere prior to cratonisa"
+        },
+        {
+          "doi": "10.1038/s41598-022-11921-2",
+          "year": 2022,
+          "title": "Lithospheric conductors reveal source regions of convergent margin mineral systems"
+        },
+        {
+          "doi": "10.7185/gold2021.6551",
+          "year": 2021,
+          "title": "Archaean basalts record evidence of lithospheric extension prior to cratonisation"
+        }
+      ],
+      "name": "D.C. Champion",
+      "institution": "Geological Survey of Western Australia",
+      "country": "AU",
+      "worksCount": 148,
+      "citedBy": 8499
+    },
+    {
+      "orcid": "0000-0002-4167-4437",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 2
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1785/0220230185",
+          "year": 2024,
+          "title": "Rupture Pattern of the 2015 Alor Earthquake Sequence, Indonesia"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-15181",
+          "year": 2024,
+          "title": "Unravelling the intraplate 2019 Broome earthquake in the North West Shelf, Australia, through 3D CMT"
+        },
+        {
+          "doi": "10.1785/0220220348",
+          "year": 2023,
+          "title": "Hypocenter, Fault Plane, and Rupture Characterization of Australian Earthquakes: Application to the "
+        }
+      ],
+      "name": "Babak Hejrani",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 45,
+      "citedBy": 406
+    },
+    {
+      "orcid": "0000-0002-0511-5865",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 2
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1002/9781394195947.ch20",
+          "year": 2024,
+          "title": "Geologic Evolution of the Denali Fault System and Associated Crustal Structure"
+        },
+        {
+          "doi": "10.1130/b36203.1",
+          "year": 2021,
+          "title": "Oligocene-Neogene lithospheric-scale reactivation of Mesozoic terrane accretionary structures in the"
+        },
+        {
+          "doi": "10.1130/b35665.1",
+          "year": 2020,
+          "title": "Oligocene-Neogene lithospheric-scale reactivation of Mesozoic terrane accretionary structures in the"
+        }
+      ],
+      "name": "Sarah M. Roeske",
+      "institution": "",
+      "country": "",
+      "worksCount": 140,
+      "citedBy": 2869
+    },
+    {
+      "orcid": "0000-0002-3591-3112",
+      "count": 14,
+      "tiers": {
+        "candidate-review": 14
+      },
+      "partnerHits": 0,
+      "samplePapers": [
+        {
+          "doi": "10.1007/978-3-319-70250-6_9",
+          "year": 2025,
+          "title": "Nature and Evolution of the Lithospheric Mantle Beneath the Hoggar Swell (Algeria): Deformation, Mel"
+        },
+        {
+          "doi": "10.1016/j.precamres.2021.106505",
+          "year": 2021,
+          "title": "A suture related accretionary wedge in the Gondwana assembly: Insights from serpentinites in the Hog"
+        },
+        {
+          "doi": "10.1016/j.jafrearsci.2020.103845",
+          "year": 2020,
+          "title": "Eruption dynamics of pleistocene maars and tuff rings from the Azrou-Timahdite district (Middle Atla"
+        }
+      ],
+      "name": "Jean‐Louis Bodinier",
+      "institution": "",
+      "country": "",
+      "worksCount": 190,
+      "citedBy": 9028
+    },
+    {
+      "orcid": "0000-0003-2131-8723",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 1
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.2139/ssrn.4893624",
+          "year": 2024,
+          "title": "The Influence of a Sub-Lithospheric Layer Width on the Partitioning of the Induced Mantle Flow, Surf"
+        },
+        {
+          "doi": "10.1002/2016jb013005",
+          "year": 2016,
+          "title": "The role of long‐term rifting history on modes of continental lithosphere extension"
+        },
+        {
+          "doi": "10.1002/2014gc005507",
+          "year": 2014,
+          "title": "The role of viscoelasticity in subducting plates"
+        }
+      ],
+      "name": "Fabio A. Capitanio",
+      "institution": "Monash University",
+      "country": "AU",
+      "worksCount": 175,
+      "citedBy": 4971
+    },
+    {
+      "orcid": "0000-0002-2036-6283",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 4,
+        "candidate-review": 1
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1785/0220230185",
+          "year": 2024,
+          "title": "Rupture Pattern of the 2015 Alor Earthquake Sequence, Indonesia"
+        },
+        {
+          "doi": "10.1029/2022jb024810",
+          "year": 2023,
+          "title": "New Insights Into Crustal Deformation of the Indonesia–Australia–New Guinea Collision Zone From a Br"
+        },
+        {
+          "doi": "10.5281/zenodo.7503511",
+          "year": 2023,
+          "title": "New insights into crustal deformation of the Indonesia-Australia-New Guinea collision zone from a br"
+        }
+      ],
+      "name": "Hendro Nugroho",
+      "institution": "Sepuluh Nopember Institute of Technology",
+      "country": "ID",
+      "worksCount": 25,
+      "citedBy": 269
+    },
+    {
+      "orcid": "0000-0001-9642-7620",
+      "count": 5,
+      "tiers": {
+        "verified": 4,
+        "candidate-strong": 1
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.2138/gselements.19.3.136",
+          "year": 2023,
+          "title": "Innovating and Networking Global Geochemical Data Resources Through OneGeochemistry"
+        },
+        {
+          "doi": "10.5281/zenodo.7977116",
+          "year": 2023,
+          "title": "WorldFAIR Project (MS6) Geochemistry Scientific Content Component"
+        }
+      ],
+      "name": "Lucia Profeta",
+      "institution": "",
+      "country": "",
+      "worksCount": 48,
+      "citedBy": 1102
+    },
+    {
+      "orcid": "0000-0002-1480-1162",
+      "count": 7,
+      "tiers": {
+        "verified": 3,
+        "candidate-review": 4
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.1111/ggr.12419",
+          "year": 2022,
+          "title": "AusGeochem: An Open Platform for Geochemical Data Preservation, Dissemination and Synthesis"
+        },
+        {
+          "doi": "10.5194/egusphere-egu22-13429",
+          "year": 2022,
+          "title": "AusGeochem: an Australian AuScope Geochemistry Network data platform for laboratories and their user"
+        },
+        {
+          "doi": "10.5194/egusphere-egu21-14628",
+          "year": 2021,
+          "title": "The AuScope Geochemistry Network and the AusGeochem geochemistry data platform"
+        }
+      ],
+      "name": "Guillaume Florin",
+      "institution": "Centre National de la Recherche Scientifique",
+      "country": "FR",
+      "worksCount": 29,
+      "citedBy": 162
+    },
+    {
+      "orcid": "0000-0001-6113-1627",
+      "count": 4,
+      "tiers": {
+        "verified": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu26-18847",
+          "year": 2026,
+          "title": "Developing a Blueprint for Open Science in the AuScope Research Infrastructure by Enabling Vertical "
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-21367",
+          "year": 2025,
+          "title": "AuScope&amp;#8217;s Research Data Systems: Operationalising FAIR place-based research through collab"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-14052",
+          "year": 2024,
+          "title": "Who has got what where? FAIR-ly coordinating multiple levels of geophysical data products over distr"
+        }
+      ],
+      "name": "Hannes Hollmann",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 7,
+      "citedBy": 37
+    },
+    {
+      "orcid": "0000-0001-6778-1399",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu26-3644",
+          "year": 2026,
+          "title": "CoFI - The Common Framework for Inference: A software platform for experimentation, education and ap"
+        },
+        {
+          "doi": "10.1785/0220250077",
+          "year": 2025,
+          "title": "Sediment Thickness of the Contiguous United States from Teleseismic Receiver Functions"
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-14483",
+          "year": 2024,
+          "title": "CoFI - Linking geoscience inference problems with tools for their solution"
+        }
+      ],
+      "name": "Augustin Marignier",
+      "institution": "University of Oxford",
+      "country": "GB",
+      "worksCount": 42,
+      "citedBy": 66
+    },
+    {
+      "orcid": "0000-0001-7999-6303",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu25-14527",
+          "year": 2025,
+          "title": "2D Bayesian transdimensional inversion for b-value variations"
+        },
+        {
+          "doi": "10.1093/gji/ggz044",
+          "year": 2019,
+          "title": "Efficient Bayesian uncertainty estimation in linear finite fault inversion with positivity constrain"
+        },
+        {
+          "doi": "10.1002/2016jb013692",
+          "year": 2017,
+          "title": "Attenuation tomography of the upper inner core"
+        }
+      ],
+      "name": "Roberto Benavente",
+      "institution": "Universidad Católica de la Santísima Concepción",
+      "country": "CL",
+      "worksCount": 50,
+      "citedBy": 523
+    },
+    {
+      "orcid": "0000-0003-3743-9706",
+      "count": 4,
+      "tiers": {
+        "verified": 1,
+        "candidate-strong": 3
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1111/bre.12843",
+          "year": 2024,
+          "title": "Thermal evolution and sediment provenance of the Cooper–Eromanga Basin: Insights from detrital apati"
+        },
+        {
+          "doi": "10.1144/0016-76492010-034",
+          "year": 2011,
+          "title": "Magnetotelluric constraints on the tectonic setting of Grenville-aged orogenesis in central Australi"
+        },
+        {
+          "doi": "10.1130/g30175a.1",
+          "year": 2009,
+          "title": "Magnetotelluric constraints on subduction polarity: Reversing reconstruction models for Proterozoic "
+        }
+      ],
+      "name": "Martin Hand",
+      "institution": "Australian Resources Research Centre",
+      "country": "AU",
+      "worksCount": 392,
+      "citedBy": 13320
+    },
+    {
+      "orcid": "0000-0003-2595-2414",
+      "count": 4,
+      "tiers": {
+        "verified": 3,
+        "candidate-strong": 1
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.5194/esurf-12-301-2024",
+          "year": 2024,
+          "title": "Flexural isostatic response of continental-scale deltas to climatically driven sea level changes"
+        },
+        {
+          "doi": "10.5194/egusphere-2023-53",
+          "year": 2023,
+          "title": "The flexural isostatic response of climatically driven sea-level changes on continental-scale deltas"
+        },
+        {
+          "doi": "10.5194/egusphere-egu23-14201",
+          "year": 2023,
+          "title": "The role of lithospheric-deep mantle interactions in modulating the landscape evolution of arc-conti"
+        }
+      ],
+      "name": "Claire Mallard",
+      "institution": "BHP (Australia)",
+      "country": "AU",
+      "worksCount": 60,
+      "citedBy": 548
+    },
+    {
+      "orcid": "0000-0003-3777-0968",
+      "count": 4,
+      "tiers": {
+        "verified": 2,
+        "candidate-strong": 2
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu24-13522",
+          "year": 2024,
+          "title": "Developing cutting-edge geophysical data and software infrastructure to future-proof national scale "
+        },
+        {
+          "doi": "10.5281/zenodo.7980192",
+          "year": 2023,
+          "title": "Building a National High-Resolution Geophysics Reference Collection for 2030 Computation"
+        },
+        {
+          "doi": "10.5281/zenodo.7690550",
+          "year": 2021,
+          "title": "Using the NCI Gadi Supercomputer to revolutionise processing of MT time series data: results from th"
+        }
+      ],
+      "name": "Rui Yang",
+      "institution": "China University of Petroleum, East China",
+      "country": "CN",
+      "worksCount": 127,
+      "citedBy": 2308
+    },
+    {
+      "orcid": "0000-0002-2083-5895",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08123985.2024.2378132",
+          "year": 2024,
+          "title": "Magnetotelluric imaging of an iron-oxide copper gold (IOCG) deposit under thick cover"
+        },
+        {
+          "doi": "10.1080/08123985.2024.2371001",
+          "year": 2024,
+          "title": "Ambient noise tomography of an iron-oxide copper–gold (IOCG) deposit under thick cover"
+        },
+        {
+          "doi": "10.1080/08123985.2024.2391571",
+          "year": 2024,
+          "title": "Fuzzy c-mean (FCM) integration of geophysical data from an iron-oxide copper gold (IOCG) deposit und"
+        }
+      ],
+      "name": "Gerrit Olivier",
+      "institution": "Space Environment Technologies (United States)",
+      "country": "US",
+      "worksCount": 66,
+      "citedBy": 553
+    },
+    {
+      "orcid": "0000-0002-1846-0254",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 3,
+        "candidate-review": 3
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.2138/gselements.20.3.187",
+          "year": 2024,
+          "title": "Embracing Craton Complexity at Depth"
+        },
+        {
+          "doi": "10.1130/g48111.1",
+          "year": 2020,
+          "title": "On the destructive tendencies of cratons"
+        },
+        {
+          "doi": "10.1016/j.tecto.2016.12.004",
+          "year": 2016,
+          "title": "The structural evolution of the deep continental lithosphere"
+        }
+      ],
+      "name": "C. M. Cooper",
+      "institution": "Washington State University",
+      "country": "US",
+      "worksCount": 153,
+      "citedBy": 4640
+    },
+    {
+      "orcid": "0000-0003-3090-963x",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggae055",
+          "year": 2024,
+          "title": "Near-source effects on DAS recording: implications for tap tests"
+        },
+        {
+          "doi": "10.31223/x54x2q",
+          "year": 2024,
+          "title": "Near-source effects on DAS recording: implications for tap tests"
+        },
+        {
+          "doi": "10.1016/bs.agph.2014.08.001",
+          "year": 2014,
+          "title": "Seismic Tomography and the Assessment of Uncertainty"
+        }
+      ],
+      "name": "Andreas Fichtner",
+      "institution": "Institute of Geophysics",
+      "country": "RU",
+      "worksCount": 655,
+      "citedBy": 10258
+    },
+    {
+      "orcid": "0000-0001-8335-1786",
+      "count": 6,
+      "tiers": {
+        "verified": 3,
+        "candidate-review": 3
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gca.2023.04.024",
+          "year": 2023,
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st cen"
+        },
+        {
+          "doi": "10.5281/zenodo.7988967",
+          "year": 2023,
+          "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration"
+        },
+        {
+          "doi": "10.7185/gold2023.19232",
+          "year": 2023,
+          "title": "Developments in AusGeochem: A platform for geochemical data storage, dissemination, visualisation an"
+        }
+      ],
+      "name": "Halimulati Ananuer",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 11,
+      "citedBy": 33
+    },
+    {
+      "orcid": "0000-0003-3820-831x",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1029/2022gc010563",
+          "year": 2022,
+          "title": "SASSIER22: Full‐Waveform Tomography of the Eastern Indonesian Region That Includes Topography, Bathy"
+        },
+        {
+          "doi": "10.1002/essoar.10511562.1",
+          "year": 2022,
+          "title": "SASSIER22: Full-waveform tomography of the eastern Indonesian region that includes surface topograph"
+        },
+        {
+          "doi": "10.5281/zenodo.7090993",
+          "year": 2022,
+          "title": "Supplementary material \"SASSIER22: Full-waveform tomography of the eastern Indonesian region that in"
+        }
+      ],
+      "name": "ChuanChuan Lü",
+      "institution": "University of Cambridge",
+      "country": "GB",
+      "worksCount": 48,
+      "citedBy": 348
+    },
+    {
+      "orcid": "0000-0002-6457-1852",
+      "count": 6,
+      "tiers": {
+        "candidate-strong": 3,
+        "candidate-review": 3
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.5194/egusphere-egu21-2268",
+          "year": 2021,
+          "title": "&amp;#160;Self-weakening feedbacks in the ductile lithospheric mantle: looking for a realistic mantl"
+        },
+        {
+          "doi": "10.5194/egusphere-egu21-2815",
+          "year": 2021,
+          "title": "Using thermo-mechanical models to bridge scales between experimental rheology and large-scale observ"
+        },
+        {
+          "doi": "10.1016/j.epsl.2020.116243",
+          "year": 2020,
+          "title": "Using thermo-mechanical models of subduction to constrain effective mantle viscosity"
+        }
+      ],
+      "name": "Andrea Tommasi",
+      "institution": "Centre National de la Recherche Scientifique",
+      "country": "FR",
+      "worksCount": 1,
+      "citedBy": 0
+    },
+    {
+      "orcid": "0000-0001-6303-5671",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.21105/joss.01797",
+          "year": 2020,
+          "title": "Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud"
+        },
+        {
+          "doi": "10.21105/joss.01136",
+          "year": 2019,
+          "title": "UWGeodynamics: A teaching and research tool for numerical geodynamic modelling"
+        },
+        {
+          "doi": "10.5281/zenodo.3520250",
+          "year": 2019,
+          "title": "underworldcode/underworld2: v2.8.2b"
+        }
+      ],
+      "name": "Owen Kaluza",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 21,
+      "citedBy": 284
+    },
+    {
+      "orcid": "0000-0003-4459-2864",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1306/42520beucher2020",
+          "year": 2020,
+          "title": "Numerical Sand Box as a Tool for Hydrocarbon Exploration: Applications to the Hides Anticline and th"
+        },
+        {
+          "doi": "10.1080/22020586.2019.12073098",
+          "year": 2019,
+          "title": "The Bight Basin, evolution and prospectivity II; seismic, structure and balanced sections"
+        },
+        {
+          "doi": "10.1080/22020586.2019.12073121",
+          "year": 2019,
+          "title": "The Bight Basin, Evolution &amp; Prospectivity I: gravity, deep seismic &amp; basin morphology"
+        }
+      ],
+      "name": "Kevin C. Hill",
+      "institution": "Louisiana State University in Shreveport",
+      "country": "US",
+      "worksCount": 85,
+      "citedBy": 1654
+    },
+    {
+      "orcid": "0000-0001-8906-8156",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1093/gji/ggz044",
+          "year": 2019,
+          "title": "Efficient Bayesian uncertainty estimation in linear finite fault inversion with positivity constrain"
+        },
+        {
+          "doi": "10.1002/2015jb012764",
+          "year": 2016,
+          "title": "Tsunami source uncertainty estimation: The 2011 Japan tsunami"
+        },
+        {
+          "doi": "10.1071/aseg2016ab134",
+          "year": 2016,
+          "title": "Taming uncertainty in geophysical inversion"
+        }
+      ],
+      "name": "Jan Dettmer",
+      "institution": "University of Calgary",
+      "country": "CA",
+      "worksCount": 269,
+      "citedBy": 2575
+    },
+    {
+      "orcid": "0000-0002-9435-9342",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1071/aseg2018abm2_3g",
+          "year": 2018,
+          "title": "Identifying Lithospheric Boundaries and Their Importance for Mineral Discovery"
+        },
+        {
+          "doi": "10.1071/aseg2016ab261",
+          "year": 2016,
+          "title": "Insights into lithospheric architecture, fertilisation and fluid pathways from AusLAMP MT"
+        },
+        {
+          "doi": "10.1071/aseg2016ab190",
+          "year": 2016,
+          "title": "Olympic Dam seismic revisited: reprocessing of deep crustal seismic data using partially preserved a"
+        }
+      ],
+      "name": "Anthony Reid",
+      "institution": "The University of Adelaide",
+      "country": "AU",
+      "worksCount": 94,
+      "citedBy": 2563
+    },
+    {
+      "orcid": "0000-0002-2445-4918",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08120099.2016.1229692",
+          "year": 2016,
+          "title": "Redefined crustal structure of the Buchan Rift, northeast Victoria: evidence from potential field mo"
+        },
+        {
+          "doi": "10.1190/ice2015-2193649",
+          "year": 2015,
+          "title": "Basement Architecture of the Onshore Gippsland Basin: Insights From 3-D Gravity Inversion"
+        },
+        {
+          "doi": "10.1029/2008jb005650",
+          "year": 2009,
+          "title": "Basement interpretations from airborne magnetic and gravity data over the Lambert Rift region of Eas"
+        }
+      ],
+      "name": "M. A. McLean",
+      "institution": "Geological Survey of Western Australia",
+      "country": "AU",
+      "worksCount": 24,
+      "citedBy": 305
+    },
+    {
+      "orcid": "0000-0002-0007-5753",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1093/petrology/egw004",
+          "year": 2016,
+          "title": "Petrogenesis and Geochemistry of Archean Komatiites"
+        },
+        {
+          "doi": "10.1016/j.palaeo.2014.07.023",
+          "year": 2014,
+          "title": "Laser ablation U-series analysis of fossil bones and teeth"
+        },
+        {
+          "doi": "10.1016/j.quageo.2012.02.010",
+          "year": 2012,
+          "title": "U-series dating of bone in an open system: The diffusion-adsorption-decay model"
+        }
+      ],
+      "name": "Stephen M. Eggins",
+      "institution": "",
+      "country": "",
+      "worksCount": 264,
+      "citedBy": 16540
+    },
+    {
+      "orcid": "0000-0002-5902-2007",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08120099.2016.1261942",
+          "year": 2016,
+          "title": "Groundwater flow underneath mound spring tufas from geophysical surveys in the southwestern Great Ar"
+        },
+        {
+          "doi": "10.1071/aseg2013ab190",
+          "year": 2013,
+          "title": "Electrical geophysics of carbonate mound spring complexes of the South- Western Great Artesian Basin"
+        },
+        {
+          "doi": "10.1190/1.3575286",
+          "year": 2011,
+          "title": "Locating groundwater resources for Aboriginal communities in remote and arid parts of South Australi"
+        }
+      ],
+      "name": "Kent Inverarity",
+      "institution": "",
+      "country": "",
+      "worksCount": 14,
+      "citedBy": 27
+    },
+    {
+      "orcid": "0000-0002-4524-8822",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1080/08120099.2016.1232311",
+          "year": 2016,
+          "title": "The resistivity structure of the Penola Trough, Otway Basin from magnetotelluric data"
+        },
+        {
+          "doi": "10.1071/aseg2016ab223",
+          "year": 2016,
+          "title": "Imaging fracture permeability using magnetotellurics"
+        },
+        {
+          "doi": "10.1093/gji/ggv116",
+          "year": 2015,
+          "title": "Mapping fractures using 1D anisotropic modelling of magnetotelluric data: a case study from the Otwa"
+        }
+      ],
+      "name": "Simon Holford",
+      "institution": "Department of Chemistry and Earth Sciences",
+      "country": "BY",
+      "worksCount": 214,
+      "citedBy": 3269
+    },
+    {
+      "orcid": "0000-0001-9688-424x",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1190/ice2015-2193649",
+          "year": 2015,
+          "title": "Basement Architecture of the Onshore Gippsland Basin: Insights From 3-D Gravity Inversion"
+        },
+        {
+          "doi": "10.1071/aseg2015ab202",
+          "year": 2015,
+          "title": "Magnetotelluric imaging zone in western Victoria of a Palaeozoic Andean margin subduction"
+        },
+        {
+          "doi": "10.1016/j.gr.2014.07.013",
+          "year": 2014,
+          "title": "Magnetotelluric evidence for serpentinisation in a Cambrian subduction zone beneath the Delamerian O"
+        }
+      ],
+      "name": "David Taylor",
+      "institution": "Shanghai Harbour Engineering Design & Research Institute",
+      "country": "CN",
+      "worksCount": 340,
+      "citedBy": 4769
+    },
+    {
+      "orcid": "0000-0002-1876-846x",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.4236/jamp.2015.33047",
+          "year": 2015,
+          "title": "Subdomain Chebyshev Spectral Method for 2D and 3D Numerical Differentiations in a Curved Coordinate "
+        },
+        {
+          "doi": "10.4236/jemaa.2015.73009",
+          "year": 2015,
+          "title": "Integrated and Explicit Boundary Conditions of Electromagnetic Fields at Arbitrary Interfaces betwee"
+        },
+        {
+          "doi": "10.1071/aseg2013ab188",
+          "year": 2013,
+          "title": "3D MT Data Modelling using Multi-order Hexahedral Vector Finite Element Method, including Anisotropy"
+        }
+      ],
+      "name": "Aixa Rivera-Rios",
+      "institution": "The University of Adelaide",
+      "country": "AU",
+      "worksCount": 6,
+      "citedBy": 43
+    },
+    {
+      "orcid": "0000-0002-9438-7060",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.5194/se-4-357-2013",
+          "year": 2013,
+          "title": "An objective rationale for the choice of regularisation parameter with application to global multipl"
+        },
+        {
+          "doi": "10.5194/sed-5-841-2013",
+          "year": 2013,
+          "title": "An objective rationale for the choice of regularisation parameter with application to global multipl"
+        },
+        {
+          "doi": "10.1111/j.1365-246x.2010.04667.x",
+          "year": 2010,
+          "title": "Frequency-dependent effects on global S-wave traveltimes: wavefront-healing, scattering and attenuat"
+        }
+      ],
+      "name": "E. Debayle",
+      "institution": "Université Claude Bernard Lyon 1",
+      "country": "FR",
+      "worksCount": 164,
+      "citedBy": 4195
+    },
+    {
+      "orcid": "0000-0001-6265-602x",
+      "count": 4,
+      "tiers": {
+        "candidate-strong": 4
+      },
+      "partnerHits": 4,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.epsl.2004.05.018",
+          "year": 2004,
+          "title": "Imaging changes in morphology, geometry, and physical properties of the subducting Pacific plate alo"
+        },
+        {
+          "doi": "10.1016/s0191-8141(01)00128-6",
+          "year": 2002,
+          "title": "Large-scale structure of the eclogite–blueschist belt of New Caledonia"
+        },
+        {
+          "doi": "10.1144/gsl.sp.2001.184.01.06",
+          "year": 2001,
+          "title": "Episodicity during orogenesis"
+        }
+      ],
+      "name": "Gordon Lister",
+      "institution": "Australian National University",
+      "country": "AU",
+      "worksCount": 266,
+      "citedBy": 20015
+    },
+    {
+      "orcid": "0000-0002-4899-8776",
+      "count": 8,
+      "tiers": {
+        "candidate-strong": 2,
+        "candidate-review": 6
+      },
+      "partnerHits": 2,
+      "samplePapers": [
+        {
+          "doi": "10.1016/s0016-7037(03)00305-3",
+          "year": 2003,
+          "title": "Sulfur and selenium systematics of the subcontinental lithospheric mantle: Inferences from the Massi"
+        },
+        {
+          "doi": "10.1016/s0012-821x(01)00357-0",
+          "year": 2001,
+          "title": "Laser-ablation microprobe (LAM)-ICPMS unravels the highly siderophile element geochemistry of the oc"
+        },
+        {
+          "doi": "10.1016/j.lithos.2012.08.017",
+          "year": 2012,
+          "title": "Platinum-group element systematics and petrogenetic processing of the continental upper mantle: A re"
+        }
+      ],
+      "name": "Ambre Luguet",
+      "institution": "",
+      "country": "",
+      "worksCount": 106,
+      "citedBy": 4236
+    },
+    {
+      "orcid": "0000-0001-5521-1321",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 3,
+        "candidate-review": 2
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.1016/j.gr.2023.10.013",
+          "year": 2023,
+          "title": "Interactions of magmas and highly reduced fluids during intraplate volcanism, Mt Carmel, Israel: Imp"
+        },
+        {
+          "doi": "10.2138/am-2021-7934",
+          "year": 2021,
+          "title": "Immiscible metallic melts in the upper mantle beneath Mount Carmel, Israel: Silicides, phosphides, a"
+        },
+        {
+          "doi": "10.1016/j.lithos.2020.105404",
+          "year": 2020,
+          "title": "Extreme reduction: Mantle-derived oxide xenoliths from a hydrogen-rich environment"
+        }
+      ],
+      "name": "Jin-Xiang Huang",
+      "institution": "ARC Centre of Excellence for Core to Crust Fluid Systems",
+      "country": "AU",
+      "worksCount": 39,
+      "citedBy": 979
+    },
+    {
+      "orcid": "0000-0002-0114-4175",
+      "count": 5,
+      "tiers": {
+        "verified": 5
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.1080/10749357.2022.2141819",
+          "year": 2022,
+          "title": "Improving stroke clinical guideline adherence in an Australian hospital using a clinician-led implem"
+        },
+        {
+          "doi": "10.1111/ajag.13153",
+          "year": 2022,
+          "title": "Stepping On: Building Confidence and Reducing Falls. A Community‐Based Program for Older People (3rd"
+        },
+        {
+          "doi": "10.1111/jgs.17125",
+          "year": 2021,
+          "title": "Divesting from a Scored Hospital Fall Risk Assessment Tool (FRAT): A Cluster Randomized Non‐Inferior"
+        }
+      ],
+      "name": "Meg E. Morris",
+      "institution": "La Trobe University",
+      "country": "AU",
+      "worksCount": 501,
+      "citedBy": 30211
+    },
+    {
+      "orcid": "0000-0002-7182-1864",
+      "count": 5,
+      "tiers": {
+        "candidate-strong": 3,
+        "candidate-review": 2
+      },
+      "partnerHits": 3,
+      "samplePapers": [
+        {
+          "doi": "10.21105/joss.01797",
+          "year": 2020,
+          "title": "Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud"
+        },
+        {
+          "doi": "10.1029/2020gc009267",
+          "year": 2020,
+          "title": "Influence of Subduction Zone Dynamics on Interface Shear Stress and Potential Relationship With Seis"
+        },
+        {
+          "doi": "10.5281/zenodo.3520250",
+          "year": 2019,
+          "title": "underworldcode/underworld2: v2.8.2b"
+        }
+      ],
+      "name": "Adam Beall",
+      "institution": "Monash University",
+      "country": "AU",
+      "worksCount": 36,
+      "citedBy": 395
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "_comment": "AuScope facility names and detection patterns. Edit liberally — this file determines what the scanner finds. Each pattern is a case-insensitive substring. Patterns are compiled into a single regex per tier at runtime; section awareness is applied separately based on where the match appears.",
+
+  "_comment_methodology": "Three tiers of attribution: tier1 = AuScope-attributed (counts in NCRIS headline), tier2 = AuScope-infrastructure-enabled (separate impact line), tier3 = AuScope-software-used (separate impact line). A paper qualifies for the highest tier it matches. Patterns marked 'drop' are anti-patterns that should DEMOTE a tier-2 hit if the only mention is in the intro or as part of a broader-context sentence.",
+
+  "tier1_auscope_ack": {
+    "_comment": "Direct AuScope attribution. Match anywhere in the paper text — AuScope is distinctive enough that any mention is a real signal, but the scanner SHOULD prefer matches in acknowledgement / funding / data-availability sections.",
+    "patterns": [
+      "AuScope",
+      "auscope.org.au"
+    ],
+    "_comment_url_strength": "auscope.org.au is included separately because URL citations are zero-ambiguity. A paper that cites the website is a Tier 1 paper. Subdomains (portal.auscope.org.au, avre.auscope.org.au, ausgeochem.auscope.org.au) will all be caught by this pattern as substrings — intentional, since any AuScope-hosted URL is a Tier 1 signal."
+  },
+
+  "tier1_named_infrastructure": {
+    "_comment": "Named AuScope-owned physical infrastructure, AuScope-branded programs/networks, and AuScope-operated portal URLs. Distinct from 3rd-party-facing facility programs (AusLAMP, AusPass) — these names ONLY refer to AuScope, so any mention is attributable. URL forms (portal.auscope.org.au, avre.auscope.org.au) are listed alongside their name forms; both will independently match the broader auscope.org.au tier 1 substring, but listing them explicitly preserves provenance in the audit trail.",
+    "patterns": [
+      "AuScope VLBI",
+      "AuScope radio telescope",
+      "AuScope geodetic",
+      "AuScope GNSS",
+      "AuScope CGPS",
+      "AuScope GPS",
+      "12 m AuScope",
+      "12-m AuScope",
+      "AuScope Discovery Portal",
+      "portal.auscope.org.au",
+      "AuScope Virtual Research Environment",
+      "avre.auscope.org.au",
+      "AuScope Geochemistry Network",
+      "AGN AuScope",
+      "AuScope AGN",
+      "Western Australia Argon Isotope Facility",
+      "WA Argon Isotope Facility",
+      "Noble Gas Geochronology Laboratory",
+      "National Argon Map",
+      "Hylogger",
+      "HyLogger-3",
+      "Geoscience Atom Probe",
+      "National Virtual Core Library"
+    ],
+    "_comment_agn": "AuScope Geochemistry Network (AGN) is the AuScope-branded program. Its data platforms are AusGeochem (current) and EarthBank (successor). Mentions of the AGN program by name are tier 1; mentions of the platforms are tier 2 (see tier2_data_use.AGN_platforms). Bare 'AGN' alone is too ambiguous — it means many things in different fields — so we require it adjacent to 'AuScope' to qualify as tier 1.",
+    "_comment_shrimp": "SHRIMP II at Curtin specifically is AuScope-funded; SHRIMP II at ANU is not. We can't disambiguate by string alone, so SHRIMP II is intentionally NOT in this list — handle via researcher/institution corroboration instead."
+  },
+
+  "tier2_data_use": {
+    "_comment": "Paper uses data collected with AuScope infrastructure but does not acknowledge AuScope. Counts as 'AuScope-enabled' impact, NOT as AuScope output. Detection requires data-use language alongside the facility name.",
+    "facilities": {
+      "AusPass": {
+        "patterns": [
+          "AusPass data",
+          "AusPass archive",
+          "AusPass (http",
+          "AusPass: ",
+          "auspass.edu.au",
+          "AUSPASS data",
+          "Australian Passive Seismic Server"
+        ],
+        "_comment": "URL forms are the strongest signal. The Server full-name is what the FDSN registers it as."
+      },
+      "AusLAMP": {
+        "patterns": [
+          "AusLAMP data",
+          "AusLAMP sites",
+          "AusLAMP stations",
+          "AusLAMP MT",
+          "AusLAMP transect",
+          "AusLAMP survey",
+          "AusLAMP project data",
+          "data from AusLAMP",
+          "data from the AusLAMP",
+          "AusLAMP-collected"
+        ],
+        "_comment": "Bare 'AusLAMP' alone is excluded — it's too often a mention rather than a use. The patterns above all imply use of the data."
+      },
+      "NVCL": {
+        "patterns": [
+          "National Virtual Core Library data",
+          "NVCL data",
+          "NVCL hyperspectral",
+          "data from NVCL",
+          "data from the NVCL",
+          "data from the National Virtual Core Library"
+        ]
+      },
+      "AusSIS": {
+        "patterns": [
+          "Australian Seismometers in Schools data",
+          "AuSIS data",
+          "data from AuSIS",
+          "data from the Australian Seismometers in Schools"
+        ]
+      },
+      "AGN_platforms": {
+        "patterns": [
+          "AusGeochem database",
+          "AusGeochem platform",
+          "AusGeochem repository",
+          "AusGeochem data",
+          "data from AusGeochem",
+          "data from the AusGeochem",
+          "ausgeochem.auscope.org.au",
+          "ausgeochem.org",
+          "EarthBank database",
+          "EarthBank platform",
+          "EarthBank repository",
+          "EarthBank data",
+          "data from EarthBank",
+          "data from the EarthBank"
+        ],
+        "_comment": "The two data platforms operated by the AuScope Geochemistry Network. AusGeochem is the current platform; EarthBank is the successor. Both names will coexist in the literature for years. Note that the canonical AusGeochem URL is ausgeochem.auscope.org.au — any paper citing that URL is ALSO a tier 1 hit via the auscope.org.au substring; the scanner should recognise this as concurrently tier 1 and tier 2 and report it as tier 1 (the higher tier wins). EarthBank URL pattern intentionally omitted until you confirm the live domain — please add it (e.g. 'earthbank.auscope.org.au', 'earthbank.science') when known.",
+        "_comment_bare_names_excluded": "Bare 'EarthBank' and 'AusGeochem' without a use-cue are excluded. 'EarthBank' risks colliding with 'earth bank' in geomorphology papers; 'AusGeochem' has lower collision risk but it's safer to keep the threshold consistent across the AGN_platforms entry."
+      }
+    }
+  },
+
+  "tier3_software_use": {
+    "_comment": "Paper uses AuScope-funded software. Reported as a separate impact line — software impact is real but it isn't the same as AuScope-funded research output. Some papers in this tier WILL also qualify for tier 1 if AuScope is acknowledged; they get the higher tier.",
+    "_comment_earthbyte": "EarthByte is NOT a tier-3 signal. AuScope funds the GPlates/PyGPlates software, not EarthByte's research outputs or its plate-model data products. EarthByte mentions are dropped (see drop_entirely). GPlates is the AuScope-attributable signal in this space.",
+    "facilities": {
+      "GPlates": {
+        "patterns": [
+          "GPlates",
+          "PyGPlates",
+          "pygplates",
+          "GPlately",
+          "gplates-python"
+        ]
+      },
+      "Underworld": {
+        "patterns": [
+          "Underworld2",
+          "Underworld 2",
+          "Underworld geodynamics"
+        ],
+        "_comment": "'Underworld' alone risks matching unrelated terms; require digit/qualifier."
+      },
+      "G-Adopt": {
+        "patterns": [
+          "G-Adopt",
+          "G-ADOPT",
+          "Geodynamic ADjOint Optimisation PlaTform"
+        ]
+      }
+    },
+    "_comment_agn_not_software": "AGN's data platforms (AusGeochem / EarthBank) are tier 2 (data use), not tier 3 (software use) — they are databases users query, not libraries users build into analysis pipelines."
+  },
+
+  "drop_facility_mentions": {
+    "_comment": "Anti-patterns: when a facility name appears ONLY alongside one of these phrases (i.e. as a reference example or comparison rather than a use), demote out of Tier 2.",
+    "context_cues": [
+      "such as EarthScope, SinoProbe, and AusLamp",
+      "EarthScope, SinoProbe, and AusLAMP",
+      "continent-scale MT arrays, such as",
+      "for example, AusLAMP",
+      "e.g., AusLAMP",
+      "e.g. AusLAMP",
+      "similar to AusLAMP",
+      "comparable to AusLAMP",
+      "like the AusLAMP"
+    ],
+    "_comment_implementation": "Practically: if the only AusLAMP/AusPass mention in a paper falls inside a sentence containing one of these cues, drop the paper from tier 2. Belt-and-braces: also drop if facility appears only in the introduction section AND no data-use verb appears within ±100 chars."
+  },
+
+  "drop_entirely": {
+    "_comment": "Patterns that should remove a paper from the AuScope corpus regardless of what other terms matched, UNLESS the paper independently qualifies for another tier (e.g. an EarthByte paper that also mentions AuScope in acknowledgements stays in via Tier 1; an EarthByte paper that also uses GPlates stays in via Tier 3).",
+    "patterns": [
+      "Australian Geophysical Observing System",
+      "AGOS",
+      "EarthByte"
+    ],
+    "_comment_agos": "AGOS was an early AuScope-era funding label. Papers attributing only AGOS without 'AuScope' are not part of current AuScope reporting.",
+    "_comment_earthbyte": "EarthByte is a research group at U Sydney. AuScope funds its software (GPlates) but does NOT fund the group's research outputs broadly. Papers mentioning EarthByte without an AuScope ack or GPlates use are not AuScope-attributable. Papers that DO use GPlates qualify via tier 3 regardless of whether EarthByte is mentioned."
+  },
+
+  "section_priorities": {
+    "_comment": "When the scanner has access to section-tagged text (Europe PMC ACK_FUND, parsed XML, etc.), prefer hits in these sections in this order. A tier-1 pattern matched in the acknowledgement section is the strongest possible signal.",
+    "tier1_strong": ["acknowledgement", "acknowledgements", "funding", "data_availability"],
+    "tier2_strong": ["methods", "data", "data_availability", "results"],
+    "tier3_strong": ["methods", "software", "code_availability", "data_availability"]
+  }
+}

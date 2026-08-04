@@ -93,6 +93,39 @@ node src/maintain.js
 
 # Regenerate dashboard and widget
 node src/dashboard.js
+
+# Refresh the shared FDSN DOI table used by auspass.html and datasets.html
+node src/update-fdsn-dois.js
+```
+
+## Verification & Attribution Tools (manual, not in CI)
+
+Standalone scripts for classifying how strongly each publication is linked to
+AuScope. None of these run in GitHub Actions; their outputs are not yet
+consumed by the dashboard.
+
+```bash
+# Attribution tiers via identifier evidence (AuScope ROR affiliation/funder,
+# watchlist ORCIDs + partner RORs). Writes data/publications-verified.json
+# (verified + candidate-strong) and data/publications-review.json (quarantined).
+# Config: data/verified-config.json (partner RORs still provisional).
+node src/verified.js
+
+# Impact tiers 1-3 via Europe PMC acknowledgement scans + local text patterns.
+# Tags all publications; writes data/publications-tagged.json and
+# data/keyword-only.csv for human review. Config: data/facility-names.json.
+node src/scan-tiers.js
+
+# Harvest ORCID candidates for the verified.js watchlist
+# (writes data/orcid-candidates.json/.csv, ranked for human review)
+node src/harvest-orcids.js
+
+# Audit which partner RORs in verified-config.json actually matched papers
+# (canonical institution names looked up via OpenAlex)
+node src/check-partners.js
+
+# Compare the keyword corpus (publications.json) against verified.js output
+node src/compare.js
 ```
 
 ## GitHub Actions

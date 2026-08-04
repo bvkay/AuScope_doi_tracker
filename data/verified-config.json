@@ -1,0 +1,53 @@
+{
+  "_comment": "Configuration for verified.js — identifier-based discovery against OpenAlex. ROR & ORCIDs are deterministic; funder IDs are optional but highly valuable when known.",
+
+  "email": "ben@auscope.org.au",
+
+  "auscope_rors": [
+    "04s1m4564"
+  ],
+
+  "_comment_funders": "Look these up via https://api.openalex.org/funders?search=auscope and https://api.openalex.org/funders?search=ncris . Add any matches as bare IDs without the F prefix is fine (e.g. 'F4320XXXXXX'). Leave [] if none confirmed.",
+  "funder_ids": [],
+
+  "_comment_partners": "AuScope partner institutions. Used to corroborate ORCID-only hits (paper from a watchlist researcher AT a partner is more likely AuScope-relevant). Edit liberally — these are illustrative starting RORs; verify each before relying on them.",
+  "partner_rors": [
+    "028g18b61",
+    "00892tw58",
+    "019wvm592",
+    "0384j8v12",
+    "03qn8fb07",
+    "02n415q13",
+    "02czsnj07", 
+    "04ge02x20",
+    "02bfwt286",
+    "01ej9dk98",
+    "00rqy9422",
+    "01nfmeh72",
+    "047272k79",
+    "00jtmb277",
+    "0067dvq63",
+    "00wqdbc63",
+    "04g3scy39",
+    "02xvc5r05",
+    "04k0s2970",
+    "037405308",
+    "01537wn74"
+  ],
+  "_comment_partner_names": "Above RORs correspond roughly to: ANU, U Sydney, U Tasmania, Curtin, U Adelaide, U Melbourne, Geoscience Australia, CSIRO. CHECK each at ror.org before relying.",
+
+  "researcher_orcids": [
+    "0000-0002-8841-4384",
+    "0000-0002-2594-6965",
+    "0000-0002-9738-7277",
+    "0000-0003-2858-3175",
+    "0000-0001-5494-2296",
+    "0000-0002-0832-6625",
+    "0000-0002-7662-9468",
+    "0000-0001-7106-0789"
+  ],
+
+  "min_year": 1997,
+  "per_page": 200,
+  "max_pages_per_query": 50
+}
