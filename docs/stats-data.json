@@ -1,0 +1,26 @@
+{
+  "generated": "2026-08-05T06:05:29.107Z",
+  "pillars": {
+    "publications": {
+      "total": 3075,
+      "citations": 65779
+    },
+    "datasets": {
+      "total": 214,
+      "byPlatform": {
+        "EarthBank": 105,
+        "AusPass": 86,
+        "NCI": 23
+      }
+    },
+    "instruments": {
+      "units": 152,
+      "surveys": 9,
+      "linkedDatasets": 11,
+      "linkedPapers": 8
+    },
+    "dataRepository": {
+      "total": 5
+    }
+  }
+}

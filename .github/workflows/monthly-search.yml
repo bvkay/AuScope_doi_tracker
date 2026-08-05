@@ -60,6 +60,11 @@ jobs:
       - name: Maintenance (dedup + metadata fill)
         run: node src/maintain.js
 
+      # Cross-pillar stats (instruments, surveys, datasets, repo counts)
+      # Must run before the dashboard so explorer cards pick up fresh numbers.
+      - name: Aggregate cross-pillar stats
+        run: node src/stats.js
+
       # Regenerate dashboard
       - name: Generate dashboard
         run: node src/dashboard.js

@@ -15,6 +15,7 @@ const path = require('path');
 const DOCS_DIR = path.join(__dirname, '..', 'docs');
 const PUB_FILE = path.join(__dirname, '..', 'data', 'publications.json');
 const DS_FILE = path.join(__dirname, '..', 'data', 'datasets.json');
+const PILLAR_FILE = path.join(DOCS_DIR, 'stats-data.json');
 
 function run() {
   // Load data
@@ -42,7 +43,12 @@ function run() {
   }, null, 2));
 
   // ── Write docs/index.html ──
-  const html = buildHTML(stats, pubData.metadata.last_updated);
+  // Cross-pillar numbers come from src/stats.js (run it first in CI);
+  // missing/stale file just hides the explorer card numbers.
+  const pillarData = fs.existsSync(PILLAR_FILE)
+    ? JSON.parse(fs.readFileSync(PILLAR_FILE, 'utf8'))
+    : null;
+  const html = buildHTML(stats, pubData.metadata.last_updated, pillarData);
   fs.writeFileSync(path.join(DOCS_DIR, 'index.html'), html);
 
   // ── Write docs/widget.html (embeddable stats-only widget) ──
@@ -190,9 +196,54 @@ function computeStats(pubs, datasets) {
   };
 }
 
-function buildHTML(stats, lastUpdated) {
+// Explorer cards: cross-pillar numbers from src/stats.js, each linking to
+// the page that IS the evidence behind the number. Skips gracefully when
+// stats-data.json is absent or a pillar failed to fetch.
+function buildExplorerCards(pillarData) {
+  if (!pillarData || !pillarData.pillars) return '';
+  const p = pillarData.pillars;
+  const cards = [];
+
+  if (p.datasets) {
+    const platforms = Object.keys(p.datasets.byPlatform || {}).length;
+    cards.push({ href: 'datasets.html', num: p.datasets.total.toLocaleString(),
+      name: 'Datasets', sub: platforms + ' platforms' });
+    const eb = (p.datasets.byPlatform || {}).EarthBank;
+    if (eb) cards.push({ href: 'earthbank.html', num: eb.toLocaleString(),
+      name: 'EarthBank', sub: 'metadata completeness + citations' });
+    const ap = (p.datasets.byPlatform || {}).AusPass;
+    if (ap) cards.push({ href: 'auspass.html', num: ap.toLocaleString(),
+      name: 'AusPass networks', sub: 'stations, DOIs + citations' });
+  }
+  if (p.instruments) {
+    cards.push({ href: 'instruments.html',
+      num: p.instruments.units.toLocaleString() + ' + ' + p.instruments.surveys,
+      name: 'Instruments + surveys',
+      sub: p.instruments.linkedDatasets + ' datasets, ' + p.instruments.linkedPapers
+        + ' papers linked' });
+  }
+  if (!cards.length) return '';
+
+  const cardHtml = cards.map(function(c) {
+    return '        <a class="explorer-card" href="' + c.href + '">\n'
+      + '            <div class="num">' + c.num + '</div>\n'
+      + '            <div class="name">' + c.name + '</div>\n'
+      + '            <div class="sub">' + c.sub + '</div>\n'
+      + '        </a>';
+  }).join('\n');
+
+  return '\n    <!-- ═══ Explorer cards (from src/stats.js) ═══ -->\n'
+    + '    <div class="explorers">\n'
+    + '        <h2>Explore the evidence</h2>\n'
+    + '        <div class="note">Every number links to the live records behind it.</div>\n'
+    + '        <div class="explorer-grid">\n' + cardHtml + '\n        </div>\n'
+    + '    </div>\n';
+}
+
+function buildHTML(stats, lastUpdated, pillarData) {
   const s = stats.summary;
   const updated = lastUpdated ? new Date(lastUpdated).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }) : 'N/A';
+  const explorerCards = buildExplorerCards(pillarData);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -263,6 +314,58 @@ function buildHTML(stats, lastUpdated) {
             letter-spacing: 0.5px;
             opacity: 0.85;
             margin-top: 4px;
+        }
+
+        /* ── Explorer cards ── */
+        .explorers {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 28px 24px 0;
+        }
+        .explorers h2 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 4px;
+        }
+        .explorers .note {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 14px;
+        }
+        .explorer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .explorer-card {
+            display: block;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .explorer-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+        }
+        .explorer-card .num {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e40af;
+        }
+        .explorer-card .name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 2px;
+        }
+        .explorer-card .sub {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 2px;
         }
 
         /* ── Charts Section ── */
@@ -355,6 +458,7 @@ function buildHTML(stats, lastUpdated) {
         </div>
     </div>
 
+${explorerCards}
     <!-- ═══ Charts ═══ -->
     <div class="charts">
         <!-- Publications by Year -->
