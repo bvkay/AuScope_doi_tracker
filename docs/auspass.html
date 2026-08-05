@@ -5,404 +5,40 @@
     detail, and track citations of each network's DataCite-registered DOI
     against external sources (DataCite + OpenCitations + OpenAlex), with
     reciprocity status to flag undeclared IsCitedBy gaps.
+
+    Shared skin/machinery: tracker-shared.css (styles), tracker-chassis.js
+    (utilities + fleet panel + CSV export), tracker-citations.js (citation
+    counts, source fetchers, merge + reciprocity pipeline, pane renderers).
 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>AusPass Network Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
     <style>
-        :root {
-            --bg: #ffffff;
-            --bg-soft: #f8fafc;
-            --bg-muted: #f1f5f9;
-            --border: #e5e7eb;
-            --border-strong: #cbd5e1;
-            --text: #0f172a;
-            --text-soft: #475569;
-            --text-muted: #94a3b8;
-            --accent: #2563eb;
-            --accent-strong: #1d4ed8;
-            --accent-soft: #dbeafe;
-            --accent-bg: #eff6ff;
-            --good: #16a34a;
-            --good-bg: #dcfce7;
-            --warn: #ca8a04;
-            --warn-bg: #fef3c7;
-            --bad: #dc2626;
-            --bad-bg: #fee2e2;
-            --active: #059669;
-            --active-bg: #d1fae5;
-            --mono: 'SFMono-Regular', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
-            --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, sans-serif;
-        }
+        /*
+            AusPass page-specific rules. Everything shared lives in
+            tracker-shared.css (linked above) — override order matters:
+            table-layout, fleet-grid column count and source-tag margin
+            below deliberately come after the shared sheet.
+        */
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--sans);
-            background: var(--bg);
-            color: var(--text);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .wrap { max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px; }
+        /* fixed layout is needed for the col-* widths and .col-desc word-wrap.
+           Must NOT move to shared — it would re-proportion earthbank's table
+           (min-width on .col-title stops working under fixed layout). */
+        table.data { table-layout: fixed; }
 
-        /* ========== HEADER ========== */
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 18px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .brand h1 {
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-        .brand h1 .accent { color: var(--accent); font-weight: 700; }
-        .brand p {
-            font-size: 13px;
-            color: var(--text-soft);
-            margin-top: 4px;
-        }
-        .auscope-logo {
-            height: 28px;
-            width: auto;
-            vertical-align: -8px;
-            margin-right: 10px;
-        }
-        .auscope-fallback {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-        .topbar .links { display: flex; gap: 16px; font-size: 13px; }
-        .topbar .links a { color: var(--accent); text-decoration: none; }
-        .topbar .links a:hover { text-decoration: underline; }
-
-        /* ========== STAT TILES ========== */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } }
-        .stat {
-            border: 1px solid var(--border);
-            background: var(--bg-soft);
-            border-radius: 6px;
-            padding: 12px 14px;
-        }
-        .stat .label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-        .stat .value {
-            font-size: 22px;
-            font-weight: 600;
-            margin-top: 2px;
-            font-variant-numeric: tabular-nums;
-        }
-        .stat .sub {
-            font-size: 11px;
-            color: var(--text-soft);
-            margin-top: 2px;
-        }
-
-        /* ========== HOVER TOOLTIPS ========== */
-        [data-tip] { position: relative; }
-        [data-tip]::after {
-            content: attr(data-tip);
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            background: #0f172a;
-            color: #f1f5f9;
-            padding: 8px 11px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: 400;
-            font-style: normal;
-            font-family: var(--sans);
-            line-height: 1.45;
-            letter-spacing: 0;
-            text-transform: none;
-            white-space: normal;
-            width: max-content;
-            max-width: 280px;
-            text-align: left;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.15s 0.1s;
-            z-index: 100;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
-        }
-        [data-tip]::before {
-            content: '';
-            position: absolute;
-            top: calc(100% + 2px);
-            left: 1px;
-            border: 6px solid transparent;
-            border-bottom-color: #0f172a;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.15s 0.1s;
-            z-index: 100;
-        }
-        [data-tip]:hover::after, [data-tip]:hover::before { opacity: 1; }
-
-        .info-i {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--bg-muted);
-            color: var(--text-soft);
-            font-size: 10px;
-            font-weight: 700;
-            font-family: Georgia, serif;
-            font-style: italic;
-            cursor: help;
-            margin-left: 5px;
-            vertical-align: 1px;
-            border: 1px solid transparent;
-            line-height: 1;
-            transition: background 0.12s, color 0.12s, border-color 0.12s;
-        }
-        .info-i:hover {
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-            border-color: var(--accent);
-        }
-
-        /* ========== FLEET SUMMARY ========== */
-        .fleet-panel {
-            border: 1px solid var(--border);
-            background: var(--bg-soft);
-            border-radius: 6px;
-            margin-bottom: 14px;
-        }
-        .fleet-panel > summary {
-            list-style: none;
-            cursor: pointer;
-            padding: 10px 14px;
-            font-size: 13px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            user-select: none;
-        }
-        .fleet-panel > summary::-webkit-details-marker { display: none; }
-        .fleet-panel > summary::after {
-            content: '▾';
-            margin-left: auto;
-            color: var(--text-muted);
-            transition: transform 0.15s;
-            font-size: 11px;
-        }
-        .fleet-panel[open] > summary::after { transform: rotate(180deg); }
-        .fleet-panel .fleet-context {
-            font-weight: 400;
-            color: var(--text-soft);
-            font-size: 12px;
-        }
-        .fleet-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            padding: 0 14px 14px;
-        }
-        @media (max-width: 900px) { .fleet-grid { grid-template-columns: 1fr; } }
-        .fleet-section {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 5px;
-            padding: 10px 12px;
-        }
-        .fleet-section h4 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-        .fleet-item {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            padding: 4px 6px;
-            margin: 0 -6px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 12.5px;
-            transition: background 0.1s;
-        }
-        .fleet-item:hover { background: var(--accent-bg); }
-        .fleet-item.active { background: var(--accent-soft); color: var(--accent-strong); font-weight: 500; }
-        .fleet-item.zero { color: var(--text-muted); cursor: default; }
-        .fleet-item.zero:hover { background: transparent; }
-        .fleet-item .count {
-            font-variant-numeric: tabular-nums;
-            font-weight: 600;
-            min-width: 30px;
-            text-align: right;
-        }
-        .fleet-item.zero .count { color: var(--text-muted); font-weight: 400; }
-        .fleet-item .label { flex: 1; line-height: 1.4; }
-
-        .fleet-filter-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 2px 4px 2px 10px;
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-            margin-left: 8px;
-        }
-        .fleet-filter-chip button {
-            background: transparent;
-            border: none;
-            color: var(--accent-strong);
-            cursor: pointer;
-            padding: 0 5px;
-            font-size: 14px;
-            line-height: 1;
-            border-radius: 50%;
-        }
-        .fleet-filter-chip button:hover { background: rgba(37, 99, 235, 0.15); }
-
-        /* ========== CONTROL BAR ========== */
-        .controls {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 14px;
-            flex-wrap: wrap;
-        }
-        .controls input[type="search"], .controls select {
-            font-family: var(--sans);
-            font-size: 13px;
-            padding: 7px 10px;
-            border: 1px solid var(--border);
-            border-radius: 5px;
-            background: var(--bg);
-            color: var(--text);
-            outline: none;
-            transition: border-color 0.12s, box-shadow 0.12s;
-        }
-        .controls input[type="search"] { min-width: 280px; }
-        .controls input[type="search"]:focus, .controls select:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-soft);
-        }
-        .controls .btn {
-            font-family: var(--sans);
-            font-size: 13px;
-            padding: 7px 12px;
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.12s, border-color 0.12s;
-        }
-        .controls .btn:hover { background: var(--bg-muted); }
-        .controls .btn.primary {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .controls .btn.primary:hover { background: var(--accent-bg); }
-        .controls .spacer { flex: 1; }
-        .controls .meta { font-size: 12px; color: var(--text-soft); }
-
-        /* ========== TABLE ========== */
-        .table-wrap {
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        table.nw {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-            table-layout: fixed;
-        }
-        table.nw thead th {
-            background: var(--bg-muted);
-            color: var(--text);
-            text-align: left;
-            font-weight: 600;
-            padding: 9px 12px;
-            border-bottom: 1px solid var(--border-strong);
-            white-space: nowrap;
-            font-size: 12px;
-            user-select: none;
-        }
-        table.nw thead th.sortable { cursor: pointer; }
-        table.nw thead th.sortable:hover { color: var(--accent); }
-        table.nw thead th .arrow {
-            display: inline-block;
-            margin-left: 4px;
-            color: var(--text-muted);
-            font-size: 10px;
-        }
-        table.nw thead th.sorted .arrow { color: var(--accent); }
-        table.nw tbody td {
-            padding: 10px 12px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: top;
-        }
-        table.nw tbody tr.network-row { cursor: pointer; transition: background 0.08s; }
-        table.nw tbody tr.network-row:hover { background: var(--accent-bg); }
-        table.nw tbody tr.network-row.expanded { background: var(--accent-bg); }
-        table.nw tbody tr.network-row.expanded td { border-bottom: 1px solid var(--accent-soft); }
-
-        .col-num { width: 40px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+        /* table columns */
         .col-code { width: 80px; font-family: var(--mono); font-size: 13px; font-weight: 600; }
         .col-desc { word-wrap: break-word; overflow-wrap: break-word; }
         .col-desc .desc-line { font-weight: 500; }
-        .col-desc .doi {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-soft);
-            margin-top: 2px;
-            display: inline-block;
-            text-decoration: none;
-        }
-        .col-desc .doi:hover { color: var(--accent); }
         .col-years { width: 110px; font-variant-numeric: tabular-nums; color: var(--text-soft); }
         .col-stations { width: 90px; font-variant-numeric: tabular-nums; text-align: right; }
         .col-status { width: 100px; }
         .col-cites { width: 90px; text-align: center; }
-        .col-actions { width: 50px; text-align: right; }
 
-        /* badges */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-weight: 500;
-            white-space: nowrap;
-        }
+        /* status badges */
         .badge.status-active { background: var(--active-bg); color: #065f46; }
         .badge.status-active::before {
             content: '';
@@ -420,249 +56,6 @@
         }
         .badge.status-concluded { background: var(--bg-muted); color: var(--text-soft); }
         .badge.status-unknown { background: #fef3c7; color: #92400e; }
-
-        .cite-pill {
-            display: inline-block;
-            min-width: 32px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-            font-weight: 600;
-            font-size: 12px;
-            font-variant-numeric: tabular-nums;
-        }
-        .cite-pill.zero { background: var(--bg-muted); color: var(--text-muted); }
-        .cite-pill.loading {
-            background: transparent;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-        .cite-pill .gap-marker {
-            display: inline-block;
-            margin-left: 4px;
-            font-size: 10px;
-            color: #b45309;
-        }
-
-        .actions-btn {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 4px 6px;
-            font-size: 14px;
-            color: var(--text-muted);
-            border-radius: 3px;
-            transition: color 0.1s, background 0.1s;
-        }
-        .actions-btn:hover { color: var(--accent); background: var(--accent-bg); }
-        .actions-btn .chevron { display: inline-block; transition: transform 0.18s; }
-        tr.expanded .actions-btn .chevron { transform: rotate(180deg); }
-
-        /* ========== DETAIL PANEL ========== */
-        tr.detail-row td { padding: 0; background: var(--bg-soft); }
-        tr.detail-row .detail {
-            padding: 18px 22px 22px;
-            border-left: 3px solid var(--accent);
-            background: var(--bg-soft);
-            overflow: hidden;
-            max-width: 100%;
-        }
-        .detail-tabs {
-            display: flex;
-            gap: 2px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 16px;
-        }
-        .detail-tab {
-            padding: 8px 14px;
-            font-size: 13px;
-            border: none;
-            background: transparent;
-            color: var(--text-soft);
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -1px;
-            font-family: var(--sans);
-        }
-        .detail-tab:hover { color: var(--text); }
-        .detail-tab.active {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-            font-weight: 600;
-        }
-        .detail-tab .badge-count {
-            display: inline-block;
-            margin-left: 6px;
-            background: var(--bg-muted);
-            color: var(--text-soft);
-            padding: 0 6px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 500;
-        }
-        .detail-tab.active .badge-count {
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-        }
-        .detail-tab .badge-count.gap-count {
-            background: #fef3c7;
-            color: #92400e;
-        }
-        .detail-pane { display: none; }
-        .detail-pane.active { display: block; }
-
-        /* ----- Overview pane ----- */
-        .ov-grid {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 4px 16px;
-            font-size: 13px;
-        }
-        .ov-grid dt {
-            color: var(--text-muted);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            font-weight: 600;
-            padding-top: 6px;
-        }
-        .ov-grid dd {
-            color: var(--text);
-            padding: 4px 0;
-            line-height: 1.55;
-        }
-        .ov-grid dd a { color: var(--accent); text-decoration: none; }
-        .ov-grid dd a:hover { text-decoration: underline; }
-        .ov-grid dd .empty {
-            display: inline-block;
-            padding: 1px 7px;
-            font-size: 11px;
-            font-weight: 500;
-            background: #fef3c7;
-            color: #92400e;
-            border-radius: 3px;
-        }
-        .ov-grid dd .mono { font-family: var(--mono); font-size: 12px; }
-
-        .creator {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-right: 10px;
-            margin-bottom: 4px;
-            padding: 2px 8px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 12px;
-        }
-        .orcid-icon {
-            width: 14px; height: 14px;
-            vertical-align: -3px;
-        }
-        .orcid-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none !important;
-            line-height: 1;
-            padding: 0 2px;
-        }
-        .orcid-link:hover { opacity: 0.75; }
-        .orcid-fallback {
-            display: inline-flex;
-            width: 14px; height: 14px;
-            border-radius: 50%;
-            background: white;
-            color: #a6ce39;
-            border: 1.5px solid #a6ce39;
-            align-items: center;
-            justify-content: center;
-            font-size: 9px;
-            font-weight: 700;
-            font-family: var(--mono);
-            vertical-align: -3px;
-            line-height: 1;
-        }
-        .ror-icon {
-            width: 22px; height: 14px;
-            vertical-align: -3px;
-            object-fit: contain;
-        }
-        .ror-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none !important;
-            line-height: 1;
-            padding: 0 2px;
-        }
-        .ror-link:hover { opacity: 0.75; }
-        .ror-fallback {
-            display: inline-flex;
-            padding: 0 5px;
-            border-radius: 3px;
-            background: #6366f1;
-            color: white;
-            font-size: 9px;
-            font-weight: 700;
-            font-family: var(--mono);
-            line-height: 14px;
-            vertical-align: 1px;
-        }
-        .contrib-type {
-            display: inline-block;
-            padding: 1px 6px;
-            border-radius: 3px;
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            background: var(--bg-muted);
-            color: var(--text-soft);
-            margin-left: 4px;
-            font-family: var(--mono);
-            line-height: 14px;
-            vertical-align: 1px;
-        }
-        .contrib-type.contact { background: #fef3c7; color: #92400e; }
-        .contrib-type.host { background: #dbeafe; color: #1e40af; }
-        .contrib-type.sponsor { background: #dcfce7; color: #166534; }
-
-        .extent-chip {
-            display: inline-flex;
-            align-items: baseline;
-            gap: 5px;
-            padding: 3px 10px;
-            background: var(--accent-bg);
-            border: 1px solid var(--accent-soft);
-            border-radius: 4px;
-            margin: 2px 6px 2px 0;
-        }
-        .extent-chip .num {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--accent-strong);
-            font-variant-numeric: tabular-nums;
-        }
-        .extent-chip .unit {
-            font-size: 11px;
-            color: var(--text-soft);
-        }
-        .extent-chip.plain {
-            background: var(--bg-soft);
-            border-color: var(--border);
-        }
-        .extent-chip.plain .num { color: var(--text); }
-        .format-chip {
-            display: inline-block;
-            font-size: 11px;
-            padding: 2px 8px;
-            background: var(--bg-muted);
-            border-radius: 4px;
-            margin: 2px 4px 2px 0;
-            color: var(--text-soft);
-            font-family: var(--mono);
-        }
 
         /* ----- Stations pane ----- */
         .stations-table {
@@ -706,196 +99,16 @@
         }
         .stations-summary strong { color: var(--text); font-variant-numeric: tabular-nums; }
 
-        /* ----- Citation reciprocity (carries over from EarthBank) ----- */
-        .cit-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .source-summary { display: flex; gap: 10px; font-size: 12px; color: var(--text-soft); }
-        .source-summary .src {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-        }
-        .source-summary .src .dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: var(--text-muted);
-        }
-        .source-summary .src.has-data .dot { background: var(--good); }
-        .source-summary .src.error .dot { background: var(--bad); }
+        /* AusPass emits source tags bare (no .sources wrapper), so the spacing
+           lives here — shared .source-tag base is margin-free */
+        .source-tag { margin-left: 3px; }
 
-        .recip-banner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 11px 14px;
-            border-radius: 5px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-            gap: 10px;
-            border: 1px solid;
+        /* fleet summary column count; re-assert the 900px collapse because this
+           rule comes after the shared sheet's media query in the cascade */
+        .fleet-grid { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 900px) {
+            .fleet-grid { grid-template-columns: 1fr; }
         }
-        .recip-banner.good { background: var(--good-bg); border-color: #86efac; }
-        .recip-banner.warn { background: var(--warn-bg); border-color: #fcd34d; }
-        .recip-banner.neutral { background: var(--bg-soft); border-color: var(--border); }
-        .recip-banner .recip-headline {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            display: block;
-        }
-        .recip-pills { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
-        .recip-pill {
-            display: inline-flex;
-            align-items: baseline;
-            padding: 3px 10px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 12px;
-            white-space: nowrap;
-        }
-        .recip-pill strong { margin-right: 4px; font-variant-numeric: tabular-nums; }
-        .recip-pill.gap { border-color: #f59e0b; color: #92400e; background: #fffbeb; }
-        .recip-pill.gap-known { border-color: var(--border-strong); color: var(--text-soft); background: var(--bg-soft); }
-        .recip-pill.info { border-color: var(--border-strong); color: var(--text-soft); }
-
-        .copy-gaps-btn {
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            cursor: pointer;
-            border: 1px solid #f59e0b;
-            background: white;
-            color: #92400e;
-            font-family: var(--sans);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-        .copy-gaps-btn:hover { background: #fffbeb; }
-
-        .recip-badge {
-            display: inline-block;
-            padding: 1px 7px;
-            border-radius: 3px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            white-space: nowrap;
-        }
-        .recip-badge.declared { background: var(--good-bg); color: #166534; }
-        .recip-badge.gap { background: #fef3c7; color: #92400e; }
-        .recip-badge.gap-known { background: var(--bg-muted); color: #475569; border: 1px solid var(--border-strong); padding: 0 6px; }
-        .recip-badge.declared-only { background: var(--bg-muted); color: var(--text-soft); }
-        .recip-badge.no-doi { background: var(--bg-muted); color: var(--text-muted); }
-        .recip-badge .relation {
-            font-weight: 400;
-            text-transform: none;
-            letter-spacing: 0;
-            font-size: 10px;
-            opacity: 0.85;
-            margin-left: 2px;
-        }
-
-        .citation-list { list-style: none; }
-        .citation-item {
-            display: grid;
-            grid-template-columns: 110px 1fr;
-            gap: 12px;
-            align-items: start;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 10px 14px;
-            margin-bottom: 6px;
-        }
-        .citation-item.is-gap-novel { border-left: 3px solid var(--warn); padding-left: 11px; }
-        .citation-item.is-gap-known { border-left: 3px solid var(--border-strong); padding-left: 11px; }
-        .citation-item.is-declared-only { background: var(--bg-soft); }
-        .citation-item .cit-status { padding-top: 1px; }
-        .citation-item .cit-body { min-width: 0; }
-        .citation-item .title {
-            font-weight: 500;
-            font-size: 13px;
-            margin-bottom: 3px;
-        }
-        .citation-item .meta { font-size: 12px; color: var(--text-soft); line-height: 1.5; }
-        .citation-item .meta a { color: var(--accent); text-decoration: none; font-family: var(--mono); font-size: 11px; }
-        .citation-item .meta a:hover { text-decoration: underline; }
-        .source-tag {
-            display: inline-block;
-            padding: 1px 6px;
-            border-radius: 3px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-left: 3px;
-        }
-        .tag-datacite { background: #dbeafe; color: #1e40af; }
-        .tag-opencitations { background: #fce7f3; color: #9d174d; }
-        .tag-openalex { background: #d1fae5; color: #065f46; }
-
-        /* ----- Raw JSON ----- */
-        .raw-json {
-            background: #0f172a;
-            color: #e2e8f0;
-            padding: 14px 16px;
-            border-radius: 5px;
-            font-family: var(--mono);
-            font-size: 11.5px;
-            line-height: 1.55;
-            max-height: 480px;
-            overflow: auto;
-            white-space: pre;
-        }
-        .raw-json .key { color: #93c5fd; }
-        .raw-json .str { color: #86efac; }
-        .raw-json .num { color: #fbbf24; }
-        .raw-json .bool { color: #f472b6; }
-        .raw-json .null { color: #94a3b8; font-style: italic; }
-
-        /* ========== UTILITY ========== */
-        .spinner {
-            display: inline-block;
-            width: 12px; height: 12px;
-            border: 2px solid var(--border);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            vertical-align: middle;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .empty-state {
-            padding: 40px 20px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-        .toast {
-            position: fixed;
-            bottom: 24px; left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            padding: 9px 16px;
-            background: var(--text);
-            color: white;
-            border-radius: 6px;
-            font-size: 13px;
-            opacity: 0;
-            transition: opacity 0.2s, transform 0.2s;
-            pointer-events: none;
-            z-index: 100;
-        }
-        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
     </style>
 </head>
 <body>
@@ -960,7 +173,7 @@
 
         <!-- ========== TABLE ========== -->
         <div class="table-wrap">
-            <table class="nw" id="nw-table">
+            <table class="data" id="nw-table">
                 <thead>
                     <tr>
                         <th class="col-num">#</th>
@@ -983,34 +196,10 @@
     </div>
 
 <script src="fdsn-doi-data.js"></script>
+<script src="tracker-chassis.js"></script>
+<script src="tracker-citations.js"></script>
 <script>
 "use strict";
-
-// ============================================================
-// IMAGE FALLBACKS (orcid / auscope; ROR not used here)
-// ============================================================
-document.addEventListener('error', function(e) {
-    var img = e.target;
-    if (!img || img.tagName !== 'IMG') return;
-    var fb = img.getAttribute('data-fallback');
-    if (!fb) return;
-    var span = document.createElement('span');
-    if (fb === 'orcid') {
-        span.className = 'orcid-fallback';
-        span.textContent = 'iD';
-        span.title = img.getAttribute('alt') || 'ORCID iD';
-    } else if (fb === 'ror') {
-        span.className = 'ror-fallback';
-        span.textContent = 'ROR';
-        span.title = img.getAttribute('alt') || 'ROR';
-    } else if (fb === 'auscope') {
-        span.className = 'auscope-fallback';
-        span.textContent = 'AuScope';
-    } else {
-        return;
-    }
-    if (img.parentNode) img.parentNode.replaceChild(span, img);
-}, true);
 
 // ============================================================
 // FDSN DOI LOOKUP TABLE
@@ -1021,18 +210,15 @@ document.addEventListener('error', function(e) {
 // ============================================================
 // STATE
 // ============================================================
-var state = {
+// citationCache: normalised doi -> { count, fullCitations, sources, reciprocity }
+// stationCache:  network code -> array of stations
+// dataciteCache: doi -> normalized DataCite metadata
+var state = createTrackerState({
     networks: [],
-    sortKey: 'year',
-    sortDir: 'desc',
     filter: { search: '', status: '', decade: '' },
-    fleetFilter: null,
-    expanded: new Set(),
-    citationCache: {},          // doi -> { count, fullCitations, reciprocity }
-    stationCache: {},           // network code -> array of stations
-    dataciteCache: {},          // doi -> normalized DataCite metadata
-    citationLoadInFlight: false
-};
+    stationCache: {},
+    dataciteCache: {}
+});
 
 // Fleet summary categories — citation/deployment focused, not mapping.
 var fleetCategories = [
@@ -1043,15 +229,15 @@ var fleetCategories = [
                 return n.doi && n.citationCount === 0;
             }},
             { id: 'novel-gaps', label: 'Has novel citation gaps', predicate: function(n) {
-                var c = state.citationCache[n.doi];
+                var c = state.citationCache[normaliseDoi(n.doi)];
                 return !!(c && c.reciprocity && c.reciprocity.gapsNovel > 0);
             }},
             { id: 'echo-gaps', label: 'Has echo citation gaps', predicate: function(n) {
-                var c = state.citationCache[n.doi];
+                var c = state.citationCache[normaliseDoi(n.doi)];
                 return !!(c && c.reciprocity && c.reciprocity.gapsKnown > 0);
             }},
             { id: 'all-declared', label: 'All citations reciprocally declared', predicate: function(n) {
-                var c = state.citationCache[n.doi];
+                var c = state.citationCache[normaliseDoi(n.doi)];
                 return !!(c && c.reciprocity && c.reciprocity.external > 0 && c.reciprocity.gaps === 0);
             }}
         ]
@@ -1076,7 +262,27 @@ function init() {
     bindControls();
     bindRowDelegation();
     bindDetailTabs();
-    bindFleetClicks();
+    initFleetPanel({
+        categories: fleetCategories,
+        getEntities: function() { return state.networks; },
+        // The page's non-fleet filters only (search/status/decade). The fleet
+        // filter itself is deliberately excluded — otherwise clicking a fleet
+        // item would shrink the panel it's clicked from.
+        contextFilter: function(n) {
+            var f = state.filter;
+            if (f.search && buildSearchBlob(n, networkSearchFields).indexOf(f.search) === -1) return false;
+            if (f.status && n.status !== f.status) return false;
+            if (f.decade) {
+                if (!n.startYear) return false;
+                var dec = Math.floor(parseInt(n.startYear) / 10) * 10;
+                if (String(dec) !== f.decade) return false;
+            }
+            return true;
+        },
+        noun: 'networks',
+        elements: { panelId: 'fleet-panel', summaryId: 'result-count' },
+        onFilterChanged: renderTable
+    });
     loadNetworks();
 }
 
@@ -1099,7 +305,7 @@ function bindControls() {
         state.sortDir = parts[1];
         renderTable();
     });
-    document.getElementById('export-csv').addEventListener('click', exportCsv);
+    document.getElementById('export-csv').addEventListener('click', exportNetworksCsv);
     document.getElementById('reload-btn').addEventListener('click', function() {
         state.citationCache = {};
         state.stationCache = {};
@@ -1133,7 +339,7 @@ async function loadNetworks() {
     setBody('<tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading networks from AusPass…</td></tr>');
     try {
         var networks = await fetchAusPassNetworks();
-        state.networks = networks.map(normalize);
+        state.networks = networks.map(normalizeNetwork);
         populateDecadeFilter();
         renderStats();
         renderTable();
@@ -1180,7 +386,7 @@ async function fetchAusPassNetworks() {
     return networks;
 }
 
-function normalize(n) {
+function normalizeNetwork(n) {
     var startYear = n.startTime ? n.startTime.substring(0, 4) : '';
     var endYear = n.endTime ? n.endTime.substring(0, 4) : '';
     var status;
@@ -1267,8 +473,13 @@ async function enrichWithDataCite() {
         renderStats();
         renderTableRowsOnly();
     }
-    // Then citation counts
-    loadCitationCounts();
+    // Then citation counts (module-owned; re-entrancy guarded internally)
+    loadCitationCounts({
+        getEntities: function() { return state.networks; },
+        cache: state.citationCache,
+        progressEl: document.getElementById('stat-cites-sub'),
+        onBatch: function() { renderStats(); renderTableRowsOnly(); }
+    });
 }
 
 function applyDataCite(network, attrs) {
@@ -1328,73 +539,9 @@ function applyDataCite(network, attrs) {
     // Useful immediately after FDSN registry updates propagate to DataCite.
     network.dataciteUpdated = attrs.updated || '';
     network.dataciteRegistered = attrs.registered || attrs.created || '';
-}
-
-async function loadCitationCounts() {
-    if (state.citationLoadInFlight) return;
-    state.citationLoadInFlight = true;
-    var withDoi = state.networks.filter(function(n) { return n.doi; });
-    var subEl = document.getElementById('stat-cites-sub');
-    var done = 0;
-
-    for (var i = 0; i < withDoi.length; i += 5) {
-        var batch = withDoi.slice(i, i + 5);
-        await Promise.all(batch.map(function(n) {
-            if (state.citationCache[n.doi] && typeof state.citationCache[n.doi].count === 'number') {
-                n.citationCount = state.citationCache[n.doi].count;
-                done++;
-                return Promise.resolve();
-            }
-            return fetchCitationCount(n.doi).then(function(c) {
-                n.citationCount = c;
-                state.citationCache[n.doi] = state.citationCache[n.doi] || {};
-                state.citationCache[n.doi].count = c;
-                done++;
-            }).catch(function() {
-                n.citationCount = 0;
-                done++;
-            });
-        }));
-        if (subEl) subEl.textContent = 'loaded ' + done + ' / ' + withDoi.length;
-        renderStats();
-        renderTableRowsOnly();
-    }
-    if (subEl) subEl.textContent = 'via DataCite GraphQL';
-    state.citationLoadInFlight = false;
-}
-
-async function fetchCitationCount(doi, retries) {
-    if (!doi) return 0;
-    if (retries === undefined) retries = 2;
-    // Normalise to lowercase. AusPass DOIs from FDSN often have uppercase
-    // segments (e.g. "10.7914/SN/1E_2013"); DataCite's GraphQL endpoint
-    // appears stricter than its REST API and 400s on those. DataCite treats
-    // DOIs as case-insensitive so lowercasing is safe and canonical.
-    var lcDoi = doi.toLowerCase();
-    // DEBUG — remove once 400s are diagnosed
-    console.log('[fetchCitationCount] original:', doi, '| sending:', lcDoi);
-    var resp = await fetch('https://api.datacite.org/graphql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: lcDoi } })
-    });
-    // DEBUG — log the response status and body so we can see what DataCite says
-    if (!resp.ok) {
-        var errBody = '';
-        try { errBody = await resp.clone().text(); } catch (e) {}
-        console.warn('[fetchCitationCount] ' + resp.status + ' for ' + lcDoi + ' — body:', errBody.substring(0, 400));
-    }
-    if (resp.status === 429 && retries > 0) {
-        await sleep(3000);
-        return fetchCitationCount(doi, retries - 1);
-    }
-    if (!resp.ok) return 0;
-    var result = await resp.json();
-    if (result.errors && result.errors[0] && result.errors[0].status === '429' && retries > 0) {
-        await sleep(3000);
-        return fetchCitationCount(doi, retries - 1);
-    }
-    return (result.data && result.data.work) ? (result.data.work.citationCount || 0) : 0;
+    // Enrichment changed searchable fields — invalidate the memoised blob so
+    // operator/ORCID/ROR searches see the new data (buildSearchBlob re-memoises).
+    network._search = '';
 }
 
 // ============================================================
@@ -1444,21 +591,20 @@ function computeBbox(stations) {
 // ============================================================
 // FILTER + SORT
 // ============================================================
-function buildSearchBlob(n) {
-    if (n._search) return n._search;
+// Searchable fields for the chassis buildSearchBlob (memoised on n._search).
+function networkSearchFields(n) {
     var bits = [n.code, n.description, n.doi];
     n.creators.forEach(function(c) { bits.push(c.name); bits.push(c.orcid); });
     (n.contributors || []).forEach(function(c) {
         bits.push(c.name); bits.push(c.orcid); bits.push(c.ror); bits.push(c.contributorType);
     });
-    n._search = bits.filter(Boolean).join(' ').toLowerCase();
-    return n._search;
+    return bits;
 }
 
 function visibleNetworks() {
     var f = state.filter;
     var list = state.networks.filter(function(n) {
-        if (f.search && buildSearchBlob(n).indexOf(f.search) === -1) return false;
+        if (f.search && buildSearchBlob(n, networkSearchFields).indexOf(f.search) === -1) return false;
         if (f.status && n.status !== f.status) return false;
         if (f.decade) {
             if (!n.startYear) return false;
@@ -1481,108 +627,6 @@ function visibleNetworks() {
         return 0;
     });
     return list;
-}
-
-// ============================================================
-// FLEET PANEL
-// ============================================================
-function computeFleetStats() {
-    var f = state.filter;
-    var contextRecords = state.networks.filter(function(n) {
-        if (f.search && buildSearchBlob(n).indexOf(f.search) === -1) return false;
-        if (f.status && n.status !== f.status) return false;
-        if (f.decade) {
-            if (!n.startYear) return false;
-            var dec = Math.floor(parseInt(n.startYear) / 10) * 10;
-            if (String(dec) !== f.decade) return false;
-        }
-        return true;
-    });
-    var sections = fleetCategories.map(function(s) {
-        return {
-            section: s.section,
-            items: s.items.map(function(item) {
-                return { id: item.id, label: item.label, count: contextRecords.filter(item.predicate).length };
-            })
-        };
-    });
-    return { total: contextRecords.length, sections: sections };
-}
-
-function renderFleetPanel() {
-    var grid = document.querySelector('.fleet-grid');
-    var contextEl = document.querySelector('.fleet-context');
-    if (!grid) return;
-    if (state.networks.length === 0) {
-        grid.innerHTML = '';
-        if (contextEl) contextEl.textContent = '';
-        return;
-    }
-    var stats = computeFleetStats();
-    var f = state.filter;
-    var anyFilterActive = !!(f.search || f.status || f.decade);
-    if (contextEl) {
-        contextEl.textContent = '· ' + stats.total + ' networks'
-            + (anyFilterActive ? ' (filtered)' : '')
-            + ' · click any line to filter the table';
-    }
-    var html = '';
-    stats.sections.forEach(function(section) {
-        html += '<div class="fleet-section">';
-        html += '<h4>' + escapeHtml(section.section) + '</h4>';
-        section.items.forEach(function(item) {
-            var isActive = state.fleetFilter && state.fleetFilter.id === item.id;
-            var isZero = item.count === 0;
-            var classes = 'fleet-item';
-            if (isActive) classes += ' active';
-            if (isZero) classes += ' zero';
-            html += '<div class="' + classes + '" data-fleet-id="' + escapeAttr(item.id) + '">'
-                + '<span class="count">' + item.count + '</span>'
-                + '<span class="label">' + escapeHtml(item.label) + '</span>'
-                + '</div>';
-        });
-        html += '</div>';
-    });
-    grid.innerHTML = html;
-}
-
-function bindFleetClicks() {
-    var grid = document.querySelector('.fleet-grid');
-    if (!grid) return;
-    grid.addEventListener('click', function(e) {
-        var item = e.target.closest('.fleet-item');
-        if (!item || item.classList.contains('zero')) return;
-        toggleFleetFilter(item.getAttribute('data-fleet-id'));
-    });
-}
-
-function toggleFleetFilter(id) {
-    if (state.fleetFilter && state.fleetFilter.id === id) {
-        state.fleetFilter = null;
-    } else {
-        var found = null;
-        for (var i = 0; i < fleetCategories.length && !found; i++) {
-            for (var j = 0; j < fleetCategories[i].items.length; j++) {
-                if (fleetCategories[i].items[j].id === id) {
-                    found = fleetCategories[i].items[j];
-                    break;
-                }
-            }
-        }
-        if (found) {
-            state.fleetFilter = { id: found.id, label: found.label, predicate: found.predicate };
-            var panel = document.getElementById('fleet-panel');
-            if (panel) panel.open = true;
-        }
-    }
-    renderFleetPanel();
-    renderTable();
-}
-
-function clearFleetFilter() {
-    state.fleetFilter = null;
-    renderFleetPanel();
-    renderTable();
 }
 
 // ============================================================
@@ -1629,8 +673,10 @@ function renderTable() {
     var resultEl = document.getElementById('result-count');
     var msg = visible.length + (visible.length === state.networks.length ? '' : ' of ' + state.networks.length) + ' networks';
     if (state.fleetFilter) {
+        // Chip clear is delegated by the chassis (initFleetPanel) on #result-count
+        // — no inline onclick.
         msg += '<span class="fleet-filter-chip">' + escapeHtml(state.fleetFilter.label)
-            + ' <button onclick="clearFleetFilter()" title="Clear fleet filter">×</button></span>';
+            + ' <button title="Clear fleet filter">×</button></span>';
     }
     resultEl.innerHTML = msg;
 
@@ -1650,13 +696,13 @@ function renderTable() {
 }
 
 function renderTableRowsOnly() {
-    var rows = document.querySelectorAll('tr.network-row');
+    var rows = document.querySelectorAll('tr.data-row');
     rows.forEach(function(row) {
         var key = row.getAttribute('data-key');
         var n = state.networks.find(function(x) { return x.rowKey === key; });
         if (!n) return;
         var cell = row.querySelector('.col-cites');
-        if (cell) cell.innerHTML = renderCitePill(n);
+        if (cell) cell.innerHTML = renderCitePill(n, state.citationCache);
     });
 }
 
@@ -1670,7 +716,7 @@ function renderRow(n, num) {
         ? '<a class="doi" href="https://doi.org/' + escapeAttr(n.doi) + '" target="_blank" rel="noopener">' + escapeHtml(n.doi) + '</a>'
         : '<span style="font-size:11px;color:var(--text-muted);">no DOI</span>';
 
-    return '<tr class="network-row' + (state.expanded.has(n.rowKey) ? ' expanded' : '') + '" data-key="' + escapeAttr(n.rowKey) + '" data-code="' + escapeAttr(n.code) + '">'
+    return '<tr class="data-row' + (state.expanded.has(n.rowKey) ? ' expanded' : '') + '" data-key="' + escapeAttr(n.rowKey) + '" data-code="' + escapeAttr(n.code) + '">'
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-code">' + escapeHtml(n.code) + '</td>'
         + '<td class="col-desc">'
@@ -1680,22 +726,9 @@ function renderRow(n, num) {
         + '<td class="col-years">' + escapeHtml(n.yearStr || '—') + '</td>'
         + '<td class="col-stations">' + n.totalStations + '</td>'
         + '<td class="col-status">' + statusBadge + '</td>'
-        + '<td class="col-cites">' + renderCitePill(n) + '</td>'
+        + '<td class="col-cites">' + renderCitePill(n, state.citationCache) + '</td>'
         + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
         + '</tr>';
-}
-
-function renderCitePill(n) {
-    if (!n.doi) return '<span style="font-size:11px;color:var(--text-muted);">—</span>';
-    if (typeof n.citationCount !== 'number') return '<span class="cite-pill loading">…</span>';
-    var cls = n.citationCount > 0 ? '' : 'zero';
-    var html = '<span class="cite-pill ' + cls + '">' + n.citationCount;
-    var cache = state.citationCache[n.doi];
-    if (cache && cache.reciprocity && cache.reciprocity.gaps > 0) {
-        html += '<span class="gap-marker" title="' + cache.reciprocity.gaps + ' gap' + (cache.reciprocity.gaps === 1 ? '' : 's') + '">⚠</span>';
-    }
-    html += '</span>';
-    return html;
 }
 
 function bindRowDelegation() {
@@ -1703,7 +736,7 @@ function bindRowDelegation() {
         if (e.target.closest('a')) return;
         if (e.target.closest('.detail-tab')) return;
         if (e.target.closest('.detail-pane')) return;
-        var row = e.target.closest('tr.network-row');
+        var row = e.target.closest('tr.data-row');
         if (!row) return;
         toggleDetail(row.getAttribute('data-key'));
     });
@@ -1719,7 +752,7 @@ function toggleDetail(rowKey) {
 // DETAIL PANEL
 // ============================================================
 function renderDetailRow(n) {
-    var citCache = state.citationCache[n.doi];
+    var citCache = state.citationCache[normaliseDoi(n.doi)];
     var citTabBadge;
     if (citCache && citCache.reciprocity) {
         var r = citCache.reciprocity;
@@ -1770,11 +803,39 @@ function bindDetailTabs() {
         } else if (paneName === 'citations') {
             var cpane = detail.querySelector('.detail-pane[data-pane="citations"]');
             if (cpane && cpane.getAttribute('data-loaded') !== 'true') {
-                loadCitationsInto(network, cpane);
+                loadCitationsInto({
+                    entity: network,
+                    cache: state.citationCache,
+                    paneEl: cpane,
+                    email: 'ben@auscope.org.au',
+                    onLoaded: function(stats) {
+                        renderTableRowsOnly();
+                        renderFleetPanel();
+                        updateCitationTabBadge(network.rowKey, stats);
+                    }
+                });
                 cpane.setAttribute('data-loaded', 'true');
             }
         }
     });
+}
+
+// Patch the Citations tab badge on the open detail panel once reciprocity
+// stats exist (the tab is rendered before the citation load completes, so
+// without this it would show the stale pre-analysis count).
+function updateCitationTabBadge(rowKey, stats) {
+    var details = document.querySelectorAll('.detail');
+    for (var i = 0; i < details.length; i++) {
+        if (details[i].getAttribute('data-key') !== rowKey) continue;
+        var tab = details[i].querySelector('.detail-tab[data-pane="citations"]');
+        if (!tab) return;
+        var totalBadge = '<span class="badge-count">' + stats.total + '</span>';
+        var gapBadge = stats.gaps > 0
+            ? '<span class="badge-count gap-count">' + stats.gaps + ' gap' + (stats.gaps === 1 ? '' : 's') + '</span>'
+            : '';
+        tab.innerHTML = 'Citations ' + totalBadge + gapBadge;
+        return;
+    }
 }
 
 // Contributor types in the order we want to display them — most-relevant for
@@ -2031,7 +1092,7 @@ async function loadStationsInto(network, pane) {
 function renderRawPane(n) {
     if (n._dataciteAttrs) {
         var pretty = JSON.stringify(n._dataciteAttrs, null, 2);
-        return '<p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">Raw DataCite metadata for this network\u2019s DOI:</p>'
+        return '<p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">Raw DataCite metadata for this network’s DOI:</p>'
             + '<div class="raw-json">' + syntaxHighlightJson(pretty) + '</div>';
     }
     if (!n.doi) {
@@ -2041,497 +1102,25 @@ function renderRawPane(n) {
 }
 
 // ============================================================
-// CITATIONS
-// ============================================================
-// Relation types from the dataset record\u2019s relatedIdentifiers that count as
-// "this paper cites the dataset". When an external citation\u2019s DOI matches
-// any of these declared relations, reciprocity is satisfied.
-var CITING_RELATIONS = {
-    'IsCitedBy': true,
-    'IsReferencedBy': true,
-    'IsSupplementTo': true,
-    'IsDescribedBy': true,
-    'IsDocumentedBy': true
-};
-
-async function loadCitationsInto(network, pane) {
-    pane.innerHTML = '<div class="empty-state"><span class="spinner"></span> Loading citations from DataCite, OpenCitations, and OpenAlex\u2026</div>';
-    try {
-        var doi = network.doi;
-        var results = await Promise.all([
-            fetchDataCiteCitations(doi).catch(function(e) { return { error: e.message, items: [] }; }),
-            fetchOpenCitations(doi).catch(function(e) { return { error: e.message, items: [] }; }),
-            fetchOpenAlexCitations(doi).catch(function(e) { return { error: e.message, items: [] }; })
-        ]);
-        var dc = results[0], oc = results[1], oa = results[2];
-        var external = mergeCitations(dc.items, oc.items, oa.items);
-        var reciprocity = analyseReciprocity(network, external);
-        state.citationCache[doi] = state.citationCache[doi] || {};
-        state.citationCache[doi].reciprocity = reciprocity;
-        state.citationCache[doi].external = external;
-        renderCitationsContent(network, pane, dc, oc, oa, external, reciprocity);
-        // Refresh the row pill (gap marker) and the fleet panel counts
-        renderTableRowsOnly();
-        renderFleetPanel();
-    } catch (err) {
-        pane.innerHTML = '<div class="empty-state" style="color:var(--bad)">Failed to load citations: ' + escapeHtml(err.message) + '</div>';
-    }
-}
-
-function renderCitationsContent(n, pane, dc, oc, oa, external, reciprocity) {
-    var html = '<div class="cit-toolbar"><div class="source-summary">';
-    html += renderSourceChip('DataCite', dc);
-    html += renderSourceChip('OpenCitations', oc);
-    html += renderSourceChip('OpenAlex', oa);
-    html += '</div></div>';
-
-    html += renderReciprocityBanner(reciprocity, n.doi);
-
-    if (external.length === 0 && reciprocity.declaredOnly.length === 0) {
-        html += '<div class="empty-state">No citations recorded yet across DataCite, OpenCitations, or OpenAlex.</div>';
-        pane.innerHTML = html;
-        return;
-    }
-
-    // Sort: novel gaps first (most actionable), then echo gaps, then declared, then declared-only
-    var sortOrder = { 'gap-novel': 0, 'gap-known': 1, 'declared': 2, 'declared-only': 3 };
-    var allItems = external.concat(reciprocity.declaredOnly);
-    allItems.sort(function(a, b) {
-        var oa_ = sortOrder[a.recipStatus] !== undefined ? sortOrder[a.recipStatus] : 99;
-        var ob_ = sortOrder[b.recipStatus] !== undefined ? sortOrder[b.recipStatus] : 99;
-        if (oa_ !== ob_) return oa_ - ob_;
-        return (b.year || 0) - (a.year || 0);
-    });
-
-    html += '<ul class="citation-list">';
-    allItems.forEach(function(c) { html += renderCitationItem(c); });
-    html += '</ul>';
-    pane.innerHTML = html;
-}
-
-function renderSourceChip(label, result) {
-    var cls = result.error ? 'error' : (result.items.length > 0 ? 'has-data' : '');
-    var title = result.error ? ('Error: ' + result.error) : (result.items.length + ' citation' + (result.items.length === 1 ? '' : 's') + ' returned');
-    return '<span class="src ' + cls + '" title="' + escapeAttr(title) + '"><span class="dot"></span>'
-        + escapeHtml(label) + ' (' + (result.error ? 'error' : result.items.length) + ')</span>';
-}
-
-function analyseReciprocity(network, external) {
-    var declaredCitingDois = new Set();
-    (network.relatedIdentifiers || []).forEach(function(r) {
-        if (r.relatedIdentifierType === 'DOI' && r.relationType && CITING_RELATIONS[r.relationType]) {
-            var d = normaliseDoi(r.relatedIdentifier);
-            if (d) declaredCitingDois.add(d);
-        }
-    });
-
-    var externalDois = new Set();
-    external.forEach(function(c) {
-        var d = normaliseDoi(c.doi);
-        externalDois.add(d);
-        if (declaredCitingDois.has(d)) {
-            c.recipStatus = 'declared';
-            c.recipMatchedRelation = findRelationFor(network, d);
-        } else {
-            // Novel  = only OpenCitations / OpenAlex found it (DataCite hasn't seen it yet)
-            // Known  = DataCite found it via Crossref but the dataset record didn't echo it
-            var fromDataCite = c.sources && c.sources.indexOf('datacite') >= 0;
-            c.recipStatus = fromDataCite ? 'gap-known' : 'gap-novel';
-            c.recipMatchedRelation = null;
-        }
-    });
-
-    // Reverse direction: declared in DataCite but not yet picked up externally
-    var declaredOnly = [];
-    declaredCitingDois.forEach(function(d) {
-        if (!externalDois.has(d)) {
-            declaredOnly.push({
-                doi: d,
-                title: '(declared in record but not yet reported by external sources)',
-                year: null,
-                authors: '',
-                journal: '',
-                sources: [],
-                recipStatus: 'declared-only',
-                recipMatchedRelation: findRelationFor(network, d)
-            });
-        }
-    });
-
-    var declared = external.filter(function(c) { return c.recipStatus === 'declared'; }).length;
-    var gapsNovel = external.filter(function(c) { return c.recipStatus === 'gap-novel'; }).length;
-    var gapsKnown = external.filter(function(c) { return c.recipStatus === 'gap-known'; }).length;
-
-    return {
-        external: external.length,
-        declared: declared,
-        gaps: gapsNovel + gapsKnown,
-        gapsNovel: gapsNovel,
-        gapsKnown: gapsKnown,
-        declaredOnly: declaredOnly,
-        total: external.length + declaredOnly.length
-    };
-}
-
-function findRelationFor(network, doi) {
-    var d = (doi || '').toLowerCase();
-    var rels = network.relatedIdentifiers || [];
-    for (var i = 0; i < rels.length; i++) {
-        var r = rels[i];
-        if (r.relatedIdentifierType === 'DOI' && normaliseDoi(r.relatedIdentifier) === d) {
-            return r.relationType;
-        }
-    }
-    return null;
-}
-
-function renderReciprocityBanner(r, doi) {
-    var cls, headline;
-    if (r.external === 0 && r.declaredOnly.length === 0) {
-        cls = 'neutral';
-        headline = 'No citations recorded yet.';
-    } else if (r.gaps === 0 && r.external > 0) {
-        cls = 'good';
-        headline = 'All ' + r.external + ' external citation' + (r.external === 1 ? '' : 's') + ' reciprocally declared in DataCite.';
-    } else {
-        cls = 'warn';
-        headline = r.gaps + ' citation' + (r.gaps === 1 ? '' : 's') + ' not declared in DataCite';
-        if (r.gapsNovel > 0) headline += ' \u00b7 ' + r.gapsNovel + ' novel';
-    }
-    var html = '<div class="recip-banner ' + cls + '"><div>';
-    html += '<span class="recip-headline">' + escapeHtml(headline) + '</span>';
-    html += '<div class="recip-pills">';
-    if (r.declared > 0) html += '<span class="recip-pill"><strong>' + r.declared + '</strong>declared</span>';
-    if (r.gapsNovel > 0) html += '<span class="recip-pill gap" title="External sources found these citations, DataCite has not. Adding them to relatedIdentifiers contributes new info to the global graph."><strong>' + r.gapsNovel + '</strong>novel gap' + (r.gapsNovel === 1 ? '' : 's') + '</span>';
-    if (r.gapsKnown > 0) html += '<span class="recip-pill gap-known" title="DataCite already knows about these via Crossref \u2014 the network record just hasn\u2019t echoed them as relatedIdentifiers yet."><strong>' + r.gapsKnown + '</strong>echo gap' + (r.gapsKnown === 1 ? '' : 's') + '</span>';
-    if (r.declaredOnly.length > 0) html += '<span class="recip-pill info" title="Declared in the network record but external sources haven\u2019t picked them up yet."><strong>' + r.declaredOnly.length + '</strong>declared-only</span>';
-    html += '</div></div>';
-    if (r.gaps > 0) {
-        html += '<button class="copy-gaps-btn" onclick="copyGapDois(\'' + escapeAttr(doi) + '\')" title="Copy gap DOIs to paste into Fabrica as IsCitedBy relations">Copy gap DOIs</button>';
-    }
-    html += '</div>';
-    return html;
-}
-
-function copyGapDois(doi) {
-    var cache = state.citationCache[doi];
-    if (!cache || !cache.external) return;
-    var gaps = cache.external.filter(function(c) {
-        return c.recipStatus === 'gap-novel' || c.recipStatus === 'gap-known';
-    });
-    var dois = gaps.map(function(c) { return c.doi; }).filter(Boolean).join('\n');
-    copyToClipboard(dois);
-    showToast('Copied ' + gaps.length + ' gap DOI' + (gaps.length === 1 ? '' : 's') + ' to clipboard');
-}
-
-function renderCitationItem(c) {
-    var statusBadge, itemClass = '';
-    if (c.recipStatus === 'declared') {
-        statusBadge = '<span class="recip-badge declared">declared'
-            + (c.recipMatchedRelation ? '<span class="relation"> \u00b7 ' + escapeHtml(c.recipMatchedRelation) + '</span>' : '')
-            + '</span>';
-    } else if (c.recipStatus === 'gap-novel') {
-        statusBadge = '<span class="recip-badge gap" title="External sources found this citation; DataCite has not. Adding it as IsCitedBy adds new info to DataCite\u2019s graph.">novel gap</span>';
-        itemClass = ' is-gap-novel';
-    } else if (c.recipStatus === 'gap-known') {
-        statusBadge = '<span class="recip-badge gap-known" title="DataCite knows about this citation via Crossref but the dataset record hasn\u2019t echoed it as a relatedIdentifier.">echo gap</span>';
-        itemClass = ' is-gap-known';
-    } else if (c.recipStatus === 'declared-only') {
-        statusBadge = '<span class="recip-badge declared-only" title="Declared in the dataset\u2019s relatedIdentifiers but external sources haven\u2019t picked it up.">declared only</span>';
-        itemClass = ' is-declared-only';
-    } else {
-        statusBadge = '<span class="recip-badge no-doi">unknown</span>';
-    }
-
-    var sourceTags = (c.sources || []).map(function(s) {
-        if (s === 'datacite') return '<span class="source-tag tag-datacite">DataCite</span>';
-        if (s === 'opencitations') return '<span class="source-tag tag-opencitations">OpenCitations</span>';
-        if (s === 'openalex') return '<span class="source-tag tag-openalex">OpenAlex</span>';
-        return '';
-    }).join(' ');
-
-    var doiLink = c.doi
-        ? '<a href="https://doi.org/' + escapeAttr(c.doi) + '" target="_blank" rel="noopener">' + escapeHtml(c.doi) + '</a>'
-        : '';
-
-    var metaParts = [];
-    if (c.authors) metaParts.push(escapeHtml(c.authors));
-    if (c.year) metaParts.push(String(c.year));
-    if (c.journal) metaParts.push(escapeHtml(c.journal));
-    var meta = metaParts.join(' \u00b7 ');
-    if (doiLink) meta = (meta ? meta + ' \u00b7 ' : '') + doiLink;
-
-    return '<li class="citation-item' + itemClass + '">'
-        + '<div class="cit-status">' + statusBadge + '</div>'
-        + '<div class="cit-body">'
-            + '<div class="title">' + escapeHtml(c.title || '(untitled)') + '</div>'
-            + '<div class="meta">' + meta + ' ' + sourceTags + '</div>'
-        + '</div></li>';
-}
-
-// ----- Source fetchers -----
-async function fetchDataCiteCitations(doi) {
-    var lcDoi = (doi || '').toLowerCase();
-    // DEBUG — remove once 400s are diagnosed
-    console.log('[fetchDataCiteCitations] original:', doi, '| sending:', lcDoi);
-    var query = 'query($id: ID!) { work(id: $id) { citations { totalCount nodes { doi titles { title } publicationYear creators { name givenName familyName } publisher { name } container { title } types { resourceTypeGeneral } } } } }';
-    var resp = await fetch('https://api.datacite.org/graphql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: query, variables: { id: lcDoi } })
-    });
-    // DEBUG — log the response status and body so we can see what DataCite says
-    if (!resp.ok) {
-        var errBody = '';
-        try { errBody = await resp.clone().text(); } catch (e) {}
-        console.warn('[fetchDataCiteCitations] ' + resp.status + ' for ' + lcDoi + ' — body:', errBody.substring(0, 400));
-    }
-    if (!resp.ok) throw new Error('DataCite GraphQL ' + resp.status);
-    var data = await resp.json();
-    if (data.errors) throw new Error(data.errors[0].message || 'DataCite GraphQL error');
-    if (!data.data || !data.data.work || !data.data.work.citations) return { items: [] };
-    var nodes = data.data.work.citations.nodes || [];
-    var items = nodes.map(function(node) {
-        var journal = (node.container && node.container.title)
-            || (node.publisher && node.publisher.name)
-            || '';
-        return {
-            doi: normaliseDoi(node.doi),
-            title: (node.titles && node.titles[0]) ? fixEncoding(node.titles[0].title) : '',
-            year: node.publicationYear || null,
-            journal: fixEncoding(journal),
-            authors: formatAuthors((node.creators || []).map(function(c) { return c.name; })),
-            sources: ['datacite']
-        };
-    }).filter(function(c) { return c.doi; });
-    return { items: items };
-}
-
-async function fetchOpenCitations(doi) {
-    if (!doi) return { items: [] };
-    var resp = await fetch('https://opencitations.net/index/coci/api/v1/citations/' + encodeURIComponent(doi));
-    if (!resp.ok) {
-        if (resp.status === 404) return { items: [] };
-        throw new Error('OpenCitations ' + resp.status);
-    }
-    var arr = await resp.json();
-    if (!Array.isArray(arr)) return { items: [] };
-    var items = arr.map(function(c) {
-        return {
-            doi: normaliseDoi(c.citing),
-            title: '',
-            year: c.creation ? parseInt(c.creation.substring(0, 4)) : null,
-            journal: '',
-            authors: '',
-            sources: ['opencitations']
-        };
-    }).filter(function(c) { return c.doi; });
-    return { items: items };
-}
-
-async function fetchOpenAlexCitations(doi) {
-    if (!doi) return { items: [] };
-    // Step 1: look up the Work by DOI to get its OpenAlex ID. The cites filter
-    // requires an OpenAlex Work ID (W...), not a DOI.
-    var lookupResp = await fetch('https://api.openalex.org/works/doi:' + encodeURIComponent(doi.toLowerCase()));
-    if (lookupResp.status === 404) return { items: [] };
-    if (!lookupResp.ok) throw new Error('OpenAlex lookup ' + lookupResp.status);
-    var work = await lookupResp.json();
-    if (!work.id) return { items: [] };
-    if (!work.cited_by_count) return { items: [] };
-    var openalexId = work.id.replace(/^https?:\/\/openalex\.org\//i, '');
-
-    // Step 2: fetch works that cite this OpenAlex ID. Note: per_page (underscore),
-    // not per-page (hyphen) — OpenAlex returns 400 for the latter.
-    var url = 'https://api.openalex.org/works?filter=cites:' + openalexId
-        + '&per_page=200&select=doi,title,publication_year,authorships,primary_location';
-    var resp = await fetch(url);
-    if (!resp.ok) throw new Error('OpenAlex citations ' + resp.status);
-    var data = await resp.json();
-    var results = data.results || [];
-    var items = results.map(function(w) {
-        var cleanDoi = (w.doi || '').replace(/^https?:\/\/doi\.org\//i, '');
-        var authors = (w.authorships || []).slice(0, 6).map(function(a) {
-            return a.author && a.author.display_name;
-        }).filter(Boolean);
-        var journal = '';
-        if (w.primary_location && w.primary_location.source && w.primary_location.source.display_name) {
-            journal = w.primary_location.source.display_name;
-        }
-        return {
-            doi: normaliseDoi(cleanDoi),
-            title: fixEncoding(w.title || ''),
-            year: w.publication_year || null,
-            journal: fixEncoding(journal),
-            authors: formatAuthors(authors),
-            sources: ['openalex']
-        };
-    }).filter(function(c) { return c.doi; });
-    return { items: items };
-}
-
-function mergeCitations(dc, oc, oa) {
-    var byDoi = {};
-    function add(arr) {
-        arr.forEach(function(c) {
-            if (!c.doi) return;
-            var key = c.doi.toLowerCase();
-            if (byDoi[key]) {
-                var existing = byDoi[key];
-                if (!existing.title && c.title) existing.title = c.title;
-                if (!existing.year && c.year) existing.year = c.year;
-                if (!existing.journal && c.journal) existing.journal = c.journal;
-                if (!existing.authors && c.authors) existing.authors = c.authors;
-                (c.sources || []).forEach(function(s) {
-                    if (existing.sources.indexOf(s) === -1) existing.sources.push(s);
-                });
-            } else {
-                byDoi[key] = Object.assign({}, c, { sources: (c.sources || []).slice() });
-            }
-        });
-    }
-    add(dc); add(oc); add(oa);
-    return Object.values(byDoi);
-}
-
-// ============================================================
 // CSV EXPORT
 // ============================================================
-function exportCsv() {
-    var visible = visibleNetworks();
-    var rows = [['Code', 'Description', 'StartTime', 'EndTime', 'Years', 'Status', 'Stations', 'DOI', 'Operators', 'ORCIDs', 'Citations']];
-    visible.forEach(function(n) {
-        rows.push([
-            n.code,
-            n.description,
-            n.startTime,
-            n.endTime,
-            n.yearStr,
-            n.status,
-            n.totalStations,
-            n.doi,
-            n.creators.map(function(c) { return c.name; }).join('; '),
-            n.creators.map(function(c) { return c.orcid; }).filter(Boolean).join('; '),
-            typeof n.citationCount === 'number' ? n.citationCount : ''
-        ]);
-    });
-    var csv = rows.map(function(row) {
-        return row.map(function(cell) {
-            var s = String(cell == null ? '' : cell);
-            if (s.indexOf(',') !== -1 || s.indexOf('"') !== -1 || s.indexOf('\n') !== -1) {
-                s = '"' + s.replace(/"/g, '""') + '"';
-            }
-            return s;
-        }).join(',');
-    }).join('\n');
-    var blob = new Blob([csv], { type: 'text/csv' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'auspass-networks-' + new Date().toISOString().substring(0, 10) + '.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-}
-
-// ============================================================
-// UTILITIES
-// ============================================================
-function escapeHtml(s) {
-    if (s == null) return '';
-    return String(s)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-}
-
-function escapeAttr(s) {
-    if (s == null) return '';
-    return String(s).replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-function normaliseDoi(s) {
-    if (!s) return '';
-    return String(s).replace(/^https?:\/\/(dx\.)?doi\.org\//i, '').toLowerCase();
-}
-
-function fixEncoding(s) {
-    if (!s) return '';
-    return String(s)
-        .replace(/\u00C3\u00A9/g, '\u00e9')
-        .replace(/\u00C3\u00A8/g, '\u00e8')
-        .replace(/\u00C3\u00AA/g, '\u00ea')
-        .replace(/\u00C3\u00A0/g, '\u00e0')
-        .replace(/\u00C3\u00A2/g, '\u00e2')
-        .replace(/\u00C3\u00B6/g, '\u00f6')
-        .replace(/\u00C3\u00BC/g, '\u00fc')
-        .replace(/\u00C3\u00A4/g, '\u00e4')
-        .replace(/\u00C3\u00B1/g, '\u00f1')
-        .replace(/\u00E2\u0080\u0099/g, '\u2019')
-        .replace(/\u00E2\u0080\u009C/g, '\u201c')
-        .replace(/\u00E2\u0080\u009D/g, '\u201d')
-        .replace(/\u00E2\u0080\u0094/g, '\u2014')
-        .replace(/\u00E2\u0080\u0093/g, '\u2013');
-}
-
-function formatAuthors(arr) {
-    if (!arr || arr.length === 0) return '';
-    arr = arr.filter(Boolean);
-    if (arr.length === 0) return '';
-    if (arr.length <= 3) return arr.join(', ');
-    return arr.slice(0, 3).join(', ') + ' et al.';
-}
-
-function debounce(fn, ms) {
-    var t;
-    return function() {
-        var args = arguments;
-        var ctx = this;
-        clearTimeout(t);
-        t = setTimeout(function() { fn.apply(ctx, args); }, ms);
-    };
-}
-
-function sleep(ms) {
-    return new Promise(function(r) { setTimeout(r, ms); });
-}
-
-function copyToClipboard(text) {
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).catch(function() { fallbackCopy(text); });
-    } else {
-        fallbackCopy(text);
-    }
-}
-
-function fallbackCopy(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); } catch (e) {}
-    document.body.removeChild(ta);
-}
-
-function showToast(msg) {
-    var t = document.getElementById('toast');
-    if (!t) return;
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(function() { t.classList.remove('show'); }, 2400);
-}
-
-function syntaxHighlightJson(json) {
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
-        var cls = 'num';
-        if (/^"/.test(match)) cls = /:$/.test(match) ? 'key' : 'str';
-        else if (/true|false/.test(match)) cls = 'bool';
-        else if (/null/.test(match)) cls = 'null';
-        return '<span class="' + cls + '">' + match + '</span>';
+function exportNetworksCsv() {
+    exportCsv({
+        columns: [
+            { header: 'Code', value: function(n) { return n.code; } },
+            { header: 'Description', value: function(n) { return n.description; } },
+            { header: 'StartTime', value: function(n) { return n.startTime; } },
+            { header: 'EndTime', value: function(n) { return n.endTime; } },
+            { header: 'Years', value: function(n) { return n.yearStr; } },
+            { header: 'Status', value: function(n) { return n.status; } },
+            { header: 'Stations', value: function(n) { return n.totalStations; } },
+            { header: 'DOI', value: function(n) { return n.doi; } },
+            { header: 'Operators', value: function(n) { return n.creators.map(function(c) { return c.name; }).join('; '); } },
+            { header: 'ORCIDs', value: function(n) { return n.creators.map(function(c) { return c.orcid; }).filter(Boolean).join('; '); } },
+            { header: 'Citations', value: function(n) { return typeof n.citationCount === 'number' ? n.citationCount : ''; } }
+        ],
+        rows: visibleNetworks(),
+        filenamePrefix: 'auspass-networks'
     });
 }
 

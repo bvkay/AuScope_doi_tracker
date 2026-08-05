@@ -10,230 +10,22 @@
     <meta charset="UTF-8">
     <title>EarthBank Dataset Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
     <style>
-        :root {
-            --bg: #ffffff;
-            --bg-soft: #f8fafc;
-            --bg-muted: #f1f5f9;
-            --border: #e5e7eb;
-            --border-strong: #cbd5e1;
-            --text: #0f172a;
-            --text-soft: #475569;
-            --text-muted: #94a3b8;
-            --accent: #2563eb;
-            --accent-strong: #1d4ed8;
-            --accent-soft: #dbeafe;
-            --accent-bg: #eff6ff;
-            --good: #16a34a;
-            --good-bg: #dcfce7;
-            --warn: #ca8a04;
-            --warn-bg: #fef3c7;
-            --bad: #dc2626;
-            --bad-bg: #fee2e2;
-            --mono: 'SFMono-Regular', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
-            --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, sans-serif;
-        }
+        /*
+            EarthBank page-specific rules. The shared skin (tokens, header, stat
+            tiles, controls, table base, detail panel, citations/reciprocity,
+            tooltips, fleet panel) comes from tracker-shared.css, loaded BEFORE
+            this block — override order is load-bearing (fleet-grid column count,
+            source-tag spacing).
+        */
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--sans);
-            background: var(--bg);
-            color: var(--text);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .wrap {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 24px 28px 80px;
-        }
-
-        /* ========== HEADER ========== */
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 18px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .brand h1 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        .brand h1 .accent {
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .brand p {
-            font-size: 13px;
-            color: var(--text-soft);
-            margin-top: 4px;
-        }
-        .topbar .links {
-            display: flex;
-            gap: 16px;
-            font-size: 13px;
-        }
-        .topbar .links a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        .topbar .links a:hover { text-decoration: underline; }
-
-        /* ========== STAT TILES ========== */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        @media (max-width: 900px) {
-            .stats { grid-template-columns: repeat(2, 1fr); }
-        }
-        .stat {
-            border: 1px solid var(--border);
-            background: var(--bg-soft);
-            border-radius: 6px;
-            padding: 12px 14px;
-        }
-        .stat .label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-        .stat .value {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--text);
-            margin-top: 2px;
-            font-variant-numeric: tabular-nums;
-        }
-        .stat .sub {
-            font-size: 11px;
-            color: var(--text-soft);
-            margin-top: 2px;
-        }
-
-        /* ========== CONTROL BAR ========== */
-        .controls {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 14px;
-            flex-wrap: wrap;
-        }
-        .controls input[type="search"],
-        .controls select {
-            font-family: var(--sans);
-            font-size: 13px;
-            padding: 7px 10px;
-            border: 1px solid var(--border);
-            border-radius: 5px;
-            background: var(--bg);
-            color: var(--text);
-            outline: none;
-            transition: border-color 0.12s, box-shadow 0.12s;
-        }
-        .controls input[type="search"] { min-width: 280px; }
-        .controls input[type="search"]:focus,
-        .controls select:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-soft);
-        }
-        .controls .btn {
-            font-family: var(--sans);
-            font-size: 13px;
-            padding: 7px 12px;
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.12s, border-color 0.12s;
-        }
-        .controls .btn:hover { background: var(--bg-muted); }
-        .controls .btn.primary {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .controls .btn.primary:hover { background: var(--accent-bg); }
-        .controls .btn.toggled {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-        .controls .spacer { flex: 1; }
-        .controls .meta {
-            font-size: 12px;
-            color: var(--text-soft);
-        }
-
-        /* ========== TABLE ========== */
-        .table-wrap {
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        table.ds {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-        table.ds thead th {
-            background: var(--bg-muted);
-            color: var(--text);
-            text-align: left;
-            font-weight: 600;
-            padding: 9px 12px;
-            border-bottom: 1px solid var(--border-strong);
-            white-space: nowrap;
-            font-size: 12px;
-            user-select: none;
-        }
-        table.ds thead th.sortable { cursor: pointer; }
-        table.ds thead th.sortable:hover { color: var(--accent); }
-        table.ds thead th .arrow {
-            display: inline-block;
-            margin-left: 4px;
-            color: var(--text-muted);
-            font-size: 10px;
-        }
-        table.ds thead th.sorted .arrow { color: var(--accent); }
-        table.ds tbody td {
-            padding: 10px 12px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: top;
-        }
-        table.ds tbody tr.dataset-row { cursor: pointer; transition: background 0.08s; }
-        table.ds tbody tr.dataset-row:hover { background: var(--accent-bg); }
-        table.ds tbody tr.dataset-row.expanded { background: var(--accent-bg); }
-        table.ds tbody tr.dataset-row.expanded td { border-bottom: 1px solid var(--accent-soft); }
-
-        .col-num { width: 40px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+        /* table columns */
         .col-title { min-width: 280px; }
         .col-title .title-line {
             font-weight: 500;
             color: var(--text);
         }
-        .col-title .doi {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-soft);
-            margin-top: 2px;
-            display: inline-block;
-        }
-        .col-title .doi:hover { color: var(--accent); }
         .col-authors {
             font-size: 12px;
             color: var(--text-soft);
@@ -248,39 +40,11 @@
         .col-type { width: 110px; }
         .col-mapping { width: 130px; }
         .col-cites { width: 85px; text-align: center; }
-        .col-actions { width: 50px; text-align: right; }
 
-        /* badges */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-weight: 500;
-            white-space: nowrap;
-        }
+        /* badge variants */
         .badge.type-dataset { background: var(--accent-soft); color: var(--accent-strong); }
         .badge.type-physobj { background: #fef3c7; color: #92400e; }
         .badge.type-other { background: var(--bg-muted); color: var(--text-soft); }
-
-        .cite-pill {
-            display: inline-block;
-            min-width: 32px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-            font-weight: 600;
-            font-size: 12px;
-            font-variant-numeric: tabular-nums;
-        }
-        .cite-pill.zero { background: var(--bg-muted); color: var(--text-muted); }
-        .cite-pill.loading {
-            background: transparent;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
 
         /* mapping bar */
         .mapping-bar {
@@ -313,167 +77,6 @@
             text-align: right;
         }
 
-        .actions-btn {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 4px 6px;
-            font-size: 14px;
-            color: var(--text-muted);
-            border-radius: 3px;
-            transition: color 0.1s, background 0.1s;
-        }
-        .actions-btn:hover { color: var(--accent); background: var(--accent-bg); }
-        .actions-btn .chevron {
-            display: inline-block;
-            transition: transform 0.18s;
-        }
-        tr.expanded .actions-btn .chevron { transform: rotate(180deg); }
-
-        /* ========== DETAIL PANEL ========== */
-        tr.detail-row td { padding: 0; background: var(--bg-soft); }
-        tr.detail-row .detail {
-            padding: 18px 22px 22px;
-            border-top: none;
-            border-left: 3px solid var(--accent);
-            background: var(--bg-soft);
-        }
-        .detail-tabs {
-            display: flex;
-            gap: 2px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 16px;
-        }
-        .detail-tab {
-            padding: 8px 14px;
-            font-size: 13px;
-            border: none;
-            background: transparent;
-            color: var(--text-soft);
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -1px;
-            font-family: var(--sans);
-        }
-        .detail-tab:hover { color: var(--text); }
-        .detail-tab.active {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-            font-weight: 600;
-        }
-        .detail-tab .badge-count {
-            display: inline-block;
-            margin-left: 6px;
-            background: var(--bg-muted);
-            color: var(--text-soft);
-            padding: 0 6px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 500;
-        }
-        .detail-tab.active .badge-count {
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-        }
-
-        .detail-pane { display: none; }
-        .detail-pane.active { display: block; }
-
-        /* ----- Overview pane ----- */
-        .ov-grid {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 4px 16px;
-            font-size: 13px;
-        }
-        .ov-grid dt {
-            color: var(--text-muted);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            font-weight: 600;
-            padding-top: 6px;
-        }
-        .ov-grid dd {
-            color: var(--text);
-            padding: 4px 0;
-            line-height: 1.55;
-        }
-        .ov-grid dd a { color: var(--accent); text-decoration: none; }
-        .ov-grid dd a:hover { text-decoration: underline; }
-        .ov-grid dd .empty { color: var(--text-muted); font-style: italic; }
-        .ov-grid dd .mono { font-family: var(--mono); font-size: 12px; }
-
-        .auscope-logo {
-            height: 28px;
-            width: auto;
-            vertical-align: -8px;
-            margin-right: 10px;
-        }
-        /* Text fallbacks shown when image assets fail to load */
-        .auscope-fallback {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 18px;
-            margin-right: 10px;
-            letter-spacing: -0.01em;
-        }
-        .orcid-fallback {
-            display: inline-flex;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: white;
-            color: #a6ce39;
-            border: 1.5px solid #a6ce39;
-            align-items: center;
-            justify-content: center;
-            font-size: 9px;
-            font-weight: 700;
-            font-family: var(--mono);
-            vertical-align: -3px;
-            line-height: 1;
-        }
-        .ror-fallback {
-            display: inline-block;
-            padding: 0 5px;
-            background: #2066a8;
-            color: white;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            border-radius: 3px;
-            font-family: var(--mono);
-            line-height: 14px;
-            vertical-align: 1px;
-            text-decoration: none;
-        }
-
-        .creator {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-right: 10px;
-            margin-bottom: 4px;
-            padding: 2px 8px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 12px;
-        }
-        .orcid-icon {
-            width: 14px;
-            height: 14px;
-            vertical-align: -3px;
-            display: inline-block;
-        }
-        .orcid-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none !important;
-            line-height: 1;
-        }
-        .orcid-link:hover { opacity: 0.75; }
         .creator .no-orcid {
             color: var(--text-muted);
             font-size: 10px;
@@ -482,6 +85,7 @@
             color: inherit !important;
             text-decoration: none !important;
         }
+        /* shared .orcid-link now carries padding: 0 2px — retune if spacing doubles */
         .col-authors .orcid-link {
             margin: 0 1px 0 3px;
         }
@@ -494,21 +98,6 @@
             color: var(--text-soft);
             margin-left: 4px;
         }
-        .ror-icon {
-            height: 14px;
-            width: auto;
-            max-width: 38px;
-            vertical-align: -3px;
-            display: inline-block;
-        }
-        .ror-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none !important;
-            line-height: 1;
-            padding: 0 2px;
-        }
-        .ror-link:hover { opacity: 0.75; }
         .id-badge {
             display: inline-block;
             padding: 0 5px;
@@ -539,18 +128,6 @@
             line-height: 14px;
             vertical-align: 1px;
         }
-        .ov-grid dd .empty {
-            display: inline-block;
-            padding: 1px 7px;
-            font-size: 11px;
-            font-weight: 500;
-            font-style: normal;
-            background: #fef3c7;
-            color: #92400e;
-            border-radius: 3px;
-            font-family: var(--sans);
-            letter-spacing: 0.01em;
-        }
 
         .subject {
             display: inline-block;
@@ -562,60 +139,6 @@
             margin: 2px 4px 2px 0;
             color: var(--text-soft);
         }
-        .extent-chip {
-            display: inline-flex;
-            align-items: baseline;
-            gap: 5px;
-            padding: 3px 10px;
-            background: var(--accent-bg);
-            border: 1px solid var(--accent-soft);
-            border-radius: 4px;
-            margin: 2px 6px 2px 0;
-        }
-        .extent-chip .num {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--accent-strong);
-            font-variant-numeric: tabular-nums;
-        }
-        .extent-chip .unit {
-            font-size: 11px;
-            color: var(--text-soft);
-        }
-        .extent-chip.plain {
-            background: var(--bg);
-            border-color: var(--border);
-        }
-        .extent-chip.plain .num { color: var(--text); }
-        .format-chip {
-            display: inline-block;
-            font-size: 11px;
-            padding: 2px 8px;
-            background: var(--bg-muted);
-            border-radius: 4px;
-            margin: 2px 4px 2px 0;
-            color: var(--text-soft);
-            font-family: var(--mono);
-        }
-        .contrib-type {
-            display: inline-block;
-            padding: 0 6px;
-            border-radius: 3px;
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            background: var(--bg-muted);
-            color: var(--text-soft);
-            margin-left: 5px;
-            font-family: var(--mono);
-            line-height: 15px;
-            vertical-align: 1px;
-        }
-        .contrib-type.contact { background: #fef3c7; color: #92400e; }
-        .contrib-type.host { background: #dbeafe; color: #1e40af; }
-        .contrib-type.sponsor { background: #dcfce7; color: #166534; }
-        .contrib-type.collector { background: #ede9fe; color: #5b21b6; }
         .subject a.term-link {
             color: var(--text);
             text-decoration: none;
@@ -625,6 +148,9 @@
             color: var(--accent);
             border-bottom-color: var(--accent);
         }
+
+        .contrib-type.collector { background: #ede9fe; color: #5b21b6; }
+
         .scheme-badge {
             display: inline-block;
             padding: 0 5px;
@@ -784,422 +310,19 @@
             font-weight: 500;
         }
 
-        /* ----- Citations pane ----- */
-        .cit-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .source-summary {
-            display: flex;
-            gap: 10px;
-            font-size: 12px;
-            color: var(--text-soft);
-        }
-        .source-summary .src {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-        }
-        .source-summary .src .dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: var(--text-muted);
-        }
-        .source-summary .src.has-data .dot { background: var(--good); }
-        .source-summary .src.error .dot { background: var(--bad); }
-
-        .citation-list {
-            list-style: none;
-        }
-        .citation-item {
-            display: grid;
-            grid-template-columns: 110px 1fr;
-            gap: 12px;
-            align-items: start;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 10px 14px;
-            margin-bottom: 6px;
-        }
-        .citation-item.is-gap-novel { border-left: 3px solid var(--warn); padding-left: 11px; }
-        .citation-item.is-gap-known { border-left: 3px solid var(--border-strong); padding-left: 11px; }
-        .citation-item.is-declared-only { background: var(--bg-soft); }
-        .citation-item .cit-status { padding-top: 1px; }
-        .citation-item .cit-body { min-width: 0; }
-        .citation-item .title {
-            font-weight: 500;
-            color: var(--text);
-            font-size: 13px;
-            margin-bottom: 3px;
-        }
-        .citation-item .meta {
-            font-size: 12px;
-            color: var(--text-soft);
-            line-height: 1.5;
-        }
-        .citation-item .meta a { color: var(--accent); text-decoration: none; font-family: var(--mono); font-size: 11px; }
-        .citation-item .meta a:hover { text-decoration: underline; }
+        /* spaces the source tags — shared .source-tag base is margin-free */
         .citation-item .sources {
             display: inline-flex;
             gap: 3px;
             margin-left: 6px;
         }
-        .source-tag {
-            display: inline-block;
-            padding: 1px 6px;
-            border-radius: 3px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .tag-datacite { background: #dbeafe; color: #1e40af; }
-        .tag-opencitations { background: #fce7f3; color: #9d174d; }
-        .tag-openalex { background: #d1fae5; color: #065f46; }
 
-        /* ----- Citation reciprocity ----- */
-        .recip-banner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 11px 14px;
-            border-radius: 5px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-            gap: 10px;
-            border: 1px solid;
-        }
-        .recip-banner.good { background: var(--good-bg); border-color: #86efac; }
-        .recip-banner.warn { background: var(--warn-bg); border-color: #fcd34d; }
-        .recip-banner.neutral { background: var(--bg-soft); border-color: var(--border); }
-        .recip-banner .recip-headline {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 6px;
-            display: block;
-        }
-        .recip-pills {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .recip-pill {
-            display: inline-flex;
-            align-items: baseline;
-            padding: 3px 10px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 12px;
-            color: var(--text);
-            white-space: nowrap;
-        }
-        .recip-pill strong {
-            margin-right: 4px;
-            font-variant-numeric: tabular-nums;
-        }
-        .recip-pill.gap { border-color: #f59e0b; color: #92400e; background: #fffbeb; }
-        .recip-pill.gap-known { border-color: var(--border-strong); color: var(--text-soft); background: var(--bg-soft); }
-        .recip-pill.info { border-color: var(--border-strong); color: var(--text-soft); }
-
-        .copy-gaps-btn {
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            cursor: pointer;
-            border: 1px solid #f59e0b;
-            background: white;
-            color: #92400e;
-            font-family: var(--sans);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-        .copy-gaps-btn:hover { background: #fffbeb; }
-
-        .recip-badge {
-            display: inline-block;
-            padding: 1px 7px;
-            border-radius: 3px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            white-space: nowrap;
-        }
-        .recip-badge.declared { background: var(--good-bg); color: #166534; }
-        .recip-badge.gap { background: #fef3c7; color: #92400e; }
-        .recip-badge.gap-known { background: var(--bg-muted); color: #475569; border: 1px solid var(--border-strong); padding: 0 6px; }
-        .recip-badge.declared-only { background: var(--bg-muted); color: var(--text-soft); }
-        .recip-badge.no-doi { background: var(--bg-muted); color: var(--text-muted); }
-        .recip-badge .relation {
-            font-weight: 400;
-            text-transform: none;
-            letter-spacing: 0;
-            font-size: 10px;
-            color: inherit;
-            opacity: 0.85;
-            margin-left: 2px;
-        }
-
-        /* Gap counter on the Citations tab label */
-        .detail-tab .badge-count.gap-count {
-            background: #fef3c7;
-            color: #92400e;
-            margin-left: 4px;
-        }
-        .detail-tab.active .badge-count.gap-count {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        /* ----- Raw JSON ----- */
-        .raw-json {
-            background: #0f172a;
-            color: #e2e8f0;
-            padding: 14px 16px;
-            border-radius: 5px;
-            font-family: var(--mono);
-            font-size: 11.5px;
-            line-height: 1.55;
-            max-height: 480px;
-            overflow: auto;
-            white-space: pre;
-        }
-        .raw-json .key { color: #93c5fd; }
-        .raw-json .str { color: #86efac; }
-        .raw-json .num { color: #fbbf24; }
-        .raw-json .bool { color: #f472b6; }
-        .raw-json .null { color: #94a3b8; font-style: italic; }
-
-        /* ========== UTILITY ========== */
-        .spinner {
-            display: inline-block;
-            width: 12px; height: 12px;
-            border: 2px solid var(--border);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            vertical-align: middle;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        .empty-state {
-            padding: 40px 20px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 24px; left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            padding: 9px 16px;
-            background: var(--text);
-            color: white;
-            border-radius: 6px;
-            font-size: 13px;
-            opacity: 0;
-            transition: opacity 0.2s, transform 0.2s;
-            pointer-events: none;
-            z-index: 100;
-        }
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        /* ========== HOVER TOOLTIPS ========== */
-        /* Any element with `data-tip="..."` gets a styled hover tooltip.
-           Use the .info-i element for a small "(i)" badge that explains
-           a nearby field. Use data-tip directly on badges/pills to enrich
-           their hover affordance. */
-        [data-tip] {
-            position: relative;
-        }
-        [data-tip]::after {
-            content: attr(data-tip);
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            background: #0f172a;
-            color: #f1f5f9;
-            padding: 8px 11px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: 400;
-            font-style: normal;
-            font-family: var(--sans);
-            line-height: 1.45;
-            letter-spacing: 0;
-            text-transform: none;
-            white-space: normal;
-            width: max-content;
-            max-width: 280px;
-            text-align: left;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.15s 0.1s;
-            z-index: 100;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
-        }
-        [data-tip]::before {
-            content: '';
-            position: absolute;
-            top: calc(100% + 2px);
-            left: 1px;
-            border: 6px solid transparent;
-            border-bottom-color: #0f172a;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.15s 0.1s;
-            z-index: 100;
-        }
-        [data-tip]:hover::after,
-        [data-tip]:hover::before { opacity: 1; }
-
-        .info-i {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--bg-muted);
-            color: var(--text-soft);
-            font-size: 10px;
-            font-weight: 700;
-            font-family: Georgia, 'Times New Roman', serif;
-            font-style: italic;
-            cursor: help;
-            margin-left: 5px;
-            vertical-align: 1px;
-            user-select: none;
-            line-height: 1;
-            border: 1px solid transparent;
-            transition: background 0.12s, color 0.12s, border-color 0.12s;
-        }
-        .info-i:hover {
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-            border-color: var(--accent);
-        }
-
-        /* ========== FLEET SUMMARY PANEL ========== */
-        .fleet-panel {
-            border: 1px solid var(--border);
-            background: var(--bg-soft);
-            border-radius: 6px;
-            margin-bottom: 14px;
-        }
-        .fleet-panel > summary {
-            list-style: none;
-            cursor: pointer;
-            padding: 10px 14px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            user-select: none;
-        }
-        .fleet-panel > summary::-webkit-details-marker { display: none; }
-        .fleet-panel > summary::after {
-            content: '▾';
-            margin-left: auto;
-            color: var(--text-muted);
-            transition: transform 0.15s;
-            font-size: 11px;
-        }
-        .fleet-panel[open] > summary::after { transform: rotate(180deg); }
-        .fleet-panel .fleet-context {
-            font-weight: 400;
-            color: var(--text-soft);
-            font-size: 12px;
-        }
-        .fleet-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            padding: 0 14px 14px;
-        }
+        /* fleet summary column count; re-assert the 900px collapse because this
+           rule comes after the shared sheet's media query in the cascade */
+        .fleet-grid { grid-template-columns: repeat(3, 1fr); }
         @media (max-width: 900px) {
             .fleet-grid { grid-template-columns: 1fr; }
         }
-        .fleet-section {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 5px;
-            padding: 10px 12px;
-        }
-        .fleet-section h4 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-        .fleet-item {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            padding: 4px 6px;
-            margin: 0 -6px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 12.5px;
-            transition: background 0.1s;
-        }
-        .fleet-item:hover { background: var(--accent-bg); }
-        .fleet-item.active { background: var(--accent-soft); color: var(--accent-strong); font-weight: 500; }
-        .fleet-item.zero { color: var(--text-muted); cursor: default; }
-        .fleet-item.zero:hover { background: transparent; }
-        .fleet-item .count {
-            font-variant-numeric: tabular-nums;
-            font-weight: 600;
-            min-width: 30px;
-            text-align: right;
-            color: var(--text);
-        }
-        .fleet-item.zero .count { color: var(--text-muted); font-weight: 400; }
-        .fleet-item.active .count { color: var(--accent-strong); }
-        .fleet-item .label { flex: 1; line-height: 1.4; }
-
-        .fleet-filter-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 2px 4px 2px 10px;
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-            margin-left: 8px;
-        }
-        .fleet-filter-chip button {
-            background: transparent;
-            border: none;
-            color: var(--accent-strong);
-            cursor: pointer;
-            padding: 0 5px;
-            font-size: 14px;
-            line-height: 1;
-            border-radius: 50%;
-        }
-        .fleet-filter-chip button:hover { background: rgba(37, 99, 235, 0.15); }
     </style>
 </head>
 <body>
@@ -1266,7 +389,7 @@
 
         <!-- ========== TABLE ========== -->
         <div class="table-wrap">
-            <table class="ds" id="ds-table">
+            <table class="data" id="ds-table">
                 <thead>
                     <tr>
                         <th class="col-num">#</th>
@@ -1288,52 +411,22 @@
         <div class="toast" id="toast"></div>
     </div>
 
+<script src="tracker-chassis.js"></script>
+<script src="tracker-citations.js"></script>
 <script>
 "use strict";
 
 // ============================================================
-// IMAGE FALLBACKS
-// ============================================================
-// If an asset image fails to load (404 / wrong path / offline), swap it
-// with a styled text equivalent so the page stays usable. Tag each
-// fallback-eligible <img> with data-fallback="orcid" | "ror" | "auscope".
-document.addEventListener('error', function(e) {
-    var img = e.target;
-    if (!img || img.tagName !== 'IMG') return;
-    var fb = img.getAttribute('data-fallback');
-    if (!fb) return;
-    var span = document.createElement('span');
-    if (fb === 'orcid') {
-        span.className = 'orcid-fallback';
-        span.textContent = 'iD';
-        span.title = img.getAttribute('alt') || 'ORCID iD';
-    } else if (fb === 'ror') {
-        span.className = 'ror-fallback';
-        span.textContent = 'ROR';
-        span.title = 'ROR';
-    } else if (fb === 'auscope') {
-        span.className = 'auscope-fallback';
-        span.textContent = 'AuScope';
-    } else {
-        return;
-    }
-    if (img.parentNode) img.parentNode.replaceChild(span, img);
-}, true); // capture phase — `error` does not bubble
-
-// ============================================================
 // STATE
 // ============================================================
-var state = {
+// Created via the chassis factory. The global MUST stay named `state` —
+// the shared fleet machinery references it by name. (The img data-fallback
+// listener now auto-installs from tracker-chassis.js.)
+var state = createTrackerState({
     raw: [],          // array of raw DataCite items
     datasets: [],     // normalized + scored datasets
-    sortKey: 'year',
-    sortDir: 'desc',
-    filter: { search: '', type: '', year: '', issuesOnly: false },
-    fleetFilter: null,  // { id, label, predicate } — set when user clicks a fleet item
-    expanded: new Set(),  // DOIs of expanded rows
-    citationCache: {},    // doi -> { count, fullCitations }
-    citationLoadInFlight: false
-};
+    filter: { search: '', type: '', year: '', issuesOnly: false }
+});
 
 // Fleet summary categories. Each item is a clickable predicate that filters
 // the table to records matching the gap. Counts are recomputed against the
@@ -1426,7 +519,14 @@ function init() {
     bindControls();
     bindRowDelegation();
     bindDetailTabs();
-    bindFleetClicks();
+    initFleetPanel({
+        categories: fleetCategories,
+        getEntities: function() { return state.datasets; },
+        contextFilter: datasetContextFilter,
+        noun: 'records',
+        elements: { panelId: 'fleet-panel', summaryId: 'result-count' },
+        onFilterChanged: renderTable
+    });
     loadDatasets();
 }
 
@@ -1460,7 +560,7 @@ function bindControls() {
         renderTable();
     });
 
-    document.getElementById('export-csv').addEventListener('click', exportCsv);
+    document.getElementById('export-csv').addEventListener('click', exportVisibleCsv);
     document.getElementById('reload-btn').addEventListener('click', function() {
         state.citationCache = {};
         loadDatasets();
@@ -1496,15 +596,24 @@ async function loadDatasets() {
     try {
         var raw = await fetchAllEarthBank();
         state.raw = raw;
-        state.datasets = raw.map(normalize).map(function(d) {
+        state.datasets = raw.map(normalizeDataset).map(function(d) {
             d.mapping = scoreMapping(d);
             return d;
         });
         populateYearFilter();
         renderStats();
         renderTable();
-        // Lazy: fetch citation counts in batches
-        loadCitationCounts();
+        // Lazy: fetch citation counts in batches (tracker-citations.js).
+        // citationLoadInFlight lets renderStats leave the in-progress
+        // "loaded X / Y" label alone while batches are running.
+        state.citationLoadInFlight = true;
+        loadCitationCounts({
+            getEntities: function() { return state.datasets; },
+            cache: state.citationCache,
+            progressEl: document.getElementById('stat-cites-sub'),
+            onBatch: function() { renderStats(); renderTableRowsOnly(); }
+        }).then(function() { state.citationLoadInFlight = false; })
+          .catch(function() { state.citationLoadInFlight = false; renderStats(); });
     } catch (err) {
         setBody('<tr><td colspan="8" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
     }
@@ -1542,61 +651,6 @@ async function fetchAllEarthBank() {
     return all;
 }
 
-async function loadCitationCounts() {
-    if (state.citationLoadInFlight) return;
-    state.citationLoadInFlight = true;
-    var withDoi = state.datasets.filter(function(d) { return d.doi; });
-    var batchSize = 5;
-    var done = 0;
-    var subEl = document.getElementById('stat-cites-sub');
-
-    for (var i = 0; i < withDoi.length; i += batchSize) {
-        var batch = withDoi.slice(i, i + batchSize);
-        await Promise.all(batch.map(function(ds) {
-            if (state.citationCache[ds.doi] && typeof state.citationCache[ds.doi].count === 'number') {
-                ds.citationCount = state.citationCache[ds.doi].count;
-                done++;
-                return Promise.resolve();
-            }
-            return fetchCitationCount(ds.doi).then(function(c) {
-                ds.citationCount = c;
-                state.citationCache[ds.doi] = state.citationCache[ds.doi] || {};
-                state.citationCache[ds.doi].count = c;
-                done++;
-            }).catch(function() {
-                ds.citationCount = 0;
-                done++;
-            });
-        }));
-        if (subEl) subEl.textContent = 'loaded ' + done + ' / ' + withDoi.length;
-        renderStats();
-        renderTableRowsOnly();  // light update — just citation pills
-    }
-    if (subEl) subEl.textContent = 'via DataCite GraphQL';
-    state.citationLoadInFlight = false;
-}
-
-async function fetchCitationCount(doi, retries) {
-    if (!doi) return 0;
-    if (retries === undefined) retries = 2;
-    var resp = await fetch('https://api.datacite.org/graphql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: 'query($id: ID!) { work(id: $id) { citationCount } }', variables: { id: doi } })
-    });
-    if (resp.status === 429 && retries > 0) {
-        await sleep(3000);
-        return fetchCitationCount(doi, retries - 1);
-    }
-    if (!resp.ok) return 0;
-    var result = await resp.json();
-    if (result.errors && result.errors[0] && result.errors[0].status === '429' && retries > 0) {
-        await sleep(3000);
-        return fetchCitationCount(doi, retries - 1);
-    }
-    return (result.data && result.data.work) ? (result.data.work.citationCount || 0) : 0;
-}
-
 // ============================================================
 // NORMALIZE
 // ============================================================
@@ -1619,7 +673,7 @@ function normalizeAffiliations(arr) {
     }).filter(function(a) { return a.name || a.id; });
 }
 
-function normalize(item) {
+function normalizeDataset(item) {
     var attrs = item.attributes || {};
     var creators = (attrs.creators || []).map(function(c) {
         var orcid = '';
@@ -2260,8 +1314,9 @@ function scoreMapping(d) {
 // ============================================================
 // FILTER + SORT
 // ============================================================
-function buildSearchBlob(d) {
-    if (d._search) return d._search;
+// Searchable bits for the chassis buildSearchBlob(entity, fieldsFn) —
+// the blob is memoised on d._search by the chassis.
+function datasetSearchFields(d) {
     var bits = [d.title, d.doi, d.publisher, d.resourceType, d.resourceTypeGeneral];
     d.creators.forEach(function(c) {
         bits.push(c.name);
@@ -2281,23 +1336,30 @@ function buildSearchBlob(d) {
         bits.push(f.awardTitle);
     });
     d.descriptions.forEach(function(dd) { bits.push(dd.description); });
-    d._search = bits.filter(Boolean).join(' ').toLowerCase();
-    return d._search;
+    return bits;
+}
+
+// Non-fleet filters only (search / type / year / issuesOnly). Shared by
+// visibleDatasets and the fleet panel's contextFilter — the fleet filter
+// itself must stay out so the panel doesn't shrink when clicked.
+function datasetContextFilter(d) {
+    var f = state.filter;
+    if (f.search && buildSearchBlob(d, datasetSearchFields).indexOf(f.search) === -1) return false;
+    if (f.type) {
+        if (f.type === 'Other') {
+            if (d.resourceTypeGeneral === 'Dataset' || d.resourceTypeGeneral === 'PhysicalObject') return false;
+        } else {
+            if (d.resourceTypeGeneral !== f.type) return false;
+        }
+    }
+    if (f.year && String(d.publicationYear || '') !== f.year) return false;
+    if (f.issuesOnly && d.mapping.score >= 80) return false;
+    return true;
 }
 
 function visibleDatasets() {
-    var f = state.filter;
     var list = state.datasets.filter(function(d) {
-        if (f.search && buildSearchBlob(d).indexOf(f.search) === -1) return false;
-        if (f.type) {
-            if (f.type === 'Other') {
-                if (d.resourceTypeGeneral === 'Dataset' || d.resourceTypeGeneral === 'PhysicalObject') return false;
-            } else {
-                if (d.resourceTypeGeneral !== f.type) return false;
-            }
-        }
-        if (f.year && String(d.publicationYear || '') !== f.year) return false;
-        if (f.issuesOnly && d.mapping.score >= 80) return false;
+        if (!datasetContextFilter(d)) return false;
         if (state.fleetFilter && !state.fleetFilter.predicate(d)) return false;
         return true;
     });
@@ -2316,123 +1378,6 @@ function visibleDatasets() {
         return 0;
     });
     return list;
-}
-
-// ============================================================
-// FLEET SUMMARY
-// ============================================================
-// Compute fleet stats over the same record set the table sees, but excluding
-// the fleet filter itself — otherwise clicking an item would shrink the panel
-// it's clicked from. Type/year/search filters DO apply, so the panel respects
-// what the user is currently looking at.
-function computeFleetStats() {
-    var f = state.filter;
-    var contextRecords = state.datasets.filter(function(d) {
-        if (f.search && buildSearchBlob(d).indexOf(f.search) === -1) return false;
-        if (f.type) {
-            if (f.type === 'Other') {
-                if (d.resourceTypeGeneral === 'Dataset' || d.resourceTypeGeneral === 'PhysicalObject') return false;
-            } else {
-                if (d.resourceTypeGeneral !== f.type) return false;
-            }
-        }
-        if (f.year && String(d.publicationYear || '') !== f.year) return false;
-        if (f.issuesOnly && d.mapping.score >= 80) return false;
-        return true;
-    });
-
-    var sections = fleetCategories.map(function(s) {
-        return {
-            section: s.section,
-            items: s.items.map(function(item) {
-                return {
-                    id: item.id,
-                    label: item.label,
-                    count: contextRecords.filter(item.predicate).length
-                };
-            })
-        };
-    });
-
-    return { total: contextRecords.length, sections: sections };
-}
-
-function renderFleetPanel() {
-    var grid = document.querySelector('.fleet-grid');
-    var contextEl = document.querySelector('.fleet-context');
-    if (!grid) return;
-    if (state.datasets.length === 0) {
-        grid.innerHTML = '';
-        if (contextEl) contextEl.textContent = '';
-        return;
-    }
-
-    var stats = computeFleetStats();
-    var f = state.filter;
-    var anyFilterActive = !!(f.search || f.type || f.year || f.issuesOnly);
-    if (contextEl) {
-        contextEl.textContent = '· ' + stats.total + ' records'
-            + (anyFilterActive ? ' (filtered)' : '')
-            + ' · click any line to filter the table';
-    }
-
-    var html = '';
-    stats.sections.forEach(function(section) {
-        html += '<div class="fleet-section">';
-        html += '<h4>' + escapeHtml(section.section) + '</h4>';
-        section.items.forEach(function(item) {
-            var isActive = state.fleetFilter && state.fleetFilter.id === item.id;
-            var isZero = item.count === 0;
-            var classes = 'fleet-item';
-            if (isActive) classes += ' active';
-            if (isZero) classes += ' zero';
-            html += '<div class="' + classes + '" data-fleet-id="' + escapeAttr(item.id) + '">'
-                + '<span class="count">' + item.count + '</span>'
-                + '<span class="label">' + escapeHtml(item.label) + '</span>'
-                + '</div>';
-        });
-        html += '</div>';
-    });
-    grid.innerHTML = html;
-}
-
-function bindFleetClicks() {
-    var grid = document.querySelector('.fleet-grid');
-    if (!grid) return;
-    grid.addEventListener('click', function(e) {
-        var item = e.target.closest('.fleet-item');
-        if (!item || item.classList.contains('zero')) return;
-        toggleFleetFilter(item.getAttribute('data-fleet-id'));
-    });
-}
-
-function toggleFleetFilter(id) {
-    if (state.fleetFilter && state.fleetFilter.id === id) {
-        state.fleetFilter = null;
-    } else {
-        var found = null;
-        for (var i = 0; i < fleetCategories.length && !found; i++) {
-            for (var j = 0; j < fleetCategories[i].items.length; j++) {
-                if (fleetCategories[i].items[j].id === id) {
-                    found = fleetCategories[i].items[j];
-                    break;
-                }
-            }
-        }
-        if (found) {
-            state.fleetFilter = { id: found.id, label: found.label, predicate: found.predicate };
-            var panel = document.getElementById('fleet-panel');
-            if (panel) panel.open = true;
-        }
-    }
-    renderFleetPanel();
-    renderTable();
-}
-
-function clearFleetFilter() {
-    state.fleetFilter = null;
-    renderFleetPanel();
-    renderTable();
 }
 
 // ============================================================
@@ -2495,7 +1440,7 @@ function renderTable() {
     var msg = visible.length + (visible.length === state.datasets.length ? '' : ' of ' + state.datasets.length) + ' datasets';
     if (state.fleetFilter) {
         msg += '<span class="fleet-filter-chip">' + escapeHtml(state.fleetFilter.label)
-            + ' <button onclick="clearFleetFilter()" title="Clear fleet filter">×</button></span>';
+            + ' <button title="Clear fleet filter">×</button></span>';
     }
     resultEl.innerHTML = msg;
 
@@ -2518,13 +1463,13 @@ function renderTable() {
 
 function renderTableRowsOnly() {
     // Only re-render citation pills + stats (light update during async loading)
-    var rows = document.querySelectorAll('tr.dataset-row');
+    var rows = document.querySelectorAll('tr.data-row');
     rows.forEach(function(row) {
         var doi = row.getAttribute('data-doi');
         var d = state.datasets.find(function(x) { return x.doi === doi; });
         if (!d) return;
         var cell = row.querySelector('.col-cites');
-        if (cell) cell.innerHTML = renderCitePill(d);
+        if (cell) cell.innerHTML = renderCitePill(d, state.citationCache);
     });
 }
 
@@ -2561,7 +1506,7 @@ function renderRow(d, num) {
     var mapping = d.mapping;
     var mapClass = mapping.score >= 80 ? 'good' : (mapping.score >= 60 ? 'warn' : 'bad');
 
-    return '<tr class="dataset-row' + (state.expanded.has(d.doi) ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '">'
+    return '<tr class="data-row' + (state.expanded.has(d.doi) ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '">'
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-title">'
             + '<div class="title-line">' + escapeHtml(d.title || '(no title)') + '</div>'
@@ -2571,7 +1516,7 @@ function renderRow(d, num) {
         + '<td class="col-authors">' + authorsHtml + '</td>'
         + '<td class="col-year">' + (d.publicationYear || '—') + '</td>'
         + '<td class="col-mapping"><div class="mapping-bar"><div class="track"><div class="fill ' + mapClass + '" style="width:' + mapping.score + '%"></div></div><div class="pct">' + mapping.score + '%</div></div></td>'
-        + '<td class="col-cites">' + renderCitePill(d) + '</td>'
+        + '<td class="col-cites">' + renderCitePill(d, state.citationCache) + '</td>'
         + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
         + '</tr>';
 }
@@ -2584,21 +1529,13 @@ function renderTypeBadge(general, specific) {
     return '<span class="badge ' + cls + '" title="resourceTypeGeneral: ' + escapeAttr(general || 'unknown') + '">' + escapeHtml(label) + '</span>';
 }
 
-function renderCitePill(d) {
-    if (typeof d.citationCount !== 'number') {
-        return '<span class="cite-pill loading">…</span>';
-    }
-    var cls = d.citationCount > 0 ? '' : 'zero';
-    return '<span class="cite-pill ' + cls + '">' + d.citationCount + '</span>';
-}
-
 function bindRowDelegation() {
     document.getElementById('ds-tbody').addEventListener('click', function(e) {
         // Skip if clicking a link or detail tab
         if (e.target.closest('a')) return;
         if (e.target.closest('.detail-tab')) return;
         if (e.target.closest('.detail-pane')) return;
-        var row = e.target.closest('tr.dataset-row');
+        var row = e.target.closest('tr.data-row');
         if (!row) return;
         var doi = row.getAttribute('data-doi');
         toggleDetail(doi);
@@ -2612,7 +1549,7 @@ function toggleDetail(doi) {
     if (state.expanded.has(doi)) {
         // scroll into view nicely
         setTimeout(function() {
-            var rows = document.querySelectorAll('tr.dataset-row');
+            var rows = document.querySelectorAll('tr.data-row');
             var row = null;
             for (var i = 0; i < rows.length; i++) {
                 if (rows[i].getAttribute('data-doi') === doi) { row = rows[i]; break; }
@@ -2630,7 +1567,7 @@ function toggleDetail(doi) {
 // ============================================================
 function renderDetailRow(d) {
     // Show the cached reciprocity gap count on the Citations tab, if we've loaded it before
-    var citCache = state.citationCache[d.doi];
+    var citCache = state.citationCache[normaliseDoi(d.doi)];
     var citTabBadge;
     if (citCache && citCache.reciprocity) {
         var r = citCache.reciprocity;
@@ -2676,7 +1613,16 @@ function bindDetailTabs() {
             if (pane && pane.getAttribute('data-loaded') !== 'true') {
                 var doi = detail.getAttribute('data-doi');
                 var dataset = state.datasets.find(function(x) { return x.doi === doi; });
-                loadCitationsInto(dataset, pane);
+                loadCitationsInto({
+                    entity: dataset,
+                    cache: state.citationCache,
+                    paneEl: pane,
+                    email: 'ben@auscope.org.au',
+                    onLoaded: function(stats) {
+                        updateCitationTabBadge(dataset.doi, stats);
+                        renderTableRowsOnly();  // refresh the ⚠ gap-marker pill
+                    }
+                });
                 pane.setAttribute('data-loaded', 'true');
             }
         }
@@ -2846,11 +1792,11 @@ function renderOverviewPane(d) {
             if (g.geoLocationPlace) bits.push(escapeHtml(g.geoLocationPlace));
             if (g.geoLocationPoint) {
                 var p = g.geoLocationPoint;
-                bits.push('<span class="mono">' + p.pointLatitude + ', ' + p.pointLongitude + '</span>');
+                bits.push('<span class="mono">' + escapeHtml(String(p.pointLatitude)) + ', ' + escapeHtml(String(p.pointLongitude)) + '</span>');
             }
             if (g.geoLocationBox) {
                 var b = g.geoLocationBox;
-                bits.push('<span class="mono">box: ' + b.southBoundLatitude + ',' + b.westBoundLongitude + ' → ' + b.northBoundLatitude + ',' + b.eastBoundLongitude + '</span>');
+                bits.push('<span class="mono">box: ' + escapeHtml(String(b.southBoundLatitude)) + ',' + escapeHtml(String(b.westBoundLongitude)) + ' → ' + escapeHtml(String(b.northBoundLatitude)) + ',' + escapeHtml(String(b.eastBoundLongitude)) + '</span>');
             }
             return '<div>' + bits.join(' · ') + '</div>';
         }).join('');
@@ -2980,7 +1926,7 @@ function renderOverviewPane(d) {
     var diagHtml = diag.length > 0 ? diag.join(' &nbsp;·&nbsp; ') : '<span class="empty">none</span>';
 
     return '<dl class="ov-grid">'
-        + '<dt>DOI</dt><dd><span class="mono">' + escapeHtml(d.doi) + '</span> · <a href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">resolve ↗</a> · <a href="https://commons.datacite.org/doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">DataCite Commons ↗</a> · <a href="javascript:void(0)" onclick="copyToClipboard(\'' + escapeAttr(d.doi) + '\')">copy</a></dd>'
+        + '<dt>DOI</dt><dd><span class="mono">' + escapeHtml(d.doi) + '</span> · <a href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">resolve ↗</a> · <a href="https://commons.datacite.org/doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">DataCite Commons ↗</a> · <a href="#" class="copy-doi-btn" data-doi="' + escapeAttr(d.doi) + '">copy</a></dd>'
         + '<dt>Title(s)</dt><dd>' + titlesHtml + '</dd>'
         + '<dt>Resource type</dt><dd>' + resTypeHtml + '</dd>'
         + '<dt>Publisher</dt><dd>' + publisherHtml + '</dd>'
@@ -3061,315 +2007,10 @@ function renderRelatedPane(d) {
     return html;
 }
 
-// ----- Citations pane (lazy) -----
-// Relations from a dataset's relatedIdentifiers that imply a paper-cites-dataset link.
-// IsCitedBy is the canonical reciprocal of "Cites"; the others are stronger relations
-// (a paper that supplements/describes/documents a dataset inevitably cites it).
-var CITING_RELATIONS = ['IsCitedBy', 'IsReferencedBy', 'IsSupplementTo', 'IsDescribedBy', 'IsDocumentedBy'];
-
-async function loadCitationsInto(d, pane) {
-    if (!d) {
-        pane.innerHTML = '<div class="empty-state" style="color:var(--bad)">Dataset not found.</div>';
-        return;
-    }
-    var doi = d.doi;
-
-    // Cache hit — render instantly, no network round-trip
-    var cached = state.citationCache[doi];
-    if (cached && cached.fullCitations && cached.reciprocity) {
-        renderCitationsPane(d, cached.fullCitations, cached.reciprocity, cached.sources || {}, pane);
-        return;
-    }
-
-    pane.innerHTML = '<div class="empty-state"><span class="spinner"></span> Querying DataCite, OpenCitations, and OpenAlex…</div>';
-    try {
-        var results = await Promise.allSettled([
-            fetchDataCiteCitations(doi),
-            fetchOpenCitations(doi),
-            fetchOpenAlexCitations(doi)
-        ]);
-        var fb = function(r, n) { return r.status === 'fulfilled' ? r.value : { source: n, error: String(r.reason), citations: [], reportedCount: 0 }; };
-        var datacite = fb(results[0], 'datacite');
-        var oc = fb(results[1], 'opencitations');
-        var oa = fb(results[2], 'openalex');
-
-        // Merge external citations across sources
-        var map = {};
-        function add(res, src) {
-            res.citations.forEach(function(c) {
-                var key = c.doi || ('notitle_' + (c.title || '').toLowerCase().substring(0, 50));
-                if (!map[key]) {
-                    map[key] = { doi: c.rawDoi, normDoi: normaliseDoi(c.doi || c.rawDoi), authors: c.authors, year: c.year, title: c.title, journal: c.journal, sources: [src] };
-                } else {
-                    map[key].sources.push(src);
-                    if (c.authors && c.authors.length > (map[key].authors || '').length) map[key].authors = c.authors;
-                    if (c.journal && c.journal !== 'N/A' && map[key].journal === 'N/A') map[key].journal = c.journal;
-                    if (c.year && !map[key].year) map[key].year = c.year;
-                    if (c.title && c.title !== 'Untitled' && map[key].title === 'Untitled') map[key].title = c.title;
-                }
-            });
-        }
-        add(datacite, 'datacite');
-        add(oc, 'opencitations');
-        add(oa, 'openalex');
-        var merged = Object.values(map);
-
-        var analysis = analyseReciprocity(d, merged);
-        merged = analysis.merged;
-        var stats = analysis.stats;
-
-        // Cache for fast re-render and badge persistence
-        state.citationCache[doi] = state.citationCache[doi] || {};
-        state.citationCache[doi].fullCitations = merged;
-        state.citationCache[doi].sources = { datacite: datacite, opencitations: oc, openalex: oa };
-        state.citationCache[doi].reciprocity = stats;
-
-        renderCitationsPane(d, merged, stats, { datacite: datacite, opencitations: oc, openalex: oa }, pane);
-    } catch (e) {
-        pane.innerHTML = '<div class="empty-state" style="color:var(--bad)">Error loading citations: ' + escapeHtml(e.message) + '</div>';
-    }
-}
-
-// Build an info "(i)" icon with a hover tooltip. Use sparingly — only where
-// a one-line explanation genuinely helps the reader understand a DataCite
-// concept or page-specific term.
-function infoTip(text) {
-    return ' <span class="info-i" data-tip="' + escapeAttr(text) + '">i</span>';
-}
-
-// Compute reciprocity status for a list of merged external citations against
-// the dataset's declared relatedIdentifiers. Returns { merged, stats }.
-//
-// The "gap" state is split into two sub-states based on whether DataCite is
-// already aware of the citation via auto-discovery (typically Crossref
-// reference data). This matters because:
-//   - "echo gap" (gap-known): DataCite knows the link, dataset record doesn't
-//     echo it. Adding IsCitedBy here is a self-description improvement, but
-//     the citation is already discoverable via the global graph.
-//   - "novel gap" (gap-novel): only OpenCitations / OpenAlex have the link.
-//     Adding IsCitedBy here actually contributes new information to DataCite.
-function analyseReciprocity(d, merged) {
-    var declared = (d.relatedIdentifiers || [])
-        .filter(function(r) {
-            return CITING_RELATIONS.indexOf(r.relationType) >= 0
-                && (r.relatedIdentifierType || '').toUpperCase() === 'DOI'
-                && r.relatedIdentifier;
-        })
-        .map(function(r) {
-            return {
-                doi: normaliseDoi(r.relatedIdentifier),
-                rawDoi: r.relatedIdentifier,
-                relationType: r.relationType
-            };
-        });
-    var declaredMap = {};
-    declared.forEach(function(x) { if (x.doi) declaredMap[x.doi] = x; });
-
-    // Tag external citations
-    var externalDoiSet = {};
-    merged.forEach(function(c) { if (c.normDoi) externalDoiSet[c.normDoi] = true; });
-    merged.forEach(function(c) {
-        if (!c.normDoi) { c.reciprocity = 'no-doi'; return; }
-        if (declaredMap[c.normDoi]) {
-            c.reciprocity = 'declared';
-            c.declaredRelation = declaredMap[c.normDoi].relationType;
-        } else {
-            // Split based on whether DataCite is already a source for this citation.
-            // If yes → DataCite's graph already has it via Crossref/auto-discovery,
-            // so the dataset record just hasn't echoed it. If no → only external
-            // sources know about it; adding IsCitedBy adds new information to DataCite.
-            if (c.sources && c.sources.indexOf('datacite') >= 0) {
-                c.reciprocity = 'gap-known';
-            } else {
-                c.reciprocity = 'gap-novel';
-            }
-        }
-    });
-
-    // Add declared-only entries
-    declared.forEach(function(x) {
-        if (x.doi && !externalDoiSet[x.doi]) {
-            merged.push({
-                doi: x.rawDoi,
-                normDoi: x.doi,
-                title: '(declared in DataCite — not yet confirmed by external citation index)',
-                authors: 'Unknown',
-                year: null,
-                journal: 'N/A',
-                sources: [],
-                reciprocity: 'declared-only',
-                declaredRelation: x.relationType
-            });
-        }
-    });
-
-    // Sort: novel gaps first (highest curation value), then echo gaps,
-    // then declared, then declared-only, then no-doi. Year-desc within each band.
-    var rank = { 'gap-novel': 0, 'gap-known': 1, 'declared': 2, 'declared-only': 3, 'no-doi': 4 };
-    merged.sort(function(a, b) {
-        var ra = rank[a.reciprocity] !== undefined ? rank[a.reciprocity] : 99;
-        var rb = rank[b.reciprocity] !== undefined ? rank[b.reciprocity] : 99;
-        if (ra !== rb) return ra - rb;
-        return (b.year || 0) - (a.year || 0);
-    });
-
-    // Stats
-    var stats = {
-        total: merged.length, external: 0, declared: 0,
-        gaps: 0, gapsNovel: 0, gapsKnown: 0,
-        declaredOnly: 0, noDoi: 0, totalDeclared: 0
-    };
-    merged.forEach(function(c) {
-        if (c.reciprocity === 'declared') stats.declared++;
-        else if (c.reciprocity === 'gap-novel') { stats.gaps++; stats.gapsNovel++; }
-        else if (c.reciprocity === 'gap-known') { stats.gaps++; stats.gapsKnown++; }
-        else if (c.reciprocity === 'declared-only') stats.declaredOnly++;
-        else if (c.reciprocity === 'no-doi') stats.noDoi++;
-    });
-    stats.external = stats.declared + stats.gaps + stats.noDoi;
-    stats.totalDeclared = stats.declared + stats.declaredOnly;
-
-    return { merged: merged, stats: stats };
-}
-
-function renderCitationsPane(d, merged, stats, sources, pane) {
-    var html = '';
-    html += renderReciprocityBanner(stats, d.doi);
-
-    html += '<div class="cit-toolbar">';
-    html += '<div class="source-summary">'
-        + renderSrcChip('DataCite', sources.datacite || { citations: [] })
-        + renderSrcChip('OpenCitations', sources.opencitations || { citations: [] })
-        + renderSrcChip('OpenAlex', sources.openalex || { citations: [] })
-        + '</div>';
-    html += '<div style="font-size:12px;color:var(--text-soft);"><strong>' + merged.length + '</strong> entr' + (merged.length === 1 ? 'y' : 'ies') + ' total</div>';
-    html += '</div>';
-
-    if (merged.length === 0) {
-        html += '<div class="empty-state">No citations found across any source, and no relatedIdentifiers declared in the DataCite record.</div>';
-    } else {
-        html += '<ul class="citation-list">';
-        merged.forEach(function(c, idx) { html += renderCitationItem(c, idx); });
-        html += '</ul>';
-    }
-
-    pane.innerHTML = html;
-
-    // Wire up "Copy gap DOIs" button
-    var copyBtn = pane.querySelector('.copy-gaps-btn');
-    if (copyBtn) {
-        copyBtn.addEventListener('click', function() {
-            var gapDois = merged.filter(function(c) { return c.reciprocity === 'gap-novel' || c.reciprocity === 'gap-known'; })
-                                .map(function(c) { return c.doi || c.normDoi; })
-                                .filter(Boolean);
-            copyToClipboard(gapDois.join('\n'));
-            showToast(gapDois.length + ' gap DOI' + (gapDois.length === 1 ? '' : 's') + ' copied — paste as IsCitedBy relations in DataCite');
-        });
-    }
-
-    updateCitationTabBadge(d.doi, stats);
-}
-
-function renderReciprocityBanner(stats, doi) {
-    if (stats.total === 0) return '';
-    var bannerCls;
-    var headline;
-    if (stats.gaps === 0 && stats.external > 0) {
-        bannerCls = 'good';
-        headline = '✓ All discovered citations are declared in DataCite.';
-    } else if (stats.gapsNovel > 0) {
-        bannerCls = 'warn';
-        headline = stats.gapsNovel + ' citation' + (stats.gapsNovel === 1 ? '' : 's') + ' found only in external sources — DataCite\'s graph doesn\'t have ' + (stats.gapsNovel === 1 ? 'this link' : 'these links') + ' yet.';
-    } else if (stats.gapsKnown > 0) {
-        bannerCls = 'warn';
-        headline = stats.gapsKnown + ' citation' + (stats.gapsKnown === 1 ? '' : 's') + ' already in DataCite — declaring IsCitedBy in this record would echo ' + (stats.gapsKnown === 1 ? 'it' : 'them') + '.';
-    } else {
-        bannerCls = 'neutral';
-        headline = stats.declaredOnly + ' relation' + (stats.declaredOnly === 1 ? '' : 's') + ' declared in DataCite — no external citation source has confirmed yet.';
-    }
-
-    var html = '<div class="recip-banner ' + bannerCls + '">';
-    html += '<div>';
-    html += '<span class="recip-headline">' + escapeHtml(headline) + '</span>';
-    html += '<div class="recip-pills">';
-    if (stats.external > 0) {
-        html += '<span class="recip-pill"><strong>' + stats.external + '</strong> found externally'
-            + infoTip('Citations to this dataset that DataCite, OpenCitations, or OpenAlex have indexed. DataCite picks up citations automatically when the citing paper (registered with Crossref) declares the dataset DOI in its references.')
-            + '</span>';
-    }
-    html += '<span class="recip-pill"><strong>' + stats.totalDeclared + '</strong> declared in DataCite'
-        + infoTip('Relations in this dataset\'s relatedIdentifiers array. Counted relations: IsCitedBy, IsReferencedBy, IsSupplementTo, IsDescribedBy, IsDocumentedBy.')
-        + '</span>';
-    if (stats.gapsNovel > 0) {
-        html += '<span class="recip-pill gap"><strong>' + stats.gapsNovel + '</strong> novel gap' + (stats.gapsNovel === 1 ? '' : 's')
-            + infoTip('Citation only OpenCitations or OpenAlex know about — DataCite doesn\'t have the link in its citation graph. Adding IsCitedBy to this dataset record contributes new information to the global graph.')
-            + '</span>';
-    }
-    if (stats.gapsKnown > 0) {
-        html += '<span class="recip-pill gap-known"><strong>' + stats.gapsKnown + '</strong> echo gap' + (stats.gapsKnown === 1 ? '' : 's')
-            + infoTip('Citation DataCite already discovered (typically because the citing paper declared the reference in Crossref). Adding IsCitedBy to this record echoes information that already exists in the citation graph — useful for self-description but not strictly necessary.')
-            + '</span>';
-    }
-    if (stats.declaredOnly > 0) {
-        html += '<span class="recip-pill info"><strong>' + stats.declaredOnly + '</strong> declared only'
-            + infoTip('Relations declared in this record\'s relatedIdentifiers array that no external citation index has confirmed yet. Either the citing work is too recent to be indexed, or the relation may need verification.')
-            + '</span>';
-    }
-    if (stats.noDoi > 0) {
-        html += '<span class="recip-pill info"><strong>' + stats.noDoi + '</strong> no DOI'
-            + infoTip('Citation found without a DOI — reciprocity cannot be determined automatically.')
-            + '</span>';
-    }
-    html += '</div></div>';
-    if (stats.gaps > 0) {
-        html += '<button class="copy-gaps-btn" data-doi="' + escapeAttr(doi) + '" data-tip="Copies all gap DOIs to clipboard, novel gaps first. Paste into DataCite Fabrica as IsCitedBy relations.">Copy ' + stats.gaps + ' gap DOI' + (stats.gaps === 1 ? '' : 's') + '</button>';
-    }
-    html += '</div>';
-    return html;
-}
-
-function renderCitationItem(c, idx) {
-    var srcTags = (c.sources || []).map(function(s) {
-        return '<span class="source-tag tag-' + s + '">' + s + '</span>';
-    }).join('');
-    var doiLink = c.doi && c.doi !== 'N/A'
-        ? '<a href="https://doi.org/' + escapeAttr(c.doi) + '" target="_blank" rel="noopener">' + escapeHtml(c.doi) + '</a>'
-        : '<span style="color:var(--text-muted)">no DOI</span>';
-
-    var recipBadge = '';
-    var relText = c.declaredRelation
-        ? '<span class="relation">(' + escapeHtml(c.declaredRelation) + ')</span>'
-        : '';
-    if (c.reciprocity === 'declared') {
-        recipBadge = '<span class="recip-badge declared" data-tip="Reciprocally declared: external citation sources found this paper, and this dataset\'s relatedIdentifiers array also declares the link as ' + escapeAttr(c.declaredRelation || 'related') + '.">↔ declared ' + relText + '</span>';
-    } else if (c.reciprocity === 'gap-novel') {
-        recipBadge = '<span class="recip-badge gap" data-tip="Found only in OpenCitations / OpenAlex. DataCite\'s citation graph doesn\'t have this link yet. Declaring IsCitedBy for this DOI in the dataset record adds new information to DataCite.">⚠ novel gap</span>';
-    } else if (c.reciprocity === 'gap-known') {
-        recipBadge = '<span class="recip-badge gap-known" data-tip="DataCite already has this citation discovered (typically via Crossref reference data on the citing paper). Adding IsCitedBy in this record echoes information that\'s already in the global graph — improves self-description but lower priority than novel gaps.">⚠ echo gap</span>';
-    } else if (c.reciprocity === 'declared-only') {
-        recipBadge = '<span class="recip-badge declared-only" data-tip="Declared in this record\'s relatedIdentifiers as ' + escapeAttr(c.declaredRelation || 'related') + ', but no external citation index has confirmed it yet. Either the citing work is too recent to index, or the relation may need verification.">○ declared only ' + relText + '</span>';
-    } else if (c.reciprocity === 'no-doi') {
-        recipBadge = '<span class="recip-badge no-doi" data-tip="No DOI available — reciprocity cannot be determined automatically.">no DOI</span>';
-    }
-
-    var itemClass = 'citation-item';
-    if (c.reciprocity === 'gap-novel') itemClass += ' is-gap-novel';
-    else if (c.reciprocity === 'gap-known') itemClass += ' is-gap-known';
-    else if (c.reciprocity === 'declared-only') itemClass += ' is-declared-only';
-
-    return '<li class="' + itemClass + '">'
-        + '<div class="cit-status">' + recipBadge + '</div>'
-        + '<div class="cit-body">'
-        + '<div class="title">' + (idx + 1) + '. ' + escapeHtml(fixEncoding(c.title || 'Untitled')) + (srcTags ? '<span class="sources">' + srcTags + '</span>' : '') + '</div>'
-        + '<div class="meta">'
-        + escapeHtml(fixEncoding(c.authors || 'Unknown')) + ' · '
-        + (c.year || '?') + ' · '
-        + (c.journal && c.journal !== 'N/A' ? escapeHtml(fixEncoding(c.journal)) + ' · ' : '')
-        + doiLink
-        + '</div>'
-        + '</div>'
-        + '</li>';
-}
+// ----- Citations pane -----
+// The citation / reciprocity pipeline (CITING_RELATIONS, source fetchers,
+// merge, analyser, pane renderers, infoTip) lives in tracker-citations.js.
+// updateCitationTabBadge stays page-side — it patches this page's DOM.
 
 function updateCitationTabBadge(doi, stats) {
     // Find the open detail panel for this DOI and patch its Citations tab label in place.
@@ -3387,236 +2028,77 @@ function updateCitationTabBadge(doi, stats) {
     }
 }
 
-function renderSrcChip(label, result) {
-    var cls = 'src';
-    var text;
-    if (result.error) { cls += ' error'; text = label + ': ' + result.error; }
-    else if (result.citations.length > 0) { cls += ' has-data'; text = label + ': ' + result.citations.length; }
-    else { text = label + ': 0'; }
-    return '<span class="' + cls + '" title="' + escapeAttr(text) + '"><span class="dot"></span>' + escapeHtml(text) + '</span>';
-}
-
-async function fetchDataCiteCitations(doi) {
-    var query = 'query($id: ID!) { work(id: $id) { citationCount citations { totalCount nodes { doi titles { title } publicationYear creators { name givenName familyName } publisher { name } container { title } types { resourceTypeGeneral } } } } }';
-    var resp = await fetch('https://api.datacite.org/graphql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: query, variables: { id: doi } })
-    });
-    if (!resp.ok) return { source: 'datacite', error: 'HTTP ' + resp.status, citations: [], reportedCount: 0 };
-    var result = await resp.json();
-    if (result.errors) return { source: 'datacite', error: result.errors[0].message, citations: [], reportedCount: 0 };
-    var work = result.data && result.data.work;
-    if (!work) return { source: 'datacite', error: 'DOI not found', citations: [], reportedCount: 0 };
-    var nodes = (work.citations && work.citations.nodes) ? work.citations.nodes : [];
-    var citations = nodes.map(function(n) {
-        return {
-            doi: normaliseDoi(n.doi),
-            rawDoi: n.doi || 'N/A',
-            authors: formatAuthors(n.creators),
-            year: n.publicationYear || null,
-            title: n.titles && n.titles[0] ? n.titles[0].title : 'Untitled',
-            journal: n.container && n.container.title ? n.container.title : (n.publisher && n.publisher.name ? n.publisher.name : 'N/A')
-        };
-    });
-    return { source: 'datacite', error: null, citations: citations, reportedCount: work.citationCount || 0 };
-}
-
-async function fetchOpenCitations(doi) {
-    var resp = await fetch('https://opencitations.net/index/coci/api/v1/citations/' + doi);
-    if (!resp.ok) {
-        if (resp.status === 404) return { source: 'opencitations', error: 'Not found', citations: [], reportedCount: 0 };
-        return { source: 'opencitations', error: 'HTTP ' + resp.status, citations: [], reportedCount: 0 };
-    }
-    var data = await resp.json();
-    if (!Array.isArray(data) || data.length === 0) return { source: 'opencitations', error: null, citations: [], reportedCount: 0 };
-    var citations = data.map(function(item) {
-        var citingDoi = (item.citing || '').replace(/^https?:\/\/doi\.org\//i, '');
-        var year = null;
-        if (item.creation) {
-            var m = item.creation.match(/^(\d{4})/);
-            if (m) year = parseInt(m[1]);
-        }
-        return { doi: normaliseDoi(citingDoi), rawDoi: citingDoi, authors: 'Unknown', year: year, title: 'Untitled', journal: 'N/A' };
-    });
-    return { source: 'opencitations', error: null, citations: citations, reportedCount: data.length };
-}
-
-async function fetchOpenAlexCitations(doi) {
-    var sr = await fetch('https://api.openalex.org/works/doi:' + doi + '?mailto=ben@auscope.org.au');
-    if (sr.status === 404) return { source: 'openalex', error: 'Not found', citations: [], reportedCount: 0 };
-    if (!sr.ok) return { source: 'openalex', error: 'HTTP ' + sr.status, citations: [], reportedCount: 0 };
-    var src = await sr.json();
-    var n = src.cited_by_count || 0;
-    if (n === 0) return { source: 'openalex', error: null, citations: [], reportedCount: 0 };
-    var oid = src.id.replace('https://openalex.org/', '');
-    var cr = await fetch('https://api.openalex.org/works?filter=cites:' + oid + '&per_page=50&sort=publication_year:desc&mailto=ben@auscope.org.au');
-    if (!cr.ok) return { source: 'openalex', error: 'Failed to fetch citing works', citations: [], reportedCount: n };
-    var cd = await cr.json();
-    var items = cd.results || [];
-    var citations = items.map(function(item) {
-        var authors = (item.authorships || []).map(function(a) {
-            var name = (a.author && a.author.display_name) || 'Unknown';
-            var parts = name.split(' ');
-            if (parts.length >= 2) return { family: parts[parts.length - 1], given: parts.slice(0, -1).join(' ') };
-            return { name: name };
-        });
-        var journal = 'N/A';
-        if (item.primary_location && item.primary_location.source) journal = item.primary_location.source.display_name || 'N/A';
-        var iDoi = item.doi ? item.doi.replace('https://doi.org/', '') : '';
-        return { doi: normaliseDoi(iDoi), rawDoi: iDoi || 'N/A', authors: formatAuthors(authors), year: item.publication_year || null, title: item.title || 'Untitled', journal: journal };
-    });
-    return { source: 'openalex', error: null, citations: citations, reportedCount: n };
-}
-
 // ----- Raw JSON pane -----
 function renderRawPane(d) {
     var json = JSON.stringify(d._raw, null, 2);
     return '<pre class="raw-json">' + syntaxHighlightJson(json) + '</pre>';
 }
 
-function syntaxHighlightJson(json) {
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
-        var cls = 'num';
-        if (/^"/.test(match)) {
-            cls = /:$/.test(match) ? 'key' : 'str';
-        } else if (/true|false/.test(match)) {
-            cls = 'bool';
-        } else if (/null/.test(match)) {
-            cls = 'null';
-        }
-        return '<span class="' + cls + '">' + match + '</span>';
-    });
-}
-
 // ============================================================
 // EXPORT
 // ============================================================
-function exportCsv() {
-    var visible = visibleDatasets();
-    if (visible.length === 0) { showToast('Nothing to export.'); return; }
-    var headers = ['DOI', 'Title', 'Type', 'ResourceType', 'Year', 'Publisher', 'Authors', 'ORCIDs', 'Affiliations', 'AffiliationRORs', 'Subjects', 'MappingScore', 'Citations'];
-    var rows = visible.map(function(d) {
-        var authors = d.creators.map(function(c) { return c.name; }).join('; ');
-        var orcids = d.creators.map(function(c) { return c.orcid; }).filter(Boolean).join('; ');
-        var affilNames = [];
-        var affilRors = [];
-        d.creators.forEach(function(c) {
-            (c.affiliation || []).forEach(function(a) {
-                if (a.name) affilNames.push(a.name);
-                if (a.id && (a.idScheme || '').toUpperCase() === 'ROR') affilRors.push(a.id);
-            });
-        });
-        var subjects = d.subjects.map(function(s) { return s.subject; }).join('; ');
-        return [
-            d.doi,
-            d.title,
-            d.resourceTypeGeneral,
-            d.resourceType,
-            d.publicationYear || '',
-            d.publisher,
-            authors,
-            orcids,
-            affilNames.join('; '),
-            affilRors.join('; '),
-            subjects,
-            d.mapping.score,
-            typeof d.citationCount === 'number' ? d.citationCount : ''
-        ];
+// Column config for the chassis exportCsv({ columns, rows, filenamePrefix }).
+
+function creatorAffiliationNames(d) {
+    var names = [];
+    d.creators.forEach(function(c) {
+        (c.affiliation || []).forEach(function(a) { if (a.name) names.push(a.name); });
     });
-    var csv = [headers].concat(rows).map(function(r) {
-        return r.map(function(v) {
-            v = v == null ? '' : String(v);
-            if (v.indexOf(',') >= 0 || v.indexOf('"') >= 0 || v.indexOf('\n') >= 0) v = '"' + v.replace(/"/g, '""') + '"';
-            return v;
-        }).join(',');
-    }).join('\n');
-    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'earthbank-datasets-' + new Date().toISOString().substring(0, 10) + '.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    showToast('Exported ' + visible.length + ' datasets to CSV.');
+    return names.join('; ');
+}
+
+function creatorAffiliationRors(d) {
+    var rors = [];
+    d.creators.forEach(function(c) {
+        (c.affiliation || []).forEach(function(a) {
+            if (a.id && (a.idScheme || '').toUpperCase() === 'ROR') rors.push(a.id);
+        });
+    });
+    return rors.join('; ');
+}
+
+var CSV_COLUMNS = [
+    { header: 'DOI', value: function(d) { return d.doi; } },
+    { header: 'Title', value: function(d) { return d.title; } },
+    { header: 'Type', value: function(d) { return d.resourceTypeGeneral; } },
+    { header: 'ResourceType', value: function(d) { return d.resourceType; } },
+    { header: 'Year', value: function(d) { return d.publicationYear || ''; } },
+    { header: 'Publisher', value: function(d) { return d.publisher; } },
+    { header: 'Authors', value: function(d) { return d.creators.map(function(c) { return c.name; }).join('; '); } },
+    { header: 'ORCIDs', value: function(d) { return d.creators.map(function(c) { return c.orcid; }).filter(Boolean).join('; '); } },
+    { header: 'Affiliations', value: creatorAffiliationNames },
+    { header: 'AffiliationRORs', value: creatorAffiliationRors },
+    { header: 'Subjects', value: function(d) { return d.subjects.map(function(s) { return s.subject; }).join('; '); } },
+    { header: 'MappingScore', value: function(d) { return d.mapping.score; } },
+    { header: 'Citations', value: function(d) { return typeof d.citationCount === 'number' ? d.citationCount : ''; } }
+];
+
+function exportVisibleCsv() {
+    exportCsv({
+        columns: CSV_COLUMNS,
+        rows: visibleDatasets(),
+        filenamePrefix: 'earthbank-datasets'
+    });
 }
 
 // ============================================================
-// HELPERS
+// PAGE HELPERS
 // ============================================================
-function debounce(fn, ms) {
-    var t;
-    return function() {
-        var args = arguments, ctx = this;
-        clearTimeout(t);
-        t = setTimeout(function() { fn.apply(ctx, args); }, ms);
-    };
-}
+// Generic utilities (escapeHtml, escapeAttr, normaliseDoi, fixEncoding,
+// formatAuthors, debounce, sleep, syntaxHighlightJson, copyToClipboard,
+// fallbackCopy, showToast) live in tracker-chassis.js.
 
-function sleep(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
-
-function escapeHtml(t) {
-    if (t == null) return '';
-    var div = document.createElement('div');
-    div.textContent = String(t);
-    return div.innerHTML;
-}
-
-function escapeAttr(t) {
-    return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-function normaliseDoi(doi) { return (doi || '').toLowerCase().replace(/^https?:\/\/doi\.org\//i, '').trim(); }
-
-function fixEncoding(text) {
-    if (!text) return text;
-    return text
-        .replace(/\u00e2\u0080\u0093/g, '\u2013')
-        .replace(/\u00e2\u0080\u0094/g, '\u2014')
-        .replace(/\u00e2\u0080\u0099/g, '\u2019')
-        .replace(/\u00e2\u0080\u009c/g, '\u201c')
-        .replace(/\u00e2\u0080\u009d/g, '\u201d')
-        .replace(/\ufffd/g, '\u2013');
-}
-
-function formatAuthors(creators) {
-    if (!creators || creators.length === 0) return 'Unknown';
-    return creators.map(function(c) {
-        if (c.family && c.given) return c.family + ', ' + c.given.charAt(0) + '.';
-        if (c.familyName && c.givenName) return c.familyName + ', ' + c.givenName.charAt(0) + '.';
-        return c.name || c.literal || 'Unknown';
-    }).join(', ');
-}
-
-function copyToClipboard(text) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(function() {
-            showToast('DOI copied: ' + text);
-        }).catch(function() { fallbackCopy(text); });
-    } else {
-        fallbackCopy(text);
-    }
-}
-function fallbackCopy(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); showToast('DOI copied: ' + text); } catch (e) {}
-    document.body.removeChild(ta);
-}
-
-var toastTimer;
-function showToast(msg) {
-    var t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function() { t.classList.remove('show'); }, 2200);
-}
+// Chassis copyToClipboard is silent — this delegated handler owns the single
+// toast. Delegation (not inline onclick) keeps API-sourced DOIs out of
+// JS-string contexts.
+document.addEventListener('click', function(e) {
+    var btn = e.target.closest ? e.target.closest('.copy-doi-btn') : null;
+    if (!btn) return;
+    e.preventDefault();
+    var doi = btn.getAttribute('data-doi') || '';
+    copyToClipboard(doi);
+    showToast('DOI copied: ' + doi);
+});
 
 // Bootstrap (script is at end of body, DOM is available)
 init();
