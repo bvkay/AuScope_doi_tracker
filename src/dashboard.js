@@ -39,7 +39,8 @@ function run() {
     stats: stats.summary,
     publicationsByYear: stats.byYear,
     topSubjects: stats.topSubjects,
-    citationDistribution: stats.citationBuckets
+    citationDistribution: stats.citationBuckets,
+    evidenceBreakdown: stats.evidence
   }, null, 2));
 
   // ── Write docs/index.html ──
@@ -192,8 +193,53 @@ function computeStats(pubs, datasets) {
     },
     byYear,
     topSubjects,
-    citationBuckets
+    citationBuckets,
+    evidence: computeEvidence(pubs)
   };
+}
+
+// Evidence ladder distribution (field written by src/evidence.js).
+function computeEvidence(pubs) {
+  const counts = {};
+  let tagged = 0;
+  for (const p of pubs) {
+    if (!p.evidence) continue;
+    tagged++;
+    counts[p.evidence] = (counts[p.evidence] || 0) + 1;
+  }
+  return tagged ? counts : null;
+}
+
+// Evidence ladder section: how strongly each publication is linked to
+// AuScope, best evidence first. The honest split IS the feature — keyword-
+// only papers are shown, not hidden.
+const EVIDENCE_LADDER = [
+  { key: 'verified', label: 'Verified', desc: 'AuScope ROR or funder ID on the paper', fill: '#282572' },
+  { key: 'candidate', label: 'Candidate', desc: 'watchlist ORCID + partner co-affiliation', fill: '#4a43b8' },
+  { key: 'text-attributed', label: 'Acknowledged in text', desc: 'AuScope/facility acknowledgement found', fill: '#6c66d6' },
+  { key: 'text-infrastructure', label: 'Infrastructure-enabled', desc: 'infrastructure-use wording found', fill: '#8f8ae0' },
+  { key: 'text-software', label: 'AuScope software used', desc: 'GPlates, Underworld, and other tools', fill: '#b3afe9' },
+  { key: 'keyword', label: 'Keyword match only', desc: 'no confirmed signal yet — under review', fill: '#cbd5e1' }
+];
+
+function buildEvidenceSection(evidence) {
+  if (!evidence) return '';
+  const max = Math.max.apply(null, EVIDENCE_LADDER.map(function(e) { return evidence[e.key] || 0; }));
+  const rows = EVIDENCE_LADDER.map(function(e) {
+    const n = evidence[e.key] || 0;
+    const w = max ? Math.max(2, Math.round(n / max * 100)) : 2;
+    return '            <div class="bar-row" title="' + e.desc + '">\n'
+      + '                <div class="bar-label">' + e.label + '</div>\n'
+      + '                <div class="bar-track"><div class="bar-fill" style="width:' + w + '%;background:' + e.fill + '"></div></div>\n'
+      + '                <div class="bar-value">' + n.toLocaleString() + '</div>\n'
+      + '            </div>';
+  }).join('\n');
+  return '\n    <!-- ═══ Evidence ladder (from src/evidence.js) ═══ -->\n'
+    + '    <div class="explorers">\n'
+    + '        <h2>Evidence behind the publications count</h2>\n'
+    + '        <div class="note">Every publication is graded by its strongest verifiable link to AuScope — identifier evidence first, then text acknowledgement, then keyword match. Hover a row for the grading rule.</div>\n'
+    + '        <div class="bar-chart">\n' + rows + '\n        </div>\n'
+    + '    </div>\n';
 }
 
 // Hero tiles: cross-pillar headline numbers. Researchers/institutions/
@@ -490,6 +536,7 @@ ${buildHeroTiles(s, pillarData)}
     </div>
 
 ${explorerCards}
+${buildEvidenceSection(stats.evidence)}
     <!-- ═══ Charts ═══ -->
     <div class="charts">
         <!-- Publications by Year -->

@@ -36,7 +36,9 @@ async function run() {
   const pubs = pubData.records || [];
   pillars.publications = {
     total: pubs.length,
-    citations: pubs.reduce(function(sum, p) { return sum + (parseInt(p.cited) || 0); }, 0)
+    citations: pubs.reduce(function(sum, p) { return sum + (parseInt(p.cited) || 0); }, 0),
+    verified: pubs.filter(function(p) { return p.evidence === 'verified'; }).length,
+    candidate: pubs.filter(function(p) { return p.evidence === 'candidate'; }).length
   };
   console.log('Publications: ' + pillars.publications.total + ' (' + pillars.publications.citations + ' citations)');
 
@@ -179,6 +181,7 @@ async function run() {
   const snapshot = {
     date: today,
     publications: pillars.publications.total,
+    verified: pillars.publications.verified,
     citations: pillars.publications.citations,
     datasets: pillars.datasets.total,
     samplesDeclared: pillars.samples ? pillars.samples.declared : null,

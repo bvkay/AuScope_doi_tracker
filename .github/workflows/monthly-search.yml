@@ -60,6 +60,14 @@ jobs:
       - name: Maintenance (dedup + metadata fill)
         run: node src/maintain.js
 
+      # Identifier-based verification (AuScope ROR / watchlist ORCIDs via OpenAlex)
+      - name: Verified discovery
+        run: node src/verified.js
+
+      # Merge identifier + text evidence into the evidence ladder on publications.json
+      - name: Evidence ladder
+        run: node src/evidence.js
+
       # Cross-pillar stats (instruments, surveys, datasets, repo counts)
       # Must run before the dashboard so explorer cards pick up fresh numbers.
       - name: Aggregate cross-pillar stats

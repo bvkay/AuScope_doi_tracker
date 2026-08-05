@@ -8,6 +8,8 @@
     "datasets": "node src/dataset-inventory.js",
     "update-fdsn": "node src/update-fdsn-dois.js",
     "stats": "node src/stats.js",
+    "verified": "node src/verified.js",
+    "evidence": "node src/evidence.js",
     "process-pending": "node src/process-pending.js",
     "maintain": "node src/maintain.js",
     "dashboard": "node src/dashboard.js",
