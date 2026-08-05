@@ -1,7 +1,7 @@
 {
   "metadata": {
     "type": "verified",
-    "last_updated": "2026-08-05T06:39:30.201Z",
+    "last_updated": "2026-08-05T23:29:47.390Z",
     "total_count": 685,
     "by_tier": {
       "verified": 61,
@@ -4441,7 +4441,7 @@
       "authorCount": 5,
       "institutions": [
         "Australian National University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "École Normale Supérieure de Lyon",
         "Centre National de la Recherche Scientifique",
         "Laboratoire de Géologie de Lyon : Terre, Planètes et Environnement",
@@ -5116,7 +5116,7 @@
       "authorCount": 5,
       "institutions": [
         "Australian National University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "Lyon College"
       ],
       "countries": [
@@ -5404,7 +5404,7 @@
       "authorCount": 5,
       "institutions": [
         "Australian National University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "Lyon College"
       ],
       "countries": [
@@ -5454,7 +5454,7 @@
       "authorCount": 6,
       "institutions": [
         "Australian National University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "Lyon College"
       ],
       "countries": [
@@ -10055,7 +10055,7 @@
       "authorCount": 2,
       "institutions": [
         "University of Southern California",
-        "Southern California Earthquake Center",
+        "Statewide California Earthquake Center",
         "Australian National University"
       ],
       "countries": [
@@ -10195,7 +10195,7 @@
       "authorCount": 5,
       "institutions": [
         "Australian National University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "École Normale Supérieure de Lyon",
         "Centre National de la Recherche Scientifique",
         "Laboratoire de Géologie de Lyon : Terre, Planètes et Environnement",
@@ -12390,7 +12390,7 @@
         "Australian National University",
         "Sewanee: The University of the South",
         "University of Southern California",
-        "Southern California Earthquake Center",
+        "Statewide California Earthquake Center",
         "University of Texas Institute for Geophysics",
         "The University of Texas at Austin"
       ],
@@ -12762,7 +12762,7 @@
       "authorCount": 5,
       "institutions": [
         "Australian National University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "École Normale Supérieure de Lyon",
         "Centre National de la Recherche Scientifique",
         "Laboratoire de Géologie de Lyon : Terre, Planètes et Environnement",
@@ -15075,7 +15075,7 @@
       "authorCount": 4,
       "institutions": [
         "University of Southern California",
-        "Southern California Earthquake Center",
+        "Statewide California Earthquake Center",
         "Australian National University",
         "Meteorological, Climatological, And Geophysical Agency",
         "Bandung Institute of Technology",
@@ -16849,7 +16849,7 @@
       ],
       "authorCount": 2,
       "institutions": [
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "École Normale Supérieure de Lyon",
         "Centre National de la Recherche Scientifique",
         "Utrecht University",
@@ -17781,7 +17781,7 @@
       "publisher": "Taylor & Francis",
       "year": 2018,
       "cited": 1,
-      "type": "conference abstract",
+      "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; Geological Studies and Exploration; Geological formations and processes",
       "sources": [
@@ -18390,7 +18390,7 @@
       "authorCount": 3,
       "institutions": [
         "University of Southern California",
-        "Southern California Earthquake Center",
+        "Statewide California Earthquake Center",
         "Australian National University",
         "The University of Texas at Austin"
       ],
@@ -18894,6 +18894,46 @@
       ]
     },
     {
+      "doi": "10.1071/aseg2018abp047",
+      "title": "Using downhole resistivity to better understand magnetotelluric inversion",
+      "authors": "Janelle Simpson; Graham Heinson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Imaging and Inversion Techniques",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "United States Geological Survey",
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "US",
+        "AU"
+      ],
+      "rors": [
+        "035a68863",
+        "00892tw58"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5113158718",
+        "https://openalex.org/A5089578866"
+      ],
+      "authorOrcids": [
+        "0000-0001-7106-0789"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789",
+        "partner-ror:00892tw58"
+      ]
+    },
+    {
       "doi": "10.1186/s40623-018-0791-y",
       "title": "Time-lapse inversion of one-dimensional magnetotelluric data",
       "authors": "Dennis Conway; Graham Heinson; Nigel Rees; Joseph Rugari",
@@ -19022,46 +19062,6 @@
       ]
     },
     {
-      "doi": "10.1071/aseg2018abp047",
-      "title": "Using downhole resistivity to better understand magnetotelluric inversion",
-      "authors": "Janelle Simpson; Graham Heinson",
-      "journal": "ASEG Extended Abstracts",
-      "publisher": "Taylor & Francis",
-      "year": 2018,
-      "cited": 1,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Imaging and Inversion Techniques",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [
-        "United States Geological Survey",
-        "The University of Adelaide"
-      ],
-      "countries": [
-        "US",
-        "AU"
-      ],
-      "rors": [
-        "035a68863",
-        "00892tw58"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5113158718",
-        "https://openalex.org/A5089578866"
-      ],
-      "authorOrcids": [
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789",
-        "partner-ror:00892tw58"
-      ]
-    },
-    {
       "doi": "10.1071/aseg2018abp046",
       "title": "Exploring magnetotelluric model space",
       "authors": "Janelle Simpson; Graham Heinson",
@@ -19069,7 +19069,7 @@
       "publisher": "Taylor & Francis",
       "year": 2018,
       "cited": 0,
-      "type": "conference abstract",
+      "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geological Modeling and Analysis; Seismic Imaging and Inversion Techniques",
       "sources": [
@@ -19111,7 +19111,7 @@
       "publisher": "Taylor & Francis",
       "year": 2018,
       "cited": 0,
-      "type": "conference abstract",
+      "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Waves and Analysis",
       "sources": [
@@ -19195,7 +19195,7 @@
       "publisher": "Taylor & Francis",
       "year": 2018,
       "cited": 0,
-      "type": "conference abstract",
+      "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; Geophysical and Geoelectrical Methods; Geochemistry and Geologic Mapping",
       "sources": [
@@ -20293,7 +20293,7 @@
       "institutions": [
         "Washington State University",
         "University of Southern California",
-        "Southern California Earthquake Center",
+        "Statewide California Earthquake Center",
         "The University of Melbourne"
       ],
       "countries": [
@@ -20751,6 +20751,49 @@
       ]
     },
     {
+      "doi": "10.1071/aseg2016ab261",
+      "title": "Insights into lithospheric architecture, fertilisation and fluid pathways from AusLAMP MT",
+      "authors": "Stephan Thiel; Anthony Reid; Graham Heinson; Kate Robertson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 17,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geochemistry and Geologic Mapping",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Department of State Development",
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "026xyd213",
+        "00892tw58"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5009015433",
+        "https://openalex.org/A5048112525",
+        "https://openalex.org/A5089578866",
+        "https://openalex.org/A5109498195"
+      ],
+      "authorOrcids": [
+        "0000-0002-8678-412X",
+        "0000-0002-9435-9342",
+        "0000-0001-7106-0789"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789",
+        "partner-ror:00892tw58"
+      ]
+    },
+    {
       "doi": "10.1190/geo2016-0187.1",
       "title": "Monitoring shale gas resources in the Cooper Basin using magnetotellurics",
       "authors": "Nigel Rees; Simon Carter; Graham Heinson; Lars Krieger",
@@ -20939,6 +20982,89 @@
       ]
     },
     {
+      "doi": "10.1071/aseg2016ab259",
+      "title": "Relating electrical resistivity to permeability using resistor networks",
+      "authors": "Alison Kirkby; Graham Heinson; Lars Krieger",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Groundwater flow and contamination studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Geoscience Australia",
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "04ge02x20",
+        "00892tw58"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5055791213",
+        "https://openalex.org/A5089578866",
+        "https://openalex.org/A5048655511"
+      ],
+      "authorOrcids": [
+        "0000-0003-1361-440X",
+        "0000-0001-7106-0789",
+        "0000-0002-1832-8245"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789",
+        "partner-ror:04ge02x20"
+      ]
+    },
+    {
+      "doi": "10.1071/aseg2016ab123",
+      "title": "Magnetotelluric monitoring of hydraulic fracture stimulation at the Habanero Enhanced Geothermal System, Cooper Basin, South Australia",
+      "authors": "Yohannes Lemma Didana; Stephan Thiel; Graham Heinson; Goren Boran",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "00892tw58"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5089221332",
+        "https://openalex.org/A5009015433",
+        "https://openalex.org/A5089578866",
+        "https://openalex.org/A5035624644"
+      ],
+      "authorOrcids": [
+        "0000-0002-9688-9611",
+        "0000-0002-8678-412X",
+        "0000-0001-7106-0789"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789",
+        "partner-ror:00892tw58"
+      ]
+    },
+    {
       "doi": "10.1080/08120099.2016.1232311",
       "title": "The resistivity structure of the Penola Trough, Otway Basin from magnetotelluric data",
       "authors": "Alison Kirkby; Graham Heinson; Simon Holford",
@@ -20980,6 +21106,44 @@
       "verifiedBy": [
         "orcid:0000-0001-7106-0789",
         "partner-ror:04ge02x20"
+      ]
+    },
+    {
+      "doi": "10.1071/aseg2016ab304",
+      "title": "Electrokinetic monitoring groundwater flow in fractured rock media",
+      "authors": "Joseph Rugari; Graham Heinson; Dennis Conway",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; NMR spectroscopy and applications; Mineral Processing and Grinding",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "00892tw58"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5033014981",
+        "https://openalex.org/A5089578866",
+        "https://openalex.org/A5041522750"
+      ],
+      "authorOrcids": [
+        "0000-0001-7106-0789"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789",
+        "partner-ror:00892tw58"
       ]
     },
     {
@@ -21064,49 +21228,6 @@
       ]
     },
     {
-      "doi": "10.1071/aseg2016ab261",
-      "title": "Insights into lithospheric architecture, fertilisation and fluid pathways from AusLAMP MT",
-      "authors": "Stephan Thiel; Anthony Reid; Graham Heinson; Kate Robertson",
-      "journal": "ASEG Extended Abstracts",
-      "publisher": "Taylor & Francis",
-      "year": 2016,
-      "cited": 17,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "Department of State Development",
-        "The University of Adelaide"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "026xyd213",
-        "00892tw58"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5009015433",
-        "https://openalex.org/A5048112525",
-        "https://openalex.org/A5089578866",
-        "https://openalex.org/A5109498195"
-      ],
-      "authorOrcids": [
-        "0000-0002-8678-412X",
-        "0000-0002-9435-9342",
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789",
-        "partner-ror:00892tw58"
-      ]
-    },
-    {
       "doi": "10.1071/aseg2016ab190",
       "title": "Olympic Dam seismic revisited: reprocessing of deep crustal seismic data using partially preserved amplitude processing",
       "authors": "Tom Wise; Adrian Fabris; D. F. Pridmore; Anthony Reid; S. van der Wielen; Graham Heinson; Sara Jakica; Sasha Ziramov; Paul Soeffky",
@@ -21158,89 +21279,6 @@
       ]
     },
     {
-      "doi": "10.1071/aseg2016ab259",
-      "title": "Relating electrical resistivity to permeability using resistor networks",
-      "authors": "Alison Kirkby; Graham Heinson; Lars Krieger",
-      "journal": "ASEG Extended Abstracts",
-      "publisher": "Taylor & Francis",
-      "year": 2016,
-      "cited": 3,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Groundwater flow and contamination studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [
-        "Geoscience Australia",
-        "The University of Adelaide"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "04ge02x20",
-        "00892tw58"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5055791213",
-        "https://openalex.org/A5089578866",
-        "https://openalex.org/A5048655511"
-      ],
-      "authorOrcids": [
-        "0000-0003-1361-440X",
-        "0000-0001-7106-0789",
-        "0000-0002-1832-8245"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789",
-        "partner-ror:04ge02x20"
-      ]
-    },
-    {
-      "doi": "10.1071/aseg2016ab123",
-      "title": "Magnetotelluric monitoring of hydraulic fracture stimulation at the Habanero Enhanced Geothermal System, Cooper Basin, South Australia",
-      "authors": "Yohannes Lemma Didana; Stephan Thiel; Graham Heinson; Goren Boran",
-      "journal": "ASEG Extended Abstracts",
-      "publisher": "Taylor & Francis",
-      "year": 2016,
-      "cited": 3,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Waves and Analysis",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "The University of Adelaide"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "00892tw58"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5089221332",
-        "https://openalex.org/A5009015433",
-        "https://openalex.org/A5089578866",
-        "https://openalex.org/A5035624644"
-      ],
-      "authorOrcids": [
-        "0000-0002-9688-9611",
-        "0000-0002-8678-412X",
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789",
-        "partner-ror:00892tw58"
-      ]
-    },
-    {
       "doi": "10.1007/s10712-016-9358-2",
       "title": "Preface to the Special Issue on “The 22nd Electromagnetic Induction Workshop, Weimar, Germany”",
       "authors": "O. Ritter; Pilar Queralt; Graham Heinson",
@@ -21278,44 +21316,6 @@
       "authorOrcids": [
         "0000-0002-2227-9503",
         "0000-0002-4195-4228",
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789",
-        "partner-ror:00892tw58"
-      ]
-    },
-    {
-      "doi": "10.1071/aseg2016ab304",
-      "title": "Electrokinetic monitoring groundwater flow in fractured rock media",
-      "authors": "Joseph Rugari; Graham Heinson; Dennis Conway",
-      "journal": "ASEG Extended Abstracts",
-      "publisher": "Taylor & Francis",
-      "year": 2016,
-      "cited": 2,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geophysical and Geoelectrical Methods; NMR spectroscopy and applications; Mineral Processing and Grinding",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [
-        "The University of Adelaide"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "00892tw58"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5033014981",
-        "https://openalex.org/A5089578866",
-        "https://openalex.org/A5041522750"
-      ],
-      "authorOrcids": [
         "0000-0001-7106-0789"
       ],
       "attribution": "candidate-strong",
@@ -21735,7 +21735,7 @@
       "authorCount": 5,
       "institutions": [
         "Southern Cross University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "École Normale Supérieure de Lyon",
         "Centre National de la Recherche Scientifique",
         "Planetary Science Institute",
@@ -22495,6 +22495,43 @@
       ]
     },
     {
+      "doi": "10.1071/aseg2015ab052",
+      "title": "Pareto Efficient Multi-objective Joint Optimisation of EM Data",
+      "authors": "Sebastian Schnaidt; Graham Heinson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2015,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Advanced Multi-Objective Optimization Algorithms; Probabilistic and Robust Engineering Design; Scientific Research and Discoveries",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "00892tw58"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5017051914",
+        "https://openalex.org/A5089578866"
+      ],
+      "authorOrcids": [
+        "0000-0001-7106-0789"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789",
+        "partner-ror:00892tw58"
+      ]
+    },
+    {
       "doi": "10.1071/aj14101",
       "title": "Magnetotelluric monitoring of coal seam gas depressurisation",
       "authors": "Nigel Rees; Graham Heinson; Lars Krieger; Goran Boren; Dennis Conway; Simon Carter; Joseph Rugari; Oliver Putland; Sebastian Schnaidt",
@@ -22572,43 +22609,6 @@
       ],
       "authorOrcids": [
         "0000-0003-1361-440X",
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789",
-        "partner-ror:00892tw58"
-      ]
-    },
-    {
-      "doi": "10.1071/aseg2015ab052",
-      "title": "Pareto Efficient Multi-objective Joint Optimisation of EM Data",
-      "authors": "Sebastian Schnaidt; Graham Heinson",
-      "journal": "ASEG Extended Abstracts",
-      "publisher": "Taylor & Francis",
-      "year": 2015,
-      "cited": 1,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Advanced Multi-Objective Optimization Algorithms; Probabilistic and Robust Engineering Design; Scientific Research and Discoveries",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [
-        "The University of Adelaide"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "00892tw58"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5017051914",
-        "https://openalex.org/A5089578866"
-      ],
-      "authorOrcids": [
         "0000-0001-7106-0789"
       ],
       "attribution": "candidate-strong",
@@ -22763,7 +22763,7 @@
       "publisher": "Taylor & Francis",
       "year": 2015,
       "cited": 0,
-      "type": "conference abstract",
+      "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Waves and Analysis; Geological and Geophysical Studies",
       "sources": [
@@ -23693,7 +23693,7 @@
         "Monash University",
         "The University of Melbourne",
         "University of Southern California",
-        "Southern California Earthquake Center"
+        "Statewide California Earthquake Center"
       ],
       "countries": [
         "AU",
@@ -24491,7 +24491,7 @@
         "École & Observatoire des Sciences de la Terre",
         "Université de Strasbourg",
         "Australian National University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "École Normale Supérieure de Lyon",
         "Laboratoire de Géologie de Lyon : Terre, Planètes et Environnement",
         "Université Côte d'Azur"
@@ -24641,7 +24641,7 @@
         "Institut de Physique et Chimie des Matériaux de Strasbourg",
         "Université de Strasbourg",
         "Australian National University",
-        "Université Claude Bernard Lyon 1",
+        "Lyon 1 Université",
         "École Normale Supérieure de Lyon",
         "Laboratoire de Physique de l'ENS de Lyon",
         "Laboratoire de Géologie de Lyon : Terre, Planètes et Environnement",
@@ -25053,6 +25053,50 @@
       ]
     },
     {
+      "doi": "10.1071/aseg2013ab225",
+      "title": "Magnetotellurics and Airborne Electromagnetics - a combined method for assessing basin structure and exploring for unconformity-related uranium",
+      "authors": "Millicent Crowe; Graham Heinson; Tania Dhu",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2013,
+      "cited": 6,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Geochemistry and Geologic Mapping",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Geoscience Australia",
+        "The University of Adelaide",
+        "Geological Survey of Western Australia",
+        "Northern Territory Geological Survey"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "04ge02x20",
+        "00892tw58",
+        "05h2dda38",
+        "011y8np74"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5007916809",
+        "https://openalex.org/A5089578866",
+        "https://openalex.org/A5050506445"
+      ],
+      "authorOrcids": [
+        "0000-0001-7106-0789"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789",
+        "partner-ror:04ge02x20"
+      ]
+    },
+    {
       "doi": "10.1071/aseg2013ab190",
       "title": "Electrical geophysics of carbonate mound spring complexes of the South- Western Great Artesian Basin",
       "authors": "Kent Inverarity; Michael Hatch; Graham Heinson",
@@ -25260,50 +25304,6 @@
       "verifiedBy": [
         "orcid:0000-0001-7106-0789",
         "partner-ror:00892tw58"
-      ]
-    },
-    {
-      "doi": "10.1071/aseg2013ab225",
-      "title": "Magnetotellurics and Airborne Electromagnetics - a combined method for assessing basin structure and exploring for unconformity-related uranium",
-      "authors": "Millicent Crowe; Graham Heinson; Tania Dhu",
-      "journal": "ASEG Extended Abstracts",
-      "publisher": "Taylor & Francis",
-      "year": 2013,
-      "cited": 6,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [
-        "Geoscience Australia",
-        "The University of Adelaide",
-        "Geological Survey of Western Australia",
-        "Northern Territory Geological Survey"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "04ge02x20",
-        "00892tw58",
-        "05h2dda38",
-        "011y8np74"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5007916809",
-        "https://openalex.org/A5089578866",
-        "https://openalex.org/A5050506445"
-      ],
-      "authorOrcids": [
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789",
-        "partner-ror:04ge02x20"
       ]
     },
     {
@@ -25948,8 +25948,8 @@
       "publisher": "Taylor & Francis",
       "year": 2012,
       "cited": 2,
-      "type": "conference abstract",
-      "isOA": "No",
+      "type": "article",
+      "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Waves and Analysis",
       "sources": [
         "OpenAlex (verified)"
@@ -27016,7 +27016,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2010,
-      "cited": 51,
+      "cited": 52,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; High-pressure geophysics and materials; Seismic Waves and Analysis",
@@ -27311,7 +27311,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2010,
-      "cited": 49,
+      "cited": 50,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geochemistry and Geologic Mapping",
@@ -28830,7 +28830,7 @@
       "journal": "Tectonics",
       "publisher": "Wiley",
       "year": 2008,
-      "cited": 449,
+      "cited": 450,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -29921,7 +29921,7 @@
       "year": 2006,
       "cited": 0,
       "type": "article",
-      "isOA": "No",
+      "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Medical Imaging Techniques and Applications; Meteorological Phenomena and Simulations",
       "sources": [
         "OpenAlex (verified)"
@@ -30126,7 +30126,7 @@
       "year": 2006,
       "cited": 2,
       "type": "article",
-      "isOA": "No",
+      "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Geological and Geochemical Analysis; High-pressure geophysics and materials",
       "sources": [
         "OpenAlex (verified)"
@@ -31237,7 +31237,7 @@
       "journal": "Geophysics",
       "publisher": "Society of Exploration Geophysicists",
       "year": 2004,
-      "cited": 204,
+      "cited": 205,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Computational Fluid Dynamics and Aerodynamics",
@@ -31490,7 +31490,7 @@
       "year": 2004,
       "cited": 5,
       "type": "article",
-      "isOA": "No",
+      "isOA": "Yes",
       "subject": "Underwater Acoustics Research; Machine Fault Diagnosis Techniques",
       "sources": [
         "OpenAlex (verified)"
@@ -32949,7 +32949,7 @@
       "year": 2001,
       "cited": 82,
       "type": "article",
-      "isOA": "No",
+      "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques; Geochemistry and Geologic Mapping",
       "sources": [
         "OpenAlex (verified)"
@@ -33504,7 +33504,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 1999,
-      "cited": 1529,
+      "cited": 1530,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Geophysical and Geoelectrical Methods; Reservoir Engineering and Simulation Methods",
@@ -33540,7 +33540,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 1999,
-      "cited": 824,
+      "cited": 825,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis",

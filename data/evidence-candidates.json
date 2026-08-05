@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-05T06:41:47.766Z",
+  "generated": "2026-08-05T23:29:47.536Z",
   "note": "candidate-strong works not in the corpus — human review before adding",
   "records": [
     {
@@ -1317,6 +1317,12 @@
       "journal": "Earth Planets and Space"
     },
     {
+      "doi": "10.1071/aseg2018abp047",
+      "title": "Using downhole resistivity to better understand magnetotelluric inversion",
+      "year": 2018,
+      "journal": "ASEG Extended Abstracts"
+    },
+    {
       "doi": "10.1071/aseg2018abm2_1g",
       "title": "Evolving 3D lithospheric resistivity models across southern Australia derived from AusLAMP MT",
       "year": 2018,
@@ -1325,12 +1331,6 @@
     {
       "doi": "10.1071/aseg2018abp039",
       "title": "Electrical Resistivity Maps of the Australian Lower Crust",
-      "year": 2018,
-      "journal": "ASEG Extended Abstracts"
-    },
-    {
-      "doi": "10.1071/aseg2018abp047",
-      "title": "Using downhole resistivity to better understand magnetotelluric inversion",
       "year": 2018,
       "journal": "ASEG Extended Abstracts"
     },
@@ -1539,6 +1539,12 @@
       "journal": "Geophysical Journal International"
     },
     {
+      "doi": "10.1071/aseg2016ab261",
+      "title": "Insights into lithospheric architecture, fertilisation and fluid pathways from AusLAMP MT",
+      "year": 2016,
+      "journal": "ASEG Extended Abstracts"
+    },
+    {
       "doi": "10.1190/geo2016-0187.1",
       "title": "Monitoring shale gas resources in the Cooper Basin using magnetotellurics",
       "year": 2016,
@@ -1563,10 +1569,28 @@
       "journal": "Australian Journal of Earth Sciences"
     },
     {
+      "doi": "10.1071/aseg2016ab259",
+      "title": "Relating electrical resistivity to permeability using resistor networks",
+      "year": 2016,
+      "journal": "ASEG Extended Abstracts"
+    },
+    {
+      "doi": "10.1071/aseg2016ab123",
+      "title": "Magnetotelluric monitoring of hydraulic fracture stimulation at the Habanero Enhanced Geothermal System, Cooper Basin, South Australia",
+      "year": 2016,
+      "journal": "ASEG Extended Abstracts"
+    },
+    {
       "doi": "10.1080/08120099.2016.1232311",
       "title": "The resistivity structure of the Penola Trough, Otway Basin from magnetotelluric data",
       "year": 2016,
       "journal": "Australian Journal of Earth Sciences"
+    },
+    {
+      "doi": "10.1071/aseg2016ab304",
+      "title": "Electrokinetic monitoring groundwater flow in fractured rock media",
+      "year": 2016,
+      "journal": "ASEG Extended Abstracts"
     },
     {
       "doi": "10.1071/aseg2016ab223",
@@ -1581,26 +1605,8 @@
       "journal": "ASEG Extended Abstracts"
     },
     {
-      "doi": "10.1071/aseg2016ab261",
-      "title": "Insights into lithospheric architecture, fertilisation and fluid pathways from AusLAMP MT",
-      "year": 2016,
-      "journal": "ASEG Extended Abstracts"
-    },
-    {
       "doi": "10.1071/aseg2016ab190",
       "title": "Olympic Dam seismic revisited: reprocessing of deep crustal seismic data using partially preserved amplitude processing",
-      "year": 2016,
-      "journal": "ASEG Extended Abstracts"
-    },
-    {
-      "doi": "10.1071/aseg2016ab259",
-      "title": "Relating electrical resistivity to permeability using resistor networks",
-      "year": 2016,
-      "journal": "ASEG Extended Abstracts"
-    },
-    {
-      "doi": "10.1071/aseg2016ab123",
-      "title": "Magnetotelluric monitoring of hydraulic fracture stimulation at the Habanero Enhanced Geothermal System, Cooper Basin, South Australia",
       "year": 2016,
       "journal": "ASEG Extended Abstracts"
     },
@@ -1609,12 +1615,6 @@
       "title": "Preface to the Special Issue on “The 22nd Electromagnetic Induction Workshop, Weimar, Germany”",
       "year": 2016,
       "journal": "Surveys in Geophysics"
-    },
-    {
-      "doi": "10.1071/aseg2016ab304",
-      "title": "Electrokinetic monitoring groundwater flow in fractured rock media",
-      "year": 2016,
-      "journal": "ASEG Extended Abstracts"
     },
     {
       "doi": "10.1071/aseg2016ab264",
@@ -1731,6 +1731,12 @@
       "journal": "ASEG Extended Abstracts"
     },
     {
+      "doi": "10.1071/aseg2015ab052",
+      "title": "Pareto Efficient Multi-objective Joint Optimisation of EM Data",
+      "year": 2015,
+      "journal": "ASEG Extended Abstracts"
+    },
+    {
       "doi": "10.1071/aj14101",
       "title": "Magnetotelluric monitoring of coal seam gas depressurisation",
       "year": 2015,
@@ -1739,12 +1745,6 @@
     {
       "doi": "10.1071/aseg2015ab017",
       "title": "Linking electrical and hydraulic conductivity through models of random resistor networks",
-      "year": 2015,
-      "journal": "ASEG Extended Abstracts"
-    },
-    {
-      "doi": "10.1071/aseg2015ab052",
-      "title": "Pareto Efficient Multi-objective Joint Optimisation of EM Data",
       "year": 2015,
       "journal": "ASEG Extended Abstracts"
     },
@@ -1989,6 +1989,12 @@
       "journal": "Journal of Applied Geophysics"
     },
     {
+      "doi": "10.1071/aseg2013ab225",
+      "title": "Magnetotellurics and Airborne Electromagnetics - a combined method for assessing basin structure and exploring for unconformity-related uranium",
+      "year": 2013,
+      "journal": "ASEG Extended Abstracts"
+    },
+    {
       "doi": "10.1071/aseg2013ab190",
       "title": "Electrical geophysics of carbonate mound spring complexes of the South- Western Great Artesian Basin",
       "year": 2013,
@@ -2017,12 +2023,6 @@
       "title": "Preface to the Special Issue on “The 21st Electromagnetic Induction Workshop”",
       "year": 2013,
       "journal": "Surveys in Geophysics"
-    },
-    {
-      "doi": "10.1071/aseg2013ab225",
-      "title": "Magnetotellurics and Airborne Electromagnetics - a combined method for assessing basin structure and exploring for unconformity-related uranium",
-      "year": 2013,
-      "journal": "ASEG Extended Abstracts"
     },
     {
       "doi": "10.1071/aseg2013ab158",
