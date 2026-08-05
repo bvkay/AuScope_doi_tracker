@@ -385,6 +385,12 @@ function buildHTML(stats, lastUpdated) {
 
     <!-- ═══ Footer ═══ -->
     <div class="footer">
+        Explore:
+        <a href="datasets.html">Datasets</a> &middot;
+        <a href="earthbank.html">EarthBank</a> &middot;
+        <a href="auspass.html">AusPass</a> &middot;
+        <a href="instruments.html">Instrument Registry</a>
+        <br>
         Last updated: ${updated} &middot;
         Powered by <a href="https://openalex.org" target="_blank">OpenAlex</a>,
         <a href="https://www.semanticscholar.org" target="_blank">Semantic Scholar</a>, and

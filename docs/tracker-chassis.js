@@ -28,7 +28,7 @@ function escapeAttr(s) {
 
 function normaliseDoi(s) {
     if (!s) return '';
-    return String(s).trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, '').toLowerCase();
+    return String(s).trim().replace(/^https?:\/\/(www\.)?(dx\.)?doi\.org\//i, '').toLowerCase();
 }
 
 function fixEncoding(s) {

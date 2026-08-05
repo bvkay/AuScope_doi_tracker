@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<!--
+    AuScope Instrument Registry Tracker
+    PIDInst instrument and field-survey DOIs registered under the
+    auscope.repo3 DataCite client — metadata health (PIDInst score),
+    unit/survey hierarchy via HasPart, and impact links (Collects
+    datasets + IsDescribedBy papers), with citation tracking on surveys.
+
+    Shared skin/machinery: tracker-shared.css (styles), tracker-chassis.js
+    (utilities + fleet panel + CSV export), tracker-citations.js (citation
+    counts, source fetchers, merge + reciprocity pipeline, pane renderers).
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AuScope Instrument Registry Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
+    <style>
+        /*
+            Instruments page-specific rules. Everything shared lives in
+            tracker-shared.css (linked above) — override order matters:
+            fleet-grid column count and source-tag spacing below deliberately
+            come after the shared sheet.
+        */
+
+        /* table columns */
+        .col-title { min-width: 260px; }
+        .col-title .title-line { font-weight: 500; color: var(--text); }
+        .col-type { width: 110px; }
+        .col-serial { width: 95px; font-family: var(--mono); font-size: 12px; }
+        .col-dates { width: 100px; font-variant-numeric: tabular-nums; color: var(--text-soft); }
+        .col-links { width: 165px; font-size: 12px; color: var(--text-soft); }
+        .col-score { width: 130px; }
+        .col-cites { width: 80px; text-align: center; }
+
+        /* badge variants — survey badge deliberately distinct from unit model badge */
+        .badge.type-unit { background: var(--accent-soft); color: var(--accent-strong); font-family: var(--mono); }
+        .badge.type-survey { background: #ede9fe; color: #5b21b6; }
+
+        /* PIDInst score bar (adapted from earthbank's mapping-bar) */
+        .mapping-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mapping-bar .track {
+            position: relative;
+            flex: 1;
+            height: 6px;
+            background: var(--bg-muted);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .mapping-bar .fill {
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+        .mapping-bar .fill.good { background: var(--good); }
+        .mapping-bar .fill.warn { background: var(--warn); }
+        .mapping-bar .fill.bad { background: var(--bad); }
+        .mapping-bar .pct {
+            font-size: 11px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-soft);
+            min-width: 30px;
+            text-align: right;
+        }
+
+        /* ----- PIDInst check pane (earthbank's check-list pattern) ----- */
+        .check-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 18px;
+        }
+        @media (max-width: 900px) {
+            .check-list { grid-template-columns: 1fr; }
+        }
+        .check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 4px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+        .check .icon {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            margin-top: 1px;
+        }
+        .check.good .icon { background: var(--good); }
+        .check.warn .icon { background: var(--warn); }
+        .check.bad .icon { background: var(--bad); }
+        .check .body { flex: 1; min-width: 0; }
+        .check .name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        .check .note {
+            font-size: 11.5px;
+            color: var(--text-soft);
+            margin-top: 2px;
+            line-height: 1.45;
+        }
+        .check .value {
+            font-size: 11.5px;
+            color: var(--text);
+            margin-top: 3px;
+            font-family: var(--mono);
+            word-break: break-word;
+        }
+
+        .summary-banner {
+            padding: 10px 14px;
+            border-radius: 5px;
+            margin-bottom: 14px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-banner.good { background: var(--good-bg); color: #166534; }
+        .summary-banner.warn { background: var(--warn-bg); color: #854d0e; }
+        .summary-banner.bad { background: var(--bad-bg); color: #991b1b; }
+
+        /* ----- Related identifiers ----- */
+        .rel-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .rel-table th {
+            background: var(--bg-muted);
+            text-align: left;
+            padding: 7px 10px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--text-soft);
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid var(--border);
+        }
+        .rel-table td {
+            padding: 7px 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .rel-table tr:last-child td { border-bottom: none; }
+        .rel-table .rel-type {
+            display: inline-block;
+            padding: 1px 7px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .self-ref-flag {
+            color: var(--bad);
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
+        .rel-resolved {
+            font-size: 11px;
+            color: var(--text-soft);
+            margin-top: 2px;
+        }
+
+        /* measured-variable chips */
+        .mv-chip {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin: 2px 4px 2px 0;
+            color: var(--text-soft);
+        }
+        .mv-chip a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-muted);
+        }
+        .mv-chip a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+        /* survey component groups — 'LEMI-120 × 41' chips */
+        .comp-chip {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 5px;
+            padding: 3px 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin: 2px 6px 2px 0;
+            font-size: 12px;
+        }
+        .comp-chip .model { font-family: var(--mono); font-weight: 600; color: var(--text); }
+        .comp-chip .count { color: var(--text-soft); font-size: 11px; }
+
+        /* spaces the source tags — shared .source-tag base is margin-free */
+        .citation-item .sources {
+            display: inline-flex;
+            gap: 3px;
+            margin-left: 6px;
+        }
+
+        /* fleet summary column count; re-assert the 900px collapse because this
+           rule comes after the shared sheet's media query in the cascade */
+        .fleet-grid { grid-template-columns: repeat(3, 1fr); }
+        @media (max-width: 900px) {
+            .fleet-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- ========== HEADER ========== -->
+        <div class="topbar">
+            <div class="brand">
+                <h1>
+                    <img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope" data-fallback="auscope">
+                    <span class="accent">Instrument Registry</span> Tracker
+                </h1>
+                <p>PIDInst instrument and field-survey DOIs — metadata health, hierarchy, and impact links.</p>
+            </div>
+            <div class="links">
+                <a href="https://pidinst.data.auscope.org.au/" target="_blank" rel="noopener">Instrument registry ↗</a>
+                <a href="https://github.com/AuScope/AuScope-instrument-registry" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+        </div>
+
+        <!-- ========== STAT TILES ========== -->
+        <div class="stats" id="stat-tiles">
+            <div class="stat"><div class="label">Instrument units <span class="info-i" data-tip="Individual instruments (sensors, loggers, receivers) with their own PIDInst DOI — e.g. one LEMI-120 induction coil.">i</span></div><div class="value" id="stat-units">—</div><div class="sub" id="stat-units-sub">loading…</div></div>
+            <div class="stat"><div class="label">Field surveys <span class="info-i" data-tip="Field campaign records that group instrument units via HasPart and link out to datasets (Collects) and papers (IsDescribedBy).">i</span></div><div class="value" id="stat-surveys">—</div><div class="sub">campaign records</div></div>
+            <div class="stat"><div class="label">Avg PIDInst score <span class="info-i" data-tip="Mean PIDInst metadata completeness score across all records, weighted by field importance. Open a record's PIDInst check tab for the breakdown.">i</span></div><div class="value" id="stat-score">—</div><div class="sub" id="stat-score-sub">metadata completeness</div></div>
+            <div class="stat"><div class="label">Linked to surveys <span class="info-i" data-tip="Units referenced by at least one survey's HasPart relations. Hierarchy is built from the surveys' side — unit IsPartOf entries are currently unreliable (registry bug #122).">i</span></div><div class="value" id="stat-linked">—</div><div class="sub">units via reverse HasPart</div></div>
+            <div class="stat"><div class="label">Impact links <span class="info-i" data-tip="Unique dataset DOIs (Collects) plus unique paper DOIs (IsDescribedBy) declared across all surveys. Units accrue impact through their surveys.">i</span></div><div class="value" id="stat-impact">—</div><div class="sub" id="stat-impact-sub">datasets + papers via surveys</div></div>
+        </div>
+
+        <!-- ========== FLEET SUMMARY ========== -->
+        <details class="fleet-panel" id="fleet-panel">
+            <summary>
+                Fleet summary
+                <span class="fleet-context"></span>
+            </summary>
+            <div class="fleet-grid"></div>
+        </details>
+
+        <!-- ========== CONTROL BAR ========== -->
+        <div class="controls">
+            <input type="search" id="search-input" placeholder="Search title, DOI, serial, model, survey…" autocomplete="off">
+            <select id="filter-kind">
+                <option value="">All records</option>
+                <option value="unit">Units</option>
+                <option value="survey">Surveys</option>
+            </select>
+            <select id="filter-model">
+                <option value="">All models</option>
+            </select>
+            <select id="sort-by">
+                <option value="score-asc">Lowest PIDInst score</option>
+                <option value="score-desc">Highest PIDInst score</option>
+                <option value="title-asc">Title A→Z</option>
+                <option value="serial-asc">Serial</option>
+                <option value="links-desc">Most linked</option>
+                <option value="kind-asc">Type</option>
+            </select>
+            <button class="btn" id="toggle-issues" title="Show only records with a PIDInst score below 80">Issues only</button>
+            <div class="spacer"></div>
+            <span class="meta" id="result-count"></span>
+            <button class="btn primary" id="export-csv" title="Download visible rows as CSV">Export CSV</button>
+            <button class="btn" id="reload-btn" title="Re-fetch from DataCite">Reload</button>
+        </div>
+
+        <!-- ========== TABLE ========== -->
+        <div class="table-wrap">
+            <table class="data" id="inst-table">
+                <thead>
+                    <tr>
+                        <th class="col-num">#</th>
+                        <th class="col-title sortable" data-sort="title">Instrument <span class="arrow"></span></th>
+                        <th class="col-type sortable" data-sort="kind">Type <span class="arrow"></span></th>
+                        <th class="col-serial sortable" data-sort="serial">Serial <span class="arrow"></span></th>
+                        <th class="col-dates">Dates</th>
+                        <th class="col-links sortable" data-sort="links">Links <span class="arrow"></span></th>
+                        <th class="col-score sortable" data-sort="score">PIDInst <span class="arrow">▲</span></th>
+                        <th class="col-cites">Citations</th>
+                        <th class="col-actions"></th>
+                    </tr>
+                </thead>
+                <tbody id="inst-tbody">
+                    <tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading from DataCite…</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+<script src="tracker-chassis.js"></script>
+<script src="tracker-citations.js"></script>
+<script>
+"use strict";
+
+// ============================================================
+// STATE
+// ============================================================
+// The global MUST stay named `state` — the shared fleet machinery
+// references it by name.
+var state = createTrackerState({
+    sortKey: 'score',
+    sortDir: 'asc',
+    instruments: [],    // normalized + scored records (units + surveys)
+    byDoi: {},          // normaliseDoi(doi) -> entity
+    filter: { search: '', kind: '', model: '', issuesOnly: false }
+});
+
+// Fleet summary categories — registry-health focused.
+var fleetCategories = [
+    {
+        section: 'Registry health (#122 tracking)',
+        items: [
+            { id: 'self-ref', label: 'Self-referencing IsPartOf', predicate: function(d) {
+                return d.kind === 'unit' && d.selfRefIsPartOf;
+            }},
+            { id: 'cleared', label: 'Relations cleared (awaiting regeneration)', predicate: function(d) {
+                return d.kind === 'unit' && d.isPartOfTargets.length === 0 && d.memberSurveys.length > 0;
+            }},
+            { id: 'url-typed', label: 'Relations typed URL not DOI', predicate: function(d) {
+                return d.relUrlTyped;
+            }}
+        ]
+    },
+    {
+        section: 'Identification',
+        items: [
+            { id: 'no-serial', label: 'No serial number', predicate: function(d) {
+                return d.kind === 'unit' && !d.serial;
+            }},
+            { id: 'no-commissioned', label: 'No commissioning date', predicate: function(d) {
+                return d.kind === 'unit' && !d.commissioned;
+            }},
+            { id: 'no-model-url', label: 'Model without URL', predicate: function(d) {
+                // Units with NO model at all are a different (heavier) gap
+                // caught by the Model-name check; this line mirrors the
+                // Model-URL check exactly so fleet counts reconcile.
+                return d.kind === 'unit' && d.model && d.model.name && !d.model.url;
+            }}
+        ]
+    },
+    {
+        section: 'Hierarchy & impact',
+        items: [
+            { id: 'unlinked-units', label: 'Units not linked to any survey', predicate: function(d) {
+                return d.kind === 'unit' && d.memberSurveys.length === 0;
+            }},
+            { id: 'no-collects', label: 'Surveys without dataset links (Collects)', predicate: function(d) {
+                return d.kind === 'survey' && d.collectsDois.length === 0;
+            }},
+            { id: 'no-papers', label: 'Surveys without paper links (IsDescribedBy)', predicate: function(d) {
+                return d.kind === 'survey' && d.isDescribedByDois.length === 0;
+            }},
+            { id: 'no-geo', label: 'Surveys without geolocation', predicate: function(d) {
+                return d.kind === 'survey' && d.geoCount === 0;
+            }}
+        ]
+    }
+];
+
+// ============================================================
+// ENTRY
+// ============================================================
+function init() {
+    bindControls();
+    bindRowDelegation();
+    bindDetailTabs();
+    initFleetPanel({
+        categories: fleetCategories,
+        getEntities: function() { return state.instruments; },
+        contextFilter: instrumentContextFilter,
+        noun: 'records',
+        elements: { panelId: 'fleet-panel', summaryId: 'result-count' },
+        onFilterChanged: renderTable
+    });
+    loadInstruments();
+}
+
+function bindControls() {
+    document.getElementById('search-input').addEventListener('input', debounce(function(e) {
+        state.filter.search = e.target.value.trim().toLowerCase();
+        renderTable();
+    }, 120));
+    document.getElementById('filter-kind').addEventListener('change', function(e) {
+        state.filter.kind = e.target.value;
+        renderTable();
+    });
+    document.getElementById('filter-model').addEventListener('change', function(e) {
+        state.filter.model = e.target.value;
+        renderTable();
+    });
+    document.getElementById('sort-by').addEventListener('change', function(e) {
+        var parts = e.target.value.split('-');
+        state.sortKey = parts[0];
+        state.sortDir = parts[1];
+        renderTable();
+    });
+    document.getElementById('toggle-issues').addEventListener('click', function(e) {
+        state.filter.issuesOnly = !state.filter.issuesOnly;
+        e.target.classList.toggle('toggled', state.filter.issuesOnly);
+        renderTable();
+    });
+    document.getElementById('export-csv').addEventListener('click', exportVisibleCsv);
+    document.getElementById('reload-btn').addEventListener('click', function() {
+        state.citationCache = {};
+        loadInstruments();
+    });
+
+    document.querySelectorAll('th.sortable').forEach(function(h) {
+        h.addEventListener('click', function() {
+            var key = h.getAttribute('data-sort');
+            if (state.sortKey === key) {
+                state.sortDir = state.sortDir === 'desc' ? 'asc' : 'desc';
+            } else {
+                state.sortKey = key;
+                state.sortDir = (key === 'links') ? 'desc' : 'asc';
+            }
+            var sortVal = key + '-' + state.sortDir;
+            var opts = document.getElementById('sort-by').options;
+            for (var i = 0; i < opts.length; i++) {
+                if (opts[i].value === sortVal) document.getElementById('sort-by').value = sortVal;
+            }
+            renderTable();
+        });
+    });
+}
+
+// ============================================================
+// FETCH
+// ============================================================
+async function loadInstruments() {
+    setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading instrument registry from DataCite…</td></tr>');
+    try {
+        var raw = await fetchAllInstruments();
+        state.instruments = raw.map(normalizeInstrument);
+        linkHierarchy();
+        state.instruments.forEach(function(d) { d.pidinst = scorePidinst(d); });
+        populateModelFilter();
+        renderStats();
+        renderTable();
+        // Citation counts over SURVEYS ONLY — units cannot be cited directly
+        // (their citationCount is preset to 0 at normalize time), and querying
+        // DataCite GraphQL for 152 unciteable units would just hammer the API.
+        loadCitationCounts({
+            getEntities: function() { return state.instruments.filter(function(d) { return d.kind === 'survey'; }); },
+            cache: state.citationCache,
+            onBatch: function() { renderTableRowsOnly(); }
+        });
+    } catch (err) {
+        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
+    }
+}
+
+async function fetchAllInstruments() {
+    var all = [];
+    var page = 1;
+    var pageSize = 100;
+    while (true) {
+        // affiliation=true and publisher=true are REQUIRED on the collection
+        // endpoint. Without them DataCite returns a summarised form: affiliation
+        // collapsed to a plain name string and publisher to a plain string,
+        // stripping identifier detail. The single-DOI endpoint returns the full
+        // form by default; the collection endpoint does not.
+        var url = 'https://api.datacite.org/dois?client-id=auscope.repo3'
+            + '&affiliation=true'
+            + '&publisher=true'
+            + '&page[size]=' + pageSize
+            + '&page[number]=' + page;
+        var resp = await fetch(url);
+        if (!resp.ok) throw new Error('DataCite returned HTTP ' + resp.status);
+        var data = await resp.json();
+        var items = data.data || [];
+        if (items.length === 0) break;
+        all = all.concat(items);
+        setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loaded ' + all.length + ' records…</td></tr>');
+        if (items.length < pageSize) break;
+        page++;
+    }
+    return all;
+}
+
+// ============================================================
+// NORMALIZE
+// ============================================================
+
+// PIDInst fields are flattened into TechnicalInfo description strings, one
+// per entry: 'Model: LEMI-423 (URL: https://...)'. Units suffix with
+// '(URL: ...)' but surveys use '(URI: ...)' — accept both.
+function parseTechEntries(descriptions, prefix) {
+    var out = [];
+    var prefixLc = (prefix + ':').toLowerCase();
+    (descriptions || []).forEach(function(x) {
+        if ((x.descriptionType || '') !== 'TechnicalInfo') return;
+        var t = x.description || '';
+        // Case-insensitive prefix + marker matching: the registry exporter
+        // has drifted on casing before ('URL:' vs 'URI:', etc.).
+        if (t.toLowerCase().indexOf(prefixLc) !== 0) return;
+        var body = t.substring(prefixLc.length).trim();
+        // Greedy name group = last '(URL:'/'(URI:' marker wins, so a literal
+        // '(URL:' inside the name doesn't swallow the real link. Reject
+        // whitespace inside the captured URL as a garble signal.
+        var m = body.match(/^(.*)\s*\((?:URL|URI):\s*(\S+?)\)\s*$/i);
+        if (m) out.push({ name: m[1].trim(), url: m[2].trim() });
+        else out.push({ name: body, url: '' });
+    });
+    return out;
+}
+
+// Field surveys are distinguished ONLY by content: a TechnicalInfo entry
+// starting 'Instrument Type: FIELD SURVEYS' and/or HasPart relations.
+function isSurveyRecord(attrs) {
+    var descs = attrs.descriptions || [];
+    for (var i = 0; i < descs.length; i++) {
+        if ((descs[i].descriptionType || '') === 'TechnicalInfo'
+            && (descs[i].description || '').toLowerCase().indexOf('instrument type: field surveys') === 0) return true;
+    }
+    var rels = attrs.relatedIdentifiers || [];
+    for (var j = 0; j < rels.length; j++) {
+        if (rels[j].relationType === 'HasPart') return true;
+    }
+    return false;
+}
+
+// DataCite's JSON API is inconsistent about where serials live — some exports
+// use attributes.alternateIdentifiers, some attributes.identifiers. Read both,
+// first non-empty wins; ignore the DOI echo in identifiers.
+function extractLocalIdentifiers(attrs) {
+    var out = { serial: '', inventory: '', landingAlt: '' };
+    var entries = [];
+    (attrs.alternateIdentifiers || []).forEach(function(x) {
+        entries.push({ type: x.alternateIdentifierType || '', value: x.alternateIdentifier || '' });
+    });
+    (attrs.identifiers || []).forEach(function(x) {
+        entries.push({ type: x.identifierType || '', value: x.identifier || '' });
+    });
+    entries.forEach(function(e) {
+        var t = e.type.toLowerCase();
+        if (!e.value || t === 'doi') return;
+        if (t === 'serialnumber' && !out.serial) out.serial = e.value;
+        else if (t === 'inventorynumber' && !out.inventory) out.inventory = e.value;
+        else if (t === 'url' && !out.landingAlt) out.landingAlt = e.value;
+    });
+    return out;
+}
+
+var HIERARCHY_RELATIONS = { IsPartOf: 1, HasPart: 1, Collects: 1, IsDescribedBy: 1 };
+
+function normalizeInstrument(item) {
+    var attrs = item.attributes || {};
+    var kind = isSurveyRecord(attrs) ? 'survey' : 'unit';
+    var descs = attrs.descriptions || [];
+
+    var models = parseTechEntries(descs, 'Model');
+    var variables = parseTechEntries(descs, 'Measured Variable');
+    var itypes = parseTechEntries(descs, 'Instrument Type');
+
+    var ids = extractLocalIdentifiers(attrs);
+
+    var creators = (attrs.creators || []).map(function(c) {
+        var ror = '', url = '';
+        (c.nameIdentifiers || []).forEach(function(id) {
+            var scheme = (id.nameIdentifierScheme || '').toUpperCase();
+            var nid = id.nameIdentifier || '';
+            if (scheme === 'ROR') {
+                if (nid && !/^https?:/i.test(nid)) nid = 'https://ror.org/' + nid.replace(/^\/+/, '');
+                ror = nid;
+            } else if (scheme === 'URL') {
+                url = nid;
+            }
+        });
+        return { name: c.name || '', ror: ror, url: url };
+    });
+
+    var hosting = (attrs.contributors || []).filter(function(c) {
+        return c.contributorType === 'HostingInstitution';
+    }).map(function(c) {
+        var ror = '';
+        (c.nameIdentifiers || []).forEach(function(id) {
+            if ((id.nameIdentifierScheme || '').toUpperCase() === 'ROR') ror = id.nameIdentifier || '';
+        });
+        return { name: c.name || '', ror: ror };
+    });
+
+    // Commissioning date lives in dates[] as dateType='Other' with
+    // dateInformation='Commissioned'. Surveys use dateType='Coverage'
+    // (a range like '2022-04-01/2022-06-30'). publicationYear is the
+    // REGISTRATION year (2026 on everything) — never display it as an
+    // activity year.
+    var commissioned = '', coverage = '';
+    (attrs.dates || []).forEach(function(dt) {
+        if (dt.dateType === 'Other' && dt.dateInformation === 'Commissioned' && !commissioned) commissioned = dt.date || '';
+        if (dt.dateType === 'Coverage' && !coverage) coverage = dt.date || '';
+    });
+
+    var rels = attrs.relatedIdentifiers || [];
+    var selfKey = normaliseDoi(attrs.doi || '');
+    var isPartOfTargets = [];
+    var selfRefIsPartOf = false;
+    var hasPartDois = [], collectsDois = [], isDescribedByDois = [];
+    var hasPartUrlTyped = false, relUrlTyped = false;
+    rels.forEach(function(r) {
+        var target = normaliseDoi(r.relatedIdentifier || '');
+        var isDoiTyped = (r.relatedIdentifierType || '').toUpperCase() === 'DOI';
+        if (HIERARCHY_RELATIONS[r.relationType] && !isDoiTyped) relUrlTyped = true;
+        if (r.relationType === 'IsPartOf') {
+            if (target) isPartOfTargets.push(target);
+            if (target && target === selfKey) selfRefIsPartOf = true;
+        } else if (r.relationType === 'HasPart') {
+            if (target) hasPartDois.push(target);
+            if (!isDoiTyped) hasPartUrlTyped = true;
+        } else if (r.relationType === 'Collects') {
+            if (target) collectsDois.push(target);
+        } else if (r.relationType === 'IsDescribedBy') {
+            if (target) isDescribedByDois.push(target);
+        }
+    });
+
+    var titles = attrs.titles || [];
+
+    return {
+        doi: attrs.doi || item.id || '',
+        kind: kind,
+        title: titles.length > 0 ? (titles[0].title || '') : '',
+        url: attrs.url || '',
+        creators: creators,
+        hosting: hosting,
+        model: models.length > 0 ? models[0] : null,
+        measuredVariables: variables,
+        instrumentType: itypes.length > 0 ? itypes[0] : null,
+        serial: ids.serial,
+        inventory: ids.inventory,
+        landingAlt: ids.landingAlt,
+        commissioned: commissioned,
+        coverage: coverage,
+        relatedIdentifiers: rels,
+        isPartOfTargets: isPartOfTargets,
+        selfRefIsPartOf: selfRefIsPartOf,
+        hasPartDois: hasPartDois,
+        collectsDois: collectsDois,
+        isDescribedByDois: isDescribedByDois,
+        hasPartUrlTyped: hasPartUrlTyped,
+        relUrlTyped: relUrlTyped,
+        geoCount: (attrs.geoLocations || []).length,
+        fundingReferences: attrs.fundingReferences || [],
+        registered: attrs.registered || attrs.created || '',
+        updated: attrs.updated || '',
+        memberSurveys: [],     // survey DOIs, filled by linkHierarchy
+        // Units cannot be cited directly — preset 0 so the pill never shows
+        // a loading state for them. Surveys start undefined and get filled
+        // by loadCitationCounts.
+        citationCount: kind === 'unit' ? 0 : undefined,
+        pidinst: null,
+        _search: '',
+        _raw: attrs
+    };
+}
+
+// Build the unit→surveys map from the surveys' HasPart relations. Unit-side
+// IsPartOf is NEVER used for hierarchy — entries are currently all
+// self-referencing (registry bug AuScope/AuScope-instrument-registry#122)
+// or cleared by batch updates. Declared IsPartOf is only read as a health
+// signal in getChecks.
+function linkHierarchy() {
+    state.byDoi = {};
+    state.instruments.forEach(function(d) {
+        state.byDoi[normaliseDoi(d.doi)] = d;
+        d.memberSurveys = [];
+    });
+    state.instruments.forEach(function(s) {
+        if (s.kind !== 'survey') return;
+        s.hasPartDois.forEach(function(t) {
+            var u = state.byDoi[t];
+            if (u && u.kind === 'unit' && u.memberSurveys.indexOf(s.doi) === -1) {
+                u.memberSurveys.push(s.doi);
+            }
+        });
+    });
+}
+
+function populateModelFilter() {
+    var models = {};
+    state.instruments.forEach(function(d) {
+        if (d.kind === 'unit' && d.model && d.model.name) models[d.model.name] = true;
+    });
+    var sel = document.getElementById('filter-model');
+    var current = sel.value;
+    sel.innerHTML = '<option value="">All models</option>';
+    Object.keys(models).sort().forEach(function(m) {
+        var opt = document.createElement('option');
+        opt.value = m; opt.textContent = m;
+        sel.appendChild(opt);
+    });
+    if (current) sel.value = current;
+}
+
+// ============================================================
+// PIDINST SCORE
+// ============================================================
+// Each check: { name, status: 'good'|'warn'|'bad', note, value, weight }.
+// warn earns half credit, like earthbank's mapping score.
+
+function getChecks(d) {
+    var checks = [];
+
+    if (d.kind === 'unit') {
+        checks.push({
+            name: 'Model name',
+            status: (d.model && d.model.name) ? 'good' : 'bad',
+            weight: 3,
+            value: d.model ? d.model.name : '',
+            note: (d.model && d.model.name) ? null : 'No "Model:" TechnicalInfo entry — the core PIDInst identity field.',
+            help: 'PIDInst model, flattened into a TechnicalInfo description ("Model: LEMI-423 (URL: ...)"). Identifies what kind of instrument this is.'
+        });
+        if (d.model && d.model.name) {
+            checks.push({
+                name: 'Model URL',
+                status: d.model.url ? 'good' : 'warn',
+                weight: 1,
+                value: d.model.url,
+                note: d.model.url ? null : 'Model named but no manufacturer URL.',
+                help: 'A resolvable URL for the model (manufacturer product page) makes the model machine-followable.'
+            });
+        }
+        checks.push({
+            name: 'Serial number',
+            status: d.serial ? 'good' : 'bad',
+            weight: 3,
+            value: d.serial,
+            note: d.serial ? null : 'No SerialNumber identifier — individual units are indistinguishable without one.',
+            help: 'PIDInst serial number, stored as an alternateIdentifier/identifier with type SerialNumber. The key field separating this physical unit from every other unit of the same model.'
+        });
+        checks.push({
+            name: 'Inventory number',
+            status: d.inventory ? 'good' : 'warn',
+            weight: 1,
+            value: d.inventory,
+            note: d.inventory ? null : 'No InventoryNumber — optional institutional asset ID.',
+            help: 'Institution-local asset/inventory identifier. Optional, so missing grades warn rather than bad.'
+        });
+        checks.push({
+            name: 'Measured variable(s)',
+            status: d.measuredVariables.length > 0 ? 'good' : 'bad',
+            weight: 2,
+            value: d.measuredVariables.map(function(v) { return v.name; }).join(', '),
+            note: d.measuredVariables.length > 0 ? null : 'No "Measured Variable:" entries.',
+            help: 'What the instrument measures (e.g. MAGNETIC FIELD), from TechnicalInfo entries. Multiple entries allowed.'
+        });
+        if (d.measuredVariables.length > 0) {
+            var withUrl = d.measuredVariables.filter(function(v) { return v.url; }).length;
+            checks.push({
+                name: 'Variable URLs',
+                status: withUrl === d.measuredVariables.length ? 'good' : (withUrl > 0 ? 'warn' : 'bad'),
+                weight: 1,
+                value: withUrl + ' / ' + d.measuredVariables.length + ' have a vocabulary URL',
+                note: withUrl === d.measuredVariables.length ? null : 'Some measured variables lack a vocabulary URL (e.g. GCMD concept).',
+                help: 'Vocabulary URIs (GCMD keywords) make measured variables machine-interpretable, not just labels.'
+            });
+        }
+        checks.push({
+            name: 'Instrument type',
+            status: d.instrumentType ? 'good' : 'bad',
+            weight: 1,
+            value: d.instrumentType ? d.instrumentType.name : '',
+            note: d.instrumentType ? null : 'No "Instrument Type:" entry.',
+            help: 'Instrument classification from TechnicalInfo (e.g. "Magnetotelluric magnetic field sensor").'
+        });
+        checks.push({
+            name: 'Commissioning date',
+            status: d.commissioned ? 'good' : 'bad',
+            weight: 2,
+            value: d.commissioned,
+            note: d.commissioned ? null : 'No dates[] entry with dateType=Other / dateInformation=Commissioned.',
+            help: 'When the unit entered service — dates[] entry with dateType "Other" and dateInformation "Commissioned". Note publicationYear is only the DOI registration year, not an activity date.'
+        });
+        checks.push({
+            name: 'Manufacturer creator',
+            status: d.creators.length > 0 ? 'good' : 'bad',
+            weight: 2,
+            value: d.creators.map(function(c) { return c.name; }).join('; '),
+            note: d.creators.length > 0 ? null : 'No creators — units should credit the manufacturer organisation.',
+            help: 'On unit records the DataCite creator is the manufacturer org (e.g. LEMI). On surveys it is the operator.'
+        });
+        checks.push({
+            name: 'Landing-page URL identifier',
+            status: d.landingAlt ? 'good' : (d.url ? 'warn' : 'bad'),
+            weight: 1,
+            value: d.landingAlt || d.url,
+            note: d.landingAlt ? null : (d.url ? 'No URL-typed alternate identifier — only the registered DataCite URL.' : 'No landing page at all.'),
+            help: 'A URL-typed alternateIdentifier pointing at the registry landing page. The DataCite url attribute covers resolution, so its absence from alternateIdentifiers grades warn.'
+        });
+        checks.push({
+            name: 'Survey membership',
+            status: d.memberSurveys.length > 0 ? 'good' : 'warn',
+            weight: 2,
+            value: d.memberSurveys.length + ' survey(s)',
+            note: d.memberSurveys.length > 0 ? null : 'Not referenced by any survey\'s HasPart — may be legitimately unused so far (warn, not fail).',
+            help: 'Whether any field survey references this unit via HasPart. Computed from the surveys\' side (reverse map), not from this record\'s IsPartOf.'
+        });
+
+        // Declared IsPartOf as a health signal only (#122): self-referencing
+        // entries are the open bug; absent entries while the reverse map says
+        // the unit belongs to surveys is the cleared/awaiting-regeneration state.
+        var linked = d.memberSurveys.length > 0;
+        var ipoStatus, ipoNote;
+        if (d.selfRefIsPartOf) {
+            ipoStatus = 'bad';
+            ipoNote = 'Record declares IsPartOf pointing at itself — registry bug #122.';
+        } else if (d.isPartOfTargets.length === 0 && linked) {
+            ipoStatus = 'warn';
+            ipoNote = 'Belongs to ' + d.memberSurveys.length + ' survey(s) via reverse HasPart but declares no IsPartOf — cleared, awaiting regeneration.';
+        } else if (d.isPartOfTargets.length === 0) {
+            ipoStatus = 'good';
+            ipoNote = 'No IsPartOf declared and no survey references it — nothing to declare.';
+        } else {
+            // Compare UNIQUE sets — duplicate declared entries must not
+            // masquerade as full coverage of the memberships.
+            var memberSet = {}, declaredSet = {}, declaredUnique = 0, memberCount = 0;
+            d.memberSurveys.forEach(function(s) {
+                var k = normaliseDoi(s);
+                if (!memberSet[k]) { memberSet[k] = true; memberCount++; }
+            });
+            d.isPartOfTargets.forEach(function(t) {
+                if (!declaredSet[t]) { declaredSet[t] = true; declaredUnique++; }
+            });
+            var allMatch = declaredUnique === memberCount
+                && Object.keys(declaredSet).every(function(t) { return memberSet[t]; });
+            ipoStatus = allMatch ? 'good' : 'warn';
+            ipoNote = allMatch ? 'Declared IsPartOf matches the surveys\' HasPart.' : 'Declared IsPartOf does not match the surveys\' HasPart relations.';
+        }
+        checks.push({
+            name: 'IsPartOf integrity (#122)',
+            status: ipoStatus,
+            weight: 3,
+            value: d.isPartOfTargets.length + ' declared / ' + d.memberSurveys.length + ' expected',
+            note: ipoNote,
+            help: 'Tracks registry bug AuScope/AuScope-instrument-registry#122: unit IsPartOf entries are currently self-referencing or cleared. Hierarchy on this page is always built from the surveys\' HasPart instead.'
+        });
+        // Mirrors the 'Relations typed URL not DOI' fleet line for units, so
+        // every record that line counts has a check row explaining it.
+        if (d.isPartOfTargets.length > 0 || d.selfRefIsPartOf) {
+            checks.push({
+                name: 'Relations typed DOI',
+                status: d.relUrlTyped ? 'warn' : 'good',
+                weight: 1,
+                value: d.relUrlTyped ? 'URL-typed' : 'DOI-typed',
+                note: d.relUrlTyped ? 'IsPartOf entries use relatedIdentifierType URL — DOI typing makes them PID-graph traversable.' : null,
+                help: 'Internal relations should carry relatedIdentifierType DOI so DataCite indexes them in the PID Graph.'
+            });
+        }
+
+    } else {
+        checks.push({
+            name: 'Component units (HasPart)',
+            status: d.hasPartDois.length > 0 ? 'good' : 'bad',
+            weight: 3,
+            value: d.hasPartDois.length + ' component(s)',
+            note: d.hasPartDois.length > 0 ? null : 'No HasPart relations — a survey should list its instrument units.',
+            help: 'HasPart relations pointing at the instrument-unit DOIs deployed in this campaign.'
+        });
+        checks.push({
+            name: 'Dataset links (Collects)',
+            status: d.collectsDois.length > 0 ? 'good' : 'bad',
+            weight: 3,
+            value: d.collectsDois.length + ' dataset(s)',
+            note: d.collectsDois.length > 0 ? null : 'No Collects relations — link the dataset DOIs this survey produced.',
+            help: 'Collects relations pointing at the dataset DOIs produced by this survey. The core impact link.'
+        });
+        checks.push({
+            name: 'Paper links (IsDescribedBy)',
+            status: d.isDescribedByDois.length > 0 ? 'good' : 'warn',
+            weight: 2,
+            value: d.isDescribedByDois.length + ' paper(s)',
+            note: d.isDescribedByDois.length > 0 ? null : 'No IsDescribedBy relations — a describing paper may simply not exist yet (warn, not fail).',
+            help: 'IsDescribedBy relations pointing at papers describing this survey. These appear as declared entries in the Citations tab.'
+        });
+        checks.push({
+            name: 'Coverage dates',
+            status: d.coverage ? 'good' : 'bad',
+            weight: 2,
+            value: d.coverage,
+            note: d.coverage ? null : 'No dates[] entry with dateType=Coverage — when did the campaign run?',
+            help: 'The field campaign period, as a dateType=Coverage range. publicationYear is only the DOI registration year.'
+        });
+        checks.push({
+            name: 'Geolocations',
+            status: d.geoCount > 0 ? 'good' : 'bad',
+            weight: 2,
+            value: d.geoCount + ' location(s)',
+            note: d.geoCount > 0 ? null : 'No geoLocations — known registry export gap, currently fleet-wide.',
+            help: 'Spatial extent of the survey area. Currently empty registry-wide (known export gap) — this check will stay red until the exporter is fixed.'
+        });
+        checks.push({
+            name: 'Funding references',
+            status: d.fundingReferences.length > 0 ? 'good' : 'bad',
+            weight: 1,
+            value: d.fundingReferences.length + ' funder(s)',
+            note: d.fundingReferences.length > 0 ? null : 'No fundingReferences.',
+            help: 'Funder attribution (typically AuScope with its ROR).'
+        });
+        var withRor = d.creators.filter(function(c) { return c.ror; }).length;
+        checks.push({
+            name: 'Operator creator with ROR',
+            status: d.creators.length === 0 ? 'bad' : (withRor > 0 ? 'good' : 'warn'),
+            weight: 1,
+            value: d.creators.map(function(c) { return c.name; }).join('; '),
+            note: d.creators.length === 0 ? 'No creators — surveys should credit the operating institution.' : (withRor > 0 ? null : 'Operator has no ROR identifier.'),
+            help: 'On survey records the DataCite creator is the operating institution (e.g. Adelaide University), ideally with a ROR.'
+        });
+        var doiTypedOk = !d.relUrlTyped;
+        checks.push({
+            name: 'Relations typed DOI',
+            status: doiTypedOk ? 'good' : (d.hasPartUrlTyped ? 'warn' : 'bad'),
+            weight: 1,
+            value: d.hasPartUrlTyped ? 'HasPart entries are URL-typed' : (doiTypedOk ? 'all DOI-typed' : 'non-DOI relation types'),
+            note: doiTypedOk ? null : 'Related identifiers holding doi.org URLs should be typed DOI, not URL, so citation graphs resolve them.',
+            help: 'DataCite relatedIdentifierType should be DOI when the target is a DOI. HasPart entries currently carry https://doi.org/... values typed as URL.'
+        });
+    }
+
+    return checks;
+}
+
+function scorePidinst(d) {
+    var checks = getChecks(d);
+    var totalWeight = 0, scored = 0;
+    checks.forEach(function(c) {
+        totalWeight += c.weight;
+        if (c.status === 'good') scored += c.weight;
+        else if (c.status === 'warn') scored += c.weight * 0.5;
+    });
+    var pct = totalWeight > 0 ? Math.round((scored / totalWeight) * 100) : 0;
+    return { score: pct, checks: checks, totalWeight: totalWeight, scoredWeight: scored };
+}
+
+// ============================================================
+// FILTER + SORT
+// ============================================================
+function instrumentSearchFields(d) {
+    var bits = [d.title, d.doi, d.serial, d.inventory];
+    if (d.model) bits.push(d.model.name);
+    if (d.instrumentType) bits.push(d.instrumentType.name);
+    d.measuredVariables.forEach(function(v) { bits.push(v.name); });
+    d.creators.forEach(function(c) { bits.push(c.name); });
+    d.hosting.forEach(function(c) { bits.push(c.name); });
+    // survey names on member units — the blob is built after linkHierarchy
+    d.memberSurveys.forEach(function(sd) {
+        var s = state.byDoi[normaliseDoi(sd)];
+        if (s) bits.push(s.title);
+    });
+    return bits;
+}
+
+// Non-fleet filters only (search / kind / model / issuesOnly). Shared by
+// visibleInstruments and the fleet panel's contextFilter.
+function instrumentContextFilter(d) {
+    var f = state.filter;
+    if (f.search && buildSearchBlob(d, instrumentSearchFields).indexOf(f.search) === -1) return false;
+    if (f.kind && d.kind !== f.kind) return false;
+    if (f.model) {
+        var m = (d.model && d.model.name) ? d.model.name : '';
+        // match on parsed model, falling back to the title (the PR6-24
+        // loggers have no Model TechnicalInfo entry but name it in the title)
+        if (m !== f.model && (d.title || '').toLowerCase().indexOf(f.model.toLowerCase()) === -1) return false;
+    }
+    if (f.issuesOnly && d.pidinst.score >= 80) return false;
+    return true;
+}
+
+function linkCount(d) {
+    return d.kind === 'unit'
+        ? d.memberSurveys.length
+        : d.hasPartDois.length + d.collectsDois.length + d.isDescribedByDois.length;
+}
+
+function visibleInstruments() {
+    var list = state.instruments.filter(function(d) {
+        if (!instrumentContextFilter(d)) return false;
+        if (state.fleetFilter && !state.fleetFilter.predicate(d)) return false;
+        return true;
+    });
+    var key = state.sortKey;
+    var dir = state.sortDir === 'asc' ? 1 : -1;
+    list.sort(function(a, b) {
+        var av, bv;
+        if (key === 'score') { av = a.pidinst.score; bv = b.pidinst.score; }
+        else if (key === 'title') { av = (a.title || '').toLowerCase(); bv = (b.title || '').toLowerCase(); }
+        else if (key === 'serial') { av = a.serial || '\uffff'; bv = b.serial || '\uffff'; } // sentinel sorts serial-less rows last
+        else if (key === 'links') { av = linkCount(a); bv = linkCount(b); }
+        else if (key === 'kind') { av = a.kind; bv = b.kind; }
+        if (av < bv) return -1 * dir;
+        if (av > bv) return 1 * dir;
+        // stable tiebreak so equal-score rows don't shuffle
+        return (a.doi < b.doi) ? -1 : 1;
+    });
+    return list;
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderStats() {
+    var all = state.instruments;
+    var units = all.filter(function(d) { return d.kind === 'unit'; });
+    var surveys = all.filter(function(d) { return d.kind === 'survey'; });
+    var linked = units.filter(function(d) { return d.memberSurveys.length > 0; }).length;
+    var avg = all.length > 0 ? Math.round(all.reduce(function(s, d) { return s + d.pidinst.score; }, 0) / all.length) : 0;
+
+    var dsSet = new Set(), papSet = new Set();
+    surveys.forEach(function(s) {
+        s.collectsDois.forEach(function(x) { dsSet.add(x); });
+        s.isDescribedByDois.forEach(function(x) { papSet.add(x); });
+    });
+
+    document.getElementById('stat-units').textContent = units.length;
+    document.getElementById('stat-units-sub').textContent = all.length > 0 ? 'live from DataCite' : '';
+    document.getElementById('stat-surveys').textContent = surveys.length;
+    document.getElementById('stat-score').textContent = avg + '%';
+    var scoreSub = document.getElementById('stat-score-sub');
+    if (avg >= 80) scoreSub.textContent = 'metadata completeness — good';
+    else if (avg >= 60) scoreSub.textContent = 'metadata completeness — OK';
+    else scoreSub.textContent = 'metadata completeness — needs work';
+    document.getElementById('stat-linked').textContent = linked + ' / ' + units.length;
+    document.getElementById('stat-impact').textContent = dsSet.size + papSet.size;
+    document.getElementById('stat-impact-sub').textContent = dsSet.size + ' datasets + ' + papSet.size + ' papers via surveys';
+}
+
+function setBody(html) { document.getElementById('inst-tbody').innerHTML = html; }
+
+function updateHeaderArrows() {
+    document.querySelectorAll('th.sortable').forEach(function(th) {
+        var key = th.getAttribute('data-sort');
+        var arrow = th.querySelector('.arrow');
+        if (key === state.sortKey) {
+            th.classList.add('sorted');
+            arrow.textContent = state.sortDir === 'desc' ? '▼' : '▲';
+        } else {
+            th.classList.remove('sorted');
+            arrow.textContent = '';
+        }
+    });
+}
+
+function renderTable() {
+    updateHeaderArrows();
+    var visible = visibleInstruments();
+    var resultEl = document.getElementById('result-count');
+    var msg = visible.length + (visible.length === state.instruments.length ? '' : ' of ' + state.instruments.length) + ' records';
+    if (state.fleetFilter) {
+        // Chip clear is delegated by the chassis (initFleetPanel) on #result-count
+        msg += '<span class="fleet-filter-chip">' + escapeHtml(state.fleetFilter.label)
+            + ' <button title="Clear fleet filter">×</button></span>';
+    }
+    resultEl.innerHTML = msg;
+
+    renderFleetPanel();
+
+    if (visible.length === 0) {
+        setBody('<tr><td colspan="9" class="empty-state">No records match the current filters.</td></tr>');
+        return;
+    }
+
+    var html = '';
+    visible.forEach(function(d, idx) {
+        html += renderRow(d, idx + 1);
+        if (state.expanded.has(d.doi)) html += renderDetailRow(d);
+    });
+    setBody(html);
+}
+
+function renderTableRowsOnly() {
+    var rows = document.querySelectorAll('tr.data-row');
+    rows.forEach(function(row) {
+        var doi = row.getAttribute('data-doi');
+        var d = state.byDoi[normaliseDoi(doi)];
+        if (!d) return;
+        var cell = row.querySelector('.col-cites');
+        if (cell) cell.innerHTML = renderInstCitePill(d);
+    });
+}
+
+function renderInstCitePill(d) {
+    if (d.kind === 'unit') {
+        return '<span class="cite-pill zero" title="Instrument units accrue impact via their surveys">0</span>';
+    }
+    return renderCitePill(d, state.citationCache);
+}
+
+function coverageLabel(coverage) {
+    // '2022-04-01/2022-06-30' -> '2022' or '2022–2023'
+    var parts = coverage.split('/');
+    var y1 = parts[0] ? parts[0].substring(0, 4) : '';
+    var y2 = parts[1] ? parts[1].substring(0, 4) : '';
+    if (y1 && y2 && y1 !== y2) return y1 + '–' + y2;
+    return y1 || '—';
+}
+
+function renderDatesCell(d) {
+    if (d.kind === 'unit') {
+        return d.commissioned
+            ? '<span title="Commissioned ' + escapeAttr(d.commissioned) + '">' + escapeHtml(d.commissioned.substring(0, 4)) + '</span>'
+            : '—';
+    }
+    return d.coverage
+        ? '<span title="Coverage ' + escapeAttr(d.coverage) + '">' + escapeHtml(coverageLabel(d.coverage)) + '</span>'
+        : '—';
+}
+
+function renderLinksCell(d) {
+    if (d.kind === 'unit') {
+        var n = d.memberSurveys.length;
+        return n > 0 ? n + ' survey' + (n === 1 ? '' : 's') : '<span style="color:var(--text-muted)">0 surveys</span>';
+    }
+    return d.hasPartDois.length + ' comp · ' + d.collectsDois.length + ' data · ' + d.isDescribedByDois.length + ' papers';
+}
+
+function renderTypeBadge(d) {
+    if (d.kind === 'survey') return '<span class="badge type-survey">Survey</span>';
+    var label = (d.model && d.model.name) ? d.model.name : 'Instrument';
+    return '<span class="badge type-unit" title="Instrument unit">' + escapeHtml(label) + '</span>';
+}
+
+function renderRow(d, num) {
+    var score = d.pidinst.score;
+    var scoreCls = score >= 80 ? 'good' : (score >= 60 ? 'warn' : 'bad');
+    return '<tr class="data-row' + (state.expanded.has(d.doi) ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '">'
+        + '<td class="col-num">' + num + '</td>'
+        + '<td class="col-title">'
+            + '<div class="title-line">' + escapeHtml(d.title || '(no title)') + '</div>'
+            + '<a class="doi" href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">' + escapeHtml(d.doi) + '</a>'
+        + '</td>'
+        + '<td class="col-type">' + renderTypeBadge(d) + '</td>'
+        + '<td class="col-serial">' + (d.serial ? escapeHtml(d.serial) : '—') + '</td>'
+        + '<td class="col-dates">' + renderDatesCell(d) + '</td>'
+        + '<td class="col-links">' + renderLinksCell(d) + '</td>'
+        + '<td class="col-score"><div class="mapping-bar"><div class="track"><div class="fill ' + scoreCls + '" style="width:' + score + '%"></div></div><div class="pct">' + score + '%</div></div></td>'
+        + '<td class="col-cites">' + renderInstCitePill(d) + '</td>'
+        + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
+        + '</tr>';
+}
+
+function bindRowDelegation() {
+    document.getElementById('inst-tbody').addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        if (e.target.closest('.detail-tab')) return;
+        if (e.target.closest('.detail-pane')) return;
+        var row = e.target.closest('tr.data-row');
+        if (!row) return;
+        toggleDetail(row.getAttribute('data-doi'));
+    });
+}
+
+function toggleDetail(doi) {
+    if (state.expanded.has(doi)) state.expanded.delete(doi);
+    else state.expanded.add(doi);
+    renderTable();
+}
+
+// ============================================================
+// DETAIL PANEL
+// ============================================================
+function renderDetailRow(d) {
+    var citCache = state.citationCache[normaliseDoi(d.doi)];
+    var citTabBadge;
+    if (citCache && citCache.reciprocity) {
+        var r = citCache.reciprocity;
+        var gapBadge = r.gaps > 0
+            ? '<span class="badge-count gap-count">' + r.gaps + ' gap' + (r.gaps === 1 ? '' : 's') + '</span>'
+            : '';
+        citTabBadge = '<span class="badge-count">' + r.total + '</span>' + gapBadge;
+    } else {
+        citTabBadge = '<span class="badge-count">' + (typeof d.citationCount === 'number' ? d.citationCount : '…') + '</span>';
+    }
+
+    // Citations tab is surveys-only: units cannot be cited directly, so the
+    // tab is suppressed the same way auspass suppresses it for no-DOI rows.
+    var isSurvey = d.kind === 'survey';
+    return '<tr class="detail-row"><td colspan="9"><div class="detail" data-doi="' + escapeAttr(d.doi) + '">'
+        + '<div class="detail-tabs">'
+            + '<button class="detail-tab active" data-pane="overview">Overview</button>'
+            + '<button class="detail-tab" data-pane="pidinst">PIDInst check <span class="badge-count">' + d.pidinst.score + '%</span></button>'
+            + '<button class="detail-tab" data-pane="related">Related <span class="badge-count">' + d.relatedIdentifiers.length + '</span></button>'
+            + (isSurvey ? '<button class="detail-tab" data-pane="citations">Citations ' + citTabBadge + '</button>' : '')
+            + '<button class="detail-tab" data-pane="raw">Raw JSON</button>'
+        + '</div>'
+        + '<div class="detail-pane active" data-pane="overview">' + renderOverviewPane(d) + '</div>'
+        + '<div class="detail-pane" data-pane="pidinst">' + renderPidinstPane(d) + '</div>'
+        + '<div class="detail-pane" data-pane="related">' + renderRelatedPane(d) + '</div>'
+        + (isSurvey ? '<div class="detail-pane" data-pane="citations" data-loaded="false"><div class="empty-state">Click to load citations.</div></div>' : '')
+        + '<div class="detail-pane" data-pane="raw">' + renderRawPane(d) + '</div>'
+        + '</div></td></tr>';
+}
+
+function bindDetailTabs() {
+    document.getElementById('inst-tbody').addEventListener('click', function(e) {
+        var tab = e.target.closest('.detail-tab');
+        if (!tab) return;
+        var detail = tab.closest('.detail');
+        if (!detail) return;
+        var paneName = tab.getAttribute('data-pane');
+        var tabs = detail.querySelectorAll('.detail-tab');
+        var panes = detail.querySelectorAll('.detail-pane');
+        tabs.forEach(function(t) { t.classList.toggle('active', t === tab); });
+        panes.forEach(function(p) { p.classList.toggle('active', p.getAttribute('data-pane') === paneName); });
+
+        if (paneName === 'citations') {
+            var pane = detail.querySelector('.detail-pane[data-pane="citations"]');
+            if (pane && pane.getAttribute('data-loaded') !== 'true') {
+                var doi = detail.getAttribute('data-doi');
+                var entity = state.byDoi[normaliseDoi(doi)];
+                loadCitationsInto({
+                    entity: entity,
+                    cache: state.citationCache,
+                    paneEl: pane,
+                    email: 'ben@auscope.org.au',
+                    onLoaded: function(stats) {
+                        renderTableRowsOnly();
+                        renderFleetPanel();
+                        updateCitationTabBadge(doi, stats);
+                    }
+                });
+                pane.setAttribute('data-loaded', 'true');
+            }
+        }
+    });
+}
+
+function updateCitationTabBadge(doi, stats) {
+    var details = document.querySelectorAll('.detail');
+    for (var i = 0; i < details.length; i++) {
+        if (details[i].getAttribute('data-doi') !== doi) continue;
+        var tab = details[i].querySelector('.detail-tab[data-pane="citations"]');
+        if (!tab) return;
+        var totalBadge = '<span class="badge-count">' + stats.total + '</span>';
+        var gapBadge = stats.gaps > 0
+            ? '<span class="badge-count gap-count">' + stats.gaps + ' gap' + (stats.gaps === 1 ? '' : 's') + '</span>'
+            : '';
+        tab.innerHTML = 'Citations ' + totalBadge + gapBadge;
+        return;
+    }
+}
+
+// ----- Overview pane -----
+function renderOrgWithId(o) {
+    var idBadge = '';
+    if (o.ror) {
+        idBadge = '<a href="' + escapeAttr(o.ror) + '" target="_blank" rel="noopener" class="ror-link" title="ROR: ' + escapeAttr(o.ror) + '"><img src="assets/ror-logo.png" class="ror-icon" alt="ROR" data-fallback="ror"></a>';
+    } else if (o.url) {
+        idBadge = ' · <a href="' + escapeAttr(o.url) + '" target="_blank" rel="noopener" style="font-size:11px;">' + escapeHtml(o.url.replace(/^https?:\/\//i, '')) + '</a>';
+    }
+    return '<span class="creator">' + escapeHtml(o.name || '(unnamed)') + idBadge + '</span>';
+}
+
+function renderOverviewPane(d) {
+    var isSurvey = d.kind === 'survey';
+
+    var doiBlock = '<span class="mono">' + escapeHtml(d.doi) + '</span>'
+        + ' · <a href="https://doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">resolve ↗</a>'
+        + ' · <a href="https://commons.datacite.org/doi.org/' + escapeAttr(d.doi) + '" target="_blank" rel="noopener">DataCite Commons ↗</a>'
+        + ' · <a href="#" class="copy-doi-btn" data-doi="' + escapeAttr(d.doi) + '">copy</a>';
+
+    var typeHtml = isSurvey
+        ? '<span class="badge type-survey">Field survey</span>'
+        : '<span class="badge type-unit">Instrument unit</span>';
+
+    var modelHtml;
+    if (d.model && d.model.name) {
+        modelHtml = escapeHtml(d.model.name);
+        if (d.model.url) modelHtml += ' · <a href="' + escapeAttr(d.model.url) + '" target="_blank" rel="noopener">manufacturer page ↗</a>';
+    } else {
+        modelHtml = '<span class="empty">no Model entry</span>';
+    }
+
+    var serialHtml = d.serial
+        ? '<span class="mono">' + escapeHtml(d.serial) + '</span>'
+        : '<span class="empty">no serial number</span>';
+    if (d.inventory) serialHtml += ' · inventory <span class="mono">' + escapeHtml(d.inventory) + '</span>';
+
+    var mvHtml = d.measuredVariables.length === 0
+        ? '<span class="empty">none</span>'
+        : d.measuredVariables.map(function(v) {
+            var inner = v.url
+                ? '<a href="' + escapeAttr(v.url) + '" target="_blank" rel="noopener" title="Vocabulary entry">' + escapeHtml(v.name) + '</a>'
+                : escapeHtml(v.name);
+            return '<span class="mv-chip">' + inner + '</span>';
+        }).join('');
+
+    var itypeHtml = d.instrumentType
+        ? escapeHtml(d.instrumentType.name) + (d.instrumentType.url ? ' · <a href="' + escapeAttr(d.instrumentType.url) + '" target="_blank" rel="noopener">vocabulary ↗</a>' : '')
+        : '<span class="empty">none</span>';
+
+    var orgLabel = isSurvey ? 'Operator' : 'Manufacturer';
+    var orgHtml = d.creators.length === 0
+        ? '<span class="empty">no creators</span>'
+        : d.creators.map(renderOrgWithId).join('');
+
+    var hostingHtml = d.hosting.length === 0
+        ? '<span class="empty">none</span>'
+        : d.hosting.map(renderOrgWithId).join('');
+
+    var datesHtml;
+    if (isSurvey) {
+        datesHtml = d.coverage
+            ? '<span class="mono">' + escapeHtml(d.coverage) + '</span> (coverage)'
+            : '<span class="empty">no coverage dates</span>';
+    } else {
+        datesHtml = d.commissioned
+            ? '<span class="mono">' + escapeHtml(d.commissioned) + '</span> commissioned'
+            : '<span class="empty">no commissioning date</span>';
+    }
+
+    // Memberships — units: linked surveys via reverse HasPart; surveys:
+    // component units grouped by model.
+    var membershipsHtml;
+    if (isSurvey) {
+        if (d.hasPartDois.length === 0) {
+            membershipsHtml = '<span class="empty">no component units declared (HasPart)</span>';
+        } else {
+            var groups = {};
+            var unresolved = 0;
+            d.hasPartDois.forEach(function(t) {
+                var u = state.byDoi[t];
+                if (!u) { unresolved++; return; }
+                var label = (u.model && u.model.name) ? u.model.name : (u.title || 'Unknown');
+                groups[label] = (groups[label] || 0) + 1;
+            });
+            var keys = Object.keys(groups).sort(function(a, b) { return groups[b] - groups[a]; });
+            membershipsHtml = keys.map(function(k) {
+                return '<span class="comp-chip"><span class="model">' + escapeHtml(k) + '</span><span class="count">× ' + groups[k] + '</span></span>';
+            }).join('');
+            membershipsHtml = '<div style="margin-bottom:4px;font-size:12px;color:var(--text-soft);">' + d.hasPartDois.length + ' component unit(s)</div>' + membershipsHtml;
+            if (unresolved > 0) membershipsHtml += '<div style="font-size:11px;color:var(--text-muted);margin-top:4px;">' + unresolved + ' HasPart target(s) not found in this registry</div>';
+        }
+    } else {
+        if (d.memberSurveys.length === 0) {
+            membershipsHtml = '<span class="empty">not referenced by any survey (HasPart)</span>';
+        } else {
+            membershipsHtml = d.memberSurveys.map(function(sd) {
+                var s = state.byDoi[normaliseDoi(sd)];
+                var title = s ? s.title : sd;
+                return '<div style="margin-bottom:3px;"><a href="https://doi.org/' + escapeAttr(sd) + '" target="_blank" rel="noopener">' + escapeHtml(title) + '</a></div>';
+            }).join('');
+        }
+    }
+
+    var impactHtml = '';
+    if (isSurvey) {
+        var impactBits = [];
+        if (d.collectsDois.length > 0) {
+            impactBits.push(d.collectsDois.map(function(x) {
+                return '<div style="margin-bottom:3px;"><span style="color:var(--text-muted);font-size:11px;margin-right:6px;">Collects:</span><a href="https://doi.org/' + escapeAttr(x) + '" target="_blank" rel="noopener" class="mono" style="font-size:12px;">' + escapeHtml(x) + '</a></div>';
+            }).join(''));
+        }
+        if (d.isDescribedByDois.length > 0) {
+            impactBits.push(d.isDescribedByDois.map(function(x) {
+                return '<div style="margin-bottom:3px;"><span style="color:var(--text-muted);font-size:11px;margin-right:6px;">IsDescribedBy:</span><a href="https://doi.org/' + escapeAttr(x) + '" target="_blank" rel="noopener" class="mono" style="font-size:12px;">' + escapeHtml(x) + '</a></div>';
+            }).join(''));
+        }
+        impactHtml = impactBits.length > 0 ? impactBits.join('') : '<span class="empty">no dataset or paper links declared</span>';
+    }
+
+    var regUpd = '';
+    regUpd += d.registered
+        ? '<span class="mono">' + escapeHtml(d.registered.substring(0, 10)) + '</span> registered'
+        : '<span class="empty">registered: unknown</span>';
+    if (d.updated) regUpd += ' · <span class="mono">' + escapeHtml(d.updated.substring(0, 10)) + '</span> updated';
+
+    var landing = d.url
+        ? '<a href="' + escapeAttr(d.url) + '" target="_blank" rel="noopener">' + escapeHtml(d.url) + '</a>'
+        : '<span class="empty">none</span>';
+
+    var html = '<dl class="ov-grid">'
+        + '<dt>DOI</dt><dd>' + doiBlock + '</dd>'
+        + '<dt>Type</dt><dd>' + typeHtml + '</dd>'
+        + '<dt>Model</dt><dd>' + modelHtml + '</dd>';
+    if (!isSurvey) {
+        html += '<dt>Serial / inventory</dt><dd>' + serialHtml + '</dd>';
+    }
+    html += '<dt>Measured variables</dt><dd>' + mvHtml + '</dd>'
+        + '<dt>Instrument type</dt><dd>' + itypeHtml + '</dd>'
+        + '<dt>' + orgLabel + '</dt><dd>' + orgHtml + '</dd>'
+        + '<dt>Hosting institution</dt><dd>' + hostingHtml + '</dd>'
+        + '<dt>' + (isSurvey ? 'Coverage' : 'Commissioned') + '</dt><dd>' + datesHtml + '</dd>'
+        + '<dt>' + (isSurvey ? 'Component units' : 'Member of surveys') + '</dt><dd>' + membershipsHtml + '</dd>';
+    if (isSurvey) {
+        html += '<dt>Impact links</dt><dd>' + impactHtml + '</dd>';
+    }
+    html += '<dt>Registered / updated</dt><dd>' + regUpd + '</dd>'
+        + '<dt>Landing page</dt><dd>' + landing + '</dd>'
+        + '</dl>';
+    return html;
+}
+
+// ----- PIDInst check pane -----
+function renderPidinstPane(d) {
+    var checks = d.pidinst.checks;
+    var score = d.pidinst.score;
+    var bannerCls = score >= 80 ? 'good' : (score >= 60 ? 'warn' : 'bad');
+    var bannerMsg;
+    if (score >= 80) bannerMsg = 'PIDInst metadata is strong.';
+    else if (score >= 60) bannerMsg = 'PIDInst metadata is workable but has gaps worth filling.';
+    else bannerMsg = 'PIDInst metadata has significant gaps.';
+
+    var counts = { good: 0, warn: 0, bad: 0 };
+    checks.forEach(function(c) { counts[c.status]++; });
+
+    var html = '<div class="summary-banner ' + bannerCls + '"><strong>' + score + '% complete</strong> · ' + bannerMsg + ' (' + counts.good + ' ✓ · ' + counts.warn + ' ⚠ · ' + counts.bad + ' ✗)</div>';
+    html += '<ul class="check-list">';
+    checks.forEach(function(c) {
+        var icon = c.status === 'good' ? '✓' : (c.status === 'warn' ? '!' : '✗');
+        var nameWithTip = escapeHtml(c.name) + (c.help ? infoTip(c.help) : '');
+        html += '<li class="check ' + c.status + '">'
+            + '<div class="icon">' + icon + '</div>'
+            + '<div class="body">'
+                + '<div class="name">' + nameWithTip + '</div>'
+                + (c.value ? '<div class="value">' + escapeHtml(String(c.value).substring(0, 200)) + '</div>' : '')
+                + (c.note ? '<div class="note">' + escapeHtml(c.note) + '</div>' : '')
+            + '</div>'
+        + '</li>';
+    });
+    html += '</ul>';
+    return html;
+}
+
+// ----- Related identifiers pane -----
+function renderRelatedPane(d) {
+    if (d.relatedIdentifiers.length === 0) {
+        return '<div class="empty-state">No related identifiers declared in the DataCite record.</div>';
+    }
+    var selfKey = normaliseDoi(d.doi);
+    var html = '<table class="rel-table"><thead><tr><th>Relation</th><th>Identifier</th><th>Type</th></tr></thead><tbody>';
+    d.relatedIdentifiers.forEach(function(r) {
+        var idVal = r.relatedIdentifier || '';
+        var target = normaliseDoi(idVal);
+        var idType = (r.relatedIdentifierType || '').toUpperCase();
+        var idLink;
+        if (idType === 'DOI') {
+            idLink = '<a href="https://doi.org/' + escapeAttr(idVal) + '" target="_blank" rel="noopener" class="mono" style="font-size:11px;color:var(--accent);text-decoration:none;">' + escapeHtml(idVal) + '</a>';
+        } else if (idType === 'URL') {
+            idLink = '<a href="' + escapeAttr(idVal) + '" target="_blank" rel="noopener" class="mono" style="font-size:11px;color:var(--accent);text-decoration:none;">' + escapeHtml(idVal) + '</a>';
+        } else {
+            idLink = '<span class="mono" style="font-size:11px;">' + escapeHtml(idVal) + '</span>';
+        }
+        if (r.relationType === 'IsPartOf' && target && target === selfKey) {
+            idLink += '<span class="self-ref-flag">✗ self-reference (#122)</span>';
+        } else if (target && state.byDoi[target] && target !== selfKey) {
+            idLink += '<div class="rel-resolved">' + escapeHtml(state.byDoi[target].title || '') + '</div>';
+        }
+        html += '<tr>'
+            + '<td><span class="rel-type">' + escapeHtml(r.relationType || '') + '</span></td>'
+            + '<td>' + idLink + '</td>'
+            + '<td style="font-size:11px;color:var(--text-soft);">' + escapeHtml(r.relatedIdentifierType || '') + '</td>'
+        + '</tr>';
+    });
+    html += '</tbody></table>';
+    return html;
+}
+
+// ----- Raw JSON pane -----
+function renderRawPane(d) {
+    var json = JSON.stringify(d._raw, null, 2);
+    return '<pre class="raw-json">' + syntaxHighlightJson(json) + '</pre>';
+}
+
+// ============================================================
+// CSV EXPORT
+// ============================================================
+function exportVisibleCsv() {
+    exportCsv({
+        columns: [
+            { header: 'DOI', value: function(d) { return d.doi; } },
+            { header: 'Title', value: function(d) { return d.title; } },
+            { header: 'Kind', value: function(d) { return d.kind; } },
+            { header: 'Model', value: function(d) { return d.model ? d.model.name : ''; } },
+            { header: 'Serial', value: function(d) { return d.serial; } },
+            { header: 'InventoryNumber', value: function(d) { return d.inventory; } },
+            { header: 'Commissioned/Coverage', value: function(d) { return d.kind === 'unit' ? d.commissioned : d.coverage; } },
+            { header: 'Surveys', value: function(d) { return d.kind === 'unit' ? d.memberSurveys.length : ''; } },
+            { header: 'Components', value: function(d) { return d.kind === 'survey' ? d.hasPartDois.length : ''; } },
+            { header: 'Datasets', value: function(d) { return d.kind === 'survey' ? d.collectsDois.length : ''; } },
+            { header: 'Papers', value: function(d) { return d.kind === 'survey' ? d.isDescribedByDois.length : ''; } },
+            { header: 'PIDInstScore', value: function(d) { return d.pidinst.score; } },
+            { header: 'SelfReferencingIsPartOf', value: function(d) { return d.selfRefIsPartOf ? 'yes' : 'no'; } },
+            { header: 'LandingURL', value: function(d) { return d.url; } }
+        ],
+        rows: visibleInstruments(),
+        filenamePrefix: 'auscope-instruments'
+    });
+}
+
+// ============================================================
+// PAGE HELPERS
+// ============================================================
+// Chassis copyToClipboard is silent — this delegated handler owns the toast.
+// Delegation (not inline onclick) keeps API-sourced DOIs out of JS-string
+// contexts.
+document.addEventListener('click', function(e) {
+    var btn = e.target.closest ? e.target.closest('.copy-doi-btn') : null;
+    if (!btn) return;
+    e.preventDefault();
+    var doi = btn.getAttribute('data-doi') || '';
+    copyToClipboard(doi);
+    showToast('DOI copied: ' + doi);
+});
+
+// Bootstrap (script is at end of body, DOM is available)
+init();
+</script>
+</body>
+</html>
