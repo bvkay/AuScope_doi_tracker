@@ -237,7 +237,6 @@
         </div>
     </div>
 
-<script src="fdsn-doi-data.js"></script>
 <script>
     // =====================================================
     // VIEW MANAGEMENT
@@ -258,15 +257,18 @@
     // =====================================================
 
     var platforms = {
+        // EarthBank and AusPass have dedicated tracker pages (metadata
+        // completeness scoring, fleet gap analysis, citation reciprocity) -
+        // their cards route there instead of the older inline views.
         earthbank: {
             name: 'AuScope EarthBank',
-            desc: 'Geochemistry datasets via DataCite',
-            fetchDatasets: fetchEarthBankDatasets
+            desc: 'Geochemistry datasets - opens the EarthBank Dataset Tracker',
+            href: 'earthbank.html'
         },
         auspass: {
             name: 'AusPass Seismic Networks',
-            desc: 'Seismic networks on the Australian Passive Seismic Server',
-            fetchDatasets: fetchAusPassNetworks
+            desc: 'Seismic networks - opens the AusPass Network Tracker',
+            href: 'auspass.html'
         },
         nci_mt: {
             name: 'NCI Magnetotellurics (MT)',
@@ -291,7 +293,11 @@
             card.className = 'platform-card';
             card.setAttribute('data-key', key);
             card.innerHTML = '<h3>' + p.name + '</h3><p>' + p.desc + '</p>';
-            card.onclick = (function(k) { return function() { loadPlatform(k); }; })(key);
+            if (p.href) {
+                card.onclick = (function(h) { return function() { window.location.href = h; }; })(p.href);
+            } else {
+                card.onclick = (function(k) { return function() { loadPlatform(k); }; })(key);
+            }
             container.appendChild(card);
         }
     })();
@@ -488,150 +494,6 @@
         }
 
         renderDatasetTable(currentDatasets, true);
-    }
-
-    // =====================================================
-    // FETCH DATASETS: EARTHBANK (DataCite API)
-    // =====================================================
-
-    async function fetchEarthBankDatasets() {
-        var datasets = [];
-        var page = 1;
-        var pageSize = 100;
-        var hasMore = true;
-
-        while (hasMore) {
-            var url = 'https://api.datacite.org/dois?client-id=hypc.gxglvy'
-                + '&page[size]=' + pageSize
-                + '&page[number]=' + page
-                + '&sort=-created';
-            var response = await fetch(url);
-            if (!response.ok) throw new Error('DataCite API returned HTTP ' + response.status);
-            var data = await response.json();
-            var items = data.data || [];
-
-            for (var i = 0; i < items.length; i++) {
-                var attrs = items[i].attributes;
-                var creators = attrs.creators || [];
-                var authors = creators.map(function(c) {
-                    if (c.familyName && c.givenName) return c.familyName + ', ' + c.givenName.charAt(0) + '.';
-                    return c.name || 'Unknown';
-                }).join('; ');
-
-                // Determine access from rightsList
-                var access = '';
-                var rights = attrs.rightsList || [];
-                for (var r = 0; r < rights.length; r++) {
-                    var rt = (rights[r].rights || '').toLowerCase();
-                    if (rt.indexOf('open') >= 0) { access = 'Open'; break; }
-                    if (rt.indexOf('restricted') >= 0 || rt.indexOf('closed') >= 0) { access = 'Restricted'; break; }
-                }
-                if (!access && attrs.url) access = 'Open'; // DataCite-registered with URL = generally open
-
-                datasets.push({
-                    code: '',
-                    name: attrs.titles && attrs.titles[0] ? attrs.titles[0].title : 'Untitled',
-                    doi: attrs.doi || '',
-                    year: attrs.publicationYear || '',
-                    authors: authors,
-                    access: access,
-                    citationCount: undefined
-                });
-            }
-
-            hasMore = items.length === pageSize;
-            page++;
-        }
-
-        datasets.sort(function(a, b) { return (b.year || 0) - (a.year || 0); });
-        return datasets;
-    }
-
-    // FDSN_DOI_DATA ([code, startYear, doi]) is provided by fdsn-doi-data.js
-    // (shared with auspass.html). Regenerate with: node src/update-fdsn-dois.js
-
-    // =====================================================
-    // FETCH DATASETS: AUSPASS (FDSN Station Service + embedded DOI lookup)
-    // =====================================================
-
-    async function fetchAusPassNetworks() {
-        var stationUrl = 'https://auspass.edu.au/fdsnws/station/1/query?level=network&format=text';
-        var stationResp = await fetch(stationUrl);
-        if (!stationResp.ok) throw new Error('AusPass station service returned HTTP ' + stationResp.status);
-        var stationText = await stationResp.text();
-
-        var lines = stationText.trim().split('\n');
-        var networks = [];
-        for (var i = 1; i < lines.length; i++) {
-            var parts = lines[i].split('|');
-            if (parts.length < 5) continue;
-            var code = parts[0].trim();
-            var desc = parts[1].trim();
-            var startTime = parts[2].trim();
-            var endTime = parts[3].trim();
-            var totalStations = parts[4].trim();
-
-            var startYear = startTime ? startTime.substring(0, 4) : '';
-            var endYear = endTime ? endTime.substring(0, 4) : '';
-            var yearStr = startYear;
-            if (endYear && endYear !== startYear) yearStr += '-' + endYear;
-
-            networks.push({
-                code: code,
-                name: desc + (totalStations ? ' (' + totalStations + ' stations)' : ''),
-                year: yearStr,
-                doi: '',
-                access: '',
-                citationCount: undefined
-            });
-        }
-
-        // DOI lookup from embedded FDSN data (avoids CORS issues with fdsn.org)
-        var doiMapExact = {};
-        var doiMapCode = {};
-        for (var j = 0; j < FDSN_DOI_DATA.length; j++) {
-            var net = FDSN_DOI_DATA[j];
-            if (net[1]) doiMapExact[net[0] + '_' + net[1]] = net[2];
-            doiMapCode[net[0]] = net[2];
-        }
-
-        var datasets = [];
-        for (var k = 0; k < networks.length; k++) {
-            var nw = networks[k];
-            var startYr = nw.year ? nw.year.substring(0, 4) : '';
-            nw.doi = doiMapExact[nw.code + '_' + startYr] || doiMapCode[nw.code] || '';
-            nw.access = 'Open';  // FDSN networks are open by definition
-            nw.authors = '';     // Will be filled from DataCite below
-            datasets.push(nw);
-        }
-
-        // Fetch authors from DataCite for networks with DOIs (batches of 5)
-        var withDoi = datasets.filter(function(d) { return d.doi; });
-        for (var b = 0; b < withDoi.length; b += 5) {
-            var batch = withDoi.slice(b, b + 5);
-            await Promise.all(batch.map(function(ds) {
-                return fetch('https://api.datacite.org/dois/' + encodeURIComponent(ds.doi))
-                    .then(function(r) { return r.ok ? r.json() : null; })
-                    .then(function(data) {
-                        if (!data || !data.data) return;
-                        var creators = data.data.attributes.creators || [];
-                        ds.authors = creators.map(function(c) {
-                            if (c.familyName && c.givenName) return c.familyName + ', ' + c.givenName.charAt(0) + '.';
-                            return c.name || '';
-                        }).filter(Boolean).join('; ');
-                    })
-                    .catch(function() {});
-            }));
-        }
-
-        datasets.sort(function(a, b) {
-            var ya = parseInt(a.year) || 0;
-            var yb = parseInt(b.year) || 0;
-            if (yb !== ya) return yb - ya;
-            return a.code.localeCompare(b.code);
-        });
-
-        return datasets;
     }
 
     // =====================================================
