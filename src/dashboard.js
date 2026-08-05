@@ -196,6 +196,33 @@ function computeStats(pubs, datasets) {
   };
 }
 
+// Hero tiles: cross-pillar headline numbers. Researchers/institutions/
+// countries are deliberately absent — computed over the unverified keyword
+// corpus they inflate beyond belief; they return once evidence tiers let us
+// count them over verified publications only.
+function buildHeroTiles(s, pillarData) {
+  const tiles = [
+    { n: s.totalPublications, label: 'Publications' },
+    { n: s.totalCitations, label: 'Total Citations' }
+  ];
+  const p = pillarData && pillarData.pillars;
+  if (p) {
+    if (p.datasets) tiles.push({ n: p.datasets.total, label: 'Datasets' });
+    if (p.samples && p.samples.declared) tiles.push({ n: p.samples.declared, label: 'Samples' });
+    if (p.stations) tiles.push({ n: p.stations.total, label: 'Seismic Stations' });
+    if (p.instruments) {
+      tiles.push({ n: p.instruments.units, label: 'Instruments' });
+      tiles.push({ n: p.instruments.surveys, label: 'Field Surveys' });
+    }
+  }
+  return tiles.map(function(t) {
+    return '            <div class="stat-card">\n'
+      + '                <div class="number">' + t.n.toLocaleString() + '</div>\n'
+      + '                <div class="label">' + t.label + '</div>\n'
+      + '            </div>';
+  }).join('\n');
+}
+
 // Explorer cards: cross-pillar numbers from src/stats.js, each linking to
 // the page that IS the evidence behind the number. Skips gracefully when
 // stats-data.json is absent or a pillar failed to fetch.
@@ -208,19 +235,24 @@ function buildExplorerCards(pillarData) {
     const platforms = Object.keys(p.datasets.byPlatform || {}).length;
     cards.push({ href: 'datasets.html', num: p.datasets.total.toLocaleString(),
       name: 'Datasets', sub: platforms + ' platforms' });
-    const eb = (p.datasets.byPlatform || {}).EarthBank;
-    if (eb) cards.push({ href: 'earthbank.html', num: eb.toLocaleString(),
-      name: 'EarthBank', sub: 'metadata completeness + citations' });
-    const ap = (p.datasets.byPlatform || {}).AusPass;
-    if (ap) cards.push({ href: 'auspass.html', num: ap.toLocaleString(),
-      name: 'AusPass networks', sub: 'stations, DOIs + citations' });
+  }
+  if (p.samples && p.samples.declared) {
+    cards.push({ href: 'earthbank.html', num: p.samples.declared.toLocaleString(),
+      name: 'Samples',
+      sub: p.samples.sampleDois + ' with DOIs · '
+        + (p.samples.dataPoints || 0).toLocaleString() + ' data points' });
+  }
+  if ((p.datasets && (p.datasets.byPlatform || {}).AusPass)) {
+    const stations = p.stations ? p.stations.total.toLocaleString() + ' stations' : 'stations + citations';
+    cards.push({ href: 'auspass.html', num: p.datasets.byPlatform.AusPass.toLocaleString(),
+      name: 'AusPass networks', sub: stations });
   }
   if (p.instruments) {
-    cards.push({ href: 'instruments.html',
-      num: p.instruments.units.toLocaleString() + ' + ' + p.instruments.surveys,
-      name: 'Instruments + surveys',
-      sub: p.instruments.linkedDatasets + ' datasets, ' + p.instruments.linkedPapers
-        + ' papers linked' });
+    cards.push({ href: 'instruments.html', num: p.instruments.units.toLocaleString(),
+      name: 'Instruments', sub: 'PIDInst DOIs · metadata health' });
+    cards.push({ href: 'instruments.html', num: String(p.instruments.surveys),
+      name: 'Field surveys', sub: p.instruments.linkedDatasets + ' datasets · '
+        + p.instruments.linkedPapers + ' papers linked' });
   }
   if (!cards.length) return '';
 
@@ -232,12 +264,30 @@ function buildExplorerCards(pillarData) {
       + '        </a>';
   }).join('\n');
 
-  return '\n    <!-- ═══ Explorer cards (from src/stats.js) ═══ -->\n'
+  let out = '\n    <!-- ═══ Explorer cards (from src/stats.js) ═══ -->\n'
     + '    <div class="explorers">\n'
     + '        <h2>Explore the evidence</h2>\n'
     + '        <div class="note">Every number links to the live records behind it.</div>\n'
-    + '        <div class="explorer-grid">\n' + cardHtml + '\n        </div>\n'
-    + '    </div>\n';
+    + '        <div class="explorer-grid">\n' + cardHtml + '\n        </div>\n';
+
+  // Most-deployed instrument models (survey memberships per model)
+  const tm = p.instruments && p.instruments.topModels;
+  if (tm && tm.length) {
+    const maxDep = tm[0].deployments;
+    const rows = tm.map(function(t) {
+      const w = Math.max(2, Math.round(t.deployments / maxDep * 100));
+      return '            <div class="bar-row">\n'
+        + '                <div class="bar-label">' + t.model + '</div>\n'
+        + '                <div class="bar-track"><div class="bar-fill" style="width:' + w + '%"></div></div>\n'
+        + '                <div class="bar-value">' + t.deployments + '</div>\n'
+        + '            </div>';
+    }).join('\n');
+    out += '        <h2 style="margin-top:24px">Most deployed instruments</h2>\n'
+      + '        <div class="note">Survey deployments per instrument model, from the PIDInst registry\'s survey&rarr;component links.</div>\n'
+      + '        <div class="bar-chart">\n' + rows + '\n        </div>\n';
+  }
+
+  return out + '    </div>\n';
 }
 
 function buildHTML(stats, lastUpdated, pillarData) {
@@ -262,7 +312,7 @@ function buildHTML(stats, lastUpdated, pillarData) {
 
         /* ── Hero Stats (TERN-style) ── */
         .hero {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+            background: #282572; /* flat AuScope purple — page embeds as an iframe on auscope.org.au */
             color: #ffffff;
             padding: 40px 24px 32px;
             text-align: center;
@@ -282,7 +332,7 @@ function buildHTML(stats, lastUpdated, pillarData) {
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            opacity: 0.7;
+            color: #EF7256; /* AuScope tangerine — the one accent on the page */
             margin-bottom: 16px;
         }
         .stat-grid {
@@ -325,7 +375,7 @@ function buildHTML(stats, lastUpdated, pillarData) {
         .explorers h2 {
             font-size: 16px;
             font-weight: 700;
-            color: #1e40af;
+            color: #282572;
             margin-bottom: 4px;
         }
         .explorers .note {
@@ -348,13 +398,13 @@ function buildHTML(stats, lastUpdated, pillarData) {
             transition: border-color 0.15s, box-shadow 0.15s;
         }
         .explorer-card:hover {
-            border-color: #2563eb;
+            border-color: #282572;
             box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
         }
         .explorer-card .num {
             font-size: 24px;
             font-weight: 700;
-            color: #1e40af;
+            color: #282572;
         }
         .explorer-card .name {
             font-size: 13px;
@@ -380,7 +430,7 @@ function buildHTML(stats, lastUpdated, pillarData) {
         .chart-section h2 {
             font-size: 16px;
             font-weight: 700;
-            color: #1e40af;
+            color: #282572;
             margin-bottom: 16px;
         }
         .chart-section .note {
@@ -395,17 +445,17 @@ function buildHTML(stats, lastUpdated, pillarData) {
         .bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
         .bar-label { width: 200px; text-align: right; color: #475569; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
         .bar-track { flex: 1; height: 22px; background: #f1f5f9; border-radius: 4px; overflow: hidden; }
-        .bar-fill { height: 100%; background: #2563eb; border-radius: 4px; min-width: 2px; transition: width 0.3s; }
-        .bar-value { width: 40px; font-weight: 600; color: #1e40af; font-size: 12px; }
+        .bar-fill { height: 100%; background: #282572; border-radius: 4px; min-width: 2px; transition: width 0.3s; }
+        .bar-value { width: 40px; font-weight: 600; color: #282572; font-size: 12px; }
 
         /* ── SVG charts ── */
 
         /* ── Citation buckets ── */
         .bucket-chart { display: flex; align-items: flex-end; gap: 8px; height: 320px; }
         .bucket-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
-        .bucket-bar { width: 80%; background: #2563eb; border-radius: 4px 4px 0 0; min-height: 2px; flex-shrink: 0; }
+        .bucket-bar { width: 80%; background: #282572; border-radius: 4px 4px 0 0; min-height: 2px; flex-shrink: 0; }
         .bucket-label { font-size: 11px; color: #64748b; margin-top: 6px; }
-        .bucket-count { font-size: 11px; color: #2563eb; font-weight: 600; margin-bottom: 3px; }
+        .bucket-count { font-size: 11px; color: #282572; font-weight: 600; margin-bottom: 3px; }
 
         /* ── Footer ── */
         .footer {
@@ -417,7 +467,7 @@ function buildHTML(stats, lastUpdated, pillarData) {
             max-width: 960px;
             margin: 0 auto;
         }
-        .footer a { color: #2563eb; text-decoration: none; }
+        .footer a { color: #282572; text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
 
         @media (max-width: 600px) {
@@ -435,26 +485,7 @@ function buildHTML(stats, lastUpdated, pillarData) {
         <p class="subtitle">Tracking publications and citations across AuScope research infrastructure</p>
         <div class="more-than">AuScope Impact at a Glance</div>
         <div class="stat-grid">
-            <div class="stat-card">
-                <div class="number">${s.totalPublications.toLocaleString()}</div>
-                <div class="label">Publications</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">${s.totalCitations.toLocaleString()}</div>
-                <div class="label">Total Citations</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">${s.uniqueAuthors.toLocaleString()}</div>
-                <div class="label">Researchers</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">${s.uniqueInstitutions.toLocaleString()}</div>
-                <div class="label">Institutions</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">${s.uniqueCountries}</div>
-                <div class="label">Countries</div>
-            </div>
+${buildHeroTiles(s, pillarData)}
         </div>
     </div>
 
@@ -562,12 +593,12 @@ function buildYearChart(byYear) {
     const barY = padT + plotH - barH;
 
     if (barH > 0) {
-      svg += '<rect x="' + x.toFixed(1) + '" y="' + barY.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + barH.toFixed(1) + '" fill="#2563eb" rx="2" />';
+      svg += '<rect x="' + x.toFixed(1) + '" y="' + barY.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + barH.toFixed(1) + '" fill="#282572" rx="2" />';
     }
 
     // Count label above bar (only if there's room)
     if (y.count > 0 && barW > 10) {
-      svg += '<text x="' + (x + barW / 2).toFixed(1) + '" y="' + (barY - 4).toFixed(1) + '" text-anchor="middle" font-size="9" fill="#2563eb" font-weight="600">' + y.count + '</text>';
+      svg += '<text x="' + (x + barW / 2).toFixed(1) + '" y="' + (barY - 4).toFixed(1) + '" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">' + y.count + '</text>';
     }
   }
 
@@ -632,14 +663,14 @@ function buildCumulativeChart(byYear) {
   }
 
   // Filled area under line
-  svg += '<polygon points="' + areaPoints + '" fill="#2563eb" fill-opacity="0.08" />';
+  svg += '<polygon points="' + areaPoints + '" fill="#282572" fill-opacity="0.08" />';
 
   // Line
-  svg += '<polyline points="' + points.join(' ') + '" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" />';
+  svg += '<polyline points="' + points.join(' ') + '" fill="none" stroke="#282572" stroke-width="2.5" stroke-linejoin="round" />';
 
   // End dot
   const lastPt = points[points.length - 1].split(',');
-  svg += '<circle cx="' + lastPt[0] + '" cy="' + lastPt[1] + '" r="4" fill="#2563eb" />';
+  svg += '<circle cx="' + lastPt[0] + '" cy="' + lastPt[1] + '" r="4" fill="#282572" />';
 
   // Y-axis labels
   for (const tick of yTicks) {

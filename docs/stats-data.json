@@ -1,23 +1,51 @@
 {
-  "generated": "2026-08-05T06:05:29.107Z",
+  "generated": "2026-08-05T06:32:00.740Z",
   "pillars": {
     "publications": {
       "total": 3075,
       "citations": 65779
     },
     "datasets": {
-      "total": 214,
+      "total": 167,
       "byPlatform": {
-        "EarthBank": 105,
+        "EarthBank": 58,
         "AusPass": 86,
         "NCI": 23
       }
+    },
+    "samples": {
+      "declared": 53306,
+      "sampleDois": 47,
+      "dataPoints": 4872,
+      "source": "EarthBank DataCite records"
+    },
+    "stations": {
+      "total": 3892,
+      "source": "AusPass FDSN station service"
     },
     "instruments": {
       "units": 152,
       "surveys": 9,
       "linkedDatasets": 11,
-      "linkedPapers": 8
+      "linkedPapers": 8,
+      "topModels": [
+        {
+          "model": "LEMI-120",
+          "deployments": 218
+        },
+        {
+          "model": "LEMI-423",
+          "deployments": 107
+        },
+        {
+          "model": "MTC-150",
+          "deployments": 36
+        },
+        {
+          "model": "MTU-5C",
+          "deployments": 14
+        }
+      ]
     },
     "dataRepository": {
       "total": 5

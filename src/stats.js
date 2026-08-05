@@ -40,26 +40,85 @@ async function run() {
   };
   console.log('Publications: ' + pillars.publications.total + ' (' + pillars.publications.citations + ' citations)');
 
-  // ── Datasets (local, from dataset-inventory.js) ──
+  // ── Datasets + samples (local, from dataset-inventory.js) ──
+  // EarthBank PhysicalObject records are physical samples/specimens — they
+  // get their own pillar rather than inflating the dataset count.
   const dsData = readJson(path.join(DATA_DIR, 'datasets.json'), { records: [] });
   const datasets = dsData.records || [];
   const byPlatform = {};
+  let samples = 0;
   datasets.forEach(function(d) {
+    if (d.platform === 'EarthBank' && d.type === 'PhysicalObject') { samples++; return; }
     const key = d.platform || 'Other';
     byPlatform[key] = (byPlatform[key] || 0) + 1;
   });
-  pillars.datasets = { total: datasets.length, byPlatform: byPlatform };
-  console.log('Datasets: ' + datasets.length + ' across ' + Object.keys(byPlatform).length + ' platforms');
+  const dsTotal = datasets.length - samples;
+  pillars.datasets = { total: dsTotal, byPlatform: byPlatform };
+
+  // ── Samples (EarthBank, live) ──
+  // Two facets: PhysicalObject records are per-sample DOIs; Dataset records
+  // additionally DECLARE their sample and data-point counts in sizes[]
+  // ("1883 Samples", "194 Geochem data points"). The declared sum is the
+  // scientifically meaningful headline; the DOI count is a facet of it,
+  // never added together (they describe overlapping samples).
+  try {
+    const ebRecords = await fetchAllDois('hypc.gxglvy');
+    let declaredSamples = 0, dataPoints = 0;
+    ebRecords.forEach(function(r) {
+      const a = r.attributes || {};
+      if ((a.types || {}).resourceTypeGeneral !== 'Dataset') return;
+      (a.sizes || []).forEach(function(s) {
+        const m = String(s).trim().match(/^([\d,]+)\s+(.*)$/);
+        if (!m) return;
+        const n = parseInt(m[1].replace(/,/g, '')) || 0;
+        if (/^samples?$/i.test(m[2])) declaredSamples += n;
+        else if (/data points?$/i.test(m[2])) dataPoints += n;
+      });
+    });
+    pillars.samples = {
+      declared: declaredSamples,
+      sampleDois: samples,
+      dataPoints: dataPoints,
+      source: 'EarthBank DataCite records'
+    };
+    console.log('Samples: ' + declaredSamples + ' declared across datasets ('
+      + samples + ' with their own DOIs, ' + dataPoints + ' analytical data points)');
+  } catch (e) {
+    console.warn('EarthBank sample scan failed: ' + e.message);
+    pillars.samples = { declared: null, sampleDois: samples, dataPoints: null, source: 'EarthBank DataCite records' };
+  }
+  console.log('Datasets: ' + dsTotal + ' across ' + Object.keys(byPlatform).length + ' platforms');
+
+  // ── Seismic stations (AusPass FDSN, live) ──
+  try {
+    const resp = await fetch('https://auspass.edu.au/fdsnws/station/1/query?level=network&format=text');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const lines = (await resp.text()).trim().split('\n');
+    let stations = 0;
+    for (let i = 1; i < lines.length; i++) {
+      const parts = lines[i].split('|');
+      if (parts.length >= 5) stations += parseInt(parts[4]) || 0;
+    }
+    pillars.stations = { total: stations, source: 'AusPass FDSN station service' };
+    console.log('Stations: ' + stations);
+  } catch (e) {
+    console.warn('AusPass station fetch failed: ' + e.message);
+    pillars.stations = null;
+  }
 
   // ── Instruments + surveys (DataCite, live) ──
   try {
     const records = await fetchAllDois('auscope.repo3');
     let units = 0, surveys = 0;
     const collectsSet = {}, papersSet = {};
+    const modelByDoi = {};
+    const deployments = {};  // model -> total survey memberships
+    const surveyRecs = [];
     records.forEach(function(r) {
       const a = r.attributes || {};
       if (isSurvey(a)) {
         surveys++;
+        surveyRecs.push(a);
         (a.relatedIdentifiers || []).forEach(function(rel) {
           const t = normDoi(rel.relatedIdentifier);
           if (!t) return;
@@ -68,17 +127,31 @@ async function run() {
         });
       } else {
         units++;
+        modelByDoi[normDoi(a.doi)] = unitModel(a);
       }
     });
+    // Most-deployed models: each HasPart edge is one unit deployed in one survey.
+    surveyRecs.forEach(function(a) {
+      (a.relatedIdentifiers || []).forEach(function(rel) {
+        if (rel.relationType !== 'HasPart') return;
+        const model = modelByDoi[normDoi(rel.relatedIdentifier)];
+        if (model) deployments[model] = (deployments[model] || 0) + 1;
+      });
+    });
+    const topModels = Object.keys(deployments).map(function(m) {
+      return { model: m, deployments: deployments[m] };
+    }).sort(function(x, y) { return y.deployments - x.deployments; }).slice(0, 8);
     pillars.instruments = {
       units: units,
       surveys: surveys,
       linkedDatasets: Object.keys(collectsSet).length,
-      linkedPapers: Object.keys(papersSet).length
+      linkedPapers: Object.keys(papersSet).length,
+      topModels: topModels
     };
     console.log('Instruments: ' + units + ' units, ' + surveys + ' surveys ('
       + pillars.instruments.linkedDatasets + ' linked datasets, '
       + pillars.instruments.linkedPapers + ' linked papers)');
+    console.log('Top models: ' + topModels.map(function(t) { return t.model + ' x' + t.deployments; }).join(', '));
   } catch (e) {
     console.warn('Instrument registry fetch failed: ' + e.message);
     pillars.instruments = null;
@@ -108,6 +181,8 @@ async function run() {
     publications: pillars.publications.total,
     citations: pillars.publications.citations,
     datasets: pillars.datasets.total,
+    samplesDeclared: pillars.samples ? pillars.samples.declared : null,
+    stations: pillars.stations ? pillars.stations.total : null,
     instrumentUnits: pillars.instruments ? pillars.instruments.units : null,
     surveys: pillars.instruments ? pillars.instruments.surveys : null,
     impactLinks: pillars.instruments
@@ -129,6 +204,26 @@ function readJson(file, fallback) {
 function normDoi(s) {
   if (!s) return '';
   return String(s).trim().replace(/^https?:\/\/(www\.)?(dx\.)?doi\.org\//i, '').toLowerCase();
+}
+
+// Model name from a unit's 'Model:' TechnicalInfo entry, falling back to
+// known model tokens in the title (24 PR6-24 loggers carry no Model entry).
+const MODEL_TOKENS = ['LEMI-120', 'LEMI-423', 'LEMI-424', 'PR6-24', 'MTC-150', 'MTU-5C'];
+function unitModel(attrs) {
+  const descs = attrs.descriptions || [];
+  for (let i = 0; i < descs.length; i++) {
+    if ((descs[i].descriptionType || '') !== 'TechnicalInfo') continue;
+    const t = descs[i].description || '';
+    if (t.toLowerCase().indexOf('model:') === 0) {
+      const name = t.substring(6).replace(/\((?:URL|URI):.*$/i, '').trim();
+      if (name) return name;
+    }
+  }
+  const title = ((attrs.titles || [])[0] || {}).title || '';
+  for (let j = 0; j < MODEL_TOKENS.length; j++) {
+    if (title.indexOf(MODEL_TOKENS[j]) !== -1) return MODEL_TOKENS[j];
+  }
+  return 'Other';
 }
 
 // Same survey heuristic as docs/instruments.html: FIELD SURVEYS marker
