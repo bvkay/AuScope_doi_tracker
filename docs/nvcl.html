@@ -788,8 +788,25 @@ function freshnessBadge(st) {
             + fmt(days) + 'd <span class="info-i">i</span></span>';
     }
     var src = '';
+    var partial = false;
     if (st.dates_from_tsg > 0 && st.dates_from_api === 0) {
-        src = ' <span class="info-i" data-tip="Dates for this node are scan dates read from the TSG files on the AuScope NCI THREDDS mirror, not the API’s ingest dates.">i</span>';
+        // These nodes publish no dates at all, so every date we have came from
+        // a TSG file we have actually read. Until coverage is complete the
+        // "latest scan" is a FLOOR — a more recent scan may sit in an unread
+        // archive — and the badge must not imply otherwise.
+        var cov = st.total_boreholes_with_data
+            ? st.dates_from_tsg / st.total_boreholes_with_data : 1;
+        partial = cov < 0.95;
+        src = ' <span class="info-i" data-tip="'
+            + escapeAttr('Dates for this node are scan dates read from TSG files on the AuScope NCI THREDDS mirror — its API publishes none. '
+                + (partial
+                    ? fmt(st.dates_from_tsg) + ' of ' + fmt(st.total_boreholes_with_data)
+                      + ' boreholes read so far (' + Math.round(cov * 100) + '%), so this is the most recent scan we have READ, not necessarily the most recent scan. Weekly enrichment is still working through the archive.'
+                    : 'Coverage is complete for this node.'))
+            + '">i</span>';
+    }
+    if (partial) {
+        return '<span class="badge fresh-none">latest read: ' + fmt(days) + 'd ago</span>' + src;
     }
     if (days < 30) return '<span class="badge fresh-good">current</span>' + src;
     if (days < 180) return '<span class="badge fresh-warn">' + fmt(days) + ' days ago</span>' + src;
