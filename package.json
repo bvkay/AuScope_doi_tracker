@@ -9,6 +9,7 @@
     "update-fdsn": "node src/update-fdsn-dois.js",
     "stats": "node src/stats.js",
     "nvcl": "node src/nvcl/harvest.js",
+    "tsg-enrich": "node src/nvcl/tsg-enrich.js",
     "verified": "node src/verified.js",
     "evidence": "node src/evidence.js",
     "consolidate": "node src/consolidate.js",
