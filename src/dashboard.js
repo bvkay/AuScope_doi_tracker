@@ -414,7 +414,7 @@ function buildExplorerCards(pillarData) {
         + p.nvcl.nodes + ' state nodes · verifiable live' });
   }
   if (p.ausis) {
-    cards.push({ href: 'https://auscope.github.io/AuScope_Outreach/AuSIS_Map.html',
+    cards.push({ href: 'ausis.html',
       num: p.ausis.stations.toLocaleString(),
       name: 'Seismometers in schools',
       sub: p.ausis.active + ' active'
@@ -695,6 +695,7 @@ ${buildProgramSection(stats.programs)}
         <a href="earthbank.html">EarthBank</a> &middot;
         <a href="auspass.html">AusPass</a> &middot;
         <a href="instruments.html">Instrument Registry</a> &middot;
+        <a href="ausis.html">AuSIS</a> &middot;
         <a href="nvcl.html">NVCL</a>
         <br>
         Last updated: ${updated} &middot;

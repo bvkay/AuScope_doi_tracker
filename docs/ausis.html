@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<!--
+    AuSIS Schools Tracker
+    Australian Seismometers in Schools — research-grade seismometers in
+    Australian schools since 2011. Defining theme: FULLY LIVE — there is
+    no committed snapshot. Both data sources are CORS-open and fetched at
+    runtime on every page load:
+
+      A. Station registry — AusPass FDSN station service (network S1,
+         pipe-delimited text). Active = empty EndTime; joined year =
+         StartTime year; SiteName is the school.
+      B. Streaming status — the AuScope Outreach platform's hourly probe
+         (ausis_status.json on raw.githubusercontent.com).
+
+    Shared skin/machinery: tracker-shared.css (styles), tracker-chassis.js
+    (escapeHtml/escapeAttr/showToast), tracker-citations.js
+    (fetchCitationCount for the network DOI cite chip).
+    Coastline: australia-outline.json (Natural Earth 1:110m, public domain).
+
+    States are DERIVED FROM COORDINATES (the FDSN feed has no state field)
+    with simple bounding rules — see deriveState() and the how-panel caveat.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AuSIS Schools Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
+    <style>
+        /*
+            AuSIS page-specific rules. Everything shared lives in
+            tracker-shared.css (linked above). This page re-skins the
+            accent to AuScope purple — the overrides below come after
+            the shared sheet deliberately.
+        */
+        :root {
+            --accent: #282572;        /* AuScope purple */
+            --accent-strong: #1d1b5e;
+            --accent-soft: #dcdbf0;
+            --accent-bg: #f3f3fa;
+        }
+
+        /* Stat-tile tooltips: anchor to the tile, not the info icon.
+           The shared [data-tip]::after is laid out even while invisible
+           (opacity 0), so a left-anchored 280px tooltip on a right-column
+           tile silently widens the body and creates horizontal scroll.
+           Spanning the tile (left+right insets) can never overflow. */
+        .stats .stat { position: relative; }
+        .stats .stat [data-tip] { position: static; }
+        .stats .stat [data-tip]::after {
+            left: 10px;
+            right: 10px;
+            width: auto;
+            max-width: none;
+        }
+        .stats .stat [data-tip]::before { left: 16px; }
+
+        /* ----- cite-the-network panel ----- */
+        .cite-panel { border: 1px solid var(--border); border-left: 3px solid #282572; border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 18px; background: var(--bg-soft); }
+        .cite-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; }
+        .cite-text { font-size: 13px; color: var(--text); }
+        .cite-text .mono { word-break: break-all; }
+        .cite-meta { margin-top: 6px; font-size: 12px; color: var(--text-soft); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .cite-note a { color: var(--accent); text-decoration: none; }
+
+        /* ----- provenance banner ----- */
+        .prov-banner {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border: 1px solid var(--accent-soft);
+            border-left: 4px solid var(--accent);
+            background: var(--accent-bg);
+            border-radius: 6px;
+            padding: 13px 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .prov-mark {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .prov-body { flex: 1; min-width: 260px; }
+        .prov-title { font-size: 14px; font-weight: 600; color: var(--text); }
+        .prov-text { font-size: 12.5px; color: var(--text-soft); margin-top: 2px; line-height: 1.55; }
+        .prov-text a { color: var(--accent); text-decoration: none; }
+        .prov-text a:hover { text-decoration: underline; }
+        .prov-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+        .p-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11.5px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--text-soft);
+            white-space: nowrap;
+        }
+        .p-chip .tick { color: var(--good); font-weight: 700; }
+        .p-chip.fail { background: var(--warn-bg); border-color: #fcd34d; color: #854d0e; }
+        .p-chip.fail .cross { color: #b45309; font-weight: 700; }
+        .p-chip.stamp { background: var(--accent-soft); border-color: var(--accent-soft); color: var(--accent-strong); font-weight: 600; font-variant-numeric: tabular-nums; }
+        .p-chip a { color: var(--accent); text-decoration: none; }
+        .p-chip a:hover { text-decoration: underline; }
+
+        /* ----- sections ----- */
+        .section { margin: 28px 0; }
+        .section h2 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 3px;
+        }
+        .section-note { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+        .section-note.after { margin-top: 8px; margin-bottom: 0; }
+
+        /* ----- the map ----- */
+        .map-panel { display: flex; gap: 18px; align-items: flex-start; }
+        .map-main { flex: 1; min-width: 0; }
+        #map-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        #map-coast path { fill: #f4f4f8; stroke: var(--border); stroke-width: 1; }
+        #map-svg circle.stn { cursor: pointer; stroke: #fff; stroke-width: 1; }
+        #map-svg circle.on { fill: #16a34a; }                      /* streaming now      */
+        #map-svg circle.idle { fill: #d97706; }                    /* active, not streaming */
+        #map-svg circle.unknown { fill: #282572; fill-opacity: 0.75; } /* status feed down  */
+        #map-svg circle.closed { fill: #fff; stroke: #94a3b8; stroke-width: 1.5; } /* grey hollow */
+
+        .map-legend { width: 220px; flex-shrink: 0; font-size: 12px; }
+        .map-legend h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .lg-row { display: flex; align-items: baseline; gap: 7px; padding: 2px 0; }
+        .lg-swatch {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            align-self: center;
+        }
+        .lg-swatch.hollow { background: #fff; border: 1.5px solid #94a3b8; width: 8px; height: 8px; }
+        .lg-name { color: var(--text-soft); flex: 1; }
+        .lg-count { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); }
+        .lg-note { font-size: 10.5px; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+        @media (max-width: 900px) {
+            .map-panel { flex-direction: column; }
+            .map-legend { width: 100%; }
+        }
+        #map-tip {
+            position: fixed;
+            display: none;
+            background: #0f172a;
+            color: #f1f5f9;
+            font-size: 12px;
+            padding: 5px 9px;
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 90;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+        }
+
+        /* ----- station table ----- */
+        #stations-section .table-wrap { overflow-x: auto; }
+        td.mono-cell { font-family: var(--mono); font-size: 12px; color: var(--text-soft); }
+        td.num-cell { font-variant-numeric: tabular-nums; }
+        .badge.st-active { background: var(--active-bg); color: #065f46; }
+        .badge.st-closed { background: var(--bg-muted); color: var(--text-muted); }
+        .live-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: 1px;
+        }
+        .live-dot.ok { background: var(--good); }
+        .stream-yes { color: #166534; font-size: 12px; white-space: nowrap; }
+        .stream-no { color: var(--text-muted); }
+        .verify-link { color: var(--accent); text-decoration: none; white-space: nowrap; font-size: 12.5px; }
+        .verify-link:hover { text-decoration: underline; }
+
+        /* ----- growth chart ----- */
+        #growth-wrap svg { width: 100%; max-width: 860px; height: auto; display: block; }
+
+        /* ----- research link block ----- */
+        a.research-card {
+            display: block;
+            max-width: 620px;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            background: var(--bg-soft);
+            padding: 12px 16px;
+            text-decoration: none;
+            transition: background 0.12s;
+        }
+        a.research-card:hover { background: var(--accent-bg); }
+        .rc-title { display: block; font-size: 13.5px; font-weight: 600; color: var(--accent); }
+        .rc-sub { display: block; font-size: 12px; color: var(--text-soft); margin-top: 3px; line-height: 1.5; }
+
+        /* ----- how / footer ----- */
+        .how-body {
+            padding: 2px 14px 14px;
+            font-size: 12.5px;
+            color: var(--text-soft);
+            line-height: 1.65;
+            max-width: 920px;
+        }
+        .how-body p { margin-bottom: 8px; }
+        .how-body strong { color: var(--text); }
+        .how-body a { color: var(--accent); text-decoration: none; }
+        .how-body a:hover { text-decoration: underline; }
+        .how-body code { font-family: var(--mono); font-size: 11.5px; background: var(--bg-muted); padding: 1px 4px; border-radius: 3px; }
+        .foot {
+            margin-top: 30px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            font-size: 11.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .foot a { color: var(--accent); text-decoration: none; }
+        .foot a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- ========== HEADER ========== -->
+        <div class="topbar">
+            <div class="brand">
+                <h1>
+                    <img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope" data-fallback="auscope">
+                    <span class="accent">AuSIS</span> Schools Tracker
+                </h1>
+                <p>Seismometers in Australian schools since 2011 &mdash; live from the network&rsquo;s own services.</p>
+            </div>
+            <div class="links">
+                <a href="index.html">&larr; Impact overview</a>
+                <a href="https://ausis.edu.au" target="_blank" rel="noopener">AuSIS &#8599;</a>
+                <a href="https://auscope.github.io/AuScope_Outreach/AuSIS_Map.html" target="_blank" rel="noopener">Live school dashboards &#8599;</a>
+            </div>
+        </div>
+
+        <!-- ========== PROVENANCE BANNER ========== -->
+        <div class="prov-banner" id="prov-banner">
+            <div class="prov-mark">&#10003;</div>
+            <div class="prov-body">
+                <div class="prov-title">Every number on this page is fetched live</div>
+                <div class="prov-text" id="prov-text"><span class="spinner"></span> Querying the AusPass station registry and the streaming-status feed&hellip;</div>
+            </div>
+        </div>
+
+        <!-- ========== CITE THE NETWORK ========== -->
+        <div class="cite-panel">
+            <div class="cite-label">Cite the network</div>
+            <div class="cite-text">AuSIS - Australian Seismometers in Schools (2011). Australian National University. FDSN network S1.
+                <a href="https://doi.org/10.7914/SN/S1" target="_blank" rel="noopener" class="mono">https://doi.org/10.7914/SN/S1</a>
+            </div>
+            <div class="cite-meta">
+                <span id="cite-count-chip" class="cite-pill loading" title="Formal citations of the network DOI, live from DataCite">&hellip;</span>
+                <span class="cite-note">citations of the network DOI &middot; papers using AuSIS data should cite the network DOI in their <strong>reference list</strong> (not just the acknowledgements) so the use is counted &middot;
+                <a href="https://commons.datacite.org/doi.org/10.7914/sn/s1" target="_blank" rel="noopener">DataCite Commons &#8599;</a></span>
+            </div>
+        </div>
+
+        <!-- ========== STAT TILES ========== -->
+        <div class="stats" id="stat-tiles">
+            <div class="stat"><div class="label">Schools <span class="info-i" data-tip="Every S1 station ever registered in the AusPass FDSN registry, including the few that have since closed. One station = one school site.">i</span></div><div class="value" id="stat-total">&mdash;</div><div class="sub">stations registered since 2011</div></div>
+            <div class="stat"><div class="label">Active now <span class="info-i" data-tip="Stations with no end date in the FDSN registry — the seismometer is installed and the station is open.">i</span></div><div class="value" id="stat-active">&mdash;</div><div class="sub" id="stat-active-sub">currently open stations</div></div>
+            <div class="stat"><div class="label">Streaming right now <span class="info-i" data-tip="Active stations whose live data feed answered the AuScope Outreach platform's most recent hourly probe.">i</span></div><div class="value" id="stat-streaming">&mdash;</div><div class="sub" id="stat-streaming-sub">&mdash;</div></div>
+            <div class="stat"><div class="label">States &amp; territories <span class="info-i" data-tip="The FDSN feed has no state field, so states are derived from each station's coordinates with simple bounding rules — schools very close to a border could be assigned to the neighbour.">i</span></div><div class="value" id="stat-states">&mdash;</div><div class="sub">derived from coordinates</div></div>
+            <div class="stat"><div class="label">Years running <span class="info-i" data-tip="The first AuSIS seismometers came online in 2011 (Mt Stromlo and ANU, Canberra).">i</span></div><div class="value" id="stat-years">&mdash;</div><div class="sub">since 2011 &middot; still growing</div></div>
+        </div>
+
+        <!-- ========== MAP ========== -->
+        <div class="section" id="map-section">
+            <h2>The network, drawn by its own coordinates</h2>
+            <div class="section-note" id="map-caption">Each dot is a school with a research-grade seismometer. Click one to see its live waveform dashboard.</div>
+            <div class="map-panel">
+                <div class="map-main">
+                    <svg id="map-svg" viewBox="0 0 860 600" role="img" aria-label="Map of AuSIS school seismometers across Australia">
+                        <g id="map-coast"></g>
+                        <g id="map-dots"></g>
+                    </svg>
+                </div>
+                <div class="map-legend">
+                    <h3>Stations</h3>
+                    <div id="map-legend-rows"><span class="spinner"></span></div>
+                    <div class="lg-note" id="map-legend-note"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== STATION TABLE ========== -->
+        <div class="section" id="stations-section">
+            <h2>Every school station</h2>
+            <div class="section-note" id="stations-note">Newest first &mdash; rows exactly as the AusPass FDSN registry returns them.</div>
+            <div class="table-wrap">
+                <table class="data" id="stations-table">
+                    <thead>
+                        <tr>
+                            <th>School</th>
+                            <th>Code</th>
+                            <th>State <span class="info-i" data-tip="Derived from coordinates — the registry has no state field.">i</span></th>
+                            <th>Since</th>
+                            <th>Status</th>
+                            <th>Streaming <span class="info-i" data-tip="Whether the station's live feed answered the Outreach platform's last hourly probe.">i</span></th>
+                            <th>Dashboard</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stations-tbody">
+                        <tr><td colspan="7" class="empty-state"><span class="spinner"></span> Querying the AusPass FDSN registry&hellip;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== GROWTH ========== -->
+        <div class="section" id="growth-section">
+            <h2>Network growth</h2>
+            <div class="section-note" id="growth-note">Loading&hellip;</div>
+            <div id="growth-wrap"></div>
+        </div>
+
+        <!-- ========== RESEARCH ========== -->
+        <div class="section" id="research-section">
+            <h2>Research from a school network</h2>
+            <div class="section-note">School seismometers are real research instruments &mdash; their data flows into AusPass and turns up in the literature.</div>
+            <a class="research-card" href="publications.html?program=Education%20%26%20outreach">
+                <span class="rc-title">Publications from the Education &amp; outreach program &rarr;</span>
+                <span class="rc-sub">The tracker corpus tags papers found by the &ldquo;Australian Seismometers in Schools&rdquo; search term &mdash; browse them in the publications explorer.</span>
+            </a>
+        </div>
+
+        <!-- ========== HOW THESE NUMBERS ARE MADE ========== -->
+        <details class="fleet-panel" id="how-panel">
+            <summary>How these numbers are made</summary>
+            <div class="how-body">
+                <p><strong>No snapshot.</strong> Unlike the other tracker pages, nothing here is committed to the repository &mdash; every figure is fetched from the network&rsquo;s own services the moment you load the page.</p>
+                <p><strong>Station registry.</strong> The <a href="https://auspass.edu.au/fdsnws/station/1/query?network=S1&amp;level=station&amp;format=text" target="_blank" rel="noopener">AusPass FDSN station service</a> (network <code>S1</code>, pipe-delimited text) lists every AuSIS station: coordinates, school name, start and end dates. A station is <em>active</em> when its EndTime is empty; its <em>since</em> year is the StartTime year. Re-queried on every page load.</p>
+                <p><strong>Streaming status.</strong> The AuScope Outreach platform probes each station&rsquo;s live data feed hourly and publishes the result as <a href="https://raw.githubusercontent.com/AuScope/AuScope_Outreach/main/data/ausis_status.json" target="_blank" rel="noopener">ausis_status.json</a>. The banner and the &ldquo;Streaming right now&rdquo; tile show that feed&rsquo;s <code>checked</code> timestamp<span id="how-checked"></span>.</p>
+                <p><strong>States.</strong> The registry carries no state field, so states are derived from each station&rsquo;s latitude/longitude with simple bounding rules (ACT is carved out of NSW; the QLD&ndash;NSW coastal border is approximated). A school sitting very close to a border could be assigned to its neighbour.</p>
+                <p><strong>Coastline.</strong> Natural Earth 1:110m (public domain), simplified to two rings (mainland + Tasmania) in <code>australia-outline.json</code>. It is decoration &mdash; the dots are positioned purely by the registry&rsquo;s own coordinates.</p>
+            </div>
+        </details>
+
+        <!-- ========== FOOTER ========== -->
+        <div class="foot" id="foot-note">
+            Fully live &middot; station registry from the <a href="https://auspass.edu.au" target="_blank" rel="noopener">AusPass</a> FDSN service &middot; streaming status from the AuScope Outreach platform (hourly) &middot;
+            AuSIS is part of AuScope&rsquo;s Education &amp; outreach program.
+            Explore: <a href="index.html">Impact overview</a> &middot;
+            <a href="https://ausis.edu.au" target="_blank" rel="noopener">AuSIS</a> &middot;
+            <a href="https://auscope.github.io/AuScope_Outreach/AuSIS_Map.html" target="_blank" rel="noopener">Live school dashboards</a>
+        </div>
+
+        <div id="map-tip"></div>
+        <div class="toast" id="toast"></div>
+    </div>
+
+<script src="tracker-chassis.js"></script>
+<script src="tracker-citations.js"></script>
+<script>
+"use strict";
+
+// ============================================================
+// CONSTANTS + STATE
+// ============================================================
+var STATION_URL = 'https://auspass.edu.au/fdsnws/station/1/query?network=S1&level=station&format=text';
+var STATUS_URL = 'https://raw.githubusercontent.com/AuScope/AuScope_Outreach/main/data/ausis_status.json';
+var OUTLINE_URL = 'australia-outline.json';
+var NETWORK_DOI = '10.7914/SN/S1';
+var DASH_BASE = 'https://auscope.github.io/AuScope_Outreach/widgets/station.html?code=';
+var FOUNDING_YEAR = 2011;
+
+var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+var au = {
+    stations: [],        // parsed registry rows (see parseStations)
+    mapOrder: [],        // stations in dot draw order — tooltip/click index
+    stationsOk: false,   // registry fetch succeeded
+    statusOk: false,     // status feed fetch succeeded
+    statusMap: {},       // CODE -> streaming bool
+    statusChecked: null, // ISO timestamp of the feed's last hourly probe
+    settled: 0           // how many of the two live sources have settled
+};
+
+// ============================================================
+// HELPERS
+// ============================================================
+function fmt(n) {
+    if (n == null) return '—';
+    return Number(n).toLocaleString('en-AU');
+}
+
+function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+function timeHMS(d) { return pad2(d.getHours()) + ':' + pad2(d.getMinutes()) + ':' + pad2(d.getSeconds()); }
+
+function timeHM(d) { return pad2(d.getHours()) + ':' + pad2(d.getMinutes()); }
+
+// Equirectangular projection (same frame as nvcl.html) — verified:
+// Perth-ish AUMAZ (lng 116.04) -> x 83, Sydney-ish AUTKS (lng 151.03) -> x 799;
+// Darwin AUDHS (lat -12.44) -> y 59, Hobart AUTAR (lat -42.94) -> y 582.
+function projX(lng) { return (lng - 112) / (154 - 112) * 860; }
+function projY(lat) { return (-9 - lat) / (-9 - -44) * 600; }
+
+// The FDSN feed has no state field — derive one from coordinates with
+// simple bounding rules. Order matters: TAS and the ACT carve-out first,
+// then west-to-east. The QLD-NSW coastal border is approximated so that
+// the Northern Rivers coast (east of ~150.5°E, south of ~28.2°S) stays NSW.
+function deriveState(lat, lng) {
+    if (lat < -39.5) return 'TAS';
+    if (lat >= -35.95 && lat <= -35.1 && lng >= 148.7 && lng <= 149.4) return 'ACT';
+    if (lng < 129) return 'WA';
+    if (lng < 138 && lat > -26) return 'NT';
+    if (lng <= 141 && lat <= -26) return 'SA';
+    if (lat > -28.2 || (lat > -29 && lng < 150.5)) return 'QLD';
+    if (lat > -37.6) return 'NSW';
+    return 'VIC';
+}
+
+// ============================================================
+// ENTRY — three fetches in parallel; the page load IS the live check
+// ============================================================
+function init() {
+    bindStatic();
+
+    fetch(STATION_URL)
+        .then(function(r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.text();
+        })
+        .then(function(txt) {
+            au.stations = parseStations(txt);
+            if (au.stations.length === 0) throw new Error('no rows');
+            au.stationsOk = true;
+        })
+        .catch(function() { au.stationsOk = false; })
+        .then(sourceSettled);
+
+    fetch(STATUS_URL)
+        .then(function(r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+        })
+        .then(function(d) {
+            au.statusChecked = d.checked || null;
+            au.statusMap = {};
+            var st = d.stations || {};
+            for (var code in st) {
+                if (Object.prototype.hasOwnProperty.call(st, code)) {
+                    au.statusMap[code] = st[code] && st[code].streaming === true;
+                }
+            }
+            au.statusOk = true;
+        })
+        .catch(function() { au.statusOk = false; })
+        .then(sourceSettled);
+
+    // Coastline is decoration — independent, and silently absent on failure.
+    fetch(OUTLINE_URL)
+        .then(function(r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+        })
+        .then(drawCoastline)
+        .catch(function() {});
+
+    // Live citation count for the network DOI (fetchCitationCount from
+    // tracker-citations.js; DataCite GraphQL, 429-tolerant).
+    fetchCitationCount(NETWORK_DOI).then(function(n) {
+        var chip = document.getElementById('cite-count-chip');
+        chip.className = 'cite-pill' + (n ? '' : ' zero');
+        chip.textContent = String(n);
+    }).catch(function() {
+        var chip = document.getElementById('cite-count-chip');
+        chip.className = 'cite-pill zero';
+        chip.textContent = '0';
+    });
+}
+
+function sourceSettled() {
+    au.settled++;
+    if (au.settled < 2) return;
+    // both live sources have answered (or failed) — render everything
+    if (au.stationsOk && au.statusOk) {
+        au.stations.forEach(function(s) {
+            s.streaming = au.statusMap[s.code] === true;
+        });
+    }
+    renderProvenance();
+    renderTiles();
+    renderMap();
+    renderTable();
+    renderGrowth();
+    renderHow();
+    if (!au.stationsOk && !au.statusOk) showToast('Both live sources are unreachable right now.');
+    else if (!au.stationsOk) showToast('The AusPass station registry did not answer.');
+    else if (!au.statusOk) showToast('The streaming-status feed did not answer.');
+}
+
+// Pipe-delimited FDSN text: header line first, then
+// Network|Station|Latitude|Longitude|Elevation|SiteName|StartTime|EndTime
+function parseStations(text) {
+    var rows = [];
+    var lines = String(text).split(/\r?\n/);
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        if (!line || line.charAt(0) === '#') continue;
+        var p = line.split('|');
+        if (p.length < 7) continue;
+        var lat = parseFloat(p[2]);
+        var lng = parseFloat(p[3]);
+        if (isNaN(lat) || isNaN(lng)) continue;
+        var end = (p.length > 7 && p[7]) ? p[7].replace(/\s+$/, '') : '';
+        rows.push({
+            code: p[1],
+            lat: lat,
+            lng: lng,
+            name: p[5] || p[1],
+            start: p[6] || '',
+            end: end,
+            active: end === '',
+            sinceYear: parseInt((p[6] || '').slice(0, 4), 10) || null,
+            endYear: end ? (parseInt(end.slice(0, 4), 10) || null) : null,
+            state: deriveState(lat, lng),
+            streaming: null   // filled from the status feed if it answered
+        });
+    }
+    return rows;
+}
+
+// ============================================================
+// PROVENANCE BANNER — the fetch stamps ARE the live check
+// ============================================================
+function renderProvenance() {
+    var html = 'No saved snapshot &mdash; the station registry is read straight from the AusPass FDSN service and streaming status from the AuScope Outreach platform&rsquo;s hourly probe. This page load queried both just now.';
+    html += '<div class="prov-chips">';
+
+    if (au.stationsOk) {
+        html += '<span class="p-chip"><span class="tick">&#10003;</span> station registry &mdash; '
+            + fmt(au.stations.length) + ' stations &middot; '
+            + '<a href="' + escapeAttr(STATION_URL) + '" target="_blank" rel="noopener">source &#8599;</a></span>';
+    } else {
+        html += '<span class="p-chip fail"><span class="cross">&#10007;</span> station registry unreachable &mdash; '
+            + '<a href="' + escapeAttr(STATION_URL) + '" target="_blank" rel="noopener">open the source directly &#8599;</a></span>';
+    }
+
+    if (au.statusOk) {
+        var checkedTxt = '';
+        if (au.statusChecked) {
+            var cd = new Date(au.statusChecked);
+            if (!isNaN(cd.getTime())) checkedTxt = ' &middot; checked ' + escapeHtml(timeHM(cd));
+        }
+        html += '<span class="p-chip"><span class="tick">&#10003;</span> streaming status &mdash; '
+            + '<a href="' + escapeAttr(STATUS_URL) + '" target="_blank" rel="noopener">raw JSON &#8599;</a>' + checkedTxt + '</span>';
+    } else {
+        html += '<span class="p-chip fail"><span class="cross">&#10007;</span> streaming status unreachable &mdash; '
+            + '<a href="' + escapeAttr(STATUS_URL) + '" target="_blank" rel="noopener">open the raw JSON directly &#8599;</a></span>';
+    }
+
+    html += '<span class="p-chip stamp">fetched ' + escapeHtml(timeHMS(new Date())) + '</span>';
+    html += '</div>';
+    document.getElementById('prov-text').innerHTML = html;
+}
+
+// ============================================================
+// STAT TILES
+// ============================================================
+function renderTiles() {
+    var thisYear = new Date().getFullYear();
+    document.getElementById('stat-years').textContent = String(thisYear - FOUNDING_YEAR);
+
+    if (au.stationsOk) {
+        var active = au.stations.filter(function(s) { return s.active; });
+        var stateSet = {};
+        au.stations.forEach(function(s) { stateSet[s.state] = true; });
+        var stateCount = 0;
+        for (var k in stateSet) { if (Object.prototype.hasOwnProperty.call(stateSet, k)) stateCount++; }
+
+        document.getElementById('stat-total').textContent = fmt(au.stations.length);
+        document.getElementById('stat-active').textContent = fmt(active.length);
+        document.getElementById('stat-active-sub').textContent =
+            (au.stations.length - active.length) + ' closed over the years';
+        document.getElementById('stat-states').textContent = fmt(stateCount);
+    } else {
+        document.getElementById('stat-active-sub').textContent = 'registry unreachable';
+    }
+
+    if (au.statusOk) {
+        var streamingN;
+        if (au.stationsOk) {
+            streamingN = au.stations.filter(function(s) { return s.active && s.streaming; }).length;
+        } else {
+            streamingN = 0;
+            for (var c in au.statusMap) {
+                if (Object.prototype.hasOwnProperty.call(au.statusMap, c) && au.statusMap[c]) streamingN++;
+            }
+        }
+        document.getElementById('stat-streaming').textContent = fmt(streamingN);
+        var subTxt = 'probed hourly';
+        if (au.statusChecked) {
+            var cd = new Date(au.statusChecked);
+            if (!isNaN(cd.getTime())) subTxt = 'checked ' + timeHM(cd) + ', hourly';
+        }
+        document.getElementById('stat-streaming-sub').textContent = subTxt;
+    } else {
+        document.getElementById('stat-streaming-sub').textContent = 'status feed unreachable';
+    }
+}
+
+// ============================================================
+// MAP — one dot per school on the Natural Earth coastline
+// ============================================================
+function drawCoastline(outline) {
+    var rings = (outline && outline.rings) || [];
+    var parts = [];
+    for (var r = 0; r < rings.length; r++) {
+        var ring = rings[r];
+        var d = '';
+        for (var i = 0; i < ring.length; i++) {
+            d += (i === 0 ? 'M' : 'L') + projX(ring[i][0]).toFixed(1) + ',' + projY(ring[i][1]).toFixed(1);
+        }
+        d += 'Z';
+        parts.push('<path d="' + d + '"/>');
+    }
+    document.getElementById('map-coast').innerHTML = parts.join('');
+}
+
+function dotClass(s) {
+    if (!s.active) return 'closed';
+    if (!au.statusOk) return 'unknown';
+    return s.streaming ? 'on' : 'idle';
+}
+
+function statusText(s) {
+    if (!s.active) return 'closed' + (s.endYear ? ' ' + s.endYear : '');
+    if (!au.statusOk) return 'active — streaming status unknown';
+    return s.streaming ? 'streaming now' : 'not streaming at last check';
+}
+
+function renderMap() {
+    if (!au.stationsOk) {
+        document.getElementById('map-caption').textContent =
+            'The AusPass station registry could not be reached from your browser — no dots to draw. The coastline below is just the outline.';
+        document.getElementById('map-legend-rows').innerHTML =
+            '<div class="lg-note">Registry unreachable — try the source link in the banner above.</div>';
+        return;
+    }
+
+    // draw order: closed under idle under streaming, so live dots sit on top
+    var rank = { closed: 0, unknown: 1, idle: 2, on: 3 };
+    au.mapOrder = au.stations.slice().sort(function(a, b) {
+        return rank[dotClass(a)] - rank[dotClass(b)];
+    });
+
+    var parts = [];
+    for (var i = 0; i < au.mapOrder.length; i++) {
+        var s = au.mapOrder[i];
+        parts.push('<circle class="stn ' + dotClass(s) + '" cx="' + projX(s.lng).toFixed(1)
+            + '" cy="' + projY(s.lat).toFixed(1) + '" r="5" data-i="' + i + '"/>');
+    }
+    document.getElementById('map-dots').innerHTML = parts.join('');
+
+    // legend with counts
+    var nOn = 0, nIdle = 0, nClosed = 0, nUnknown = 0;
+    au.stations.forEach(function(st) {
+        var c = dotClass(st);
+        if (c === 'on') nOn++;
+        else if (c === 'idle') nIdle++;
+        else if (c === 'unknown') nUnknown++;
+        else nClosed++;
+    });
+    var lg = '';
+    if (au.statusOk) {
+        lg += '<div class="lg-row"><span class="lg-swatch" style="background:#16a34a"></span><span class="lg-name">Streaming now</span><span class="lg-count">' + fmt(nOn) + '</span></div>';
+        lg += '<div class="lg-row"><span class="lg-swatch" style="background:#d97706"></span><span class="lg-name">Active, not streaming</span><span class="lg-count">' + fmt(nIdle) + '</span></div>';
+    } else {
+        lg += '<div class="lg-row"><span class="lg-swatch" style="background:#282572"></span><span class="lg-name">Active (status unknown)</span><span class="lg-count">' + fmt(nUnknown) + '</span></div>';
+    }
+    lg += '<div class="lg-row"><span class="lg-swatch hollow"></span><span class="lg-name">Closed</span><span class="lg-count">' + fmt(nClosed) + '</span></div>';
+    document.getElementById('map-legend-rows').innerHTML = lg;
+
+    document.getElementById('map-legend-note').textContent = au.statusOk
+        ? 'Streaming = the station answered the Outreach platform’s last hourly probe. States are derived from coordinates.'
+        : 'The streaming-status feed could not be reached, so active stations are shown in purple without a streaming state.';
+}
+
+// shared tooltip — one div, delegated mousemove
+function onMapMove(e) {
+    var t = e.target;
+    var tip = document.getElementById('map-tip');
+    if (!t || t.tagName !== 'circle' || !t.hasAttribute('data-i')) {
+        tip.style.display = 'none';
+        return;
+    }
+    var s = au.mapOrder[+t.getAttribute('data-i')];
+    if (!s) { tip.style.display = 'none'; return; }
+    tip.textContent = s.name + ' (' + s.code + ') · ' + s.state
+        + (s.sinceYear ? ' · since ' + s.sinceYear : '')
+        + ' · ' + statusText(s);
+    tip.style.display = 'block';
+    var x = e.clientX + 14;
+    if (x > window.innerWidth - 320) x = e.clientX - 310;
+    tip.style.left = x + 'px';
+    tip.style.top = (e.clientY + 14) + 'px';
+}
+
+// clicking a dot opens the school's live waveform dashboard
+function onMapClick(e) {
+    var t = e.target;
+    if (!t || t.tagName !== 'circle' || !t.hasAttribute('data-i')) return;
+    var s = au.mapOrder[+t.getAttribute('data-i')];
+    if (!s) return;
+    window.open(DASH_BASE + encodeURIComponent(s.code), '_blank', 'noopener');
+}
+
+// ============================================================
+// STATION TABLE — newest first
+// ============================================================
+function renderTable() {
+    var tbody = document.getElementById('stations-tbody');
+    if (!au.stationsOk) {
+        tbody.innerHTML = '<tr><td colspan="7" class="empty-state">The AusPass station registry could not be reached from your browser — nothing to list. The source link in the banner opens the registry directly.</td></tr>';
+        document.getElementById('stations-note').textContent = 'Registry unreachable.';
+        return;
+    }
+
+    var rows = au.stations.slice().sort(function(a, b) {
+        if (a.start < b.start) return 1;
+        if (a.start > b.start) return -1;
+        return a.code < b.code ? -1 : 1;
+    });
+
+    var html = '';
+    rows.forEach(function(s) {
+        var statusBadge = s.active
+            ? '<span class="badge st-active">Active</span>'
+            : '<span class="badge st-closed"' + (s.endYear ? ' data-tip="Closed ' + escapeAttr(String(s.endYear)) + '"' : '') + '>Closed</span>';
+        var streamCell;
+        if (s.active && au.statusOk && s.streaming) {
+            streamCell = '<span class="stream-yes"><span class="live-dot ok"></span>streaming</span>';
+        } else {
+            streamCell = '<span class="stream-no">&mdash;</span>';
+        }
+        html += '<tr>'
+            + '<td><strong>' + escapeHtml(s.name) + '</strong></td>'
+            + '<td class="mono-cell">' + escapeHtml(s.code) + '</td>'
+            + '<td>' + escapeHtml(s.state) + '</td>'
+            + '<td class="num-cell">' + (s.sinceYear ? escapeHtml(String(s.sinceYear)) : '—') + '</td>'
+            + '<td>' + statusBadge + '</td>'
+            + '<td>' + streamCell + '</td>'
+            + '<td><a class="verify-link" href="' + escapeAttr(DASH_BASE + encodeURIComponent(s.code)) + '" target="_blank" rel="noopener">open &#8599;</a></td>'
+            + '</tr>';
+    });
+    tbody.innerHTML = html;
+
+    document.getElementById('stations-note').textContent =
+        fmt(rows.length) + ' stations, newest first — rows exactly as the AusPass FDSN registry returns them.';
+}
+
+// ============================================================
+// GROWTH — cumulative stations by joined year (inline SVG polyline)
+// ============================================================
+function renderGrowth() {
+    if (!au.stationsOk) {
+        document.getElementById('growth-note').textContent = 'Registry unreachable — no growth curve to draw.';
+        return;
+    }
+    var years = au.stations.map(function(s) { return s.sinceYear; }).filter(function(y) { return y != null; });
+    if (years.length === 0) {
+        document.getElementById('growth-note').textContent = 'No start dates in the registry.';
+        return;
+    }
+
+    var y0 = FOUNDING_YEAR;
+    var y1 = new Date().getFullYear();
+    var i;
+    for (i = 0; i < years.length; i++) {
+        if (years[i] < y0) y0 = years[i];
+        if (years[i] > y1) y1 = years[i];
+    }
+
+    // cumulative joined count per year (stations never leave this count —
+    // it is schools that have EVER had a seismometer)
+    var cum = [];
+    var yr, c;
+    for (yr = y0; yr <= y1; yr++) {
+        c = 0;
+        for (i = 0; i < years.length; i++) { if (years[i] <= yr) c++; }
+        cum.push(c);
+    }
+    var total = cum[cum.length - 1];
+
+    var W = 860, H = 280, L = 46, R = 850, T = 18, B = 238;
+    var yMax = Math.ceil((total + 5) / 10) * 10;
+    function X(y) { return L + (y - y0) / (y1 - y0) * (R - L); }
+    function Y(v) { return B - v / yMax * (B - T); }
+
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Cumulative AuSIS school stations by year">';
+
+    // horizontal gridlines + y labels every 10
+    var v;
+    for (v = 0; v <= yMax; v += 10) {
+        var gy = Y(v).toFixed(1);
+        svg += '<line x1="' + L + '" y1="' + gy + '" x2="' + R + '" y2="' + gy + '" stroke="#e2e8f0" stroke-width="1"/>';
+        svg += '<text x="' + (L - 8) + '" y="' + (Y(v) + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#64748b">' + v + '</text>';
+    }
+
+    var pts = [];
+    for (i = 0; i < cum.length; i++) {
+        pts.push(X(y0 + i).toFixed(1) + ',' + Y(cum[i]).toFixed(1));
+    }
+    var ptStr = pts.join(' ');
+    var lastPt = pts[pts.length - 1].split(',');
+
+    svg += '<polygon points="' + ptStr + ' ' + R + ',' + B + ' ' + L + ',' + B + '" fill="#282572" fill-opacity="0.08"/>';
+    svg += '<polyline points="' + ptStr + '" fill="none" stroke="#282572" stroke-width="2.5" stroke-linejoin="round"/>';
+    for (i = 0; i < pts.length; i++) {
+        var pp = pts[i].split(',');
+        svg += '<circle cx="' + pp[0] + '" cy="' + pp[1] + '" r="2.5" fill="#282572"/>';
+    }
+    svg += '<circle cx="' + lastPt[0] + '" cy="' + lastPt[1] + '" r="4" fill="#282572"/>';
+    svg += '<text x="' + (R - 6) + '" y="' + (parseFloat(lastPt[1]) - 10).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="600" fill="#282572">' + fmt(total) + '</text>';
+
+    // x-axis year labels every 3 years + final year (end-anchored so it
+    // never clips at the viewBox edge)
+    for (yr = y0; yr <= y1; yr++) {
+        if ((yr - y0) % 3 !== 0 && yr !== y1) continue;
+        if (yr !== y1 && y1 - yr < 2) continue; // avoid collision with the final label
+        var anchor = (yr === y1) ? 'end' : 'middle';
+        var lx = (yr === y1) ? R : X(yr);
+        svg += '<text x="' + lx.toFixed(1) + '" y="' + (B + 20) + '" text-anchor="' + anchor + '" font-size="11" fill="#64748b">' + yr + '</text>';
+    }
+
+    // axes
+    svg += '<line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + B + '" stroke="#cbd5e1" stroke-width="1"/>';
+    svg += '<line x1="' + L + '" y1="' + B + '" x2="' + R + '" y2="' + B + '" stroke="#cbd5e1" stroke-width="1"/>';
+    svg += '</svg>';
+
+    document.getElementById('growth-wrap').innerHTML = svg;
+
+    // caption: cumulative definition + the newest stations, named from the data
+    var note = 'Cumulative schools that have joined the network, by StartTime year — closed stations stay in the count of schools reached.';
+    var newest = au.stations.slice().sort(function(a, b) {
+        if (a.start < b.start) return 1;
+        if (a.start > b.start) return -1;
+        return 0;
+    }).slice(0, 2);
+    if (newest.length === 2) {
+        note += ' Newest: ' + newest.map(function(s) {
+            var d = new Date(s.start);
+            var when = isNaN(d.getTime()) ? String(s.sinceYear || '') : MONTH_NAMES[d.getMonth()] + ' ' + d.getFullYear();
+            return s.name + ' (' + when + ')';
+        }).join(' and ') + '.';
+    }
+    document.getElementById('growth-note').textContent = note;
+}
+
+// ============================================================
+// HOW PANEL
+// ============================================================
+function renderHow() {
+    if (au.statusOk && au.statusChecked) {
+        var cd = new Date(au.statusChecked);
+        if (!isNaN(cd.getTime())) {
+            document.getElementById('how-checked').textContent =
+                ' — last probe ' + timeHM(cd) + ' local time';
+        }
+    }
+}
+
+// ============================================================
+// EVENT WIRING — delegation only, no inline handlers with data
+// ============================================================
+function bindStatic() {
+    var svg = document.getElementById('map-svg');
+    svg.addEventListener('mousemove', onMapMove);
+    svg.addEventListener('mouseleave', function() {
+        document.getElementById('map-tip').style.display = 'none';
+    });
+    svg.addEventListener('click', onMapClick);
+}
+
+// Bootstrap (script is at end of body, DOM is available)
+init();
+</script>
+</body>
+</html>
