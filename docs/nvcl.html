@@ -47,6 +47,18 @@
         }
         .stats .stat [data-tip]::before { left: 16px; }
 
+        /* amber caveat badge: unmeasurable-from-API and partial-harvest states */
+        .badge-warn {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 1px 8px;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
         /* ----- cite-this-collection panel ----- */
         .cite-panel { border: 1px solid var(--border); border-left: 3px solid #282572; border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 18px; background: var(--bg-soft); }
         .cite-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; }
@@ -332,7 +344,7 @@
         <!-- ========== STAT TILES ========== -->
         <div class="stats" id="stat-tiles">
             <div class="stat"><div class="label">Boreholes <span class="info-i" data-tip="Distinct boreholes with at least one HyLogger spectral dataset, counted across all participating nodes.">i</span></div><div class="value" id="stat-boreholes">&mdash;</div><div class="sub">with spectral data</div></div>
-            <div class="stat"><div class="label">Core scanned <span class="info-i" data-tip="Total length of drill core imaged by HyLogger spectral scanners — the scanned interval of each dataset, summed. Drilled metres of the same holes shown below.">i</span></div><div class="value" id="stat-km">&mdash;</div><div class="sub" id="stat-km-sub">&mdash;</div></div>
+            <div class="stat"><div class="label">Core scanned <span class="info-i" data-tip="Unique core measured from the scan intervals each node PUBLISHES: per-dataset depth ranges, merged per borehole so rescans never double-count. Datasets whose node omits intervals (all of WA and NT) are counted in an explicit unrecorded bucket and contribute zero — never estimated. See How these numbers are made.">i</span></div><div class="value" id="stat-km">&mdash;</div><div class="sub" id="stat-km-sub">&mdash;</div></div>
             <div class="stat"><div class="label">Datasets <span class="info-i" data-tip="HyLogger dataset records across all nodes. A borehole can carry several datasets (131 boreholes were scanned more than once).">i</span></div><div class="value" id="stat-datasets">&mdash;</div><div class="sub" id="stat-datasets-sub">&mdash;</div></div>
             <div class="stat"><div class="label">State nodes <span class="info-i" data-tip="State and territory geological surveys operating an NVCL node with public WFS + NVCL data services.">i</span></div><div class="value" id="stat-nodes">&mdash;</div><div class="sub">VIC not yet participating</div></div>
             <div class="stat"><div class="label">HyLogger instruments <span class="info-i" data-tip="Physical HyLogger units identified in dataset metadata with more than 1 km of scanned core (test-rig traces excluded).">i</span></div><div class="value" id="stat-instr">&mdash;</div><div class="sub">fleet since 2003</div></div>
@@ -406,7 +418,7 @@
             <summary>How these numbers are made</summary>
             <div class="how-body">
                 <p><strong>Harvest.</strong> On <span id="how-asof">&mdash;</span> the NVCL pipeline queried every participating node&rsquo;s public services: the WFS <code>gsmlp:BoreholeView</code> layer (filtered to <code>nvclCollection='true'</code>) for registered boreholes, then each node&rsquo;s <code>NVCLDataServices getDatasetCollection</code> for every borehole&rsquo;s dataset records. Nothing on this page comes from a private database &mdash; the same services are public, and the <em>Live check</em> button and <em>source</em> links query them directly.</p>
-                <p><strong>Scanned km.</strong> The scanned interval (start&ndash;end depth) of each HyLogger dataset, summed. This is core <em>imaged by a spectral scanner</em>, which differs from metres drilled &mdash; the same holes total <span id="how-drilled">&mdash;</span>&nbsp;km drilled.</p>
+                <p><strong>Scanned km (merged-v1 method).</strong> The atom is the per-dataset scan interval (start&ndash;end depth). Per borehole, overlapping intervals are merged so rescans never double-count &mdash; the headline is <em>unique core imaged by a spectral scanner</em>, which differs from metres drilled (the same holes total <span id="how-drilled">&mdash;</span>&nbsp;km drilled). Datasets whose node publishes <em>no</em> interval &mdash; currently all of WA and NT &mdash; are counted in an explicit unrecorded bucket and contribute zero: we never substitute drilled length or estimates. The scanning in those states is real; their APIs simply omit the depth ranges (WA&rsquo;s government shapefile documents roughly 600&nbsp;km more &mdash; a future enrichment from that published source is planned). Full rules: <a href="https://github.com/bvkay/AuScope_doi_tracker/blob/main/src/nvcl/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md ↗</a>.</p>
                 <p><strong>Instruments.</strong> HyLogger units are identified from instrument fields in dataset metadata (<span id="how-instr">&mdash;</span> of <span id="how-datasets">&mdash;</span> datasets carry instrument data). <span id="how-rescan">&mdash;</span> boreholes hold more than one scan (up to <span id="how-maxscan">&mdash;</span>).</p>
                 <p><strong>Live check.</strong> Your browser fetches each node&rsquo;s WFS <code>resultType=hits</code> URL &mdash; the same endpoints cited in the Verify column &mdash; and reads <code>numberMatched</code> from the XML. Some government servers do not send CORS headers, so a browser fetch can be blocked even while the service is up; the source link always works because it opens the server&rsquo;s answer directly.</p>
             </div>
@@ -557,7 +569,11 @@ function renderTiles() {
     var s = nv.data.summary;
     document.getElementById('stat-boreholes').textContent = fmt(s.total_boreholes_with_data);
     document.getElementById('stat-km').textContent = fmtKm(s.total_scanned_km) + ' km';
-    document.getElementById('stat-km-sub').textContent = fmtKm(s.total_borehole_drilled_km) + ' km drilled';
+    var kmSub = fmtKm(s.total_borehole_drilled_km) + ' km drilled';
+    if (s.interval_unrecorded_datasets) {
+        kmSub += ' · ' + fmt(s.interval_unrecorded_datasets) + ' datasets unmeasured (API gaps)';
+    }
+    document.getElementById('stat-km-sub').textContent = kmSub;
     document.getElementById('stat-datasets').textContent = fmt(s.total_datasets);
     document.getElementById('stat-datasets-sub').textContent =
         (s.tir_stats && s.tir_stats.tir_pct_of_total != null ? s.tir_stats.tir_pct_of_total : '?') + '% with thermal infrared';
@@ -727,8 +743,13 @@ function onMapMove(e) {
 // ============================================================
 // LIVE VERIFICATION TABLE
 // ============================================================
-function freshnessBadge(days) {
-    if (days == null) return '<span class="badge fresh-none">no node</span>';
+function freshnessBadge(days, participating) {
+    if (days == null) {
+        // A participating node with no dates has an API gap, not a missing node.
+        return participating
+            ? '<span class="badge fresh-none" data-tip="This node publishes no dataset dates via its API — freshness cannot be measured.">dates not in API</span>'
+            : '<span class="badge fresh-none">no node</span>';
+    }
     if (days < 30) return '<span class="badge fresh-good">current</span>';
     if (days < 180) return '<span class="badge fresh-warn">' + fmt(days) + ' days ago</span>';
     return '<span class="badge fresh-bad">stale — ' + fmt(days) + ' days</span>';
@@ -751,13 +772,29 @@ function renderVerifyTable() {
         var latestTip = st.latest_dataset_date
             ? ' data-tip="' + escapeAttr(fmt(st.datasets_last_12mo) + ' datasets · ' + fmtKm(st.km_scanned_last_12mo) + ' km scanned in the last 12 months') + '"'
             : '';
+        // WA and NT publish NO scan intervals via their APIs — their km must
+        // read as "not published", never as a bare 0 (which looks broken).
+        var kmCell;
+        if ((st.total_km_scanned || 0) === 0 && (st.interval_unrecorded || 0) > 0) {
+            kmCell = '<span class="badge-warn" data-tip="This node’s getDatasetCollection API publishes no depth intervals for its ' + escapeAttr(fmt(st.interval_unrecorded)) + ' datasets — the scanning is real but unmeasurable from the public API. Never substituted with drilled length.">not in API</span>';
+        } else {
+            kmCell = fmtKm(st.total_km_scanned);
+            if ((st.interval_unrecorded || 0) > 0) {
+                kmCell += ' <span class="info-i" data-tip="' + escapeAttr(fmt(st.interval_unrecorded) + ' dataset(s) excluded: no valid scan interval published.') + '">i</span>';
+            }
+        }
+        var fresh = freshnessBadge(st.days_since_latest, st.status === 'participating');
+        var failN = st.dataset_fetch_failures || 0;
+        if (failN > 0 && st.wfs_registered_boreholes && failN / st.wfs_registered_boreholes > 0.05) {
+            fresh += ' <span class="badge-warn" data-tip="' + escapeAttr(fmt(failN) + ' of ' + fmt(st.wfs_registered_boreholes) + ' borehole queries failed during this harvest — counts for this node are a floor, not a total. The monthly re-harvest self-heals.') + '">partial harvest</span>';
+        }
         html += '<tr>'
             + '<td><strong>' + escapeHtml(st.state) + '</strong><span class="st-name">' + escapeHtml(name) + '</span>' + noteTip + '</td>'
             + '<td class="num-cell">' + fmt(st.wfs_registered_boreholes) + '</td>'
             + '<td class="num-cell">' + fmt(st.total_datasets) + '</td>'
-            + '<td class="num-cell">' + fmtKm(st.total_km_scanned) + '</td>'
+            + '<td class="num-cell">' + kmCell + '</td>'
             + '<td class="num-cell date-cell"' + latestTip + '>' + escapeHtml(st.latest_dataset_date || '—') + '</td>'
-            + '<td>' + freshnessBadge(st.days_since_latest) + '</td>'
+            + '<td>' + fresh + '</td>'
             + '<td class="live-cell" id="live-' + escapeAttr(st.state) + '">'
                 + '—' + refreshBtnHtml(st.state)
             + '</td>'

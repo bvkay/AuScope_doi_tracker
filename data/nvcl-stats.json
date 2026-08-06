@@ -1,12 +1,18 @@
 {
- "as_of": "2026-05-22",
- "source": "NVCL_Metadata/2026_Update pipeline (7-node harvest); regenerate via the NVCL pipeline, then re-distill",
+ "as_of": "2026-08-06",
+ "method": "merged-v1",
+ "source": "src/nvcl/harvest.js — live harvest of all public NVCL node services (see src/nvcl/METHODOLOGY.md)",
  "summary": {
-  "total_datasets": 6403,
-  "total_boreholes_with_data": 6252,
-  "total_scanned_km": 1742.55,
-  "total_borehole_drilled_km": 2338.74,
-  "datasets_with_instrument_data": 5861,
+  "total_datasets": 6128,
+  "total_boreholes_with_data": 5996,
+  "total_scanned_km": 927.85,
+  "total_scanned_km_note": "alias of unique_scanned_km (union of per-dataset scan intervals per borehole)",
+  "unique_scanned_km": 927.85,
+  "total_scan_km": 931.54,
+  "interval_unrecorded_datasets": 2221,
+  "interval_clamped_datasets": 26,
+  "total_borehole_drilled_km": 2327.3,
+  "datasets_with_instrument_data": 5602,
   "participating_nodes": [
    "CSIRO",
    "NSW",
@@ -22,16 +28,16 @@
   ],
   "non_participating_borehole_count": 29,
   "date_range": {
-   "earliest_scan": "2003-09-30",
-   "latest_scan": "2026-05-20"
+   "earliest_scan": "2010-03-09",
+   "latest_scan": "2026-08-05"
   },
   "rescan_stats": {
-   "boreholes_with_multiple_scans": 131,
-   "max_scans_one_borehole": 4
+   "boreholes_with_multiple_scans": 24,
+   "max_scans_one_borehole": 3
   },
   "tir_stats": {
-   "tir_datasets": 5658,
-   "tir_pct_of_total": 88.4
+   "tir_datasets": 5391,
+   "tir_pct_of_total": 88
   }
  },
  "states": [
@@ -42,58 +48,79 @@
    "total_datasets": 5,
    "total_boreholes_with_data": 5,
    "total_km_scanned": 0.22,
+   "unique_scanned_km": 0.22,
+   "total_scan_km": 0.22,
+   "interval_unrecorded": 0,
+   "interval_clamped": 0,
    "latest_dataset_date": "2025-12-23",
-   "days_since_latest": 150,
+   "days_since_latest": 226,
    "datasets_last_12mo": 5,
    "km_scanned_last_12mo": 0.22
   },
   {
    "state": "NSW",
    "status": "participating",
-   "wfs_registered_boreholes": 1224,
-   "total_datasets": 1230,
-   "total_boreholes_with_data": 1224,
-   "total_km_scanned": 285.13,
-   "latest_dataset_date": "2026-05-20",
-   "days_since_latest": 2,
-   "datasets_last_12mo": 139,
-   "km_scanned_last_12mo": 22.64
+   "wfs_registered_boreholes": 1242,
+   "total_datasets": 1248,
+   "total_boreholes_with_data": 1242,
+   "total_km_scanned": 283.48,
+   "unique_scanned_km": 283.48,
+   "total_scan_km": 284.41,
+   "interval_unrecorded": 20,
+   "interval_clamped": 20,
+   "latest_dataset_date": "2026-07-28",
+   "days_since_latest": 9,
+   "datasets_last_12mo": 122,
+   "km_scanned_last_12mo": 21.28
   },
   {
    "state": "NT",
    "status": "participating",
    "wfs_registered_boreholes": 538,
-   "total_datasets": 433,
-   "total_boreholes_with_data": 423,
-   "total_km_scanned": 177.02,
-   "latest_dataset_date": "2023-06-14",
-   "days_since_latest": 1073,
+   "total_datasets": 431,
+   "total_boreholes_with_data": 420,
+   "total_km_scanned": 0,
+   "unique_scanned_km": 0,
+   "total_scan_km": 0,
+   "interval_unrecorded": 431,
+   "interval_clamped": 0,
+   "latest_dataset_date": null,
+   "days_since_latest": null,
    "datasets_last_12mo": 0,
-   "km_scanned_last_12mo": 0.0
+   "km_scanned_last_12mo": 0
   },
   {
    "state": "QLD",
    "status": "participating",
-   "wfs_registered_boreholes": 583,
-   "total_datasets": 429,
-   "total_boreholes_with_data": 423,
-   "total_km_scanned": 111.93,
-   "latest_dataset_date": "2026-03-10",
-   "days_since_latest": 73,
-   "datasets_last_12mo": 48,
-   "km_scanned_last_12mo": 11.25
+   "wfs_registered_boreholes": 587,
+   "total_datasets": 360,
+   "total_boreholes_with_data": 356,
+   "total_km_scanned": 79.08,
+   "unique_scanned_km": 79.08,
+   "total_scan_km": 79.14,
+   "interval_unrecorded": 4,
+   "interval_clamped": 3,
+   "latest_dataset_date": "2026-08-05",
+   "days_since_latest": 1,
+   "datasets_last_12mo": 47,
+   "km_scanned_last_12mo": 7.5,
+   "dataset_fetch_failures": 170
   },
   {
    "state": "SA",
    "status": "participating",
    "wfs_registered_boreholes": 2058,
-   "total_datasets": 1829,
-   "total_boreholes_with_data": 1820,
-   "total_km_scanned": 427.16,
-   "latest_dataset_date": "2026-01-29",
-   "days_since_latest": 113,
-   "datasets_last_12mo": 54,
-   "km_scanned_last_12mo": 17.95
+   "total_datasets": 1831,
+   "total_boreholes_with_data": 1822,
+   "total_km_scanned": 427.19,
+   "unique_scanned_km": 427.19,
+   "total_scan_km": 428.08,
+   "interval_unrecorded": 2,
+   "interval_clamped": 2,
+   "latest_dataset_date": "2026-07-23",
+   "days_since_latest": 14,
+   "datasets_last_12mo": 165,
+   "km_scanned_last_12mo": 42.25
   },
   {
    "state": "TAS",
@@ -101,11 +128,15 @@
    "wfs_registered_boreholes": 485,
    "total_datasets": 490,
    "total_boreholes_with_data": 482,
-   "total_km_scanned": 139.76,
+   "total_km_scanned": 137.87,
+   "unique_scanned_km": 137.87,
+   "total_scan_km": 139.69,
+   "interval_unrecorded": 1,
+   "interval_clamped": 1,
    "latest_dataset_date": "2026-01-15",
-   "days_since_latest": 127,
-   "datasets_last_12mo": 27,
-   "km_scanned_last_12mo": 7.66
+   "days_since_latest": 203,
+   "datasets_last_12mo": 9,
+   "km_scanned_last_12mo": 3.85
   },
   {
    "state": "VIC",
@@ -113,91 +144,120 @@
    "wfs_registered_boreholes": 29,
    "total_datasets": 0,
    "total_boreholes_with_data": 0,
-   "total_km_scanned": 0.0,
+   "total_km_scanned": 0,
+   "unique_scanned_km": 0,
+   "total_scan_km": 0,
+   "interval_unrecorded": 0,
+   "interval_clamped": 0,
    "latest_dataset_date": null,
    "days_since_latest": null,
    "datasets_last_12mo": 0,
-   "km_scanned_last_12mo": 0.0,
+   "km_scanned_last_12mo": 0,
    "note": "No HyLogger node. Boreholes flagged here may have been scanned at another node."
   },
   {
    "state": "WA",
    "status": "participating",
-   "wfs_registered_boreholes": 1884,
-   "total_datasets": 1987,
-   "total_boreholes_with_data": 1878,
-   "total_km_scanned": 601.32,
-   "latest_dataset_date": "2026-02-16",
-   "days_since_latest": 95,
-   "datasets_last_12mo": 2,
-   "km_scanned_last_12mo": 0.44
+   "wfs_registered_boreholes": 1674,
+   "total_datasets": 1763,
+   "total_boreholes_with_data": 1669,
+   "total_km_scanned": 0,
+   "unique_scanned_km": 0,
+   "total_scan_km": 0,
+   "interval_unrecorded": 1763,
+   "interval_clamped": 0,
+   "latest_dataset_date": null,
+   "days_since_latest": null,
+   "datasets_last_12mo": 0,
+   "km_scanned_last_12mo": 0
   }
  ],
  "instruments": [
   {
-   "instrument_canonical": "HyLogger 1",
-   "datasets": 278,
-   "boreholes": 278,
-   "km_scanned": 30.16,
-   "first_use": "2003-09-30",
-   "last_use": "2024-02-14",
+   "instrument_canonical": "HyLogger 3-3",
+   "datasets": 1394,
+   "boreholes": 1391,
+   "km_scanned": 345.51,
+   "first_use": "2017-06-13",
+   "last_use": "2026-07-29",
    "states_used": [
+    "QLD",
     "SA"
    ],
-   "service_years": 20.37,
-   "km_per_year": 1.48
+   "service_years": 9.13,
+   "km_per_year": 37.84
   },
   {
-   "instrument_canonical": "HyLogger 2-2",
-   "datasets": 58,
-   "boreholes": 58,
-   "km_scanned": 15.54,
-   "first_use": "2009-08-17",
-   "last_use": "2012-01-04",
-   "states_used": [
-    "WA"
-   ],
-   "service_years": 2.38,
-   "km_per_year": 6.53
-  },
-  {
-   "instrument_canonical": "HyLogger 2-3",
-   "datasets": 152,
-   "boreholes": 152,
-   "km_scanned": 51.73,
-   "first_use": "2009-06-02",
-   "last_use": "2019-07-04",
-   "states_used": [
-    "SA"
-   ],
-   "service_years": 10.08,
-   "km_per_year": 5.13
-  },
-  {
-   "instrument_canonical": "HyLogger 2-4",
-   "datasets": 14,
-   "boreholes": 14,
-   "km_scanned": 2.56,
-   "first_use": "2010-05-21",
-   "last_use": "2020-09-01",
+   "instrument_canonical": "HyLogger 3-4",
+   "datasets": 883,
+   "boreholes": 881,
+   "km_scanned": 198.25,
+   "first_use": "2017-01-23",
+   "last_use": "2026-07-16",
    "states_used": [
     "NSW"
    ],
-   "service_years": 10.28,
-   "km_per_year": 0.25
+   "service_years": 9.48,
+   "km_per_year": 20.91
   },
   {
-   "instrument_canonical": "HyLogger 2-5",
-   "datasets": 58,
-   "boreholes": 57,
-   "km_scanned": 21.87,
-   "first_use": "2017-07-24",
-   "last_use": "2025-06-09",
+   "instrument_canonical": "Unknown",
+   "datasets": 526,
+   "boreholes": 521,
+   "km_scanned": 99.98,
+   "first_use": "2010-05-21",
+   "last_use": "2026-08-05",
    "states_used": [
+    "CSIRO",
+    "NSW",
+    "NT",
+    "QLD",
+    "SA",
+    "TAS",
+    "WA"
+   ],
+   "service_years": 16.21,
+   "km_per_year": 6.17
+  },
+  {
+   "instrument_canonical": "HyLogger 3-6",
+   "datasets": 306,
+   "boreholes": 305,
+   "km_scanned": 89.07,
+   "first_use": "2015-09-15",
+   "last_use": "2026-01-15",
+   "states_used": [
+    "TAS"
+   ],
+   "service_years": 10.34,
+   "km_per_year": 8.61
+  },
+  {
+   "instrument_canonical": "HyLogger 2-3",
+   "datasets": 154,
+   "boreholes": 154,
+   "km_scanned": 52.16,
+   "first_use": "2017-06-26",
+   "last_use": "2022-10-06",
+   "states_used": [
+    "SA"
+   ],
+   "service_years": 5.28,
+   "km_per_year": 9.88
+  },
+  {
+   "instrument_canonical": "HyLogger 3-5",
+   "datasets": 294,
+   "boreholes": 292,
+   "km_scanned": 51.86,
+   "first_use": "2016-07-08",
+   "last_use": "2026-07-28",
+   "states_used": [
+    "NSW",
     "QLD"
    ],
-   "service_years": 7.88,
-   "km_per_year": 2.78
+   "service_years": 10.05,
+   "km_per_year": 5.16
   },
   {
    "instrument_canonical": "HyLogger 2-6",
@@ -213,96 +273,56 @@
    "km_per_year": 2.46
   },
   {
-   "instrument_canonical": "HyLogger 2-7",
-   "datasets": 61,
-   "boreholes": 61,
-   "km_scanned": 20.94,
-   "first_use": "2010-05-12",
-   "last_use": "2017-11-10",
-   "states_used": [
-    "NT"
-   ],
-   "service_years": 7.5,
-   "km_per_year": 2.79
-  },
-  {
-   "instrument_canonical": "HyLogger 3-2",
-   "datasets": 1902,
-   "boreholes": 1801,
-   "km_scanned": 577.68,
-   "first_use": "2010-05-24",
-   "last_use": "2025-05-15",
-   "states_used": [
-    "WA"
-   ],
-   "service_years": 14.98,
-   "km_per_year": 38.56
-  },
-  {
-   "instrument_canonical": "HyLogger 3-3",
-   "datasets": 1397,
-   "boreholes": 1389,
-   "km_scanned": 345.18,
-   "first_use": "2004-02-20",
-   "last_use": "2026-01-29",
+   "instrument_canonical": "HyLogger 1",
+   "datasets": 281,
+   "boreholes": 281,
+   "km_scanned": 30.62,
+   "first_use": "2017-10-31",
+   "last_use": "2024-02-14",
    "states_used": [
     "SA"
    ],
-   "service_years": 21.94,
-   "km_per_year": 15.73
+   "service_years": 6.29,
+   "km_per_year": 4.87
   },
   {
-   "instrument_canonical": "HyLogger 3-4",
-   "datasets": 879,
-   "boreholes": 877,
-   "km_scanned": 202.62,
-   "first_use": "2017-01-23",
-   "last_use": "2026-03-03",
+   "instrument_canonical": "HyLogger 2-5",
+   "datasets": 63,
+   "boreholes": 62,
+   "km_scanned": 19.6,
+   "first_use": "2017-07-24",
+   "last_use": "2026-08-05",
+   "states_used": [
+    "QLD"
+   ],
+   "service_years": 9.03,
+   "km_per_year": 2.17
+  },
+  {
+   "instrument_canonical": "HyLogger 4-2303",
+   "datasets": 32,
+   "boreholes": 32,
+   "km_scanned": 8.37,
+   "first_use": "2026-03-27",
+   "last_use": "2026-07-28",
    "states_used": [
     "NSW"
    ],
-   "service_years": 9.11,
-   "km_per_year": 22.24
+   "service_years": 0.34,
+   "km_per_year": 24.62
   },
   {
-   "instrument_canonical": "HyLogger 3-5",
-   "datasets": 362,
-   "boreholes": 358,
-   "km_scanned": 80.36,
-   "first_use": "2016-07-08",
-   "last_use": "2026-03-10",
+   "instrument_canonical": "HyLogger 2-4",
+   "datasets": 14,
+   "boreholes": 14,
+   "km_scanned": 2.56,
+   "first_use": "2010-05-21",
+   "last_use": "2020-09-01",
    "states_used": [
-    "NSW",
-    "QLD"
+    "NSW"
    ],
-   "service_years": 9.67,
-   "km_per_year": 8.31
-  },
-  {
-   "instrument_canonical": "HyLogger 3-6",
-   "datasets": 306,
-   "boreholes": 305,
-   "km_scanned": 89.14,
-   "first_use": "2015-09-15",
-   "last_use": "2026-01-15",
-   "states_used": [
-    "TAS"
-   ],
-   "service_years": 10.34,
-   "km_per_year": 8.62
-  },
-  {
-   "instrument_canonical": "HyLogger 3-7",
-   "datasets": 241,
-   "boreholes": 240,
-   "km_scanned": 80.49,
-   "first_use": "2010-04-20",
-   "last_use": "2023-06-14",
-   "states_used": [
-    "NT"
-   ],
-   "service_years": 13.15,
-   "km_per_year": 6.12
+   "service_years": 10.28,
+   "km_per_year": 0.25
   },
   {
    "instrument_canonical": "HyLogger 3-76",
@@ -314,34 +334,8 @@
    "states_used": [
     "TAS"
    ],
-   "service_years": 0.0,
+   "service_years": 0,
    "km_per_year": null
-  },
-  {
-   "instrument_canonical": "HyLogger 4-2301",
-   "datasets": 8,
-   "boreholes": 8,
-   "km_scanned": 4.64,
-   "first_use": "2012-04-27",
-   "last_use": "2026-02-16",
-   "states_used": [
-    "WA"
-   ],
-   "service_years": 13.81,
-   "km_per_year": 0.34
-  },
-  {
-   "instrument_canonical": "HyLogger 4-2303",
-   "datasets": 18,
-   "boreholes": 18,
-   "km_scanned": 3.59,
-   "first_use": "2026-03-27",
-   "last_use": "2026-05-20",
-   "states_used": [
-    "NSW"
-   ],
-   "service_years": 0.15,
-   "km_per_year": 23.92
   },
   {
    "instrument_canonical": "HyLogger 6-2",
@@ -353,16 +347,161 @@
    "states_used": [
     "TAS"
    ],
-   "service_years": 0.0,
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 6-3",
+   "datasets": 2,
+   "boreholes": 2,
+   "km_scanned": 0.43,
+   "first_use": "2020-10-13",
+   "last_use": "2020-10-13",
+   "states_used": [
+    "TAS"
+   ],
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 2-1",
+   "datasets": 4,
+   "boreholes": 4,
+   "km_scanned": 0.1,
+   "first_use": "2019-05-14",
+   "last_use": "2026-08-05",
+   "states_used": [
+    "NT",
+    "QLD"
+   ],
+   "service_years": 7.23,
+   "km_per_year": 0.01
+  },
+  {
+   "instrument_canonical": "HyChips 6-4",
+   "datasets": 1,
+   "boreholes": 1,
+   "km_scanned": 0.09,
+   "first_use": "2017-09-25",
+   "last_use": "2017-09-25",
+   "states_used": [
+    "NSW"
+   ],
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger-2",
+   "datasets": 1,
+   "boreholes": 1,
+   "km_scanned": 0.08,
+   "first_use": "2026-08-05",
+   "last_use": "2026-08-05",
+   "states_used": [
+    "QLD"
+   ],
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 2",
+   "datasets": 2,
+   "boreholes": 2,
+   "km_scanned": 0.04,
+   "first_use": "2020-10-20",
+   "last_use": "2025-02-13",
+   "states_used": [
+    "QLD",
+    "TAS"
+   ],
+   "service_years": 4.32,
+   "km_per_year": 0.01
+  },
+  {
+   "instrument_canonical": "19",
+   "datasets": 5,
+   "boreholes": 5,
+   "km_scanned": 0,
+   "first_use": null,
+   "last_use": null,
+   "states_used": [
+    "WA"
+   ],
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 3-7",
+   "datasets": 241,
+   "boreholes": 239,
+   "km_scanned": 0,
+   "first_use": null,
+   "last_use": null,
+   "states_used": [
+    "NT"
+   ],
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 2-7",
+   "datasets": 60,
+   "boreholes": 60,
+   "km_scanned": 0,
+   "first_use": null,
+   "last_use": null,
+   "states_used": [
+    "NT"
+   ],
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 3-2",
+   "datasets": 1703,
+   "boreholes": 1616,
+   "km_scanned": 0,
+   "first_use": null,
+   "last_use": null,
+   "states_used": [
+    "WA"
+   ],
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 2-2",
+   "datasets": 40,
+   "boreholes": 40,
+   "km_scanned": 0,
+   "first_use": null,
+   "last_use": null,
+   "states_used": [
+    "WA"
+   ],
+   "service_years": 0,
+   "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 4-2301",
+   "datasets": 3,
+   "boreholes": 3,
+   "km_scanned": 0,
+   "first_use": null,
+   "last_use": null,
+   "states_used": [
+    "WA"
+   ],
+   "service_years": 0,
    "km_per_year": null
   }
  ],
  "endpoints": {
-  "WA": {
-   "name": "Western Australia",
-   "wfs": "https://geossdi.dmp.wa.gov.au/services/ows",
-   "nvcl": "https://geossdi.dmp.wa.gov.au/NVCLDataServices",
-   "hits_url": "https://geossdi.dmp.wa.gov.au/services/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
+  "CSIRO": {
+   "name": "CSIRO",
+   "wfs": "https://nvclwebservices.csiro.au/geoserver/ows",
+   "nvcl": "https://nvclwebservices.csiro.au/NVCLDataServices",
+   "hits_url": "https://nvclwebservices.csiro.au/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
   },
   "NSW": {
    "name": "New South Wales",
@@ -370,17 +509,23 @@
    "nvcl": "https://nvcl.geoscience.nsw.gov.au/NVCLDataServices",
    "hits_url": "https://gs.geoscience.nsw.gov.au/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
   },
+  "NT": {
+   "name": "Northern Territory",
+   "wfs": "https://geology.data.nt.gov.au/geoserver/ows",
+   "nvcl": "https://geology.data.nt.gov.au/NVCLDataServices",
+   "hits_url": "https://geology.data.nt.gov.au/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
+  },
   "QLD": {
    "name": "Queensland",
    "wfs": "https://geology.information.qld.gov.au/geoserver/ows",
    "nvcl": "https://geology.information.qld.gov.au/NVCLDataServices",
    "hits_url": "https://geology.information.qld.gov.au/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
   },
-  "VIC": {
-   "name": "Victoria",
-   "wfs": "https://geology.data.vic.gov.au/nvcl/ows",
-   "nvcl": "https://geology.data.vic.gov.au/NVCLDataServices",
-   "hits_url": "https://geology.data.vic.gov.au/nvcl/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
+  "SA": {
+   "name": "South Australia",
+   "wfs": "https://sarigdata.pir.sa.gov.au/geoserver/ows",
+   "nvcl": "https://sarigdata.pir.sa.gov.au/nvcl/NVCLDataServices",
+   "hits_url": "https://sarigdata.pir.sa.gov.au/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
   },
   "TAS": {
    "name": "Tasmania",
@@ -388,23 +533,17 @@
    "nvcl": "https://www.mrt.tas.gov.au/NVCLDataServices",
    "hits_url": "https://www.mrt.tas.gov.au/web-services/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
   },
-  "NT": {
-   "name": "Northern Territory",
-   "wfs": "https://geology.data.nt.gov.au/geoserver/ows",
-   "nvcl": "https://geology.data.nt.gov.au/NVCLDataServices",
-   "hits_url": "https://geology.data.nt.gov.au/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
+  "VIC": {
+   "name": "Victoria",
+   "wfs": "https://geology.data.vic.gov.au/nvcl/ows",
+   "nvcl": "https://geology.data.vic.gov.au/NVCLDataServices",
+   "hits_url": "https://geology.data.vic.gov.au/nvcl/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
   },
-  "CSIRO": {
-   "name": "CSIRO",
-   "wfs": "https://nvclwebservices.csiro.au/geoserver/ows",
-   "nvcl": "https://nvclwebservices.csiro.au/NVCLDataServices",
-   "hits_url": "https://nvclwebservices.csiro.au/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
-  },
-  "SA": {
-   "name": "South Australia",
-   "wfs": "https://sarigdata.pir.sa.gov.au/geoserver/ows",
-   "nvcl": "https://sarigdata.pir.sa.gov.au/nvcl/NVCLDataServices",
-   "hits_url": "https://sarigdata.pir.sa.gov.au/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
+  "WA": {
+   "name": "Western Australia",
+   "wfs": "https://geossdi.dmp.wa.gov.au/services/ows",
+   "nvcl": "https://geossdi.dmp.wa.gov.au/NVCLDataServices",
+   "hits_url": "https://geossdi.dmp.wa.gov.au/services/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=gsmlp:BoreholeView&resultType=hits&CQL_FILTER=nvclCollection=%27true%27"
   }
  }
 }
