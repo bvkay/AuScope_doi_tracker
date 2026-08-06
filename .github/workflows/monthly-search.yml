@@ -5,11 +5,13 @@ on:
   schedule:
     - cron: '0 2 * * 0'
 
-  # Process pending DOIs or regenerate dashboard when data changes
+  # Process pending DOIs, sheet decisions/overrides, or regenerate dashboard
   push:
     paths:
       - 'data/pending.json'
       - 'data/publications.json'
+      - 'data/review-decisions.json'
+      - 'data/evidence-overrides.json'
 
   # Manual trigger via GitHub UI
   workflow_dispatch:
@@ -59,6 +61,10 @@ jobs:
       # Dedup and fill missing metadata
       - name: Maintenance (dedup + metadata fill)
         run: node src/maintain.js
+
+      # Apply human accept/reject decisions from the Google Sheet review queue
+      - name: Review queue decisions
+        run: node src/process-review-decisions.js
 
       # Identifier-based verification (AuScope ROR / watchlist ORCIDs via OpenAlex)
       - name: Verified discovery

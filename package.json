@@ -11,6 +11,7 @@
     "verified": "node src/verified.js",
     "evidence": "node src/evidence.js",
     "consolidate": "node src/consolidate.js",
+    "review-decisions": "node src/process-review-decisions.js",
     "process-pending": "node src/process-pending.js",
     "maintain": "node src/maintain.js",
     "dashboard": "node src/dashboard.js",

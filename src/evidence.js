@@ -141,9 +141,15 @@ function run() {
       counts.verified = (counts.verified || 0) + 1;
       added++;
     } else {
-      candidateMisses.push({ doi: r.doi, title: r.title, year: r.year, journal: r.journal });
+      candidateMisses.push({ doi: r.doi, title: r.title, year: r.year, journal: r.journal, authors: r.authors, cited: r.cited });
     }
   });
+
+  // Works a human already rejected in the review queue never reappear in it.
+  const rejects = readJson(path.join(DATA_DIR, 'review-rejects.json'), { records: [] }).records || [];
+  const rejectSet = {};
+  rejects.forEach(function(r) { rejectSet[normDoi(r.doi)] = true; });
+  const reviewQueue = candidateMisses.filter(function(c) { return !rejectSet[normDoi(c.doi)]; });
 
   // ── Human curation overrides (data/evidence-overrides.json) ──
   // Machine evidence is only as good as OpenAlex's affiliation matching;
@@ -186,14 +192,14 @@ function run() {
   pubData.metadata.evidence_updated = new Date().toISOString();
   fs.writeFileSync(PUB_FILE, JSON.stringify(pubData, null, 2));
   fs.writeFileSync(path.join(DATA_DIR, 'evidence-candidates.json'),
-    JSON.stringify({ generated: new Date().toISOString(), note: 'candidate-strong works not in the corpus — human review before adding', records: candidateMisses }, null, 2));
+    JSON.stringify({ generated: new Date().toISOString(), note: 'candidate-strong works not in the corpus — human review before adding (rejected works filtered out)', records: reviewQueue }, null, 2));
 
   console.log('Evidence distribution across ' + pubData.records.length + ' records:');
   ['verified', 'candidate', 'text-attributed', 'text-infrastructure', 'text-software', 'keyword'].forEach(function(e) {
     console.log('  ' + e + ': ' + (counts[e] || 0));
   });
   console.log('\nAppended ' + added + ' ROR-verified works new to the corpus.');
-  console.log(candidateMisses.length + ' candidate-strong works held for review (data/evidence-candidates.json).');
+  console.log(reviewQueue.length + ' candidate-strong works in the review queue (data/evidence-candidates.json).');
 }
 
 run();
