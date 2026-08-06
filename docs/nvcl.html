@@ -356,7 +356,7 @@
             <div class="section-note" id="map-caption">Loading borehole positions&hellip;</div>
             <div class="map-panel">
                 <div class="map-main">
-                    <svg id="map-svg" viewBox="0 0 860 600" role="img" aria-label="Map of NVCL boreholes across Australia">
+                    <svg id="map-svg" viewBox="0 0 644 600" role="img" aria-label="Map of NVCL boreholes across Australia">
                         <g id="map-dots"></g>
                     </svg>
                     <div class="map-controls">
@@ -489,7 +489,9 @@ function niceDate(iso) {
 // Equirectangular projection — verified during dev:
 // Perth (-31.95, 115.86) -> x 79 (left of Sydney x 803);
 // Darwin (-12.46, 130.84) -> y 59 (above Hobart y 581).
-function projX(lng) { return (lng - 112) / (154 - 112) * 860; }
+// 42 deg lng x cos(26.5 deg mid-lat) at 600px/35deg lat = 644px wide —
+// equal ground-distance scaling; 860 stretched Australia ~34% too wide.
+function projX(lng) { return (lng - 112) / (154 - 112) * 644; }
 function projY(lat) { return (-9 - lat) / (-9 - -44) * 600; }
 
 // ============================================================

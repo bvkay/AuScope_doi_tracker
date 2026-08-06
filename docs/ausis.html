@@ -299,7 +299,7 @@
             <div class="section-note" id="map-caption">Each dot is a school with a research-grade seismometer. Click one to see its live waveform dashboard.</div>
             <div class="map-panel">
                 <div class="map-main">
-                    <svg id="map-svg" viewBox="0 0 860 600" role="img" aria-label="Map of AuSIS school seismometers across Australia">
+                    <svg id="map-svg" viewBox="0 0 644 600" role="img" aria-label="Map of AuSIS school seismometers across Australia">
                         <g id="map-coast"></g>
                         <g id="map-dots"></g>
                     </svg>
@@ -422,7 +422,9 @@ function timeHM(d) { return pad2(d.getHours()) + ':' + pad2(d.getMinutes()); }
 // Equirectangular projection (same frame as nvcl.html) — verified:
 // Perth-ish AUMAZ (lng 116.04) -> x 83, Sydney-ish AUTKS (lng 151.03) -> x 799;
 // Darwin AUDHS (lat -12.44) -> y 59, Hobart AUTAR (lat -42.94) -> y 582.
-function projX(lng) { return (lng - 112) / (154 - 112) * 860; }
+// 42 deg lng x cos(26.5 deg mid-lat) at 600px/35deg lat = 644px wide —
+// equal ground-distance scaling; 860 stretched Australia ~34% too wide.
+function projX(lng) { return (lng - 112) / (154 - 112) * 644; }
 function projY(lat) { return (-9 - lat) / (-9 - -44) * 600; }
 
 // The FDSN feed has no state field — derive one from coordinates with
