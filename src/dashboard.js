@@ -354,7 +354,10 @@ function buildHeroTiles(s, pillarData) {
     if (p.stations) tiles.push({ n: p.stations.total, label: 'Seismic Stations' });
     if (p.instruments) {
       tiles.push({ n: p.instruments.units, label: 'Instruments' });
-      tiles.push({ n: p.instruments.surveys, label: 'Field Surveys' });
+      // Surveys deliberately NOT a hero tile: the registry's 9 DOI-registered
+      // surveys are a PID-coverage count, not a count of AuScope fieldwork —
+      // a hero number that needs a footnote invites the wrong question.
+      // They appear on the explorer card below with precise wording.
     }
   }
   return tiles.map(function(t) {
@@ -397,8 +400,9 @@ function buildExplorerCards(pillarData) {
     cards.push({ href: 'instruments.html', num: p.instruments.units.toLocaleString(),
       name: 'Instruments', sub: 'PIDInst DOIs · metadata health' });
     cards.push({ href: 'instruments.html', num: String(p.instruments.surveys),
-      name: 'Field surveys', sub: p.instruments.linkedDatasets + ' datasets · '
-        + p.instruments.linkedPapers + ' papers linked' });
+      name: 'DOI-registered surveys', sub: 'each lists its PIDInst components · '
+        + p.instruments.linkedDatasets + ' datasets · '
+        + p.instruments.linkedPapers + ' papers' });
   }
   if (p.nvcl) {
     cards.push({ href: 'nvcl.html', num: Math.round(p.nvcl.scannedKm).toLocaleString() + ' km',
