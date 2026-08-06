@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * AuScope NVCL Pillar — Live Harvester (merged-v1 methodology)
+ * AuScope NVCL Pillar — Live Harvester (merged-v1.2 methodology)
  *
  * Queries every NVCL node's PUBLIC services directly:
  *   1. WFS GetFeature gsmlp:BoreholeView (CQL nvclCollection='true', paged)
@@ -16,6 +16,19 @@
  *     increments interval_unrecorded. Borehole length is NEVER substituted.
  *   - Garbage clamp: an interval longer than 1.5x the drilled borehole length
  *     (when known) is discarded as metadata garbage and counted.
+ *
+ * TSG enrichment (merged-v1.2), from data/nvcl/tsg-cache.jsonl, built by
+ * src/nvcl/tsg-enrich.js out of the AuScope TSG mirror on NCI THREDDS
+ * (collection DOI 10.25914/bztg-rg43):
+ *   - DEPTH precedence:  API-published interval > TSG-measured interval >
+ *     drilled-length estimate. A TSG interval counts as MEASURED and is
+ *     tracked separately as tsg_measured_km.
+ *   - DATE precedence:   TSG header scan date > API date. The API's
+ *     createdDate is an INGEST date, not a scan date — whole states arrive in
+ *     one month (TAS 30% in 2020-10, SA 20% in 2019-07) and those clusters
+ *     vanish under TSG dates. Every date carries a dateSource.
+ *   - A state still leaning on API dates gets a suspected_bulk_upload_month
+ *     flag when its busiest month holds more than 15% of its records.
  *
  * Outputs (only when the run is healthy — see health guard below):
  *   data/nvcl-stats.json      canonical snapshot (consumed by src/stats.js)
@@ -61,6 +74,10 @@ const FALLBACK_PAGE = 10000;       // unfiltered paging (NT: CQL disabled)
 const CLAMP_FACTOR = 1.5;          // interval vs borehole length garbage clamp
 const MIN_NODES_UP = 5;            // health guard
 const MIN_PREV_FRACTION = 0.8;     // health guard
+const BULK_UPLOAD_SHARE = 0.15;    // top-month share that reads as an ingest batch
+
+const TSG_CACHE = path.join(DATA_DIR, 'nvcl', 'tsg-cache.jsonl');
+const TSG_SOURCE = 'NCI THREDDS TSG (10.25914/bztg-rg43)';
 
 // The 8 public NVCL nodes. cqlBroken: GeoServer ignores CQL on nvclCollection
 // (returns 0 rows) so we page ALL boreholes and filter locally. wfsOnly: VIC
@@ -82,7 +99,7 @@ const NODES = [
 
 async function run() {
   const asOf = new Date().toISOString().substring(0, 10);
-  console.log('NVCL Harvest (merged-v1) — ' + asOf);
+  console.log('NVCL Harvest (merged-v1.2) — ' + asOf);
   console.log('=================================\n');
   if (ONLY.length) console.log('Node filter: ' + ONLY.join(', ') + ' (NVCL_ONLY)');
   if (OUT_DIR) console.log('Output redirect: ' + OUT_DIR + ' (NVCL_OUT_DIR)');
@@ -94,14 +111,20 @@ async function run() {
     : NODES;
   if (!nodes.length) throw new Error('NVCL_ONLY matched no nodes');
 
+  // TSG enrichment cache (optional — the harvest is fully functional without
+  // it, just less measured and on ingest dates).
+  const tsgIndex = loadTsgIndex(TSG_CACHE);
+
   // Harvest nodes sequentially (politeness); boreholes within a node
   // are fetched with CONCURRENCY workers.
   const results = [];
   for (let i = 0; i < nodes.length; i++) {
-    results.push(await harvestNode(nodes[i]));
+    const r = await harvestNode(nodes[i]);
+    attachTsg(r, tsgIndex);
+    results.push(r);
   }
 
-  const snapshot = aggregate(results, asOf);
+  const snapshot = aggregate(results, asOf, tsgIndex);
   const elapsed = Math.round((Date.now() - t0) / 1000);
   console.log('\nHarvest finished in ' + elapsed + 's');
   printSummary(snapshot);
@@ -363,6 +386,142 @@ function canonicalInstrument(raw) {
   return s;
 }
 
+// ── TSG enrichment (data/nvcl/tsg-cache.jsonl) ────────────────────
+
+// The cache is keyed by THREDDS archive name, which is NOT the WFS borehole
+// identifier. WA names an archive after the hole (05GJD001.zip, plus daughter
+// archives like 12CADD001_wedge.zip); NT prefixes the numeric feature id
+// (1113660_ECD10.zip). So each archive is indexed under three normalised
+// keys — whole name, part before the first underscore, part after it — and a
+// borehole is matched against them in a fixed precedence order.
+function loadTsgIndex(file) {
+  const idx = {
+    loaded: false, path: file, rows: 0, byState: {},
+    matchedRows: new Set(), states: [],
+  };
+  if (!fs.existsSync(file)) {
+    console.log('\nTSG cache: none at ' + file + ' (no enrichment this run)');
+    return idx;
+  }
+  const lines = fs.readFileSync(file, 'utf8').split('\n');
+  lines.forEach(function(line) {
+    if (!line.trim()) return;
+    let r;
+    try { r = JSON.parse(line); } catch (e) { return; }
+    if (!r || !r.state || !r.zipName) return;
+    idx.rows++;
+    const st = idx.byState[r.state] || (idx.byState[r.state] = {
+      rows: [], full: new Map(), prefix: new Map(), suffix: new Map(),
+    });
+    r._key = r.state + '/' + r.zipName;
+    st.rows.push(r);
+    const base = String(r.zipName).replace(/\.zip$/i, '');
+    const cut = base.indexOf('_');
+    push(st.full, normKey(base), r);
+    if (cut > 0) {
+      push(st.prefix, normKey(base.slice(0, cut)), r);
+      push(st.suffix, normKey(base.slice(cut + 1)), r);
+    }
+  });
+  idx.loaded = true;
+  idx.states = Object.keys(idx.byState).sort();
+  console.log('\nTSG cache: ' + idx.rows + ' rows across ' + idx.states.join(', '));
+  return idx;
+
+  function push(map, k, v) {
+    if (!k) return;
+    const a = map.get(k);
+    if (a) a.push(v); else map.set(k, [v]);
+  }
+}
+
+// Uppercase, strip every separator. '115904_ALF006/01' and 'ALF006-01' both
+// collapse so a punctuation difference between WFS and filename never costs
+// a match.
+function normKey(s) {
+  return String(s || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+}
+
+// Attach cache rows to boreholes and report the match rate. Rows that match
+// nothing are counted and logged — never silently dropped.
+function attachTsg(result, idx) {
+  const st = idx.byState[result.node.code];
+  result.tsg = { rows: st ? st.rows.length : 0, matchedRows: 0, matchedBoreholes: 0, tiers: {} };
+  if (!st || !result.boreholes.length) {
+    if (st && st.rows.length) {
+      console.log('  TSG: ' + st.rows.length + ' cache rows, 0 matched (no boreholes harvested)');
+    }
+    return;
+  }
+
+  const used = new Set();
+  result.boreholes.forEach(function(bh) {
+    const hit = matchTsgRows(st, bh);
+    if (!hit) return;
+    bh.tsg = hit.rows;
+    bh.tsgTier = hit.tier;
+    result.tsg.matchedBoreholes++;
+    result.tsg.tiers[hit.tier] = (result.tsg.tiers[hit.tier] || 0) + 1;
+    hit.rows.forEach(function(r) { used.add(r._key); idx.matchedRows.add(r._key); });
+  });
+  result.tsg.matchedRows = used.size;
+
+  const pct = st.rows.length ? Math.round(used.size / st.rows.length * 1000) / 10 : 0;
+  console.log('  TSG: ' + used.size + '/' + st.rows.length + ' cache rows matched ('
+    + pct + '%) to ' + result.tsg.matchedBoreholes + ' boreholes'
+    + '  [' + Object.keys(result.tsg.tiers).map(function(k) {
+      return k + ':' + result.tsg.tiers[k];
+    }).join(' ') + ']');
+  const orphan = st.rows.length - used.size;
+  if (orphan > 0) {
+    const sample = st.rows.filter(function(r) { return !used.has(r._key); })
+      .slice(0, 4).map(function(r) { return r.zipName; }).join(', ');
+    console.log('  TSG: ' + orphan + ' cache rows matched no harvested borehole (e.g. ' + sample + ')');
+  }
+}
+
+// Precedence: an exact archive-name hit on the WFS id or name beats a
+// suffix hit. Whole-name and prefix hits are unioned at the same tier so a
+// hole and its daughter wedges (12CADD001.zip + 12CADD001_wedge.zip) are
+// counted together — the interval union then absorbs their overlap.
+function matchTsgRows(st, bh) {
+  const idKey = normKey(bh.id);
+  const nameKey = normKey(bh.name);
+  const tiers = [
+    ['id', union(st.full.get(idKey), st.prefix.get(idKey))],
+    ['name', union(st.full.get(nameKey), st.prefix.get(nameKey))],
+    ['name-suffix', st.suffix.get(nameKey)],
+    ['id-suffix', st.suffix.get(idKey)],
+  ];
+  for (let i = 0; i < tiers.length; i++) {
+    if (tiers[i][1] && tiers[i][1].length) return { tier: tiers[i][0], rows: tiers[i][1] };
+  }
+  return null;
+
+  function union(a, b) {
+    if (!a) return b || null;
+    if (!b) return a;
+    const seen = new Set(a.map(function(r) { return r._key; }));
+    return a.concat(b.filter(function(r) { return !seen.has(r._key); }));
+  }
+}
+
+// The scan dates a borehole's TSG archives report, ascending. These override
+// the API's createdDate, which is the day the record was ingested.
+function tsgDates(bh) {
+  if (!bh.tsg) return [];
+  return bh.tsg.map(function(r) { return r.scanDate ? String(r.scanDate).substring(0, 10) : null; })
+    .filter(Boolean).sort();
+}
+
+function tsgInstrument(bh) {
+  if (!bh.tsg) return null;
+  for (let i = 0; i < bh.tsg.length; i++) {
+    if (bh.tsg[i].instrument) return canonicalInstrument(bh.tsg[i].instrument);
+  }
+  return null;
+}
+
 // ── Metrics (the merged methodology) ──────────────────────────────
 
 // Per-borehole scan metrics from its datasets' depth intervals.
@@ -402,34 +561,82 @@ function boreholeMetrics(bh) {
   });
   if (curStart !== null) uniqueM += curEnd - curStart;
 
-  // Estimation tier (disclosed, never blended into measured figures):
-  // when a borehole has datasets but NO valid intervals at all — i.e. its
-  // node publishes none — estimate its scanned length as the drilled hole
-  // length, ONCE per borehole (never per dataset; rescans must not inflate
-  // an estimate). Reported separately as estimated_km.
+  // ── Precedence: API interval > TSG interval > drilled-length estimate ──
+  //
+  // Tier 2 (TSG). The node published nothing, but the instrument's own file
+  // on the AuScope NCI mirror records the interval it scanned. That is a
+  // MEASUREMENT, not an estimate — it is counted in unique_scanned_km and
+  // tracked separately as tsg_measured_km so the provenance stays visible.
+  let tsgM = 0;
+  if (intervals.length === 0 && bh.tsg && bh.tsg.length) {
+    const tsgIntervals = [];
+    bh.tsg.forEach(function(r) {
+      if (r.depthFromM === null || r.depthFromM === undefined) return;
+      if (r.depthToM === null || r.depthToM === undefined) return;
+      if (!(r.depthToM > r.depthFromM)) return;
+      // Same garbage clamp the API path uses — one rule for all sources.
+      if (bh.lengthM && bh.lengthM > 0 && (r.depthToM - r.depthFromM) > bh.lengthM * CLAMP_FACTOR) return;
+      tsgIntervals.push([r.depthFromM, r.depthToM]);
+    });
+    tsgM = unionLength(tsgIntervals);
+    if (tsgM > 0) {
+      uniqueM = tsgM;
+      // Total scan work: a wedge archive is genuine extra instrument time,
+      // so total sums them while unique unions them.
+      let sum = 0;
+      tsgIntervals.forEach(function(iv) { sum += iv[1] - iv[0]; });
+      totalM = sum;
+    }
+  }
+
+  // Tier 3 (estimate). Neither an API interval nor a TSG one: fall back to
+  // the drilled hole length, ONCE per borehole (never per dataset; rescans
+  // must not inflate an estimate). Reported separately as estimated_km and
+  // never blended into the measured total.
   let estimatedM = 0;
-  if (intervals.length === 0 && unrecorded > 0 && bh.lengthM && bh.lengthM > 0) {
+  if (intervals.length === 0 && tsgM === 0 && unrecorded > 0 && bh.lengthM && bh.lengthM > 0) {
     estimatedM = bh.lengthM;
   }
 
   return {
     uniqueM: uniqueM, totalM: totalM, estimatedM: estimatedM,
+    apiM: intervals.length ? uniqueM : 0,
+    tsgM: tsgM,
+    source: intervals.length ? 'api' : (tsgM > 0 ? 'tsg' : (estimatedM > 0 ? 'estimate' : 'none')),
     unrecorded: unrecorded, clamped: clamped,
     intervalDatasets: intervals.length,
   };
 }
 
+// Length of the union of [start, end] intervals: sort, merge touching or
+// overlapping, sum the survivors.
+function unionLength(list) {
+  const ivs = list.slice().sort(function(a, b) { return a[0] - b[0]; });
+  let total = 0, curStart = null, curEnd = null;
+  ivs.forEach(function(iv) {
+    if (curStart === null) { curStart = iv[0]; curEnd = iv[1]; return; }
+    if (iv[0] <= curEnd) { if (iv[1] > curEnd) curEnd = iv[1]; return; }
+    total += curEnd - curStart;
+    curStart = iv[0]; curEnd = iv[1];
+  });
+  if (curStart !== null) total += curEnd - curStart;
+  return total;
+}
+
 // ── Aggregation ───────────────────────────────────────────────────
 
-function aggregate(results, asOf) {
+function aggregate(results, asOf, tsgIndex) {
   const today = new Date(asOf + 'T00:00:00Z');
   const cutoff12mo = new Date(today.getTime() - 365 * 86400000).toISOString().substring(0, 10);
+  tsgIndex = tsgIndex || { loaded: false, rows: 0, byState: {}, matchedRows: new Set() };
 
   const states = [];
   const instruments = {};   // canonical -> { datasets, boreholes:Set, m, first, last, states:Set }
   let sumDatasets = 0, sumBoreholesWithData = 0, sumUniqueM = 0, sumTotalM = 0;
   let sumUnrecorded = 0, sumClamped = 0, sumDrilledM = 0, sumWithInstrument = 0, sumTir = 0;
   let sumEstimatedM = 0, sumEstimatedBh = 0;
+  let sumApiM = 0, sumTsgM = 0, sumTsgBh = 0;
+  let sumDatesTsg = 0, sumDatesApi = 0;
   let earliest = null, latest = null;
   let rescanBoreholes = 0, maxScans = 0;
   const participating = [], nonParticipating = [];
@@ -452,6 +659,9 @@ function aggregate(results, asOf) {
 
     let stDatasets = 0, stWithData = 0, stUniqueM = 0, stTotalM = 0;
     let stEstimatedM = 0, stEstimatedBh = 0;
+    let stApiM = 0, stTsgM = 0, stTsgBh = 0;
+    let stDatesTsg = 0, stDatesApi = 0, stDatesApiScan = 0, stDatesApiCreated = 0;
+    const stMonths = {};
     let stUnrecorded = 0, stClamped = 0, stLatest = null;
     let st12moDatasets = 0, st12moM = 0;
 
@@ -461,20 +671,45 @@ function aggregate(results, asOf) {
       stDatasets += bh.datasets.length;
       if (bh.lengthM && bh.lengthM > 0) sumDrilledM += bh.lengthM;
 
+      // Dates first: the metrics below and every date-keyed roll-up must see
+      // the TSG scan date, not the node's ingest date.
+      resolveDates(bh);
+
       const m = boreholeMetrics(bh);
       bh.metrics = m;
       stUniqueM += m.uniqueM;
       stTotalM += m.totalM;
+      stApiM += m.apiM;
+      if (m.tsgM > 0) { stTsgM += m.tsgM; stTsgBh++; }
       if (m.estimatedM > 0) { stEstimatedM += m.estimatedM; stEstimatedBh++; }
       stUnrecorded += m.unrecorded;
       stClamped += m.clamped;
       if (m.intervalDatasets > 1) rescanBoreholes++;
       if (m.intervalDatasets > maxScans) maxScans = m.intervalDatasets;
 
+      // A TSG-measured borehole has no per-dataset interval, so its recent
+      // work is credited once at borehole level (same rule as the estimate).
+      const bhDate = bh.datasets.reduce(function(acc, d) {
+        return d.date && (!acc || d.date > acc) ? d.date : acc;
+      }, null);
+      if (m.tsgM > 0 && bhDate && bhDate >= cutoff12mo) st12moM += m.tsgM;
+
+      const bhInstrument = tsgInstrument(bh);
+
       bh.datasets.forEach(function(ds) {
+        // The node's InstrumentName wins; the TSG header fills its gaps.
+        if (ds.instrument === 'Unknown' && bhInstrument) {
+          ds.instrument = bhInstrument;
+          ds.instrumentSource = 'tsg';
+        }
         if (ds.instrument !== 'Unknown') sumWithInstrument++;
         if (ds.tir) sumTir++;
+        if (ds.dateSource === 'tsg') { stDatesTsg++; sumDatesTsg++; }
+        else if (ds.dateSource === 'api_scan') { stDatesApi++; stDatesApiScan++; sumDatesApi++; }
+        else if (ds.dateSource === 'api_created') { stDatesApi++; stDatesApiCreated++; sumDatesApi++; }
         if (ds.date) {
+          const mo = ds.date.substring(0, 7);
+          stMonths[mo] = (stMonths[mo] || 0) + 1;
           if (!earliest || ds.date < earliest) earliest = ds.date;
           if (!latest || ds.date > latest) latest = ds.date;
           if (!stLatest || ds.date > stLatest) stLatest = ds.date;
@@ -494,6 +729,11 @@ function aggregate(results, asOf) {
         if (ds.depthStart !== null && ds.depthEnd !== null && ds.depthEnd > ds.depthStart
           && !(bh.lengthM && bh.lengthM > 0 && (ds.depthEnd - ds.depthStart) > bh.lengthM * CLAMP_FACTOR)) {
           inst.m += ds.depthEnd - ds.depthStart;
+        } else if (m.tsgM > 0 && !bh._tsgKmAttributed) {
+          // TSG-measured: the metres belong to this borehole once, credited
+          // to the instrument on its first dataset.
+          inst.m += m.tsgM;
+          bh._tsgKmAttributed = true;
         }
         if (ds.date) {
           if (!inst.first || ds.date < inst.first) inst.first = ds.date;
@@ -507,6 +747,9 @@ function aggregate(results, asOf) {
     sumBoreholesWithData += stWithData;
     sumUniqueM += stUniqueM;
     sumTotalM += stTotalM;
+    sumApiM += stApiM;
+    sumTsgM += stTsgM;
+    sumTsgBh += stTsgBh;
     sumEstimatedM += stEstimatedM;
     sumEstimatedBh += stEstimatedBh;
     sumUnrecorded += stUnrecorded;
@@ -523,19 +766,58 @@ function aggregate(results, asOf) {
       total_datasets: stDatasets,
       total_boreholes_with_data: stWithData,
       total_km_scanned: km(stUniqueM),          // page-compat alias of unique
-      unique_scanned_km: km(stUniqueM),
+      unique_scanned_km: km(stUniqueM),         // measured total: API + TSG
+      api_measured_km: km(stApiM),
+      tsg_measured_km: km(stTsgM),
+      tsg_measured_boreholes: stTsgBh,
       total_scan_km: km(stTotalM),
       estimated_km: km(stEstimatedM),
       estimated_boreholes: stEstimatedBh,
       interval_unrecorded: stUnrecorded,
       interval_clamped: stClamped,
+      dates_from_tsg: stDatesTsg,
+      dates_from_api: stDatesApi,
+      dates_from_api_scandate: stDatesApiScan,
+      dates_from_api_createddate: stDatesApiCreated,
       latest_dataset_date: stLatest,
       days_since_latest: stLatest ? Math.max(0, Math.round((today - new Date(stLatest + 'T00:00:00Z')) / 86400000)) : null,
       datasets_last_12mo: st12moDatasets,
       km_scanned_last_12mo: km(st12moM),
     };
+    if (stTsgM > 0) entry.tsg_source = TSG_SOURCE;
+
+    // Bulk-upload detector. Real scanning spreads across months; ingest
+    // arrives in batches. When one month holds an implausible share of a
+    // state's dated records AND those dates came from the node API rather
+    // than the instrument's own file, say so instead of publishing an
+    // ingest date as a scan date.
+    const cluster = topMonth(stMonths);
+    if (cluster) {
+      entry.date_cluster = {
+        top_month: cluster.month,
+        records: cluster.count,
+        share_pct: Math.round(cluster.count / cluster.total * 1000) / 10,
+      };
+      const apiShare = (stDatesTsg + stDatesApi) ? stDatesApi / (stDatesTsg + stDatesApi) : 0;
+      if (cluster.count / cluster.total > BULK_UPLOAD_SHARE && apiShare > 0.5) {
+        entry.suspected_bulk_upload_month = cluster.month;
+        entry.suspected_bulk_upload_share_pct = entry.date_cluster.share_pct;
+        entry.suspected_bulk_upload_note = 'The busiest month holds '
+          + entry.date_cluster.share_pct + '% of this node\'s dated records and those dates come '
+          + 'from its API (createdDate = ingest date). Treat the dates and the freshness '
+          + 'badge for this node as provisional until TSG enrichment covers it.';
+      }
+    }
+
     if (node.note && !isParticipating) entry.note = node.note;
     if (r.fetchFailures) entry.dataset_fetch_failures = r.fetchFailures;
+    if (r.tsg && r.tsg.rows) {
+      entry.tsg_cache_rows = r.tsg.rows;
+      entry.tsg_cache_rows_matched = r.tsg.matchedRows;
+      entry.tsg_cache_rows_unmatched = r.tsg.rows - r.tsg.matchedRows;
+      entry.tsg_matched_boreholes = r.tsg.matchedBoreholes;
+      entry.tsg_match_rate_pct = Math.round(r.tsg.matchedRows / r.tsg.rows * 1000) / 10;
+    }
     states.push(entry);
   });
 
@@ -570,9 +852,11 @@ function aggregate(results, asOf) {
     };
   });
 
+  const tsgUnmatched = Math.max(0, tsgIndex.rows - tsgIndex.matchedRows.size);
+
   return {
     as_of: asOf,
-    method: 'merged-v1',
+    method: 'merged-v1.2',
     source: 'src/nvcl/harvest.js — live harvest of all public NVCL node services (see src/nvcl/METHODOLOGY.md)',
     summary: {
       total_datasets: sumDatasets,
@@ -582,12 +866,34 @@ function aggregate(results, asOf) {
       total_scanned_km: km(sumUniqueM),
       total_scanned_km_note: 'alias of unique_scanned_km (union of per-dataset scan intervals per borehole)',
       unique_scanned_km: km(sumUniqueM),
+      // The measured total splits by provenance. API = intervals the node
+      // publishes. TSG = intervals read from the instrument's own file on
+      // the AuScope NCI mirror. Both are measurements; neither is a guess.
+      api_measured_km: km(sumApiM),
+      tsg_measured_km: km(sumTsgM),
+      tsg_measured_boreholes: sumTsgBh,
+      tsg_source: TSG_SOURCE,
       total_scan_km: km(sumTotalM),
-      // Estimation tier — DISCLOSED, never blended: boreholes whose node
-      // publishes no intervals at all, estimated once each at drilled length.
+      // Estimation tier — DISCLOSED, never blended: boreholes with neither an
+      // API interval nor a TSG one, estimated once each at drilled length.
       estimated_km: km(sumEstimatedM),
       estimated_boreholes: sumEstimatedBh,
       combined_estimate_km: km(sumUniqueM + sumEstimatedM),
+      // Date provenance. API dates are INGEST dates (createdDate); TSG dates
+      // are the instrument's own record of when it scanned.
+      dates_from_tsg: sumDatesTsg,
+      dates_from_api: sumDatesApi,
+      dates_from_tsg_pct: (sumDatesTsg + sumDatesApi)
+        ? Math.round(sumDatesTsg / (sumDatesTsg + sumDatesApi) * 1000) / 10 : 0,
+      tsg_cache: {
+        path: 'data/nvcl/tsg-cache.jsonl',
+        rows: tsgIndex.rows,
+        matched_rows: tsgIndex.matchedRows.size,
+        unmatched_rows: tsgUnmatched,
+        match_rate_pct: tsgIndex.rows
+          ? Math.round(tsgIndex.matchedRows.size / tsgIndex.rows * 1000) / 10 : null,
+        states_cached: tsgIndex.states,
+      },
       interval_unrecorded_datasets: sumUnrecorded,
       interval_clamped_datasets: sumClamped,
       total_borehole_drilled_km: km(sumDrilledM),
@@ -612,6 +918,47 @@ function aggregate(results, asOf) {
   };
 }
 
+// Assign each dataset its best available date and record where it came from.
+//
+// PRECEDENCE: the TSG header's scan date beats anything the API says. The
+// node's createdDate is the day the record was INGESTED — whole states land
+// in a single month under it — so it is a fallback, never the truth.
+//
+// When a borehole has more archives than datasets, or fewer, the two lists
+// are paired in chronological order; leftover datasets take the borehole's
+// latest TSG date rather than fall back to an ingest date that would invent
+// a scanning month.
+function resolveDates(bh) {
+  const tsg = tsgDates(bh);
+  const order = bh.datasets.map(function(_, i) { return i; }).sort(function(a, b) {
+    const da = bh.datasets[a].scanDate || bh.datasets[a].created || '';
+    const db = bh.datasets[b].scanDate || bh.datasets[b].created || '';
+    return da < db ? -1 : (da > db ? 1 : a - b);
+  });
+  order.forEach(function(dsIdx, rank) {
+    const ds = bh.datasets[dsIdx];
+    if (tsg.length) {
+      ds.date = rank < tsg.length ? tsg[rank] : tsg[tsg.length - 1];
+      ds.dateSource = 'tsg';
+      return;
+    }
+    if (ds.scanDate) { ds.date = ds.scanDate; ds.dateSource = 'api_scan'; return; }
+    if (ds.created) { ds.date = ds.created; ds.dateSource = 'api_created'; return; }
+    ds.date = null;
+    ds.dateSource = null;
+  });
+}
+
+// Busiest month in a {'YYYY-MM': count} histogram, with the total.
+function topMonth(hist) {
+  let month = null, count = 0, total = 0;
+  Object.keys(hist).forEach(function(k) {
+    total += hist[k];
+    if (hist[k] > count) { count = hist[k]; month = k; }
+  });
+  return total ? { month: month, count: count, total: total } : null;
+}
+
 // Compact dot array for the page map: [lat, lng, stateIdx, 'YYYY-MM', depth_m].
 // One dot per borehole WITH data; depth is the union (unique) metres.
 function buildDotArray(results) {
@@ -621,9 +968,10 @@ function buildDotArray(results) {
     const idx = order.indexOf(r.node.code);
     r.boreholes.forEach(function(bh) {
       if (!bh.datasets.length) return;
-      let month = '';
+      let month = '', tsgDated = 0;
       bh.datasets.forEach(function(ds) {
         if (ds.date && (!month || ds.date.substring(0, 7) < month)) month = ds.date.substring(0, 7);
+        if (ds.dateSource === 'tsg') tsgDated = 1;
       });
       const uniqueM = bh.metrics ? bh.metrics.uniqueM : 0;
       dots.push([
@@ -632,6 +980,7 @@ function buildDotArray(results) {
         idx,
         month,
         Math.round(uniqueM * 10) / 10,
+        tsgDated,          // 1 = month is a TSG scan date, 0 = API ingest date
       ]);
     });
   });
@@ -643,9 +992,14 @@ function printSummary(s) {
   console.log('\n=== NATIONAL SUMMARY (' + s.as_of + ') ===');
   console.log('Boreholes with data:  ' + sm.total_boreholes_with_data);
   console.log('Datasets:             ' + sm.total_datasets);
-  console.log('Unique scanned:       ' + sm.unique_scanned_km + ' km (union of intervals)');
-  console.log('Estimated (no API):   ' + sm.estimated_km + ' km across ' + sm.estimated_boreholes + ' boreholes (drilled-length estimate, disclosed)');
+  console.log('Unique scanned:       ' + sm.unique_scanned_km + ' km measured (union of intervals)');
+  console.log('  from node APIs:     ' + sm.api_measured_km + ' km');
+  console.log('  from TSG headers:   ' + sm.tsg_measured_km + ' km across ' + sm.tsg_measured_boreholes + ' boreholes (' + sm.tsg_source + ')');
+  console.log('Estimated (no data):  ' + sm.estimated_km + ' km across ' + sm.estimated_boreholes + ' boreholes (drilled-length estimate, disclosed)');
   console.log('Combined estimate:    ' + sm.combined_estimate_km + ' km (measured + estimated)');
+  console.log('Dates from TSG:       ' + sm.dates_from_tsg + ' (' + sm.dates_from_tsg_pct + '%) · from API (ingest): ' + sm.dates_from_api);
+  console.log('TSG cache:            ' + sm.tsg_cache.rows + ' rows, ' + sm.tsg_cache.matched_rows
+    + ' matched (' + sm.tsg_cache.match_rate_pct + '%), ' + sm.tsg_cache.unmatched_rows + ' unmatched');
   console.log('Total scan work:      ' + sm.total_scan_km + ' km (rescans counted)');
   console.log('Interval unrecorded:  ' + sm.interval_unrecorded_datasets
     + ' datasets (' + sm.interval_clamped_datasets + ' clamped as garbage)');
@@ -654,9 +1008,13 @@ function printSummary(s) {
     + ' (max ' + sm.rescan_stats.max_scans_one_borehole + ' scans)');
   s.states.forEach(function(st) {
     console.log('  ' + st.state + ': ' + st.total_boreholes_with_data + ' bh, '
-      + st.total_datasets + ' ds, ' + st.unique_scanned_km + ' km unique / '
-      + st.total_scan_km + ' km total, ' + st.interval_unrecorded + ' unrecorded ['
-      + st.status + ']');
+      + st.total_datasets + ' ds, ' + st.unique_scanned_km + ' km measured'
+      + (st.tsg_measured_km ? ' (' + st.api_measured_km + ' api + ' + st.tsg_measured_km + ' tsg)' : '')
+      + (st.estimated_km ? ' + ' + st.estimated_km + ' km est' : '')
+      + ', dates ' + (st.dates_from_tsg || 0) + ' tsg / ' + (st.dates_from_api || 0) + ' api'
+      + (st.suspected_bulk_upload_month
+        ? '  BULK-UPLOAD? ' + st.suspected_bulk_upload_month + ' = ' + st.suspected_bulk_upload_share_pct + '%' : '')
+      + ' [' + st.status + ']');
   });
 }
 

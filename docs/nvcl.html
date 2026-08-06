@@ -346,7 +346,7 @@
         <!-- ========== STAT TILES ========== -->
         <div class="stats" id="stat-tiles">
             <div class="stat"><div class="label">Boreholes <span class="info-i" data-tip="Distinct boreholes with at least one HyLogger spectral dataset, counted across all participating nodes.">i</span></div><div class="value" id="stat-boreholes">&mdash;</div><div class="sub">with spectral data</div></div>
-            <div class="stat"><div class="label">Core scanned <span class="info-i" data-tip="Unique core measured from the scan intervals each node PUBLISHES: per-dataset depth ranges, merged per borehole so rescans never double-count. Datasets whose node omits intervals (all of WA and NT) are counted in an explicit unrecorded bucket and contribute zero — never estimated. See How these numbers are made.">i</span></div><div class="value" id="stat-km">&mdash;</div><div class="sub" id="stat-km-sub">&mdash;</div></div>
+            <div class="stat"><div class="label">Core scanned <span class="info-i" data-tip="Unique core, merged per borehole so rescans never double-count. Three tiers of evidence, in strict precedence: (1) the scan interval the node's own API publishes; (2) failing that, the interval read from the TSG file's own header on the AuScope NCI THREDDS mirror (DOI 10.25914/bztg-rg43) — a measurement, not a guess; (3) failing both, a disclosed drilled-length estimate that is never blended into the measured figure. See How these numbers are made.">i</span></div><div class="value" id="stat-km">&mdash;</div><div class="sub" id="stat-km-sub">&mdash;</div></div>
             <div class="stat"><div class="label">Datasets <span class="info-i" data-tip="HyLogger dataset records across all nodes. A borehole can carry several datasets (131 boreholes were scanned more than once).">i</span></div><div class="value" id="stat-datasets">&mdash;</div><div class="sub" id="stat-datasets-sub">&mdash;</div></div>
             <div class="stat"><div class="label">State nodes <span class="info-i" data-tip="State and territory geological surveys operating an NVCL node with public WFS + NVCL data services.">i</span></div><div class="value" id="stat-nodes">&mdash;</div><div class="sub">VIC not yet participating</div></div>
             <div class="stat"><div class="label">HyLogger instruments <span class="info-i" data-tip="Physical HyLogger units identified in dataset metadata with more than 1 km of scanned core (test-rig traces excluded).">i</span></div><div class="value" id="stat-instr">&mdash;</div><div class="sub">fleet since 2003</div></div>
@@ -420,7 +420,11 @@
             <summary>How these numbers are made</summary>
             <div class="how-body">
                 <p><strong>Harvest.</strong> On <span id="how-asof">&mdash;</span> the NVCL pipeline queried every participating node&rsquo;s public services: the WFS <code>gsmlp:BoreholeView</code> layer (filtered to <code>nvclCollection='true'</code>) for registered boreholes, then each node&rsquo;s <code>NVCLDataServices getDatasetCollection</code> for every borehole&rsquo;s dataset records. Nothing on this page comes from a private database &mdash; the same services are public, and the <em>Live check</em> button and <em>source</em> links query them directly.</p>
-                <p><strong>Scanned km (merged-v1 method).</strong> The atom is the per-dataset scan interval (start&ndash;end depth). Per borehole, overlapping intervals are merged so rescans never double-count &mdash; the headline is <em>unique core imaged by a spectral scanner</em>, which differs from metres drilled (the same holes total <span id="how-drilled">&mdash;</span>&nbsp;km drilled). Datasets whose node publishes <em>no</em> interval &mdash; currently all of WA and NT &mdash; are counted in an explicit unrecorded bucket and contribute zero to the <em>measured</em> figure. For those boreholes only, a separate <strong>estimation tier</strong> assigns each borehole its drilled length once (never per dataset, so rescans cannot inflate it); the headline &ldquo;&asymp;&rdquo; total is <em>measured&nbsp;+&nbsp;estimated</em> with the split always shown. Measured and estimated are never blended silently &mdash; that was the retired method&rsquo;s flaw. The scanning in those states is real; their APIs simply omit the depth ranges (WA&rsquo;s government shapefile documents roughly 600&nbsp;km more &mdash; a future enrichment from that published source is planned). Full rules: <a href="https://github.com/bvkay/AuScope_doi_tracker/blob/main/src/nvcl/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md ↗</a>.</p>
+                <p><strong>Scanned km &mdash; three tiers, in strict order (merged-v1.2).</strong> The atom is the scan interval (start&ndash;end depth), and per borehole overlapping intervals are merged so rescans never double-count &mdash; the headline is <em>unique core imaged by a spectral scanner</em>, which differs from metres drilled (the same holes total <span id="how-drilled">&mdash;</span>&nbsp;km drilled). Evidence is taken in this precedence and never blended:</p>
+                <p style="margin-left:1.1rem"><strong>1. API interval &mdash; measured.</strong> The depth range the node&rsquo;s own <code>getDatasetCollection</code> publishes, per dataset.<br>
+                <strong>2. TSG interval &mdash; measured.</strong> When a node publishes none (WA and NT publish none at all), the interval is read from the <code>Depth&nbsp;(m)</code> field in the TSG file&rsquo;s own header on <a href="https://thredds.nci.org.au/thredds/catalog/rs07/catalog.html" target="_blank" rel="noopener">NCI THREDDS</a> &mdash; the AuScope NVCL mirror collection, <a href="https://doi.org/10.25914/bztg-rg43" target="_blank" rel="noopener">DOI&nbsp;10.25914/bztg-rg43</a>. That is the instrument&rsquo;s own record of what it scanned, so it counts as measured, tracked separately as <em>TSG-measured</em>. Only the ZIP index and the header are downloaded &mdash; about 0.1% of each archive.<br>
+                <strong>3. Drilled-length estimate &mdash; not measured.</strong> A borehole with neither an API interval nor a TSG one is estimated once at its drilled length (never per dataset, so rescans cannot inflate it). The headline &ldquo;&asymp;&rdquo; is <em>measured&nbsp;+&nbsp;estimated</em> with the split always shown. Blending them silently was the retired method&rsquo;s flaw.</p>
+                <p><strong>Scan dates vs ingest dates.</strong> A node&rsquo;s <code>createdDate</code> records when a record was <em>loaded into its database</em>, not when the core was scanned &mdash; which is why whole states appear to arrive in a single month under it. Where the TSG mirror has been read, dates come from the TSG header&rsquo;s own <code>scan date</code> and those clusters disappear. Any node still relying on API dates whose busiest month holds more than 15% of its records is flagged in the table below and its freshness badge reads <em>ingest date</em>, not a scan date. Full rules: <a href="https://github.com/bvkay/AuScope_doi_tracker/blob/main/src/nvcl/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md ↗</a>.</p>
                 <p><strong>Instruments.</strong> HyLogger units are identified from instrument fields in dataset metadata (<span id="how-instr">&mdash;</span> of <span id="how-datasets">&mdash;</span> datasets carry instrument data). <span id="how-rescan">&mdash;</span> boreholes hold more than one scan (up to <span id="how-maxscan">&mdash;</span>).</p>
                 <p><strong>Live check.</strong> Your browser fetches each node&rsquo;s WFS <code>resultType=hits</code> URL &mdash; the same endpoints cited in the Verify column &mdash; and reads <code>numberMatched</code> from the XML. Some government servers do not send CORS headers, so a browser fetch can be blocked even while the service is up; the source link always works because it opens the server&rsquo;s answer directly.</p>
             </div>
@@ -575,8 +579,15 @@ function renderTiles() {
     var kmSub;
     if (s.estimated_km && s.estimated_km > 0) {
         document.getElementById('stat-km').textContent = '\u2248 ' + fmtKm(s.combined_estimate_km) + ' km';
-        kmSub = fmtKm(s.unique_scanned_km) + ' km measured \u00b7 '
-            + fmtKm(s.estimated_km) + ' km estimated (APIs omit intervals)';
+        kmSub = fmtKm(s.unique_scanned_km) + ' km measured';
+        // Split the measured figure by provenance the moment TSG enrichment
+        // contributes anything \u2014 the reader should see how much came from the
+        // node APIs and how much was read out of the TSG files themselves.
+        if (s.tsg_measured_km > 0) {
+            kmSub += ' (' + fmtKm(s.api_measured_km) + ' from node APIs \u00b7 '
+                + fmtKm(s.tsg_measured_km) + ' from TSG files)';
+        }
+        kmSub += ' \u00b7 ' + fmtKm(s.estimated_km) + ' km still estimated';
     } else {
         document.getElementById('stat-km').textContent = fmtKm(s.total_scanned_km) + ' km';
         kmSub = fmtKm(s.total_borehole_drilled_km) + ' km drilled';
@@ -754,16 +765,31 @@ function onMapMove(e) {
 // ============================================================
 // LIVE VERIFICATION TABLE
 // ============================================================
-function freshnessBadge(days, participating) {
+function freshnessBadge(st) {
+    var days = st.days_since_latest;
+    var participating = st.status === 'participating';
     if (days == null) {
         // A participating node with no dates has an API gap, not a missing node.
         return participating
-            ? '<span class="badge fresh-none" data-tip="This node publishes no dataset dates via its API — freshness cannot be measured.">dates not in API</span>'
+            ? '<span class="badge fresh-none" data-tip="Neither this node’s API nor the TSG mirror has yielded a date for it yet — freshness cannot be measured.">no dates yet</span>'
             : '<span class="badge fresh-none">no node</span>';
     }
-    if (days < 30) return '<span class="badge fresh-good">current</span>';
-    if (days < 180) return '<span class="badge fresh-warn">' + fmt(days) + ' days ago</span>';
-    return '<span class="badge fresh-bad">stale — ' + fmt(days) + ' days</span>';
+    // A date that came from the node's createdDate is an INGEST date. When
+    // one month also holds an implausible share of the node's records, that
+    // is a bulk upload wearing a scan date's clothes — never present it as a
+    // confident freshness reading.
+    if (st.suspected_bulk_upload_month) {
+        return '<span class="badge fresh-none" data-tip="'
+            + escapeAttr(st.suspected_bulk_upload_note || '') + '">ingest date '
+            + fmt(days) + 'd <span class="info-i">i</span></span>';
+    }
+    var src = '';
+    if (st.dates_from_tsg > 0 && st.dates_from_api === 0) {
+        src = ' <span class="info-i" data-tip="Dates for this node are scan dates read from the TSG files on the AuScope NCI THREDDS mirror, not the API’s ingest dates.">i</span>';
+    }
+    if (days < 30) return '<span class="badge fresh-good">current</span>' + src;
+    if (days < 180) return '<span class="badge fresh-warn">' + fmt(days) + ' days ago</span>' + src;
+    return '<span class="badge fresh-bad">stale — ' + fmt(days) + ' days</span>' + src;
 }
 
 function renderVerifyTable() {
@@ -783,21 +809,47 @@ function renderVerifyTable() {
         var latestTip = st.latest_dataset_date
             ? ' data-tip="' + escapeAttr(fmt(st.datasets_last_12mo) + ' datasets · ' + fmtKm(st.km_scanned_last_12mo) + ' km scanned in the last 12 months') + '"'
             : '';
-        // WA and NT publish NO scan intervals via their APIs — their km must
-        // read as "not published", never as a bare 0 (which looks broken).
+        // WA and NT publish NO scan intervals via their APIs. Their km must
+        // never read as a bare 0 (which looks broken) — it reads as measured
+        // once the TSG mirror supplies real intervals, and the row stays
+        // legible while enrichment is only part-way through.
+        var TSG_TIP = 'Measured from the scan intervals in the TSG files’ own '
+            + 'headers on NCI THREDDS — the AuScope NVCL mirror collection '
+            + '(DOI 10.25914/bztg-rg43). This node’s API publishes no depth '
+            + 'ranges, so these kilometres are read from the instrument’s own '
+            + 'file rather than estimated.';
         var kmCell;
         if ((st.total_km_scanned || 0) === 0 && (st.interval_unrecorded || 0) > 0) {
-            kmCell = '<span class="badge-warn" data-tip="This node’s getDatasetCollection API publishes no depth intervals for its ' + escapeAttr(fmt(st.interval_unrecorded)) + ' datasets. Measured km is therefore zero; the ≈ figure estimates each borehole once at its drilled length — disclosed, never blended into measured totals.">not in API</span>';
+            kmCell = '<span class="badge-warn" data-tip="This node’s getDatasetCollection API publishes no depth intervals for its ' + escapeAttr(fmt(st.interval_unrecorded)) + ' datasets, and the TSG mirror has not been read for it yet. The ≈ figure estimates each borehole once at its drilled length — disclosed, never blended into measured totals.">not in API</span>';
             if (st.estimated_km && st.estimated_km > 0) {
                 kmCell += ' <span class="est-km">≈ ' + fmtKm(st.estimated_km) + ' est.</span>';
             }
         } else {
             kmCell = fmtKm(st.total_km_scanned);
-            if ((st.interval_unrecorded || 0) > 0) {
-                kmCell += ' <span class="info-i" data-tip="' + escapeAttr(fmt(st.interval_unrecorded) + ' dataset(s) excluded: no valid scan interval published.') + '">i</span>';
+            if ((st.tsg_measured_km || 0) > 0) {
+                // Partial enrichment must be legible: '312 km measured · 140 est.'
+                kmCell += ' <span class="info-i" data-tip="' + escapeAttr(TSG_TIP
+                    + ' ' + fmtKm(st.api_measured_km) + ' km of this node’s total comes from its API and '
+                    + fmtKm(st.tsg_measured_km) + ' km from ' + fmt(st.tsg_measured_boreholes)
+                    + ' TSG files read so far.') + '">TSG</span>';
+            }
+            var estTip = fmt(st.estimated_boreholes)
+                + ' borehole(s) here have neither an API interval nor a TSG one, and are estimated once each at their drilled length — disclosed, never blended into the measured figure.';
+            // A part-enriched state must say so on the row. A trailing
+            // fraction of a percent is noise, so below 5% the estimate moves
+            // into the tooltip rather than shouting beside the headline.
+            if ((st.estimated_km || 0) > 0
+                && (st.estimated_km >= (st.unique_scanned_km || 0) * 0.05 || !st.unique_scanned_km)) {
+                kmCell += ' <span class="est-km" data-tip="' + escapeAttr(estTip)
+                    + '">· ' + fmtKm(st.estimated_km) + ' est.</span>';
+            } else if ((st.interval_unrecorded || 0) > 0) {
+                kmCell += ' <span class="info-i" data-tip="' + escapeAttr(fmt(st.interval_unrecorded)
+                    + ' dataset(s) excluded: no valid scan interval published.'
+                    + ((st.estimated_km || 0) > 0 ? ' ' + estTip + ' That adds ' + fmtKm(st.estimated_km) + ' km.' : ''))
+                    + '">i</span>';
             }
         }
-        var fresh = freshnessBadge(st.days_since_latest, st.status === 'participating');
+        var fresh = freshnessBadge(st);
         var failN = st.dataset_fetch_failures || 0;
         if (failN > 0 && st.wfs_registered_boreholes && failN / st.wfs_registered_boreholes > 0.05) {
             fresh += ' <span class="badge-warn" data-tip="' + escapeAttr(fmt(failN) + ' of ' + fmt(st.wfs_registered_boreholes) + ' borehole queries failed during this harvest — counts for this node are a floor, not a total. The monthly re-harvest self-heals.') + '">partial harvest</span>';
@@ -1010,7 +1062,22 @@ function renderGrowth() {
 
     document.getElementById('growth-wrap').innerHTML = svg;
 
-    var note = 'Cumulative boreholes by scan month — months are scan dates from dataset records, not drilling dates.';
+    // Date provenance belongs in the caption, not a footnote: a step change
+    // in this line is usually a bulk upload, not a burst of scanning.
+    var tsgDots = 0, datedDots = 0;
+    for (var di = 0; di < nv.sorted.length; di++) {
+        if (!nv.sorted[di][3]) continue;
+        datedDots++;
+        if (nv.sorted[di][5]) tsgDots++;
+    }
+    var note = 'Cumulative boreholes by scan month.';
+    if (datedDots) {
+        var tsgPct = Math.round(tsgDots / datedDots * 100);
+        note += ' ' + tsgPct + '% of these points are dated from the TSG files themselves '
+            + '(the instrument’s own scan date, via the NCI mirror); the remaining ' + (100 - tsgPct)
+            + '% still use the node APIs’ createdDate, which is an ingest date — a step in the line '
+            + 'over those points can mean a bulk upload rather than a burst of scanning.';
+    }
     if (folded > 0) note += ' ' + fmt(folded) + ' borehole' + (folded === 1 ? '' : 's') + ' with a pre-2003 scan date is included in the opening count.';
     var nonPartN = nv.data.summary.non_participating_borehole_count;
     if (nonPartN) note += ' Includes ' + fmt(nonPartN) + ' VIC-registered boreholes scanned at other nodes.';

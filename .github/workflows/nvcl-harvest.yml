@@ -1,9 +1,12 @@
 name: NVCL Harvest
 
 on:
-  # Monthly harvest of all public NVCL node services (3rd of the month, 3am UTC)
+  # Weekly harvest of all public NVCL node services (Mondays, 03:00 UTC).
+  # Weekly rather than monthly because the TSG enrichment step below is
+  # incremental and budgeted: each run reads a slice of the NCI THREDDS
+  # mirror, so the backfill only completes if the runs come around often.
   schedule:
-    - cron: '0 3 3 * *'
+    - cron: '0 3 * * 1'
 
   # Manual trigger via GitHub UI
   workflow_dispatch:
@@ -14,6 +17,9 @@ permissions:
 jobs:
   harvest:
     runs-on: ubuntu-latest
+    # The enrichment budget plus a full 8-node harvest can run long; a
+    # generous ceiling is cheaper than losing a partly-filled cache.
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
 
@@ -21,7 +27,31 @@ jobs:
         with:
           node-version: '20'
 
-      # Live harvest of the 8 NVCL nodes (merged-v1 methodology).
+      # Incremental TSG enrichment from the AuScope NVCL mirror on NCI
+      # THREDDS (collection DOI 10.25914/bztg-rg43). Reads only the ZIP
+      # central directory plus the .tsg entry of each archive via HTTP range
+      # requests (~0.1% of a 30 MB - 1 GB file), diffs against
+      # data/nvcl/tsg-cache.jsonl and fetches ONLY what is new.
+      #
+      # --max-new caps the work per run so a weekly job stays inside its time
+      # budget; whatever is left is picked up next Monday. This step must
+      # never fail the workflow — a partial cache is still an improvement,
+      # and the harvest below works fine without it.
+      #
+      # Budget basis (measured 2026-08-06, concurrency 3): WA archives ran
+      # ~12 s each, NT's much larger ones ~26 s. 300 archives is therefore
+      # ~1.0-2.2 h, leaving comfortable headroom under the 300-minute job
+      # ceiling for the harvest, stats and dashboard steps that follow.
+      # ~4,700 archives across the six mirrored states means full national
+      # coverage lands after roughly four months of weekly runs.
+      - name: TSG enrichment (incremental, budgeted)
+        continue-on-error: true
+        env:
+          NVCL_TSG_STATES: WA,NT,TAS,SA,QLD,VIC
+        run: node src/nvcl/tsg-enrich.js --max-new=300
+
+      # Live harvest of the 8 NVCL nodes (merged-v1.2 methodology).
+      # Reads the TSG cache for measured intervals and scan dates.
       # Exits non-zero without writing anything if the run is unhealthy
       # (< 5 nodes reachable or boreholes < 80% of the previous snapshot),
       # which fails this workflow loudly instead of committing bad numbers.
@@ -36,11 +66,12 @@ jobs:
       - name: Generate dashboard
         run: node src/dashboard.js
 
-      # Commit and push all changes
+      # Commit and push all changes. The TSG cache is committed alongside the
+      # outputs — it is the durable asset that makes the next run cheap.
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nvcl-stats.json data/nvcl-history.jsonl docs/nvcl-data.json docs/stats-data.json docs/index.html docs/data.json docs/widget.html
+          git add data/nvcl/tsg-cache.jsonl data/nvcl-stats.json data/nvcl-history.jsonl docs/nvcl-data.json docs/stats-data.json docs/index.html docs/data.json docs/widget.html
           git diff --cached --quiet || git commit -m "NVCL harvest $(date +%Y-%m-%d)"
           git push
