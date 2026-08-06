@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-06T01:00:25.267Z",
+  "generated": "2026-08-06T01:39:50.762Z",
   "pillars": {
     "publications": {
       "total": 2805,
@@ -48,6 +48,20 @@
           "deployments": 14
         }
       ]
+    },
+    "nvcl": {
+      "asOf": "2026-05-22",
+      "boreholes": 6252,
+      "scannedKm": 1742.55,
+      "datasets": 6403,
+      "nodes": 7
+    },
+    "ausis": {
+      "stations": 53,
+      "active": 51,
+      "streaming": 48,
+      "networkDoi": "10.7914/SN/S1",
+      "since": 2011
     },
     "dataRepository": {
       "total": 5

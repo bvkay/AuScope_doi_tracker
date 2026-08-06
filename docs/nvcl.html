@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<!--
+    AuScope NVCL Infrastructure Tracker
+    National Virtual Core Library — Australia's national drill-core
+    spectral archive. Defining theme: EVERY NUMBER IS VERIFIABLE AT
+    SOURCE. The snapshot below was harvested from the state geological
+    surveys' own public WFS/NVCL services, and the same services can be
+    re-queried live from this page (Live check) or opened raw (source
+    links).
+
+    Shared skin/machinery: tracker-shared.css (styles), tracker-chassis.js
+    (escapeHtml/escapeAttr/showToast + toast element). No citations module
+    on this page. Data feed: nvcl-data.json (same-origin, ~258 KB).
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AuScope NVCL Infrastructure Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
+    <style>
+        /*
+            NVCL page-specific rules. Everything shared lives in
+            tracker-shared.css (linked above). This page re-skins the
+            accent to AuScope purple — the overrides below come after
+            the shared sheet deliberately.
+        */
+        :root {
+            --accent: #282572;        /* AuScope purple */
+            --accent-strong: #1d1b5e;
+            --accent-soft: #dcdbf0;
+            --accent-bg: #f3f3fa;
+        }
+
+        /* Stat-tile tooltips: anchor to the tile, not the info icon.
+           The shared [data-tip]::after is laid out even while invisible
+           (opacity 0), so a left-anchored 280px tooltip on a right-column
+           tile silently widens the body and creates horizontal scroll.
+           Spanning the tile (left+right insets) can never overflow. */
+        .stats .stat { position: relative; }
+        .stats .stat [data-tip] { position: static; }
+        .stats .stat [data-tip]::after {
+            left: 10px;
+            right: 10px;
+            width: auto;
+            max-width: none;
+        }
+        .stats .stat [data-tip]::before { left: 16px; }
+
+        /* ----- provenance banner ----- */
+        .prov-banner {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border: 1px solid var(--accent-soft);
+            border-left: 4px solid var(--accent);
+            background: var(--accent-bg);
+            border-radius: 6px;
+            padding: 13px 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .prov-mark {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .prov-body { flex: 1; min-width: 260px; }
+        .prov-title { font-size: 14px; font-weight: 600; color: var(--text); }
+        .prov-text { font-size: 12.5px; color: var(--text-soft); margin-top: 2px; line-height: 1.55; }
+        .prov-text .tick { color: var(--good); font-weight: 700; }
+        button.prov-btn {
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 9px 16px;
+            border: 1px solid var(--accent);
+            background: white;
+            color: var(--accent);
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background 0.12s;
+        }
+        button.prov-btn:hover:enabled { background: var(--accent-soft); }
+        button.prov-btn:disabled { opacity: 0.55; cursor: default; }
+
+        /* ----- sections ----- */
+        .section { margin: 28px 0; }
+        .section h2 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 3px;
+        }
+        .section-note { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+        .section-note.after { margin-top: 8px; margin-bottom: 0; }
+
+        /* ----- the map ----- */
+        .map-panel { display: flex; gap: 18px; align-items: flex-start; }
+        .map-main { flex: 1; min-width: 0; }
+        #map-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        /* dot colours — index order matches boreholeStates in nvcl-data.json
+           (CSIRO, NSW, NT, QLD, SA, TAS, VIC, WA); keep in sync with the
+           STATE_PALETTE array in the script below */
+        #map-svg circle.d { fill-opacity: 0.55; }
+        #map-svg .s0 { fill: #16a34a; }  /* CSIRO  green      */
+        #map-svg .s1 { fill: #2563eb; }  /* NSW    blue       */
+        #map-svg .s2 { fill: #b45309; }  /* NT     ochre      */
+        #map-svg .s3 { fill: #be185d; }  /* QLD    magenta    */
+        #map-svg .s4 { fill: #7c3aed; }  /* SA     violet     */
+        #map-svg .s5 { fill: #0d9488; }  /* TAS    teal       */
+        #map-svg .s6 { fill: #64748b; }  /* VIC    slate      */
+        #map-svg .s7 { fill: #282572; }  /* WA     AuScope purple */
+        #map-svg circle.d.off { display: none; }
+
+        .map-legend { width: 210px; flex-shrink: 0; font-size: 12px; }
+        .map-legend h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .lg-row { display: flex; align-items: baseline; gap: 7px; padding: 2px 0; }
+        .lg-swatch {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            align-self: center;
+            opacity: 0.8;
+        }
+        .lg-code { font-weight: 600; color: var(--text); min-width: 40px; }
+        .lg-name { color: var(--text-soft); flex: 1; font-size: 11.5px; }
+        .lg-count { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); }
+        .lg-note { font-size: 10.5px; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+        @media (max-width: 900px) {
+            .map-panel { flex-direction: column; }
+            .map-legend { width: 100%; }
+        }
+
+        .map-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .map-controls input[type="range"] {
+            flex: 1;
+            accent-color: var(--accent);
+            min-width: 120px;
+        }
+        #map-label {
+            font-size: 12px;
+            color: var(--text-soft);
+            font-variant-numeric: tabular-nums;
+            min-width: 210px;
+            text-align: right;
+        }
+        @media (max-width: 640px) {
+            #map-label { min-width: 0; width: 100%; text-align: left; }
+        }
+        #map-tip {
+            position: fixed;
+            display: none;
+            background: #0f172a;
+            color: #f1f5f9;
+            font-size: 12px;
+            padding: 5px 9px;
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 90;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+        }
+
+        /* ----- live verification table ----- */
+        /* live results widen the table — scroll it inside its own container
+           rather than letting the page body scroll horizontally */
+        #verify-section .table-wrap { overflow-x: auto; }
+        .st-name { color: var(--text-soft); font-size: 12px; margin-left: 6px; }
+        @media (max-width: 800px) { .st-name { display: none; } }
+        td.num-cell { font-variant-numeric: tabular-nums; }
+        td.date-cell { white-space: nowrap; }
+        .badge.fresh-good { background: var(--good-bg); color: #166534; }
+        .badge.fresh-warn { background: var(--warn-bg); color: #854d0e; }
+        .badge.fresh-bad  { background: var(--bad-bg);  color: #991b1b; }
+        .badge.fresh-none { background: var(--bg-muted); color: var(--text-muted); }
+        .live-cell { min-width: 130px; }
+        .live-cell .live-main { white-space: nowrap; }
+        .live-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: 1px;
+        }
+        .live-dot.ok { background: var(--good); }
+        .live-dot.bad { background: var(--warn); }
+        .live-num { font-weight: 600; font-variant-numeric: tabular-nums; }
+        .live-delta { font-size: 11px; color: var(--text-soft); margin-left: 5px; white-space: nowrap; }
+        .live-fail { font-size: 11.5px; color: #854d0e; }
+        button.live-refresh {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-soft);
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 1;
+            padding: 3px 6px;
+            margin-left: 7px;
+            vertical-align: 1px;
+        }
+        button.live-refresh:hover { color: var(--accent); border-color: var(--accent); }
+        .verify-link { color: var(--accent); text-decoration: none; white-space: nowrap; font-size: 12.5px; }
+        .verify-link:hover { text-decoration: underline; }
+        .verify-link .tick { color: var(--good); font-weight: 700; margin-right: 2px; }
+
+        /* ----- HyLogger fleet bars (pattern from index.html's bar chart) ----- */
+        .bar-chart { display: flex; flex-direction: column; gap: 7px; max-width: 860px; }
+        .bar-row { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+        .bar-label { width: 132px; text-align: right; flex-shrink: 0; line-height: 1.25; }
+        .bar-label .nm { font-weight: 600; color: var(--text); white-space: nowrap; }
+        .bar-label .yrs { display: block; font-size: 10.5px; color: var(--text-muted); }
+        .bar-track { flex: 1; height: 20px; background: var(--bg-muted); border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--accent); border-radius: 4px; min-width: 2px; transition: width 0.3s; }
+        .bar-value { width: 200px; flex-shrink: 0; font-size: 11.5px; color: var(--text-soft); font-variant-numeric: tabular-nums; }
+        .bar-value strong { color: var(--text); }
+        @media (max-width: 700px) {
+            .bar-label { width: 96px; }
+            .bar-value { width: 130px; }
+        }
+
+        /* ----- growth chart ----- */
+        #growth-wrap svg { width: 100%; max-width: 860px; height: auto; display: block; }
+
+        /* ----- how / footer ----- */
+        .how-body {
+            padding: 2px 14px 14px;
+            font-size: 12.5px;
+            color: var(--text-soft);
+            line-height: 1.65;
+            max-width: 920px;
+        }
+        .how-body p { margin-bottom: 8px; }
+        .how-body strong { color: var(--text); }
+        .foot {
+            margin-top: 30px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            font-size: 11.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .foot a { color: var(--accent); text-decoration: none; }
+        .foot a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- ========== HEADER ========== -->
+        <div class="topbar">
+            <div class="brand">
+                <h1>
+                    <img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope" data-fallback="auscope">
+                    <span class="accent">NVCL</span> Infrastructure Tracker
+                </h1>
+                <p>Australia&rsquo;s national drill-core spectral archive &mdash; every number verifiable against the state surveys&rsquo; own live services.</p>
+            </div>
+            <div class="links">
+                <a href="index.html">&larr; Impact overview</a>
+                <a href="https://portal.auscope.org.au/" target="_blank" rel="noopener">AuScope Portal &#8599;</a>
+            </div>
+        </div>
+
+        <!-- ========== PROVENANCE BANNER ========== -->
+        <div class="prov-banner" id="prov-banner">
+            <div class="prov-mark">&#10003;</div>
+            <div class="prov-body">
+                <div class="prov-title">Every number on this page is verifiable at source</div>
+                <div class="prov-text" id="prov-text"><span class="spinner"></span> Loading NVCL snapshot (nvcl-data.json, ~258&nbsp;KB)&hellip;</div>
+            </div>
+            <button class="prov-btn" id="live-check-btn" disabled title="Query every state node's public WFS from your browser and compare against the snapshot">Live check all nodes</button>
+        </div>
+
+        <!-- ========== STAT TILES ========== -->
+        <div class="stats" id="stat-tiles">
+            <div class="stat"><div class="label">Boreholes <span class="info-i" data-tip="Distinct boreholes with at least one HyLogger spectral dataset, counted across all participating nodes.">i</span></div><div class="value" id="stat-boreholes">&mdash;</div><div class="sub">with spectral data</div></div>
+            <div class="stat"><div class="label">Core scanned <span class="info-i" data-tip="Total length of drill core imaged by HyLogger spectral scanners — the scanned interval of each dataset, summed. Drilled metres of the same holes shown below.">i</span></div><div class="value" id="stat-km">&mdash;</div><div class="sub" id="stat-km-sub">&mdash;</div></div>
+            <div class="stat"><div class="label">Datasets <span class="info-i" data-tip="HyLogger dataset records across all nodes. A borehole can carry several datasets (131 boreholes were scanned more than once).">i</span></div><div class="value" id="stat-datasets">&mdash;</div><div class="sub" id="stat-datasets-sub">&mdash;</div></div>
+            <div class="stat"><div class="label">State nodes <span class="info-i" data-tip="State and territory geological surveys operating an NVCL node with public WFS + NVCL data services.">i</span></div><div class="value" id="stat-nodes">&mdash;</div><div class="sub">VIC not yet participating</div></div>
+            <div class="stat"><div class="label">HyLogger instruments <span class="info-i" data-tip="Physical HyLogger units identified in dataset metadata with more than 1 km of scanned core (test-rig traces excluded).">i</span></div><div class="value" id="stat-instr">&mdash;</div><div class="sub">fleet since 2003</div></div>
+        </div>
+
+        <!-- ========== MAP ========== -->
+        <div class="section" id="map-section">
+            <h2>The archive, drawn by its own coordinates</h2>
+            <div class="section-note" id="map-caption">Loading borehole positions&hellip;</div>
+            <div class="map-panel">
+                <div class="map-main">
+                    <svg id="map-svg" viewBox="0 0 860 600" role="img" aria-label="Map of NVCL boreholes across Australia">
+                        <g id="map-dots"></g>
+                    </svg>
+                    <div class="map-controls">
+                        <button class="btn" id="map-play" disabled>Play</button>
+                        <input type="range" id="map-slider" min="0" max="1" value="1" step="1" disabled aria-label="Show boreholes scanned up to a given month">
+                        <span id="map-label">&mdash;</span>
+                    </div>
+                </div>
+                <div class="map-legend">
+                    <h3>Nodes</h3>
+                    <div id="map-legend-rows"></div>
+                    <div class="lg-note" id="map-legend-note"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== LIVE VERIFICATION TABLE ========== -->
+        <div class="section" id="verify-section">
+            <h2>Per-node verification</h2>
+            <div class="section-note">Snapshot numbers per node, next to the government service that answers for them. <strong>Live count</strong> re-queries each node&rsquo;s public WFS from your browser; <strong>source</strong> opens the server&rsquo;s raw XML answer.</div>
+            <div class="table-wrap">
+                <table class="data" id="verify-table">
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Boreholes (snapshot) <span class="info-i" data-tip="WFS-registered boreholes flagged nvclCollection='true' — exactly what the live check re-queries. The borehole-with-data counts on the tiles can differ slightly (registered boreholes without downloadable datasets).">i</span></th>
+                            <th>Datasets</th>
+                            <th>Km scanned</th>
+                            <th>Latest data</th>
+                            <th>Freshness</th>
+                            <th>Live count</th>
+                            <th>Verify</th>
+                        </tr>
+                    </thead>
+                    <tbody id="verify-tbody">
+                        <tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading snapshot&hellip;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== INSTRUMENT FLEET ========== -->
+        <div class="section" id="fleet-section">
+            <h2>HyLogger fleet utilisation</h2>
+            <div class="section-note" id="fleet-note">Loading&hellip;</div>
+            <div class="bar-chart" id="fleet-bars"></div>
+            <div class="section-note after">These are the physical HyLogger units; utilisation is measured from their scan output (kilometres of core imaged, from dataset metadata).</div>
+        </div>
+
+        <!-- ========== GROWTH ========== -->
+        <div class="section" id="growth-section">
+            <h2>Archive growth</h2>
+            <div class="section-note" id="growth-note">Loading&hellip;</div>
+            <div id="growth-wrap"></div>
+        </div>
+
+        <!-- ========== HOW THESE NUMBERS ARE MADE ========== -->
+        <details class="fleet-panel" id="how-panel">
+            <summary>How these numbers are made</summary>
+            <div class="how-body">
+                <p><strong>Harvest.</strong> On <span id="how-asof">&mdash;</span> the NVCL pipeline queried every participating node&rsquo;s public services: the WFS <code>gsmlp:BoreholeView</code> layer (filtered to <code>nvclCollection='true'</code>) for registered boreholes, then each node&rsquo;s <code>NVCLDataServices getDatasetCollection</code> for every borehole&rsquo;s dataset records. Nothing on this page comes from a private database &mdash; the same services are public, and the <em>Live check</em> button and <em>source</em> links query them directly.</p>
+                <p><strong>Scanned km.</strong> The scanned interval (start&ndash;end depth) of each HyLogger dataset, summed. This is core <em>imaged by a spectral scanner</em>, which differs from metres drilled &mdash; the same holes total <span id="how-drilled">&mdash;</span>&nbsp;km drilled.</p>
+                <p><strong>Instruments.</strong> HyLogger units are identified from instrument fields in dataset metadata (<span id="how-instr">&mdash;</span> of <span id="how-datasets">&mdash;</span> datasets carry instrument data). <span id="how-rescan">&mdash;</span> boreholes hold more than one scan (up to <span id="how-maxscan">&mdash;</span>).</p>
+                <p><strong>Live check.</strong> Your browser fetches each node&rsquo;s WFS <code>resultType=hits</code> URL &mdash; the same endpoints cited in the Verify column &mdash; and reads <code>numberMatched</code> from the XML. Some government servers do not send CORS headers, so a browser fetch can be blocked even while the service is up; the source link always works because it opens the server&rsquo;s answer directly.</p>
+            </div>
+        </details>
+
+        <!-- ========== FOOTER ========== -->
+        <div class="foot" id="foot-note">
+            Snapshot <span id="foot-asof">&mdash;</span> &middot; harvested from the state &amp; territory geological surveys&rsquo; public NVCL services &middot;
+            National Virtual Core Library is AuScope-supported national research infrastructure.
+            Explore: <a href="index.html">Impact overview</a> &middot;
+            <a href="https://portal.auscope.org.au/" target="_blank" rel="noopener">AuScope Portal</a>
+        </div>
+
+        <div id="map-tip"></div>
+        <div class="toast" id="toast"></div>
+    </div>
+
+<script src="tracker-chassis.js"></script>
+<script>
+"use strict";
+
+// ============================================================
+// STATE
+// ============================================================
+var nv = {
+    data: null,          // the full nvcl-data.json payload
+    sorted: [],          // boreholes sorted chronologically (map + tooltip index)
+    months: [],          // unique non-empty months, sorted
+    monthCounts: [],     // boreholes per month (aligned with nv.months)
+    cumCounts: [],       // cumCounts[v] = dots visible at slider position v
+    prevK: 0,            // currently visible dot count (delta toggling)
+    playTimer: null,
+    liveRunning: false,
+    sinceLabel: ''       // 'since 22 May' — delta wording for live counts
+};
+
+// Dot colours by boreholeStates index — keep in sync with the
+// #map-svg .s0—.s7 rules in the style block above.
+var STATE_PALETTE = ['#16a34a', '#2563eb', '#b45309', '#be185d', '#7c3aed', '#0d9488', '#64748b', '#282572'];
+
+var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// ============================================================
+// HELPERS
+// ============================================================
+function fmt(n) {
+    if (n == null) return '—';
+    return Number(n).toLocaleString('en-AU');
+}
+
+function fmtKm(n, maxDp) {
+    if (n == null) return '—';
+    return Number(n).toLocaleString('en-AU', { maximumFractionDigits: (maxDp == null ? 2 : maxDp) });
+}
+
+function niceDate(iso) {
+    if (!iso) return '';
+    var p = String(iso).split('-');
+    if (p.length < 3) return iso;
+    return (+p[2]) + ' ' + MONTH_NAMES[(+p[1]) - 1] + ' ' + (+p[0]);
+}
+
+// Equirectangular projection — verified during dev:
+// Perth (-31.95, 115.86) -> x 79 (left of Sydney x 803);
+// Darwin (-12.46, 130.84) -> y 59 (above Hobart y 581).
+function projX(lng) { return (lng - 112) / (154 - 112) * 860; }
+function projY(lat) { return (-9 - lat) / (-9 - -44) * 600; }
+
+// ============================================================
+// ENTRY
+// ============================================================
+function init() {
+    bindStatic();
+    fetch('nvcl-data.json')
+        .then(function(r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+        })
+        .then(onData)
+        .catch(onLoadError);
+}
+
+function onData(data) {
+    nv.data = data;
+    var asp = String(data.as_of || '').split('-');
+    nv.sinceLabel = asp.length === 3 ? 'since ' + (+asp[2]) + ' ' + MONTH_NAMES[(+asp[1]) - 1] : 'since snapshot';
+
+    renderProvenance();
+    renderTiles();
+    renderMap();
+    renderVerifyTable();
+    renderFleet();
+    renderGrowth();
+    renderHow();
+
+    document.getElementById('live-check-btn').disabled = false;
+    document.getElementById('map-play').disabled = false;
+    document.getElementById('map-slider').disabled = false;
+}
+
+function onLoadError(err) {
+    document.getElementById('prov-text').innerHTML =
+        'Could not load nvcl-data.json (' + escapeHtml(err && err.message ? err.message : 'fetch failed') + '). '
+        + 'The snapshot feed must be served from the same origin as this page.';
+    document.getElementById('verify-tbody').innerHTML =
+        '<tr><td colspan="8" class="empty-state">Snapshot failed to load.</td></tr>';
+    document.getElementById('map-caption').textContent = 'Snapshot failed to load.';
+    document.getElementById('fleet-note').textContent = 'Snapshot failed to load.';
+    document.getElementById('growth-note').textContent = 'Snapshot failed to load.';
+    showToast('Failed to load NVCL snapshot.');
+}
+
+// ============================================================
+// PROVENANCE BANNER
+// ============================================================
+function renderProvenance() {
+    var s = nv.data.summary;
+    var dr = s.date_range || {};
+    document.getElementById('prov-text').innerHTML =
+        'Measured <strong>' + escapeHtml(niceDate(nv.data.as_of)) + '</strong> by harvesting all '
+        + escapeHtml(String(s.participating_node_count)) + ' state/territory nodes &middot; scan records '
+        + escapeHtml(dr.earliest_scan || '?') + ' &rarr; ' + escapeHtml(dr.latest_scan || '?') + ' &middot; '
+        + 'Every figure below can be checked against the source government service &mdash; click any '
+        + '<span class="tick">&#10003;</span>&nbsp;source link, or use <strong>Live check</strong> to query all nodes from your browser right now.';
+}
+
+// ============================================================
+// STAT TILES
+// ============================================================
+function renderTiles() {
+    var s = nv.data.summary;
+    document.getElementById('stat-boreholes').textContent = fmt(s.total_boreholes_with_data);
+    document.getElementById('stat-km').textContent = fmtKm(s.total_scanned_km) + ' km';
+    document.getElementById('stat-km-sub').textContent = fmtKm(s.total_borehole_drilled_km) + ' km drilled';
+    document.getElementById('stat-datasets').textContent = fmt(s.total_datasets);
+    document.getElementById('stat-datasets-sub').textContent =
+        (s.tir_stats && s.tir_stats.tir_pct_of_total != null ? s.tir_stats.tir_pct_of_total : '?') + '% with thermal infrared';
+    document.getElementById('stat-nodes').textContent = fmt(s.participating_node_count);
+    var fleetCount = (nv.data.instruments || []).filter(function(i) { return i.km_scanned > 1; }).length;
+    document.getElementById('stat-instr').textContent = fmt(fleetCount);
+}
+
+// ============================================================
+// MAP — 6,281 dots, no basemap
+// ============================================================
+function renderMap() {
+    var boreholes = nv.data.boreholes || [];
+    var codes = nv.data.boreholeStates || [];
+
+    // chronological sort; empty months first (always visible)
+    nv.sorted = boreholes.slice().sort(function(a, b) {
+        var ma = a[3] || '', mb = b[3] || '';
+        if (ma < mb) return -1;
+        if (ma > mb) return 1;
+        return 0;
+    });
+
+    // unique months + per-month counts + cumulative cutoffs
+    nv.months = [];
+    nv.monthCounts = [];
+    var emptyCount = 0;
+    var i, m;
+    for (i = 0; i < nv.sorted.length; i++) {
+        m = nv.sorted[i][3] || '';
+        if (m === '') { emptyCount++; continue; }
+        if (nv.months.length === 0 || nv.months[nv.months.length - 1] !== m) {
+            nv.months.push(m);
+            nv.monthCounts.push(1);
+        } else {
+            nv.monthCounts[nv.monthCounts.length - 1]++;
+        }
+    }
+    nv.cumCounts = [emptyCount];
+    for (i = 0; i < nv.monthCounts.length; i++) {
+        nv.cumCounts.push(nv.cumCounts[i] + nv.monthCounts[i]);
+    }
+
+    // one innerHTML build for all dots — chronological order, data-i lookup index
+    var parts = [];
+    var b, x, y;
+    for (i = 0; i < nv.sorted.length; i++) {
+        b = nv.sorted[i];
+        x = projX(b[1]).toFixed(1);
+        y = projY(b[0]).toFixed(1);
+        parts.push('<circle class="d s' + (b[2] & 7) + '" cx="' + x + '" cy="' + y + '" r="2" data-i="' + i + '"/>');
+    }
+    document.getElementById('map-dots').innerHTML = parts.join('');
+    nv.prevK = nv.sorted.length;
+
+    document.getElementById('map-caption').textContent =
+        'No basemap — ' + fmt(nv.sorted.length) + ' real boreholes draw the continent. '
+        + 'One dot per borehole, coloured by node. Drag the slider or press Play to watch the archive accumulate by scan month.';
+
+    // legend — counts per state, largest first
+    var counts = {};
+    for (i = 0; i < boreholes.length; i++) {
+        counts[boreholes[i][2]] = (counts[boreholes[i][2]] || 0) + 1;
+    }
+    var order = [];
+    for (i = 0; i < codes.length; i++) order.push(i);
+    order.sort(function(a, b) { return (counts[b] || 0) - (counts[a] || 0); });
+
+    var endpoints = nv.data.endpoints || {};
+    var lgHtml = '';
+    order.forEach(function(idx) {
+        var code = codes[idx];
+        var ep = endpoints[code];
+        lgHtml += '<div class="lg-row">'
+            + '<span class="lg-swatch" style="background:' + escapeAttr(STATE_PALETTE[idx & 7]) + '"></span>'
+            + '<span class="lg-code">' + escapeHtml(code) + '</span>'
+            + '<span class="lg-name">' + escapeHtml(ep && ep.name ? ep.name : '') + '</span>'
+            + '<span class="lg-count">' + fmt(counts[idx] || 0) + '</span>'
+            + '</div>';
+    });
+    document.getElementById('map-legend-rows').innerHTML = lgHtml;
+
+    var nonPart = (nv.data.summary.non_participating_jurisdictions || []).join(', ');
+    document.getElementById('map-legend-note').textContent = nonPart
+        ? nonPart + ' has no HyLogger node — its ' + fmt(nv.data.summary.non_participating_borehole_count)
+          + ' registered boreholes may have been scanned at another node.'
+        : '';
+
+    // slider
+    var slider = document.getElementById('map-slider');
+    slider.max = nv.months.length;
+    slider.value = nv.months.length;
+    updateMapLabel(nv.months.length);
+}
+
+function applySlider(v) {
+    var K = nv.cumCounts[v];
+    var dots = document.getElementById('map-dots').children;
+    var i;
+    if (K > nv.prevK) {
+        for (i = nv.prevK; i < K; i++) dots[i].classList.remove('off');
+    } else if (K < nv.prevK) {
+        for (i = K; i < nv.prevK; i++) dots[i].classList.add('off');
+    }
+    nv.prevK = K;
+    updateMapLabel(v);
+}
+
+function updateMapLabel(v) {
+    var label;
+    if (v >= nv.months.length) label = 'All months';
+    else if (v === 0) label = 'Start';
+    else label = 'To ' + nv.months[v - 1];
+    document.getElementById('map-label').textContent =
+        label + ' · ' + fmt(nv.cumCounts[v]) + ' boreholes';
+}
+
+function togglePlay() {
+    var btn = document.getElementById('map-play');
+    var slider = document.getElementById('map-slider');
+    if (nv.playTimer) {
+        clearInterval(nv.playTimer);
+        nv.playTimer = null;
+        btn.textContent = 'Play';
+        return;
+    }
+    var v = +slider.value;
+    if (v >= nv.months.length) {
+        v = 0;
+        slider.value = 0;
+        applySlider(0);
+    }
+    btn.textContent = 'Pause';
+    nv.playTimer = setInterval(function() {
+        v++;
+        slider.value = v;
+        applySlider(v);
+        if (v >= nv.months.length) {
+            clearInterval(nv.playTimer);
+            nv.playTimer = null;
+            btn.textContent = 'Play';
+        }
+    }, 45);
+}
+
+// shared tooltip — one div, event delegation (6k title attributes would be too heavy)
+function onMapMove(e) {
+    var t = e.target;
+    var tip = document.getElementById('map-tip');
+    if (!t || t.tagName !== 'circle' || !t.hasAttribute('data-i')) {
+        tip.style.display = 'none';
+        return;
+    }
+    var rec = nv.sorted[+t.getAttribute('data-i')];
+    if (!rec) { tip.style.display = 'none'; return; }
+    var code = (nv.data.boreholeStates || [])[rec[2]] || '?';
+    var txt = code + ' · ' + (rec[3] ? 'scanned ' + rec[3] : 'scan date unknown');
+    if (rec[4] != null && rec[4] > 0) txt += ' · ' + fmt(Math.round(rec[4])) + ' m';
+    tip.textContent = txt;   // data has no borehole names — state, month, depth only
+    tip.style.display = 'block';
+    var x = e.clientX + 14;
+    if (x > window.innerWidth - 190) x = e.clientX - 180;
+    tip.style.left = x + 'px';
+    tip.style.top = (e.clientY + 14) + 'px';
+}
+
+// ============================================================
+// LIVE VERIFICATION TABLE
+// ============================================================
+function freshnessBadge(days) {
+    if (days == null) return '<span class="badge fresh-none">no node</span>';
+    if (days < 30) return '<span class="badge fresh-good">current</span>';
+    if (days < 180) return '<span class="badge fresh-warn">' + fmt(days) + ' days ago</span>';
+    return '<span class="badge fresh-bad">stale — ' + fmt(days) + ' days</span>';
+}
+
+function renderVerifyTable() {
+    var endpoints = nv.data.endpoints || {};
+    var rows = (nv.data.states || []).slice().sort(function(a, b) {
+        var ap = a.status === 'participating' ? 0 : 1;
+        var bp = b.status === 'participating' ? 0 : 1;
+        if (ap !== bp) return ap - bp;
+        return (b.total_km_scanned || 0) - (a.total_km_scanned || 0);
+    });
+
+    var html = '';
+    rows.forEach(function(st) {
+        var ep = endpoints[st.state];
+        var name = ep && ep.name ? ep.name : '';
+        var noteTip = st.note ? ' <span class="info-i" data-tip="' + escapeAttr(st.note) + '">i</span>' : '';
+        var latestTip = st.latest_dataset_date
+            ? ' data-tip="' + escapeAttr(fmt(st.datasets_last_12mo) + ' datasets · ' + fmtKm(st.km_scanned_last_12mo) + ' km scanned in the last 12 months') + '"'
+            : '';
+        html += '<tr>'
+            + '<td><strong>' + escapeHtml(st.state) + '</strong><span class="st-name">' + escapeHtml(name) + '</span>' + noteTip + '</td>'
+            + '<td class="num-cell">' + fmt(st.wfs_registered_boreholes) + '</td>'
+            + '<td class="num-cell">' + fmt(st.total_datasets) + '</td>'
+            + '<td class="num-cell">' + fmtKm(st.total_km_scanned) + '</td>'
+            + '<td class="num-cell date-cell"' + latestTip + '>' + escapeHtml(st.latest_dataset_date || '—') + '</td>'
+            + '<td>' + freshnessBadge(st.days_since_latest) + '</td>'
+            + '<td class="live-cell" id="live-' + escapeAttr(st.state) + '">'
+                + '—' + refreshBtnHtml(st.state)
+            + '</td>'
+            + '<td>' + (ep && ep.hits_url
+                ? '<a class="verify-link" href="' + escapeAttr(ep.hits_url) + '" target="_blank" rel="noopener"><span class="tick">&#10003;</span> source &#8599;</a>'
+                : '—')
+            + '</td>'
+            + '</tr>';
+    });
+    document.getElementById('verify-tbody').innerHTML = html;
+}
+
+function refreshBtnHtml(code) {
+    return '<button class="live-refresh" data-state="' + escapeAttr(code) + '" title="Query this node’s WFS now">&#8635;</button>';
+}
+
+function setLiveCell(code, mode, liveCount) {
+    var cell = document.getElementById('live-' + code);
+    if (!cell) return;
+    if (mode === 'pending') {
+        cell.innerHTML = '<span class="spinner"></span>';
+        return;
+    }
+    if (mode === 'ok') {
+        var snap = null;
+        (nv.data.states || []).forEach(function(st) {
+            if (st.state === code) snap = st.wfs_registered_boreholes;
+        });
+        var deltaTxt;
+        if (snap == null) deltaTxt = '';
+        else {
+            var d = liveCount - snap;
+            if (d === 0) deltaTxt = 'matches snapshot';
+            else deltaTxt = (d > 0 ? '+' : '−') + fmt(Math.abs(d)) + ' ' + nv.sinceLabel;
+        }
+        cell.innerHTML = '<span class="live-main"><span class="live-dot ok"></span><span class="live-num">' + fmt(liveCount) + '</span></span>'
+            + (deltaTxt ? ' <span class="live-delta">(' + escapeHtml(deltaTxt) + ')</span>' : '')
+            + refreshBtnHtml(code);
+        return;
+    }
+    // failure — never an error wall; the source link still answers
+    cell.innerHTML = '<span class="live-dot bad"></span><span class="live-fail">blocked / down — use source link</span>'
+        + refreshBtnHtml(code);
+}
+
+// One node: fetch its WFS hits URL, parse numberMatched from the XML text.
+// 10 s timeout via AbortController. Resolves {ok: bool} — never rejects.
+function checkNode(code) {
+    var ep = (nv.data.endpoints || {})[code];
+    if (!ep || !ep.hits_url) return Promise.resolve({ ok: false });
+    setLiveCell(code, 'pending');
+    var controller = new AbortController();
+    var timer = setTimeout(function() { controller.abort(); }, 10000);
+    return fetch(ep.hits_url, { signal: controller.signal })
+        .then(function(r) { return r.text(); })
+        .then(function(txt) {
+            clearTimeout(timer);
+            var m = txt.match(/numberMatched="(\d+)"/) || txt.match(/numberOfFeatures="(\d+)"/);
+            if (m) {
+                setLiveCell(code, 'ok', parseInt(m[1], 10));
+                return { ok: true };
+            }
+            setLiveCell(code, 'fail');
+            return { ok: false };
+        })
+        .catch(function() {
+            clearTimeout(timer);
+            setLiveCell(code, 'fail');
+            return { ok: false };
+        });
+}
+
+function runLiveCheckAll() {
+    if (!nv.data || nv.liveRunning) return;
+    nv.liveRunning = true;
+    var btn = document.getElementById('live-check-btn');
+    var codes = [];
+    (nv.data.states || []).forEach(function(st) {
+        var ep = (nv.data.endpoints || {})[st.state];
+        if (ep && ep.hits_url) codes.push(st.state);
+    });
+    btn.disabled = true;
+    btn.textContent = 'Checking ' + codes.length + ' nodes…';
+    Promise.all(codes.map(checkNode)).then(function(results) {
+        var okCount = results.filter(function(r) { return r.ok; }).length;
+        btn.disabled = false;
+        btn.textContent = 'Live check all nodes';
+        nv.liveRunning = false;
+        showToast('Live check complete — ' + okCount + ' of ' + codes.length + ' nodes answered from your browser.');
+    });
+}
+
+// ============================================================
+// INSTRUMENT FLEET BARS
+// ============================================================
+function renderFleet() {
+    var all = (nv.data.instruments || []).slice().sort(function(a, b) {
+        return (b.km_scanned || 0) - (a.km_scanned || 0);
+    });
+    var top = all.slice(0, 10);
+    if (top.length === 0) {
+        document.getElementById('fleet-note').textContent = 'No instrument data in snapshot.';
+        return;
+    }
+    document.getElementById('fleet-note').textContent =
+        'Top ' + top.length + ' of ' + all.length + ' identified units, by kilometres of core scanned.';
+    var maxKm = top[0].km_scanned || 1;
+    var html = '';
+    top.forEach(function(inst) {
+        var pct = Math.max(1, Math.round((inst.km_scanned || 0) / maxKm * 100));
+        var y1 = inst.first_use ? String(inst.first_use).slice(0, 4) : '';
+        var y2 = inst.last_use ? String(inst.last_use).slice(0, 4) : '';
+        var yrs = y1 && y2 ? (y1 === y2 ? y1 : y1 + '–' + y2) : (y1 || y2 || '');
+        html += '<div class="bar-row">'
+            + '<div class="bar-label"><span class="nm">' + escapeHtml(inst.instrument_canonical) + '</span>'
+            + (yrs ? '<span class="yrs">' + escapeHtml(yrs) + '</span>' : '')
+            + '</div>'
+            + '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div>'
+            + '<div class="bar-value"><strong>' + fmtKm(inst.km_scanned, 1) + ' km</strong> · ' + fmt(inst.boreholes) + ' boreholes</div>'
+            + '</div>';
+    });
+    document.getElementById('fleet-bars').innerHTML = html;
+}
+
+// ============================================================
+// GROWTH CHART — cumulative boreholes by scan month (inline SVG polyline)
+// ============================================================
+function renderGrowth() {
+    var months = nv.months, counts = nv.monthCounts;
+    if (months.length === 0) {
+        document.getElementById('growth-note').textContent = 'No dated scans in snapshot.';
+        return;
+    }
+
+    // fold any pre-2003 stragglers into the opening count so a lone early
+    // record doesn't stretch a decade of empty x-axis
+    var startIdx = 0, base = nv.cumCounts[0]; // dots with no month
+    var folded = 0;
+    while (startIdx < months.length && months[startIdx] < '2003') {
+        base += counts[startIdx];
+        folded += counts[startIdx];
+        startIdx++;
+    }
+
+    function frac(m) {
+        var p = m.split('-');
+        return (+p[0]) + ((+p[1]) - 1) / 12;
+    }
+
+    var W = 860, H = 300, L = 58, R = 852, T = 16, B = 258;
+    var x0 = frac(months[startIdx]);
+    var x1 = frac(months[months.length - 1]);
+    if (x1 <= x0) x1 = x0 + 1;
+    var total = nv.sorted.length;
+    var yMax = Math.ceil(total / 1000) * 1000 + 200;
+
+    function X(f) { return L + (f - x0) / (x1 - x0) * (R - L); }
+    function Y(v) { return B - v / yMax * (B - T); }
+
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Cumulative NVCL boreholes over time">';
+
+    // horizontal gridlines + y labels every 1000
+    var v;
+    for (v = 0; v <= yMax - 200; v += 1000) {
+        var gy = Y(v).toFixed(1);
+        svg += '<line x1="' + L + '" y1="' + gy + '" x2="' + R + '" y2="' + gy + '" stroke="#e2e8f0" stroke-width="1"/>';
+        svg += '<text x="' + (L - 8) + '" y="' + (Y(v) + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#64748b">' + v.toLocaleString('en-AU') + '</text>';
+    }
+
+    // points string — cumulative per month
+    var cum = base;
+    var pts = [];
+    pts.push(X(x0).toFixed(1) + ',' + Y(base).toFixed(1));
+    var i;
+    for (i = startIdx; i < months.length; i++) {
+        cum += counts[i];
+        pts.push(X(frac(months[i])).toFixed(1) + ',' + Y(cum).toFixed(1));
+    }
+    var ptStr = pts.join(' ');
+    var lastPt = pts[pts.length - 1].split(',');
+
+    svg += '<polygon points="' + ptStr + ' ' + R + ',' + B + ' ' + L + ',' + B + '" fill="#282572" fill-opacity="0.08"/>';
+    svg += '<polyline points="' + ptStr + '" fill="none" stroke="#282572" stroke-width="2.5" stroke-linejoin="round"/>';
+    svg += '<circle cx="' + lastPt[0] + '" cy="' + lastPt[1] + '" r="4" fill="#282572"/>';
+    svg += '<text x="' + (R - 6) + '" y="' + (parseFloat(lastPt[1]) - 10).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="600" fill="#282572">' + fmt(cum) + '</text>';
+
+    // x-axis year labels every 4 years
+    var yr;
+    for (yr = Math.ceil(x0); yr <= Math.floor(x1); yr++) {
+        if (yr % 4 !== 0) continue;
+        svg += '<text x="' + X(yr).toFixed(1) + '" y="' + (B + 20) + '" text-anchor="middle" font-size="11" fill="#64748b">' + yr + '</text>';
+    }
+    svg += '<text x="' + R + '" y="' + (B + 20) + '" text-anchor="end" font-size="11" fill="#64748b">' + Math.floor(x1) + '</text>';
+
+    // axes
+    svg += '<line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + B + '" stroke="#cbd5e1" stroke-width="1"/>';
+    svg += '<line x1="' + L + '" y1="' + B + '" x2="' + R + '" y2="' + B + '" stroke="#cbd5e1" stroke-width="1"/>';
+    svg += '</svg>';
+
+    document.getElementById('growth-wrap').innerHTML = svg;
+
+    var note = 'Cumulative boreholes by scan month — months are scan dates from dataset records, not drilling dates.';
+    if (folded > 0) note += ' ' + fmt(folded) + ' borehole' + (folded === 1 ? '' : 's') + ' with a pre-2003 scan date is included in the opening count.';
+    var nonPartN = nv.data.summary.non_participating_borehole_count;
+    if (nonPartN) note += ' Includes ' + fmt(nonPartN) + ' VIC-registered boreholes scanned at other nodes.';
+    document.getElementById('growth-note').textContent = note;
+}
+
+// ============================================================
+// HOW / FOOTER
+// ============================================================
+function renderHow() {
+    var s = nv.data.summary;
+    document.getElementById('how-asof').textContent = niceDate(nv.data.as_of);
+    document.getElementById('how-drilled').textContent = fmtKm(s.total_borehole_drilled_km);
+    document.getElementById('how-instr').textContent = fmt(s.datasets_with_instrument_data);
+    document.getElementById('how-datasets').textContent = fmt(s.total_datasets);
+    document.getElementById('how-rescan').textContent = fmt(s.rescan_stats ? s.rescan_stats.boreholes_with_multiple_scans : null);
+    document.getElementById('how-maxscan').textContent = (s.rescan_stats ? s.rescan_stats.max_scans_one_borehole : '?') + ' scans';
+    document.getElementById('foot-asof').textContent = niceDate(nv.data.as_of);
+}
+
+// ============================================================
+// EVENT WIRING — delegation only, no inline handlers with data
+// ============================================================
+function bindStatic() {
+    document.getElementById('live-check-btn').addEventListener('click', runLiveCheckAll);
+    document.getElementById('map-play').addEventListener('click', togglePlay);
+    document.getElementById('map-slider').addEventListener('input', function(e) {
+        if (nv.playTimer) {                     // manual drag pauses playback
+            clearInterval(nv.playTimer);
+            nv.playTimer = null;
+            document.getElementById('map-play').textContent = 'Play';
+        }
+        applySlider(+e.target.value);
+    });
+
+    var svg = document.getElementById('map-svg');
+    svg.addEventListener('mousemove', onMapMove);
+    svg.addEventListener('mouseleave', function() {
+        document.getElementById('map-tip').style.display = 'none';
+    });
+
+    // per-row live refresh buttons (delegated — cells are re-rendered)
+    document.getElementById('verify-table').addEventListener('click', function(e) {
+        var btn = e.target.closest ? e.target.closest('.live-refresh') : null;
+        if (!btn || !nv.data) return;
+        checkNode(btn.getAttribute('data-state'));
+    });
+}
+
+// Bootstrap (script is at end of body, DOM is available)
+init();
+</script>
+</body>
+</html>

@@ -400,6 +400,19 @@ function buildExplorerCards(pillarData) {
       name: 'Field surveys', sub: p.instruments.linkedDatasets + ' datasets · '
         + p.instruments.linkedPapers + ' papers linked' });
   }
+  if (p.nvcl) {
+    cards.push({ href: 'nvcl.html', num: Math.round(p.nvcl.scannedKm).toLocaleString() + ' km',
+      name: 'NVCL core scanned', sub: p.nvcl.boreholes.toLocaleString() + ' boreholes · '
+        + p.nvcl.nodes + ' state nodes · verifiable live' });
+  }
+  if (p.ausis) {
+    cards.push({ href: 'https://auscope.github.io/AuScope_Outreach/AuSIS_Map.html',
+      num: p.ausis.stations.toLocaleString(),
+      name: 'Seismometers in schools',
+      sub: p.ausis.active + ' active'
+        + (p.ausis.streaming ? ' · ' + p.ausis.streaming + ' streaming now' : '')
+        + ' · since ' + p.ausis.since });
+  }
   if (!cards.length) return '';
 
   const cardHtml = cards.map(function(c) {
@@ -673,7 +686,8 @@ ${buildProgramSection(stats.programs)}
         <a href="datasets.html">Datasets</a> &middot;
         <a href="earthbank.html">EarthBank</a> &middot;
         <a href="auspass.html">AusPass</a> &middot;
-        <a href="instruments.html">Instrument Registry</a>
+        <a href="instruments.html">Instrument Registry</a> &middot;
+        <a href="nvcl.html">NVCL</a>
         <br>
         Last updated: ${updated} &middot;
         Powered by <a href="https://openalex.org" target="_blank">OpenAlex</a>,

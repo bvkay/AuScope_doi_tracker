@@ -159,6 +159,64 @@ async function run() {
     pillars.instruments = null;
   }
 
+  // ── NVCL infrastructure (committed snapshot from the NVCL pipeline) ──
+  // Service metrics come from data/nvcl-stats.json, distilled from the
+  // heavy NVCL harvest pipeline. as_of travels with the numbers — the date
+  // is the honesty mechanism until a light harvester automates refresh.
+  const nvcl = readJson(path.join(DATA_DIR, 'nvcl-stats.json'), null);
+  if (nvcl && nvcl.summary) {
+    pillars.nvcl = {
+      asOf: nvcl.as_of,
+      boreholes: nvcl.summary.total_boreholes_with_data,
+      scannedKm: nvcl.summary.total_scanned_km,
+      datasets: nvcl.summary.total_datasets,
+      nodes: nvcl.summary.participating_node_count
+    };
+    console.log('NVCL: ' + pillars.nvcl.boreholes + ' boreholes, '
+      + pillars.nvcl.scannedKm + ' km scanned (as of ' + nvcl.as_of + ')');
+  } else {
+    pillars.nvcl = null;
+  }
+
+  // ── AuSIS (Australian Seismometers in Schools, live) ──
+  // Reads the committed data products of AuScope/AuScope_Outreach (Ben's
+  // production outreach platform: daily station backup, hourly streaming
+  // probe) — fresher than anything we could harvest ourselves.
+  try {
+    const base = 'https://auscope.github.io/AuScope_Outreach/data/';
+    const stResp = await fetch(base + 'ausis_stations.geojson');
+    if (!stResp.ok) throw new Error('stations HTTP ' + stResp.status);
+    const feats = ((await stResp.json()).features) || [];
+    const active = feats.filter(function(f) {
+      const p = f.properties || {};
+      return !(p.endDate || p.end_date || p.endTime);
+    }).length;
+    let streaming = null;
+    try {
+      // Shape: { checked, stations: { CODE: { streaming: bool, checkedAt } } }
+      const ss = await (await fetch(base + 'ausis_status.json')).json();
+      let vals = ss.stations || ss;
+      if (!Array.isArray(vals)) vals = Object.values(vals || {});
+      if (vals.length) {
+        streaming = vals.filter(function(s) {
+          return s && (s.streaming === true || s.status === 'up' || s.ok === true);
+        }).length;
+      }
+    } catch (e) { /* streaming count optional */ }
+    pillars.ausis = {
+      stations: feats.length,
+      active: active,
+      streaming: streaming,
+      networkDoi: '10.7914/SN/S1',
+      since: 2011
+    };
+    console.log('AuSIS: ' + feats.length + ' school stations (' + active + ' active'
+      + (streaming !== null ? ', ' + streaming + ' streaming' : '') + ')');
+  } catch (e) {
+    console.warn('AuSIS fetch failed: ' + e.message);
+    pillars.ausis = null;
+  }
+
   // ── Data repository (DataCite, count only) ──
   try {
     const resp = await fetch('https://api.datacite.org/dois?client-id=auscope.repo1&page[size]=0');
