@@ -96,9 +96,12 @@
         }
         .ev-verified { background: #282572; color: #ffffff; }
         .ev-candidate { background: #4a43b8; color: #ffffff; }
-        .ev-text-attributed { background: #6c66d6; color: #1e1b4b; }
-        .ev-text-infrastructure { background: #8f8ae0; color: #1e1b4b; }
-        .ev-text-software { background: #b3afe9; color: #1e1b4b; }
+        /* Text-evidence tiers: light tints with dark same-family text —
+           mid-purple fills fail contrast at this size. Tint strength still
+           encodes the ladder order. */
+        .ev-text-attributed { background: #d6d2f5; color: #282572; }
+        .ev-text-infrastructure { background: #e2dff8; color: #3a3490; }
+        .ev-text-software { background: #edecfb; color: #4a43b8; }
         .ev-keyword { background: #e2e8f0; color: #475569; }
 
         /* ----- Expanded detail ----- */

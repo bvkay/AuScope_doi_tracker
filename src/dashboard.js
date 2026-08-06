@@ -17,14 +17,18 @@ const PUB_FILE = path.join(__dirname, '..', 'data', 'publications.json');
 const DS_FILE = path.join(__dirname, '..', 'data', 'datasets.json');
 const PILLAR_FILE = path.join(DOCS_DIR, 'stats-data.json');
 
-// Some source records store titles with HTML entities ("&amp;#8217;").
-// Decode to plain text at export time; pages re-escape on render.
+// Some source records store titles with HTML entities ("&amp;#8217;") or
+// markup tags (<sup>40</sup>Ar). Decode + strip to plain text at export
+// time; pages re-escape on render. Isotope superscripts degrade to the
+// standard plain form (40Ar/39Ar).
 function decodeEntities(s) {
   return s
     .replace(/&amp;/g, '&')
     .replace(/&#(\d+);/g, function(m, n) { return String.fromCharCode(parseInt(n)); })
+    .replace(/&#x([0-9a-fA-F]+);/g, function(m, n) { return String.fromCharCode(parseInt(n, 16)); })
     .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'");
+    .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
+    .replace(/<\/?[a-zA-Z][^>]*>/g, '');
 }
 
 function run() {
