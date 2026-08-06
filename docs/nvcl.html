@@ -813,6 +813,16 @@ function freshnessBadge(st) {
     return '<span class="badge fresh-bad">stale — ' + fmt(days) + ' days</span>' + src;
 }
 
+// The NCI mirror sometimes holds more scanned core than a state's own
+// service advertises (measured 6 Aug 2026: WA +282, QLD +144, TAS +24, and
+// VIC 39 archives while its node reports no NVCL data at all). Inheriting a
+// node's blind spot silently would understate the national archive.
+function mirrorBadge(st) {
+    if (!st.mirror_unsurfaced) return '';
+    return ' <span class="badge-warn" data-tip="' + escapeAttr(st.mirror_note || '')
+        + '">+' + fmt(st.mirror_unsurfaced) + ' on mirror</span>';
+}
+
 function renderVerifyTable() {
     var endpoints = nv.data.endpoints || {};
     var rows = (nv.data.states || []).slice().sort(function(a, b) {
@@ -878,7 +888,7 @@ function renderVerifyTable() {
         html += '<tr>'
             + '<td><strong>' + escapeHtml(st.state) + '</strong><span class="st-name">' + escapeHtml(name) + '</span>' + noteTip + '</td>'
             + '<td class="num-cell">' + fmt(st.wfs_registered_boreholes) + '</td>'
-            + '<td class="num-cell">' + fmt(st.total_datasets) + '</td>'
+            + '<td class="num-cell">' + fmt(st.total_datasets) + mirrorBadge(st) + '</td>'
             + '<td class="num-cell">' + kmCell + '</td>'
             + '<td class="num-cell date-cell"' + latestTip + '>' + escapeHtml(st.latest_dataset_date || '—') + '</td>'
             + '<td>' + fresh + '</td>'

@@ -400,3 +400,34 @@ instrument. API timestamps cluster in the afternoon (16:22, 16:49,
 This is why date precedence is **TSG > API**, why every date carries a
 `dateSource`, and why states still relying on API dates are eligible for
 the bulk-upload flag.
+
+## Mirror reconciliation: archives the state services do not surface
+
+`src/nvcl/thredds-catalog.js` records what the NCI mirror holds per state,
+and the harvest compares it with what each node advertises. The two
+disagree, measured 6 Aug 2026:
+
+| State | Mirror archives | Boreholes the node surfaces with data | Not surfaced |
+|---|---|---|---|
+| WA | 1,951 | 1,669 | +282 |
+| QLD | 512 | 368 | +144 |
+| TAS | 506 | 482 | +24 |
+| VIC | 39 | **0** | **+39** |
+| SA | 1,815 | 1,822 | — |
+| NT | 345 | 420 | — |
+
+**407 archives nationally** sit on the mirror beyond what the state
+services expose as boreholes-with-data. Victoria is the clearest case: its
+node reports no NVCL datasets at all and the page has been calling it
+"non-participating", yet 39 Victorian archives exist on the mirror —
+consistent with Victorian core having been scanned at another state's
+HyLogger, which the VIC node has no way to advertise.
+
+Two states run the other way (SA, NT), where the node lists boreholes the
+mirror has no archive for — an upload backlog rather than a hidden holding.
+
+Neither direction is an error to be corrected silently. A state's service
+not advertising scanned core does not mean the core was not scanned, and
+inheriting a node's blind spot would understate the national archive. The
+gap is therefore published per state (`mirror_archives`,
+`mirror_unsurfaced`) and shown on the page as a "+N on mirror" badge.

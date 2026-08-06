@@ -19,7 +19,8 @@
     "dashboard": "node src/dashboard.js",
     "sync-from-sheet": "node src/sync.js pull",
     "sync-to-sheet": "node src/sync.js push",
-    "full-run": "node src/search.js && node src/dashboard.js"
+    "full-run": "node src/search.js && node src/dashboard.js",
+    "nvcl-catalog": "node src/nvcl/thredds-catalog.js"
   },
   "engines": {
     "node": ">=18"

@@ -89,6 +89,7 @@ const BULK_UPLOAD_MIN_N = 20;      // below this, one month proves nothing
 const BULK_UPLOAD_MIN_API = 0.25;  // API dates must still be a material share
 
 const TSG_CACHE = path.join(DATA_DIR, 'nvcl', 'tsg-cache.jsonl');
+const THREDDS_CATALOG = path.join(DATA_DIR, 'nvcl', 'thredds-catalog.json');
 const TSG_SOURCE = 'NCI THREDDS TSG (10.25914/bztg-rg43)';
 
 // The 8 public NVCL nodes. cqlBroken: GeoServer ignores CQL on nvclCollection
@@ -126,6 +127,10 @@ async function run() {
   // TSG enrichment cache (optional — the harvest is fully functional without
   // it, just less measured and on ingest dates).
   const tsgIndex = loadTsgIndex(TSG_CACHE);
+  // What the NCI mirror actually holds, for reconciliation against what
+  // each node surfaces. A node not advertising scanned core does not mean
+  // the core was not scanned (VIC: node reports none, mirror holds 39).
+  const threddsCat = readJson(THREDDS_CATALOG, null);
 
   // Harvest nodes sequentially (politeness); boreholes within a node
   // are fetched with CONCURRENCY workers.
@@ -832,6 +837,18 @@ function aggregate(results, asOf, tsgIndex) {
         + 'enrichment covers it.';
     }
 
+    // ── Mirror reconciliation ──
+    if (threddsCat && threddsCat.states && threddsCat.states[node.code]
+      && typeof threddsCat.states[node.code].count === 'number') {
+      const mirrorN = threddsCat.states[node.code].count;
+      entry.mirror_archives = mirrorN;
+      entry.mirror_unsurfaced = Math.max(0, mirrorN - stWithData);
+      if (entry.mirror_unsurfaced > 0) {
+        entry.mirror_note = entry.mirror_unsurfaced.toLocaleString() + ' archive(s) on the AuScope NCI mirror '
+          + 'beyond the ' + stWithData.toLocaleString() + ' borehole(s) this node surfaces as having data. '
+          + 'Scanned core the state service does not advertise is still scanned core.';
+      }
+    }
     if (node.note && !isParticipating) entry.note = node.note;
     if (r.fetchFailures) entry.dataset_fetch_failures = r.fetchFailures;
     if (r.tsg && r.tsg.rows) {

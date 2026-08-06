@@ -44,6 +44,13 @@ jobs:
       # ceiling for the harvest, stats and dashboard steps that follow.
       # ~4,700 archives across the six mirrored states means full national
       # coverage lands after roughly four months of weekly runs.
+      # Snapshot what the NCI mirror holds, so the harvest can reconcile it
+      # against what each state service surfaces (a node advertising no data
+      # does not mean the core was never scanned — VIC holds 39 archives).
+      - name: THREDDS catalogue snapshot
+        continue-on-error: true
+        run: node src/nvcl/thredds-catalog.js
+
       - name: TSG enrichment (incremental, budgeted)
         continue-on-error: true
         env:
@@ -72,6 +79,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nvcl/tsg-cache.jsonl data/nvcl-stats.json data/nvcl-history.jsonl docs/nvcl-data.json docs/stats-data.json docs/index.html docs/data.json docs/widget.html
+          git add data/nvcl/tsg-cache.jsonl data/nvcl/thredds-catalog.json data/nvcl-stats.json data/nvcl-history.jsonl docs/nvcl-data.json docs/stats-data.json docs/index.html docs/data.json docs/widget.html
           git diff --cached --quiet || git commit -m "NVCL harvest $(date +%Y-%m-%d)"
           git push
