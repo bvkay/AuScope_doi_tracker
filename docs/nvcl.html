@@ -309,18 +309,22 @@
             <button class="prov-btn" id="live-check-btn" disabled title="Query every state node's public WFS from your browser and compare against the snapshot">Live check all nodes</button>
         </div>
 
-        <!-- ========== CITE THIS COLLECTION ========== -->
-        <!-- The NCI-minted collection DOI is the citable anchor for the whole
-             NVCL archive. It currently has ZERO formal citations and no PID
-             relations — surfacing it here is how that changes. -->
+        <!-- ========== DATA ACCESS & CITATION ========== -->
+        <!-- The NCI DOI is the HPC MIRROR of the archive (bulk access on
+             Gadi), not the canonical front door — the state services above
+             are the live archive. Cite the NCI DOI when the NCI copy was
+             what you used. It currently has zero citations and no PID
+             relations. -->
         <div class="cite-panel">
-            <div class="cite-label">Cite this collection</div>
-            <div class="cite-text">AuScope &amp; CSIRO (2023). <em>AuScope Australian National Virtual Core Library (NVCL) Collection</em>. NCI Australia.
+            <div class="cite-label">Data access &amp; citation</div>
+            <div class="cite-text">Live data is served by the state survey nodes below (and the <a href="https://portal.auscope.org.au/" target="_blank" rel="noopener">AuScope Portal ↗</a>).
+                For bulk and HPC workflows, an AuScope mirror of the archive is hosted at NCI (Gadi):
+                AuScope &amp; CSIRO (2023). <em>AuScope Australian National Virtual Core Library (NVCL) Collection</em>. NCI Australia.
                 <a href="https://doi.org/10.25914/bztg-rg43" target="_blank" rel="noopener" class="mono">https://doi.org/10.25914/bztg-rg43</a>
             </div>
             <div class="cite-meta">
-                <span id="cite-count-chip" class="cite-pill loading" title="Formal citations of the collection DOI, live from DataCite">&hellip;</span>
-                <span class="cite-note">formal citations of the collection DOI &middot; include it in your <strong>reference list</strong> (not just the data-availability statement) so your use of NVCL data is counted &middot;
+                <span id="cite-count-chip" class="cite-pill loading" title="Formal citations of the NCI mirror DOI, live from DataCite">&hellip;</span>
+                <span class="cite-note">citations of the NCI mirror DOI &middot; if the NCI copy is what you used, cite it in your <strong>reference list</strong> (not just the data-availability statement) so the use is counted &middot;
                 <a href="https://commons.datacite.org/doi.org/10.25914/bztg-rg43" target="_blank" rel="noopener">DataCite Commons ↗</a></span>
             </div>
         </div>
@@ -446,8 +450,8 @@ var STATE_PALETTE = ['#16a34a', '#2563eb', '#b45309', '#be185d', '#7c3aed', '#0d
 
 var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-// NCI-minted citable DOI for the whole NVCL archive (currently an orphan in
-// the PID graph — zero citations, zero relations; surfacing it is the fix).
+// NCI DOI for the AuScope HPC mirror of the archive (Gadi bulk access) —
+// not the canonical front door. Orphaned in the PID graph (0 citations/relations).
 var COLLECTION_DOI = '10.25914/bztg-rg43';
 
 // ============================================================
