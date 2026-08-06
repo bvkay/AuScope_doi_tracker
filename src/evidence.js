@@ -115,9 +115,15 @@ function run() {
   let added = 0;
   const candidateMisses = [];
   const excludedPrefixes = (readJson(path.join(__dirname, '..', 'config.json'), {}).excluded_doi_prefixes) || [];
+  // DOIs folded into another record by consolidate.js must never be
+  // re-appended as "missing" — they are the same work under another DOI.
+  const foldedSet = {};
+  pubData.records.forEach(function(p) {
+    (p.relatedDois || []).forEach(function(d) { foldedSet[normDoi(d)] = true; });
+  });
   verified.forEach(function(r) {
     const k = normDoi(r.doi);
-    if (!k || inCorpus[k]) return;
+    if (!k || inCorpus[k] || foldedSet[k]) return;
     // Infrastructure DOIs (datasets/instruments) never join the corpus.
     if (excludedPrefixes.some(function(p) { return k.indexOf(p.toLowerCase() + '/') === 0; })) return;
     if (r.attribution === 'verified') {

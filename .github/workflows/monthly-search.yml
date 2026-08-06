@@ -68,6 +68,10 @@ jobs:
       - name: Evidence ladder
         run: node src/evidence.js
 
+      # Fold same-work duplicate DOIs (preprints, Zenodo versions, re-registrations)
+      - name: Same-work consolidation
+        run: node src/consolidate.js
+
       # Cross-pillar stats (instruments, surveys, datasets, repo counts)
       # Must run before the dashboard so explorer cards pick up fresh numbers.
       - name: Aggregate cross-pillar stats
