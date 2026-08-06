@@ -778,7 +778,11 @@ function freshnessBadge(st) {
     // one month also holds an implausible share of the node's records, that
     // is a bulk upload wearing a scan date's clothes — never present it as a
     // confident freshness reading.
-    if (st.suspected_bulk_upload_month) {
+    // Mirrors the harvester's minimum-n rule: a node with a handful of
+    // records whose whole history shares one createdDate is not evidence of
+    // a bulk upload, and a caution badge computed from 5 rows would mislead.
+    var enoughToJudge = (st.total_datasets || 0) >= 20;
+    if (st.suspected_bulk_upload_month && enoughToJudge) {
         return '<span class="badge fresh-none" data-tip="'
             + escapeAttr(st.suspected_bulk_upload_note || '') + '">ingest date '
             + fmt(days) + 'd <span class="info-i">i</span></span>';

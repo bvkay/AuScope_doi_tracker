@@ -64,7 +64,13 @@ const ONLY = (process.env.NVCL_ONLY || '').split(',')
 const USER_AGENT = 'AuScope-doi-tracker NVCL harvester'
   + (CONFIG.email ? ' (mailto:' + CONFIG.email + ')' : '');
 
-const WFS_TIMEOUT_MS = 60000;      // NT fallback pages carry 10k features
+const WFS_TIMEOUT_MS = 60000;      // standard filtered WFS pages (1k features)
+// NT's GeoServer ignores the nvclCollection CQL filter, so its boreholes are
+// paged UNFILTERED at 10k features a page. Those pages routinely take longer
+// than 60s to build and 60s cost NT the whole harvest (observed 2026-08-06:
+// three attempts, all timed out, node reported unreachable). The fallback
+// path gets its own, far more patient budget.
+const WFS_FALLBACK_TIMEOUT_MS = 240000;
 const DS_TIMEOUT_MS = 15000;
 const RETRIES = 2;
 const RETRY_DELAY_MS = 3000;
@@ -74,7 +80,13 @@ const FALLBACK_PAGE = 10000;       // unfiltered paging (NT: CQL disabled)
 const CLAMP_FACTOR = 1.5;          // interval vs borehole length garbage clamp
 const MIN_NODES_UP = 5;            // health guard
 const MIN_PREV_FRACTION = 0.8;     // health guard
-const BULK_UPLOAD_SHARE = 0.15;    // top-month share that reads as an ingest batch
+// Bulk-upload detector thresholds. The statistic is computed over a node's
+// API-DATED records only — mixing in TSG-dated ones dilutes the very cluster
+// we are looking for, and a node that is half enriched would slip under a
+// blended threshold while still publishing hundreds of ingest dates.
+const BULK_UPLOAD_SHARE = 0.15;    // top-month share of API-dated records
+const BULK_UPLOAD_MIN_N = 20;      // below this, one month proves nothing
+const BULK_UPLOAD_MIN_API = 0.25;  // API dates must still be a material share
 
 const TSG_CACHE = path.join(DATA_DIR, 'nvcl', 'tsg-cache.jsonl');
 const TSG_SOURCE = 'NCI THREDDS TSG (10.25914/bztg-rg43)';
@@ -282,7 +294,7 @@ async function fetchWfsUnfiltered(node) {
     const body = 'service=WFS&version=1.0.0&request=GetFeature'
       + '&typeName=gsmlp:BoreholeView&outputFormat=json'
       + '&maxFeatures=' + FALLBACK_PAGE + '&startIndex=' + startIndex;
-    const text = await fetchText(node.wfs, WFS_TIMEOUT_MS, {
+    const text = await fetchText(node.wfs, WFS_FALLBACK_TIMEOUT_MS, {
       method: 'POST', body: body,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     });
@@ -661,7 +673,8 @@ function aggregate(results, asOf, tsgIndex) {
     let stEstimatedM = 0, stEstimatedBh = 0;
     let stApiM = 0, stTsgM = 0, stTsgBh = 0;
     let stDatesTsg = 0, stDatesApi = 0, stDatesApiScan = 0, stDatesApiCreated = 0;
-    const stMonths = {};
+    const stMonths = {};       // all dated records — descriptive
+    const stMonthsApi = {};    // API-dated only — what the detector reads
     let stUnrecorded = 0, stClamped = 0, stLatest = null;
     let st12moDatasets = 0, st12moM = 0;
 
@@ -710,6 +723,7 @@ function aggregate(results, asOf, tsgIndex) {
         if (ds.date) {
           const mo = ds.date.substring(0, 7);
           stMonths[mo] = (stMonths[mo] || 0) + 1;
+          if (ds.dateSource !== 'tsg') stMonthsApi[mo] = (stMonthsApi[mo] || 0) + 1;
           if (!earliest || ds.date < earliest) earliest = ds.date;
           if (!latest || ds.date > latest) latest = ds.date;
           if (!stLatest || ds.date > stLatest) stLatest = ds.date;
@@ -787,10 +801,11 @@ function aggregate(results, asOf, tsgIndex) {
     if (stTsgM > 0) entry.tsg_source = TSG_SOURCE;
 
     // Bulk-upload detector. Real scanning spreads across months; ingest
-    // arrives in batches. When one month holds an implausible share of a
-    // state's dated records AND those dates came from the node API rather
-    // than the instrument's own file, say so instead of publishing an
-    // ingest date as a scan date.
+    // arrives in batches. The test runs over the node's API-dated records
+    // only, and needs enough of them to mean anything: a five-record node
+    // whose whole history shares one createdDate is not evidence, and a
+    // half-enriched node must not hide its remaining ingest dates behind
+    // the TSG dates that now outnumber them.
     const cluster = topMonth(stMonths);
     if (cluster) {
       entry.date_cluster = {
@@ -798,15 +813,23 @@ function aggregate(results, asOf, tsgIndex) {
         records: cluster.count,
         share_pct: Math.round(cluster.count / cluster.total * 1000) / 10,
       };
-      const apiShare = (stDatesTsg + stDatesApi) ? stDatesApi / (stDatesTsg + stDatesApi) : 0;
-      if (cluster.count / cluster.total > BULK_UPLOAD_SHARE && apiShare > 0.5) {
-        entry.suspected_bulk_upload_month = cluster.month;
-        entry.suspected_bulk_upload_share_pct = entry.date_cluster.share_pct;
-        entry.suspected_bulk_upload_note = 'The busiest month holds '
-          + entry.date_cluster.share_pct + '% of this node\'s dated records and those dates come '
-          + 'from its API (createdDate = ingest date). Treat the dates and the freshness '
-          + 'badge for this node as provisional until TSG enrichment covers it.';
-      }
+    }
+    const apiCluster = topMonth(stMonthsApi);
+    const apiShare = (stDatesTsg + stDatesApi) ? stDatesApi / (stDatesTsg + stDatesApi) : 0;
+    if (apiCluster && apiCluster.total >= BULK_UPLOAD_MIN_N
+      && apiShare >= BULK_UPLOAD_MIN_API
+      && apiCluster.count / apiCluster.total > BULK_UPLOAD_SHARE) {
+      const pct = Math.round(apiCluster.count / apiCluster.total * 1000) / 10;
+      entry.suspected_bulk_upload_month = apiCluster.month;
+      entry.suspected_bulk_upload_share_pct = pct;
+      entry.suspected_bulk_upload_api_records = apiCluster.total;
+      entry.suspected_bulk_upload_note = pct + '% of this node\'s '
+        + apiCluster.total + ' API-dated records fall in ' + apiCluster.month + '. '
+        + 'The API reports createdDate, which is when a record was ingested, not when '
+        + 'the core was scanned — a cluster that size is a bulk upload, not a month of '
+        + 'scanning. ' + Math.round(apiShare * 100) + '% of this node\'s dates are still '
+        + 'API-sourced, so treat its dates and freshness as provisional until TSG '
+        + 'enrichment covers it.';
     }
 
     if (node.note && !isParticipating) entry.note = node.note;

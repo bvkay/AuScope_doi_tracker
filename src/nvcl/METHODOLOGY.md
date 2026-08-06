@@ -275,15 +275,29 @@ scanning month.
 ### Bulk-upload detector
 
 For each state, the share of dated records falling in its single busiest
-month is computed and published as `date_cluster`. When that share exceeds
-**15%** *and* more than half the state's dates are API-sourced, the state
-entry gains `suspected_bulk_upload_month`, `suspected_bulk_upload_share_pct`
-and an explanatory note, and the NVCL page replaces that state's freshness
-badge with an *ingest date* marker. The threshold is deliberately low: 15% of
-a state's records in one month is already implausible for a single
-instrument, and the cost of a false flag is a caveat, while the cost of a
-missed one is a fabricated scanning history. The flag clears automatically as
-TSG enrichment covers the state.
+month is published as `date_cluster` — descriptive, always present.
+
+The **flag** is computed over that state's **API-dated records only**, and
+fires when all three hold:
+
+| Condition | Threshold | Why |
+|---|---|---|
+| top month's share of API-dated records | > **15%** | 15% of a node's records in one month is already implausible for one instrument |
+| API-dated records | ≥ **20** | below that, one shared `createdDate` proves nothing (CSIRO's whole history is 5 records dated the same day) |
+| API-dated share of the node's dates | ≥ **25%** | once TSG dates dominate, the remaining ingest dates no longer drive the reading |
+
+Computing the share over API-dated records only matters: blending in
+TSG-dated ones dilutes the very cluster being looked for, so a half-enriched
+node would slip under a blended threshold while still publishing hundreds of
+ingest dates.
+
+When it fires, the state entry gains `suspected_bulk_upload_month`,
+`suspected_bulk_upload_share_pct`, `suspected_bulk_upload_api_records` and an
+explanatory note, and the NVCL page replaces that state's freshness badge
+with an *ingest date* marker. The flag clears automatically as TSG enrichment
+covers the state — on the 2026-08-06 harvest SA's 2019-07 cluster had already
+fallen from 20.4% of the whole state to 13.5% of its remaining API dates, and
+no node is flagged.
 
 ## Estimation tier (added merged-v1.1, narrowed in v1.2)
 
@@ -305,3 +319,20 @@ TSG one**:
   wins over estimated. WA and NT rows on the page therefore move from
   `≈ … est.` to a measured figure state by state as the backfill proceeds,
   and read as `312 km · 140 km est.` while a state is part-way through.
+
+### What the first conversions showed: the estimate ran ~20% high
+
+The drilled-length estimate assumes a hole was scanned end to end. It was
+not. On the 2026-08-06 harvest, NT's first 166 TSG-measured boreholes
+replaced **52.26 km of estimate with 42.08 km of measurement** — the estimate
+was about **24% too high**, because core is routinely scanned over part of
+the hole (NT `1113660_ECD10`: drilled 94.17 m, scanned 24.0–103.5 m; NT
+`1113664_ECD11`: drilled 103.5 m, scanned 51.3–103.3 m).
+
+So the national combined figure will *fall* as enrichment proceeds even as
+the measured figure rises: 1,692.44 km → 1,681.32 km on this harvest, with
+measured up 42.34 km and estimated down 53.47 km. That is the expected and
+correct direction. The estimation tier was always disclosed as an upper
+bound; each conversion trades a generous guess for a smaller true number.
+Anyone quoting the combined figure across harvests should quote the split
+with it.

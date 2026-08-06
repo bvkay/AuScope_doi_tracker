@@ -1,21 +1,42 @@
 {
  "as_of": "2026-08-06",
- "method": "merged-v1",
+ "method": "merged-v1.2",
  "source": "src/nvcl/harvest.js — live harvest of all public NVCL node services (see src/nvcl/METHODOLOGY.md)",
  "summary": {
-  "total_datasets": 6139,
-  "total_boreholes_with_data": 6005,
-  "total_scanned_km": 932.25,
+  "total_datasets": 6141,
+  "total_boreholes_with_data": 6008,
+  "total_scanned_km": 974.59,
   "total_scanned_km_note": "alias of unique_scanned_km (union of per-dataset scan intervals per borehole)",
-  "unique_scanned_km": 932.25,
-  "total_scan_km": 935.93,
-  "estimated_km": 760.19,
-  "estimated_boreholes": 2113,
-  "combined_estimate_km": 1692.44,
-  "interval_unrecorded_datasets": 2220,
+  "unique_scanned_km": 974.59,
+  "api_measured_km": 931.31,
+  "tsg_measured_km": 43.29,
+  "tsg_measured_boreholes": 160,
+  "tsg_source": "NCI THREDDS TSG (10.25914/bztg-rg43)",
+  "total_scan_km": 978.28,
+  "estimated_km": 706.72,
+  "estimated_boreholes": 1954,
+  "combined_estimate_km": 1681.32,
+  "dates_from_tsg": 1561,
+  "dates_from_api": 2557,
+  "dates_from_tsg_pct": 37.9,
+  "tsg_cache": {
+   "path": "data/nvcl/tsg-cache.jsonl",
+   "rows": 2027,
+   "matched_rows": 2012,
+   "unmatched_rows": 15,
+   "match_rate_pct": 99.3,
+   "states_cached": [
+    "NT",
+    "SA",
+    "TAS",
+    "VIC",
+    "WA"
+   ]
+  },
+  "interval_unrecorded_datasets": 2221,
   "interval_clamped_datasets": 26,
-  "total_borehole_drilled_km": 2338.35,
-  "datasets_with_instrument_data": 5612,
+  "total_borehole_drilled_km": 2336.61,
+  "datasets_with_instrument_data": 5672,
   "participating_nodes": [
    "CSIRO",
    "NSW",
@@ -31,15 +52,15 @@
   ],
   "non_participating_borehole_count": 29,
   "date_range": {
-   "earliest_scan": "2010-03-09",
+   "earliest_scan": "2003-09-30",
    "latest_scan": "2026-08-05"
   },
   "rescan_stats": {
-   "boreholes_with_multiple_scans": 26,
+   "boreholes_with_multiple_scans": 25,
    "max_scans_one_borehole": 3
   },
   "tir_stats": {
-   "tir_datasets": 5402,
+   "tir_datasets": 5404,
    "tir_pct_of_total": 88
   }
  },
@@ -52,15 +73,30 @@
    "total_boreholes_with_data": 5,
    "total_km_scanned": 0.22,
    "unique_scanned_km": 0.22,
+   "api_measured_km": 0.22,
+   "tsg_measured_km": 0,
+   "tsg_measured_boreholes": 0,
    "total_scan_km": 0.22,
    "estimated_km": 0,
    "estimated_boreholes": 0,
    "interval_unrecorded": 0,
    "interval_clamped": 0,
+   "dates_from_tsg": 0,
+   "dates_from_api": 5,
+   "dates_from_api_scandate": 0,
+   "dates_from_api_createddate": 5,
    "latest_dataset_date": "2025-12-23",
    "days_since_latest": 226,
    "datasets_last_12mo": 5,
-   "km_scanned_last_12mo": 0.22
+   "km_scanned_last_12mo": 0.22,
+   "date_cluster": {
+    "top_month": "2025-12",
+    "records": 5,
+    "share_pct": 100
+   },
+   "suspected_bulk_upload_month": "2025-12",
+   "suspected_bulk_upload_share_pct": 100,
+   "suspected_bulk_upload_note": "The busiest month holds 100% of this node's dated records and those dates come from its API (createdDate = ingest date). Treat the dates and the freshness badge for this node as provisional until TSG enrichment covers it."
   },
   {
    "state": "NSW",
@@ -70,53 +106,94 @@
    "total_boreholes_with_data": 1242,
    "total_km_scanned": 283.48,
    "unique_scanned_km": 283.48,
+   "api_measured_km": 283.48,
+   "tsg_measured_km": 0,
+   "tsg_measured_boreholes": 0,
    "total_scan_km": 284.41,
    "estimated_km": 1.42,
    "estimated_boreholes": 19,
    "interval_unrecorded": 20,
    "interval_clamped": 20,
+   "dates_from_tsg": 0,
+   "dates_from_api": 1248,
+   "dates_from_api_scandate": 0,
+   "dates_from_api_createddate": 1248,
    "latest_dataset_date": "2026-07-28",
    "days_since_latest": 9,
    "datasets_last_12mo": 122,
-   "km_scanned_last_12mo": 21.28
+   "km_scanned_last_12mo": 21.28,
+   "date_cluster": {
+    "top_month": "2025-09",
+    "records": 54,
+    "share_pct": 4.3
+   }
   },
   {
    "state": "NT",
    "status": "participating",
    "wfs_registered_boreholes": 538,
-   "total_datasets": 430,
-   "total_boreholes_with_data": 419,
-   "total_km_scanned": 0,
-   "unique_scanned_km": 0,
-   "total_scan_km": 0,
-   "estimated_km": 169.25,
-   "estimated_boreholes": 419,
-   "interval_unrecorded": 430,
+   "total_datasets": 431,
+   "total_boreholes_with_data": 420,
+   "total_km_scanned": 42.08,
+   "unique_scanned_km": 42.08,
+   "api_measured_km": 0,
+   "tsg_measured_km": 42.08,
+   "tsg_measured_boreholes": 155,
+   "total_scan_km": 42.08,
+   "estimated_km": 116.99,
+   "estimated_boreholes": 265,
+   "interval_unrecorded": 431,
    "interval_clamped": 0,
-   "latest_dataset_date": null,
-   "days_since_latest": null,
+   "dates_from_tsg": 166,
+   "dates_from_api": 0,
+   "dates_from_api_scandate": 0,
+   "dates_from_api_createddate": 0,
+   "latest_dataset_date": "2022-05-26",
+   "days_since_latest": 1533,
    "datasets_last_12mo": 0,
    "km_scanned_last_12mo": 0,
-   "dataset_fetch_failures": 1
+   "tsg_source": "NCI THREDDS TSG (10.25914/bztg-rg43)",
+   "date_cluster": {
+    "top_month": "2011-08",
+    "records": 20,
+    "share_pct": 12
+   },
+   "tsg_cache_rows": 180,
+   "tsg_cache_rows_matched": 168,
+   "tsg_cache_rows_unmatched": 12,
+   "tsg_matched_boreholes": 168,
+   "tsg_match_rate_pct": 93.3
   },
   {
    "state": "QLD",
    "status": "participating",
    "wfs_registered_boreholes": 587,
-   "total_datasets": 372,
-   "total_boreholes_with_data": 366,
-   "total_km_scanned": 83.48,
-   "unique_scanned_km": 83.48,
-   "total_scan_km": 83.54,
+   "total_datasets": 373,
+   "total_boreholes_with_data": 368,
+   "total_km_scanned": 82.54,
+   "unique_scanned_km": 82.54,
+   "api_measured_km": 82.54,
+   "tsg_measured_km": 0,
+   "tsg_measured_boreholes": 0,
+   "total_scan_km": 82.6,
    "estimated_km": 0.33,
    "estimated_boreholes": 3,
    "interval_unrecorded": 4,
    "interval_clamped": 3,
+   "dates_from_tsg": 0,
+   "dates_from_api": 373,
+   "dates_from_api_scandate": 0,
+   "dates_from_api_createddate": 373,
    "latest_dataset_date": "2026-08-05",
    "days_since_latest": 1,
-   "datasets_last_12mo": 46,
-   "km_scanned_last_12mo": 6.97,
-   "dataset_fetch_failures": 160
+   "datasets_last_12mo": 44,
+   "km_scanned_last_12mo": 6.27,
+   "date_cluster": {
+    "top_month": "2024-12",
+    "records": 25,
+    "share_pct": 6.7
+   },
+   "dataset_fetch_failures": 158
   },
   {
    "state": "SA",
@@ -126,15 +203,32 @@
    "total_boreholes_with_data": 1822,
    "total_km_scanned": 427.19,
    "unique_scanned_km": 427.19,
+   "api_measured_km": 427.19,
+   "tsg_measured_km": 0,
+   "tsg_measured_boreholes": 0,
    "total_scan_km": 428.08,
    "estimated_km": 0.84,
    "estimated_boreholes": 2,
    "interval_unrecorded": 2,
    "interval_clamped": 2,
+   "dates_from_tsg": 927,
+   "dates_from_api": 904,
+   "dates_from_api_scandate": 0,
+   "dates_from_api_createddate": 904,
    "latest_dataset_date": "2026-07-23",
    "days_since_latest": 14,
-   "datasets_last_12mo": 165,
-   "km_scanned_last_12mo": 42.25
+   "datasets_last_12mo": 159,
+   "km_scanned_last_12mo": 40.21,
+   "date_cluster": {
+    "top_month": "2019-07",
+    "records": 122,
+    "share_pct": 6.7
+   },
+   "tsg_cache_rows": 1359,
+   "tsg_cache_rows_matched": 1359,
+   "tsg_cache_rows_unmatched": 0,
+   "tsg_matched_boreholes": 1362,
+   "tsg_match_rate_pct": 100
   },
   {
    "state": "TAS",
@@ -144,15 +238,32 @@
    "total_boreholes_with_data": 482,
    "total_km_scanned": 137.87,
    "unique_scanned_km": 137.87,
+   "api_measured_km": 137.87,
+   "tsg_measured_km": 0,
+   "tsg_measured_boreholes": 0,
    "total_scan_km": 139.69,
    "estimated_km": 0.03,
    "estimated_boreholes": 1,
    "interval_unrecorded": 1,
    "interval_clamped": 1,
-   "latest_dataset_date": "2026-01-15",
-   "days_since_latest": 203,
-   "datasets_last_12mo": 9,
-   "km_scanned_last_12mo": 3.85
+   "dates_from_tsg": 463,
+   "dates_from_api": 27,
+   "dates_from_api_scandate": 0,
+   "dates_from_api_createddate": 27,
+   "latest_dataset_date": "2025-12-03",
+   "days_since_latest": 246,
+   "datasets_last_12mo": 6,
+   "km_scanned_last_12mo": 2.52,
+   "date_cluster": {
+    "top_month": "2010-02",
+    "records": 17,
+    "share_pct": 3.5
+   },
+   "tsg_cache_rows": 480,
+   "tsg_cache_rows_matched": 480,
+   "tsg_cache_rows_unmatched": 0,
+   "tsg_matched_boreholes": 480,
+   "tsg_match_rate_pct": 100
   },
   {
    "state": "VIC",
@@ -162,16 +273,28 @@
    "total_boreholes_with_data": 0,
    "total_km_scanned": 0,
    "unique_scanned_km": 0,
+   "api_measured_km": 0,
+   "tsg_measured_km": 0,
+   "tsg_measured_boreholes": 0,
    "total_scan_km": 0,
    "estimated_km": 0,
    "estimated_boreholes": 0,
    "interval_unrecorded": 0,
    "interval_clamped": 0,
+   "dates_from_tsg": 0,
+   "dates_from_api": 0,
+   "dates_from_api_scandate": 0,
+   "dates_from_api_createddate": 0,
    "latest_dataset_date": null,
    "days_since_latest": null,
    "datasets_last_12mo": 0,
    "km_scanned_last_12mo": 0,
-   "note": "No HyLogger node. Boreholes flagged here may have been scanned at another node."
+   "note": "No HyLogger node. Boreholes flagged here may have been scanned at another node.",
+   "tsg_cache_rows": 3,
+   "tsg_cache_rows_matched": 0,
+   "tsg_cache_rows_unmatched": 3,
+   "tsg_matched_boreholes": 0,
+   "tsg_match_rate_pct": 0
   },
   {
    "state": "WA",
@@ -179,17 +302,35 @@
    "wfs_registered_boreholes": 1674,
    "total_datasets": 1763,
    "total_boreholes_with_data": 1669,
-   "total_km_scanned": 0,
-   "unique_scanned_km": 0,
-   "total_scan_km": 0,
-   "estimated_km": 588.32,
-   "estimated_boreholes": 1669,
+   "total_km_scanned": 1.21,
+   "unique_scanned_km": 1.21,
+   "api_measured_km": 0,
+   "tsg_measured_km": 1.21,
+   "tsg_measured_boreholes": 5,
+   "total_scan_km": 1.21,
+   "estimated_km": 587.12,
+   "estimated_boreholes": 1664,
    "interval_unrecorded": 1763,
    "interval_clamped": 0,
-   "latest_dataset_date": null,
-   "days_since_latest": null,
+   "dates_from_tsg": 5,
+   "dates_from_api": 0,
+   "dates_from_api_scandate": 0,
+   "dates_from_api_createddate": 0,
+   "latest_dataset_date": "2022-11-24",
+   "days_since_latest": 1351,
    "datasets_last_12mo": 0,
-   "km_scanned_last_12mo": 0
+   "km_scanned_last_12mo": 0,
+   "tsg_source": "NCI THREDDS TSG (10.25914/bztg-rg43)",
+   "date_cluster": {
+    "top_month": "2022-11",
+    "records": 2,
+    "share_pct": 40
+   },
+   "tsg_cache_rows": 5,
+   "tsg_cache_rows_matched": 5,
+   "tsg_cache_rows_unmatched": 0,
+   "tsg_matched_boreholes": 5,
+   "tsg_match_rate_pct": 100
   }
  ],
  "instruments": [
@@ -198,14 +339,14 @@
    "datasets": 1394,
    "boreholes": 1391,
    "km_scanned": 345.51,
-   "first_use": "2017-06-13",
+   "first_use": "2004-02-20",
    "last_use": "2026-07-29",
    "states_used": [
     "QLD",
     "SA"
    ],
-   "service_years": 9.13,
-   "km_per_year": 37.84
+   "service_years": 22.44,
+   "km_per_year": 15.4
   },
   {
    "instrument_canonical": "HyLogger 3-4",
@@ -222,10 +363,10 @@
   },
   {
    "instrument_canonical": "Unknown",
-   "datasets": 527,
-   "boreholes": 522,
-   "km_scanned": 100.49,
-   "first_use": "2010-05-21",
+   "datasets": 469,
+   "boreholes": 467,
+   "km_scanned": 103.14,
+   "first_use": "2004-03-15",
    "last_use": "2026-08-05",
    "states_used": [
     "CSIRO",
@@ -236,27 +377,27 @@
     "TAS",
     "WA"
    ],
-   "service_years": 16.21,
-   "km_per_year": 6.2
+   "service_years": 22.39,
+   "km_per_year": 4.61
   },
   {
    "instrument_canonical": "HyLogger 3-6",
    "datasets": 306,
    "boreholes": 305,
    "km_scanned": 89.07,
-   "first_use": "2015-09-15",
-   "last_use": "2026-01-15",
+   "first_use": "2010-02-25",
+   "last_use": "2025-12-03",
    "states_used": [
     "TAS"
    ],
-   "service_years": 10.34,
-   "km_per_year": 8.61
+   "service_years": 15.77,
+   "km_per_year": 5.65
   },
   {
    "instrument_canonical": "HyLogger 3-5",
    "datasets": 305,
-   "boreholes": 301,
-   "km_scanned": 55.87,
+   "boreholes": 302,
+   "km_scanned": 55.12,
    "first_use": "2016-07-08",
    "last_use": "2026-07-28",
    "states_used": [
@@ -264,59 +405,73 @@
     "QLD"
    ],
    "service_years": 10.05,
-   "km_per_year": 5.56
+   "km_per_year": 5.48
   },
   {
    "instrument_canonical": "HyLogger 2-3",
    "datasets": 154,
    "boreholes": 154,
    "km_scanned": 52.16,
-   "first_use": "2017-06-26",
-   "last_use": "2022-10-06",
+   "first_use": "2009-06-03",
+   "last_use": "2025-04-01",
    "states_used": [
     "SA"
    ],
-   "service_years": 5.28,
-   "km_per_year": 9.88
+   "service_years": 15.83,
+   "km_per_year": 3.3
   },
   {
    "instrument_canonical": "HyLogger 2-6",
    "datasets": 115,
    "boreholes": 115,
    "km_scanned": 31.24,
-   "first_use": "2010-03-09",
-   "last_use": "2022-11-16",
+   "first_use": "2009-11-06",
+   "last_use": "2020-10-08",
    "states_used": [
     "TAS"
    ],
-   "service_years": 12.69,
-   "km_per_year": 2.46
+   "service_years": 10.92,
+   "km_per_year": 2.86
   },
   {
    "instrument_canonical": "HyLogger 1",
-   "datasets": 281,
-   "boreholes": 281,
-   "km_scanned": 30.62,
-   "first_use": "2017-10-31",
+   "datasets": 283,
+   "boreholes": 282,
+   "km_scanned": 31.04,
+   "first_use": "2003-09-30",
    "last_use": "2024-02-14",
    "states_used": [
+    "NT",
     "SA"
    ],
-   "service_years": 6.29,
-   "km_per_year": 4.87
+   "service_years": 20.38,
+   "km_per_year": 1.52
+  },
+  {
+   "instrument_canonical": "HyLogger 3-7",
+   "datasets": 288,
+   "boreholes": 281,
+   "km_scanned": 30.36,
+   "first_use": "2010-04-15",
+   "last_use": "2022-05-26",
+   "states_used": [
+    "NT"
+   ],
+   "service_years": 12.11,
+   "km_per_year": 2.51
   },
   {
    "instrument_canonical": "HyLogger 2-5",
-   "datasets": 62,
-   "boreholes": 61,
-   "km_scanned": 19.48,
+   "datasets": 63,
+   "boreholes": 62,
+   "km_scanned": 19.6,
    "first_use": "2017-07-24",
    "last_use": "2026-08-05",
    "states_used": [
     "QLD"
    ],
    "service_years": 9.03,
-   "km_per_year": 2.16
+   "km_per_year": 2.17
   },
   {
    "instrument_canonical": "HyLogger 4-2303",
@@ -330,6 +485,19 @@
    ],
    "service_years": 0.34,
    "km_per_year": 24.62
+  },
+  {
+   "instrument_canonical": "HyLogger 2-7",
+   "datasets": 70,
+   "boreholes": 70,
+   "km_scanned": 8.33,
+   "first_use": "2010-03-29",
+   "last_use": "2016-10-10",
+   "states_used": [
+    "NT"
+   ],
+   "service_years": 6.54,
+   "km_per_year": 1.27
   },
   {
    "instrument_canonical": "HyLogger 2-4",
@@ -349,21 +517,47 @@
    "datasets": 1,
    "boreholes": 1,
    "km_scanned": 0.91,
-   "first_use": "2020-09-18",
-   "last_use": "2020-09-18",
+   "first_use": "2014-11-25",
+   "last_use": "2014-11-25",
    "states_used": [
     "TAS"
    ],
    "service_years": 0,
    "km_per_year": null
+  },
+  {
+   "instrument_canonical": "HyLogger 3-2",
+   "datasets": 1703,
+   "boreholes": 1616,
+   "km_scanned": 0.9,
+   "first_use": "2016-06-15",
+   "last_use": "2022-11-24",
+   "states_used": [
+    "WA"
+   ],
+   "service_years": 6.44,
+   "km_per_year": 0.14
   },
   {
    "instrument_canonical": "HyLogger 6-2",
    "datasets": 3,
    "boreholes": 3,
    "km_scanned": 0.66,
-   "first_use": "2020-10-20",
-   "last_use": "2020-10-20",
+   "first_use": "2011-07-06",
+   "last_use": "2024-11-01",
+   "states_used": [
+    "TAS"
+   ],
+   "service_years": 13.33,
+   "km_per_year": 0.05
+  },
+  {
+   "instrument_canonical": "HyLogger 6-3",
+   "datasets": 2,
+   "boreholes": 2,
+   "km_scanned": 0.43,
+   "first_use": "2012-01-24",
+   "last_use": "2012-01-25",
    "states_used": [
     "TAS"
    ],
@@ -371,14 +565,14 @@
    "km_per_year": null
   },
   {
-   "instrument_canonical": "HyLogger 6-3",
-   "datasets": 2,
-   "boreholes": 2,
-   "km_scanned": 0.43,
-   "first_use": "2020-10-13",
-   "last_use": "2020-10-13",
+   "instrument_canonical": "HyLogger 2-2",
+   "datasets": 40,
+   "boreholes": 40,
+   "km_scanned": 0.31,
+   "first_use": "2011-04-06",
+   "last_use": "2011-04-06",
    "states_used": [
-    "TAS"
+    "WA"
    ],
    "service_years": 0,
    "km_per_year": null
@@ -428,71 +622,19 @@
    "datasets": 2,
    "boreholes": 2,
    "km_scanned": 0.04,
-   "first_use": "2020-10-20",
+   "first_use": "2010-03-05",
    "last_use": "2025-02-13",
    "states_used": [
     "QLD",
     "TAS"
    ],
-   "service_years": 4.32,
-   "km_per_year": 0.01
+   "service_years": 14.95,
+   "km_per_year": 0
   },
   {
    "instrument_canonical": "19",
    "datasets": 5,
    "boreholes": 5,
-   "km_scanned": 0,
-   "first_use": null,
-   "last_use": null,
-   "states_used": [
-    "WA"
-   ],
-   "service_years": 0,
-   "km_per_year": null
-  },
-  {
-   "instrument_canonical": "HyLogger 3-7",
-   "datasets": 241,
-   "boreholes": 239,
-   "km_scanned": 0,
-   "first_use": null,
-   "last_use": null,
-   "states_used": [
-    "NT"
-   ],
-   "service_years": 0,
-   "km_per_year": null
-  },
-  {
-   "instrument_canonical": "HyLogger 2-7",
-   "datasets": 60,
-   "boreholes": 60,
-   "km_scanned": 0,
-   "first_use": null,
-   "last_use": null,
-   "states_used": [
-    "NT"
-   ],
-   "service_years": 0,
-   "km_per_year": null
-  },
-  {
-   "instrument_canonical": "HyLogger 3-2",
-   "datasets": 1703,
-   "boreholes": 1616,
-   "km_scanned": 0,
-   "first_use": null,
-   "last_use": null,
-   "states_used": [
-    "WA"
-   ],
-   "service_years": 0,
-   "km_per_year": null
-  },
-  {
-   "instrument_canonical": "HyLogger 2-2",
-   "datasets": 40,
-   "boreholes": 40,
    "km_scanned": 0,
    "first_use": null,
    "last_use": null,
