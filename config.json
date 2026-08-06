@@ -2,6 +2,7 @@
   "email": "ben@auscope.org.au",
   "s2_api_key_env": "S2_API_KEY",
   "min_year": 1997,
+  "excluded_doi_prefixes": ["10.82388", "10.58024", "10.25914", "10.7914", "10.60613"],
   "primary_max_pages": 20,
   "secondary_max_pages": 2,
   "search_queries": [

@@ -73,6 +73,16 @@ async function run() {
       continue;
     }
 
+    // Dataset/instrument DOIs belong to the datasets/instruments pillars,
+    // not the publications corpus (staff sometimes paste them here).
+    const excluded = (config.excluded_doi_prefixes || [])
+      .some(p => doi.indexOf(p.toLowerCase() + '/') === 0);
+    if (excluded) {
+      console.log('infrastructure DOI (dataset/instrument prefix), skipped — tracked in its own pillar');
+      skipped++;
+      continue;
+    }
+
     // Fetch metadata: Crossref first, then OpenAlex for gaps
     let meta = null;
     let sources = [];

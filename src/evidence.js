@@ -101,9 +101,12 @@ function run() {
   const today = new Date().toISOString().substring(0, 10);
   let added = 0;
   const candidateMisses = [];
+  const excludedPrefixes = (readJson(path.join(__dirname, '..', 'config.json'), {}).excluded_doi_prefixes) || [];
   verified.forEach(function(r) {
     const k = normDoi(r.doi);
     if (!k || inCorpus[k]) return;
+    // Infrastructure DOIs (datasets/instruments) never join the corpus.
+    if (excludedPrefixes.some(function(p) { return k.indexOf(p.toLowerCase() + '/') === 0; })) return;
     if (r.attribution === 'verified') {
       const rec = Object.assign({}, r);
       delete rec.attribution;
@@ -122,6 +125,43 @@ function run() {
       candidateMisses.push({ doi: r.doi, title: r.title, year: r.year, journal: r.journal });
     }
   });
+
+  // ── Human curation overrides (data/evidence-overrides.json) ──
+  // Machine evidence is only as good as OpenAlex's affiliation matching;
+  // this is the documented valve for correcting it. Each entry:
+  //   { doi, action: 'remove' | 'grade', evidence?, reason }
+  const overrides = readJson(path.join(DATA_DIR, 'evidence-overrides.json'), { records: [] }).records || [];
+  if (overrides.length) {
+    const removeSet = {}, gradeMap = {};
+    overrides.forEach(function(o) {
+      const k = normDoi(o.doi);
+      if (!k) return;
+      if (o.action === 'remove') removeSet[k] = o.reason || '';
+      else if (o.action === 'grade' && o.evidence) gradeMap[k] = o;
+    });
+    const before = pubData.records.length;
+    pubData.records = pubData.records.filter(function(p) {
+      const k = normDoi(p.doi);
+      if (removeSet[k] !== undefined) {
+        counts[p.evidence] = (counts[p.evidence] || 1) - 1;
+        return false;
+      }
+      return true;
+    });
+    pubData.records.forEach(function(p) {
+      const o = gradeMap[normDoi(p.doi)];
+      if (o && p.evidence !== o.evidence) {
+        counts[p.evidence] = (counts[p.evidence] || 1) - 1;
+        counts[o.evidence] = (counts[o.evidence] || 0) + 1;
+        p.evidence = o.evidence;
+        p.evidenceDetail = 'manual override: ' + (o.reason || 'curator decision');
+      }
+    });
+    const removedN = before - pubData.records.length;
+    if (removedN || Object.keys(gradeMap).length) {
+      console.log('Overrides applied: ' + removedN + ' removed, ' + Object.keys(gradeMap).length + ' regraded.');
+    }
+  }
 
   pubData.metadata = pubData.metadata || {};
   pubData.metadata.evidence_updated = new Date().toISOString();

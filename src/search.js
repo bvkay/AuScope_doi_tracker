@@ -157,6 +157,21 @@ async function run() {
     if (removed > 0) console.log('Filtered out: ' + removed + ' results before ' + minYear);
   }
 
+  // Exclude AuScope-ecosystem dataset/instrument DOI prefixes. OpenAlex
+  // indexes DataCite records as works, so the instrument registry, EarthBank,
+  // NCI and FDSN records match keyword searches — they belong to the
+  // datasets/instruments pillars, never the publications corpus.
+  const excludedPrefixes = config.excluded_doi_prefixes || [];
+  if (excludedPrefixes.length) {
+    const before = filtered.length;
+    filtered = filtered.filter(item => {
+      const doi = (item.doi || '').toLowerCase();
+      return !excludedPrefixes.some(p => doi.indexOf(p.toLowerCase() + '/') === 0);
+    });
+    const removedPrefix = before - filtered.length;
+    if (removedPrefix > 0) console.log('Filtered out: ' + removedPrefix + ' infrastructure DOIs (excluded prefixes)');
+  }
+
   // Deduplicate
   const deduped = deduplicateItems(filtered);
   console.log('After dedup: ' + deduped.length + ' unique DOIs');

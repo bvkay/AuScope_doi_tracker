@@ -1,0 +1,10 @@
+{
+  "note": "Human curation valve for the evidence ladder. Each record: { doi, action: 'remove' | 'grade', evidence (for grade), reason }. Applied by src/evidence.js on every run, after machine grading.",
+  "records": [
+    {
+      "doi": "10.1016/j.idh.2025.10.108",
+      "action": "remove",
+      "reason": "OpenAlex mis-affiliation: Healthscope hospital paper matched to AuScope ROR. Not AuScope-related."
+    }
+  ]
+}

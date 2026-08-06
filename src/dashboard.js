@@ -17,6 +17,16 @@ const PUB_FILE = path.join(__dirname, '..', 'data', 'publications.json');
 const DS_FILE = path.join(__dirname, '..', 'data', 'datasets.json');
 const PILLAR_FILE = path.join(DOCS_DIR, 'stats-data.json');
 
+// Some source records store titles with HTML entities ("&amp;#8217;").
+// Decode to plain text at export time; pages re-escape on render.
+function decodeEntities(s) {
+  return s
+    .replace(/&amp;/g, '&')
+    .replace(/&#(\d+);/g, function(m, n) { return String.fromCharCode(parseInt(n)); })
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'");
+}
+
 function run() {
   // Load data
   const pubData = fs.existsSync(PUB_FILE)
@@ -42,6 +52,27 @@ function run() {
     citationDistribution: stats.citationBuckets,
     evidenceBreakdown: stats.evidence
   }, null, 2));
+
+  // ── Write docs/publications-data.json (slim feed for publications.html) ──
+  const slim = pubs.map(function(p) {
+    let authors = decodeEntities(String(p.authors || ''));
+    if (authors.length > 260) authors = authors.substring(0, 257) + '…';
+    return {
+      doi: p.doi || '',
+      title: decodeEntities(String(p.title || '')),
+      authors: authors,
+      year: p.year || '',
+      journal: decodeEntities(String(p.journal || '')),
+      cited: parseInt(p.cited) || 0,
+      evidence: p.evidence || 'keyword',
+      programs: recordPrograms(p),
+      oa: /^yes$/i.test(String(p.isOA || ''))
+    };
+  });
+  fs.writeFileSync(path.join(DOCS_DIR, 'publications-data.json'), JSON.stringify({
+    generated: new Date().toISOString(),
+    records: slim
+  }));
 
   // ── Write docs/index.html ──
   // Cross-pillar numbers come from src/stats.js (run it first in CI);
@@ -194,8 +225,49 @@ function computeStats(pubs, datasets) {
     byYear,
     topSubjects,
     citationBuckets,
-    evidence: computeEvidence(pubs)
+    evidence: computeEvidence(pubs),
+    programs: computePrograms(pubs)
   };
+}
+
+// AuScope program groups, mapped from the search terms that found each
+// paper. Manual submission/entry and ROR-verified are provenance tags, not
+// programs — deliberately absent. A paper found by terms from several
+// groups counts in each (noted on the chart).
+const PROGRAM_GROUPS = [
+  { name: 'Simulation & modelling software', terms: ['GPlates', 'EarthByte', 'Underworld2', 'G-Adopt geodynamic', 'Simulation Analysis Modelling AuScope'] },
+  { name: 'Geochemistry & characterisation', terms: ['SHRIMP II Curtin', 'AusGeochem', 'Hylogger CSIRO', 'Western Australia Argon Isotope Facility', 'National Virtual Core Library', 'Geoscience Atom Probe', 'AuScope Geochemistry Network', 'Noble Gas Geochronology Laboratory', 'National Argon Map', 'Characterisation AuScope'] },
+  { name: 'Geodesy & VLBI', terms: ['Katherine VLBI', 'Yarragadee VLBI', 'AuScope VLBI', 'Mt Pleasant VLBI', 'Geospatial Geodesy AuScope'] },
+  { name: 'Earth imaging & sounding', terms: ['AusLAMP', 'AusPass', 'Australian Geophysical Observing System', 'Earth Imaging Sounding AuScope'] },
+  { name: 'Education & outreach', terms: ['Australian Seismometers in Schools', 'Outreach Engagement AuScope'] },
+  { name: 'AVRE & data systems', terms: ['AuScope Discovery Portal', 'AVRE AuScope', 'AuScope Virtual Research Environment', 'Research Data Systems AuScope', 'Australian Scalable Drone Cloud'] },
+  { name: 'AuScope (general)', terms: ['AuScope', 'International Collaboration AuScope', 'Earth Composition Evolution AuScope', 'Earth Sampling AuScope', 'Geophysics2030'] }
+];
+
+const TERM_TO_GROUP = {};
+PROGRAM_GROUPS.forEach(function(g) {
+  g.terms.forEach(function(t) { TERM_TO_GROUP[t] = g.name; });
+});
+
+// Per-record program list + per-group counts (a record counts once per group).
+function recordPrograms(p) {
+  const seen = {};
+  (p.searchTerms || []).forEach(function(t) {
+    const g = TERM_TO_GROUP[t];
+    if (g) seen[g] = true;
+  });
+  return Object.keys(seen);
+}
+
+function computePrograms(pubs) {
+  const counts = {};
+  for (const p of pubs) {
+    recordPrograms(p).forEach(function(g) { counts[g] = (counts[g] || 0) + 1; });
+  }
+  return PROGRAM_GROUPS
+    .map(function(g) { return { name: g.name, count: counts[g.name] || 0 }; })
+    .filter(function(g) { return g.count > 0; })
+    .sort(function(a, b) { return b.count - a.count; });
 }
 
 // Evidence ladder distribution (field written by src/evidence.js).
@@ -228,16 +300,36 @@ function buildEvidenceSection(evidence) {
   const rows = EVIDENCE_LADDER.map(function(e) {
     const n = evidence[e.key] || 0;
     const w = max ? Math.max(2, Math.round(n / max * 100)) : 2;
-    return '            <div class="bar-row" title="' + e.desc + '">\n'
+    return '            <a class="bar-row" href="publications.html?evidence=' + e.key + '" title="' + e.desc + '" style="text-decoration:none;color:inherit">\n'
       + '                <div class="bar-label">' + e.label + '</div>\n'
       + '                <div class="bar-track"><div class="bar-fill" style="width:' + w + '%;background:' + e.fill + '"></div></div>\n'
       + '                <div class="bar-value">' + n.toLocaleString() + '</div>\n'
-      + '            </div>';
+      + '            </a>';
   }).join('\n');
   return '\n    <!-- ═══ Evidence ladder (from src/evidence.js) ═══ -->\n'
     + '    <div class="explorers">\n'
     + '        <h2>Evidence behind the publications count</h2>\n'
-    + '        <div class="note">Every publication is graded by its strongest verifiable link to AuScope — identifier evidence first, then text acknowledgement, then keyword match. Hover a row for the grading rule.</div>\n'
+    + '        <div class="note">Every publication is graded by its strongest verifiable link to AuScope — identifier evidence first, then text acknowledgement, then keyword match. Click a row to browse those papers.</div>\n'
+    + '        <div class="bar-chart">\n' + rows + '\n        </div>\n'
+    + '    </div>\n';
+}
+
+// Publications by program: search-term tags mapped to AuScope program groups.
+function buildProgramSection(programs) {
+  if (!programs || !programs.length) return '';
+  const max = programs[0].count;
+  const rows = programs.map(function(g) {
+    const w = Math.max(2, Math.round(g.count / max * 100));
+    return '            <a class="bar-row" href="publications.html?program=' + encodeURIComponent(g.name) + '" style="text-decoration:none;color:inherit">\n'
+      + '                <div class="bar-label">' + g.name + '</div>\n'
+      + '                <div class="bar-track"><div class="bar-fill" style="width:' + w + '%"></div></div>\n'
+      + '                <div class="bar-value">' + g.count.toLocaleString() + '</div>\n'
+      + '            </a>';
+  }).join('\n');
+  return '\n    <!-- ═══ Publications by program ═══ -->\n'
+    + '    <div class="explorers">\n'
+    + '        <h2>Publications by AuScope program</h2>\n'
+    + '        <div class="note">Grouped from the search terms that found each paper — a paper crediting several programs counts in each. Papers added manually carry no program tag yet. Click a row to browse.</div>\n'
     + '        <div class="bar-chart">\n' + rows + '\n        </div>\n'
     + '    </div>\n';
 }
@@ -277,6 +369,10 @@ function buildExplorerCards(pillarData) {
   const p = pillarData.pillars;
   const cards = [];
 
+  if (p.publications) {
+    cards.push({ href: 'publications.html', num: p.publications.total.toLocaleString(),
+      name: 'Publications', sub: 'evidence-graded · browse all' });
+  }
   if (p.datasets) {
     const platforms = Object.keys(p.datasets.byPlatform || {}).length;
     cards.push({ href: 'datasets.html', num: p.datasets.total.toLocaleString(),
@@ -537,6 +633,7 @@ ${buildHeroTiles(s, pillarData)}
 
 ${explorerCards}
 ${buildEvidenceSection(stats.evidence)}
+${buildProgramSection(stats.programs)}
     <!-- ═══ Charts ═══ -->
     <div class="charts">
         <!-- Publications by Year -->
@@ -568,6 +665,7 @@ ${buildEvidenceSection(stats.evidence)}
     <!-- ═══ Footer ═══ -->
     <div class="footer">
         Explore:
+        <a href="publications.html">Publications</a> &middot;
         <a href="datasets.html">Datasets</a> &middot;
         <a href="earthbank.html">EarthBank</a> &middot;
         <a href="auspass.html">AusPass</a> &middot;
