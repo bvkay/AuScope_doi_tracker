@@ -3,16 +3,19 @@
  "method": "merged-v1",
  "source": "src/nvcl/harvest.js — live harvest of all public NVCL node services (see src/nvcl/METHODOLOGY.md)",
  "summary": {
-  "total_datasets": 6128,
-  "total_boreholes_with_data": 5996,
-  "total_scanned_km": 927.85,
+  "total_datasets": 6139,
+  "total_boreholes_with_data": 6005,
+  "total_scanned_km": 932.25,
   "total_scanned_km_note": "alias of unique_scanned_km (union of per-dataset scan intervals per borehole)",
-  "unique_scanned_km": 927.85,
-  "total_scan_km": 931.54,
-  "interval_unrecorded_datasets": 2221,
+  "unique_scanned_km": 932.25,
+  "total_scan_km": 935.93,
+  "estimated_km": 760.19,
+  "estimated_boreholes": 2113,
+  "combined_estimate_km": 1692.44,
+  "interval_unrecorded_datasets": 2220,
   "interval_clamped_datasets": 26,
-  "total_borehole_drilled_km": 2327.3,
-  "datasets_with_instrument_data": 5602,
+  "total_borehole_drilled_km": 2338.35,
+  "datasets_with_instrument_data": 5612,
   "participating_nodes": [
    "CSIRO",
    "NSW",
@@ -32,11 +35,11 @@
    "latest_scan": "2026-08-05"
   },
   "rescan_stats": {
-   "boreholes_with_multiple_scans": 24,
+   "boreholes_with_multiple_scans": 26,
    "max_scans_one_borehole": 3
   },
   "tir_stats": {
-   "tir_datasets": 5391,
+   "tir_datasets": 5402,
    "tir_pct_of_total": 88
   }
  },
@@ -50,6 +53,8 @@
    "total_km_scanned": 0.22,
    "unique_scanned_km": 0.22,
    "total_scan_km": 0.22,
+   "estimated_km": 0,
+   "estimated_boreholes": 0,
    "interval_unrecorded": 0,
    "interval_clamped": 0,
    "latest_dataset_date": "2025-12-23",
@@ -66,6 +71,8 @@
    "total_km_scanned": 283.48,
    "unique_scanned_km": 283.48,
    "total_scan_km": 284.41,
+   "estimated_km": 1.42,
+   "estimated_boreholes": 19,
    "interval_unrecorded": 20,
    "interval_clamped": 20,
    "latest_dataset_date": "2026-07-28",
@@ -77,34 +84,39 @@
    "state": "NT",
    "status": "participating",
    "wfs_registered_boreholes": 538,
-   "total_datasets": 431,
-   "total_boreholes_with_data": 420,
+   "total_datasets": 430,
+   "total_boreholes_with_data": 419,
    "total_km_scanned": 0,
    "unique_scanned_km": 0,
    "total_scan_km": 0,
-   "interval_unrecorded": 431,
+   "estimated_km": 169.25,
+   "estimated_boreholes": 419,
+   "interval_unrecorded": 430,
    "interval_clamped": 0,
    "latest_dataset_date": null,
    "days_since_latest": null,
    "datasets_last_12mo": 0,
-   "km_scanned_last_12mo": 0
+   "km_scanned_last_12mo": 0,
+   "dataset_fetch_failures": 1
   },
   {
    "state": "QLD",
    "status": "participating",
    "wfs_registered_boreholes": 587,
-   "total_datasets": 360,
-   "total_boreholes_with_data": 356,
-   "total_km_scanned": 79.08,
-   "unique_scanned_km": 79.08,
-   "total_scan_km": 79.14,
+   "total_datasets": 372,
+   "total_boreholes_with_data": 366,
+   "total_km_scanned": 83.48,
+   "unique_scanned_km": 83.48,
+   "total_scan_km": 83.54,
+   "estimated_km": 0.33,
+   "estimated_boreholes": 3,
    "interval_unrecorded": 4,
    "interval_clamped": 3,
    "latest_dataset_date": "2026-08-05",
    "days_since_latest": 1,
-   "datasets_last_12mo": 47,
-   "km_scanned_last_12mo": 7.5,
-   "dataset_fetch_failures": 170
+   "datasets_last_12mo": 46,
+   "km_scanned_last_12mo": 6.97,
+   "dataset_fetch_failures": 160
   },
   {
    "state": "SA",
@@ -115,6 +127,8 @@
    "total_km_scanned": 427.19,
    "unique_scanned_km": 427.19,
    "total_scan_km": 428.08,
+   "estimated_km": 0.84,
+   "estimated_boreholes": 2,
    "interval_unrecorded": 2,
    "interval_clamped": 2,
    "latest_dataset_date": "2026-07-23",
@@ -131,6 +145,8 @@
    "total_km_scanned": 137.87,
    "unique_scanned_km": 137.87,
    "total_scan_km": 139.69,
+   "estimated_km": 0.03,
+   "estimated_boreholes": 1,
    "interval_unrecorded": 1,
    "interval_clamped": 1,
    "latest_dataset_date": "2026-01-15",
@@ -147,6 +163,8 @@
    "total_km_scanned": 0,
    "unique_scanned_km": 0,
    "total_scan_km": 0,
+   "estimated_km": 0,
+   "estimated_boreholes": 0,
    "interval_unrecorded": 0,
    "interval_clamped": 0,
    "latest_dataset_date": null,
@@ -164,6 +182,8 @@
    "total_km_scanned": 0,
    "unique_scanned_km": 0,
    "total_scan_km": 0,
+   "estimated_km": 588.32,
+   "estimated_boreholes": 1669,
    "interval_unrecorded": 1763,
    "interval_clamped": 0,
    "latest_dataset_date": null,
@@ -202,9 +222,9 @@
   },
   {
    "instrument_canonical": "Unknown",
-   "datasets": 526,
-   "boreholes": 521,
-   "km_scanned": 99.98,
+   "datasets": 527,
+   "boreholes": 522,
+   "km_scanned": 100.49,
    "first_use": "2010-05-21",
    "last_use": "2026-08-05",
    "states_used": [
@@ -217,7 +237,7 @@
     "WA"
    ],
    "service_years": 16.21,
-   "km_per_year": 6.17
+   "km_per_year": 6.2
   },
   {
    "instrument_canonical": "HyLogger 3-6",
@@ -233,6 +253,20 @@
    "km_per_year": 8.61
   },
   {
+   "instrument_canonical": "HyLogger 3-5",
+   "datasets": 305,
+   "boreholes": 301,
+   "km_scanned": 55.87,
+   "first_use": "2016-07-08",
+   "last_use": "2026-07-28",
+   "states_used": [
+    "NSW",
+    "QLD"
+   ],
+   "service_years": 10.05,
+   "km_per_year": 5.56
+  },
+  {
    "instrument_canonical": "HyLogger 2-3",
    "datasets": 154,
    "boreholes": 154,
@@ -244,20 +278,6 @@
    ],
    "service_years": 5.28,
    "km_per_year": 9.88
-  },
-  {
-   "instrument_canonical": "HyLogger 3-5",
-   "datasets": 294,
-   "boreholes": 292,
-   "km_scanned": 51.86,
-   "first_use": "2016-07-08",
-   "last_use": "2026-07-28",
-   "states_used": [
-    "NSW",
-    "QLD"
-   ],
-   "service_years": 10.05,
-   "km_per_year": 5.16
   },
   {
    "instrument_canonical": "HyLogger 2-6",
@@ -287,16 +307,16 @@
   },
   {
    "instrument_canonical": "HyLogger 2-5",
-   "datasets": 63,
-   "boreholes": 62,
-   "km_scanned": 19.6,
+   "datasets": 62,
+   "boreholes": 61,
+   "km_scanned": 19.48,
    "first_use": "2017-07-24",
    "last_use": "2026-08-05",
    "states_used": [
     "QLD"
    ],
    "service_years": 9.03,
-   "km_per_year": 2.17
+   "km_per_year": 2.16
   },
   {
    "instrument_canonical": "HyLogger 4-2303",

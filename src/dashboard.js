@@ -352,6 +352,7 @@ function buildHeroTiles(s, pillarData) {
     if (p.datasets) tiles.push({ n: p.datasets.total, label: 'Datasets' });
     if (p.samples && p.samples.declared) tiles.push({ n: p.samples.declared, label: 'Samples' });
     if (p.stations) tiles.push({ n: p.stations.total, label: 'Seismic Stations' });
+    if (p.nvcl) tiles.push({ n: Math.round(p.nvcl.combinedKm || p.nvcl.scannedKm), label: 'km Core Scanned' });
     if (p.instruments) {
       tiles.push({ n: p.instruments.units, label: 'Instruments' });
       // Surveys deliberately NOT a hero tile: the registry's 9 DOI-registered
@@ -407,9 +408,15 @@ function buildExplorerCards(pillarData) {
         + p.instruments.linkedPapers + ' papers' });
   }
   if (p.nvcl) {
-    cards.push({ href: 'nvcl.html', num: Math.round(p.nvcl.scannedKm).toLocaleString() + ' km',
-      name: 'NVCL core scanned', sub: p.nvcl.boreholes.toLocaleString() + ' boreholes · '
-        + p.nvcl.nodes + ' state nodes · verifiable live' });
+    var nvclNum = p.nvcl.estimatedKm
+      ? '\u2248 ' + Math.round(p.nvcl.combinedKm).toLocaleString() + ' km'
+      : Math.round(p.nvcl.scannedKm).toLocaleString() + ' km';
+    var nvclSub = p.nvcl.estimatedKm
+      ? Math.round(p.nvcl.scannedKm).toLocaleString() + ' km measured · '
+        + p.nvcl.boreholes.toLocaleString() + ' boreholes · ' + p.nvcl.nodes + ' state nodes'
+      : p.nvcl.boreholes.toLocaleString() + ' boreholes · ' + p.nvcl.nodes
+        + ' state nodes · verifiable live';
+    cards.push({ href: 'nvcl.html', num: nvclNum, name: 'NVCL core scanned', sub: nvclSub });
   }
   if (p.ausis) {
     cards.push({ href: 'ausis.html',

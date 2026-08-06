@@ -168,7 +168,11 @@ async function run() {
     pillars.nvcl = {
       asOf: nvcl.as_of,
       boreholes: nvcl.summary.total_boreholes_with_data,
+      // measured = intervals the nodes publish; combined adds the disclosed
+      // estimation tier for nodes that publish none (WA, NT).
       scannedKm: nvcl.summary.total_scanned_km,
+      combinedKm: nvcl.summary.combined_estimate_km || nvcl.summary.total_scanned_km,
+      estimatedKm: nvcl.summary.estimated_km || 0,
       datasets: nvcl.summary.total_datasets,
       nodes: nvcl.summary.participating_node_count
     };
