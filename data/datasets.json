@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-08-06T00:39:53.355Z",
-    "total_count": 210
+    "last_updated": "2026-08-06T00:59:18.275Z",
+    "total_count": 214
   },
   "records": [
     {
@@ -1561,6 +1561,33 @@
       "nciUuid": "f6307_9112_1484_3827"
     },
     {
+      "doi": "10.25914/bzd5-n780",
+      "name": "Magnetotelluric surveys of South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "Goleby, Bruce, Thiel, Stephan, Hollmann, Hannes, Hollmann, Hannes",
+      "year": 2023,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f3484_7156_3078_9567"
+    },
+    {
+      "doi": "10.25914/r1yv-qe70",
+      "name": "Magnetotelluric surveys of Tasmania as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f6598_1359_7455_7246"
+    },
+    {
+      "doi": "10.25914/rrm2-b189",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province, 2016 to 2018",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f6277_7362_8380_4100"
+    },
+    {
       "doi": "10.25914/nxxw-wd19",
       "name": "Magnetotelluric surveys of the Australian Antarctic Territory",
       "authors": "Selway, Kate, Manassero,  Maria Constanza, St�l, Tobias, Reading, Anya",
@@ -1642,10 +1669,10 @@
       "nciUuid": "f1819_6386_8013_2641"
     },
     {
-      "doi": "",
+      "doi": "10.25914/aty6-xs98",
       "name": "National magnetotelluric surveys of Australia",
-      "authors": "",
-      "year": null,
+      "authors": "Graham Heinson",
+      "year": 2023,
       "platform": "NCI",
       "type": "Dataset",
       "nciUuid": "f3493_5419_2278_8379"
@@ -1703,6 +1730,15 @@
       "platform": "NCI",
       "type": "Dataset",
       "nciUuid": "f1569_5260_6502_2433"
+    },
+    {
+      "doi": "10.25914/nn3w-d141",
+      "name": "South Island Seismology at the Speed of Light Experiment (SISSLE) - Level 1 Decimated Data",
+      "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
+      "year": 2026,
+      "platform": "NCI",
+      "type": "Dataset",
+      "nciUuid": "f2381_8931_8909_7373"
     }
   ]
 }
