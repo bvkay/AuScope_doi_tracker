@@ -2,9 +2,9 @@
   "metadata": {
     "type": "publications",
     "last_updated": "2026-08-06T00:29:02.005Z",
-    "total_count": 2818,
+    "total_count": 2805,
     "evidence_updated": "2026-08-06T00:29:07.550Z",
-    "consolidated": "2026-08-06T00:29:07.662Z"
+    "consolidated": "2026-08-06T00:38:33.287Z"
   },
   "records": [
     {
@@ -1344,38 +1344,6 @@
         "AU"
       ],
       "authorCount": 6,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
-    },
-    {
-      "doi": "10.5194/gchron-2024-26-ac2",
-      "title": "Reply on RC2",
-      "authors": "Murat Taner Tamer",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2024,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Clinical Nutrition and Gastroenterology; Healthcare Systems and Challenges",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope",
-        "AusGeochem"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Institute of Geology, China Earthquake Administration",
-        "The University of Texas at Austin",
-        "China Earthquake Administration"
-      ],
-      "countries": [
-        "US",
-        "CN"
-      ],
-      "authorCount": 1,
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)"
     },
@@ -5631,38 +5599,6 @@
       "authorCount": 6,
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)"
-    },
-    {
-      "doi": "10.5194/gmd-2021-367-rc5",
-      "title": "Comment on gmd-2021-367",
-      "authors": "D. Rhodri Davies; Stephan C. Kramer; Siavash Ghelichkhan; A. H. Gibson",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2022,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Computational Physics and Python Applications; Parallel Computing and Optimization Techniques; Geophysics and Gravity Measurements",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope",
-        "Underworld2",
-        "G-Adopt geodynamic"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Australian National University",
-        "Imperial College London"
-      ],
-      "countries": [
-        "AU",
-        "GB"
-      ],
-      "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
     },
     {
       "doi": "10.1371/journal.pone.0264914",
@@ -15971,28 +15907,6 @@
       "evidenceDetail": "text scan (tier1)"
     },
     {
-      "doi": "10.5194/essd-2023-464-rc1",
-      "title": "Comment on essd-2023-464",
-      "authors": "Randolph J. Enkin",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2024,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Geochemistry and Geologic Mapping; Mineral Processing and Grinding; Soil Geostatistics and Mapping",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Hylogger CSIRO"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 1,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
-    },
-    {
       "doi": "10.46427/gold2024.22375",
       "title": "Exploration for gold under the Lake Rebecca, Western Australia",
       "authors": "Walid Salama; Louise Schoneveld; Heta Lampinen; Anicia Henne; Michael Verrall",
@@ -16236,37 +16150,6 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
-    },
-    {
-      "doi": "10.5194/gchron-2021-41-rc1",
-      "title": "Comment on gchron-2021-41",
-      "authors": "Reid, Anthony; Forster, Marnie; Preiss, Wolfgang; Caruso, Alicia; Curtis, Stacey; Wise, Tom; Vasegh, Davood; Goswami, Naina; Lister, Gordon",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2022,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Hylogger CSIRO"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "University of Adelaide",
-        "Australian National University",
-        "University of South Australia",
-        "University of Queensland"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "authorCount": 9,
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)"
     },
@@ -16940,29 +16823,6 @@
       ],
       "authorCount": 7,
       "evidence": "keyword"
-    },
-    {
-      "doi": "10.5194/gchron-2023-15-rc2",
-      "title": "Comment on gchron-2023-15",
-      "authors": "Alberto Pérez‐Huerta",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2023,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Advanced Materials Characterization Techniques; Nuclear Materials and Properties; Fusion materials and technologies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin",
-        "Geoscience Atom Probe"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 1,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1111/ggr.12522",
@@ -26471,33 +26331,6 @@
       "evidence": "keyword"
     },
     {
-      "doi": "10.5194/egusphere-2023-2738-ac2",
-      "title": "Reply on RC2",
-      "authors": "Dominique Jenny",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2024,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Clinical Nutrition and Gastroenterology; Healthcare Systems and Challenges",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "EarthByte"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Utrecht University"
-      ],
-      "countries": [
-        "NL"
-      ],
-      "authorCount": 1,
-      "evidence": "keyword"
-    },
-    {
       "doi": "10.1007/s11430-023-1254-4",
       "title": "Multi-spherical interactions and mechanisms of hydrocarbon enrichment in the Southeast Asian archipelagic tectonic system",
       "authors": "Rixiang Zhu; Hongjun Wang; Huajian Wang; Xiaomei Wang; Bo Wan; Wang Zhang; Houqin Zhu; Yuke Liu; Junlai Liu; Qinren Meng; Fang Hao; Zhijun Jin",
@@ -33703,28 +33536,6 @@
       "authorCount": 4,
       "evidence": "candidate",
       "evidenceDetail": "watchlist ORCID + partner co-affiliation"
-    },
-    {
-      "doi": "10.5194/egusphere-2023-2683-rc1",
-      "title": "Comment on egusphere-2023-2683",
-      "authors": "Georg Reuber",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2023,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Seismic Imaging and Inversion Techniques; High-pressure geophysics and materials; Hydrocarbon exploration and reservoir analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "G-Adopt geodynamic"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 1,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.1002/essoar.10510305.1",
@@ -51780,95 +51591,6 @@
       "evidenceDetail": "text scan (tier3)"
     },
     {
-      "doi": "10.5194/egusphere-2025-4168-ac2",
-      "title": "Reply on RC2",
-      "authors": "William Scott",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2026,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "G-Adopt geodynamic"
-      ],
-      "authorCount": 1,
-      "institutions": [
-        "Australian National University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)"
-    },
-    {
-      "doi": "10.5194/egusphere-2025-4168-ac1",
-      "title": "Reply on RC1",
-      "authors": "William Scott",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2026,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "G-Adopt geodynamic"
-      ],
-      "authorCount": 1,
-      "institutions": [
-        "Australian National University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)"
-    },
-    {
-      "doi": "10.5194/egusphere-2025-4168-rc1",
-      "title": "Comment on egusphere-2025-4168",
-      "authors": "Scott, William; Hoggard, Mark; Duvernay, Thomas; Ghelichkhan, Sia; Gibson, Angus; Roberts, Dale; Kramer, Stephan C.; Davies, D. Rhodri",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2025,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "G-Adopt geodynamic"
-      ],
-      "authorCount": 8,
-      "institutions": [
-        "Australian National University",
-        "Imperial College London"
-      ],
-      "countries": [
-        "AU",
-        "GB"
-      ],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "relatedDois": [
-        "10.5194/egusphere-2025-4168-rc2"
-      ]
-    },
-    {
       "doi": "10.5194/egusphere-egu25-13762",
       "title": "Unveiling Late Cenozoic Dynamic Topography Evolution Using Non-Linear Adjoint Models",
       "authors": "Siavash Ghelichkhan; D. Rhodri Davies; A. H. Gibson; David C. S. Roberts",
@@ -51953,91 +51675,6 @@
       "dateAdded": "2026-04-05",
       "evidence": "candidate",
       "evidenceDetail": "watchlist ORCID + partner co-affiliation"
-    },
-    {
-      "doi": "10.5194/egusphere-2023-2683-ac1",
-      "title": "Response to all reviewer and community comments",
-      "authors": "Siavash Ghelichkhan",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2024,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "CO2 Sequestration and Geologic Interactions; Reservoir Engineering and Simulation Methods; Geomagnetism and Paleomagnetism Studies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "G-Adopt geodynamic"
-      ],
-      "authorCount": 1,
-      "institutions": [
-        "Australian National University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)"
-    },
-    {
-      "doi": "10.5194/egusphere-2023-2683-cc1",
-      "title": "Comment on egusphere-2023-2683",
-      "authors": "Ghelichkhan, Siavash; Gibson, Angus; Davies, D. Rhodri; Kramer, Stephan C.; Ham, David A.",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2024,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Geophysics and Gravity Measurements",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "G-Adopt geodynamic"
-      ],
-      "authorCount": 5,
-      "institutions": [
-        "Australian National University",
-        "Imperial College London"
-      ],
-      "countries": [
-        "AU",
-        "GB"
-      ],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "relatedDois": [
-        "10.5194/egusphere-2023-2683-rc2"
-      ]
-    },
-    {
-      "doi": "10.5194/egusphere-2023-2683-ec1",
-      "title": "Comment on egusphere-2023-2683",
-      "authors": "Boris Kaus",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2024,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Seismic Imaging and Inversion Techniques; High-pressure geophysics and materials; Hydrocarbon exploration and reservoir analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "G-Adopt geodynamic"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.5194/egusphere-2023-2683",

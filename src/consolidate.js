@@ -78,7 +78,22 @@ function run() {
   console.log('=======================\n');
 
   const pubData = JSON.parse(fs.readFileSync(PUB_FILE, 'utf8'));
-  const records = pubData.records || [];
+  let records = pubData.records || [];
+
+  // Peer-review artifacts are not publications: Copernicus journals mint
+  // DOIs for referee/author comments (-rc1/-ac2/...), and they match our
+  // text scans because they quote the paper under review.
+  const isReviewArtifact = function(r) {
+    const t = String(r.type || '').toLowerCase();
+    if (t === 'peer review' || t === 'peer-review') return true;
+    return /^10\.5194\/.*-(rc|ac|ec|cc)\d+$/.test(normDoi(r.doi));
+  };
+  const artifacts = records.filter(isReviewArtifact);
+  if (artifacts.length) {
+    console.log('Removed ' + artifacts.length + ' peer-review artifacts:');
+    artifacts.forEach(function(r) { console.log('    ' + r.doi + '  ' + String(r.title).substring(0, 50)); });
+    records = records.filter(function(r) { return !isReviewArtifact(r); });
+  }
 
   // Repair DOI fields stored as full URLs first — they may then collide.
   let urlFixed = 0;

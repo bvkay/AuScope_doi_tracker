@@ -1,18 +1,18 @@
 {
-  "generated": "2026-08-06T00:33:22.275Z",
+  "generated": "2026-08-06T00:38:36.700Z",
   "stats": {
-    "totalPublications": 2818,
+    "totalPublications": 2805,
     "totalDatasets": 214,
     "totalCitations": 65704,
     "citedPublications": 2248,
-    "citedPercent": 79.8,
-    "avgCitations": 23.3,
+    "citedPercent": 80.1,
+    "avgCitations": 23.4,
     "uniqueJournals": 599,
-    "uniqueAuthors": 10875,
+    "uniqueAuthors": 10852,
     "uniqueInstitutions": 1329,
     "uniqueCountries": 93,
     "yearRange": "1997–2026",
-    "noSubjectCount": 39
+    "noSubjectCount": 36
   },
   "publicationsByYear": [
     {
@@ -192,36 +192,36 @@
     },
     {
       "year": 2022,
-      "count": 450,
-      "cumulative": 1825,
+      "count": 448,
+      "cumulative": 1823,
       "citations": 6837,
       "cumulativeCitations": 59768
     },
     {
       "year": 2023,
-      "count": 387,
-      "cumulative": 2212,
+      "count": 385,
+      "cumulative": 2208,
       "citations": 3992,
       "cumulativeCitations": 63760
     },
     {
       "year": 2024,
-      "count": 223,
-      "cumulative": 2435,
+      "count": 217,
+      "cumulative": 2425,
       "citations": 1608,
       "cumulativeCitations": 65368
     },
     {
       "year": 2025,
-      "count": 214,
-      "cumulative": 2649,
+      "count": 213,
+      "cumulative": 2638,
       "citations": 312,
       "cumulativeCitations": 65680
     },
     {
       "year": 2026,
-      "count": 169,
-      "cumulative": 2818,
+      "count": 167,
+      "cumulative": 2805,
       "citations": 24,
       "cumulativeCitations": 65704
     }
@@ -237,11 +237,11 @@
     },
     {
       "topic": "High-pressure geophysics and materials",
-      "count": 569
+      "count": 567
     },
     {
       "topic": "Geochemistry and Geologic Mapping",
-      "count": 488
+      "count": 486
     },
     {
       "topic": "Geology and Paleoclimatology Research",
@@ -265,15 +265,15 @@
     },
     {
       "topic": "Hydrocarbon exploration and reservoir analysis",
-      "count": 140
-    },
-    {
-      "topic": "Geophysics and Gravity Measurements",
-      "count": 137
+      "count": 138
     },
     {
       "topic": "Geological formations and processes",
       "count": 136
+    },
+    {
+      "topic": "Geophysics and Gravity Measurements",
+      "count": 135
     },
     {
       "topic": "GNSS positioning and interference",
@@ -281,17 +281,17 @@
     },
     {
       "topic": "Geomagnetism and Paleomagnetism Studies",
-      "count": 125
+      "count": 124
     },
     {
       "topic": "Seismic Imaging and Inversion Techniques",
-      "count": 119
+      "count": 117
     }
   ],
   "citationDistribution": [
     {
       "label": "0",
-      "count": 570
+      "count": 557
     },
     {
       "label": "1–5",
@@ -315,11 +315,11 @@
     }
   ],
   "evidenceBreakdown": {
-    "candidate": 101,
-    "text-attributed": 589,
+    "candidate": 100,
+    "text-attributed": 585,
     "verified": 41,
-    "keyword": 1762,
-    "text-software": 320,
+    "keyword": 1761,
+    "text-software": 313,
     "text-infrastructure": 5
   }
 }
