@@ -336,3 +336,43 @@ correct direction. The estimation tier was always disclosed as an upper
 bound; each conversion trades a generous guess for a smaller true number.
 Anyone quoting the combined figure across harvests should quote the split
 with it.
+
+## Verification: API dates are ingest dates (random spot-check, 6 Aug 2026)
+
+The aggregate evidence (bulk-upload clusters that vanish under TSG dates)
+was confirmed by sampling ten random SA/TAS boreholes and querying each
+node's own `getDatasetCollection` live, alongside the TSG header scan date
+for the same hole.
+
+**The API date was later than the TSG scan date in 10 of 10 cases** — never
+earlier, never equal. The lag is bimodal:
+
+| Borehole | TSG scan date | API date | Lag |
+|---|---|---|---|
+| SA 136331 | 2019-05-07 | 2019-05-16 | 9 days |
+| SA 149886 | 2017-11-24 | 2017-12-05 | 11 days |
+| SA 134141 | 2022-10-28 | 2022-11-22 | 24 days |
+| TAS 2287 | 2009-11-19 | 2010-11-10 | 356 days |
+| TAS 93336 | 2022-01-31 | 2025-03-21 | 1,144 days |
+| SA 139526 | 2013-07-01 | 2018-01-24 | 1,668 days |
+| TAS 38238 | 2014-07-30 | 2020-10-13 | 2,266 days |
+| SA 206163 | 2012-08-21 | 2018-11-05 | 2,267 days |
+| SA 218473 | 2012-01-31 | 2019-07-02 | 2,709 days |
+| SA 23196 | 2009-07-31 | 2018-02-13 | 3,119 days |
+
+Either days-to-weeks (scanned, then uploaded promptly) or years (a bulk
+backfill of older archives). A date field that is *always* later than the
+event it supposedly records is an ingest timestamp, not a scan timestamp.
+
+TAS 38238 is the clearest single case: its API date falls inside the
+2020-10 ingest cluster that first raised the suspicion, while its actual
+scan was July 2014 — six years earlier.
+
+Corroborating detail: TSG timestamps spread across the working day
+(09:29, 10:35, 14:03 …), consistent with an operator running an
+instrument. API timestamps cluster in the afternoon (16:22, 16:49,
+16:52 …), consistent with scheduled batch ingests.
+
+This is why date precedence is **TSG > API**, why every date carries a
+`dateSource`, and why states still relying on API dates are eligible for
+the bulk-upload flag.
