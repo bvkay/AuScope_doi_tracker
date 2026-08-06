@@ -8,6 +8,7 @@
     "datasets": "node src/dataset-inventory.js",
     "update-fdsn": "node src/update-fdsn-dois.js",
     "stats": "node src/stats.js",
+    "nvcl": "node src/nvcl/harvest.js",
     "verified": "node src/verified.js",
     "evidence": "node src/evidence.js",
     "consolidate": "node src/consolidate.js",

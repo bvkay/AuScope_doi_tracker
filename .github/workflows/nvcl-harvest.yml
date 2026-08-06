@@ -1,0 +1,46 @@
+name: NVCL Harvest
+
+on:
+  # Monthly harvest of all public NVCL node services (3rd of the month, 3am UTC)
+  schedule:
+    - cron: '0 3 3 * *'
+
+  # Manual trigger via GitHub UI
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Live harvest of the 8 NVCL nodes (merged-v1 methodology).
+      # Exits non-zero without writing anything if the run is unhealthy
+      # (< 5 nodes reachable or boreholes < 80% of the previous snapshot),
+      # which fails this workflow loudly instead of committing bad numbers.
+      - name: NVCL harvest
+        run: node src/nvcl/harvest.js
+
+      # Cross-pillar stats pick up the fresh NVCL snapshot
+      - name: Aggregate cross-pillar stats
+        run: node src/stats.js
+
+      # Regenerate dashboard and widget
+      - name: Generate dashboard
+        run: node src/dashboard.js
+
+      # Commit and push all changes
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/nvcl-stats.json data/nvcl-history.jsonl docs/nvcl-data.json docs/stats-data.json docs/index.html docs/data.json docs/widget.html
+          git diff --cached --quiet || git commit -m "NVCL harvest $(date +%Y-%m-%d)"
+          git push
