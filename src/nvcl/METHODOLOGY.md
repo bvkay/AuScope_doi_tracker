@@ -337,6 +337,30 @@ bound; each conversion trades a generous guess for a smaller true number.
 Anyone quoting the combined figure across harvests should quote the split
 with it.
 
+## TSG as the single source of truth (national scan, from 6 Aug 2026)
+
+The TSG headers on the NCI THREDDS mirror are being read for **every**
+archive in the collection — all six state subcatalogs, 5,168 archives —
+not only the two nodes whose APIs omit intervals.
+
+Why the whole country rather than just the gaps:
+
+- **Dates.** The ingest-vs-scan problem is national, not local to WA/NT
+  (see the spot-check below). Every state's dates need the TSG source.
+- **One methodology.** Mixing API-derived and TSG-derived measurements
+  across states makes national totals a blend of two definitions. Reading
+  every archive means one rule applied uniformly.
+- **Independent verification.** Where a node *does* publish intervals, the
+  TSG measurement is a cross-check on it — the same relationship that
+  exposed the date problem. The API stays the primary depth source
+  (precedence is unchanged); TSG makes disagreement visible instead of
+  invisible.
+- **Resilience.** Node APIs change, break, and lose fields. A TSG-derived
+  cache in the repo keeps the archive measurable regardless.
+
+The cache is committed and diffed per archive, so this is a one-time
+national baseline; weekly runs then read only newly published archives.
+
 ## Verification: API dates are ingest dates (random spot-check, 6 Aug 2026)
 
 The aggregate evidence (bulk-upload clusters that vanish under TSG dates)
