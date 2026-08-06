@@ -186,14 +186,24 @@ async function run() {
   console.log('==========================\n');
 
   // 1. ROR queries
+  // OpenAlex's affiliation matcher wrongly maps other "Scope"-named
+  // organisations (Healthscope hospitals, Scope Australia disability
+  // services) onto AuScope's institution entity. Trust the entity match
+  // only when the author's RAW affiliation text actually says "AuScope".
   for (const ror of (config.auscope_rors || [])) {
     process.stdout.write(`[ROR ${ror}] querying ... `);
     const works = await fetchAllWorks('authorships.institutions.ror', ror, fetchOpts);
-    console.log(`${works.length} works`);
+    let kept = 0, rejected = 0;
     for (const w of works) {
+      const confirmed = (w.authorships || []).some(a =>
+        (a.institutions || []).some(inst => (inst.ror || '').indexOf(ror) !== -1)
+        && (a.raw_affiliation_strings || []).some(s => /auscope/i.test(s)));
+      if (!confirmed) { rejected++; continue; }
+      kept++;
       const doi = normaliseDoi(w.doi);
       addOrUpdate(records, doi, w, 'verified', `ror:${ror}`);
     }
+    console.log(`${works.length} works — ${kept} confirmed by raw affiliation text, ${rejected} rejected (mis-affiliated)`);
   }
 
   // 2. Funder ID queries

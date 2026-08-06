@@ -1,10 +1,10 @@
 {
   "metadata": {
     "type": "verified",
-    "last_updated": "2026-08-06T00:06:56.192Z",
-    "total_count": 685,
+    "last_updated": "2026-08-06T00:15:28.964Z",
+    "total_count": 669,
     "by_tier": {
-      "verified": 61,
+      "verified": 45,
       "candidate-strong": 624
     }
   },
@@ -1505,41 +1505,6 @@
         "ror:04s1m4564",
         "orcid:0000-0002-8841-4384",
         "orcid:0000-0002-2594-6965"
-      ]
-    },
-    {
-      "doi": "10.1016/j.idh.2025.10.108",
-      "title": "Consumer survey of patients experiences on the insertion and management of Peripheral Intravenous Cannula at acute care hospitals in Healthscope",
-      "authors": "Nicole Isles",
-      "journal": "Infection Disease & Health",
-      "publisher": "Elsevier BV",
-      "year": 2025,
-      "cited": 0,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Intravenous Infusion Technology and Safety; Chemotherapy-related skin toxicity; Central Venous Catheters and Hemodialysis",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [
-        "AuScope"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "04s1m4564"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5050938303"
-      ],
-      "authorOrcids": [
-        "0000-0003-2775-0664"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
       ]
     },
     {
@@ -9135,70 +9100,6 @@
       ]
     },
     {
-      "doi": "10.1080/10749357.2022.2141819",
-      "title": "Improving stroke clinical guideline adherence in an Australian hospital using a clinician-led implementation process",
-      "authors": "Natasha K. Brusco; Meg E. Morris; Sarah Foster; Jeffrey Woods; Doug McCaskie; Suzy Goodman; Cameron Barnes; Coral Keren; Helena Frawley",
-      "journal": "Topics in Stroke Rehabilitation",
-      "publisher": "Taylor & Francis",
-      "year": 2022,
-      "cited": 4,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Stroke Rehabilitation and Recovery; Clinical practice guidelines implementation; Acute Ischemic Stroke Management",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 9,
-      "institutions": [
-        "Monash University",
-        "AuScope",
-        "Cabrini Hospital",
-        "La Trobe University",
-        "Alfred Health",
-        "St Vincent's Health",
-        "Royal Women's Hospital",
-        "The University of Melbourne",
-        "Mercy Hospital for Women"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "02bfwt286",
-        "04s1m4564",
-        "00qbkg805",
-        "01rxfrp27",
-        "04scfb908",
-        "012nkbb42",
-        "03grnna41",
-        "01ej9dk98",
-        "01ch4qb51"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5085636308",
-        "https://openalex.org/A5023934541",
-        "https://openalex.org/A5078726327",
-        "https://openalex.org/A5073672237",
-        "https://openalex.org/A5011424494",
-        "https://openalex.org/A5051256025",
-        "https://openalex.org/A5088071816",
-        "https://openalex.org/A5014152612",
-        "https://openalex.org/A5078110865"
-      ],
-      "authorOrcids": [
-        "0000-0002-8825-5109",
-        "0000-0002-0114-4175",
-        "0000-0002-8624-4908",
-        "0000-0001-8050-6578",
-        "0000-0002-9756-0439",
-        "0000-0002-7126-6979"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
       "doi": "10.5194/egusphere-egu22-13429",
       "title": "AusGeochem: an Australian AuScope Geochemistry Network data platform for laboratories and their users",
       "authors": "Alexander Prent; Samuel Boone; Hayden Dalton; Yoann Gréau; Guillaume Florin; Fabian Kohlmann; Moritz Theile; Wayne Noble; Sally‐Ann Hodgekiss; Bryant Ware; David Philips; Barry Kohn; Suzanne Y. O’Reilly; Andrew Gleadow; Brent McInnes; Tim Rawling",
@@ -9373,39 +9274,6 @@
       ]
     },
     {
-      "doi": "10.31646/gbio.151",
-      "title": "Omicron exposes critical infrastructure dependencies in Australia",
-      "authors": "Ralf Itzwerth",
-      "journal": "Global Biosecurity",
-      "publisher": "",
-      "year": 2022,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Supply Chain Resilience and Risk Management; Disaster Response and Management",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [
-        "AuScope"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "04s1m4564"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5018672433"
-      ],
-      "authorOrcids": [],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
       "doi": "10.5281/zenodo.7380947",
       "title": "WorldFAIR Project (D5.1) Formalisation of OneGeochemistry",
       "authors": "Alexander Prent; Rawling, Tim",
@@ -9434,46 +9302,6 @@
       ],
       "authorOrcids": [
         "0000-0002-1321-7319"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
-      "doi": "10.1111/ajag.13153",
-      "title": "Stepping On: Building Confidence and Reducing Falls. A Community‐Based Program for Older People (3rd Ed.). L.Clemson and M.Swann, Sydney: Sydney University Press, 2019 (soft cover) ISBN 9781743326640. Kindle $24.98, Soft cover $68.24",
-      "authors": "Meg E. Morris; Rosalie Lui",
-      "journal": "Australasian Journal on Ageing",
-      "publisher": "Wiley",
-      "year": 2022,
-      "cited": 0,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Health disparities and outcomes; Aging, Elder Care, and Social Issues",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [
-        "La Trobe University",
-        "AuScope",
-        "Melbourne Health"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "01rxfrp27",
-        "04s1m4564",
-        "04z4kmw33"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5023934541",
-        "https://openalex.org/A5053573102"
-      ],
-      "authorOrcids": [
-        "0000-0002-0114-4175"
       ],
       "attribution": "verified",
       "verifiedBy": [
@@ -11580,142 +11408,6 @@
       "verifiedBy": [
         "orcid:0000-0001-7106-0789",
         "partner-ror:04ge02x20"
-      ]
-    },
-    {
-      "doi": "10.1111/jgs.17125",
-      "title": "Divesting from a Scored Hospital Fall Risk Assessment Tool (FRAT): A Cluster Randomized Non‐Inferiority Trial",
-      "authors": "Meg E. Morris; Terry Haines; Anne‐Marie Hill; Ian D. Cameron; Cathy Jones; Dana Jazayeri; Biswadev Mitra; Debra Kiegaldie; Ronald I. Shorr; Steven McPhail",
-      "journal": "Journal of the American Geriatrics Society",
-      "publisher": "Wiley",
-      "year": 2021,
-      "cited": 59,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Balance, Gait, and Falls Prevention; Patient Safety and Medication Errors; Emergency and Acute Care Studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 10,
-      "institutions": [
-        "La Trobe University",
-        "TissuPath",
-        "Monash University",
-        "Curtin University",
-        "The University of Sydney",
-        "Northern Sydney Local Health District",
-        "AuScope",
-        "Melbourne Health",
-        "Holmes Regional Medical Center",
-        "Eastern Health",
-        "Cairnmillar Institute",
-        "University of Florida",
-        "Malcom Randall VA Medical Center",
-        "Geriatric Research Education and Clinical Center",
-        "Queensland University of Technology",
-        "Metro South Health"
-      ],
-      "countries": [
-        "AU",
-        "US"
-      ],
-      "rors": [
-        "01rxfrp27",
-        "059ffxx34",
-        "02bfwt286",
-        "02n415q13",
-        "0384j8v12",
-        "02hmf0879",
-        "04s1m4564",
-        "04z4kmw33",
-        "03gbbyk68",
-        "00vyyx863",
-        "05fj2by39",
-        "02y3ad647",
-        "01ew49p77",
-        "01nh3sx96",
-        "03pnv4752",
-        "016gd3115"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5023934541",
-        "https://openalex.org/A5078405126",
-        "https://openalex.org/A5037639294",
-        "https://openalex.org/A5050542219",
-        "https://openalex.org/A5000238900",
-        "https://openalex.org/A5061696269",
-        "https://openalex.org/A5047912658",
-        "https://openalex.org/A5036374319",
-        "https://openalex.org/A5014379891",
-        "https://openalex.org/A5030960534"
-      ],
-      "authorOrcids": [
-        "0000-0002-0114-4175",
-        "0000-0003-3150-6154",
-        "0000-0003-1411-6752",
-        "0000-0003-0147-047X",
-        "0000-0002-2605-2576",
-        "0000-0002-6343-0812",
-        "0000-0002-0508-2450",
-        "0000-0002-4077-5818",
-        "0000-0002-1457-4668",
-        "0000-0002-1463-662X"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
-      "doi": "10.1071/ah20265",
-      "title": "Implementation of the Australian Hospital Patient Experience Question Set (AHPEQS): a consumer-driven patient survey",
-      "authors": "Cathy Jones; Jeffrey Woods; Natasha K. Brusco; Natalie Sullivan; Meg E. Morris",
-      "journal": "Australian Health Review",
-      "publisher": "CSIRO Publishing",
-      "year": 2021,
-      "cited": 17,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Patient Satisfaction in Healthcare; Patient-Provider Communication in Healthcare; Healthcare Systems and Technology",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 5,
-      "institutions": [
-        "Schlumberger (Ireland)",
-        "AuScope",
-        "Alphacrucis University College",
-        "La Trobe University",
-        "TissuPath"
-      ],
-      "countries": [
-        "IE",
-        "AU"
-      ],
-      "rors": [
-        "01mcc7007",
-        "04s1m4564",
-        "0042bdc75",
-        "01rxfrp27",
-        "059ffxx34"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5000238900",
-        "https://openalex.org/A5073672237",
-        "https://openalex.org/A5085636308",
-        "https://openalex.org/A5078546900",
-        "https://openalex.org/A5023934541"
-      ],
-      "authorOrcids": [
-        "0000-0002-2605-2576",
-        "0000-0001-8050-6578",
-        "0000-0002-8825-5109",
-        "0000-0001-5251-4562",
-        "0000-0002-0114-4175"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
       ]
     },
     {
@@ -14001,98 +13693,6 @@
       ]
     },
     {
-      "doi": "10.1016/j.nedt.2020.104695",
-      "title": "Improving hospital falls screening and mitigation using a health professional education framework",
-      "authors": "Louise Shaw; Debra Kiegaldie; Cathy Jones; Meg E. Morris",
-      "journal": "Nurse Education Today",
-      "publisher": "Elsevier BV",
-      "year": 2020,
-      "cited": 11,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Balance, Gait, and Falls Prevention; Patient Safety and Medication Errors; Injury Epidemiology and Prevention",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "Holmes Community College",
-        "Moorabbin Hospital",
-        "Monash University",
-        "AuScope",
-        "La Trobe University"
-      ],
-      "countries": [
-        "US",
-        "AU"
-      ],
-      "rors": [
-        "02kxx1c93",
-        "033s1aj42",
-        "02bfwt286",
-        "04s1m4564",
-        "01rxfrp27"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5023206823",
-        "https://openalex.org/A5036374319",
-        "https://openalex.org/A5000238900",
-        "https://openalex.org/A5023934541"
-      ],
-      "authorOrcids": [
-        "0000-0001-8188-2313",
-        "0000-0002-4077-5818",
-        "0000-0002-2605-2576",
-        "0000-0002-0114-4175"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
-      "doi": "10.1016/j.jbmt.2020.12.015",
-      "title": "Pilates for low risk pregnant women: Study protocol for a randomized controlled trial",
-      "authors": "Melissa Mazzarino; Meg E. Morris; Debra Kerr",
-      "journal": "Journal of Bodywork and Movement Therapies",
-      "publisher": "Elsevier BV",
-      "year": 2020,
-      "cited": 5,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Pregnancy-related medical research; Gestational Diabetes Research and Management; Preterm Birth and Chorioamnionitis",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [
-        "La Trobe University",
-        "AuScope",
-        "Deakin University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "01rxfrp27",
-        "04s1m4564",
-        "02czsnj07"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5003510595",
-        "https://openalex.org/A5023934541",
-        "https://openalex.org/A5073159893"
-      ],
-      "authorOrcids": [
-        "0000-0002-0114-4175",
-        "0000-0002-2956-2432"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
       "doi": "10.5194/egusphere-egu2020-22432",
       "title": "The AuScope Geochemistry Laboratory Network",
       "authors": "Alex Prent; Brent McInnes; Andy Gleadow; Suzanne Y. O’Reilly; Samuel Boone; Barry P. Kohn; Erin Matchan; Tim Rawling",
@@ -15949,49 +15549,6 @@
       "verifiedBy": [
         "orcid:0000-0001-7106-0789",
         "partner-ror:00892tw58"
-      ]
-    },
-    {
-      "doi": "10.1111/jir.12669",
-      "title": "Communication",
-      "authors": "Du Plessis, E.; Beurskens, E.",
-      "journal": "Journal of Intellectual Disability Research",
-      "publisher": "Wiley",
-      "year": 2019,
-      "cited": 3,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Down syndrome and intellectual disability research; Disability Rights and Representation; Mental Health and Patient Involvement",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [
-        "Queen Margaret University",
-        "King's College London",
-        "University of Kent",
-        "AuScope",
-        "Univé (Netherlands)",
-        "University of Sheffield"
-      ],
-      "countries": [
-        "GB",
-        "AU",
-        "NL"
-      ],
-      "rors": [
-        "002g3cb31",
-        "0220mzb33",
-        "00xkeyj56",
-        "04s1m4564",
-        "04yv75396",
-        "05krs5044"
-      ],
-      "authorIds": [],
-      "authorOrcids": [],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
       ]
     },
     {
@@ -19960,98 +19517,6 @@
       ]
     },
     {
-      "doi": "10.1080/09602011.2016.1259114",
-      "title": "Effectiveness of Communication-specific Coping Intervention for adults with traumatic brain injury: preliminary results",
-      "authors": "Jacinta Douglas; Lucy Knox; Carren De Maio; Helen Bridge; Melanie Drummond; Joanne Whiteoak",
-      "journal": "Neuropsychological Rehabilitation",
-      "publisher": "Taylor & Francis",
-      "year": 2016,
-      "cited": 33,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Traumatic Brain Injury Research; Resilience and Mental Health; Neurobiology of Language and Bilingualism",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 6,
-      "institutions": [
-        "La Trobe University",
-        "Myer Foundation",
-        "AuScope",
-        "Speech Pathology Australia",
-        "Epworth Hospital",
-        "Caulfield Hospital",
-        "Alfred Health"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "01rxfrp27",
-        "044r8mj16",
-        "04s1m4564",
-        "03z4zm883",
-        "02ett6548",
-        "01fcxf261",
-        "04scfb908"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5046850700",
-        "https://openalex.org/A5002566896",
-        "https://openalex.org/A5074899386",
-        "https://openalex.org/A5059108172",
-        "https://openalex.org/A5109133396",
-        "https://openalex.org/A5029862893"
-      ],
-      "authorOrcids": [
-        "0000-0003-0940-6624",
-        "0000-0001-8331-6032"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
-      "doi": "10.1177/1744629516650128",
-      "title": "Exploring the literature on music participation and social connectedness for young people with intellectual disability: A critical interpretive synthesis",
-      "authors": "Melissa Murphy; Katrina Skewes McFerran",
-      "journal": "Journal of Intellectual Disabilities",
-      "publisher": "SAGE Publishing",
-      "year": 2016,
-      "cited": 26,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Diverse Music Education Insights; Music Therapy and Health; Neuroscience and Music Perception",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [
-        "The University of Melbourne",
-        "AuScope"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "01ej9dk98",
-        "04s1m4564"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5028543246",
-        "https://openalex.org/A5082432090"
-      ],
-      "authorOrcids": [
-        "0000-0001-9324-5020",
-        "0000-0003-0699-3683"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
       "doi": "10.1080/08120099.2016.1229692",
       "title": "Redefined crustal structure of the Buchan Rift, northeast Victoria: evidence from potential field modelling of newly acquired land-based gravity data",
       "authors": "Thomas Ogden; M. A. McLean; Tim Rawling; R. A. Cayley",
@@ -21574,108 +21039,6 @@
       ]
     },
     {
-      "doi": "10.1111/jir.12254",
-      "title": "Weight, nutrition, food choice, and physical activity in adults with intellectual disability",
-      "authors": "Stella Koritsas; Teresa Iacono",
-      "journal": "Journal of Intellectual Disability Research",
-      "publisher": "Wiley",
-      "year": 2015,
-      "cited": 57,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Down syndrome and intellectual disability research; Cerebral Palsy and Movement Disorders; Disability Rights and Representation",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [
-        "Scope",
-        "AuScope",
-        "La Trobe University"
-      ],
-      "countries": [
-        "GB",
-        "AU"
-      ],
-      "rors": [
-        "018dcz204",
-        "04s1m4564",
-        "01rxfrp27"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5067866409",
-        "https://openalex.org/A5063858483"
-      ],
-      "authorOrcids": [
-        "0000-0003-1670-2202",
-        "0000-0002-7988-9951"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
-      "doi": "10.3109/09638288.2015.1068876",
-      "title": "Optimising leisure participation: a pilot intervention study for adolescents with physical impairments",
-      "authors": "Christine Imms; Sarah Mathews; Kelli Nicola Richmond; Mary Law; Anna Ullenhag",
-      "journal": "Disability and Rehabilitation",
-      "publisher": "Informa",
-      "year": 2015,
-      "cited": 41,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Cerebral Palsy and Movement Disorders; Occupational Therapy Practice and Research; Children's Physical and Motor Development",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 5,
-      "institutions": [
-        "Centre for Disability Prevention and Rehabilitation",
-        "Murdoch Children's Research Institute",
-        "CanChild Centre for Childhood-onset Disability Research",
-        "Australian Catholic University",
-        "Scope",
-        "AuScope",
-        "Deakin University",
-        "McMaster University",
-        "Karolinska Institutet"
-      ],
-      "countries": [
-        "CA",
-        "AU",
-        "GB",
-        "SE"
-      ],
-      "rors": [
-        "03w03n990",
-        "048fyec77",
-        "006y3gs95",
-        "04cxm4j25",
-        "018dcz204",
-        "04s1m4564",
-        "02czsnj07",
-        "02fa3aq29",
-        "056d84691"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5039967008",
-        "https://openalex.org/A5063876409",
-        "https://openalex.org/A5032167252",
-        "https://openalex.org/A5066384568",
-        "https://openalex.org/A5044223184"
-      ],
-      "authorOrcids": [
-        "0000-0001-9055-3554",
-        "0000-0002-8959-0689",
-        "0000-0002-9210-0986"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
       "doi": "10.1190/ice2015-2193649",
       "title": "Basement Architecture of the Onshore Gippsland Basin: Insights From 3-D Gravity Inversion",
       "authors": "Justine Carstairs; M. A. McLean; Tim Rawling; David Taylor",
@@ -23097,51 +22460,6 @@
         "0000-0002-8296-4692",
         "0000-0001-8892-9567",
         "0000-0002-7615-8328"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
-      "doi": "10.1017/brimp.2014.25",
-      "title": "Improving Communication-specific Coping after Traumatic Brain Injury: Evaluation of a New Treatment using Single-case Experimental Design",
-      "authors": "Jacinta Douglas; Lucy Knox; Carren De Maio; Helen Bridge",
-      "journal": "Brain Impairment",
-      "publisher": "Cambridge University Press",
-      "year": 2014,
-      "cited": 23,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Traumatic Brain Injury Research; Family and Disability Support Research; Resilience and Mental Health",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "La Trobe University",
-        "Myer Foundation",
-        "AuScope",
-        "Speech Pathology Australia"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "01rxfrp27",
-        "044r8mj16",
-        "04s1m4564",
-        "03z4zm883"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5046850700",
-        "https://openalex.org/A5002566896",
-        "https://openalex.org/A5074899386",
-        "https://openalex.org/A5059108172"
-      ],
-      "authorOrcids": [
-        "0000-0003-0940-6624",
-        "0000-0001-8331-6032"
       ],
       "attribution": "verified",
       "verifiedBy": [
@@ -30489,49 +29807,6 @@
       ]
     },
     {
-      "doi": "10.1080/13668250500124950",
-      "title": "The Anger Management Project: A group intervention for anger in people with physical and multiple disabilities",
-      "authors": "Nick Hagiliassis; Hrepsime Gulbenkoglu; Mark Di Marco; Suzanne Young; Alan Hudson",
-      "journal": "Journal of Intellectual & Developmental Disability",
-      "publisher": "Informa",
-      "year": 2005,
-      "cited": 50,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Child and Adolescent Psychosocial and Emotional Development; Family and Disability Support Research; Attachment and Relationship Dynamics",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 5,
-      "institutions": [
-        "AuScope",
-        "RMIT University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "04s1m4564",
-        "04ttjf776"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5085797435",
-        "https://openalex.org/A5062069649",
-        "https://openalex.org/A5075625059",
-        "https://openalex.org/A5055917441",
-        "https://openalex.org/A5103221261"
-      ],
-      "authorOrcids": [
-        "0000-0002-7075-2553",
-        "0000-0002-7905-732X",
-        "0000-0002-1356-6439"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ]
-    },
-    {
       "doi": "10.5281/zenodo.3885976",
       "title": "Geodynamic benchmarking tests in HPC",
       "authors": "Rebecca Farrington; Louis Moresi; Steve Quenette; Robert Turnbull; Patrick Sunter",
@@ -31847,50 +31122,6 @@
       "verifiedBy": [
         "orcid:0000-0001-7106-0789",
         "partner-ror:00892tw58"
-      ]
-    },
-    {
-      "doi": "10.1017/s0012162204000076",
-      "title": "Effectiveness of the Innsbruck Sensorimotor Activator and Regulator in improving saliva control in children with cerebral palsy",
-      "authors": "Hilary Johnson; Susan Reid; Catherine J Hazard; James O Lucas; Mala Desai; Dinah Reddihough",
-      "journal": "Developmental Medicine & Child Neurology",
-      "publisher": "Wiley",
-      "year": 2003,
-      "cited": 33,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Cerebral Palsy and Movement Disorders; Botulinum Toxin and Related Neurological Disorders; Infant Development and Preterm Care",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 6,
-      "institutions": [
-        "AuScope",
-        "Royal Children's Hospital"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "04s1m4564",
-        "02rktxt32"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5008725830",
-        "https://openalex.org/A5021838838",
-        "https://openalex.org/A5081300685",
-        "https://openalex.org/A5020852580",
-        "https://openalex.org/A5008655045",
-        "https://openalex.org/A5037576805"
-      ],
-      "authorOrcids": [
-        "0000-0002-8685-4909",
-        "0000-0001-9415-5246",
-        "0000-0003-3634-7906"
-      ],
-      "attribution": "verified",
-      "verifiedBy": [
-        "ror:04s1m4564"
       ]
     },
     {

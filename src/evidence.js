@@ -70,6 +70,19 @@ function run() {
     tier3: 'text-software'
   };
 
+  // Self-healing: records that entered the corpus ONLY as ROR-verified
+  // auto-appends are removed again if the current verified run no longer
+  // confirms them (e.g. after tightening the mis-affiliation guard).
+  const beforeHeal = pubData.records.length;
+  pubData.records = pubData.records.filter(function(p) {
+    const terms = p.searchTerms || [];
+    if (!(terms.length === 1 && terms[0] === 'ROR-verified')) return true;
+    const id = idMap[normDoi(p.doi)];
+    return !!(id && id.attribution === 'verified');
+  });
+  const healed = beforeHeal - pubData.records.length;
+  if (healed) console.log('Self-heal: removed ' + healed + ' auto-appended records no longer identifier-confirmed.');
+
   const counts = {};
   const inCorpus = {};
   pubData.records.forEach(function(p) {
