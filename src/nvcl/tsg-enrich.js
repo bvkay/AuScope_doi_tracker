@@ -84,6 +84,11 @@ const MAX_ENTRY_BYTES = 8 * 1024 * 1024;  // cap on one compressed .tsg read
 const MAX_INTERVAL_M = 5000;       // sanity clamp on a parsed scan interval
 const CIRCUIT_BREAKER = 8;         // consecutive network failures -> stop
 
+// The live cache, module-scoped so a shutdown signal can flush it. A
+// cancelled CI job or a Ctrl-C must keep the archives it already read —
+// they cost real bandwidth on a shared national facility.
+let LIVE_CACHE = null;
+
 // ── CLI ───────────────────────────────────────────────────────────
 
 function parseArgs(argv) {
@@ -133,6 +138,7 @@ async function run() {
   }
 
   const cache = loadCache(CACHE_PATH);
+  LIVE_CACHE = cache;
   console.log('\nCache loaded: ' + cache.size + ' rows');
   const seeded = countBy(cache, function(r) { return r.source && /^seed:/.test(r.source) ? 'seed' : 'live'; });
   console.log('  seeded: ' + (seeded.seed || 0) + '   live: ' + (seeded.live || 0));
@@ -240,10 +246,12 @@ function saveCache(file, map) {
 // answer is settled. These count as done, so a weekly run does not burn its
 // budget re-reading the same files. Transport errors (timeout, 5xx, network)
 // are NOT here — those are retried automatically on the next run.
+// 'zip64_unsupported' is deliberately absent: archives that hit it before
+// ZIP64 support existed are re-read once, now that they can be parsed.
 const PERMANENT_ERRORS = new Set([
-  'no depth field', 'implausible depth', 'no_tsg_in_zip', 'zip64_unsupported',
+  'no depth field', 'implausible depth', 'no_tsg_in_zip',
   'range_unsupported', 'empty_file', 'eocd_not_found', 'decompress_failed',
-  'http_404', 'http_403', 'http_410',
+  'zip64_eocd_not_found', 'http_404', 'http_403', 'http_410',
 ]);
 
 function isDone(row, retryFailed) {
@@ -251,6 +259,42 @@ function isDone(row, retryFailed) {
   if (retryFailed) return !row.error;
   if (!row.error) return true;
   return PERMANENT_ERRORS.has(row.error);
+}
+
+// Field-by-field merge, new value wins where it has one. A re-read that
+// times out, or one that reaches a file with no depth line, must not erase
+// the scan date a previous run (or the 2026-05 seed) already recorded.
+const MERGE_KEEP = [
+  'tsgEntryName', 'boreholeId', 'datasetId', 'scanDate', 'dateConfidence',
+  'depthFromM', 'depthToM', 'depthSource', 'instrument', 'tsgUuid', 'zipBytes',
+];
+
+function mergeRow(prev, next) {
+  if (!prev) return next;
+  const out = Object.assign({}, next);
+  let kept = false;
+  MERGE_KEEP.forEach(function(k) {
+    if ((out[k] === null || out[k] === undefined) && prev[k] !== null && prev[k] !== undefined) {
+      out[k] = prev[k];
+      kept = true;
+    }
+  });
+  // Depth is a pair: never mix a fresh 'from' with a stale 'to'.
+  if (next.depthFromM == null || next.depthToM == null) {
+    if (prev.depthFromM != null && prev.depthToM != null) {
+      out.depthFromM = prev.depthFromM;
+      out.depthToM = prev.depthToM;
+      out.depthSource = prev.depthSource;
+      if (out.error === 'no depth field' || out.error === 'implausible depth') out.error = null;
+    } else {
+      out.depthFromM = next.depthFromM;
+      out.depthToM = next.depthToM;
+    }
+  }
+  if (kept && prev.source && prev.source !== out.source) {
+    out.mergedFrom = prev.source;
+  }
+  return out;
 }
 
 function diffTodo(catalog, cache, state, retryFailed) {
@@ -324,8 +368,11 @@ async function harvestState(state, zipNames, cache) {
       const zipName = queue.shift();
       if (!zipName) return;
       const t0 = Date.now();
-      const row = await harvestOne(state, zipName);
+      const fresh = await harvestOne(state, zipName);
       const secs = (Date.now() - t0) / 1000;
+      // Never let a failed or partial re-read destroy what an earlier run
+      // already established — a seeded scan date must survive a timeout.
+      const row = mergeRow(cache.get(cacheKey(state, zipName)), fresh);
       cache.set(cacheKey(state, zipName), row);
       bytes += row.bytesFetched || 0;
       done++;
@@ -428,11 +475,14 @@ async function harvestOne(state, zipName) {
     const tailStart = Math.max(0, head.size - EOCD_TAIL);
     const tail = await httpRange(url, tailStart, head.size - 1);
     row.bytesFetched += tail.length;
-    const eocd = findEocd(tail);
+    let eocd = findEocd(tail);
     if (!eocd) { row.error = 'eocd_not_found'; return row; }
-    if (eocd.cdOffset === 0xFFFFFFFF || eocd.cdSize === 0xFFFFFFFF) {
-      row.error = 'zip64_unsupported';
-      return row;
+    // Archives over 4 GB (the deepest holes: one NT archive is 5.1 GB) put
+    // the real central-directory location in a ZIP64 record instead.
+    if (eocd.cdOffset === 0xFFFFFFFF || eocd.cdSize === 0xFFFFFFFF || eocd.zip64Locator) {
+      const z = await readZip64Eocd(url, tail, tailStart, eocd, row);
+      if (!z) { row.error = 'zip64_eocd_not_found'; return row; }
+      eocd = z;
     }
     const cd = await httpRange(url, eocd.cdOffset, eocd.cdOffset + eocd.cdSize - 1);
     row.bytesFetched += cd.length;
@@ -504,13 +554,49 @@ async function readEntryText(url, entry, row) {
 
 // ── ZIP structures ────────────────────────────────────────────────
 
+const Z64 = 0xFFFFFFFF;
+
 function findEocd(buf) {
   for (let i = buf.length - 22; i >= 0; i--) {
     if (buf.readUInt32LE(i) === 0x06054b50) {
-      return { cdSize: buf.readUInt32LE(i + 12), cdOffset: buf.readUInt32LE(i + 16) };
+      // The ZIP64 end-of-central-directory LOCATOR, when present, sits in
+      // the 20 bytes immediately before the classic EOCD.
+      let zip64Locator = null;
+      if (i >= 20 && buf.readUInt32LE(i - 20) === 0x07064b50) {
+        zip64Locator = Number(buf.readBigUInt64LE(i - 12));
+      }
+      return {
+        cdSize: buf.readUInt32LE(i + 12),
+        cdOffset: buf.readUInt32LE(i + 16),
+        zip64Locator: zip64Locator,
+      };
     }
   }
   return null;
+}
+
+// The ZIP64 EOCD record holds the true 64-bit central-directory size and
+// offset. It is usually already inside the tail we fetched; if not, one more
+// small range request gets it.
+async function readZip64Eocd(url, tail, tailStart, eocd, row) {
+  const at = eocd.zip64Locator;
+  let buf = null;
+  if (at != null && at >= tailStart && at + 56 <= tailStart + tail.length) {
+    buf = tail.slice(at - tailStart, at - tailStart + 56);
+  } else if (at != null) {
+    buf = await httpRange(url, at, at + 55);
+    row.bytesFetched += buf.length;
+  } else {
+    // No locator: scan the tail for the record signature directly.
+    for (let i = tail.length - 56; i >= 0; i--) {
+      if (tail.readUInt32LE(i) === 0x06064b50) { buf = tail.slice(i, i + 56); break; }
+    }
+  }
+  if (!buf || buf.length < 56 || buf.readUInt32LE(0) !== 0x06064b50) return null;
+  return {
+    cdSize: Number(buf.readBigUInt64LE(40)),
+    cdOffset: Number(buf.readBigUInt64LE(48)),
+  };
 }
 
 function parseCentralDirectory(buf) {
@@ -519,13 +605,34 @@ function parseCentralDirectory(buf) {
   while (pos + 46 <= buf.length) {
     if (buf.readUInt32LE(pos) !== 0x02014b50) break;
     const method = buf.readUInt16LE(pos + 10);
-    const compSize = buf.readUInt32LE(pos + 20);
-    const uncompSize = buf.readUInt32LE(pos + 24);
+    let compSize = buf.readUInt32LE(pos + 20);
+    let uncompSize = buf.readUInt32LE(pos + 24);
     const fnLen = buf.readUInt16LE(pos + 28);
     const extraLen = buf.readUInt16LE(pos + 30);
     const cmtLen = buf.readUInt16LE(pos + 32);
-    const lfhOffset = buf.readUInt32LE(pos + 42);
+    let lfhOffset = buf.readUInt32LE(pos + 42);
     const name = buf.slice(pos + 46, pos + 46 + fnLen).toString('utf8');
+
+    // In a ZIP64 archive the oversized fields read 0xFFFFFFFF here and their
+    // real values live in the 0x0001 extra field, in this fixed order:
+    // uncompressed size, compressed size, local-header offset, disk start —
+    // present only for the fields that overflowed.
+    if (uncompSize === Z64 || compSize === Z64 || lfhOffset === Z64) {
+      const ex = buf.slice(pos + 46 + fnLen, pos + 46 + fnLen + extraLen);
+      let p = 0;
+      while (p + 4 <= ex.length) {
+        const id = ex.readUInt16LE(p), sz = ex.readUInt16LE(p + 2);
+        if (id === 0x0001) {
+          let q = p + 4;
+          if (uncompSize === Z64 && q + 8 <= p + 4 + sz) { uncompSize = Number(ex.readBigUInt64LE(q)); q += 8; }
+          if (compSize === Z64 && q + 8 <= p + 4 + sz) { compSize = Number(ex.readBigUInt64LE(q)); q += 8; }
+          if (lfhOffset === Z64 && q + 8 <= p + 4 + sz) { lfhOffset = Number(ex.readBigUInt64LE(q)); q += 8; }
+          break;
+        }
+        p += 4 + sz;
+      }
+    }
+
     out.push({ name: name, method: method, compSize: compSize, uncompSize: uncompSize, lfhOffset: lfhOffset });
     pos += 46 + fnLen + extraLen + cmtLen;
   }
@@ -728,8 +835,19 @@ function readJson(file, fallback) {
 
 function sleep(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
 
+function flushAndExit(signal) {
+  if (LIVE_CACHE) {
+    saveCache(CACHE_PATH, LIVE_CACHE);
+    console.log('\n' + signal + ' — flushed ' + LIVE_CACHE.size + ' cache rows to ' + CACHE_PATH);
+  }
+  process.exit(130);
+}
+
 if (require.main === module) {
+  process.on('SIGINT', function() { flushAndExit('SIGINT'); });
+  process.on('SIGTERM', function() { flushAndExit('SIGTERM'); });
   run().catch(function(err) {
+    if (LIVE_CACHE) saveCache(CACHE_PATH, LIVE_CACHE);
     console.error('TSG enrichment failed: ' + err.message);
     process.exit(1);
   });

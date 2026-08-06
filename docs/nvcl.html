@@ -1071,7 +1071,10 @@ function renderGrowth() {
         if (nv.sorted[di][5]) tsgDots++;
     }
     var note = 'Cumulative boreholes by scan month.';
-    if (datedDots) {
+    // A pre-v1.2 feed has no date-provenance element; say nothing rather
+    // than report a misleading 0%.
+    var hasProvenance = nv.sorted.length > 0 && nv.sorted[0].length > 5;
+    if (datedDots && hasProvenance) {
         var tsgPct = Math.round(tsgDots / datedDots * 100);
         note += ' ' + tsgPct + '% of these points are dated from the TSG files themselves '
             + '(the instrument’s own scan date, via the NCI mirror); the remaining ' + (100 - tsgPct)
