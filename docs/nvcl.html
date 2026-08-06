@@ -47,6 +47,14 @@
         }
         .stats .stat [data-tip]::before { left: 16px; }
 
+        /* ----- cite-this-collection panel ----- */
+        .cite-panel { border: 1px solid var(--border); border-left: 3px solid #282572; border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 18px; background: var(--bg-soft); }
+        .cite-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; }
+        .cite-text { font-size: 13px; color: var(--text); }
+        .cite-text .mono { word-break: break-all; }
+        .cite-meta { margin-top: 6px; font-size: 12px; color: var(--text-soft); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .cite-note a { color: var(--accent); text-decoration: none; }
+
         /* ----- provenance banner ----- */
         .prov-banner {
             display: flex;
@@ -301,6 +309,22 @@
             <button class="prov-btn" id="live-check-btn" disabled title="Query every state node's public WFS from your browser and compare against the snapshot">Live check all nodes</button>
         </div>
 
+        <!-- ========== CITE THIS COLLECTION ========== -->
+        <!-- The NCI-minted collection DOI is the citable anchor for the whole
+             NVCL archive. It currently has ZERO formal citations and no PID
+             relations — surfacing it here is how that changes. -->
+        <div class="cite-panel">
+            <div class="cite-label">Cite this collection</div>
+            <div class="cite-text">AuScope &amp; CSIRO (2023). <em>AuScope Australian National Virtual Core Library (NVCL) Collection</em>. NCI Australia.
+                <a href="https://doi.org/10.25914/bztg-rg43" target="_blank" rel="noopener" class="mono">https://doi.org/10.25914/bztg-rg43</a>
+            </div>
+            <div class="cite-meta">
+                <span id="cite-count-chip" class="cite-pill loading" title="Formal citations of the collection DOI, live from DataCite">&hellip;</span>
+                <span class="cite-note">formal citations of the collection DOI &middot; include it in your <strong>reference list</strong> (not just the data-availability statement) so your use of NVCL data is counted &middot;
+                <a href="https://commons.datacite.org/doi.org/10.25914/bztg-rg43" target="_blank" rel="noopener">DataCite Commons ↗</a></span>
+            </div>
+        </div>
+
         <!-- ========== STAT TILES ========== -->
         <div class="stats" id="stat-tiles">
             <div class="stat"><div class="label">Boreholes <span class="info-i" data-tip="Distinct boreholes with at least one HyLogger spectral dataset, counted across all participating nodes.">i</span></div><div class="value" id="stat-boreholes">&mdash;</div><div class="sub">with spectral data</div></div>
@@ -397,6 +421,7 @@
     </div>
 
 <script src="tracker-chassis.js"></script>
+<script src="tracker-citations.js"></script>
 <script>
 "use strict";
 
@@ -420,6 +445,10 @@ var nv = {
 var STATE_PALETTE = ['#16a34a', '#2563eb', '#b45309', '#be185d', '#7c3aed', '#0d9488', '#64748b', '#282572'];
 
 var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// NCI-minted citable DOI for the whole NVCL archive (currently an orphan in
+// the PID graph — zero citations, zero relations; surfacing it is the fix).
+var COLLECTION_DOI = '10.25914/bztg-rg43';
 
 // ============================================================
 // HELPERS
@@ -475,6 +504,18 @@ function onData(data) {
     renderHow();
 
     document.getElementById('live-check-btn').disabled = false;
+
+    // Live citation count for the NCI collection DOI (fetchCitationCount
+    // from tracker-citations.js; DataCite GraphQL, 429-tolerant).
+    fetchCitationCount(COLLECTION_DOI).then(function(n) {
+        var chip = document.getElementById('cite-count-chip');
+        chip.className = 'cite-pill' + (n ? '' : ' zero');
+        chip.textContent = String(n);
+    }).catch(function() {
+        var chip = document.getElementById('cite-count-chip');
+        chip.className = 'cite-pill zero';
+        chip.textContent = '0';
+    });
     document.getElementById('map-play').disabled = false;
     document.getElementById('map-slider').disabled = false;
 }
