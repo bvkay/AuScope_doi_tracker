@@ -20,7 +20,7 @@
  * TSG enrichment (merged-v1.2), from data/nvcl/tsg-cache.jsonl, built by
  * src/nvcl/tsg-enrich.js out of the AuScope TSG mirror on NCI THREDDS
  * (collection DOI 10.25914/bztg-rg43):
- *   - DEPTH precedence:  API-published interval > TSG-measured interval >
+ *   - DEPTH precedence:  TSG-measured interval > API-published interval >
  *     drilled-length estimate. A TSG interval counts as MEASURED and is
  *     tracked separately as tsg_measured_km.
  *   - DATE precedence:   TSG header scan date > API date. The API's
@@ -576,14 +576,24 @@ function boreholeMetrics(bh) {
   });
   if (curStart !== null) uniqueM += curEnd - curStart;
 
-  // ── Precedence: API interval > TSG interval > drilled-length estimate ──
+  // ── Precedence: TSG interval > API interval > drilled-length estimate ──
   //
-  // Tier 2 (TSG). The node published nothing, but the instrument's own file
-  // on the AuScope NCI mirror records the interval it scanned. That is a
-  // MEASUREMENT, not an estimate — it is counted in unique_scanned_km and
-  // tracked separately as tsg_measured_km so the provenance stays visible.
+  // TSG FIRST, deliberately. The TSG header is the instrument's own record of
+  // the interval it scanned; the node API is a downstream republication of it.
+  // Preferring the API would measure the country two different ways — some
+  // states from instrument files, others from node metadata — and a national
+  // total assembled from two definitions is not one number. The same source
+  // already had to win for DATES, where the API's value turned out to be an
+  // ingest timestamp; consistency means it wins for depth too, not only where
+  // the API happens to be silent.
+  //
+  // The API remains the FALLBACK, and that matters: some boreholes are
+  // published by a node but have no archive on the mirror (NT lists 420 with
+  // data against 345 archives), so an API interval is used wherever no TSG
+  // interval exists. Nothing is discarded — the sources swap rank, and every
+  // borehole records which one it used in `source`.
   let tsgM = 0;
-  if (intervals.length === 0 && bh.tsg && bh.tsg.length) {
+  if (bh.tsg && bh.tsg.length) {
     const tsgIntervals = [];
     bh.tsg.forEach(function(r) {
       if (r.depthFromM === null || r.depthFromM === undefined) return;
@@ -609,15 +619,15 @@ function boreholeMetrics(bh) {
   // must not inflate an estimate). Reported separately as estimated_km and
   // never blended into the measured total.
   let estimatedM = 0;
-  if (intervals.length === 0 && tsgM === 0 && unrecorded > 0 && bh.lengthM && bh.lengthM > 0) {
+  if (uniqueM === 0 && unrecorded > 0 && bh.lengthM && bh.lengthM > 0) {
     estimatedM = bh.lengthM;
   }
 
   return {
     uniqueM: uniqueM, totalM: totalM, estimatedM: estimatedM,
-    apiM: intervals.length ? uniqueM : 0,
+    apiM: (tsgM === 0 && intervals.length) ? uniqueM : 0,
     tsgM: tsgM,
-    source: intervals.length ? 'api' : (tsgM > 0 ? 'tsg' : (estimatedM > 0 ? 'estimate' : 'none')),
+    source: tsgM > 0 ? 'tsg' : (intervals.length ? 'api' : (estimatedM > 0 ? 'estimate' : 'none')),
     unrecorded: unrecorded, clamped: clamped,
     intervalDatasets: intervals.length,
   };

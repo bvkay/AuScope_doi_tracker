@@ -8,8 +8,29 @@ a number appears in a report, this is how it was made.
 
 ## Evidence precedence (the one rule that governs everything)
 
-**Depth.** API-published interval **>** TSG-measured interval **>**
+**Depth.** TSG-measured interval **>** API-published interval **>**
 drilled-length estimate.
+
+TSG leads deliberately. The TSG header is the instrument's own record of the
+interval it scanned; a node's API value is a downstream republication of the
+same event. Preferring the API would measure the country two different ways —
+some states from instrument files, others from node metadata — and a national
+total assembled from two definitions is not one number. The same source
+already had to win for dates, where the API's value proved to be an ingest
+timestamp; consistency means it wins for depth too, not only where the API is
+silent.
+
+The API stays the fallback and that matters: some boreholes are published by a
+node with no archive on the mirror (NT lists 420 boreholes with data against
+345 archives), so an API interval is used wherever no TSG interval exists.
+Nothing is discarded — the sources swap rank, and every borehole records which
+one it used.
+
+Where both exist they agree closely: SA measures **419.6 km** from TSG headers
+against **427.19 km** published by its API, a 1.8% difference. The dates were
+badly wrong; the depths, at least where we can compare, are sound. The two
+problems are separable, and the switch costs little accuracy while buying
+consistency.
 
 **Date.** TSG header scan date **>** node API date (which is an *ingest*
 date).
