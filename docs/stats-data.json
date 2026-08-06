@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-06T06:42:10.669Z",
+  "generated": "2026-08-06T21:26:35.630Z",
   "pillars": {
     "publications": {
       "total": 2805,
@@ -51,17 +51,17 @@
     },
     "nvcl": {
       "asOf": "2026-08-06",
-      "boreholes": 6008,
-      "scannedKm": 974.59,
-      "combinedKm": 1681.32,
-      "estimatedKm": 706.72,
-      "datasets": 6141,
+      "boreholes": 6005,
+      "scannedKm": 1575.45,
+      "combinedKm": 1663.67,
+      "estimatedKm": 88.23,
+      "datasets": 6137,
       "nodes": 7
     },
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 48,
+      "streaming": 50,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },
