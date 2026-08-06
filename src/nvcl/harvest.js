@@ -402,8 +402,18 @@ function boreholeMetrics(bh) {
   });
   if (curStart !== null) uniqueM += curEnd - curStart;
 
+  // Estimation tier (disclosed, never blended into measured figures):
+  // when a borehole has datasets but NO valid intervals at all — i.e. its
+  // node publishes none — estimate its scanned length as the drilled hole
+  // length, ONCE per borehole (never per dataset; rescans must not inflate
+  // an estimate). Reported separately as estimated_km.
+  let estimatedM = 0;
+  if (intervals.length === 0 && unrecorded > 0 && bh.lengthM && bh.lengthM > 0) {
+    estimatedM = bh.lengthM;
+  }
+
   return {
-    uniqueM: uniqueM, totalM: totalM,
+    uniqueM: uniqueM, totalM: totalM, estimatedM: estimatedM,
     unrecorded: unrecorded, clamped: clamped,
     intervalDatasets: intervals.length,
   };
@@ -419,6 +429,7 @@ function aggregate(results, asOf) {
   const instruments = {};   // canonical -> { datasets, boreholes:Set, m, first, last, states:Set }
   let sumDatasets = 0, sumBoreholesWithData = 0, sumUniqueM = 0, sumTotalM = 0;
   let sumUnrecorded = 0, sumClamped = 0, sumDrilledM = 0, sumWithInstrument = 0, sumTir = 0;
+  let sumEstimatedM = 0, sumEstimatedBh = 0;
   let earliest = null, latest = null;
   let rescanBoreholes = 0, maxScans = 0;
   const participating = [], nonParticipating = [];
@@ -440,6 +451,7 @@ function aggregate(results, asOf) {
     }
 
     let stDatasets = 0, stWithData = 0, stUniqueM = 0, stTotalM = 0;
+    let stEstimatedM = 0, stEstimatedBh = 0;
     let stUnrecorded = 0, stClamped = 0, stLatest = null;
     let st12moDatasets = 0, st12moM = 0;
 
@@ -453,6 +465,7 @@ function aggregate(results, asOf) {
       bh.metrics = m;
       stUniqueM += m.uniqueM;
       stTotalM += m.totalM;
+      if (m.estimatedM > 0) { stEstimatedM += m.estimatedM; stEstimatedBh++; }
       stUnrecorded += m.unrecorded;
       stClamped += m.clamped;
       if (m.intervalDatasets > 1) rescanBoreholes++;
@@ -494,6 +507,8 @@ function aggregate(results, asOf) {
     sumBoreholesWithData += stWithData;
     sumUniqueM += stUniqueM;
     sumTotalM += stTotalM;
+    sumEstimatedM += stEstimatedM;
+    sumEstimatedBh += stEstimatedBh;
     sumUnrecorded += stUnrecorded;
     sumClamped += stClamped;
 
@@ -510,6 +525,8 @@ function aggregate(results, asOf) {
       total_km_scanned: km(stUniqueM),          // page-compat alias of unique
       unique_scanned_km: km(stUniqueM),
       total_scan_km: km(stTotalM),
+      estimated_km: km(stEstimatedM),
+      estimated_boreholes: stEstimatedBh,
       interval_unrecorded: stUnrecorded,
       interval_clamped: stClamped,
       latest_dataset_date: stLatest,
@@ -566,6 +583,11 @@ function aggregate(results, asOf) {
       total_scanned_km_note: 'alias of unique_scanned_km (union of per-dataset scan intervals per borehole)',
       unique_scanned_km: km(sumUniqueM),
       total_scan_km: km(sumTotalM),
+      // Estimation tier — DISCLOSED, never blended: boreholes whose node
+      // publishes no intervals at all, estimated once each at drilled length.
+      estimated_km: km(sumEstimatedM),
+      estimated_boreholes: sumEstimatedBh,
+      combined_estimate_km: km(sumUniqueM + sumEstimatedM),
       interval_unrecorded_datasets: sumUnrecorded,
       interval_clamped_datasets: sumClamped,
       total_borehole_drilled_km: km(sumDrilledM),
@@ -622,6 +644,8 @@ function printSummary(s) {
   console.log('Boreholes with data:  ' + sm.total_boreholes_with_data);
   console.log('Datasets:             ' + sm.total_datasets);
   console.log('Unique scanned:       ' + sm.unique_scanned_km + ' km (union of intervals)');
+  console.log('Estimated (no API):   ' + sm.estimated_km + ' km across ' + sm.estimated_boreholes + ' boreholes (drilled-length estimate, disclosed)');
+  console.log('Combined estimate:    ' + sm.combined_estimate_km + ' km (measured + estimated)');
   console.log('Total scan work:      ' + sm.total_scan_km + ' km (rescans counted)');
   console.log('Interval unrecorded:  ' + sm.interval_unrecorded_datasets
     + ' datasets (' + sm.interval_clamped_datasets + ' clamped as garbage)');

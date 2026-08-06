@@ -47,6 +47,8 @@
         }
         .stats .stat [data-tip]::before { left: 16px; }
 
+        .est-km { font-size: 12px; color: var(--text-soft); white-space: nowrap; }
+
         /* amber caveat badge: unmeasurable-from-API and partial-harvest states */
         .badge-warn {
             display: inline-block;
@@ -418,7 +420,7 @@
             <summary>How these numbers are made</summary>
             <div class="how-body">
                 <p><strong>Harvest.</strong> On <span id="how-asof">&mdash;</span> the NVCL pipeline queried every participating node&rsquo;s public services: the WFS <code>gsmlp:BoreholeView</code> layer (filtered to <code>nvclCollection='true'</code>) for registered boreholes, then each node&rsquo;s <code>NVCLDataServices getDatasetCollection</code> for every borehole&rsquo;s dataset records. Nothing on this page comes from a private database &mdash; the same services are public, and the <em>Live check</em> button and <em>source</em> links query them directly.</p>
-                <p><strong>Scanned km (merged-v1 method).</strong> The atom is the per-dataset scan interval (start&ndash;end depth). Per borehole, overlapping intervals are merged so rescans never double-count &mdash; the headline is <em>unique core imaged by a spectral scanner</em>, which differs from metres drilled (the same holes total <span id="how-drilled">&mdash;</span>&nbsp;km drilled). Datasets whose node publishes <em>no</em> interval &mdash; currently all of WA and NT &mdash; are counted in an explicit unrecorded bucket and contribute zero: we never substitute drilled length or estimates. The scanning in those states is real; their APIs simply omit the depth ranges (WA&rsquo;s government shapefile documents roughly 600&nbsp;km more &mdash; a future enrichment from that published source is planned). Full rules: <a href="https://github.com/bvkay/AuScope_doi_tracker/blob/main/src/nvcl/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md ↗</a>.</p>
+                <p><strong>Scanned km (merged-v1 method).</strong> The atom is the per-dataset scan interval (start&ndash;end depth). Per borehole, overlapping intervals are merged so rescans never double-count &mdash; the headline is <em>unique core imaged by a spectral scanner</em>, which differs from metres drilled (the same holes total <span id="how-drilled">&mdash;</span>&nbsp;km drilled). Datasets whose node publishes <em>no</em> interval &mdash; currently all of WA and NT &mdash; are counted in an explicit unrecorded bucket and contribute zero to the <em>measured</em> figure. For those boreholes only, a separate <strong>estimation tier</strong> assigns each borehole its drilled length once (never per dataset, so rescans cannot inflate it); the headline &ldquo;&asymp;&rdquo; total is <em>measured&nbsp;+&nbsp;estimated</em> with the split always shown. Measured and estimated are never blended silently &mdash; that was the retired method&rsquo;s flaw. The scanning in those states is real; their APIs simply omit the depth ranges (WA&rsquo;s government shapefile documents roughly 600&nbsp;km more &mdash; a future enrichment from that published source is planned). Full rules: <a href="https://github.com/bvkay/AuScope_doi_tracker/blob/main/src/nvcl/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md ↗</a>.</p>
                 <p><strong>Instruments.</strong> HyLogger units are identified from instrument fields in dataset metadata (<span id="how-instr">&mdash;</span> of <span id="how-datasets">&mdash;</span> datasets carry instrument data). <span id="how-rescan">&mdash;</span> boreholes hold more than one scan (up to <span id="how-maxscan">&mdash;</span>).</p>
                 <p><strong>Live check.</strong> Your browser fetches each node&rsquo;s WFS <code>resultType=hits</code> URL &mdash; the same endpoints cited in the Verify column &mdash; and reads <code>numberMatched</code> from the XML. Some government servers do not send CORS headers, so a browser fetch can be blocked even while the service is up; the source link always works because it opens the server&rsquo;s answer directly.</p>
             </div>
@@ -570,10 +572,17 @@ function renderProvenance() {
 function renderTiles() {
     var s = nv.data.summary;
     document.getElementById('stat-boreholes').textContent = fmt(s.total_boreholes_with_data);
-    document.getElementById('stat-km').textContent = fmtKm(s.total_scanned_km) + ' km';
-    var kmSub = fmtKm(s.total_borehole_drilled_km) + ' km drilled';
-    if (s.interval_unrecorded_datasets) {
-        kmSub += ' · ' + fmt(s.interval_unrecorded_datasets) + ' datasets unmeasured (API gaps)';
+    var kmSub;
+    if (s.estimated_km && s.estimated_km > 0) {
+        document.getElementById('stat-km').textContent = '\u2248 ' + fmtKm(s.combined_estimate_km) + ' km';
+        kmSub = fmtKm(s.unique_scanned_km) + ' km measured \u00b7 '
+            + fmtKm(s.estimated_km) + ' km estimated (APIs omit intervals)';
+    } else {
+        document.getElementById('stat-km').textContent = fmtKm(s.total_scanned_km) + ' km';
+        kmSub = fmtKm(s.total_borehole_drilled_km) + ' km drilled';
+        if (s.interval_unrecorded_datasets) {
+            kmSub += ' \u00b7 ' + fmt(s.interval_unrecorded_datasets) + ' datasets unmeasured (API gaps)';
+        }
     }
     document.getElementById('stat-km-sub').textContent = kmSub;
     document.getElementById('stat-datasets').textContent = fmt(s.total_datasets);
@@ -778,7 +787,10 @@ function renderVerifyTable() {
         // read as "not published", never as a bare 0 (which looks broken).
         var kmCell;
         if ((st.total_km_scanned || 0) === 0 && (st.interval_unrecorded || 0) > 0) {
-            kmCell = '<span class="badge-warn" data-tip="This node’s getDatasetCollection API publishes no depth intervals for its ' + escapeAttr(fmt(st.interval_unrecorded)) + ' datasets — the scanning is real but unmeasurable from the public API. Never substituted with drilled length.">not in API</span>';
+            kmCell = '<span class="badge-warn" data-tip="This node’s getDatasetCollection API publishes no depth intervals for its ' + escapeAttr(fmt(st.interval_unrecorded)) + ' datasets. Measured km is therefore zero; the ≈ figure estimates each borehole once at its drilled length — disclosed, never blended into measured totals.">not in API</span>';
+            if (st.estimated_km && st.estimated_km > 0) {
+                kmCell += ' <span class="est-km">≈ ' + fmtKm(st.estimated_km) + ' est.</span>';
+            }
         } else {
             kmCell = fmtKm(st.total_km_scanned);
             if ((st.interval_unrecorded || 0) > 0) {

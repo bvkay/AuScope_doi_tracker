@@ -124,3 +124,21 @@ Retired because the fallback fabricated scan metres from drilling metadata
 multiplied rescanned core into the headline coverage figure. merged-v1 keeps
 its per-dataset atom but removes the substitution (unrecorded bucket instead)
 and separates coverage (union) from work (sum).
+
+## Estimation tier (added merged-v1.1)
+
+Some nodes publish no scan intervals at all through `getDatasetCollection`
+(at the time of writing: WA and NT — 2,194 datasets). Their scanning is
+real; their APIs simply omit depth ranges. For **those boreholes only**:
+
+- A borehole whose datasets are *all* interval-less is estimated **once**
+  at its drilled length (`boreholeLength_m` from the WFS). Never per
+  dataset — rescans must not inflate an estimate.
+- Estimates are reported as `estimated_km` / `estimated_boreholes`,
+  **separately** from `unique_scanned_km` (measured). The headline
+  `combined_estimate_km = measured + estimated` always travels with the
+  split. Blending them silently was the retired deep-pipeline method's
+  flaw; disclosure is the difference between an estimate and a fabrication.
+- When a node begins publishing intervals (or a cited enrichment source
+  such as GSWA's published shapefile is integrated), its boreholes leave
+  the estimation tier automatically — measured always wins over estimated.

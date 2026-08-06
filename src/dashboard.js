@@ -391,9 +391,7 @@ function buildExplorerCards(pillarData) {
     // wording must not imply the rest are un-PID'd.
     cards.push({ href: 'earthbank.html', num: p.samples.declared.toLocaleString(),
       name: 'Samples',
-      sub: 'in DOI-registered datasets · ' + p.samples.sampleDois
-        + ' with individual DOIs · ' + (p.samples.dataPoints || 0).toLocaleString()
-        + ' data points' });
+      sub: 'in DOI-registered datasets' });
   }
   if ((p.datasets && (p.datasets.byPlatform || {}).AusPass)) {
     const stations = p.stations ? p.stations.total.toLocaleString() + ' stations' : 'stations + citations';
