@@ -109,6 +109,163 @@
         @media (max-width: 900px) {
             .fleet-grid { grid-template-columns: 1fr; }
         }
+
+        /* ----- Station map (lazy accordion) -----
+           None of these selectors exist in tracker-shared.css — the map is
+           page-local. nvcl.html/ausis.html carry their own near-identical
+           copies; kept local rather than shared because each page's map
+           differs in legend width and dot semantics. */
+        .map-body { padding: 0 14px 14px; }
+        .map-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .map-modes {
+            display: inline-flex;
+            border: 1px solid var(--border-strong);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        button.map-mode {
+            font-family: var(--sans);
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 6px 13px;
+            border: none;
+            border-right: 1px solid var(--border-strong);
+            background: white;
+            color: var(--text-soft);
+            cursor: pointer;
+        }
+        button.map-mode:last-child { border-right: none; }
+        button.map-mode:hover:not(.active) { background: var(--accent-bg); }
+        button.map-mode.active { background: var(--accent); color: #fff; }
+        .map-count {
+            font-size: 12px;
+            color: var(--text-soft);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .map-panel { display: flex; gap: 18px; align-items: flex-start; }
+        /* author `display:flex` beats the UA `[hidden]` rule — re-assert it */
+        .map-panel[hidden] { display: none; }
+        .map-main { flex: 1; min-width: 0; }
+        #map-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        #map-coast path { fill: #f4f4f8; stroke: var(--border-strong); stroke-width: 1; }
+        #map-svg circle.stn { fill-opacity: 0.7; }
+        /* Dimmed rather than hidden while a legend filter is on, so the rest of
+           the inventory still reads as context. Forced to neutral grey, not just
+           a lower opacity: nodal arrays stack hundreds of dots on the same few
+           pixels, and faint-but-coloured stacks accumulate back into strong
+           colour that competes with the network you actually selected. Beats the
+           .n0–.n11 fills on specificity (id + two classes). */
+        #map-svg circle.stn.dim { fill: #94a3b8; fill-opacity: 0.16; }
+        #map-brand image { opacity: 0.85; }
+
+        /* network palette — 12 flat hues, repeated across 82 networks.
+           AuScope purple first; amber and red are deliberately absent
+           (reserved for warning states elsewhere on the page). Keep in sync
+           with NET_PALETTE in the script below. */
+        #map-svg circle.n0  { fill: #282572; }  /* AuScope purple */
+        #map-svg circle.n1  { fill: #2563eb; }  /* blue           */
+        #map-svg circle.n2  { fill: #0d9488; }  /* teal           */
+        #map-svg circle.n3  { fill: #16a34a; }  /* green          */
+        #map-svg circle.n4  { fill: #7c3aed; }  /* violet         */
+        #map-svg circle.n5  { fill: #be185d; }  /* magenta        */
+        #map-svg circle.n6  { fill: #0891b2; }  /* cyan           */
+        #map-svg circle.n7  { fill: #4d7c0f; }  /* olive          */
+        #map-svg circle.n8  { fill: #64748b; }  /* slate          */
+        #map-svg circle.n9  { fill: #a21caf; }  /* fuchsia        */
+        #map-svg circle.n10 { fill: #065f46; }  /* pine           */
+        #map-svg circle.n11 { fill: #334155; }  /* dark slate     */
+
+        .map-note {
+            font-size: 11.5px;
+            color: var(--text-soft);
+            margin-top: 8px;
+            line-height: 1.55;
+            max-width: 760px;
+        }
+        .map-note strong { color: var(--text); }
+        .map-note .warn-lead { color: #92400e; font-weight: 600; }
+        .map-loading { font-size: 12.5px; color: var(--text-soft); padding: 20px 0; }
+
+        .map-legend { width: 250px; flex-shrink: 0; font-size: 12px; }
+        .map-legend h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        /* legend rows are real <button>s so the filter is keyboard-reachable;
+           the reset below undoes the UA button chrome */
+        .lg-row {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            width: 100%;
+            padding: 3px 5px;
+            border: none;
+            border-radius: 4px;
+            background: none;
+            font-family: var(--sans);
+            font-size: 12px;
+            text-align: left;
+            cursor: pointer;
+        }
+        .lg-row:hover { background: var(--bg-muted); }
+        .lg-row.sel { background: var(--accent-bg); box-shadow: inset 0 0 0 1px var(--accent-soft); }
+        .lg-row.muted { cursor: default; padding-top: 6px; }
+        .lg-row.muted:hover { background: none; }
+        .lg-swatch {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            opacity: 0.85;
+        }
+        .lg-swatch.none { background: var(--text-muted); opacity: 0.4; }
+        .lg-code { font-family: var(--mono); font-weight: 600; color: var(--text); min-width: 26px; }
+        .lg-name {
+            color: var(--text-soft);
+            flex: 1;
+            min-width: 0;
+            font-size: 11.5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .lg-count { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); }
+        .lg-note { font-size: 10.5px; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+        @media (max-width: 900px) {
+            .map-panel { flex-direction: column; }
+            .map-legend { width: 100%; }
+        }
+
+        #map-tip {
+            position: fixed;
+            display: none;
+            background: #0f172a;
+            color: #f1f5f9;
+            font-size: 12px;
+            padding: 5px 9px;
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 90;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+        }
     </style>
 </head>
 <body>
@@ -146,6 +303,65 @@
                 <span class="fleet-context"></span>
             </summary>
             <div class="fleet-grid"></div>
+        </details>
+
+        <!-- ========== STATION MAP ==========
+             Collapsed by default and drawn lazily: the station-level FDSN
+             query is ~350 KB / 3,892 rows, so it is only fetched the first
+             time this panel is opened. Re-opening reuses the cached parse. -->
+        <details class="fleet-panel" id="station-map-panel">
+            <summary>
+                Station map
+                <span class="fleet-context" id="map-summary-context">every station AusPass serves, drawn from its own coordinates</span>
+            </summary>
+            <div class="map-body">
+                <div class="map-toolbar">
+                    <div class="map-modes" id="map-modes" role="group" aria-label="Map extent">
+                        <button type="button" class="map-mode active" data-mode="au">Australia</button>
+                        <button type="button" class="map-mode" data-mode="all">All deployments</button>
+                    </div>
+                    <span class="map-count" id="map-count">&mdash;</span>
+                </div>
+                <div id="map-loading" class="map-loading"><span class="spinner"></span> Loading station coordinates from AusPass&hellip;</div>
+                <div class="map-panel" id="map-panel-body" hidden>
+                    <div class="map-main">
+                        <svg id="map-svg" viewBox="0 0 644 600" role="img" aria-labelledby="map-svg-title map-svg-desc">
+                            <title id="map-svg-title">Map of AusPass seismic stations</title>
+                            <desc id="map-svg-desc">Loading station positions.</desc>
+                            <g id="map-coast"></g>
+                            <!-- Quiet provenance marks: AuScope top-right,
+                                 AusPass bottom-left, 12px inset from the viewBox
+                                 edge. Both are anchored in viewBox units, not to
+                                 projected data, so they hold their corners when
+                                 the view toggles. Aspect ratios are the files'
+                                 own (281x288 and 360x144) and preserveAspectRatio
+                                 stops any stretch. Both assets are vendored under
+                                 docs/assets — nothing is hotlinked, so an outage
+                                 at either origin cannot break the map.
+                                 Drawn BEFORE the dots on purpose: the top-right
+                                 corner is empty Coral Sea in Australia mode, but
+                                 the fitted mode puts the Hawaii stations (the
+                                 north-easternmost data) right there. As an
+                                 underlay a mark can never hide a station,
+                                 whatever the data does next.
+                                 Each image carries its own title element:
+                                 announced to screen readers, and a missing asset
+                                 degrades to that text, not a broken-image glyph. -->
+                            <g id="map-brand">
+                                <image href="assets/auscope-logo.png" x="547" y="12" width="85" height="87" preserveAspectRatio="xMidYMid meet"><title>AuScope</title></image>
+                                <image href="assets/auspass-logo.png" x="12" y="536" width="130" height="52" preserveAspectRatio="xMidYMid meet"><title>AusPass</title></image>
+                            </g>
+                            <g id="map-dots"></g>
+                        </svg>
+                        <div class="map-note" id="map-note"></div>
+                    </div>
+                    <div class="map-legend">
+                        <h3>Networks</h3>
+                        <div id="map-legend-rows"></div>
+                        <div class="lg-note" id="map-legend-note"></div>
+                    </div>
+                </div>
+            </div>
         </details>
 
         <!-- ========== CONTROL BAR ========== -->
@@ -193,6 +409,7 @@
             </table>
         </div>
 
+        <div id="map-tip"></div>
         <div class="toast" id="toast"></div>
     </div>
 
@@ -218,7 +435,21 @@ var state = createTrackerState({
     networks: [],
     filter: { search: '', status: '', decade: '' },
     stationCache: {},
-    dataciteCache: {}
+    dataciteCache: {},
+    // Station map — populated lazily on first expansion of #station-map-panel.
+    // Mutated in place (never reassigned) so bound handlers keep working.
+    map: {
+        loaded: false,      // parse finished, dots drawn at least once
+        loading: false,     // fetch in flight — guards double-expansion
+        bound: false,       // svg/legend/mode listeners attached
+        stations: [],       // all 3,892 parsed rows
+        shown: [],          // rows for the current mode — tooltip index
+        colourIdx: {},      // network code -> NET_PALETTE index (stable)
+        outline: null,      // australia-outline.json rings
+        mode: 'au',         // 'au' | 'all'
+        netFilter: '',      // legend filter, '' = show everything
+        nullIsland: 0       // sentinel rows at 0°/0° dropped from the plot
+    }
 });
 
 // Fleet summary categories — citation/deployment focused, not mapping.
@@ -284,6 +515,7 @@ function init() {
         elements: { panelId: 'fleet-panel', summaryId: 'result-count' },
         onFilterChanged: renderTable
     });
+    bindMapPanel();
     loadNetworks();
 }
 
@@ -311,6 +543,10 @@ function bindControls() {
         state.citationCache = {};
         state.stationCache = {};
         state.dataciteCache = {};
+        // Reload is an explicit "get me current data" action, so the map cache
+        // goes too — otherwise the panel would keep showing the older fetch.
+        // (Merely re-expanding the panel still never refetches.)
+        resetMapCache();
         loadNetworks();
     });
 
@@ -1100,6 +1336,507 @@ function renderRawPane(n) {
         return '<div class="empty-state">This network has no DOI registered, so there is no DataCite metadata to display.</div>';
     }
     return '<div class="empty-state">DataCite metadata not yet loaded (or DOI not in DataCite). Reload the page or check the DOI is valid.</div>';
+}
+
+// ============================================================
+// STATION MAP
+// ============================================================
+// One SVG, one fetch, no basemap library. The whole AusPass station
+// inventory comes back in a single level=station text query (~350 KB), so
+// there is no per-network looping here — the per-network Stations tab above
+// is a different, narrower query.
+//
+// Two modes, because 15% of the inventory is NOT in Australia: AusPass hosts
+// international deployments (Antarctica, the Pacific, Asia). An Australia-only
+// map would silently drop them, so "All deployments" refits the same
+// projection to the real data bounds and draws the same coastline through it.
+
+var MAP_W = 644, MAP_H = 600;
+var MAP_STATION_URL = 'https://auspass.edu.au/fdsnws/station/1/query?level=station&format=text';
+var MAP_OUTLINE_URL = 'australia-outline.json';
+// The window ausis.html/nvcl.html use — also the "is this station domestic?" test.
+var AU_BOX = { minLat: -44, maxLat: -9, minLng: 112, maxLng: 154 };
+var MAP_LEGEND_TOP = 12;
+
+// Keep in sync with the #map-svg circle.n0..n11 rules in the <style> block.
+var NET_PALETTE = [
+    '#282572', '#2563eb', '#0d9488', '#16a34a',
+    '#7c3aed', '#be185d', '#0891b2', '#4d7c0f',
+    '#64748b', '#a21caf', '#065f46', '#334155'
+];
+
+function fmtNum(n) { return (n == null ? 0 : n).toLocaleString(); }
+
+// ----- projection -----
+// Equirectangular with a standard parallel at the mid-latitude, so a degree of
+// longitude is compressed by cos(midLat) and ground distance reads the same on
+// both axes. One scale factor for both axes — nothing is ever stretched.
+//
+// Australia mode is the fixed nvcl.html / ausis.html window. Verified:
+//   Perth (-31.95, 115.86) -> x  59.2   Sydney (-33.87, 151.21) -> x 601.2
+//   Darwin (-12.46, 130.84) -> y  59.3   Hobart (-42.88, 147.33) -> y 580.8
+function auProjection() {
+    return {
+        x: function(lng) { return (lng - AU_BOX.minLng) / (AU_BOX.maxLng - AU_BOX.minLng) * MAP_W; },
+        y: function(lat) { return (AU_BOX.maxLat - lat) / (AU_BOX.maxLat - AU_BOX.minLat) * MAP_H; }
+    };
+}
+
+// Fit-to-data projection for "All deployments". Same viewBox, ~5% padding,
+// content centred, one scale factor for both axes. Australia comes out
+// smaller and stays geographically correct — the coastline is drawn through
+// this projection too.
+//
+// The frame is antimeridian-aware. AusPass has stations in Hawaii (-155°) and
+// in the western Pacific (+176°) — near neighbours that an un-rotated frame
+// would fling to opposite edges of a 332°-wide map, spreading the drawing
+// across an empty Atlantic and crushing Australia to ~70 px. Rotating the
+// western hemisphere east by 360° spans 145° instead, so that frame wins.
+// The rule is generic: take whichever of the two frames is narrower.
+function fitProjection(stations) {
+    var lats = [], lngs = [], i;
+    for (i = 0; i < stations.length; i++) {
+        lats.push(stations[i].lat);
+        lngs.push(stations[i].lng);
+    }
+    // Australia must stay framed even when no station sits on the box edge.
+    lats.push(AU_BOX.minLat, AU_BOX.maxLat);
+    lngs.push(AU_BOX.minLng, AU_BOX.maxLng);
+
+    var latEx = extentOf(lats);
+    var rawEx = extentOf(lngs);
+    var shiftEx = extentOf(lngs.map(function(v) { return v < 0 ? v + 360 : v; }));
+    var rotate = (shiftEx.max - shiftEx.min) < (rawEx.max - rawEx.min);
+    var lngEx = rotate ? shiftEx : rawEx;
+
+    var padX = MAP_W * 0.05, padY = MAP_H * 0.05;
+    var availW = MAP_W - 2 * padX, availH = MAP_H - 2 * padY;
+    var dLat = Math.max(latEx.max - latEx.min, 0.001);
+    var dLng = Math.max(lngEx.max - lngEx.min, 0.001);
+    var cosMid = Math.cos(((latEx.min + latEx.max) / 2) * Math.PI / 180);
+    if (cosMid < 0.15) cosMid = 0.15;   // guard against a polar-centred fit
+    // k = px per degree of latitude; whichever axis runs out first sets it.
+    var k = Math.min(availW / (dLng * cosMid), availH / dLat);
+    var w = dLng * cosMid * k, h = dLat * k;
+    var ox = (MAP_W - w) / 2, oy = (MAP_H - h) / 2;
+
+    return {
+        x: function(lng) {
+            var v = (rotate && lng < 0) ? lng + 360 : lng;
+            return ox + (v - lngEx.min) * cosMid * k;
+        },
+        y: function(lat) { return oy + (latEx.max - lat) * k; },
+        // Reported back in real longitudes for the caption.
+        bounds: {
+            minLat: latEx.min, maxLat: latEx.max,
+            minLng: unrotateLng(lngEx.min), maxLng: unrotateLng(lngEx.max)
+        }
+    };
+}
+
+function extentOf(values) {
+    var min = Infinity, max = -Infinity;
+    for (var i = 0; i < values.length; i++) {
+        if (values[i] < min) min = values[i];
+        if (values[i] > max) max = values[i];
+    }
+    return { min: min, max: max };
+}
+
+function unrotateLng(v) { return v > 180 ? v - 360 : v; }
+
+function isDomestic(s) {
+    return s.lat >= AU_BOX.minLat && s.lat <= AU_BOX.maxLat
+        && s.lng >= AU_BOX.minLng && s.lng <= AU_BOX.maxLng;
+}
+
+// ----- colour assignment -----
+// djb2-ish hash so a network code always lands on the same palette slot,
+// whatever order the rows arrive in or which mode is showing.
+function netHash(code) {
+    var h = 0;
+    for (var i = 0; i < code.length; i++) {
+        h = ((h << 5) - h + code.charCodeAt(i)) | 0;
+    }
+    return Math.abs(h) % NET_PALETTE.length;
+}
+
+// 81 networks over 12 colours means the palette repeats — unavoidable, and
+// fine for the map, where colour is a grouping aid rather than a key. The
+// legend is the part that must not collide: with 12 slots hashed
+// independently, the odds of the 12 named networks all landing on different
+// colours are about 1 in 200,000. So the legend's networks are walked in rank
+// order and bumped to the next free slot; every other network keeps its pure
+// hash colour.
+//
+// The bump is resolved against the *shown* set, not the whole inventory,
+// because the two modes rank networks differently — the domestic top 12 and
+// the worldwide top 12 are not the same list, and resolving only against one
+// of them leaves duplicate swatches in the other. The cost is that one or two
+// networks may take a different colour when the mode changes; the hash keeps
+// the rest fixed, and nothing shifts when a legend filter is applied (the
+// shown set is unchanged — filtered dots are dimmed, not removed).
+function buildNetColours(allStations, shownStations) {
+    var idx = {}, i, code;
+    for (i = 0; i < allStations.length; i++) {
+        code = allStations[i].net;
+        if (idx[code] === undefined) idx[code] = netHash(code);
+    }
+    var counts = {};
+    for (i = 0; i < shownStations.length; i++) {
+        counts[shownStations[i].net] = (counts[shownStations[i].net] || 0) + 1;
+    }
+    var ranked = rankNetworks(counts);
+    var used = {};
+    for (i = 0; i < ranked.length && i < NET_PALETTE.length; i++) {
+        var slot = idx[ranked[i]], tries = 0;
+        while (used[slot] && tries < NET_PALETTE.length) {
+            slot = (slot + 1) % NET_PALETTE.length;
+            tries++;
+        }
+        used[slot] = true;
+        idx[ranked[i]] = slot;
+    }
+    return idx;
+}
+
+// Station count descending, code ascending on ties — deterministic.
+function rankNetworks(counts) {
+    return Object.keys(counts).sort(function(a, b) {
+        if (counts[b] !== counts[a]) return counts[b] - counts[a];
+        return a < b ? -1 : 1;
+    });
+}
+
+// ----- load -----
+function bindMapPanel() {
+    document.getElementById('station-map-panel').addEventListener('toggle', function() {
+        if (this.open) loadStationMap();
+    });
+}
+
+function resetMapCache() {
+    var m = state.map;
+    m.loaded = false;
+    m.loading = false;
+    m.stations = [];
+    m.shown = [];
+    m.colourIdx = {};
+    m.netFilter = '';
+    document.getElementById('map-dots').innerHTML = '';
+    document.getElementById('map-coast').innerHTML = '';
+    document.getElementById('map-panel-body').hidden = true;
+    var loadEl = document.getElementById('map-loading');
+    loadEl.hidden = false;
+    loadEl.innerHTML = '<span class="spinner"></span> Loading station coordinates from AusPass&hellip;';
+    if (document.getElementById('station-map-panel').open) loadStationMap();
+}
+
+async function loadStationMap() {
+    var m = state.map;
+    if (m.loaded || m.loading) return;     // re-expanding never refetches
+    m.loading = true;
+    var loadEl = document.getElementById('map-loading');
+    loadEl.hidden = false;
+    loadEl.innerHTML = '<span class="spinner"></span> Loading station coordinates from AusPass&hellip;';
+    try {
+        // Outline failure is not fatal — the dots carry the geography.
+        var results = await Promise.all([
+            fetch(MAP_STATION_URL).then(function(r) {
+                if (!r.ok) throw new Error('station service returned HTTP ' + r.status);
+                return r.text();
+            }),
+            fetch(MAP_OUTLINE_URL).then(function(r) {
+                return r.ok ? r.json() : null;
+            }).catch(function() { return null; })
+        ]);
+        m.stations = parseMapStations(results[0]);
+        m.outline = results[1];
+        if (m.stations.length === 0) throw new Error('no station rows returned');
+        m.loaded = true;
+        m.loading = false;
+        loadEl.hidden = true;
+        document.getElementById('map-panel-body').hidden = false;
+        bindMapEvents();
+        renderMap();
+    } catch (err) {
+        m.loading = false;
+        loadEl.hidden = false;
+        loadEl.innerHTML = '<span style="color:var(--bad)">Could not draw the map: '
+            + escapeHtml(err && err.message ? err.message : 'fetch failed') + '</span>';
+    }
+}
+
+// Pipe-delimited FDSN text: Network|Station|Lat|Lon|Elev|SiteName|Start|End.
+// Comment lines start with '#' (the header is one of them).
+//
+// One row is dropped: the service carries a null-island sentinel
+// (XX|ABCD|0.0|0.0|…|Nowhere) that is not a real station. Left in, it would
+// drag the "All deployments" frame across the Gulf of Guinea and halve the
+// scale of everything real. It is dropped by coordinate (lat and lng both
+// exactly zero), not by network code, and the count is disclosed under the
+// map rather than quietly swallowed.
+function parseMapStations(text) {
+    var lines = String(text).split('\n');
+    var out = [], now = Date.now();
+    state.map.nullIsland = 0;
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        if (!line || line.charAt(0) === '#') continue;
+        var p = line.split('|');
+        if (p.length < 8) continue;
+        var lat = parseFloat(p[2]), lng = parseFloat(p[3]);
+        if (isNaN(lat) || isNaN(lng)) continue;
+        if (lat === 0 && lng === 0) { state.map.nullIsland++; continue; }
+        var end = p[7].trim();
+        var endTs = end ? new Date(end).getTime() : NaN;
+        out.push({
+            net: p[0].trim(),
+            sta: p[1].trim(),
+            lat: lat,
+            lng: lng,
+            site: p[5].trim(),
+            startYear: p[6].trim().substring(0, 4),
+            endYear: end ? end.substring(0, 4) : '',
+            // Active = no end date, or an end date still in the future.
+            active: !end || (!isNaN(endTs) && endTs > now)
+        });
+    }
+    return out;
+}
+
+// Network descriptions come from the level=network table already on the page.
+// Codes are reused across deployments, so take the most recent one.
+function mapNetDescription(code) {
+    var best = null;
+    for (var i = 0; i < state.networks.length; i++) {
+        var n = state.networks[i];
+        if (n.code !== code) continue;
+        if (!best || (n.startTime || '') > (best.startTime || '')) best = n;
+    }
+    return best ? (best.description || '') : '';
+}
+
+// ----- render -----
+function renderMap() {
+    var m = state.map;
+    if (!m.loaded) return;
+
+    m.shown = m.mode === 'all' ? m.stations : m.stations.filter(isDomestic);
+    m.colourIdx = buildNetColours(m.stations, m.shown);
+    var proj = m.mode === 'all' ? fitProjection(m.stations) : auProjection();
+
+    drawMapCoast(proj);
+    drawMapDots(proj);
+    renderMapLegend();
+    renderMapCounts();
+    renderMapNote(proj);
+}
+
+function drawMapCoast(proj) {
+    var rings = (state.map.outline && state.map.outline.rings) || [];
+    var parts = [];
+    for (var r = 0; r < rings.length; r++) {
+        var ring = rings[r], d = '';
+        for (var i = 0; i < ring.length; i++) {
+            d += (i === 0 ? 'M' : 'L') + proj.x(ring[i][0]).toFixed(1) + ',' + proj.y(ring[i][1]).toFixed(1);
+        }
+        parts.push('<path d="' + d + 'Z"/>');
+    }
+    document.getElementById('map-coast').innerHTML = parts.join('');
+}
+
+// One string, one innerHTML assignment — 3,892 individually created elements
+// would cost far more than the string build.
+function drawMapDots(proj) {
+    var m = state.map, list = m.shown, parts = [];
+    for (var i = 0; i < list.length; i++) {
+        var s = list[i];
+        var cls = 'stn n' + (m.colourIdx[s.net] || 0);
+        if (m.netFilter && s.net !== m.netFilter) cls += ' dim';
+        parts.push('<circle class="' + cls + '" cx="' + proj.x(s.lng).toFixed(1)
+            + '" cy="' + proj.y(s.lat).toFixed(1) + '" r="2.5" data-i="' + i + '"/>');
+    }
+    document.getElementById('map-dots').innerHTML = parts.join('');
+}
+
+function renderMapCounts() {
+    var m = state.map;
+    var nets = {}, i;
+    for (i = 0; i < m.shown.length; i++) nets[m.shown[i].net] = true;
+    var nNets = Object.keys(nets).length;
+    var shownCount = m.netFilter
+        ? m.shown.filter(function(s) { return s.net === m.netFilter; }).length
+        : m.shown.length;
+
+    var txt = fmtNum(shownCount) + ' station' + (shownCount === 1 ? '' : 's') + ' · ';
+    txt += m.netFilter
+        ? 'network ' + m.netFilter + ' only (of ' + fmtNum(nNets) + ')'
+        : fmtNum(nNets) + ' network' + (nNets === 1 ? '' : 's') + ' shown';
+    document.getElementById('map-count').textContent = txt;
+
+    var allNets = {};
+    for (i = 0; i < m.stations.length; i++) allNets[m.stations[i].net] = true;
+    document.getElementById('map-summary-context').textContent =
+        fmtNum(m.stations.length) + ' stations · ' + fmtNum(Object.keys(allNets).length) + ' networks';
+
+    document.getElementById('map-svg-desc').textContent =
+        'Dot map of ' + fmtNum(m.shown.length) + ' AusPass seismic stations plotted at their registered '
+        + 'coordinates and coloured by FDSN network code, over an outline of Australia. '
+        + (m.mode === 'all'
+            ? 'Extent fitted to every deployment worldwide.'
+            : 'Extent limited to Australia.');
+}
+
+function renderMapLegend() {
+    var m = state.map, i;
+    var counts = {};
+    for (i = 0; i < m.shown.length; i++) counts[m.shown[i].net] = (counts[m.shown[i].net] || 0) + 1;
+    // Same ranking buildNetColours used, so the swatch a row shows is exactly
+    // the colour its dots were drawn with.
+    var codes = rankNetworks(counts);
+
+    var top = codes.slice(0, MAP_LEGEND_TOP);
+    var html = '';
+    for (i = 0; i < top.length; i++) {
+        var code = top[i];
+        var colour = NET_PALETTE[m.colourIdx[code] || 0];
+        var desc = mapNetDescription(code);
+        var sel = m.netFilter === code ? ' sel' : '';
+        html += '<button type="button" class="lg-row' + sel + '" data-net="' + escapeAttr(code) + '"'
+            + ' aria-pressed="' + (m.netFilter === code ? 'true' : 'false') + '"'
+            + ' title="' + escapeAttr(code + (desc ? ' — ' + desc : '')) + '">'
+            + '<span class="lg-swatch" style="background:' + escapeAttr(colour) + '"></span>'
+            + '<span class="lg-code">' + escapeHtml(code) + '</span>'
+            + '<span class="lg-name">' + escapeHtml(desc || '(no description)') + '</span>'
+            + '<span class="lg-count">' + fmtNum(counts[code]) + '</span>'
+            + '</button>';
+    }
+
+    var restCodes = codes.slice(MAP_LEGEND_TOP);
+    if (restCodes.length > 0) {
+        var restStations = 0;
+        for (i = 0; i < restCodes.length; i++) restStations += counts[restCodes[i]];
+        html += '<div class="lg-row muted">'
+            + '<span class="lg-swatch none"></span>'
+            + '<span class="lg-name">' + fmtNum(restCodes.length) + ' other networks</span>'
+            + '<span class="lg-count">' + fmtNum(restStations) + '</span>'
+            + '</div>';
+    }
+    document.getElementById('map-legend-rows').innerHTML = html;
+
+    document.getElementById('map-legend-note').textContent = m.netFilter
+        ? 'Showing network ' + m.netFilter + ' only — click its row again to clear. '
+          + 'The palette repeats every 12 networks, so colours identify a network on the map, not uniquely across all ' + fmtNum(codes.length) + '.'
+        : 'Top ' + MAP_LEGEND_TOP + ' by station count. Click a row to isolate that network. '
+          + 'The palette repeats every 12 networks, so colour is a grouping aid, not a unique key.';
+}
+
+function renderMapNote(proj) {
+    var m = state.map;
+    var el = document.getElementById('map-note');
+    var html;
+    if (m.mode === 'au') {
+        var outsideNets = {}, outside = 0;
+        for (var i = 0; i < m.stations.length; i++) {
+            if (isDomestic(m.stations[i])) continue;
+            outside++;
+            outsideNets[m.stations[i].net] = true;
+        }
+        var nNets = Object.keys(outsideNets).length;
+        if (outside === 0) {
+            html = 'Every station AusPass serves falls inside Australia.';
+        } else {
+            html = '<span class="warn-lead">' + fmtNum(outside) + ' station'
+                + (outside === 1 ? '' : 's') + ' in ' + fmtNum(nNets) + ' network'
+                + (nNets === 1 ? '' : 's') + ' are deployed outside Australia</span> — switch to '
+                + '<strong>All deployments</strong> to see them. AusPass hosts international field '
+                + 'experiments, so an Australia-only map hides roughly one station in seven.';
+        }
+    } else {
+        var b = proj.bounds;
+        html = 'All <strong>' + fmtNum(m.stations.length) + '</strong> stations, with the projection '
+            + 'refitted to the real data extent (' + fmtLat(b.maxLat) + ' to ' + fmtLat(b.minLat) + ', '
+            + fmtLng(b.minLng) + ' to ' + fmtLng(b.maxLng) + '). The Australian coastline is drawn through '
+            + 'the same projection, so it stays geographically correct — it is genuinely that small against '
+            + 'the full deployment footprint. Nothing is stretched: one scale factor drives both axes, and '
+            + 'the frame is centred on the Pacific so Hawaii and Fiji stay the neighbours they are.';
+    }
+    if (m.nullIsland > 0) {
+        html += '<br>' + fmtNum(m.nullIsland) + ' further row'
+            + (m.nullIsland === 1 ? ' is' : 's are') + ' excluded from the plot: the service carries a '
+            + 'placeholder station at 0°/0° (network XX, site “Nowhere”) that is not a real deployment.';
+    }
+    el.innerHTML = html;
+}
+
+function fmtLat(v) {
+    return Math.abs(v).toFixed(0) + '°' + (v < 0 ? 'S' : 'N');
+}
+
+function fmtLng(v) {
+    return Math.abs(v).toFixed(0) + '°' + (v < 0 ? 'W' : 'E');
+}
+
+// ----- events (bound once, all delegated) -----
+function bindMapEvents() {
+    var m = state.map;
+    if (m.bound) return;
+    m.bound = true;
+
+    document.getElementById('map-modes').addEventListener('click', function(e) {
+        var btn = e.target.closest('button.map-mode');
+        if (!btn) return;
+        var mode = btn.getAttribute('data-mode');
+        if (mode === state.map.mode) return;
+        state.map.mode = mode;
+        // A network filtered in one mode may have no stations in the other;
+        // keep it — renderMapLegend simply won't list it, and the count line
+        // says so. Clearing silently would be more surprising.
+        this.querySelectorAll('button.map-mode').forEach(function(b) {
+            b.classList.toggle('active', b === btn);
+        });
+        renderMap();
+    });
+
+    document.getElementById('map-legend-rows').addEventListener('click', function(e) {
+        var row = e.target.closest('button.lg-row');
+        if (!row) return;
+        var code = row.getAttribute('data-net');
+        state.map.netFilter = (state.map.netFilter === code) ? '' : code;
+        renderMap();
+    });
+
+    var svg = document.getElementById('map-svg');
+    svg.addEventListener('mousemove', onMapMove);
+    svg.addEventListener('mouseleave', function() {
+        document.getElementById('map-tip').style.display = 'none';
+    });
+}
+
+// One shared tooltip div — 3,892 <title> children would bloat the SVG.
+function onMapMove(e) {
+    var tip = document.getElementById('map-tip');
+    var t = e.target;
+    if (!t || t.tagName !== 'circle' || !t.hasAttribute('data-i')) {
+        tip.style.display = 'none';
+        return;
+    }
+    var s = state.map.shown[+t.getAttribute('data-i')];
+    if (!s) { tip.style.display = 'none'; return; }
+
+    var years = s.startYear || '?';
+    if (s.endYear && s.endYear !== s.startYear) years += '–' + s.endYear;
+    else if (s.active) years += '–now';
+    // textContent, not innerHTML — siteName is free text from the service.
+    tip.textContent = (s.site || '(unnamed site)') + ' — ' + s.net + ' ' + s.sta
+        + ' · ' + (s.active ? 'active' : 'concluded') + ' · ' + years;
+    tip.style.display = 'block';
+    var x = e.clientX + 14;
+    if (x > window.innerWidth - 340) x = e.clientX - 330;
+    if (x < 4) x = 4;
+    tip.style.left = x + 'px';
+    tip.style.top = (e.clientY + 14) + 'px';
 }
 
 // ============================================================
