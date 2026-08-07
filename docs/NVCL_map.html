@@ -355,9 +355,10 @@ body {
 
 /* ---------- HyLogger fleet rows ----------
    Display only, so these are <div>s: nothing here is clickable and a button
-   would promise an interaction that does not exist. The bar is a flat block
-   scaled to the leader's borehole count — it makes the fleet's shape read at
-   projector distance, where the numbers alone would not. */
+   would promise an interaction that does not exist. A proportional bar was
+   tried behind each row and removed: at these widths it read as stray
+   highlighting rather than as data, and the figures carry the comparison
+   on their own. */
 .fl-row {
     position: relative;
     display: flex;
@@ -368,12 +369,6 @@ body {
     line-height: 1.2;
     border-radius: calc(var(--u) * 0.22);
     overflow: hidden;
-}
-.fl-bar {
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    background: var(--accent-bg);
-    z-index: 0;
 }
 .fl-name, .fl-figs {
     position: relative;
@@ -951,17 +946,14 @@ function renderFleet() {
 
     var top = named.slice(0, st.fleetMax);
     var rest = named.slice(st.fleetMax);
-    var lead = top.length ? top[0].boreholes : 1;
 
     var html = '';
     for (i = 0; i < top.length; i++) {
         inst = top[i];
-        var pct = lead > 0 ? Math.round(inst.boreholes / lead * 100) : 0;
         html += '<div class="fl-row" title="'
             + escapeAttr(inst.instrument_canonical + ' — '
                 + (inst.states_used || []).join(', ')
                 + ' · ' + fmt(inst.datasets) + ' datasets') + '">'
-            + '<span class="fl-bar" style="width:' + pct + '%"></span>'
             + '<span class="fl-name">' + escapeHtml(inst.instrument_canonical) + '</span>'
             + '<span class="fl-figs">' + fmt(inst.boreholes) + ' boreholes &middot; '
             + '<span class="fl-km">' + fmtKm(inst.km_scanned) + ' km</span></span>'
