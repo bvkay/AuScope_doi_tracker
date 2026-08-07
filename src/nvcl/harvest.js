@@ -965,7 +965,12 @@ function aggregate(results, asOf, tsgIndex) {
       national_measured_km: Math.round((sumUniqueM / 1000 + sumMirrorOnlyKm) * 100) / 100,
       estimated_km: km(sumEstimatedM),
       estimated_boreholes: sumEstimatedBh,
-      combined_estimate_km: km(sumUniqueM + sumEstimatedM),
+      // Everything we can account for: attributed measurement + mirror-only
+      // measurement + the disclosed estimate. Omitting mirror-only here
+      // would leave the headline lower than national_measured_km, which
+      // reads as nonsense (a 'combined' figure below its own subtotal).
+      combined_estimate_km: Math.round((sumUniqueM / 1000 + sumMirrorOnlyKm
+        + sumEstimatedM / 1000) * 100) / 100,
       // Date provenance. API dates are INGEST dates (createdDate); TSG dates
       // are the instrument's own record of when it scanned.
       dates_from_tsg: sumDatesTsg,
