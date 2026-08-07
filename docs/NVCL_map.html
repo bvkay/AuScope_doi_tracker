@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<!--
+    AuScope — National Virtual Core Library borehole map (presentation artefact)
+
+    A standalone 16:9 display page carrying ONLY the NVCL drill-core map. It is
+    the sibling of AusPASS_map.html and shares its whole chassis: one 16:9 stage
+    sized in a single `--u` unit, a thin title strip, the map on the left and a
+    legend column on the right, logos anchored in viewBox units, one delegated
+    tooltip. Nothing is imported from the tracker pages, so the file can be
+    opened, projected or copied on its own.
+
+    Differences from the map inside nvcl.html, all deliberate:
+      * The projection is fitted to this pane's aspect instead of the tracker's
+        fixed 644x600 box. The RULE is unchanged (one scale factor for both
+        axes, longitude compressed by cos of the mid-latitude), so ground
+        distance still reads the same on both axes; only the frame differs.
+      * Clicking a state isolates it — the tracker's map has no filter.
+      * The spare legend space carries the HyLogger fleet, which is the thing
+        this view exists to show alongside the geography.
+      * The month timeline is kept, and is worth more here than it was on the
+        tracker: until this harvest most scan months were node createdDates,
+        i.e. INGEST dates, so the run showed an upload schedule (whole states
+        arriving in one month). 72% now come from the TSG files' own headers,
+        so the run shows the archive actually accumulating from 2003.
+
+    Data:  nvcl-data.json            (sibling file, regenerated weekly by CI)
+    Coast: australia-outline.json    (sibling file)
+    Logos: assets/auscope-logo.png, assets/csiro-logo.png
+           CSIRO earns its corner here: it built the HyLogger instruments and
+           the TSG software the whole archive depends on.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>National Virtual Core Library — AuScope</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* ============================================================
+   TOKENS
+   Copied from AusPASS_map.html so the two display pages are the
+   same drawing with different data. Not linked — each file stands
+   alone.
+   ============================================================ */
+:root {
+    --bg: #ffffff;
+    --bg-soft: #f8fafc;
+    --bg-muted: #f1f5f9;
+    --border: #e5e7eb;
+    --border-strong: #cbd5e1;
+    --text: #0f172a;
+    --text-soft: #475569;
+    --text-muted: #94a3b8;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --accent-bg: #eff6ff;
+    --bad: #dc2626;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, sans-serif;
+    --mono: 'SFMono-Regular', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
+
+    /* ONE unit drives the entire page: 1u = 1% of the stage's width. The
+       stage is always 16:9, so every length below is resolution independent —
+       1145x644 and 1920x1080 are the same drawing at a different scale, which
+       makes "no scrollbars at either size" a property of the layout rather
+       than something to test for.
+       The MULTIPLES below are chosen for 1145x644, which is the size that
+       actually matters: Squarespace caps its content column at 1145px, so
+       that is what the embed renders at. Proportions judged against a
+       1920-wide mock come out about 40% too small on the real page. */
+    --u: calc(min(100vw, 177.7778vh) / 100);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    overflow: hidden;              /* a display artefact never scrolls */
+}
+
+body {
+    font-family: var(--sans);
+    color: var(--text);
+    /* Letterbox colour for off-ratio screens and projectors. */
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- the 16:9 stage ---------- */
+.stage {
+    width: calc(var(--u) * 100);
+    height: calc(var(--u) * 56.25);
+    background: var(--bg);
+    padding: calc(var(--u) * 1.5) calc(var(--u) * 1.8) calc(var(--u) * 1.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ---------- title strip ---------- */
+.title-strip {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: calc(var(--u) * 2);
+    padding-bottom: calc(var(--u) * 0.7);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: calc(var(--u) * 1.0);
+    flex-shrink: 0;
+}
+.title-strip h1 {
+    font-size: calc(var(--u) * 2.75);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+}
+.title-strip h1 .accent { color: var(--accent); font-weight: 700; }
+.title-strip .sub {
+    font-size: calc(var(--u) * 1.0);
+    color: var(--text-muted);
+    margin-top: calc(var(--u) * 0.25);
+    letter-spacing: 0.01em;
+}
+.counts {
+    text-align: right;
+    flex-shrink: 0;
+}
+.counts .primary {
+    font-size: calc(var(--u) * 1.55);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+    white-space: nowrap;
+}
+.counts .secondary {
+    font-size: calc(var(--u) * 0.95);
+    color: var(--text-muted);
+    margin-top: calc(var(--u) * 0.2);
+    white-space: nowrap;
+}
+
+/* ---------- main split ---------- */
+.frame {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: calc(var(--u) * 1.6);
+}
+.map-pane {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+.map-wrap {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    display: flex;
+}
+#map-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--u) * 0.35);
+}
+#map-status {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(var(--u) * 2);
+    font-size: calc(var(--u) * 1.15);
+    color: var(--text-soft);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--u) * 0.35);
+}
+#map-status[hidden] { display: none; }
+#map-status.error { color: var(--bad); }
+
+/* ---------- map internals ---------- */
+#map-coast path {
+    fill: var(--bg-muted);
+    stroke: var(--border-strong);
+    stroke-width: 1.1;
+    stroke-linejoin: round;
+}
+#map-svg circle.d { fill-opacity: 0.6; }
+/* Timeline visibility. `display:none` rather than opacity so a hidden dot is
+   also out of the hit-testing path — a tooltip for a borehole the viewer
+   cannot see would be a ghost. Independent of .dim, so isolate and playback
+   compose without either having to know about the other. */
+#map-svg circle.d.off { display: none; }
+/* Dimmed to a flat neutral rather than a faint tint of their own colour: the
+   SA and WA clusters stack hundreds of dots on the same few pixels and faint
+   colour re-accumulates into strong colour that competes with the state
+   actually selected. id + two classes beats the .s0–.s7 fills. */
+#map-svg circle.d.dim { fill: #94a3b8; fill-opacity: 0.14; }
+#map-brand image { opacity: 0.85; }
+
+/* ---------- timeline controls ---------- */
+.map-controls {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--u) * 0.8);
+    margin-top: calc(var(--u) * 0.7);
+}
+.btn {
+    flex-shrink: 0;
+    font-family: var(--sans);
+    font-size: calc(var(--u) * 1.0);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--text);
+    background: var(--bg-soft);
+    border: 1px solid var(--border-strong);
+    border-radius: calc(var(--u) * 0.24);
+    padding: calc(var(--u) * 0.6) calc(var(--u) * 1.15);
+    cursor: pointer;
+    /* fixed width so "Play" -> "Pause" does not shove the slider sideways */
+    min-width: calc(var(--u) * 6.6);
+    text-align: center;
+}
+.btn:hover:not(:disabled) { background: var(--bg-muted); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+#map-slider {
+    flex: 1;
+    min-width: 0;
+    height: calc(var(--u) * 1.5);
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+#map-slider:disabled { cursor: default; opacity: 0.45; }
+#map-label {
+    flex-shrink: 0;
+    font-size: calc(var(--u) * 1.0);
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+    font-weight: 600;
+    /* reserved so the widest label cannot make the slider jitter frame to frame */
+    min-width: calc(var(--u) * 20.2);
+    text-align: right;
+    white-space: nowrap;
+}
+.map-caption {
+    flex-shrink: 0;
+    margin-top: calc(var(--u) * 0.4);
+    font-size: calc(var(--u) * 0.88);
+    line-height: 1.3;
+    color: var(--text-muted);
+}
+
+/* Node palette — index order matches boreholeStates in nvcl-data.json, and
+   the colours are lifted verbatim from nvcl.html so the tracker map and this
+   display map never disagree about which colour is which state. Keep in sync
+   with STATE_PALETTE below. */
+#map-svg circle.s0 { fill: #16a34a; }  /* CSIRO  green          */
+#map-svg circle.s1 { fill: #2563eb; }  /* NSW    blue           */
+#map-svg circle.s2 { fill: #b45309; }  /* NT     ochre          */
+#map-svg circle.s3 { fill: #be185d; }  /* QLD    magenta        */
+#map-svg circle.s4 { fill: #7c3aed; }  /* SA     violet         */
+#map-svg circle.s5 { fill: #0d9488; }  /* TAS    teal           */
+#map-svg circle.s6 { fill: #64748b; }  /* VIC    slate          */
+#map-svg circle.s7 { fill: #282572; }  /* WA     AuScope purple */
+
+/* ---------- legend column ---------- */
+.legend-col {
+    width: calc(var(--u) * 35);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    /* Hidden, never scrolled: fitLegend() trims fleet rows until the column
+       fits, so an overflow here is a bug, not a scrollbar. */
+    overflow: hidden;
+}
+.legend-col h2 {
+    font-size: calc(var(--u) * 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: calc(var(--u) * 0.3);
+    flex-shrink: 0;
+}
+#legend-rows, #fleet-rows { flex-shrink: 0; }
+
+.fleet-block {
+    flex-shrink: 0;
+    margin-top: calc(var(--u) * 0.85);
+    padding-top: calc(var(--u) * 0.6);
+    border-top: 1px solid var(--border);
+}
+
+.lg-row {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--u) * 0.5);
+    width: 100%;
+    padding: calc(var(--u) * 0.16) calc(var(--u) * 0.34);
+    border: none;
+    border-radius: calc(var(--u) * 0.22);
+    background: none;
+    font-family: var(--sans);
+    font-size: calc(var(--u) * 1.1);
+    line-height: 1.25;
+    text-align: left;
+    cursor: pointer;
+    color: var(--text);
+}
+.lg-row:hover { background: var(--bg-muted); }
+.lg-row.sel { background: var(--accent-bg); box-shadow: inset 0 0 0 1px var(--accent-soft); }
+.lg-row.muted { cursor: default; }
+.lg-row.muted:hover { background: none; }
+.lg-swatch {
+    width: calc(var(--u) * 0.85);
+    height: calc(var(--u) * 0.85);
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0.85;
+}
+.lg-swatch.none { background: var(--text-muted); opacity: 0.35; }
+.lg-code {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: calc(var(--u) * 1.05);
+    min-width: calc(var(--u) * 4.3);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.lg-name {
+    color: var(--text-soft);
+    flex: 1;
+    min-width: 0;
+    font-size: calc(var(--u) * 1.05);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.lg-count {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    font-size: calc(var(--u) * 1.05);
+    flex-shrink: 0;
+    min-width: calc(var(--u) * 3.4);
+    text-align: right;
+}
+
+/* ---------- HyLogger fleet rows ----------
+   Display only, so these are <div>s: nothing here is clickable and a button
+   would promise an interaction that does not exist. The bar is a flat block
+   scaled to the leader's borehole count — it makes the fleet's shape read at
+   projector distance, where the numbers alone would not. */
+.fl-row {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: calc(var(--u) * 0.4);
+    padding: calc(var(--u) * 0.16) calc(var(--u) * 0.34);
+    font-size: calc(var(--u) * 0.98);
+    line-height: 1.2;
+    border-radius: calc(var(--u) * 0.22);
+    overflow: hidden;
+}
+.fl-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--accent-bg);
+    z-index: 0;
+}
+.fl-name, .fl-figs {
+    position: relative;
+    z-index: 1;
+    white-space: nowrap;
+}
+.fl-name {
+    font-weight: 600;
+    font-size: calc(var(--u) * 1.0);
+    flex-shrink: 0;
+}
+.fl-figs {
+    color: var(--text-soft);
+    font-variant-numeric: tabular-nums;
+    margin-left: auto;
+    text-align: right;
+}
+.fl-figs .fl-km { color: var(--text); font-weight: 600; }
+.fl-row.muted .fl-name { font-weight: 500; color: var(--text-muted); }
+.fl-row.muted .fl-figs, .fl-row.muted .fl-figs .fl-km {
+    color: var(--text-muted); font-weight: 500;
+}
+
+.legend-foot {
+    margin-top: auto;             /* pinned to the bottom of the column */
+    flex-shrink: 0;
+    padding-top: calc(var(--u) * 0.55);
+}
+.legend-note {
+    font-size: calc(var(--u) * 0.92);
+    line-height: 1.38;
+    color: var(--text-soft);
+    border-top: 1px solid var(--border);
+    padding-top: calc(var(--u) * 0.5);
+}
+.legend-note strong { color: var(--text); font-weight: 600; }
+.legend-fine {
+    font-size: calc(var(--u) * 0.85);
+    line-height: 1.38;
+    color: var(--text-muted);
+    margin-top: calc(var(--u) * 0.4);
+}
+
+/* ---------- shared tooltip ---------- */
+#map-tip {
+    position: fixed;
+    display: none;
+    background: #0f172a;
+    color: #f1f5f9;
+    font-size: calc(var(--u) * 0.88);
+    padding: calc(var(--u) * 0.34) calc(var(--u) * 0.55);
+    border-radius: calc(var(--u) * 0.2);
+    pointer-events: none;
+    z-index: 90;
+    max-width: calc(var(--u) * 30);
+    line-height: 1.45;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.28);
+}
+</style>
+</head>
+<body>
+
+<div class="stage">
+
+    <!-- ========== TITLE STRIP ========== -->
+    <div class="title-strip">
+        <div>
+            <h1>AuScope <span class="accent">National Virtual Core Library</span></h1>
+            <div class="sub">Every drill core with HyLogger spectral data, drawn at its registered borehole coordinates</div>
+        </div>
+        <div class="counts">
+            <div class="primary" id="count-primary">&mdash;</div>
+            <div class="secondary" id="count-secondary">loading the national snapshot&hellip;</div>
+        </div>
+    </div>
+
+    <!-- ========== MAP + LEGEND ========== -->
+    <div class="frame">
+        <div class="map-pane">
+          <div class="map-wrap">
+            <!-- The viewBox is FITTED to this pane at run time (see fitViewBox)
+                 rather than hardcoded. The page is a pure scale of --u, but not
+                 quite: the 1px borders do not scale, and the caption below can
+                 wrap to a different number of lines, so the pane's aspect drifts
+                 about 2% between 1920x1080 and 1366x768. Hardcoding one number
+                 letterboxes the drawing at the other resolution and pulls the
+                 logos in off their corners. The value here is only the
+                 pre-measurement default. -->
+            <svg id="map-svg" viewBox="0 0 1000 643" role="img" aria-labelledby="map-svg-title map-svg-desc">
+                <title id="map-svg-title">Map of National Virtual Core Library boreholes across Australia</title>
+                <desc id="map-svg-desc">Loading borehole positions.</desc>
+
+                <g id="map-coast"></g>
+
+                <!-- Quiet provenance marks, anchored in viewBox units rather
+                     than to projected data so they hold their corners at any
+                     display size. Aspect ratios are the files' own (281x288
+                     and 400x400) and preserveAspectRatio stops any stretch;
+                     the CSIRO mark is square, so it is sized ~62 to carry the
+                     same visual weight as the taller AuScope mark.
+                     Both assets are vendored under docs/assets — nothing is
+                     hotlinked, so an outage elsewhere cannot break the map.
+                     Drawn BEFORE the dots on purpose: as an underlay a mark
+                     can never hide a borehole, whatever the data does next.
+                     Each carries a <title>, so a missing file degrades to that
+                     text rather than a broken-image glyph. They stay in the
+                     markup — only their x/y are moved when the viewBox is
+                     fitted — so a script failure still leaves the marks. -->
+                <g id="map-brand">
+                    <image id="brand-auscope" href="assets/auscope-logo.png" x="928" y="12" width="60" height="61" preserveAspectRatio="xMidYMid meet"><title>AuScope</title></image>
+                    <image id="brand-csiro" href="assets/csiro-logo.png" x="12" y="569" width="62" height="62" preserveAspectRatio="xMidYMid meet"><title>CSIRO</title></image>
+                </g>
+
+                <g id="map-dots"></g>
+            </svg>
+            <div id="map-status">Loading borehole coordinates&hellip;</div>
+          </div>
+
+          <!-- Timeline. Worth having here in a way it was not before: as of
+               this harvest 72% of scan months are read from the TSG file's own
+               header — the instrument's record of when it scanned — rather than
+               a node's createdDate, which is an INGEST date. Animating ingest
+               dates showed an upload schedule (whole states arriving in one
+               month); animating these shows the archive actually accumulating. -->
+          <div class="map-controls">
+              <button type="button" class="btn" id="map-play" disabled>Play</button>
+              <input type="range" id="map-slider" min="0" max="1" value="1" step="1" disabled
+                     aria-label="Show boreholes scanned up to a given month">
+              <span id="map-label">&mdash;</span>
+          </div>
+          <div class="map-caption" id="map-caption"></div>
+        </div>
+
+        <div class="legend-col" id="legend-col">
+            <h2>Nodes</h2>
+            <div id="legend-rows"></div>
+
+            <div class="fleet-block">
+                <!-- These rows sum slightly above the national borehole count,
+                     and that is correct: 26 boreholes were rescanned, and a
+                     hole scanned by two machines is a borehole for each of
+                     them. Stated on hover rather than in the footer, which is
+                     already carrying the two disclosures that change a number
+                     on screen. -->
+                <h2 title="Boreholes each unit has scanned. A borehole rescanned on a second machine counts for both, so these rows sum a little above the national total.">HyLogger fleet</h2>
+                <div id="fleet-rows"></div>
+            </div>
+
+            <!-- No navigation, no outbound link: this is a display artefact for
+                 projection and embedding, and a hyperlink is dead weight there.
+                 The logos already carry the provenance. -->
+            <div class="legend-foot">
+                <div class="legend-note" id="legend-note"></div>
+                <div class="legend-fine" id="legend-fine"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="map-tip"></div>
+
+<script>
+"use strict";
+
+// ============================================================
+// ESCAPING
+// ============================================================
+// Duplicated from tracker-chassis.js on purpose — this page is a standalone
+// artefact and must not depend on a sibling script. Node names and instrument
+// labels come straight out of harvested government metadata, so everything
+// interpolated goes through one of these.
+function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function escapeAttr(s) {
+    if (s == null) return '';
+    return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/'/g, '&#39;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function fmt(n) {
+    if (n == null) return '—';
+    return Number(n).toLocaleString('en-AU');
+}
+
+function fmtKm(n, dp) {
+    if (n == null) return '—';
+    return Number(n).toLocaleString('en-AU', { maximumFractionDigits: (dp == null ? 0 : dp) });
+}
+
+var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function niceDate(iso) {
+    var p = String(iso || '').split('-');
+    if (p.length < 3) return String(iso || '');
+    return (+p[2]) + ' ' + MONTH_NAMES[(+p[1]) - 1] + ' ' + (+p[0]);
+}
+
+function niceMonth(ym) {
+    var p = String(ym || '').split('-');
+    if (p.length < 2) return String(ym || '');
+    return MONTH_NAMES[(+p[1]) - 1] + ' ' + (+p[0]);
+}
+
+// ============================================================
+// CONFIG
+// ============================================================
+var DATA_URL = 'nvcl-data.json';
+var OUTLINE_URL = 'australia-outline.json';
+
+// MAP_W is the fixed drawing width; MAP_H is fitted to the pane by fitViewBox()
+// on load and on resize, so the viewBox attribute in the markup is only a
+// starting value. Everything downstream — projection, coastline, dots, logo
+// corners — is expressed in these two numbers and follows automatically.
+var MAP_W = 1000, MAP_H = 643;
+
+// Logo geometry, in viewBox units. Both are inset 12 from their corner. The
+// CSIRO mark is square (the file is 400x400) where the AuScope one is nearly
+// so, hence 62 against 60 — sized to carry the same visual weight, not to the
+// same box.
+var BRAND = { inset: 12, auscopeW: 60, auscopeH: 61, csiroW: 62, csiroH: 62 };
+
+// The domestic window shared with nvcl.html / auspass.html / AusPASS_map.html,
+// and also the "can this borehole be drawn?" test.
+var AU_BOX = { minLat: -44, maxLat: -9, minLng: 112, maxLng: 154 };
+
+var MAP_PAD_X = 14, MAP_PAD_Y = 8;
+
+var FLEET_MAX = 8;   // starting fleet-row budget; fitLegend() trims if it must
+
+// Whole-run playback target. The archive spans 236 scan months, so a fixed
+// per-frame delay would make the run length a hostage to the data: budget the
+// RUN instead and derive the step, clamped so a short or very long history
+// still animates at a watchable speed.
+var PLAY_RUN_MS = 19000, PLAY_MIN_MS = 40, PLAY_MAX_MS = 140;
+
+// Instrument labels that are not a HyLogger unit. 'Unknown' is the harvester's
+// placeholder for datasets whose metadata carries no instrument field, and '19'
+// is a bare fragment left by one node's free-text field. Neither belongs in a
+// list headed "HyLogger fleet" — but they are NOT dropped: they are counted
+// into the disclosure rows underneath, because silently omitting 410 boreholes
+// would overstate how much of the archive is attributable to a named machine.
+var NON_INSTRUMENT = { 'Unknown': true, '19': true };
+
+// Keep in sync with the #map-svg circle.s0..s7 rules in the <style> block.
+var STATE_PALETTE = ['#16a34a', '#2563eb', '#b45309', '#be185d',
+                     '#7c3aed', '#0d9488', '#64748b', '#282572'];
+
+// ============================================================
+// STATE
+// ============================================================
+var st = {
+    data: null,
+    outline: null,
+    drawn: [],          // boreholes inside AU_BOX, CHRONOLOGICAL — tooltip index
+    offFrame: [],       // boreholes with coordinates outside AU_BOX
+    counts: {},         // stateIdx -> drawn borehole count
+    order: [],          // stateIdx values, most boreholes first
+    filter: -1,         // isolated stateIdx, -1 = show all
+    fleetMax: FLEET_MAX,
+
+    // ---- timeline ----
+    months: [],         // distinct scan months, ascending
+    cumCounts: [],      // cumCounts[v] = dots visible at slider position v
+    undated: 0,         // boreholes with no scan month — always visible
+    nodes: [],          // nodes[i] = the <circle> for drawn[i]
+    cutoff: 0,          // how many chronologically-first dots are visible
+    playTimer: null
+};
+
+// ============================================================
+// PROJECTION
+// ============================================================
+// Equirectangular with a standard parallel at the mid-latitude, so a degree of
+// longitude is compressed by cos(midLat) and ground distance reads the same on
+// both axes. ONE scale factor drives both axes — nothing is ever stretched.
+// Raw degrees would draw Australia about 34% too wide. This is nvcl.html's
+// rule (its 644-wide box for a 600-tall frame is the same 42 x cos(26.5) by 35
+// arithmetic), refitted to this pane's wider aspect and centred in it.
+function projection() {
+    var dLat = AU_BOX.maxLat - AU_BOX.minLat;                 // 35
+    var dLng = AU_BOX.maxLng - AU_BOX.minLng;                 // 42
+    var cosMid = Math.cos(((AU_BOX.minLat + AU_BOX.maxLat) / 2) * Math.PI / 180);
+    var availW = MAP_W - 2 * MAP_PAD_X;
+    var availH = MAP_H - 2 * MAP_PAD_Y;
+    var k = Math.min(availW / (dLng * cosMid), availH / dLat);  // px per degree of latitude
+    var w = dLng * cosMid * k, h = dLat * k;
+    var ox = MAP_PAD_X + (availW - w) / 2;
+    var oy = MAP_PAD_Y + (availH - h) / 2;
+    return {
+        x: function(lng) { return ox + (lng - AU_BOX.minLng) * cosMid * k; },
+        y: function(lat) { return oy + (AU_BOX.maxLat - lat) * k; }
+    };
+}
+
+// Measure the pane and make the viewBox match it, so the drawing fills the pane
+// exactly and the logos sit on the pane's real corners at any resolution.
+// Returns true when MAP_H changed, i.e. when the map has to be redrawn.
+function fitViewBox() {
+    var box = document.querySelector('.map-wrap').getBoundingClientRect();
+    if (!(box.width > 0 && box.height > 0)) return false;
+    var h = Math.round(MAP_W * box.height / box.width);
+    if (h === MAP_H) return false;
+    MAP_H = h;
+    document.getElementById('map-svg').setAttribute('viewBox', '0 0 ' + MAP_W + ' ' + MAP_H);
+
+    var a = document.getElementById('brand-auscope');
+    a.setAttribute('x', String(MAP_W - BRAND.inset - BRAND.auscopeW));
+    a.setAttribute('y', String(BRAND.inset));
+    var c = document.getElementById('brand-csiro');
+    c.setAttribute('x', String(BRAND.inset));
+    c.setAttribute('y', String(MAP_H - BRAND.inset - BRAND.csiroH));
+    return true;
+}
+
+function inBox(lat, lng) {
+    return lat >= AU_BOX.minLat && lat <= AU_BOX.maxLat
+        && lng >= AU_BOX.minLng && lng <= AU_BOX.maxLng;
+}
+
+// ============================================================
+// LOAD
+// ============================================================
+function load() {
+    var statusEl = document.getElementById('map-status');
+    Promise.all([
+        fetch(DATA_URL).then(function(r) {
+            if (!r.ok) throw new Error('nvcl-data.json returned HTTP ' + r.status);
+            return r.json();
+        }),
+        // Outline failure is not fatal — 6,000 boreholes draw the continent on
+        // their own, which is the point nvcl.html makes about this archive.
+        fetch(OUTLINE_URL).then(function(r) {
+            return r.ok ? r.json() : null;
+        }).catch(function() { return null; })
+    ]).then(function(res) {
+        st.data = res[0];
+        st.outline = res[1];
+        if (!st.data.boreholes || st.data.boreholes.length === 0) {
+            throw new Error('the snapshot carries no borehole rows');
+        }
+        statusEl.hidden = true;
+        bindEvents();
+        render();
+        // The legend is sized in --u, so it fits by construction; this is the
+        // belt-and-braces pass in case a locale or font widens a row.
+        fitLegend();
+    }).catch(function(err) {
+        statusEl.hidden = false;
+        statusEl.className = 'error';
+        statusEl.textContent = 'Could not draw the map: '
+            + (err && err.message ? err.message : 'fetch failed');
+    });
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+// Compact borehole row: [lat, lng, stateIdx, 'YYYY-MM', scannedMetres, tsgDated]
+// The sixth element flags whether the scan month came from the TSG file itself
+// rather than a node's ingest date — the thing that makes the timeline below
+// worth animating. The tooltip stays at state / month / depth so it reads at a
+// glance.
+function render() {
+    var rows = st.data.boreholes || [];
+    var i, r;
+
+    st.drawn = [];
+    st.offFrame = [];
+    for (i = 0; i < rows.length; i++) {
+        r = rows[i];
+        if (typeof r[0] !== 'number' || typeof r[1] !== 'number') continue;
+        if (inBox(r[0], r[1])) st.drawn.push(r);
+        else st.offFrame.push(r);
+    }
+
+    // Chronological, undated first. Two things follow from this one sort:
+    // the timeline is a prefix of the array (reveal the first K), and every
+    // undated borehole sits inside that prefix at every position, so it is
+    // visible throughout rather than stranded outside the run.
+    st.drawn.sort(function(a, b) {
+        var ma = a[3] || '', mb = b[3] || '';
+        return ma < mb ? -1 : (ma > mb ? 1 : 0);
+    });
+    buildTimeline();
+
+    st.counts = {};
+    for (i = 0; i < st.drawn.length; i++) {
+        var idx = st.drawn[i][2] & 7;
+        st.counts[idx] = (st.counts[idx] || 0) + 1;
+    }
+
+    // Every node in the feed gets a row, including one with no boreholes:
+    // "Victoria, 0" is a finding, not an empty row to hide.
+    var codes = st.data.boreholeStates || [];
+    st.order = [];
+    for (i = 0; i < codes.length; i++) st.order.push(i);
+    st.order.sort(function(a, b) {
+        var ca = st.counts[a] || 0, cb = st.counts[b] || 0;
+        if (cb !== ca) return cb - ca;
+        return codes[a] < codes[b] ? -1 : 1;
+    });
+
+    renderLegend();
+    renderFleet();
+    renderCounts();
+    renderNotes();
+    initControls();
+    // Last: the legend, controls and caption all shape the pane, so the
+    // viewBox can only be fitted once they are on the page.
+    fitViewBox();
+    drawMap();
+}
+
+function drawMap() {
+    var proj = projection();
+    drawCoast(proj);
+    drawDots(proj);
+}
+
+// Distinct months and the cumulative dot count at each slider position.
+// cumCounts[0] is the undated boreholes, so position 0 is "before the record
+// starts" rather than an empty continent.
+function buildTimeline() {
+    st.months = [];
+    var perMonth = [], i, m;
+    st.undated = 0;
+    for (i = 0; i < st.drawn.length; i++) {
+        m = st.drawn[i][3] || '';
+        if (m === '') { st.undated++; continue; }
+        if (st.months.length === 0 || st.months[st.months.length - 1] !== m) {
+            st.months.push(m);
+            perMonth.push(1);
+        } else {
+            perMonth[perMonth.length - 1]++;
+        }
+    }
+    st.cumCounts = [st.undated];
+    for (i = 0; i < perMonth.length; i++) st.cumCounts.push(st.cumCounts[i] + perMonth[i]);
+    // Default is the COMPLETE map: a viewer who never touches the controls
+    // must see the whole archive, not the start of an animation.
+    st.cutoff = st.drawn.length;
+}
+
+function drawCoast(proj) {
+    var rings = (st.outline && st.outline.rings) || [];
+    var parts = [];
+    for (var r = 0; r < rings.length; r++) {
+        var ring = rings[r], d = '';
+        for (var i = 0; i < ring.length; i++) {
+            d += (i === 0 ? 'M' : 'L') + proj.x(ring[i][0]).toFixed(1) + ',' + proj.y(ring[i][1]).toFixed(1);
+        }
+        parts.push('<path d="' + d + 'Z"/>');
+    }
+    document.getElementById('map-coast').innerHTML = parts.join('');
+}
+
+// One string, one innerHTML assignment — 6,006 individually created elements
+// would cost far more than the string build. This runs ONCE per filter change
+// or resize; the timeline never comes through here (see applyCutoff).
+//
+// When a node is isolated the dimmed dots are emitted FIRST so the selected
+// node paints on top of them. In the SA and WA clusters the dots overlap many
+// deep, and painting in feed order would bury the selection under grey.
+//
+// That reordering is exactly why the timeline cannot walk the DOM by position:
+// data-i indexes st.drawn (chronological), the DOM does not. st.nodes is built
+// here as the index the timeline toggles through, so paint order and
+// chronological order stay independent and neither has to know about the other.
+function drawDots(proj) {
+    var parts = [], i;
+    if (st.filter >= 0) {
+        for (i = 0; i < st.drawn.length; i++) {
+            if ((st.drawn[i][2] & 7) !== st.filter) parts.push(dot(proj, st.drawn[i], i, true));
+        }
+        for (i = 0; i < st.drawn.length; i++) {
+            if ((st.drawn[i][2] & 7) === st.filter) parts.push(dot(proj, st.drawn[i], i, false));
+        }
+    } else {
+        for (i = 0; i < st.drawn.length; i++) parts.push(dot(proj, st.drawn[i], i, false));
+    }
+    var g = document.getElementById('map-dots');
+    g.innerHTML = parts.join('');
+
+    st.nodes = new Array(st.drawn.length);
+    var kids = g.children;
+    for (i = 0; i < kids.length; i++) st.nodes[+kids[i].getAttribute('data-i')] = kids[i];
+}
+
+// The cutoff is baked into the markup rather than applied afterwards, so a
+// redraw mid-playback cannot flash the whole archive for a frame.
+function dot(proj, r, i, dim) {
+    return '<circle class="d s' + (r[2] & 7) + (dim ? ' dim' : '')
+        + (i >= st.cutoff ? ' off' : '') + '" cx='
+        + '"' + proj.x(r[1]).toFixed(1) + '" cy="' + proj.y(r[0]).toFixed(1)
+        + '" r="2.3" data-i="' + i + '"/>';
+}
+
+// Only the DELTA between the old and new cutoff is touched — one classList
+// call per dot that actually changed. A full re-render at 236 frames would
+// stutter; this stays flat whatever the archive grows to.
+function applyCutoff(K) {
+    var i, n;
+    if (K > st.cutoff) {
+        for (i = st.cutoff; i < K; i++) { n = st.nodes[i]; if (n) n.classList.remove('off'); }
+    } else if (K < st.cutoff) {
+        for (i = K; i < st.cutoff; i++) { n = st.nodes[i]; if (n) n.classList.add('off'); }
+    }
+    st.cutoff = K;
+}
+
+function nodeName(code) {
+    var ep = (st.data.endpoints || {})[code];
+    var name = ep && ep.name ? ep.name : '';
+    return name === code ? '' : name;      // "CSIRO / CSIRO" is not a label
+}
+
+function renderLegend() {
+    var codes = st.data.boreholeStates || [];
+    var html = '', i;
+    for (i = 0; i < st.order.length; i++) {
+        var idx = st.order[i];
+        var code = codes[idx] || '?';
+        var n = st.counts[idx] || 0;
+        var sel = st.filter === idx ? ' sel' : '';
+        // A node with no boreholes has nothing to isolate — the row still
+        // appears, but it is inert rather than a button that does nothing.
+        if (n === 0) {
+            html += '<div class="lg-row muted">'
+                + '<span class="lg-swatch none"></span>'
+                + '<span class="lg-code">' + escapeHtml(code) + '</span>'
+                + '<span class="lg-name">' + escapeHtml(nodeName(code)) + '</span>'
+                + '<span class="lg-count">0</span>'
+                + '</div>';
+            continue;
+        }
+        html += '<button type="button" class="lg-row' + sel + '" data-state="' + escapeAttr(String(idx)) + '"'
+            + ' aria-pressed="' + (st.filter === idx ? 'true' : 'false') + '"'
+            + ' title="' + escapeAttr(code + (nodeName(code) ? ' — ' + nodeName(code) : '')) + '">'
+            + '<span class="lg-swatch" style="background:' + escapeAttr(STATE_PALETTE[idx & 7]) + '"></span>'
+            + '<span class="lg-code">' + escapeHtml(code) + '</span>'
+            + '<span class="lg-name">' + escapeHtml(nodeName(code)) + '</span>'
+            + '<span class="lg-count">' + fmt(n) + '</span>'
+            + '</button>';
+    }
+    document.getElementById('legend-rows').innerHTML = html;
+}
+
+// The state legend is only eight rows, so the column has room for the thing a
+// borehole map cannot show on its own: which machines did the scanning. Named
+// units first, then two disclosure rows so the listed figures are never
+// mistaken for the whole fleet.
+function renderFleet() {
+    var all = (st.data.instruments || []).slice();
+    var named = [], other = [], i, inst;
+    for (i = 0; i < all.length; i++) {
+        if (NON_INSTRUMENT[all[i].instrument_canonical]) other.push(all[i]);
+        else named.push(all[i]);
+    }
+    named.sort(function(a, b) {
+        if (b.boreholes !== a.boreholes) return b.boreholes - a.boreholes;
+        return b.km_scanned - a.km_scanned;
+    });
+
+    var top = named.slice(0, st.fleetMax);
+    var rest = named.slice(st.fleetMax);
+    var lead = top.length ? top[0].boreholes : 1;
+
+    var html = '';
+    for (i = 0; i < top.length; i++) {
+        inst = top[i];
+        var pct = lead > 0 ? Math.round(inst.boreholes / lead * 100) : 0;
+        html += '<div class="fl-row" title="'
+            + escapeAttr(inst.instrument_canonical + ' — '
+                + (inst.states_used || []).join(', ')
+                + ' · ' + fmt(inst.datasets) + ' datasets') + '">'
+            + '<span class="fl-bar" style="width:' + pct + '%"></span>'
+            + '<span class="fl-name">' + escapeHtml(inst.instrument_canonical) + '</span>'
+            + '<span class="fl-figs">' + fmt(inst.boreholes) + ' boreholes &middot; '
+            + '<span class="fl-km">' + fmtKm(inst.km_scanned) + ' km</span></span>'
+            + '</div>';
+    }
+
+    html += muteRow(rest, rest.length + ' further unit' + (rest.length === 1 ? '' : 's'));
+    html += muteRow(other, 'Instrument not recorded');
+
+    document.getElementById('fleet-rows').innerHTML = html;
+}
+
+function muteRow(list, label) {
+    if (!list.length) return '';
+    var bh = 0, km = 0, i;
+    for (i = 0; i < list.length; i++) {
+        bh += list[i].boreholes || 0;
+        km += list[i].km_scanned || 0;
+    }
+    return '<div class="fl-row muted">'
+        + '<span class="fl-name">' + escapeHtml(label) + '</span>'
+        + '<span class="fl-figs">' + fmt(bh) + ' boreholes &middot; '
+        + '<span class="fl-km">' + fmtKm(km) + ' km</span></span>'
+        + '</div>';
+}
+
+function renderCounts() {
+    var s = st.data.summary || {};
+    var codes = st.data.boreholeStates || [];
+    var primary = document.getElementById('count-primary');
+    var secondary = document.getElementById('count-secondary');
+
+    if (st.filter >= 0) {
+        var code = codes[st.filter] || '?';
+        primary.textContent = fmt(st.counts[st.filter] || 0) + ' of '
+            + fmt(s.total_boreholes_with_data) + ' boreholes';
+        secondary.textContent = (nodeName(code) || code)
+            + ' — click the row again to clear';
+    } else {
+        // national_measured_km is the honest national total: the per-borehole
+        // measured coverage PLUS the archives measured on the AuScope TSG
+        // mirror that no node has a published borehole for. The estimated
+        // kilometres are never blended in here.
+        primary.textContent = fmt(s.total_boreholes_with_data) + ' boreholes · '
+            + fmtKm(s.national_measured_km) + ' km of core scanned';
+        secondary.textContent = 'measured ' + niceDate(st.data.as_of);
+    }
+
+    document.getElementById('map-svg-desc').textContent =
+        'Dot map of ' + fmt(st.drawn.length) + ' National Virtual Core Library boreholes across '
+        + 'Australia, plotted at their registered coordinates and coloured by the state or '
+        + 'territory node that holds the core, over an outline of the continent.';
+}
+
+function renderNotes() {
+    var s = st.data.summary || {};
+    // Codes in the feed, full names on the slide: "VIC" is jargon in a
+    // sentence a viewer reads once from across a room.
+    var np = (s.non_participating_jurisdictions || []).map(function(code) {
+        return nodeName(code) || code;
+    }).join(', ');
+    var html = '';
+
+    if (np) {
+        html += '<strong>' + escapeHtml(np) + '</strong> has no HyLogger node; its '
+            + fmt(s.non_participating_borehole_count) + ' registered boreholes may have been '
+            + 'scanned elsewhere and counted there.';
+    }
+    // Disclosed rather than silently clipped: a borehole registered at a
+    // coordinate outside Australia is a metadata fault at the source, and the
+    // legend counts below are of DRAWN boreholes, so the difference has to be
+    // stated somewhere.
+    if (st.offFrame.length > 0) {
+        var codes = st.data.boreholeStates || [];
+        var where = codes[st.offFrame[0][2] & 7] || '?';
+        html += (html ? ' ' : '')
+            + fmt(st.offFrame.length) + ' ' + escapeHtml(where) + ' borehole'
+            + (st.offFrame.length === 1 ? '' : 's') + ' sit'
+            + (st.offFrame.length === 1 ? 's' : '') + ' at a coordinate outside Australia and '
+            + (st.offFrame.length === 1 ? 'is' : 'are') + ' not drawn, so the counts here total '
+            + fmt(st.drawn.length) + '.';
+    }
+    document.getElementById('legend-note').innerHTML = html;
+
+    document.getElementById('legend-fine').textContent =
+        'Measured from the state geological surveys’ own services and the AuScope TSG mirror '
+        + 'on NCI (DOI 10.25914/bztg-rg43) · ' + niceDate(st.data.as_of);
+}
+
+// ============================================================
+// TIMELINE CONTROLS
+// ============================================================
+function initControls() {
+    var slider = document.getElementById('map-slider');
+    var play = document.getElementById('map-play');
+    slider.max = String(st.months.length);
+    slider.value = String(st.months.length);   // default = the complete map
+    slider.disabled = st.months.length === 0;
+    play.disabled = st.months.length === 0;
+    updateLabel(st.months.length);
+
+    // Date provenance belongs next to the animation, not in a footnote: what
+    // the run is worth depends entirely on whether these are scan dates or
+    // upload dates, and until this harvest most of them were upload dates.
+    var dated = 0, fromTsg = 0, i;
+    for (i = 0; i < st.drawn.length; i++) {
+        if (!st.drawn[i][3]) continue;
+        dated++;
+        if (st.drawn[i][5]) fromTsg++;
+    }
+    var cap = '';
+    if (st.undated > 0) {
+        cap += fmt(st.undated) + ' borehole' + (st.undated === 1 ? '' : 's')
+            + ' carr' + (st.undated === 1 ? 'ies' : 'y') + ' no scan date and stay'
+            + (st.undated === 1 ? 's' : '') + ' visible at every position. ';
+    }
+    if (dated > 0) {
+        cap += Math.round(fromTsg / dated * 100) + '% of these scan months are read from '
+            + 'the TSG file’s own header — the instrument’s record of when it scanned — '
+            + 'rather than a node’s ingest date.';
+    }
+    document.getElementById('map-caption').textContent = cap;
+}
+
+function updateLabel(v) {
+    var label;
+    if (v >= st.months.length) label = 'All months';
+    else if (v === 0) label = 'Before 2003';
+    else label = 'To ' + niceMonth(st.months[v - 1]);
+    document.getElementById('map-label').textContent =
+        label + ' · ' + fmt(st.cumCounts[v] || 0) + ' boreholes';
+}
+
+function seek(v) {
+    applyCutoff(st.cumCounts[v] || 0);
+    updateLabel(v);
+}
+
+function stopPlay() {
+    if (!st.playTimer) return;
+    clearInterval(st.playTimer);
+    st.playTimer = null;
+    document.getElementById('map-play').textContent = 'Play';
+}
+
+function togglePlay() {
+    if (st.playTimer) { stopPlay(); return; }
+    var slider = document.getElementById('map-slider');
+    var n = st.months.length;
+    if (n === 0) return;
+
+    // Pressing Play at the end restarts from the beginning; pressing it
+    // part-way resumes from where the viewer left the slider.
+    var v = +slider.value;
+    if (v >= n) { v = 0; slider.value = '0'; seek(0); }
+
+    document.getElementById('map-play').textContent = 'Pause';
+    var step = Math.round(PLAY_RUN_MS / n);
+    if (step < PLAY_MIN_MS) step = PLAY_MIN_MS;
+    if (step > PLAY_MAX_MS) step = PLAY_MAX_MS;
+
+    st.playTimer = setInterval(function() {
+        v++;
+        slider.value = String(v);
+        seek(v);
+        // Stop on the full map. No auto-loop: a display that silently restarts
+        // is unreadable to someone who glances at it mid-cycle.
+        if (v >= n) stopPlay();
+    }, step);
+}
+
+// The layout is a pure scale of --u, so the rows fit by construction at every
+// resolution. This is the guard against the one thing --u cannot control: a
+// label or number that renders taller than expected. Fleet rows are dropped
+// from the bottom (and the "N further units" row absorbs them) rather than a
+// scrollbar appearing.
+function fitLegend() {
+    var col = document.getElementById('legend-col');
+    var foot = col.querySelector('.legend-foot');
+    // Measured on the rects rather than scrollHeight/clientHeight: those round
+    // to whole pixels and a fractional column height reports a phantom 1px
+    // overflow, which would cost a real row for nothing.
+    var overflows = function() {
+        return foot.getBoundingClientRect().bottom - col.getBoundingClientRect().bottom > 0.5;
+    };
+    var guard = 0;
+    while (overflows() && st.fleetMax > 3 && guard < 12) {
+        st.fleetMax--;
+        renderFleet();
+        guard++;
+    }
+    // Trimming rows does not change the pane, but a font that wrapped the
+    // caption differently might have — re-fit and redraw only if so.
+    if (fitViewBox()) drawMap();
+}
+
+// ============================================================
+// EVENTS — all delegated, bound once, no inline handlers
+// ============================================================
+function bindEvents() {
+    document.getElementById('legend-rows').addEventListener('click', function(e) {
+        var row = e.target.closest('button.lg-row');
+        if (!row) return;
+        var idx = +row.getAttribute('data-state');
+        st.filter = (st.filter === idx) ? -1 : idx;
+        // Only the dots' dim state and the labels change — the drawn set, the
+        // ranking and the timeline cutoff are unaffected, so the projection is
+        // not recomputed and the slider position survives the redraw.
+        drawDots(projection());
+        renderLegend();
+        renderCounts();
+    });
+
+    document.getElementById('map-play').addEventListener('click', togglePlay);
+
+    var slider = document.getElementById('map-slider');
+    slider.addEventListener('input', function() {
+        // A viewer who grabs the slider has taken over — playback that kept
+        // running would fight them for it.
+        stopPlay();
+        seek(+slider.value);
+    });
+
+    var svg = document.getElementById('map-svg');
+    svg.addEventListener('mousemove', onMapMove);
+    svg.addEventListener('mouseleave', function() {
+        document.getElementById('map-tip').style.display = 'none';
+    });
+
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            st.fleetMax = FLEET_MAX;
+            renderFleet();
+            fitLegend();          // re-fits the viewBox and redraws if needed
+        }, 150);
+    });
+}
+
+// One shared tooltip div — 6,006 <title> children would bloat the SVG beyond
+// anything the saving is worth.
+function onMapMove(e) {
+    var tip = document.getElementById('map-tip');
+    var t = e.target;
+    if (!t || t.tagName !== 'circle' || !t.hasAttribute('data-i')) {
+        tip.style.display = 'none';
+        return;
+    }
+    var r = st.drawn[+t.getAttribute('data-i')];
+    if (!r) { tip.style.display = 'none'; return; }
+
+    var codes = st.data.boreholeStates || [];
+    var code = codes[r[2] & 7] || '?';
+    var name = nodeName(code);
+    // The feed carries no borehole names — state, scan month and scanned depth
+    // are everything there is to say about a dot.
+    var txt = code + (name ? ' (' + name + ')' : '')
+        + ' · ' + (r[3] ? 'scanned ' + niceMonth(r[3]) : 'scan date unknown');
+    if (r[4] != null && r[4] > 0) txt += ' · ' + fmt(Math.round(r[4])) + ' m of core scanned';
+    tip.textContent = txt;
+    tip.style.display = 'block';
+
+    var w = tip.offsetWidth;
+    var x = e.clientX + 14;
+    if (x + w > window.innerWidth - 8) x = e.clientX - w - 14;
+    if (x < 4) x = 4;
+    var y = e.clientY + 14;
+    if (y + tip.offsetHeight > window.innerHeight - 8) y = e.clientY - tip.offsetHeight - 14;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+}
+
+// ============================================================
+// GO
+// ============================================================
+load();
+</script>
+</body>
+</html>
