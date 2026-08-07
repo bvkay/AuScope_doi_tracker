@@ -172,22 +172,33 @@
         #map-svg circle.stn.dim { fill: #94a3b8; fill-opacity: 0.16; }
         #map-brand image { opacity: 0.85; }
 
-        /* network palette — 12 flat hues, repeated across 82 networks.
+        /* Deployment palette — 20 flat hues, repeated across 87 deployments.
            AuScope purple first; amber and red are deliberately absent
-           (reserved for warning states elsewhere on the page). Keep in sync
-           with NET_PALETTE in the script below. */
-        #map-svg circle.n0  { fill: #282572; }  /* AuScope purple */
-        #map-svg circle.n1  { fill: #2563eb; }  /* blue           */
-        #map-svg circle.n2  { fill: #0d9488; }  /* teal           */
-        #map-svg circle.n3  { fill: #16a34a; }  /* green          */
-        #map-svg circle.n4  { fill: #7c3aed; }  /* violet         */
-        #map-svg circle.n5  { fill: #be185d; }  /* magenta        */
-        #map-svg circle.n6  { fill: #0891b2; }  /* cyan           */
-        #map-svg circle.n7  { fill: #4d7c0f; }  /* olive          */
-        #map-svg circle.n8  { fill: #64748b; }  /* slate          */
-        #map-svg circle.n9  { fill: #a21caf; }  /* fuchsia        */
-        #map-svg circle.n10 { fill: #065f46; }  /* pine           */
-        #map-svg circle.n11 { fill: #334155; }  /* dark slate     */
+           (reserved for warning states elsewhere on the page). Built as
+           families with clear lightness steps rather than 20 evenly spaced
+           hues: skipping the whole red-to-amber arc leaves too little hue
+           space for 20 to separate on hue alone. Keep in sync with
+           NET_PALETTE in the script below. */
+        #map-svg circle.n0  { fill: #282572; }  /* deep indigo (AuScope) */
+        #map-svg circle.n1  { fill: #4338ca; }  /* indigo         */
+        #map-svg circle.n2  { fill: #2563eb; }  /* blue           */
+        #map-svg circle.n3  { fill: #60a5fa; }  /* sky            */
+        #map-svg circle.n4  { fill: #155e75; }  /* deep cyan      */
+        #map-svg circle.n5  { fill: #0891b2; }  /* cyan           */
+        #map-svg circle.n6  { fill: #0d9488; }  /* teal           */
+        #map-svg circle.n7  { fill: #065f46; }  /* pine           */
+        #map-svg circle.n8  { fill: #166534; }  /* forest         */
+        #map-svg circle.n9  { fill: #16a34a; }  /* green          */
+        #map-svg circle.n10 { fill: #4d7c0f; }  /* olive          */
+        #map-svg circle.n11 { fill: #84cc16; }  /* lime           */
+        #map-svg circle.n12 { fill: #5b21b6; }  /* deep violet    */
+        #map-svg circle.n13 { fill: #8b5cf6; }  /* light violet   */
+        #map-svg circle.n14 { fill: #86198f; }  /* plum           */
+        #map-svg circle.n15 { fill: #c026d3; }  /* fuchsia        */
+        #map-svg circle.n16 { fill: #be185d; }  /* magenta        */
+        #map-svg circle.n17 { fill: #f472b6; }  /* pink           */
+        #map-svg circle.n18 { fill: #64748b; }  /* slate          */
+        #map-svg circle.n19 { fill: #334155; }  /* dark slate     */
 
         .map-note {
             font-size: 11.5px;
@@ -200,7 +211,10 @@
         .map-note .warn-lead { color: #92400e; font-weight: 600; }
         .map-loading { font-size: 12.5px; color: var(--text-soft); padding: 20px 0; }
 
-        .map-legend { width: 250px; flex-shrink: 0; font-size: 12px; }
+        .map-legend { width: 272px; flex-shrink: 0; font-size: 12px; }
+        /* 20 rows can outgrow the map beside it — scroll the list rather than
+           stretching the panel and leaving dead space under the map */
+        #map-legend-rows { max-height: 508px; overflow-y: auto; }
         .map-legend h3 {
             font-size: 11px;
             text-transform: uppercase;
@@ -236,7 +250,16 @@
             opacity: 0.85;
         }
         .lg-swatch.none { background: var(--text-muted); opacity: 0.4; }
-        .lg-code { font-family: var(--mono); font-weight: 600; color: var(--text); min-width: 26px; }
+        /* holds "1H" or, where a code was reused, "1H · 2024" */
+        .lg-code {
+            font-family: var(--mono);
+            font-weight: 600;
+            color: var(--text);
+            font-size: 11.5px;
+            min-width: 58px;
+            white-space: nowrap;
+        }
+        .lg-code .lg-year { color: var(--text-muted); font-weight: 500; }
         .lg-name {
             color: var(--text-soft);
             flex: 1;
@@ -251,6 +274,8 @@
         @media (max-width: 900px) {
             .map-panel { flex-direction: column; }
             .map-legend { width: 100%; }
+            /* stacked, the legend has the full page width — no need to cage it */
+            #map-legend-rows { max-height: none; overflow-y: visible; }
         }
 
         #map-tip {
@@ -263,7 +288,10 @@
             border-radius: 4px;
             pointer-events: none;
             z-index: 90;
-            white-space: nowrap;
+            /* wraps: the label now carries the deployment name as well as the
+               site, which overruns a single line */
+            max-width: 330px;
+            line-height: 1.45;
             box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
         }
     </style>
@@ -356,7 +384,7 @@
                         <div class="map-note" id="map-note"></div>
                     </div>
                     <div class="map-legend">
-                        <h3>Networks</h3>
+                        <h3>Deployments</h3>
                         <div id="map-legend-rows"></div>
                         <div class="lg-note" id="map-legend-note"></div>
                     </div>
@@ -447,8 +475,9 @@ var state = createTrackerState({
         colourIdx: {},      // network code -> NET_PALETTE index (stable)
         outline: null,      // australia-outline.json rings
         mode: 'au',         // 'au' | 'all'
-        netFilter: '',      // legend filter, '' = show everything
-        nullIsland: 0       // sentinel rows at 0°/0° dropped from the plot
+        netFilter: '',      // legend filter by deployment key, '' = show all
+        nullIsland: 0,      // sentinel rows at 0°/0° dropped from the plot
+        unmatched: 0        // stations with no resolvable deployment
     }
 });
 
@@ -580,6 +609,10 @@ async function loadNetworks() {
         populateDecadeFilter();
         renderStats();
         renderTable();
+        // The map keys its dots on deployments, which are derived from this
+        // table. If the map was drawn before the table landed (both are
+        // independent fetches), re-key it now. No-op when the map is unopened.
+        if (state.map.loaded) renderMap();
         // Background: fetch DataCite creator info, then citation counts
         enrichWithDataCite();
     } catch (err) {
@@ -1356,13 +1389,15 @@ var MAP_STATION_URL = 'https://auspass.edu.au/fdsnws/station/1/query?level=stati
 var MAP_OUTLINE_URL = 'australia-outline.json';
 // The window ausis.html/nvcl.html use — also the "is this station domestic?" test.
 var AU_BOX = { minLat: -44, maxLat: -9, minLng: 112, maxLng: 154 };
-var MAP_LEGEND_TOP = 12;
+var MAP_LEGEND_TOP = 20;
 
-// Keep in sync with the #map-svg circle.n0..n11 rules in the <style> block.
+// Keep in sync with the #map-svg circle.n0..n19 rules in the <style> block.
 var NET_PALETTE = [
-    '#282572', '#2563eb', '#0d9488', '#16a34a',
-    '#7c3aed', '#be185d', '#0891b2', '#4d7c0f',
-    '#64748b', '#a21caf', '#065f46', '#334155'
+    '#282572', '#4338ca', '#2563eb', '#60a5fa',
+    '#155e75', '#0891b2', '#0d9488', '#065f46',
+    '#166534', '#16a34a', '#4d7c0f', '#84cc16',
+    '#5b21b6', '#8b5cf6', '#86198f', '#c026d3',
+    '#be185d', '#f472b6', '#64748b', '#334155'
 ];
 
 function fmtNum(n) { return (n == null ? 0 : n).toLocaleString(); }
@@ -1450,8 +1485,78 @@ function isDomestic(s) {
         && s.lng >= AU_BOX.minLng && s.lng <= AU_BOX.maxLng;
 }
 
+// ----- deployment identity -----
+// A network CODE is not an identity. FDSN reuses codes for sequential
+// experiments: 1H covers both a 2010 deployment and the 2024 Mundi Mundi
+// array, 1G covers three (2008, 2019, 2020), and even WG — the biggest entry
+// on the map — is two (2022 and 2024). Keying the map on the bare code merged
+// them, so "isolate Mundi Mundi" silently lit up two unrelated experiments.
+//
+// The table on this page already solved this: normalizeNetwork builds
+// rowKey = code + '|' + startTime for exactly this reason. The map uses the
+// same identity.
+//
+// The station rows carry each STATION's own start/end, not the network's, so
+// a station is matched to the deployment whose operating period contains its
+// start date. Deployments are searched newest-first, so where periods overlap
+// the latest-starting match wins (the most specific one). Anything unmatched
+// falls back to the bare code and is counted — see renderMapNote.
+function buildDeploymentIndex() {
+    var byCode = {}, i;
+    for (i = 0; i < state.networks.length; i++) {
+        var n = state.networks[i];
+        if (!byCode[n.code]) byCode[n.code] = [];
+        byCode[n.code].push(n);
+    }
+    Object.keys(byCode).forEach(function(code) {
+        byCode[code].sort(function(a, b) {
+            return (b.startTime || '').localeCompare(a.startTime || '');
+        });
+    });
+    return byCode;
+}
+
+// Tags every station in place. Returns the number that could not be resolved
+// to a deployment.
+function assignDeployments(stations, byCode) {
+    var unmatched = 0;
+    for (var i = 0; i < stations.length; i++) {
+        var s = stations[i];
+        var candidates = byCode[s.net] || [];
+        var hit = null;
+        for (var j = 0; j < candidates.length; j++) {
+            var n = candidates[j];
+            if (!n.startTime) continue;
+            // FDSN timestamps are fixed-field ISO, so string compare is a
+            // correct chronological compare (and tolerates the fractional
+            // seconds some rows carry).
+            if (s.start < n.startTime) continue;
+            if (n.endTime && s.start > n.endTime) continue;
+            hit = n;
+            break;
+        }
+        // The year only earns its place in the label where a code is
+        // ambiguous; showing "WG · 2022" on the 60-odd single-deployment
+        // codes would be noise.
+        var reused = candidates.length > 1;
+        if (hit) {
+            s.depKey = hit.rowKey;
+            s.depCode = hit.code;
+            s.depYear = reused ? hit.startYear : '';
+            s.depDesc = hit.description || '';
+        } else {
+            s.depKey = s.net + '|';
+            s.depCode = s.net;
+            s.depYear = '';
+            s.depDesc = candidates.length === 1 ? (candidates[0].description || '') : '';
+            unmatched++;
+        }
+    }
+    return unmatched;
+}
+
 // ----- colour assignment -----
-// djb2-ish hash so a network code always lands on the same palette slot,
+// djb2-ish hash so a deployment always lands on the same palette slot,
 // whatever order the rows arrive in or which mode is showing.
 function netHash(code) {
     var h = 0;
@@ -1461,30 +1566,29 @@ function netHash(code) {
     return Math.abs(h) % NET_PALETTE.length;
 }
 
-// 81 networks over 12 colours means the palette repeats — unavoidable, and
+// 87 deployments over 20 colours means the palette repeats — unavoidable, and
 // fine for the map, where colour is a grouping aid rather than a key. The
-// legend is the part that must not collide: with 12 slots hashed
-// independently, the odds of the 12 named networks all landing on different
-// colours are about 1 in 200,000. So the legend's networks are walked in rank
-// order and bumped to the next free slot; every other network keeps its pure
-// hash colour.
+// legend is the part that must not collide: with 20 slots hashed
+// independently the named deployments would collide with near-certainty. So
+// the legend's deployments are walked in rank order and bumped to the next
+// free slot; everything below the legend keeps its pure hash colour.
 //
 // The bump is resolved against the *shown* set, not the whole inventory,
-// because the two modes rank networks differently — the domestic top 12 and
-// the worldwide top 12 are not the same list, and resolving only against one
-// of them leaves duplicate swatches in the other. The cost is that one or two
-// networks may take a different colour when the mode changes; the hash keeps
+// because the two modes rank deployments differently — the domestic top 20
+// and the worldwide top 20 are not the same list, and resolving only against
+// one of them leaves duplicate swatches in the other. The cost is that a
+// deployment may take a different colour when the mode changes; the hash keeps
 // the rest fixed, and nothing shifts when a legend filter is applied (the
 // shown set is unchanged — filtered dots are dimmed, not removed).
 function buildNetColours(allStations, shownStations) {
-    var idx = {}, i, code;
+    var idx = {}, i, key;
     for (i = 0; i < allStations.length; i++) {
-        code = allStations[i].net;
-        if (idx[code] === undefined) idx[code] = netHash(code);
+        key = allStations[i].depKey;
+        if (idx[key] === undefined) idx[key] = netHash(key);
     }
     var counts = {};
     for (i = 0; i < shownStations.length; i++) {
-        counts[shownStations[i].net] = (counts[shownStations[i].net] || 0) + 1;
+        counts[shownStations[i].depKey] = (counts[shownStations[i].depKey] || 0) + 1;
     }
     var ranked = rankNetworks(counts);
     var used = {};
@@ -1500,7 +1604,7 @@ function buildNetColours(allStations, shownStations) {
     return idx;
 }
 
-// Station count descending, code ascending on ties — deterministic.
+// Station count descending, key ascending on ties — deterministic.
 function rankNetworks(counts) {
     return Object.keys(counts).sort(function(a, b) {
         if (counts[b] !== counts[a]) return counts[b] - counts[a];
@@ -1596,31 +1700,28 @@ function parseMapStations(text) {
             lat: lat,
             lng: lng,
             site: p[5].trim(),
+            // full timestamp is what assignDeployments matches against
+            start: p[6].trim(),
             startYear: p[6].trim().substring(0, 4),
             endYear: end ? end.substring(0, 4) : '',
             // Active = no end date, or an end date still in the future.
-            active: !end || (!isNaN(endTs) && endTs > now)
+            active: !end || (!isNaN(endTs) && endTs > now),
+            depKey: '', depCode: '', depYear: '', depDesc: ''
         });
     }
     return out;
-}
-
-// Network descriptions come from the level=network table already on the page.
-// Codes are reused across deployments, so take the most recent one.
-function mapNetDescription(code) {
-    var best = null;
-    for (var i = 0; i < state.networks.length; i++) {
-        var n = state.networks[i];
-        if (n.code !== code) continue;
-        if (!best || (n.startTime || '') > (best.startTime || '')) best = n;
-    }
-    return best ? (best.description || '') : '';
 }
 
 // ----- render -----
 function renderMap() {
     var m = state.map;
     if (!m.loaded) return;
+
+    // Re-keyed on every render rather than once at load: the map is lazy and
+    // the network table is fetched separately, so either can land first. This
+    // makes the ordering irrelevant — see loadNetworks, which re-renders once
+    // the deployments are known.
+    m.unmatched = assignDeployments(m.stations, buildDeploymentIndex());
 
     m.shown = m.mode === 'all' ? m.stations : m.stations.filter(isDomestic);
     m.colourIdx = buildNetColours(m.stations, m.shown);
@@ -1652,8 +1753,8 @@ function drawMapDots(proj) {
     var m = state.map, list = m.shown, parts = [];
     for (var i = 0; i < list.length; i++) {
         var s = list[i];
-        var cls = 'stn n' + (m.colourIdx[s.net] || 0);
-        if (m.netFilter && s.net !== m.netFilter) cls += ' dim';
+        var cls = 'stn n' + (m.colourIdx[s.depKey] || 0);
+        if (m.netFilter && s.depKey !== m.netFilter) cls += ' dim';
         parts.push('<circle class="' + cls + '" cx="' + proj.x(s.lng).toFixed(1)
             + '" cy="' + proj.y(s.lat).toFixed(1) + '" r="2.5" data-i="' + i + '"/>');
     }
@@ -1662,74 +1763,116 @@ function drawMapDots(proj) {
 
 function renderMapCounts() {
     var m = state.map;
-    var nets = {}, i;
-    for (i = 0; i < m.shown.length; i++) nets[m.shown[i].net] = true;
-    var nNets = Object.keys(nets).length;
+    var deps = {}, i, selected = null;
+    for (i = 0; i < m.shown.length; i++) {
+        deps[m.shown[i].depKey] = true;
+        if (m.netFilter && m.shown[i].depKey === m.netFilter) selected = m.shown[i];
+    }
+    var nDeps = Object.keys(deps).length;
     var shownCount = m.netFilter
-        ? m.shown.filter(function(s) { return s.net === m.netFilter; }).length
+        ? m.shown.filter(function(s) { return s.depKey === m.netFilter; }).length
         : m.shown.length;
 
     var txt = fmtNum(shownCount) + ' station' + (shownCount === 1 ? '' : 's') + ' · ';
     txt += m.netFilter
-        ? 'network ' + m.netFilter + ' only (of ' + fmtNum(nNets) + ')'
-        : fmtNum(nNets) + ' network' + (nNets === 1 ? '' : 's') + ' shown';
+        ? depLabel(selected, m.netFilter) + ' only (of ' + fmtNum(nDeps) + ' deployments)'
+        : fmtNum(nDeps) + ' deployment' + (nDeps === 1 ? '' : 's') + ' shown';
     document.getElementById('map-count').textContent = txt;
 
-    var allNets = {};
-    for (i = 0; i < m.stations.length; i++) allNets[m.stations[i].net] = true;
+    var allDeps = {};
+    for (i = 0; i < m.stations.length; i++) allDeps[m.stations[i].depKey] = true;
     document.getElementById('map-summary-context').textContent =
-        fmtNum(m.stations.length) + ' stations · ' + fmtNum(Object.keys(allNets).length) + ' networks';
+        fmtNum(m.stations.length) + ' stations · ' + fmtNum(Object.keys(allDeps).length) + ' deployments';
 
     document.getElementById('map-svg-desc').textContent =
         'Dot map of ' + fmtNum(m.shown.length) + ' AusPass seismic stations plotted at their registered '
-        + 'coordinates and coloured by FDSN network code, over an outline of Australia. '
+        + 'coordinates and coloured by deployment, over an outline of Australia. '
         + (m.mode === 'all'
             ? 'Extent fitted to every deployment worldwide.'
             : 'Extent limited to Australia.');
 }
 
+// "1H · 2024" where a code was reused, plain "9M" otherwise. Falls back to the
+// code parsed out of the key if no sample station is to hand.
+function depLabel(sample, key) {
+    if (sample) return sample.depCode + (sample.depYear ? ' · ' + sample.depYear : '');
+    return String(key || '').split('|')[0];
+}
+
 function renderMapLegend() {
     var m = state.map, i;
-    var counts = {};
-    for (i = 0; i < m.shown.length; i++) counts[m.shown[i].net] = (counts[m.shown[i].net] || 0) + 1;
+    var counts = {}, sample = {};
+    for (i = 0; i < m.shown.length; i++) {
+        var st = m.shown[i];
+        counts[st.depKey] = (counts[st.depKey] || 0) + 1;
+        if (!sample[st.depKey]) sample[st.depKey] = st;   // carries label + description
+    }
     // Same ranking buildNetColours used, so the swatch a row shows is exactly
     // the colour its dots were drawn with.
-    var codes = rankNetworks(counts);
+    var keys = rankNetworks(counts);
 
-    var top = codes.slice(0, MAP_LEGEND_TOP);
+    var top = keys.slice(0, MAP_LEGEND_TOP);
+
+    // The active filter must always keep a row, even when this view ranks it
+    // outside the top 20 or holds none of its stations at all (filter a
+    // New Zealand deployment, switch to Australia). Without this the map sits
+    // fully dimmed with no control to clear — a dead end.
+    if (m.netFilter && top.indexOf(m.netFilter) === -1) {
+        top = top.slice(0, MAP_LEGEND_TOP - 1);
+        top.push(m.netFilter);
+        if (!sample[m.netFilter]) {
+            for (i = 0; i < m.stations.length; i++) {
+                if (m.stations[i].depKey === m.netFilter) { sample[m.netFilter] = m.stations[i]; break; }
+            }
+        }
+    }
+
     var html = '';
     for (i = 0; i < top.length; i++) {
-        var code = top[i];
-        var colour = NET_PALETTE[m.colourIdx[code] || 0];
-        var desc = mapNetDescription(code);
-        var sel = m.netFilter === code ? ' sel' : '';
-        html += '<button type="button" class="lg-row' + sel + '" data-net="' + escapeAttr(code) + '"'
-            + ' aria-pressed="' + (m.netFilter === code ? 'true' : 'false') + '"'
-            + ' title="' + escapeAttr(code + (desc ? ' — ' + desc : '')) + '">'
-            + '<span class="lg-swatch" style="background:' + escapeAttr(colour) + '"></span>'
-            + '<span class="lg-code">' + escapeHtml(code) + '</span>'
+        var key = top[i];
+        var s = sample[key];
+        if (!s) continue;
+        var n = counts[key] || 0;
+        var desc = s.depDesc;
+        var label = depLabel(s, key);
+        var sel = m.netFilter === key ? ' sel' : '';
+        // A force-added row (filter active, nothing of it in this view) draws a
+        // neutral swatch: there are no dots of that colour on the map for it to
+        // key to, and a live colour there would duplicate a real row's swatch.
+        var swatch = n === 0
+            ? '<span class="lg-swatch none"></span>'
+            : '<span class="lg-swatch" style="background:' + escapeAttr(NET_PALETTE[m.colourIdx[key] || 0]) + '"></span>';
+        html += '<button type="button" class="lg-row' + sel + '" data-dep="' + escapeAttr(key) + '"'
+            + ' aria-pressed="' + (m.netFilter === key ? 'true' : 'false') + '"'
+            + ' title="' + escapeAttr(label + (desc ? ' — ' + desc : '')
+                + (n === 0 ? ' — no stations in this view' : '')) + '">'
+            + swatch
+            + '<span class="lg-code">' + escapeHtml(s.depCode)
+                + (s.depYear ? ' <span class="lg-year">· ' + escapeHtml(s.depYear) + '</span>' : '')
+            + '</span>'
             + '<span class="lg-name">' + escapeHtml(desc || '(no description)') + '</span>'
-            + '<span class="lg-count">' + fmtNum(counts[code]) + '</span>'
+            + '<span class="lg-count">' + fmtNum(n) + '</span>'
             + '</button>';
     }
 
-    var restCodes = codes.slice(MAP_LEGEND_TOP);
-    if (restCodes.length > 0) {
+    var restKeys = keys.filter(function(k) { return top.indexOf(k) === -1; });
+    if (restKeys.length > 0) {
         var restStations = 0;
-        for (i = 0; i < restCodes.length; i++) restStations += counts[restCodes[i]];
+        for (i = 0; i < restKeys.length; i++) restStations += counts[restKeys[i]];
         html += '<div class="lg-row muted">'
             + '<span class="lg-swatch none"></span>'
-            + '<span class="lg-name">' + fmtNum(restCodes.length) + ' other networks</span>'
+            + '<span class="lg-name">' + fmtNum(restKeys.length) + ' other deployments</span>'
             + '<span class="lg-count">' + fmtNum(restStations) + '</span>'
             + '</div>';
     }
     document.getElementById('map-legend-rows').innerHTML = html;
 
+    var palNote = 'The palette repeats every ' + NET_PALETTE.length + ' deployments, so colour is a '
+        + 'grouping aid, not a unique key.';
     document.getElementById('map-legend-note').textContent = m.netFilter
-        ? 'Showing network ' + m.netFilter + ' only — click its row again to clear. '
-          + 'The palette repeats every 12 networks, so colours identify a network on the map, not uniquely across all ' + fmtNum(codes.length) + '.'
-        : 'Top ' + MAP_LEGEND_TOP + ' by station count. Click a row to isolate that network. '
-          + 'The palette repeats every 12 networks, so colour is a grouping aid, not a unique key.';
+        ? 'Showing ' + depLabel(sample[m.netFilter], m.netFilter) + ' only — click its row again to clear. ' + palNote
+        : 'Top ' + MAP_LEGEND_TOP + ' by station count. Click a row to isolate that deployment. '
+          + 'A code that FDSN reused carries its start year, because those are separate experiments. ' + palNote;
 }
 
 function renderMapNote(proj) {
@@ -1767,6 +1910,16 @@ function renderMapNote(proj) {
             + (m.nullIsland === 1 ? ' is' : 's are') + ' excluded from the plot: the service carries a '
             + 'placeholder station at 0°/0° (network XX, site “Nowhere”) that is not a real deployment.';
     }
+    // Only surfaced when it actually happens. Currently zero of 3,891 — every
+    // station resolves to a deployment — but a registry change could break
+    // that, and a silently mis-grouped station is the failure this whole
+    // deployment-keying exists to prevent.
+    if (m.unmatched > 0) {
+        html += '<br><span class="warn-lead">' + fmtNum(m.unmatched) + ' station'
+            + (m.unmatched === 1 ? '' : 's') + ' could not be matched to a deployment</span> — '
+            + 'no registered operating period covers the station\'s start date, so '
+            + (m.unmatched === 1 ? 'it is' : 'they are') + ' grouped under the bare network code.';
+    }
     el.innerHTML = html;
 }
 
@@ -1790,7 +1943,7 @@ function bindMapEvents() {
         var mode = btn.getAttribute('data-mode');
         if (mode === state.map.mode) return;
         state.map.mode = mode;
-        // A network filtered in one mode may have no stations in the other;
+        // A deployment filtered in one mode may have no stations in the other;
         // keep it — renderMapLegend simply won't list it, and the count line
         // says so. Clearing silently would be more surprising.
         this.querySelectorAll('button.map-mode').forEach(function(b) {
@@ -1802,8 +1955,8 @@ function bindMapEvents() {
     document.getElementById('map-legend-rows').addEventListener('click', function(e) {
         var row = e.target.closest('button.lg-row');
         if (!row) return;
-        var code = row.getAttribute('data-net');
-        state.map.netFilter = (state.map.netFilter === code) ? '' : code;
+        var key = row.getAttribute('data-dep');
+        state.map.netFilter = (state.map.netFilter === key) ? '' : key;
         renderMap();
     });
 
@@ -1828,12 +1981,16 @@ function onMapMove(e) {
     var years = s.startYear || '?';
     if (s.endYear && s.endYear !== s.startYear) years += '–' + s.endYear;
     else if (s.active) years += '–now';
+    // Names the deployment, not just the code — a bare "1H" is ambiguous
+    // between the 2010 experiment and the 2024 Mundi Mundi array.
+    var txt = (s.site || '(unnamed site)') + ' — ' + s.net + ' ' + s.sta;
+    if (s.depDesc) txt += ' · ' + s.depDesc + (s.depYear ? ' (' + s.depYear + ')' : '');
+    txt += ' · ' + (s.active ? 'active' : 'concluded') + ' · ' + years;
     // textContent, not innerHTML — siteName is free text from the service.
-    tip.textContent = (s.site || '(unnamed site)') + ' — ' + s.net + ' ' + s.sta
-        + ' · ' + (s.active ? 'active' : 'concluded') + ' · ' + years;
+    tip.textContent = txt;
     tip.style.display = 'block';
     var x = e.clientX + 14;
-    if (x > window.innerWidth - 340) x = e.clientX - 330;
+    if (x > window.innerWidth - 350) x = e.clientX - 340;
     if (x < 4) x = 4;
     tip.style.left = x + 'px';
     tip.style.top = (e.clientY + 14) + 'px';
