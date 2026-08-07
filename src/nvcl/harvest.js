@@ -457,6 +457,24 @@ function normKey(s) {
   return String(s || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
 }
 
+// Sum the scan intervals of cache rows that matched no harvested borehole.
+// Per archive, not per borehole: there is no borehole to union against, so
+// each archive contributes its own interval once. The same garbage clamp
+// cannot be applied (no drilled length is known without the borehole), so a
+// hard 5 km ceiling stands in for it — longer than any real scanned core.
+function mirrorOnly(st, used) {
+  let m = 0, n = 0;
+  st.rows.forEach(function(r) {
+    if (used.has(r._key)) return;
+    if (r.depthFromM === null || r.depthFromM === undefined) return;
+    if (r.depthToM === null || r.depthToM === undefined) return;
+    const len = r.depthToM - r.depthFromM;
+    if (!(len > 0) || len > 5000) return;
+    m += len; n++;
+  });
+  return { m: m, n: n };
+}
+
 // Attach cache rows to boreholes and report the match rate. Rows that match
 // nothing are counted and logged — never silently dropped.
 function attachTsg(result, idx) {
@@ -480,6 +498,17 @@ function attachTsg(result, idx) {
     hit.rows.forEach(function(r) { used.add(r._key); idx.matchedRows.add(r._key); });
   });
   result.tsg.matchedRows = used.size;
+
+  // MIRROR-ONLY MEASUREMENT. A cache row that matched no borehole is not
+  // noise: the instrument file records core it actually scanned, for a hole
+  // the node does not surface (QLD's API fails ~27% of its queries; VIC
+  // publishes no datasets at all). Discarding these understated the national
+  // figure by ~355 km, and did so worst where a state's service is weakest —
+  // exactly backwards. They are measured, sourced to the mirror, and counted
+  // on their own line rather than blended into per-borehole coverage.
+  const mo = mirrorOnly(st, used);
+  result.tsg.mirrorOnlyKm = km(mo.m);
+  result.tsg.mirrorOnlyArchives = mo.n;
 
   const pct = st.rows.length ? Math.round(used.size / st.rows.length * 1000) / 10 : 0;
   console.log('  TSG: ' + used.size + '/' + st.rows.length + ' cache rows matched ('
@@ -660,6 +689,7 @@ function aggregate(results, asOf, tsgIndex) {
   let sumDatasets = 0, sumBoreholesWithData = 0, sumUniqueM = 0, sumTotalM = 0;
   let sumUnrecorded = 0, sumClamped = 0, sumDrilledM = 0, sumWithInstrument = 0, sumTir = 0;
   let sumEstimatedM = 0, sumEstimatedBh = 0;
+  let sumMirrorOnlyKm = 0, sumMirrorOnlyArchives = 0;
   let sumApiM = 0, sumTsgM = 0, sumTsgBh = 0;
   let sumDatesTsg = 0, sumDatesApi = 0;
   let earliest = null, latest = null;
@@ -861,6 +891,10 @@ function aggregate(results, asOf, tsgIndex) {
     if (r.fetchFailures) entry.dataset_fetch_failures = r.fetchFailures;
     if (r.tsg && r.tsg.rows) {
       entry.tsg_cache_rows = r.tsg.rows;
+      entry.mirror_only_km = r.tsg.mirrorOnlyKm || 0;
+      entry.mirror_only_archives = r.tsg.mirrorOnlyArchives || 0;
+      sumMirrorOnlyKm += entry.mirror_only_km;
+      sumMirrorOnlyArchives += entry.mirror_only_archives;
       entry.tsg_cache_rows_matched = r.tsg.matchedRows;
       entry.tsg_cache_rows_unmatched = r.tsg.rows - r.tsg.matchedRows;
       entry.tsg_matched_boreholes = r.tsg.matchedBoreholes;
@@ -924,6 +958,11 @@ function aggregate(results, asOf, tsgIndex) {
       total_scan_km: km(sumTotalM),
       // Estimation tier — DISCLOSED, never blended: boreholes with neither an
       // API interval nor a TSG one, estimated once each at drilled length.
+      // Measured on the mirror for boreholes the node does not surface —
+      // counted on its own line, never folded into per-borehole coverage.
+      mirror_only_km: Math.round(sumMirrorOnlyKm * 100) / 100,
+      mirror_only_archives: sumMirrorOnlyArchives,
+      national_measured_km: Math.round((sumUniqueM / 1000 + sumMirrorOnlyKm) * 100) / 100,
       estimated_km: km(sumEstimatedM),
       estimated_boreholes: sumEstimatedBh,
       combined_estimate_km: km(sumUniqueM + sumEstimatedM),
@@ -1043,6 +1082,9 @@ function printSummary(s) {
   console.log('Unique scanned:       ' + sm.unique_scanned_km + ' km measured (union of intervals)');
   console.log('  from node APIs:     ' + sm.api_measured_km + ' km');
   console.log('  from TSG headers:   ' + sm.tsg_measured_km + ' km across ' + sm.tsg_measured_boreholes + ' boreholes (' + sm.tsg_source + ')');
+  console.log('Mirror-only measured: ' + sm.mirror_only_km + ' km across '
+    + sm.mirror_only_archives + ' archives (boreholes their node does not surface)');
+  console.log('NATIONAL MEASURED:    ' + sm.national_measured_km + ' km (attributed + mirror-only)');
   console.log('Estimated (no data):  ' + sm.estimated_km + ' km across ' + sm.estimated_boreholes + ' boreholes (drilled-length estimate, disclosed)');
   console.log('Combined estimate:    ' + sm.combined_estimate_km + ' km (measured + estimated)');
   console.log('Dates from TSG:       ' + sm.dates_from_tsg + ' (' + sm.dates_from_tsg_pct + '%) · from API (ingest): ' + sm.dates_from_api);

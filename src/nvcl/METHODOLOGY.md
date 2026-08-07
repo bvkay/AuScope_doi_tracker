@@ -452,3 +452,44 @@ not advertising scanned core does not mean the core was not scanned, and
 inheriting a node's blind spot would understate the national archive. The
 gap is therefore published per state (`mirror_archives`,
 `mirror_unsurfaced`) and shown on the page as a "+N on mirror" badge.
+
+## Mirror-only measurement (added merged-v1.3)
+
+A TSG archive can only be attributed to a borehole if the state node
+surfaces that borehole. Measured 6 Aug 2026, **834 archives matched no
+harvested borehole** — not noise, but core the instrument demonstrably
+scanned for holes the node does not publish.
+
+Excluding them understated the national figure by **~355 km**, and did so
+worst where a state's service is weakest:
+
+| State | TSG measured | Attributable to published boreholes | Mirror-only |
+|---|---|---|---|
+| QLD | 181.1 km | 7.9 km | **173.1 km** |
+| WA | 685.3 km | 558.9 km | 126.5 km |
+| NT | 115.9 km | 85.7 km | 30.2 km |
+| SA | 419.6 km | 405.1 km | 14.4 km |
+| TAS | 142.3 km | 136.9 km | 5.4 km |
+| VIC | 6.0 km | 0 km | **6.0 km** |
+
+Queensland is the clearest case: its API fails roughly a quarter of its
+borehole queries, so the better its scanning record, the *less* of it we
+could report. Victoria's entire 6 km was invisible because its node
+publishes no NVCL datasets at all.
+
+**These kilometres now count**, on their own line:
+
+- `mirror_only_km` / `mirror_only_archives` — measured from TSG headers,
+  attributable to the mirror rather than to a published borehole;
+- `national_measured_km` = per-borehole measured + mirror-only.
+
+They are **not** folded into per-borehole coverage (`unique_scanned_km`),
+because there is no borehole record to union against — each archive
+contributes its interval once. The garbage clamp cannot apply either
+(no drilled length is known without the borehole), so a flat 5 km ceiling
+substitutes; no legitimate scanned interval approaches it.
+
+The principle is the same one that governs the dates: if the instrument's
+own file records the scan, the scan happened, whether or not a state
+service mentions the hole. Reporting less because a node is degraded would
+penalise exactly the states most in need of the visibility.
