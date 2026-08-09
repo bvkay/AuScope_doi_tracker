@@ -1,10 +1,10 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-08-06T01:00:04.721Z",
-    "total_count": 2805,
-    "evidence_updated": "2026-08-06T01:00:22.131Z",
-    "consolidated": "2026-08-06T01:00:22.236Z"
+    "last_updated": "2026-08-09T04:00:36.421Z",
+    "total_count": 2881,
+    "evidence_updated": "2026-08-09T04:03:20.870Z",
+    "consolidated": "2026-08-09T04:03:20.978Z"
   },
   "records": [
     {
@@ -34,8 +34,8 @@
         "AU"
       ],
       "authorCount": 7,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.26443/seismica.v5i1.1720",
@@ -889,8 +889,8 @@
         "AU"
       ],
       "authorCount": 6,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1029/2024gc011881",
@@ -1205,7 +1205,7 @@
     },
     {
       "doi": "10.25911/a6hy-4b56",
-      "title": "CORE Legacy Report: Celebrating Oceanic Rediscoveries & Exploration of Legacy scientific drilling collections",
+      "title": "CORE Legacy Report: Celebrating Oceanic Rediscoveries &amp; Exploration of Legacy scientific drilling collections",
       "authors": "Lawler, Kelly-Anne; Kachovich, Sarah; Kennard, Janelle; Hackney, Ron; ANZIC Science Committee",
       "journal": "ANU Open Research (Australian National University)",
       "publisher": "Australian National University",
@@ -1679,7 +1679,7 @@
       "journal": "Geostandards and Geoanalytical Research",
       "publisher": "Wiley",
       "year": 2024,
-      "cited": 9,
+      "cited": 10,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Mineralogy and Gemology Studies; earthquake and tectonic studies",
@@ -1887,7 +1887,7 @@
       "journal": "Geology",
       "publisher": "Geological Society of America",
       "year": 2024,
-      "cited": 26,
+      "cited": 27,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geology and Paleoclimatology Research; Paleontology and Stratigraphy of Fossils",
@@ -1939,9 +1939,10 @@
         "CH"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.31223/x54x2q",
         "10.31223/x54x2q"
       ]
     },
@@ -1971,8 +1972,8 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1111/bre.12843",
@@ -2004,8 +2005,8 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1007/1345_2024_240",
@@ -2187,7 +2188,7 @@
       "journal": "Earth Planets and Space",
       "publisher": "Springer Nature",
       "year": 2023,
-      "cited": 4,
+      "cited": 5,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geology and Paleoclimatology Research; High-pressure geophysics and materials",
@@ -2559,8 +2560,8 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
         "10.22541/essoar.168881742.29827772/v1"
       ]
@@ -2703,6 +2704,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.20944/preprints202305.1765.v1",
         "10.20944/preprints202305.1765.v1"
       ]
     },
@@ -2966,9 +2968,10 @@
         "US"
       ],
       "authorCount": 9,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.31223/x5595z",
         "10.31223/x5595z",
         "10.31223/x5595z"
       ]
@@ -3164,8 +3167,8 @@
         "DK"
       ],
       "authorCount": 35,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1093/gji/ggad176",
@@ -3257,8 +3260,8 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5281/zenodo.7955926",
@@ -3414,8 +3417,8 @@
         "AU"
       ],
       "authorCount": 10,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5281/zenodo.7988891",
@@ -3457,7 +3460,7 @@
       "journal": "Geoscience Data Journal",
       "publisher": "Wiley",
       "year": 2023,
-      "cited": 28,
+      "cited": 29,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological formations and processes; Geological and Geophysical Studies; Seismic Imaging and Inversion Techniques",
@@ -3800,9 +3803,10 @@
         "CN"
       ],
       "authorCount": 13,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.31223/x5s076",
         "10.31223/x5s076"
       ]
     },
@@ -3848,7 +3852,7 @@
       "journal": "Geostandards and Geoanalytical Research",
       "publisher": "Wiley",
       "year": 2023,
-      "cited": 27,
+      "cited": 28,
       "type": "article",
       "isOA": "Yes",
       "subject": "Isotope Analysis in Ecology; Geological and Geochemical Analysis; Geology and Paleoclimatology Research",
@@ -4136,6 +4140,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.48550/arxiv.2306.06830",
         "10.48550/arxiv.2306.06830"
       ]
     },
@@ -4351,8 +4356,8 @@
         "AU"
       ],
       "authorCount": 21,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.7185/gold2023.20761",
@@ -4592,8 +4597,8 @@
         "AU"
       ],
       "authorCount": 2,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.3390/min12111463",
@@ -4876,8 +4881,8 @@
         "CO"
       ],
       "authorCount": 6,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1007/s00190-022-01657-2",
@@ -5265,8 +5270,8 @@
         "US"
       ],
       "authorCount": 8,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.4401/ag-8756",
@@ -5428,8 +5433,8 @@
         "GB"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.3390/s22072740",
@@ -5607,7 +5612,7 @@
       "journal": "PLoS ONE",
       "publisher": "Public Library of Science",
       "year": 2022,
-      "cited": 24,
+      "cited": 25,
       "type": "article",
       "isOA": "Yes",
       "subject": "Knowledge Management and Technology; Geochemistry and Geologic Mapping; Data Quality and Management",
@@ -5746,8 +5751,8 @@
         "AU"
       ],
       "authorCount": 16,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5281/zenodo.5907179",
@@ -5847,8 +5852,8 @@
         "AU"
       ],
       "authorCount": 17,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-0832-6625"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.46427/gold2022.12957",
@@ -6182,39 +6187,6 @@
       "evidenceDetail": "text scan (tier1)"
     },
     {
-      "doi": "10.5281/zenodo.5637353",
-      "title": "Report: Data is Only Half the Battle",
-      "authors": "Paula Andrea Martinez; Vanessa Crosby; Tom Honeyman; Ove Gustafsson; Stéphane Guillou; Louis Moresi",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2021,
-      "cited": 0,
-      "type": "report",
-      "isOA": "Yes",
-      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Digital Humanities and Scholarship",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Australian Research Data Commons",
-        "UNSW Sydney",
-        "Biocom",
-        "University of Queensland",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "US"
-      ],
-      "authorCount": 6,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
-    },
-    {
       "doi": "10.1038/s43017-021-00237-w",
       "title": "Time to change the data culture in geochemistry",
       "authors": "Katy J. Chamberlain; Kerstin Lehnert; Iona M. McIntosh; D. J. Morgan; Gerhard Wörner",
@@ -6297,7 +6269,10 @@
       ],
       "authorCount": 25,
       "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
+      "evidenceDetail": "text scan (tier1)",
+      "relatedDois": [
+        "10.5281/zenodo.5720674"
+      ]
     },
     {
       "doi": "10.3390/rs13183718",
@@ -6397,8 +6372,8 @@
         "AU"
       ],
       "authorCount": 7,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5281/zenodo.7686638",
@@ -6519,8 +6494,8 @@
         "AU"
       ],
       "authorCount": 8,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5281/zenodo.7687176",
@@ -6704,8 +6679,8 @@
         "NL"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1002/essoar.10507843.1",
@@ -6734,8 +6709,8 @@
         "AU"
       ],
       "authorCount": 3,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1038/s41598-021-94531-8",
@@ -6769,8 +6744,8 @@
         "AU"
       ],
       "authorCount": 7,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.31223/x5t91b",
@@ -6972,7 +6947,7 @@
       "journal": "Nature Communications",
       "publisher": "Nature Portfolio",
       "year": 2021,
-      "cited": 105,
+      "cited": 106,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Cryospheric studies and observations; Climate change and permafrost",
@@ -7007,7 +6982,7 @@
       "journal": "Minerals",
       "publisher": "Multidisciplinary Digital Publishing Institute",
       "year": 2021,
-      "cited": 131,
+      "cited": 132,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geochemistry and Geologic Mapping; Mineral Processing and Grinding; Remote-Sensing Image Classification",
@@ -7330,7 +7305,7 @@
       "journal": "Minerals",
       "publisher": "Multidisciplinary Digital Publishing Institute",
       "year": 2021,
-      "cited": 14,
+      "cited": 15,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; Radioactive element chemistry and processing",
@@ -7392,7 +7367,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2021,
-      "cited": 17,
+      "cited": 18,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques; Geophysical Methods and Applications",
@@ -7600,6 +7575,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5194/gchron-2020-7",
         "10.5194/gchron-2020-7"
       ]
     },
@@ -7802,6 +7778,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.1051/0004-6361/202038368/pdf",
         "10.1051/0004-6361/202038368/pdf"
       ]
     },
@@ -8028,8 +8005,8 @@
         "ES"
       ],
       "authorCount": 76,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1016/j.gca.2020.07.022",
@@ -8089,8 +8066,8 @@
         "IT"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1002/gj.3899",
@@ -8323,8 +8300,8 @@
         "GB"
       ],
       "authorCount": 9,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.3390/min10010083",
@@ -8575,8 +8552,8 @@
       "doi": "10.5281/zenodo.3539254",
       "title": "International Research Infrastructure Landscape 2019",
       "authors": "Ari Asmi; Lorna Ryan; Emmanuel Salmon; Christine Kubiak; Serena Battaglia; Miriam Förster; J. Stefan Dupre; Walter, Hannah; W. G. Stirling; Kurt W. Clausen; Mikkel Stein Knudsen; Marianna Birmoser Ferreira-Aulu; Elizaveta Shabanova-Danielyan; Weiqing Wang; Jyrki Luukkanen; Jari Kaivo‐oja; Carla Baldovin; Marjan Timmer; Rob van der Meer; René Vermeulen; Ivana Ilijašić Veršić; Franco Niccolucci; Gergely Sipos; Roberta Piscitelli; Jostein K. Sundet",
-      "journal": "Työväentutkimus Vuosikirja",
-      "publisher": "",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
       "year": 2019,
       "cited": 3,
       "type": "article",
@@ -9223,8 +9200,8 @@
         "NL"
       ],
       "authorCount": 13,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.22201/cgeo.20072902e.2019.1.988",
@@ -9452,8 +9429,8 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1111/gcb.14579",
@@ -9543,8 +9520,8 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.3390/min9010004",
@@ -9768,7 +9745,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2018,
-      "cited": 751,
+      "cited": 754,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Geological formations and processes; Geological Modeling and Analysis",
@@ -9954,8 +9931,8 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1002/2017tc004638",
@@ -10370,7 +10347,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2017,
-      "cited": 86,
+      "cited": 87,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geochemical Analysis",
@@ -10400,7 +10377,7 @@
       "journal": "Earth Planets and Space",
       "publisher": "Springer Nature",
       "year": 2017,
-      "cited": 14,
+      "cited": 15,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -10936,8 +10913,8 @@
         "DE"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.3390/geosciences6040052",
@@ -11022,7 +10999,7 @@
       "journal": "Remote Sensing",
       "publisher": "Multidisciplinary Digital Publishing Institute",
       "year": 2016,
-      "cited": 189,
+      "cited": 191,
       "type": "article",
       "isOA": "Yes",
       "subject": "Remote Sensing in Agriculture; Geochemistry and Geologic Mapping; Soil Geostatistics and Mapping",
@@ -11051,7 +11028,7 @@
       "journal": "Journal of Petrology",
       "publisher": "Oxford University Press",
       "year": 2016,
-      "cited": 67,
+      "cited": 68,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
@@ -11659,8 +11636,8 @@
         "ES"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1002/2015gc006047",
@@ -12064,8 +12041,8 @@
         "DE"
       ],
       "authorCount": 6,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1038/srep08218",
@@ -12317,8 +12294,8 @@
         "AU"
       ],
       "authorCount": 3,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1002/2014jb011067",
@@ -12357,7 +12334,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2014,
-      "cited": 2672,
+      "cited": 2679,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Maritime and Coastal Archaeology",
@@ -12381,8 +12358,8 @@
         "HK"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1002/2014tc003653",
@@ -12441,8 +12418,8 @@
         "CA"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/se-5-741-2014",
@@ -12473,6 +12450,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5194/sed-6-793-2014",
         "10.5194/sed-6-793-2014"
       ]
     },
@@ -12501,8 +12479,8 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1002/2014gc005309",
@@ -12531,8 +12509,8 @@
         "US"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1093/gji/ggu016",
@@ -12597,8 +12575,8 @@
         "AU"
       ],
       "authorCount": 3,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1071/aseg2013ab226",
@@ -12626,8 +12604,8 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1071/aseg2013ab137",
@@ -12842,8 +12820,8 @@
         "AU"
       ],
       "authorCount": 6,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1071/aseg2012ab156",
@@ -12939,6 +12917,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5194/gid-2-365-2012",
         "10.5194/gid-2-365-2012"
       ]
     },
@@ -12969,8 +12948,8 @@
         "US"
       ],
       "authorCount": 3,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1190/geo2012-0028.1",
@@ -13036,8 +13015,8 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1007/978-3-642-29931-5_6",
@@ -13631,8 +13610,8 @@
         "IE"
       ],
       "authorCount": 2,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.21914/anziamj.v50i0.1449",
@@ -13736,7 +13715,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2008,
-      "cited": 2083,
+      "cited": 2085,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -13896,7 +13875,7 @@
     },
     {
       "doi": "10.7185/gold2025.28625",
-      "title": "The AuScope EarthBank & GPlates Projects: Translational Research Infrastructure Supporting Industry-Academia Partnerships in Resource Geoscience",
+      "title": "The AuScope EarthBank &amp; GPlates Projects: Translational Research Infrastructure Supporting Industry-Academia Partnerships in Resource Geoscience",
       "authors": "Brent McInnes; Bryant Ware; Fabian Kohlmann; Angus Nixon; Yoann Gréau; Ehsan Farahbakhsh; Samuel Boone; Malcolm McMillan; Hayden Dalton; Halimulati Ananuer; Andrew Gleadow; Barry P. Kohn; Moritz Theile; Wayne Noble; R. Dietmar Müller; Sara Polanco; Sabin Zahirovic; Maria Seton; Oskar Lindenmayer; Stijn Glorie; Tim Rawling; Lesley Wyborn; Geoffrey Fraser",
       "journal": "Goldschmidt2025 abstracts",
       "publisher": "European Association of Geochemistry",
@@ -13948,8 +13927,8 @@
         "AU"
       ],
       "authorCount": 15,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-0832-6625"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5281/zenodo.5147908",
@@ -14010,8 +13989,8 @@
         "AU"
       ],
       "authorCount": 8,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.26180/5f4dc2c4e94e0",
@@ -14041,8 +14020,8 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.26180/5f4dc6d0a47b3",
@@ -14286,6 +14265,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.1071/aseg2010ab168",
         "10.1071/aseg2010ab168"
       ]
     },
@@ -14385,7 +14365,7 @@
     },
     {
       "doi": "10.5194/egusphere-egu21-10877",
-      "title": "Developing Global Coordination of Solid Earth Research Infrastructures in Support of the United Nations Sustainable Development Goals. ",
+      "title": "Developing Global Coordination of Solid Earth Research Infrastructures in Support of the United Nations Sustainable Development Goals.&amp;#160;",
       "authors": "Lesley Wyborn; Tim Rawling; Simón Cox; Ben Evans; Simon Hodson; Jens Klump; Steven McEachern",
       "journal": "",
       "publisher": "Copernicus GmbH",
@@ -14414,8 +14394,8 @@
         "FR"
       ],
       "authorCount": 7,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1080/08120099.2016.1246476",
@@ -14482,7 +14462,7 @@
     },
     {
       "doi": "10.5194/egusphere-egu21-14458",
-      "title": "Preserving High Value Legacy Collections for Future Research – The McNaughton Collection",
+      "title": "Preserving High Value Legacy Collections for Future Research &amp;#8211; The McNaughton Collection",
       "authors": "Eleanore Blereau; Amanda Bellenger; Brent McInnes",
       "journal": "",
       "publisher": "Copernicus GmbH",
@@ -14514,23 +14494,31 @@
     {
       "doi": "10.1080/14432471.2021.1958519",
       "title": "Geological Survey of South Australia: Curnamona Cube and Gawler Challenge II",
-      "authors": "K. Robertson; S. Thiel",
+      "authors": "Kate Robertson; Stephan Thiel",
       "journal": "Preview",
       "publisher": "Australian Society of Exploration Geophysicists",
       "year": 2021,
       "cited": 0,
-      "type": "review",
+      "type": "article",
       "isOA": "Yes",
-      "subject": "Geology",
+      "subject": "Australian Indigenous Culture and History; Geological and Geophysical Studies; Pleistocene-Era Hominins and Archaeology",
       "sources": [
-        "Semantic Scholar"
+        "Semantic Scholar",
+        "OpenAlex"
       ],
       "searchTerms": [
         "AuScope"
       ],
       "dateAdded": "2026-03-24",
       "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
+      "evidenceDetail": "text scan (tier1)",
+      "institutions": [
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "authorCount": 2
     },
     {
       "doi": "10.5194/egusphere-egu21-16550",
@@ -14674,8 +14662,8 @@
         "GB"
       ],
       "authorCount": 13,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu2020-22279",
@@ -14735,8 +14723,8 @@
         "AU"
       ],
       "authorCount": 1,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1080/14432471.2019.1672259",
@@ -14795,8 +14783,8 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1002/essoar.10500202.1",
@@ -14932,7 +14920,10 @@
       "dateAdded": "2026-03-24",
       "authorCount": 1,
       "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
+      "evidenceDetail": "text scan (tier1)",
+      "relatedDois": [
+        "10.1071/pvv2014n172p51"
+      ]
     },
     {
       "doi": "10.1071/aj10083",
@@ -14982,9 +14973,10 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.1081/22020586.2010.12041826",
         "10.1081/22020586.2010.12041826"
       ]
     },
@@ -15080,7 +15072,7 @@
     },
     {
       "doi": "10.5194/egusphere-egu21-10474",
-      "title": "One’s soil is another one’s regolith – let’s combine our efforts in investigating the critical zone",
+      "title": "One&amp;#8217;s soil is another one&amp;#8217;s regolith &amp;#8211; let&amp;#8217;s combine our efforts in investigating the critical zone",
       "authors": "Carsten Laukamp; Ian Lau",
       "journal": "",
       "publisher": "Copernicus GmbH",
@@ -15110,7 +15102,7 @@
     },
     {
       "doi": "10.5194/egusphere-egu21-3820",
-      "title": "Building Australia’s Scalable Drone Cloud",
+      "title": "Building Australia&amp;#8217;s Scalable Drone Cloud",
       "authors": "Jens Klump; Tim Brown; Rohan H. Clarke; Robert E. Glasgow; Steve Micklethwaite; Siddeswara Guru; Beryl Morris; Steve Quenette; Tim Rawling; Nathan Reid; Susie Robinson; ASDC Project Team",
       "journal": "",
       "publisher": "Copernicus GmbH",
@@ -15144,12 +15136,12 @@
         "US"
       ],
       "authorCount": 12,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1007/s00410-026-02299-9",
-      "title": "Impact of intragrain chemical heterogeneities on <sup>40</sup>Ar/<sup>39</sup>Ar and <sup>87</sup>Rb-<sup>87</sup>Sr white mica dates.",
+      "title": "Impact of intragrain chemical heterogeneities on &lt;sup&gt;40&lt;/sup&gt;Ar/&lt;sup&gt;39&lt;/sup&gt;Ar and &lt;sup&gt;87&lt;/sup&gt;Rb-&lt;sup&gt;87&lt;/sup&gt;Sr white mica dates.",
       "authors": "Vidar Jakobsson; Richard Spikings; Martin Kutzschbach; Bruno Ribeiro; Willis Hames; Alfons Berger; Tobias Erhardt; Wolfgang Müller",
       "journal": "Contributions to Mineralogy and Petrology",
       "publisher": "Springer Science and Business Media LLC",
@@ -15199,8 +15191,8 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1038/s41598-025-02830-1",
@@ -15232,8 +15224,8 @@
         "ID"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1038/s41597-025-04767-6",
@@ -15578,16 +15570,28 @@
       "cited": 6,
       "type": "journal article",
       "isOA": "Yes",
-      "subject": "CRF; TRF; Reference Frames",
+      "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Ionosphere and magnetosphere dynamics",
       "sources": [
-        "Europe PMC"
+        "Europe PMC",
+        "OpenAlex"
       ],
       "searchTerms": [
         "AuScope"
       ],
       "dateAdded": "2026-03-24",
       "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
+      "evidenceDetail": "text scan (tier1)",
+      "institutions": [
+        "University of Bonn",
+        "Universitat de València",
+        "Lantmäteriet"
+      ],
+      "countries": [
+        "DE",
+        "ES",
+        "SE"
+      ],
+      "authorCount": 3
     },
     {
       "doi": "10.1016/j.dib.2018.10.176",
@@ -15638,7 +15642,8 @@
       "isOA": "Yes",
       "subject": "Advanced Memory and Neural Computing; Transition Metal Oxide Nanomaterials; Ferroelectric and Negative Capacitance Devices",
       "sources": [
-        "Europe PMC"
+        "Europe PMC",
+        "OpenAlex"
       ],
       "searchTerms": [
         "AuScope",
@@ -15646,7 +15651,17 @@
       ],
       "dateAdded": "2026-03-24",
       "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
+      "evidenceDetail": "text scan (tier1)",
+      "institutions": [
+        "RMIT University",
+        "The University of Western Australia",
+        "University of Massachusetts Amherst"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "authorCount": 9
     },
     {
       "doi": "10.1038/s41598-018-29016-2",
@@ -15666,8 +15681,8 @@
         "AuScope"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1038/s41598-017-12790-w",
@@ -15807,7 +15822,7 @@
       "journal": "Mining",
       "publisher": "Multidisciplinary Digital Publishing Institute",
       "year": 2024,
-      "cited": 15,
+      "cited": 16,
       "type": "article",
       "isOA": "Yes",
       "subject": "Remote-Sensing Image Classification; Geochemistry and Geologic Mapping; Advanced Image Fusion Techniques",
@@ -16524,6 +16539,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.20944/preprints201810.0376.v1",
         "10.20944/preprints201810.0376.v1"
       ]
     },
@@ -17867,7 +17883,7 @@
       "journal": "Nature Communications",
       "publisher": "Springer Science and Business Media LLC",
       "year": 2020,
-      "cited": 146,
+      "cited": 147,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geochemistry and Geologic Mapping",
@@ -18067,7 +18083,7 @@
       "journal": "Quaternary Science Reviews",
       "publisher": "Elsevier BV",
       "year": 2024,
-      "cited": 3,
+      "cited": 4,
       "type": "article",
       "isOA": "Yes",
       "subject": "Pleistocene-Era Hominins and Archaeology; Archaeology and ancient environmental studies; Geological and Geochemical Analysis",
@@ -18636,6 +18652,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.1130/geol.s.12811781.v1",
         "10.1130/geol.s.12811781.v1"
       ]
     },
@@ -18743,7 +18760,7 @@
       "journal": "Journal of Petrology",
       "publisher": "Oxford University Press",
       "year": 2019,
-      "cited": 103,
+      "cited": 104,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide; earthquake and tectonic studies",
@@ -18974,7 +18991,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2013,
-      "cited": 337,
+      "cited": 338,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Geological and Geochemical Analysis",
@@ -19079,7 +19096,7 @@
       "journal": "Tectonics",
       "publisher": "Wiley",
       "year": 2011,
-      "cited": 68,
+      "cited": 69,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; Geochemistry and Geologic Mapping",
@@ -19277,7 +19294,7 @@
       "journal": "Geosphere",
       "publisher": "Geological Society of America",
       "year": 2023,
-      "cited": 9,
+      "cited": 10,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geochemistry and Geologic Mapping",
@@ -19316,7 +19333,7 @@
       "journal": "Bulletin of Volcanology",
       "publisher": "Springer Science+Business Media",
       "year": 2022,
-      "cited": 17,
+      "cited": 18,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Geological and Geochemical Analysis; High-pressure geophysics and materials",
@@ -20991,7 +21008,7 @@
     },
     {
       "doi": "10.1007/s00190-018-1191-6",
-      "title": "NASA's Satellite Laser Ranging Systems for the 21<sup>st</sup> Century.",
+      "title": "NASA's Satellite Laser Ranging Systems for the 21&lt;sup&gt;st&lt;/sup&gt; Century.",
       "authors": "J F McGarry; E D Hoffman; J J Degnan; J W Cheek; C B Clarke; I F Diegel; H L Donovan; J E Horvath; M Marzouk; A R Nelson; D S Patterson; R L Ricklefs; M D Shappirio; S L Wetzel; T W Zagwodzki",
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science and Business Media LLC",
@@ -22567,8 +22584,7 @@
         "AU"
       ],
       "authorCount": 9,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1101/2025.11.18.25339671",
@@ -22989,8 +23005,7 @@
         "US"
       ],
       "authorCount": 3,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1785/0320210041",
@@ -23021,8 +23036,7 @@
         "US"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.31223/x5132h",
@@ -23483,8 +23497,7 @@
         "AU",
         "GB"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.31223/x5gx2t",
@@ -32229,8 +32242,8 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965"
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.5194/egusphere-2025-6323",
@@ -32688,8 +32701,8 @@
         "AU"
       ],
       "authorCount": 2,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.1038/s41598-024-59520-7",
@@ -33534,8 +33547,8 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.1002/essoar.10510305.1",
@@ -33564,8 +33577,8 @@
         "GB"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.31223/x55601",
@@ -34145,8 +34158,8 @@
         "AU"
       ],
       "authorCount": 8,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu26-11812",
@@ -34193,8 +34206,8 @@
         "NL"
       ],
       "authorCount": 17,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1038/s41598-026-44483-8",
@@ -34219,8 +34232,7 @@
         "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.5194/egusphere-egu26-13041",
@@ -34350,8 +34362,7 @@
         "Manual submission"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1002/nsg.12108",
@@ -35348,8 +35359,7 @@
         "Manual submission"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1016/j.gr.2019.12.015",
@@ -36167,7 +36177,7 @@
       "journal": "Quaternary Science Reviews",
       "publisher": "Elsevier BV",
       "year": 2020,
-      "cited": 46,
+      "cited": 48,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geology and Paleoclimatology Research; earthquake and tectonic studies",
@@ -36177,10 +36187,22 @@
         "Crossref (metadata fill)"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "keyword"
+      "evidence": "keyword",
+      "institutions": [
+        "Curtin University",
+        "University of Waikato",
+        "Heidelberg University"
+      ],
+      "countries": [
+        "AU",
+        "NZ",
+        "DE"
+      ],
+      "authorCount": 6
     },
     {
       "doi": "10.1016/j.quascirev.2020.106606",
@@ -37356,8 +37378,7 @@
         "Manual submission"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/08123985.2024.2371001",
@@ -37378,8 +37399,7 @@
         "Manual submission"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/08123985.2024.2378132",
@@ -37412,8 +37432,7 @@
         "CN"
       ],
       "authorCount": 10,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/08123985.2024.2385099",
@@ -37434,8 +37453,7 @@
         "Manual submission"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/08827508.2019.1636048",
@@ -37498,10 +37516,18 @@
         "Crossref (metadata fill)"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "keyword"
+      "evidence": "keyword",
+      "institutions": [
+        "Geoscience Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "authorCount": 1
     },
     {
       "doi": "10.1080/14432471.2020.1828417",
@@ -37528,7 +37554,7 @@
     {
       "doi": "10.1080/14432471.2020.1855772",
       "title": "Geological Survey of South Australia: SAEMC 2020, AusArray SA, Central Delamerian Broadband MT transect",
-      "authors": "Philip Heath; John O’Donnell; Kate Robertson; Tom Wise",
+      "authors": "Philip Heath; J. P. O’Donnell; Kate Robertson; Tom Wise",
       "journal": "Preview",
       "publisher": "Australian Society of Exploration Geophysicists",
       "year": 2020,
@@ -37542,10 +37568,18 @@
         "Crossref (metadata fill)"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "keyword"
+      "evidence": "keyword",
+      "institutions": [
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "authorCount": 4
     },
     {
       "doi": "10.1080/19648189.2018.1481770",
@@ -38376,8 +38410,7 @@
         "Manual submission"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.2113/gsjfr.50.4.382",
@@ -38443,8 +38476,7 @@
         "Manual submission"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.2475/02.2020.02",
@@ -38977,8 +39009,7 @@
         "AU"
       ],
       "authorCount": 3,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1016/j.gr.2025.04.001",
@@ -39014,8 +39045,7 @@
         "NZ"
       ],
       "authorCount": 7,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1038/s43017-023-00512-y",
@@ -39136,8 +39166,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/08123985.2024.2392802",
@@ -39157,8 +39186,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1111/arcm.70022",
@@ -39238,8 +39266,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1785/0220240275",
@@ -39259,8 +39286,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1785/0220240322",
@@ -39280,8 +39306,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.3934/environsci.2025019",
@@ -39381,8 +39406,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1029/2024jb030371",
@@ -39671,18 +39695,31 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2022,
-      "cited": 25,
+      "cited": 27,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; earthquake and tectonic studies",
       "sources": [
-        "Crossref (metadata fill)"
+        "Crossref (metadata fill)",
+        "OpenAlex"
       ],
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
-        "Manual entry"
+        "Manual entry",
+        "AuScope",
+        "SHRIMP II Curtin"
       ],
-      "evidence": "keyword"
+      "evidence": "keyword",
+      "institutions": [
+        "Curtin University",
+        "Geoscience Australia",
+        "Geological Survey of Western Australia",
+        "Department of Mines, Industry Regulation and Safety"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "authorCount": 8
     },
     {
       "doi": "10.1029/2021jb023105",
@@ -40002,8 +40039,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1038/s41467-022-35609-3",
@@ -40323,8 +40359,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1190/tle41020140.1",
@@ -40704,8 +40739,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1029/2022pa004417",
@@ -40854,18 +40888,28 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2022,
-      "cited": 20,
+      "cited": 22,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; Paleontology and Stratigraphy of Fossils",
       "sources": [
-        "Crossref (metadata fill)"
+        "Crossref (metadata fill)",
+        "OpenAlex"
       ],
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
-        "Manual entry"
+        "Manual entry",
+        "AuScope"
       ],
-      "evidence": "keyword"
+      "evidence": "keyword",
+      "institutions": [
+        "Curtin University",
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "authorCount": 5
     },
     {
       "doi": "10.1016/j.tecto.2022.229281",
@@ -41145,8 +41189,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1016/j.acags.2022.100092",
@@ -41306,8 +41349,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1016/j.tecto.2022.229461",
@@ -43309,8 +43351,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1016/j.marpetgeo.2021.105483",
@@ -44550,8 +44591,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1126/science.abn2080",
@@ -45062,8 +45102,7 @@
         "AU"
       ],
       "authorCount": 8,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1111/geb.13694",
@@ -45723,8 +45762,7 @@
       "searchTerms": [
         "Manual entry"
       ],
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1029/2022tc007578",
@@ -47830,8 +47868,7 @@
         "Manual submission"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1144/geochem2025-027",
@@ -48200,8 +48237,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1360/sspma-2026-0022",
@@ -48297,8 +48334,8 @@
         "DE"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.1144/sp537-2022-222",
@@ -48335,8 +48372,8 @@
       "doi": "10.48550/arxiv.2209.15298",
       "title": "GENESIS: Co-location of Geodetic Techniques in Space",
       "authors": "Pacôme Delva; Z. Altamimi; Alejandro Blazquez; M Bloßfeld; Johannes Böhm; Pascal Bonnefond; Jean‐Paul Boy; Sean Bruinsma; Grzegorz Bury; Miltiadis Chatzinikos; Alexandre Couhert; Clément Courde; Rolf Dach; V. Dehant; S. Dell’Agnello; Gunnar Elgered; Werner Enderle; P. Exertier; Susanne Glaser; Rüdiger Haas; Wen Huang; Urs Hugentobler; Adrian Jäggi; Özgür Karatekin; F. G. Lemoine; C. Le Poncin-Lafitte; Susanne Lunz; Benjamin Männel; Flavien Mercier; Laurent Métivier; Benoît Meyssignac; Jürgen Müller; A. Nothnagel; F. Pérosanz; Roelof Rietbroek; Markus Rothacher; Hakan Sert; Krzysztof Sośnica; Paride Testani; Javier Ventura‐Traveset; Gilles Wautelet; Radosław Zajdel",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
+      "journal": "Institutional Repository of Leibniz Universität Hannover (Leibniz Universität Hannover)",
+      "publisher": "Leibniz University Hannover",
       "year": 2022,
       "cited": 0,
       "type": "preprint",
@@ -48640,6 +48677,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.59350/tjg7h-2q731",
         "10.59350/tjg7h-2q731"
       ]
     },
@@ -48667,6 +48705,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.59350/hvwpf-1g750",
         "10.59350/hvwpf-1g750"
       ]
     },
@@ -48694,6 +48733,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.59350/6cdrw-rpw02",
         "10.59350/6cdrw-rpw02"
       ]
     },
@@ -48721,6 +48761,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.59350/w1n16-58068",
         "10.59350/w1n16-58068"
       ]
     },
@@ -48780,6 +48821,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.59350/rqnwf-n0b72",
         "10.59350/rqnwf-n0b72"
       ]
     },
@@ -48807,6 +48849,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.59350/y6ayy-wrd90",
         "10.59350/y6ayy-wrd90"
       ]
     },
@@ -48903,8 +48946,8 @@
         "SK"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu26-18847",
@@ -48938,8 +48981,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu26-1703",
@@ -49058,6 +49101,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.25959/31920927.v1",
         "10.25959/31920927.v1"
       ]
     },
@@ -49090,6 +49134,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.17978026",
         "10.5281/zenodo.17978026"
       ]
     },
@@ -49172,6 +49217,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.17590561",
         "10.5281/zenodo.17590561"
       ]
     },
@@ -49203,6 +49249,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.18240370",
         "10.5281/zenodo.18240370"
       ]
     },
@@ -49236,6 +49283,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.18240061",
         "10.5281/zenodo.18240061"
       ]
     },
@@ -49267,6 +49315,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.18240549",
         "10.5281/zenodo.18240549"
       ]
     },
@@ -49297,6 +49346,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.18173942",
         "10.5281/zenodo.18173942"
       ]
     },
@@ -49328,6 +49378,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.18239902",
         "10.5281/zenodo.18239902"
       ]
     },
@@ -49359,6 +49410,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.18239953",
         "10.5281/zenodo.18239953"
       ]
     },
@@ -49391,6 +49443,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.18239978",
         "10.5281/zenodo.18239978"
       ]
     },
@@ -49460,7 +49513,7 @@
     },
     {
       "doi": "10.5194/egusphere-egu25-21367",
-      "title": "AuScope’s Research Data Systems: Operationalising FAIR place-based research through collaboration",
+      "title": "AuScope&amp;#8217;s Research Data Systems: Operationalising FAIR place-based research through collaboration",
       "authors": "Rebecca Farrington; Lesley Wyborn; Jo Croucher; Anusuriya Devaraju; Alex Hunt; Hannes Hollmann; Jens Klump; Angus Nixon; Alexander Prent; Sara Polanco; Nigel Rees; Tim Rawling",
       "journal": "",
       "publisher": "Copernicus GmbH",
@@ -49490,12 +49543,12 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu24-13522",
-      "title": "Developing cutting-edge geophysical data and software infrastructure to future-proof national scale geophysical assets for 2030 computation  ",
+      "title": "Developing cutting-edge geophysical data and software infrastructure to future-proof national scale geophysical assets for 2030 computation &amp;#160;",
       "authors": "Nigel Rees; Lesley Wyborn; Rui Yang; Jo Croucher; Hannes Hollmann; Rebecca Farrington; Yue Sun; Yiling Liu; Ben Evans",
       "journal": "",
       "publisher": "Copernicus GmbH",
@@ -49521,8 +49574,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu24-14052",
@@ -49552,8 +49605,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu24-7376",
@@ -49584,8 +49637,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu24-2949",
@@ -49689,6 +49742,7 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "relatedDois": [
+        "10.5281/zenodo.10494618",
         "10.5281/zenodo.10494618"
       ]
     },
@@ -49749,8 +49803,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu23-10908",
@@ -49779,8 +49833,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu23-16396",
@@ -49853,8 +49907,8 @@
         "FR"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu23-3006",
@@ -50010,8 +50064,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.5194/egusphere-egu22-11980",
@@ -50074,8 +50128,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)"
     },
     {
       "doi": "10.14509/30882",
@@ -50413,8 +50467,7 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/08123985.2023.2291482",
@@ -50445,8 +50498,7 @@
         "US"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/08123985.2023.2281617",
@@ -50502,8 +50554,7 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.5281/zenodo.5584797",
@@ -50613,8 +50664,7 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1029/2024pa004892",
@@ -51615,8 +51665,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.5194/egusphere-egu25-8681",
@@ -51643,8 +51693,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.5194/gmd-17-5057-2024",
@@ -51673,8 +51723,8 @@
         "GB"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.5194/egusphere-2023-2683",
@@ -51703,8 +51753,8 @@
         "GB"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)"
     },
     {
       "doi": "10.5194/egusphere-egu25-11467",
@@ -51818,8 +51868,7 @@
         "US"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.5194/egusphere-egu23-9519",
@@ -51934,8 +51983,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-08",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1007/s00410-026-02318-9",
@@ -52249,7 +52297,7 @@
       "journal": "IEEE Geoscience and Remote Sensing Magazine",
       "publisher": "Institute of Electrical and Electronics Engineers",
       "year": 2019,
-      "cited": 65,
+      "cited": 66,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geochemistry and Geologic Mapping; Remote-Sensing Image Classification; Soil Geostatistics and Mapping",
@@ -52589,7 +52637,7 @@
       "journal": "Zenodo (CERN European Organization for Nuclear Research)",
       "publisher": "European Organization for Nuclear Research",
       "year": 2026,
-      "cited": 0,
+      "cited": 2,
       "type": "other",
       "isOA": "Yes",
       "subject": "",
@@ -54103,11 +54151,20 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
+      "authorCount": 4,
+      "institutions": [
+        "University of Bonn",
+        "TU Wien",
+        "Chalmers University of Technology"
+      ],
+      "countries": [
+        "DE",
+        "AT",
+        "SE"
+      ],
       "dateAdded": "2026-04-29",
       "evidence": "keyword"
     },
@@ -55693,8 +55750,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1016/j.engfracmech.2020.107176",
@@ -57470,8 +57526,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1016/j.gr.2022.05.011",
@@ -57596,11 +57651,11 @@
     {
       "doi": "10.1016/j.gsf.2019.09.004",
       "title": "Strategies towards robust interpretations of in situ zircon Lu–Hf isotope analyses",
-      "authors": "C.J. Spencer; C.L. Kirkland; N.M.W. Roberts; N.J. Evans; J. Liebmann",
+      "authors": "Christopher J. Spencer; Christopher L. Kirkland; Nick M.W. Roberts; Noreen J. Evans; Janne Liebmann",
       "journal": "Geoscience Frontiers",
       "publisher": "Elsevier BV",
       "year": 2020,
-      "cited": 155,
+      "cited": 163,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; earthquake and tectonic studies",
@@ -57609,11 +57664,20 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
+      "authorCount": 5,
+      "institutions": [
+        "Queen's University",
+        "Curtin University",
+        "British Geological Survey"
+      ],
+      "countries": [
+        "CA",
+        "AU",
+        "GB"
+      ],
       "dateAdded": "2026-04-29",
       "evidence": "keyword"
     },
@@ -61448,8 +61512,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1029/2020gc009142",
@@ -62409,8 +62472,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1029/2021gc010033",
@@ -63893,11 +63955,16 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
+      "authorCount": 1,
+      "institutions": [
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
       "dateAdded": "2026-04-29",
       "evidence": "keyword"
     },
@@ -63917,11 +63984,18 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
+      "authorCount": 2,
+      "institutions": [
+        "Geological Survey of Western Australia",
+        "NSW Department of Planning and Environment",
+        "Geoscience Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
       "dateAdded": "2026-04-29",
       "evidence": "keyword"
     },
@@ -63995,8 +64069,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/14432471.2020.1855761",
@@ -64014,11 +64087,22 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
+      "authorCount": 8,
+      "institutions": [
+        "Australasian Society for Infectious Diseases",
+        "National Institute of Statistics and Geography",
+        "Taegu Science University",
+        "American University of Puerto Rico"
+      ],
+      "countries": [
+        "AU",
+        "MX",
+        "KR",
+        "PR"
+      ],
       "dateAdded": "2026-04-29",
       "evidence": "keyword"
     },
@@ -66508,8 +66592,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1130/g48435.1",
@@ -69461,8 +69544,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.3390/min11090988",
@@ -69587,7 +69669,7 @@
     {
       "doi": "10.3847/1538-4357/ac6d5b",
       "title": "Inverse Multiview. I. Multicalibrator Inverse Phase Referencing for Microarcsecond Very Long Baseline Interferometry Astrometry",
-      "authors": "L. J. Hyland; M. J. Reid; S. P. Ellingsen; M. J. Rioja; R. Dodson; G. Orosz; C. R. Masson; J. M. McCallum",
+      "authors": "Lucas J. Hyland; M. J. Reid; S. P. Ellingsen; María Rioja; Richard Dodson; Gábor Orosz; C. R. Masson; Jamie McCallum",
       "journal": "The Astrophysical Journal",
       "publisher": "American Astronomical Society",
       "year": 2022,
@@ -69600,11 +69682,26 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AuScope"
       ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
+      "authorCount": 8,
+      "institutions": [
+        "University of Tasmania",
+        "Center for Astrophysics Harvard & Smithsonian",
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "The University of Western Australia",
+        "Astronomy and Space",
+        "Spanish National Observatory",
+        "International Centre for Radio Astronomy Research",
+        "Joint Institute for VLBI ERIC"
+      ],
+      "countries": [
+        "AU",
+        "US",
+        "ES",
+        "NL"
+      ],
       "dateAdded": "2026-04-29",
       "evidence": "keyword"
     },
@@ -71215,9 +71312,9 @@
         "AU"
       ],
       "dateAdded": "2026-05-10",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
+      "evidence": "keyword",
       "relatedDois": [
+        "10.5281/zenodo.20032537",
         "10.5281/zenodo.20032537",
         "10.5281/zenodo.20032537"
       ]
@@ -71458,6 +71555,7 @@
       "dateAdded": "2026-05-20",
       "evidence": "keyword",
       "relatedDois": [
+        "10.1038/s41467-026-72076-6",
         "10.1038/s41467-026-72076-6"
       ]
     },
@@ -71807,6 +71905,7 @@
       "dateAdded": "2026-06-07",
       "evidence": "keyword",
       "relatedDois": [
+        "10.5281/zenodo.20502782",
         "10.5281/zenodo.20502782"
       ]
     },
@@ -71881,8 +71980,7 @@
         "AU"
       ],
       "dateAdded": "2026-06-07",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1038/s41467-026-73363-y",
@@ -72449,7 +72547,7 @@
       "journal": "Australian Journal of Earth Sciences",
       "publisher": "Taylor & Francis",
       "year": 2026,
-      "cited": 1,
+      "cited": 2,
       "type": "article",
       "isOA": "Yes",
       "subject": "Crystal Structures and Properties; Clay minerals and soil interactions; Mineralogy and Gemology Studies",
@@ -72652,8 +72750,7 @@
         "AU"
       ],
       "dateAdded": "2026-06-21",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/14432471.2023.2172764",
@@ -72761,6 +72858,7 @@
       "dateAdded": "2026-06-28",
       "evidence": "keyword",
       "relatedDois": [
+        "10.5281/zenodo.20805232",
         "10.5281/zenodo.20805232"
       ]
     },
@@ -72936,6 +73034,7 @@
       "dateAdded": "2026-07-05",
       "evidence": "keyword",
       "relatedDois": [
+        "10.5281/zenodo.21059336",
         "10.5281/zenodo.21059336"
       ]
     },
@@ -72966,12 +73065,11 @@
         "GB"
       ],
       "dateAdded": "2026-07-12",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.7717/peerj.21192",
-      "title": "How did climate drive the historical distribution of relict plants: a case study on <i>Metasequoia</i> using deep-time ecological niche modelling.",
+      "title": "How did climate drive the historical distribution of relict plants: a case study on &lt;i&gt;Metasequoia&lt;/i&gt; using deep-time ecological niche modelling.",
       "authors": "Junmei Chen; Ai Song; Li Wang; Shufeng Li; Tao Su",
       "journal": "PeerJ",
       "publisher": "PeerJ",
@@ -73021,6 +73119,7 @@
       "dateAdded": "2026-07-19",
       "evidence": "keyword",
       "relatedDois": [
+        "10.5281/zenodo.21390864",
         "10.5281/zenodo.21390864"
       ]
     },
@@ -73312,8 +73411,7 @@
         "AU"
       ],
       "dateAdded": "2026-07-26",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword"
     },
     {
       "doi": "10.1016/j.procs.2010.04.097",
@@ -73480,506 +73578,2577 @@
       "evidence": "keyword"
     },
     {
-      "doi": "10.5281/zenodo.20616618",
-      "title": "The Australian Virtual Hub at the January 2026 ESIP Meeting",
-      "authors": "Stefanie Kethers; Jens Klump; J.A. Ramírez San Martín; Alycia Crall; Zoe Gentes; Rebecca Farrington; Lesley Wyborn",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2026,
+      "doi": "10.48550/arxiv.1112.2584",
+      "title": "Data Provenance and Management in Radio Astronomy: A Stream Computing Approach",
+      "authors": "Mahmoud S. Mahmoud; Andrew Ensor; Alain Biem; Bruce G. Elmegreen; Sergei Gulyaev",
+      "journal": "arXiv (Cornell University)",
+      "publisher": "Cornell University",
+      "year": 2011,
       "cited": 0,
-      "type": "report",
+      "type": "preprint",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Advanced Database Systems and Queries; Scientific Computing and Data Management; Service-Oriented Architecture and Web Services",
       "sources": [
-        "OpenAlex (verified)"
+        "OpenAlex"
       ],
-      "authorCount": 7,
-      "institutions": [
-        "Australian Research Data Commons",
-        "Commonwealth Scientific and Industrial Research Organisation",
-        "Health Sciences and Nutrition",
+      "searchTerms": [
         "AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1017/s1743921312002608",
+      "title": "COMMISSION 19: ROTATION OF THE EARTH",
+      "authors": "Harald Schuh; Chengli Huang; Florian Seitz; Aleksander Brzeziński; Christian Bizouard; B. F. Chao; R. S. Gross; W. Kosek; David A. Salstein; Oleg Titov; Bernd Richter; Zinovy Malkin",
+      "journal": "Proceedings of the International Astronomical Union",
+      "publisher": "Cambridge University Press",
+      "year": 2011,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysics and Gravity Measurements; GNSS positioning and interference; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 12,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1081/22020586.2010.12041856",
+      "title": "The application of geologically-constrained 3D heat conduction models to geothermal exploration.",
+      "authors": "Craig O’Neill; Cara Danis; Raquibul Hassan; Steve Quennette; Louis Moresi",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2010,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological Modeling and Analysis; Image Processing and 3D Reconstruction; Hydrocarbon exploration and reservoir analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Macquarie University"
       ],
       "countries": [
         "AU"
       ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
-      "relatedDois": [
-        "10.5281/zenodo.20616619",
-        "10.5281/zenodo.20616619"
-      ]
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
     },
     {
-      "doi": "10.22541/essoar.174172253.34402506/v1",
-      "title": "Subduction system response to ribbon collision: implications on the intra-plate force balance and the style of slab deformation",
-      "authors": "Andres Felipe Rodriguez-Corcho; Sara Polanco; Dan Sandiford; Rebecca Farrington; Louis Moresi",
-      "journal": "",
-      "publisher": "Wiley",
-      "year": 2025,
-      "cited": 2,
-      "type": "preprint",
+      "doi": "10.1071/aseg2016ab261",
+      "title": "Insights into lithospheric architecture, fertilisation and fluid pathways from AusLAMP MT",
+      "authors": "Stephan Thiel; Anthony Reid; Graham Heinson; Kate Robertson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 17,
+      "type": "article",
       "isOA": "Yes",
-      "subject": "earthquake and tectonic studies; Geotechnical and Geomechanical Engineering; Seismic Imaging and Inversion Techniques",
+      "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geochemistry and Geologic Mapping",
       "sources": [
-        "OpenAlex (verified)"
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Department of State Development",
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2016ab270",
+      "title": "Looking into a ‘Blue Hole’ - Resolving Magnetization and Structure from the Complex Negative Coompana Anomaly, South Australia",
+      "authors": "Clive Foss; Gary Reed; Tim Keeping; Tom Wise; R. Dutch",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geomagnetism and Paleomagnetism Studies; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
       ],
       "authorCount": 5,
       "institutions": [
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "Mineral Resources",
+        "Geological Survey of Western Australia",
+        "Department of Primary Industries and Regions South Australia",
+        "Department of State Development"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2016ab123",
+      "title": "Magnetotelluric monitoring of hydraulic fracture stimulation at the Habanero Enhanced Geothermal System, Cooper Basin, South Australia",
+      "authors": "Yohannes Lemma Didana; Stephan Thiel; Graham Heinson; Goren Boran",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2016ab1002",
+      "title": "Magnetotelluric monitoring of unconventional energy resource development: Disruptive technology or damp squib?",
+      "authors": "Graham Heinson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Seismic Waves and Analysis; Reservoir Engineering and Simulation Methods",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2016ab264",
+      "title": "The Flinders Conductivity Anomal(ies) revisited using AusLAMP Magnetotelluric Data",
+      "authors": "Kate Robertson; Stephan Thiel; Graham Heinson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geochemistry and Geologic Mapping; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "The University of Adelaide",
+        "United States Geological Survey",
+        "Department of Primary Industries and Regions South Australia"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2016ab284",
+      "title": "AusLAMP MT over Victoria: New insight from 3D modelling highlights regions of anomalously conductive mantle and unexpected linear trends in the crust",
+      "authors": "Jingming Duan; David Taylor; Karol Czarnota; Ross Cayley; Richard Chopping",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 5,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Seismic Waves and Analysis; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Geoscience Australia",
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/pvv2016n184newsp22",
+      "title": "GA: Update on Geophysical Survey Progress From the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland and Victoria (Information Current on 9 September 2016)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geophysical Methods and Applications; Image Processing and 3D Reconstruction",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/pvv2016n181newsp20",
+      "title": "GA: update on geophysical survey progress from the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland and Victoria (information current on 23 March 2016)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2016,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geophysical Methods and Applications; Geological Modeling and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.48550/arxiv.1511.08035",
+      "title": "The ICRF-3: Status, plans, and progress on the next generation International Celestial Reference Frame",
+      "authors": "Zinovy Malkin; C. S. Jacobs; E. F. Arias; D. A. Boboltz; Boehm, J.; S. Bolotin; G. Bourda; Patrick Charlot; Aletha de Witt; A. L. Fey; R. A. Gaume; Heinkelmann, R.; Lambert, S.; Chao Ma; A. Nothnagel; M Seitz; Gordon, D.; F. Skurikhina; Jean Souchay; Oleg Titov",
+      "journal": "arXiv (Cornell University)",
+      "publisher": "Cornell University",
+      "year": 2015,
+      "cited": 9,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Ionosphere and magnetosphere dynamics",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 20,
+      "institutions": [
+        "Institute of Geodesy and Geophysics",
+        "Jet Propulsion Laboratory",
+        "Bureau international des poids et mesures",
+        "U.S. National Science Foundation",
+        "Goddard Space Flight Center",
+        "Laboratoire d'Astrophysique de Bordeaux",
+        "Hartebeesthoek Radio Astronomy Observatory",
+        "United States Naval Observatory",
+        "Systèmes de Référence Temps-Espace",
+        "University of Bonn",
+        "Institute of Applied Astronomy",
+        "Geoscience Australia"
+      ],
+      "countries": [
+        "CN",
+        "US",
+        "FR",
+        "ZA",
+        "DE",
+        "RU",
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5303/pkas.2015.30.2.659",
+      "title": "THE LONG BASELINE ARRAY",
+      "authors": "P. G. Edwards; Chris Phillips",
+      "journal": "Publications of The Korean Astronomical Society",
+      "publisher": "",
+      "year": 2015,
+      "cited": 6,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Radio Astronomy Observations and Technology; Astrophysics and Cosmic Phenomena; Gamma-ray bursts and supernovae",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Astronomy and Space"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1017/s1743921316000636",
+      "title": "DIVISION A COMMISSION 19: ROTATION OF THE EARTH",
+      "authors": "Chengli Huang; Richard A. Gross; Florian Seitz; Harald Schuh; Christian Bizouard; B. F. Chao; W. Kosek; David A. Salstein; Vladimir P. Zharov; Oleg Titov; Bernd Richter; Zinovy Malkin",
+      "journal": "Proceedings of the International Astronomical Union",
+      "publisher": "Cambridge University Press",
+      "year": 2015,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysics and Gravity Measurements; Solar and Space Plasma Dynamics; Inertial Sensor and Navigation",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 12,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2015ab185",
+      "title": "A new interpretation of Cambrian basement geology increases the prospectivity for Cu porphyries in western Victoria",
+      "authors": "Phil Skladzien; Ross Cayley; David Taylor; M. A. McLean",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2015,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2015ab047",
+      "title": "Deep conductivity anomaly of the Darling Fault Zone - implications for fluid transport in the Perth Basin",
+      "authors": "Thomas Hoskin; Klaus Regenauer‐Lieb; Alan G. Jones",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2015,
+      "cited": 4,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Seismic Imaging and Inversion Techniques; Geophysical and Geoelectrical Methods; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "University of Stirling",
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "Australian Resources Research Centre",
+        "Dublin Institute For Advanced Studies"
+      ],
+      "countries": [
+        "GB",
+        "AU",
+        "IE"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2013ab059",
+      "title": "Extracting mineralogical and geomorphological information using new ASTER mineral maps with airborne geophysics",
+      "authors": "R.D. Hewson; D. Robson; Alan J Mauger; Thomas Cudahy; Matilda Thomas; Simon Jones",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2013,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Soil Geostatistics and Mapping; Remote-Sensing Image Classification",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "RMIT University",
+        "Geological Survey of Western Australia",
+        "Department of Primary Industries and Regions South Australia",
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "Geoscience Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1088/0004-6256/146/1/10",
+      "title": "OPTICAL SPECTRA OF CANDIDATE INTERNATIONAL CELESTIAL REFERENCE FRAME (ICRF) FLAT-SPECTRUM RADIO SOURCES",
+      "authors": "Oleg Titov; Laura M. Stanford; H. M. Johnston; T. Pursimo; R. W. Hunstead; D. L. Jauncey; K. L. Maslennikov; A. V. Boldycheva",
+      "journal": "The Astronomical Journal",
+      "publisher": "Institute of Physics",
+      "year": 2013,
+      "cited": 25,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Astrophysics and Cosmic Phenomena; Galaxies: Formation, Evolution, Phenomena; Radio Astronomy Observations and Technology",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "Geoscience Australia",
         "The University of Sydney",
-        "Newcastle City Council",
-        "The University of Melbourne",
-        "AuScope",
+        "Nordic Optical Telescope",
+        "Australian National University",
+        "Astronomy and Space",
+        "Pulkovo Observatory"
+      ],
+      "countries": [
+        "AU",
+        "ES",
+        "RU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/17538947.2013.781243",
+      "title": "Putting meaning into NETMAR – the open service network for marine environmental data",
+      "authors": "Adam Leadbetter; Roy K Lowry; D. Oliver Clements",
+      "journal": "International Journal of Digital Earth",
+      "publisher": "Taylor & Francis",
+      "year": 2013,
+      "cited": 33,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Semantic Web and Ontologies; Geographic Information Systems Studies; Environmental Monitoring and Data Management",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "British Oceanographic Data Centre",
+        "Plymouth Marine Laboratory"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/pvv2012n161",
+      "title": "Preview Number 161",
+      "authors": "John A. Theodoridis; Kim Frankcombe; Amanda Carreno; Anne Tomlinson; Tania Dhu",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2012,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Diverse Scientific and Economic Studies; Educational Robotics and Engineering; Human auditory perception and evaluation",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Fatebenefratelli Hospital",
+        "Tân Tạo University",
+        "Woodside (Australia)"
+      ],
+      "countries": [
+        "IT",
+        "VN",
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2012ab347",
+      "title": "Quantifying downhole silicate mineralogy – HyLogger with thermal infrared",
+      "authors": "Alan J Mauger; Georgina Gordon; Anthony Reid; Joel Kitto",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2012,
+      "cited": 5,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Spectroscopy Techniques in Biomedical and Chemical Research; Hydrocarbon exploration and reservoir analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "United States Geological Survey",
+        "Australasian Society for HIV, Viral Hepatitis and Sexual Health Medicine"
+      ],
+      "countries": [
+        "US",
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5281/zenodo.5636530",
+      "title": "Report: Data is Only Half the Battle",
+      "authors": "Paula Andrea Martinez; Vanessa Crosby; Tom Honeyman; Stéphane Guillou; Louis Moresi",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2021,
+      "cited": 0,
+      "type": "report",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Digital Humanities and Scholarship",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Australian Research Data Commons",
+        "UNSW Sydney",
+        "The University of Queensland",
         "Australian National University"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "text-attributed",
+      "relatedDois": [
+        "10.5281/zenodo.5637353"
+      ]
+    },
+    {
+      "doi": "10.5281/zenodo.7691218",
+      "title": "Continental shelf marine MT feasibility study in the Spencer Gulf, South Australia",
+      "authors": "Graham Heinson; Kate Robertson; Goran Boren; Steven Constable; Jacob Perez; Stephan Thiel; Jingming Duan; Darren Kyi",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2021,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "Yes",
+      "subject": "Marine and Offshore Engineering Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "The University of Adelaide",
+        "Scripps Institution of Oceanography",
+        "Geoscience Australia"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2021.1986991",
+      "title": "Education matters",
+      "authors": "Marina Pervukhina",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Earthquake and Disaster Impact Studies; Educational Robotics and Engineering; Pharmacy and Medical Practices",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2021.1989149",
+      "title": "Geophysics education in Australia – AEGC wrap up and updated survey results",
+      "authors": "Kate Selway",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysics and Gravity Measurements; Geological Modeling and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2021.1986997",
+      "title": "ASEG 2021 Honours and Awards",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Academic Publishing and Open Access; Earthquake and Disaster Impact Studies; Educational Robotics and Engineering",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2021.1986978",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current September 2021).",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2021.1958522",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current July 2021).",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2021.1958458",
+      "title": "AEGC 2021: Virtual workshops",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Artificial Intelligence in Healthcare and Education",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2021.1958460",
+      "title": "AEGC 2021: Presenter biographies",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Academic Publishing and Open Access; Ideological and Political Education; Digital Media and Visual Art",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2021.1957445",
+      "title": "AEGC 2021: Virtual exhibitors",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Conferences and Exhibitions Management",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1016/j.lithos.2020.105880",
+      "title": "Siderophile and chalcophile elements in spinels, sulphides and native Ni in strongly metasomatised xenoliths from the Bultfontein kimberlite (South Africa)",
+      "authors": "Sonja Aulbach; Andrea Giuliani; Marco L. Fiorentini; Raphael J. Baumgartner; Dany Savard; Vadim S. Kamenetsky; Stefano Caruso; Leonid V. Danyushevky; Will Powell; William L. Griffin",
+      "journal": "Lithos",
+      "publisher": "Elsevier BV",
+      "year": 2020,
+      "cited": 21,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 10,
+      "institutions": [
+        "Goethe University Frankfurt",
+        "The University of Melbourne",
+        "ETH Zurich",
+        "The University of Western Australia",
+        "ARC Centre of Excellence for Core to Crust Fluid Systems",
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "UNSW Sydney",
+        "Mineral Resources",
+        "Australian Resources Research Centre",
+        "Environmental Earth Sciences",
+        "Université du Québec à Chicoutimi",
+        "University of Tasmania",
+        "Institute of Experimental Mineralogy",
+        "Australian Research Council",
+        "Rio Tinto (Australia)",
+        "Macquarie University"
+      ],
+      "countries": [
+        "DE",
+        "AU",
+        "CH",
+        "CA",
+        "RU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2020.1855762",
+      "title": "ASEG national calendar",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2020,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Legal case studies and regulations; Human auditory perception and evaluation; Diverse Perspectives in Modern Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5281/zenodo.3990834",
+      "title": "ARCOS establishment roadmap",
+      "authors": "Steve Quenette; Paul Coddington; Mark Gray; Steven Manos; Ryan Fraser; ARCOS Working Group",
+      "journal": "Monash University Research Portal (Monash University)",
+      "publisher": "Monash University",
+      "year": 2020,
+      "cited": 0,
+      "type": "book",
+      "isOA": "Yes",
+      "subject": "Drilling and Well Engineering; Offshore Engineering and Technologies; Spacecraft and Cryogenic Technologies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "Australian Regenerative Medicine Institute",
+        "Monash University",
+        "Pawsey Supercomputing Research Centre",
+        "Biocom",
+        "AARNet (Australia)"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword",
+      "relatedDois": [
+        "10.5281/zenodo.3981555"
+      ]
+    },
+    {
+      "doi": "10.5281/zenodo.3887399",
+      "title": "Research Data Culture Conversation - Paper 2 \"A Development Response\"",
+      "authors": "Ai-Lin Soo; Andrew L. Janke; Luc Betbeder-Matibet; Rhys Francis; Stephen Giugni; Steve Quenette",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2020,
+      "cited": 0,
+      "type": "report",
+      "isOA": "Yes",
+      "subject": "Big Data and Business Intelligence",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "Australian Regenerative Medicine Institute",
+        "Monash Health",
+        "Monash University",
+        "The University of Sydney",
+        "UNSW Sydney",
+        "Futures Group (United States)",
+        "The University of Melbourne"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5281/zenodo.3887434",
+      "title": "Research Data Culture Conversation - Paper 1 \"A Summary of the Challenge\"",
+      "authors": "Ai-Lin Soo; Andrew L. Janke; Luc Betbeder-Matibet; Rhys Francis; Stephen Giugni; Steve Quenette",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2020,
+      "cited": 0,
+      "type": "report",
+      "isOA": "Yes",
+      "subject": "Big Data and Business Intelligence",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "Australian Regenerative Medicine Institute",
+        "Monash Health",
+        "Monash University",
+        "The University of Sydney",
+        "UNSW Sydney",
+        "Futures Group (United States)",
+        "The University of Melbourne"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/22020586.2019.12073065",
+      "title": "Petrophysical “Big Data” - case study from the Stavely Project, western Victoria",
+      "authors": "Phil Skladzien",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geophysical and Geoelectrical Methods; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/22020586.2019.12073167",
+      "title": "Magnetotelluric inversion strategies",
+      "authors": "Ralf Schaa; Brett Harris; Andrew Pethick",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Curtin University"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/22020586.2019.12072992",
+      "title": "Defining the Eyre Conductivity Anomaly with the Tumby Bay MT transect",
+      "authors": "Kate Robertson; Ben Kay; Lachlan Loader; Graham Heinson; Stephan Thiel",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Geological Survey of Western Australia",
+        "Department of Primary Industries and Regions South Australia",
+        "Department of State Development",
+        "The Robertson Trust",
+        "The University of Adelaide"
       ],
       "countries": [
         "AU",
         "GB"
       ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965"
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
     },
     {
-      "doi": "10.5194/egusphere-egu25-21605",
-      "title": "Status, issues and challenges with FAIRness of seismological waveform data and beyond",
-      "authors": "Florian Haslinger; Lesley Wyborn; Rob Casey; Helle Pederson; E. D’Anastasio; Javier Quinteros; Jonathan K. Hanson; Jerry Carter",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2025,
-      "cited": 0,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geological Modeling and Analysis; Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 8,
-      "institutions": [
-        "ETH Zurich",
-        "AuScope",
-        "Scope Group (United States)",
-        "Centre National de la Recherche Scientifique",
-        "Institut des Sciences de la Terre",
-        "Université Grenoble Alpes",
-        "GNS Science",
-        "GFZ Helmholtz Centre for Geosciences"
-      ],
-      "countries": [
-        "CH",
-        "AU",
-        "US",
-        "FR",
-        "NZ",
-        "DE"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
-    },
-    {
-      "doi": "10.5194/esurf-12-301-2024",
-      "title": "Flexural isostatic response of continental-scale deltas to climatically driven sea level changes",
-      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
-      "journal": "Earth Surface Dynamics",
-      "publisher": "Copernicus Publications",
-      "year": 2024,
-      "cited": 1,
+      "doi": "10.1080/22020586.2019.12073015",
+      "title": "The Geosciences DeVL Experiment: new information generated from old magnetotelluric data of The University of Adelaide on the NCI High Performance Computing Platform",
+      "authors": "Nigel Rees; Ben Evans; Graham Heinson; Dennis Conway; Rui Yang; Stephan Thiel; Kate Robertson; K. A. Druken; B. R. Goleby; Jingbo Wang; Lesley Wyborn; Hoël Seillé",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 2,
       "type": "article",
       "isOA": "Yes",
-      "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Methane Hydrates and Related Phenomena",
+      "subject": "Geophysical and Geoelectrical Methods; Geomagnetism and Paleomagnetism Studies; Soil Moisture and Remote Sensing",
       "sources": [
-        "OpenAlex (verified)"
+        "OpenAlex"
       ],
-      "authorCount": 9,
-      "institutions": [
-        "The University of Sydney",
-        "University of Kansas",
-        "The University of Melbourne",
-        "AuScope",
-        "Planetary Science Institute",
-        "University of California, Los Angeles",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "US"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-05",
       "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965"
-    },
-    {
-      "doi": "10.5194/egusphere-2023-53",
-      "title": "The flexural isostatic response of climatically driven sea-level changes on continental-scale deltas",
-      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2023,
-      "cited": 2,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Geological formations and processes; Geology and Paleoclimatology Research; Coastal wetland ecosystem dynamics",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 9,
-      "institutions": [
-        "The University of Sydney",
-        "University of Kansas",
-        "The University of Melbourne",
-        "AuScope",
-        "Planetary Science Institute",
-        "University of California, Los Angeles",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "US"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965"
-    },
-    {
-      "doi": "10.5194/egusphere-egu23-12864",
-      "title": "Who Done It? Reproducibility of Data Products Also Requires Lineage to Determine Impact and Give Credit Where Credit is Due.",
-      "authors": "Lesley Wyborn; Nigel Rees; Jens Klump; Ben Evans; Rebecca Farrington; Tim Rawling",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2023,
-      "cited": 0,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Scientific Computing and Data Management; Data Quality and Management; Research Data Management Practices",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 6,
-      "institutions": [
-        "National Computational Infrastructure",
-        "Australian Resources Research Centre",
         "AuScope"
       ],
-      "countries": [
-        "AU"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-8841-4384",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965"
-    },
-    {
-      "doi": "10.5194/egusphere-egu23-14201",
-      "title": "The role of lithospheric-deep mantle interactions in modulating the landscape evolution of arc-continent collision",
-      "authors": "Andres Felipe Rodriguez-Corcho; Claire Mallard; Sara Polanco; Rebecca Farrington; Camilo Montes; Camilo Montes; Louis Moresi; Louis Moresi",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2023,
-      "cited": 0,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geomagnetism and Paleomagnetism Studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 8,
-      "institutions": [
-        "The University of Melbourne",
-        "The University of Sydney",
-        "AuScope",
-        "Universidad del Norte",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "MX"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965"
-    },
-    {
-      "doi": "10.5281/zenodo.7963470",
-      "title": "WorldFAIR Project (MS6) Geochemistry Scientific Content Component",
-      "authors": "Alexander Prent; Lesley Wyborn; Rebecca Farrington; Kerstin Lehnert; Marthe Klöcking; Kirsten Elger; Dominik C. Hezel; Geertje ter Maat",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2023,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 8,
-      "institutions": [
-        "AuScope",
-        "DIGIBÍS (Spain)",
-        "GFZ Helmholtz Centre for Geosciences"
-      ],
-      "countries": [
-        "AU",
-        "ES",
-        "DE"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
-      "relatedDois": [
-        "10.5281/zenodo.7977116",
-        "10.5281/zenodo.7977116"
-      ]
-    },
-    {
-      "doi": "10.7185/gold2023.19570",
-      "title": "How Historically the Technological Advances in Geochemical Analysis Exceeded our Ability to Store, Curate and Globally Share Geochemical Data.",
-      "authors": "Lesley Wyborn; Dominik C. Hezel; Kerstin Lehnert; Marthe Klöcking; Alexander Prent; Kirsten Elger; Rebecca Farrington; Geertje ter Maat",
-      "journal": "Goldschmidt2023 abstracts",
-      "publisher": "European Association of Geochemistry",
-      "year": 2023,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "Yes",
-      "subject": "Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 8,
+      "authorCount": 12,
       "institutions": [
         "Australian National University",
-        "Goethe University Frankfurt",
-        "Lamont-Doherty Earth Observatory",
-        "Columbia University",
-        "University of Göttingen",
-        "AuScope",
-        "GFZ Helmholtz Centre for Geosciences",
-        "Utrecht University"
+        "United Nations Children's Fund Niger",
+        "National Computational Infrastructure",
+        "University of Evansville",
+        "The University of Adelaide",
+        "University of Medicine 2 Yangon",
+        "Thiel College",
+        "Geological Survey of Western Australia",
+        "Department of State Development",
+        "The Robertson Trust",
+        "Azerbaijan University of Languages",
+        "InfoConsult (Germany)",
+        "Act Health",
+        "Jinggangshan University",
+        "Lesley University",
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "Future Earth"
       ],
       "countries": [
         "AU",
-        "DE",
+        "NE",
         "US",
-        "NL"
+        "MM",
+        "GB",
+        "AZ",
+        "DE",
+        "CN",
+        "CA"
       ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965"
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
     },
     {
-      "doi": "10.5194/egusphere-egu22-11012",
-      "title": "The Known Knowns, the Known Unknowns and the Unknown Unknowns of Geophysics Data Processing in 2030 ",
-      "authors": "Lesley Wyborn; Nigel Rees; Jens Klump; Ben Evans; Tim Rawling; K. A. Druken",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2022,
-      "cited": 0,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Big Data Technologies and Applications; Scientific Computing and Data Management",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 6,
-      "institutions": [
-        "National Computational Infrastructure",
-        "Commonwealth Scientific and Industrial Research Organisation",
-        "Australian Resources Research Centre",
-        "AuScope"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-8841-4384"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384"
-    },
-    {
-      "doi": "10.1002/essoar.10500447.1",
-      "title": "Earth and Environment Science Information Partners: ESIP & E2SIP parallel pathways on opposite sides of the globe",
-      "authors": "Erin Robinson; Lesley Wyborn; Ben Evans; Adrian Burton; Simón Cox; Tim Rawlings",
-      "journal": "",
-      "publisher": "Wiley",
+      "doi": "10.1080/22020586.2019.12072997",
+      "title": "Integrating fault kinematics into implicit 3D modelling of fault networks",
+      "authors": "Lachlan Grose; Laurent Aillères; Gautier Laurent",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
       "year": 2019,
       "cited": 1,
-      "type": "preprint",
+      "type": "article",
       "isOA": "Yes",
-      "subject": "Distributed and Parallel Computing Systems; Advanced Computational Techniques and Applications; Geographic Information Systems Studies",
+      "subject": "Geological Modeling and Analysis; Methane Hydrates and Related Phenomena; Seismic Imaging and Inversion Techniques",
       "sources": [
-        "OpenAlex (verified)"
+        "OpenAlex"
       ],
-      "authorCount": 6,
-      "institutions": [
-        "Earth Science Information Partners",
-        "Australian National University",
-        "Commonwealth Scientific and Industrial Research Organisation",
+      "searchTerms": [
         "AuScope"
       ],
-      "countries": [
-        "US",
-        "AU"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
-    },
-    {
-      "doi": "10.1039/c4ja00008k",
-      "title": "The zircon ‘matrix effect’: evidence for an ablation rate control on the accuracy of U–Pb age determinations by LA-ICP-MS",
-      "authors": "Estephany Marillo Sialer; Jon Woodhead; Janet Hergt; Alan Greig; Marcel Guillong; Andrew Gleadow; Noreen J. Evans; Chad Paton",
-      "journal": "Journal of Analytical Atomic Spectrometry",
-      "publisher": "Royal Society of Chemistry",
-      "year": 2014,
-      "cited": 96,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; Geology and Paleoclimatology Research",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 8,
+      "authorCount": 3,
       "institutions": [
-        "The University of Melbourne",
-        "ETH Zurich",
-        "Curtin University",
-        "AuScope",
-        "University of Copenhagen",
-        "Natural History Museum Aarhus",
-        "Natural History Museum of Denmark"
+        "Monash University",
+        "Université d'Orléans"
       ],
       "countries": [
         "AU",
-        "CH",
-        "DK"
+        "FR"
       ],
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ],
-      "dateAdded": "2026-08-05",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
     },
     {
-      "doi": "10.1111/jmg.12093",
-      "title": "Lawsonite geochemistry and stability – implication for trace element and water cycles in subduction zones",
-      "authors": "Laure Martin; Jörg Hermann; Laure Gauthiez-Putallaz; Donna L. Whitney; Alberto Vitale Brovarone; Katherine Fornash; Noreen J. Evans",
-      "journal": "Journal of Metamorphic Geology",
-      "publisher": "Wiley",
-      "year": 2014,
-      "cited": 82,
+      "doi": "10.1080/22020586.2019.12073005",
+      "title": "Exploring for the future: new U-Pb geochronology for the South Nicholson region and implications for stratigraphic correlations",
+      "authors": "J. R. Anderson; Chris Carson; Christopher J. Lewis; Andrew Cross; Lidena Carr; Paul Henson; N Kositcin",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 2,
       "type": "article",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; Geology and Paleoclimatology Research",
       "sources": [
-        "OpenAlex (verified)"
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
       ],
       "authorCount": 7,
       "institutions": [
-        "The University of Western Australia",
-        "ARC Centre of Excellence for Core to Crust Fluid Systems",
-        "Australian National University",
-        "University of Minnesota",
-        "Centre National de la Recherche Scientifique",
-        "Sorbonne Université",
-        "Institut de minéralogie, de physique des matériaux et de cosmochimie",
-        "Institut de Recherche pour le Développement",
-        "Curtin University",
-        "AuScope"
+        "Geoscience Australia",
+        "Anderson University - South Carolina",
+        "Carson Newman University",
+        "Lewis University",
+        "Crossref",
+        "Carter Center",
+        "Paulsson (United States)",
+        "National Audit Office"
       ],
       "countries": [
         "AU",
         "US",
-        "FR"
+        "GB"
       ],
-      "verifiedBy": [
-        "ror:04s1m4564"
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/22020586.2019.12073203",
+      "title": "Characterisation of the Neoarchean Fortescue Group Stratigraphy – Integrated downhole geochemical mineralogical correlation from new diamond drilling",
+      "authors": "J. Stromberg; Sam Spinks; Mark A. Pearce",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological formations and processes; Geology and Paleoclimatology Research",
+      "sources": [
+        "OpenAlex"
       ],
-      "dateAdded": "2026-08-05",
       "searchTerms": [
-        "ROR-verified"
+        "AuScope"
       ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.3847/1538-4357/ab4a11",
+      "title": "Trigonometric Parallaxes of High-mass Star-forming Regions: Our View of the Milky Way",
+      "authors": "M. J. Reid; K. M. Menten; A. Brunthaler; X. W. Zheng; T. M. Dame; Y. Xu; J. Li; N. Sakai; Y. Wu; K. Immer; B. Zhang; A. Sanna; L. Moscadelli; K. L. J. Rygl; A. Bartkiewicz; B. Hu; L. H. Quiroga-Nuñez; H. J. van Langevelde",
+      "journal": "The Astrophysical Journal",
+      "publisher": "IOP Publishing",
+      "year": 2019,
+      "cited": 756,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Astrophysics and Star Formation Studies; Stellar, planetary, and galactic studies; Astronomy and Astrophysical Research",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 18,
+      "institutions": [
+        "Center for Astrophysics Harvard & Smithsonian",
+        "Max Planck Institute for Radio Astronomy",
+        "Nanjing University",
+        "Purple Mountain Observatory",
+        "Korea Astronomy and Space Science Institute",
+        "Chinese Academy of Sciences",
+        "National Time Service Center",
+        "National Astronomical Observatory of Japan",
+        "Joint Institute for VLBI ERIC",
+        "Shanghai Astronomical Observatory",
+        "Arcetri Astrophysical Observatory",
+        "Istituto di Radioastronomia di Bologna",
+        "Nicolaus Copernicus University",
+        "Leiden University"
+      ],
+      "countries": [
+        "US",
+        "DE",
+        "CN",
+        "KR",
+        "JP",
+        "NL",
+        "IT",
+        "PL"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2019.1695327",
+      "title": "ANSIR: National research facillity for earth sounding",
+      "authors": "Graham Heinson; B. L. N. Kennett; Anya M. Reading",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "The University of Adelaide",
+        "Australian National University",
+        "University of Tasmania"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2019.1649810",
+      "title": "AEGC 2019: List of exhibitors and plan of exhibition space",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Conferences and Exhibitions Management",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2019.1647598",
+      "title": "Geological Survey of Victoria: News",
+      "authors": "Suzanne Haydon",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Australian Indigenous Culture and History",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1088/1538-3873/ab1820",
+      "title": "VieSched++: A New VLBI Scheduling Software for Geodesy and Astrometry",
+      "authors": "Matthias Schartner; Johannes Böhm",
+      "journal": "Publications of the Astronomical Society of the Pacific",
+      "publisher": "Institute of Physics",
+      "year": 2019,
+      "cited": 51,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Radio Astronomy Observations and Technology",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "TU Wien"
+      ],
+      "countries": [
+        "AT"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1111/1755-6724.13902",
+      "title": "EarthScope: Accomplishments and Legacy",
+      "authors": "Jeffrey T. Freymueller",
+      "journal": "Acta Geologica Sinica - English Edition",
+      "publisher": "Wiley",
+      "year": 2019,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "Methane Hydrates and Related Phenomena; Scientific Computing and Data Management; Seismology and Earthquake Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "University of Alaska Fairbanks"
+      ],
+      "countries": [
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5281/zenodo.2555498",
+      "title": "Top 10 FAIR Data &amp; Software Things",
+      "authors": "Christopher Erdmann; Natasha Simons; Reid Otsuji; Stephanie Labou; Ryan Johnson; Guilherme Castelão; Bia Villas Bôas; Anna‐Lena Lamprecht; Carlos Martínez-Ortiz; Garcia, Leyla; Mateusz Kuzak; Paula Andrea Martinez; Liz Stokes; Tom Honeyman; Sharyn Wise; Joshua Quan; Scott Peterson; Amy Neeser; Lena Karvovskaya; O. L. Lange; Iza Witkowska; Jacques Flores; Fiona Bradley; Kristina Hettne; Peter Verhaar; Ben Companjen; Laurents Sesink; Fieke Schoots; Erik Schultes; Rajaram Kaliyaperumal; Erzsébet Tóth-Czifra; Ricardo de Miranda Azevedo; Sanne Muurling; John Howard Brown; Janice Chan; Niamh Quigley; Lisa Federer; Douglas Joubert; Allissa Dillman; Kenneth J. Wilkins; Ishwar Chandramouliswaran; Vivek Navale; Susan Wright; Silvia Di Giorgio; Mandela Fasemore; Konrad U. Förstner; Till Sauerwein; Eva Seidlmayer; Ilja Zeitlin; Susannah Bacon; Katie Hannan; Richard Ferrers; Russell, Keith; Deidre Whitmore; Tim Dennis",
+      "journal": "Figshare",
+      "publisher": "Figshare (United Kingdom)",
+      "year": 2019,
+      "cited": 18,
+      "type": "dataset",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 55,
+      "institutions": [
+        "The Carpentries",
+        "Australian Research Data Commons",
+        "UC San Diego Health System",
+        "Utrecht University",
+        "Netherlands eScience Center",
+        "Center for Life Sciences",
+        "University of Technology Sydney",
+        "Berkeley College",
+        "University of California, Berkeley",
+        "Association of Research Libraries",
+        "The University of Western Australia",
+        "Leiden University",
+        "The Coordinating Center",
+        "Leiden University Medical Center",
+        "Maastricht University",
+        "Curtin University",
+        "United States National Library of Medicine",
+        "National Institutes of Health",
+        "National Center for Biotechnology Information",
+        "National Institute of Diabetes and Digestive and Kidney Diseases",
+        "National Institute of Allergy and Infectious Diseases",
+        "Center for Information Technology",
+        "National Institute on Drug Abuse",
+        "ZB MED - Information Centre for Life Sciences",
+        "Conference Board",
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "UCLA Health"
+      ],
+      "countries": [
+        "US",
+        "AU",
+        "NL",
+        "CN",
+        "DE"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/pvv2018n195p27",
+      "title": "Education matters",
+      "authors": "Michael Asten",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Earthquake and Disaster Impact Studies; Educational Robotics and Engineering; Pharmacy and Medical Practices",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "American Society For Testing and Materials"
+      ],
+      "countries": [
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.9719/eeg.2018.51.3.291",
+      "title": "Analysis of Mineral Resource Exploration and Strategy in Australia",
+      "authors": "Seong-Yong Kim; Chul‐Ho Heo",
+      "journal": "Economic and Environmental Geology",
+      "publisher": "",
+      "year": 2018,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Mining Techniques and Economics; Mineral Processing and Grinding; Mining and Resource Management",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/pvv2018n194p27",
+      "title": "Canberra observed",
+      "authors": "David Denham",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Commonwealth, Australian Politics and Federalism; Australian History and Society; Biotechnology and Related Fields",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/pvv2018n194newsp17",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current on 11 May 2018)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Image Processing and 3D Reconstruction",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5281/zenodo.1193642",
+      "title": "Exploiting The Digital Revolution: Developing Capacity And Integrating Data Across The Disciplines Of Science",
+      "authors": "CODATA; Participants Of The First ICSU-CODATA Workshop On Data Standards: Developing A Roadmap For Data Integration; Geoffrey Boulton; Simon Hodson; Phil Archer; Simón Cox; R. J. Hanisch; William K. Michener; John Rumble; Susanna‐Assunta Sansone; Sally Wyatt; Lesley Wyborn",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2018,
+      "cited": 2,
+      "type": "report",
+      "isOA": "Yes",
+      "subject": "Big Data and Business Intelligence",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 12,
+      "institutions": [
+        "University of Edinburgh",
+        "CoDa Therapeutics (United States)",
+        "World Wide Web Consortium",
+        "Council of Scientific and Industrial Research",
+        "National Institute of Standards and Technology",
+        "DataONE",
+        "Nanomaterials Research (United States)",
+        "Huygens Institute for History and Culture of the Netherlands",
+        "Australian National University"
+      ],
+      "countries": [
+        "GB",
+        "US",
+        "IN",
+        "NL",
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2018abm2_3g",
+      "title": "Identifying Lithospheric Boundaries and Their Importance for Mineral Discovery",
+      "authors": "Stephan Thiel; Stacey Curtis; Anthony Reid; Graham Heinson; Kate Robertson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geochemistry and Geologic Mapping; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Department of State Development",
+        "Department of Primary Industries and Regions South Australia",
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2018abm1_3g",
+      "title": "Geoscience Australia’s contribution to AusArray - Passive seismic imaging of Australia",
+      "authors": "A. Gorbatov; Karol Czarnota; Tristan Kemp",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Geoscience Australia"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2018abp039",
+      "title": "Electrical Resistivity Maps of the Australian Lower Crust",
+      "authors": "Graham Heinson; Paul Soeffky; Stephan Thiel; Yohannes Lemma Didana; Kate Robertson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geomagnetism and Paleomagnetism Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "The University of Adelaide",
+        "Department of Primary Industries and Regions South Australia",
+        "Department of State Development"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2018abp005",
+      "title": "The Structural Evolution of the North West Shelf: a Thermomechanical Modeling Approach Using Stratified Lithospheric Rheologies and Surface Processes",
+      "authors": "Romain Beucher; Sara Morón; Louis Moresi; Tristan Salles; Patrice Rey; Gilles Brocard; Rebecca Farrington",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Geophysical Studies; Geological Studies and Exploration; Geological formations and processes",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "The University of Melbourne",
+        "The University of Sydney"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1071/aseg2018abm2_1g",
+      "title": "Evolving 3D lithospheric resistivity models across southern Australia derived from AusLAMP MT",
+      "authors": "Kate Robertson; Stephan Thiel; Graham Heinson",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2018,
+      "cited": 7,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Department of Primary Industries and Regions South Australia",
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1088/1538-3873/aaa22b",
+      "title": "Vienna VLBI and Satellite Software (VieVS) for Geodesy and Astrometry",
+      "authors": "Johannes Böhm; Sigrid Böhm; Janina Boisits; Anastasiia Girdiuk; Jakob Gruber; Andreas Hellerschmied; Hana Krásná; Daniel Landskron; Matthias Madzak; David J. Mayer; Jamie McCallum; Lucia McCallum; Matthias Schartner; Kamil Teke",
+      "journal": "Publications of the Astronomical Society of the Pacific",
+      "publisher": "Institute of Physics",
+      "year": 2018,
+      "cited": 92,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "GNSS positioning and interference; Geophysics and Gravity Measurements; Ionosphere and magnetosphere dynamics",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 14,
+      "institutions": [
+        "TU Wien",
+        "Federal Office of Metrology and Surveying",
+        "University of Tasmania",
+        "Hacettepe University"
+      ],
+      "countries": [
+        "AT",
+        "AU",
+        "TR"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1017/s1743921318000832",
+      "title": "Structure of the Milky Way: View from the Southern Hemisphere",
+      "authors": "Lucas J. Hyland; S. P. Ellingsen; M. J. Reid",
+      "journal": "Proceedings of the International Astronomical Union",
+      "publisher": "Cambridge University Press",
+      "year": 2017,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Astrophysics and Star Formation Studies; Stellar, planetary, and galactic studies; Astro and Planetary Science",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "University of Tasmania",
+        "Center for Astrophysics Harvard & Smithsonian"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1017/s1743921317011061",
+      "title": "Maser Astrometry and Galactic Structure Study with VLBI",
+      "authors": "Mareki Honma; Takumi Nagayama; Tomoya Hirota; Nobuyuki Sakai; Tomoaki Oyama; Aya Yamauchi; Toshiaki Ishikawa; Toshihiro Handa; Ken Hirano; Hiroshi Imai; Takaaki Jike; Osamu Kameya; Yusuke Kono; Hideyuki Kobayashi; Akiharu Nakagawa; Katsunori M. Shibata; Daisuke Sakai; Kazuyoshi Sunada; Koichiro Sugiyama; Katsuhisa Sato; Toshihiro Omodaka; Yoshiaki Tamura; Yuji Ueno",
+      "journal": "Proceedings of the International Astronomical Union",
+      "publisher": "Cambridge University Press",
+      "year": 2017,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Astrophysics and Star Formation Studies; Astrophysics and Cosmic Phenomena; Stellar, planetary, and galactic studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 23,
+      "institutions": [
+        "The Graduate University for Advanced Studies, SOKENDAI",
+        "National Astronomical Observatory of Japan",
+        "Kagoshima University",
+        "The University of Tokyo"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1017/pasa.2017.16",
+      "title": "PKS 1954–388: RadioAstron Detection on 80,000 km Baselines and Multiwavelength Observations",
+      "authors": "P. G. Edwards; Y. Y. Kovalev; R. Ojha; H. An; H. Bignall; B. Carpenter; T. Hovatta; J. Stevens; P. Voytsik; A.S. Andrianov; M. Dutka; H. Hase; S. Horiuchi; D. L. Jauncey; M. Kadler; M. Lisakov; J. E. J. Lovell; J. McCallum; C. Müller; C. Phillips; C. Plötz; J. Quick; C. Reynolds; R. Schulz; K. V. Sokolovsky; A. K. Tzioumis; V. Zuga",
+      "journal": "Publications of the Astronomical Society of Australia",
+      "publisher": "Cambridge University Press",
+      "year": 2017,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Astrophysics and Cosmic Phenomena; Neutrino Physics Research; Radio Astronomy Observations and Technology",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 27,
+      "institutions": [
+        "Commonwealth Scientific and Industrial Research Organisation",
+        "Astronomy and Space",
+        "Astro Space Center",
+        "Goddard Space Flight Center",
+        "University of America",
+        "University of Maryland, Baltimore County",
+        "Catholic University of America",
+        "Chungbuk National University",
+        "Kavli Institute for Particle Astrophysics and Cosmology",
+        "Stanford University",
+        "Aalto University",
+        "Federal Agency for Cartography and Geodesy",
+        "Australian National University",
+        "University of Würzburg",
+        "University of Tasmania",
+        "Radboud University Nijmegen",
+        "Hartebeesthoek Radio Astronomy Observatory",
+        "Netherlands Institute for Radio Astronomy",
+        "Lomonosov Moscow State University",
+        "National Observatory of Athens"
+      ],
+      "countries": [
+        "AU",
+        "RU",
+        "US",
+        "KR",
+        "FI",
+        "DE",
+        "NL",
+        "ZA",
+        "GR"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1016/j.epsl.2026.120269",
+      "title": "The presence of helium impedes fission track annealing in apatite",
+      "authors": "Alessandra Flaherty; Ling Chung; Barry Kohn; Kenneth Farley",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Nuclear materials and radiation effects; Fusion materials and technologies; Ion-surface interactions and analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "California Institute of Technology",
+        "The University of Melbourne"
+      ],
+      "countries": [
+        "US",
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1007/s00410-026-02351-8",
+      "title": "Eruptive pulsing of maar and scoria cone clusters in the West Eifel volcanic field, Germany, during the last glacial maximum revealed by zircon (U-Th)/He dating of crustal xenoliths",
+      "authors": "Anne Sturm; Axel K. Schmitt; Martin Danišík; István Dunkl",
+      "journal": "Contributions to Mineralogy and Petrology",
+      "publisher": "Springer Science+Business Media",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Geology and Paleoclimatology Research; Geochemistry and Elemental Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Heidelberg University",
+        "Curtin University",
+        "University of Göttingen"
+      ],
+      "countries": [
+        "DE",
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2023.2219050",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current 30 May 2023)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2023,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5281/zenodo.7455649",
+      "title": "Planet research data commons: feedback from consultations",
+      "authors": "Kerry Levett",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2022,
+      "cited": 0,
+      "type": "report",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "Australian Research Data Commons"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5281/zenodo.7378109",
+      "title": "WorldFAIR Project (D2.1) 'FAIR Implementation Profiles (FIPs) in WorldFAIR: What Have We Learnt?'",
+      "authors": "Arofan Gregory; Simon Hodson",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2022,
+      "cited": 4,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "CoDa Therapeutics (United States)"
+      ],
+      "countries": [
+        "US"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2022.2149949",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current 22 November 2022)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.48550/arxiv.2210.04926",
+      "title": "Sciences with Thai National Radio Telescope",
+      "authors": "Phrudth Jaroenjittichai; Koichiro Sugiyama; B. Hutawarakorn Kramer; Boonrucksar Soonthornthum; Takuya Akahori; K. Asanok; Willem A. Baan; Sherin Hassan Bran; S. L. Breen; Se‐Hyung Cho; Thanapol Chanapote; Richard Dodson; S. P. Ellingsen; S. Etoka; M. D. Gray; James Green; Kazuhiro Hada; Marcus Halson; Tomoya Hirota; Mareki Honma; Hiroshi Imai; S. Johnston; Kee‐Tae Kim; M. Krämer; Di Li; Ronald Macatangay; K. M. Menten; Young Chol Minh; D. E. Mkrtichian; B. Pimpanuwat; A. M. S. Richards; María Rioja; W. Rujopakarn; Daisuke Sakai; Nobuyuki Sakai; Nattida Samanso; Siraprapa Sanpa-arsa; Е. А. Семенко; Kazuyoshi Sunada; Vanisa Surapipith; Nattaporn Thoonsaengngam; Maxim Voronkov; Jompoj Wongphecauxson; Ram Kesh Yadav; Bo Zhang; Xing Wu Zheng; S. Poshyachinda",
+      "journal": "arXiv (Cornell University)",
+      "publisher": "Cornell University",
+      "year": 2022,
+      "cited": 4,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Radio Astronomy Observations and Technology; GNSS positioning and interference",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 47,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2022.2127992",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current 12 September 2022)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2022.2129796",
+      "title": "Inaugural Camp for Applied Geophysics Excellence (CAGE)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological Modeling and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword",
+      "relatedDois": [
+        "10.1080/14432471.2022.2151745"
+      ]
+    },
+    {
+      "doi": "10.1080/14432471.2022.2104519",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current 12 July 2022)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2022.2104534",
+      "title": "President’s piece",
+      "authors": "Emma Brand",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Earthquake and Disaster Impact Studies; History, Medicine, and Leadership; Educational Leadership and Practices",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2022.2083382",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current 18 May 2022)",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2022.2083800",
+      "title": "Education matters",
+      "authors": "Marina Pervukhina",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Earthquake and Disaster Impact Studies; Educational Robotics and Engineering; Pharmacy and Medical Practices",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword",
+      "relatedDois": [
+        "10.1080/14432471.2022.2127715"
+      ]
+    },
+    {
+      "doi": "10.1080/14432471.2022.2083380",
+      "title": "Geoscience Australia: News",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological Modeling and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword",
+      "relatedDois": [
+        "10.1080/14432471.2022.2104501"
+      ]
+    },
+    {
+      "doi": "10.1080/14432471.2022.2088664",
+      "title": "Editor’s desk",
+      "authors": "Lisa Worrall",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Academic Publishing and Open Access; Biomedical Ethics and Regulation; Dermatological and COVID-19 studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2022.2057671",
+      "title": "Update on geophysical survey progress from Geoscience Australia and the Geological Surveys of Western Australia, South Australia, Northern Territory, Queensland, New South Wales, Victoria and Tasmania (information current 29 March 2022).",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/14432471.2022.2083805",
+      "title": "Data trends",
+      "authors": "Tim Keeping",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2022,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Data Analysis with R; Statistical and numerical algorithms; Medical Coding and Health Information",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Hylogger CSIRO"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.5281/zenodo.7687604",
+      "title": "Exploring links between thermal maturity and electrical properties of organic-rich shales",
+      "authors": "Claudio Delle Piane; Matthew Josh; Julien Bourdet; David N. Dewhurst; Michael B. Clennell",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2021,
+      "cited": 1,
+      "type": "conference paper",
+      "isOA": "Yes",
+      "subject": "Hydrocarbon exploration and reservoir analysis; NMR spectroscopy and applications; Geophysical and Geoelectrical Methods",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Hylogger CSIRO"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/22020586.2019.12073103",
+      "title": "Backing up the AEM – unravelling a palaeovalley fill for groundwater exploration in the APY Lands",
+      "authors": "Carmen Krapf; Adrian Costar; Mark Keppel; Kent Inverarity; A.J. Love; Liliana Stoian; Georgina Gordon; Camilla Soerensen; Tim Munday",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geochemistry and Geologic Mapping",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Hylogger CSIRO"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "Canadian Anesthesia Research Foundation",
+        "Adrian College",
+        "St. Mark's Hospital",
+        "Kent Hospital",
+        "Flinders University",
+        "National Centre for Groundwater Research and Training",
+        "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+        "Asklepios Klinik St. Georg",
+        "Comilla University",
+        "Commonwealth Scientific and Industrial Research Organisation"
+      ],
+      "countries": [
+        "CA",
+        "US",
+        "AU",
+        "BR",
+        "DE",
+        "BD"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/22020586.2019.12073165",
+      "title": "The Geological Survey of NSW’s approach to the MinEx Cooperative Research Centre’s National Drilling Initiative.",
+      "authors": "Astrid Carlton",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geophysical and Geoelectrical Methods; Geological Modeling and Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Hylogger CSIRO"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "United States Geological Survey",
+        "NSW Department of Planning and Environment"
+      ],
+      "countries": [
+        "US",
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1080/22020586.2019.12073185",
+      "title": "Quantified Detection of Carbonate Cementation in Sandstones using Standard Wireline Log Data",
+      "authors": "Mark Bunch",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2019,
+      "cited": 2,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Hydrocarbon exploration and reservoir analysis; Reservoir Engineering and Simulation Methods; Seismic Imaging and Inversion Techniques",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Hylogger CSIRO"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "UCL Australia",
+        "The University of Adelaide"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.3389/feart.2020.594355",
+      "title": "Tectonic Fabric, Geochemistry, and Zircon-Monazite Geochronology as Proxies to Date an Orogeny: Example of South Delhi Orogeny, NW India, and Implications for East Gondwana Tectonics",
+      "authors": "Subhash Singh; Bert De Waele; Anjali Shukla; B. H. Umasankar; Tapas Kumar Biswal",
+      "journal": "Frontiers in Earth Science",
+      "publisher": "Frontiers Media",
+      "year": 2021,
+      "cited": 30,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "SHRIMP II Curtin"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Indian Institute of Technology Bombay"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1016/j.epsl.2016.02.008",
+      "title": "Bunbury Basalt: Gondwana breakup products or earliest vestiges of the Kerguelen mantle plume?",
+      "authors": "Hugo K.H. Olierook; Fred Jourdan; Renaud Merle; Nicholas E. Timms; Nick Kusznir; Janet R. Muhling",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2016,
+      "cited": 116,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Paleontology and Stratigraphy of Fossils; Geology and Paleoclimatology Research",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Western Australia Argon Isotope Facility"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "University of Liverpool",
+        "Curtin University",
+        "Australian National University",
+        "The University of Western Australia"
+      ],
+      "countries": [
+        "GB",
+        "AU"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.11606/d.44.2022.tde-07062022-071135",
+      "title": "Ar bulk diffusivity experiments in microgabbros with implications for the Venusian geodynamics",
+      "authors": "Pedro de Almeida Semêdo",
+      "journal": "",
+      "publisher": "Universidade de Sao Paulo, Agencia USP de Gestao da Informacao Academica (AGUIA)",
+      "year": 2022,
+      "cited": 0,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "Planetary Science and Exploration; Geophysics and Gravity Measurements; Astro and Planetary Science",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Noble Gas Geochronology Laboratory"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1016/j.chemgeo.2018.03.026",
+      "title": "Assessing the mechanisms of common Pb incorporation into titanite",
+      "authors": "Christopher L. Kirkland; Denis Fougerouse; Steven M. Reddy; Julie A. Hollis; David W. Saxey",
+      "journal": "Chemical Geology",
+      "publisher": "Elsevier BV",
+      "year": 2018,
+      "cited": 64,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Metal Extraction and Bioleaching",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Geoscience Atom Probe"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Curtin University",
+        "Greenland Government"
+      ],
+      "countries": [
+        "AU",
+        "GL"
+      ],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1038/s41467-022-28290-z",
+      "title": "Catastrophic slab loss in southwestern Pangea preserved in the mantle and igneous record.",
+      "authors": "Guido M Gianni; César R Navarrete",
+      "journal": "Nature Communications",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2022,
+      "cited": 46,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
+      "sources": [
+        "Europe PMC"
+      ],
+      "searchTerms": [
+        "GPlates"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "dateAdded": "2026-08-09",
+      "evidence": "keyword"
     }
   ]
 }
