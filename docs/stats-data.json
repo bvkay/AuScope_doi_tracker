@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-09T04:03:24.413Z",
+  "generated": "2026-08-10T05:56:49.752Z",
   "pillars": {
     "publications": {
       "total": 2881,
@@ -27,9 +27,9 @@
     },
     "instruments": {
       "units": 152,
-      "surveys": 9,
-      "linkedDatasets": 11,
-      "linkedPapers": 8,
+      "surveys": 10,
+      "linkedDatasets": 12,
+      "linkedPapers": 9,
       "topModels": [
         {
           "model": "LEMI-120",
@@ -46,17 +46,21 @@
         {
           "model": "MTU-5C",
           "deployments": 14
+        },
+        {
+          "model": "LEMI-424",
+          "deployments": 10
         }
       ]
     },
     "nvcl": {
-      "asOf": "2026-08-07",
-      "boreholes": 6006,
-      "scannedKm": 1576.01,
-      "combinedKm": 1964.4,
-      "estimatedKm": 88.38,
-      "datasets": 6140,
-      "nodes": 7
+      "asOf": "2026-08-10",
+      "boreholes": 5530,
+      "scannedKm": 1441.43,
+      "combinedKm": 1826,
+      "estimatedKm": 88.35,
+      "datasets": 5654,
+      "nodes": 6
     },
     "ausis": {
       "stations": 53,
