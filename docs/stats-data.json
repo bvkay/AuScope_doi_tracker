@@ -1,35 +1,35 @@
 {
-  "generated": "2026-08-10T05:56:49.752Z",
+  "generated": "2026-08-16T03:21:04.387Z",
   "pillars": {
     "publications": {
-      "total": 2881,
-      "citations": 66935,
+      "total": 2886,
+      "citations": 67006,
       "verified": 0,
       "candidate": 0
     },
     "datasets": {
-      "total": 167,
+      "total": 168,
       "byPlatform": {
-        "EarthBank": 58,
+        "EarthBank": 59,
         "AusPass": 86,
         "NCI": 23
       }
     },
     "samples": {
-      "declared": 53306,
+      "declared": 53733,
       "sampleDois": 47,
-      "dataPoints": 4872,
+      "dataPoints": 5312,
       "source": "EarthBank DataCite records"
     },
     "stations": {
-      "total": 3892,
+      "total": 3889,
       "source": "AusPass FDSN station service"
     },
     "instruments": {
-      "units": 152,
-      "surveys": 10,
-      "linkedDatasets": 12,
-      "linkedPapers": 9,
+      "units": 170,
+      "surveys": 13,
+      "linkedDatasets": 15,
+      "linkedPapers": 12,
       "topModels": [
         {
           "model": "LEMI-120",
@@ -44,12 +44,16 @@
           "deployments": 36
         },
         {
-          "model": "MTU-5C",
-          "deployments": 14
+          "model": "LEMI-424",
+          "deployments": 34
         },
         {
-          "model": "LEMI-424",
-          "deployments": 10
+          "model": "PR6-24",
+          "deployments": 23
+        },
+        {
+          "model": "MTU-5C",
+          "deployments": 14
         }
       ]
     },
@@ -65,7 +69,7 @@
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 50,
+      "streaming": 43,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },

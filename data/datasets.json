@@ -1,10 +1,18 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-08-09T03:59:44.684Z",
-    "total_count": 214
+    "last_updated": "2026-08-16T03:17:39.444Z",
+    "total_count": 215
   },
   "records": [
+    {
+      "doi": "10.58024/agum23e4d588",
+      "name": "Large Igneous Provinces: CAMP",
+      "authors": "Savelkouls, A.",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
     {
       "doi": "10.58024/agag3126b4ca",
       "name": "Broken Hill Geochronology",
@@ -271,7 +279,7 @@
     },
     {
       "doi": "10.58024/agcu9cb45313",
-      "name": "Curnamona Province Pb isotope and U-Pb data data",
+      "name": "Curnamona Province Pb isotope and U-Pb data",
       "authors": "Liebmann, J., Ware, B., Kirkland, C., Mole, D., Fraser, G., Mahan, B., Wainwright, A., Maas, R.",
       "year": 2025,
       "platform": "EarthBank",
