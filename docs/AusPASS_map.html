@@ -52,11 +52,13 @@
     --mono: 'SFMono-Regular', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
 
     /* ONE unit drives the entire page: 1u = 1% of the stage's width.
-       At the 1145px embed width, 1u = 11.45px — that is the number to hold in
-       mind when reading every multiple below. The stage is always 16:9, so the
-       page is the same drawing at any resolution, which is what makes "no
-       scrollbars, nothing clipped" a property of the layout rather than
-       something to re-test per screen. */
+       The live embed on auscope.org.au is 513px wide, so 1u = 5.13px — that is
+       the number to hold in mind when reading every multiple below, and it is
+       why the type multiples here look large next to a full-screen design. A
+       body size of 1u would render at 5px in the iframe. The stage is always
+       16:9, so the page is the same drawing at any resolution, which is what
+       makes "no scrollbars, nothing clipped" a property of the layout rather
+       than something to re-test per screen. */
     --u: calc(min(100vw, 177.7778vh) / 100);
 }
 
@@ -81,9 +83,18 @@ body {
 /* ---------- the 16:9 stage ---------- */
 .stage {
     width: calc(var(--u) * 100);
-    height: calc(var(--u) * 56.25);
+    /* Grows into whatever height the frame actually gives it, capped at 70u.
+       The live embed is 513x335 (1.53:1) while a bare 16:9 stage is 1.78:1, so
+       a fixed 56.25u letterboxed away 46px — 14% of the iframe — and that lost
+       height was being paid for in legend rows and type size. At 16:9 the min
+       still resolves to 56.25u, so the original proportions are unchanged
+       where the page is shown full-bleed. */
+    height: min(100vh, calc(var(--u) * 70));
     background: var(--bg);
-    padding: calc(var(--u) * 1.5) calc(var(--u) * 1.8) calc(var(--u) * 1.2);
+    /* Side padding is deliberately half the top/bottom: at 513px wide every
+       unit of horizontal margin comes straight off the map and the legend,
+       which are both already tight. */
+    padding: calc(var(--u) * 1.5) calc(var(--u) * 0.9) calc(var(--u) * 1.2);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -101,7 +112,7 @@ body {
     flex-shrink: 0;
 }
 .title-strip h1 {
-    font-size: calc(var(--u) * 2.1);
+    font-size: calc(var(--u) * 3.0);
     font-weight: 600;
     letter-spacing: -0.015em;
     line-height: 1.15;
@@ -119,18 +130,11 @@ body {
     flex-shrink: 0;
 }
 .counts .primary {
-    font-size: calc(var(--u) * 1.5);
+    font-size: calc(var(--u) * 2.2);
     font-weight: 600;
     line-height: 1.2;
     font-variant-numeric: tabular-nums;
     color: var(--text);
-    white-space: nowrap;
-}
-.counts .secondary {
-    font-size: calc(var(--u) * 0.92);
-    line-height: 1.4;
-    color: var(--text-muted);
-    margin-top: calc(var(--u) * 0.18);
     white-space: nowrap;
 }
 
@@ -185,7 +189,21 @@ body {
    colour re-accumulates into strong colour that competes with the
    deployment actually selected. id + two classes beats the .n0–.n19 fills. */
 #map-svg circle.stn.dim { fill: #94a3b8; fill-opacity: 0.15; }
-#map-brand image { opacity: 0.85; }
+/* Full strength: these are the only attribution on the page, and at a
+   513px embed an 0.85 wordmark reads as a rendering fault rather than as
+   restraint. */
+#map-brand image { opacity: 1; }
+
+/* ---------- locator inset ----------
+   Only appears when a deployment is zoomed far enough that the coast has left
+   the frame. Vulcan's array spans 9 km; at that scale the map answers "what
+   shape is it" perfectly and "where in Australia" not at all, and the inset
+   is what puts the second answer back. */
+#map-inset .in-plate { fill: #ffffff; fill-opacity: 0.92; stroke: var(--border-strong); stroke-width: 1.2; }
+#map-inset .in-coast { fill: #eef2f7; stroke: #cbd5e1; stroke-width: 1.2; }
+#map-inset .in-mark { fill: #dc2626; stroke: #ffffff; stroke-width: 1.6; }
+#map-inset .in-ring { fill: none; stroke: #dc2626; stroke-width: 1.8; opacity: 0.55; }
+#map-brand #brand-plate { fill: #ffffff; fill-opacity: 0.78; }
 
 /* Deployment palette — 20 flat hues, repeated across the 73 deployments
    drawn here. AuScope purple first; amber and red are deliberately absent.
@@ -229,7 +247,7 @@ body {
     overflow: hidden;
 }
 .legend-col h2 {
-    font-size: calc(var(--u) * 0.95);
+    font-size: calc(var(--u) * 1.45);
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -250,7 +268,7 @@ body {
     border-radius: calc(var(--u) * 0.22);
     background: none;
     font-family: var(--sans);
-    font-size: calc(var(--u) * 1.12);
+    font-size: calc(var(--u) * 1.75);
     line-height: 1.25;
     text-align: left;
     cursor: pointer;
@@ -261,8 +279,8 @@ body {
 .lg-row.muted { cursor: default; margin-top: calc(var(--u) * 0.25); }
 .lg-row.muted:hover { background: none; }
 .lg-swatch {
-    width: calc(var(--u) * 0.7);
-    height: calc(var(--u) * 0.7);
+    width: calc(var(--u) * 1.05);
+    height: calc(var(--u) * 1.05);
     border-radius: 50%;
     flex-shrink: 0;
     opacity: 0.85;
@@ -274,11 +292,11 @@ body {
 .lg-code {
     font-family: var(--mono);
     font-weight: 600;
-    font-size: calc(var(--u) * 1.02);
+    font-size: calc(var(--u) * 1.6);
     /* Sized to the widest form ("WG · 2022") — measured, not guessed. A
        narrower value lets that row bleed into the description column and the
        list stops aligning. */
-    min-width: calc(var(--u) * 5.6);
+    min-width: calc(var(--u) * 8.0);
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -291,7 +309,7 @@ body {
     color: var(--text-soft);
     flex: 1;
     min-width: 0;
-    font-size: calc(var(--u) * 1.05);
+    font-size: calc(var(--u) * 1.62);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -299,9 +317,9 @@ body {
 .lg-count {
     font-variant-numeric: tabular-nums;
     font-weight: 600;
-    font-size: calc(var(--u) * 1.05);
+    font-size: calc(var(--u) * 1.62);
     flex-shrink: 0;
-    min-width: calc(var(--u) * 2.2);
+    min-width: calc(var(--u) * 3.4);
     text-align: right;
 }
 
@@ -311,19 +329,13 @@ body {
     padding-top: calc(var(--u) * 0.55);
 }
 .legend-note {
-    font-size: calc(var(--u) * 0.95);
+    font-size: calc(var(--u) * 1.4);
     line-height: 1.5;
     color: var(--text-soft);
     border-top: 1px solid var(--border);
     padding-top: calc(var(--u) * 0.6);
 }
 .legend-note strong { color: var(--text); font-weight: 600; }
-.legend-fine {
-    font-size: calc(var(--u) * 0.88);
-    line-height: 1.5;
-    color: var(--text-muted);
-    margin-top: calc(var(--u) * 0.5);
-}
 
 /* ---------- shared tooltip ---------- */
 #map-tip {
@@ -331,12 +343,12 @@ body {
     display: none;
     background: #0f172a;
     color: #f1f5f9;
-    font-size: calc(var(--u) * 0.95);
+    font-size: calc(var(--u) * 1.8);
     padding: calc(var(--u) * 0.35) calc(var(--u) * 0.55);
     border-radius: calc(var(--u) * 0.2);
     pointer-events: none;
     z-index: 90;
-    max-width: calc(var(--u) * 34);
+    max-width: calc(var(--u) * 42);
     line-height: 1.45;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.28);
 }
@@ -350,21 +362,25 @@ body {
     <div class="title-strip">
         <div>
             <h1><span class="accent">AusPass</span> Seismic Network</h1>
-            <div class="sub">Every station AusPass serves in Australia, drawn at its registered coordinates</div>
         </div>
         <div class="counts">
             <div class="primary" id="count-primary">&mdash;</div>
-            <div class="secondary" id="count-secondary">loading from the AusPass FDSN station service&hellip;</div>
         </div>
     </div>
 
     <!-- ========== MAP + LEGEND ========== -->
     <div class="frame">
         <div class="map-pane">
-            <!-- viewBox is 1000 x 808 — the aspect this pane renders at inside
-                 the 16:9 stage, so the drawing fills it with no letterboxing of
-                 its own. Keep MAP_W / MAP_H below in sync. -->
-            <svg id="map-svg" viewBox="0 0 1000 808" role="img" aria-labelledby="map-svg-title map-svg-desc">
+            <!-- viewBox is 1000 x 950, which is the aspect of VIEW_BOX below,
+                 not the pane's: 41.05 deg of longitude x cos(26.45 deg) = 36.76
+                 against 34.90 deg of latitude = 1.053. At the original 1000 x
+                 808 the drawn box was height-limited and left 77 dead units
+                 down each side, and that near-square drawing was then
+                 letterboxed again inside the pane. Matching the viewBox to the
+                 window actually drawn means the projection fills it edge to
+                 edge and only the pane's own aspect can waste anything.
+                 Keep MAP_W / MAP_H below in sync with VIEW_BOX. -->
+            <svg id="map-svg" viewBox="0 0 1000 950" role="img" aria-labelledby="map-svg-title map-svg-desc">
                 <title id="map-svg-title">Map of AusPass seismic stations in Australia</title>
                 <desc id="map-svg-desc">Loading station positions.</desc>
 
@@ -381,11 +397,20 @@ body {
                      Each carries a <title>, so a missing file degrades to
                      that text rather than a broken-image glyph. -->
                 <g id="map-brand">
-                    <image href="assets/auscope-logo.png" x="916" y="22" width="60" height="61" preserveAspectRatio="xMidYMid meet"><title>AuScope</title></image>
-                    <image href="assets/auspass-logo.png" x="20" y="736" width="130" height="52" preserveAspectRatio="xMidYMid meet"><title>AusPass</title></image>
+                    <image href="assets/auscope-logo.png" x="884" y="20" width="92" height="94" preserveAspectRatio="xMidYMid meet"><title>AuScope</title></image>
+                    <!-- The AusPass mark sits over open ocean southwest of WA,
+                         so a panel behind it costs no station visibility and
+                         stops the wordmark dissolving into the coastline fill.
+                         Still an underlay, so a dot always wins. -->
+                    <rect id="brand-plate" x="10" y="836" width="225" height="102" rx="10"/>
+                    <image href="assets/auspass-logo.png" x="20" y="846" width="205" height="82" preserveAspectRatio="xMidYMid meet"><title>AusPass</title></image>
                 </g>
 
                 <g id="map-dots"></g>
+
+                <!-- Locator inset, drawn only when the zoom is tight enough to lose
+                     the coastline. Empty at national scale. -->
+                <g id="map-inset"></g>
             </svg>
             <div id="map-status">Loading station coordinates from AusPass&hellip;</div>
         </div>
@@ -398,7 +423,6 @@ body {
                  already carry the provenance. -->
             <div class="legend-foot">
                 <div class="legend-note" id="legend-note"></div>
-                <div class="legend-fine" id="legend-fine"></div>
             </div>
         </div>
     </div>
@@ -445,12 +469,23 @@ var STATION_URL = 'https://auspass.edu.au/fdsnws/station/1/query?level=station&f
 var NETWORK_URL = 'https://auspass.edu.au/fdsnws/station/1/query?level=network&format=text';
 var OUTLINE_URL = 'australia-outline.json';
 
-var MAP_W = 1000, MAP_H = 808;   // must match the viewBox on #map-svg
-var MAP_PAD = 10;                // viewBox units of breathing room on all sides
+var MAP_W = 1000, MAP_H = 950;   // must match the viewBox on #map-svg
+var MAP_PAD = 6;                 // viewBox units of breathing room on all sides
 
 // The domestic window shared with auspass.html / ausis.html / nvcl.html, and
-// also the "is this station in Australia?" test.
+// also the "is this station in Australia?" test. Deliberately generous: the
+// westernmost station AusPass serves sits at exactly 113.00 E, so a tighter
+// bound here would sit right on top of real data.
 var AU_BOX = { minLat: -44, maxLat: -9, minLng: 112, maxLng: 154 };
+
+// What the map is DRAWN to, which is a different question from what counts as
+// Australian. AU_BOX carries 1.15 deg of empty ocean west of Steep Point
+// (113.15 E) against 0.4 deg east of Cape Byron, so drawing to it left a gap
+// down the western edge more than twice the eastern one. This window hugs the
+// real extent of the coastline AND the stations — note maxLat stays at -9.0
+// rather than following the land, because the Torres Strait rows sit north of
+// Cape York. Its aspect IS the viewBox aspect; change one, change the other.
+var VIEW_BOX = { minLat: -43.9, maxLat: -9.0, minLng: 112.85, maxLng: 153.9 };
 
 // Dot radius in viewBox units. At the 1145px embed size the map pane is about
 // 675px wide for 1000 units, so this renders at roughly 2.2px — matched by eye
@@ -495,17 +530,60 @@ var state = {
 // The AU box is fitted to the frame with padding and centred; whichever axis
 // runs out first sets the scale.
 function mainProjection() {
-    var dLat = AU_BOX.maxLat - AU_BOX.minLat;                 // 35
-    var dLng = AU_BOX.maxLng - AU_BOX.minLng;                 // 42
-    var cosMid = Math.cos(((AU_BOX.minLat + AU_BOX.maxLat) / 2) * Math.PI / 180);
+    return projectionFor(activeBox());
+}
+
+// The window currently on screen: the whole country, or the extent of the one
+// selected deployment. Isolating a 24-station array only to draw it at
+// continental scale wastes the isolation — the point of picking one out is to
+// look at it.
+function activeBox() {
+    if (!state.netFilter) return VIEW_BOX;
+    var lo = Infinity, hi = -Infinity, la = Infinity, lb = -Infinity, i, s, n = 0;
+    for (i = 0; i < state.shown.length; i++) {
+        s = state.shown[i];
+        if (s.depKey !== state.netFilter) continue;
+        n++;
+        if (s.lng < lo) lo = s.lng;
+        if (s.lng > hi) hi = s.lng;
+        if (s.lat < la) la = s.lat;
+        if (s.lat > lb) lb = s.lat;
+    }
+    if (!n) return VIEW_BOX;
+    // Only a floor against degenerate geometry — a one-station deployment has
+    // no extent and would divide by ~0. It is deliberately TINY, because the
+    // deployments vary by two orders of magnitude: WA Array spans 10.3 deg
+    // while Vulcan spans 0.08 (about 9 km). Any floor generous enough to keep
+    // coastline in frame for an inland array would render Vulcan as a single
+    // speck, which defeats the point of isolating it. Inland arrays do lose
+    // the coast at this zoom; that is the cost of actually seeing the array,
+    // and the deployment name in the legend carries the "where".
+    var MIN_SPAN = 0.15;                                  // degrees of latitude
+    // Proportional padding with a hair of a floor. An earlier version floored
+    // this at 0.25 deg PER SIDE, which is fine for a continental array and
+    // catastrophic for a compact one: Mundi Mundi spans 0.21 deg, so a flat
+    // 0.25 either side produced a 0.71 deg frame and drew the array at a
+    // third of the size it should have been.
+    var padLat = Math.max((lb - la) * 0.12, 0.01);
+    var padLng = Math.max((hi - lo) * 0.12, 0.01);
+    la -= padLat; lb += padLat; lo -= padLng; hi += padLng;
+    if (lb - la < MIN_SPAN) { var cLat = (la + lb) / 2; la = cLat - MIN_SPAN / 2; lb = cLat + MIN_SPAN / 2; }
+    if (hi - lo < MIN_SPAN) { var cLng = (lo + hi) / 2; lo = cLng - MIN_SPAN / 2; hi = cLng + MIN_SPAN / 2; }
+    return { minLat: la, maxLat: lb, minLng: lo, maxLng: hi };
+}
+
+function projectionFor(BOX) {
+    var dLat = BOX.maxLat - BOX.minLat;
+    var dLng = BOX.maxLng - BOX.minLng;
+    var cosMid = Math.cos(((BOX.minLat + BOX.maxLat) / 2) * Math.PI / 180);
     var availW = MAP_W - 2 * MAP_PAD;
     var availH = MAP_H - 2 * MAP_PAD;
     var k = Math.min(availW / (dLng * cosMid), availH / dLat);  // units per degree of latitude
     var w = dLng * cosMid * k, h = dLat * k;
     var ox = (MAP_W - w) / 2, oy = (MAP_H - h) / 2;
     return {
-        x: function(lng) { return ox + (lng - AU_BOX.minLng) * cosMid * k; },
-        y: function(lat) { return oy + (AU_BOX.maxLat - lat) * k; }
+        x: function(lng) { return ox + (lng - BOX.minLng) * cosMid * k; },
+        y: function(lat) { return oy + (BOX.maxLat - lat) * k; }
     };
 }
 
@@ -563,13 +641,15 @@ function assignDeployments(stations, byCode) {
             hit = n;
             break;
         }
-        // The year only earns its place in the label where a code is
-        // ambiguous; "WG · 2022" on the 60-odd single-deployment codes is noise.
-        var reused = candidates.length > 1;
+        // Every row carries its start year. An earlier version showed it only
+        // where FDSN had reused a code, on the reasoning that "WG · 2022" is
+        // noise on a code used once — but at embed size the year is the fastest
+        // way to place a deployment in time, and a column where most rows are
+        // blank reads as missing data rather than as deliberate economy.
         if (hit) {
             s.depKey = hit.rowKey;
             s.depCode = hit.code;
-            s.depYear = reused ? hit.startYear : '';
+            s.depYear = hit.startYear || '';
             s.depDesc = hit.description || '';
         } else {
             s.depKey = s.net + '|';
@@ -738,9 +818,11 @@ function render() {
     state.legendKeys = computeLegendKeys();
     state.colourIdx = buildNetColours(state.stations, state.legendKeys);
 
-    var proj = mainProjection();
+    var box = activeBox();
+    var proj = projectionFor(box);
     drawCoast(proj);
     drawDots(proj);
+    drawInset(box);
     renderLegend();
     renderCounts();
     renderNotes();
@@ -753,6 +835,51 @@ function computeLegendKeys() {
         counts[state.shown[i].depKey] = (counts[state.shown[i].depKey] || 0) + 1;
     }
     return rankNetworks(counts).slice(0, state.legendMax);
+}
+
+// Maps VIEW_BOX into an arbitrary rect, so the same rings can be drawn twice
+// at two scales without the main projection knowing anything about it.
+function insetProjection(bx, by, bw, bh) {
+    var dLat = VIEW_BOX.maxLat - VIEW_BOX.minLat;
+    var dLng = VIEW_BOX.maxLng - VIEW_BOX.minLng;
+    var cosMid = Math.cos(((VIEW_BOX.minLat + VIEW_BOX.maxLat) / 2) * Math.PI / 180);
+    var k = Math.min(bw / (dLng * cosMid), bh / dLat);
+    var w = dLng * cosMid * k, h = dLat * k;
+    var ox = bx + (bw - w) / 2, oy = by + (bh - h) / 2;
+    return {
+        x: function(lng) { return ox + (lng - VIEW_BOX.minLng) * cosMid * k; },
+        y: function(lat) { return oy + (VIEW_BOX.maxLat - lat) * k; }
+    };
+}
+
+// Shown only below this span — above it enough of the continent is already on
+// screen that a second, smaller copy of it would just be clutter.
+var INSET_MAX_SPAN = 6;        // degrees of latitude
+
+function drawInset(box) {
+    var g = document.getElementById('map-inset');
+    if (!state.netFilter || (box.maxLat - box.minLat) >= INSET_MAX_SPAN) {
+        g.innerHTML = '';
+        return;
+    }
+    var IW = 210, IH = 196, PAD = 8;
+    var bx = MAP_W - IW - 18, by = MAP_H - IH - 18;
+    var proj = insetProjection(bx + PAD, by + PAD, IW - 2 * PAD, IH - 2 * PAD);
+    var rings = (state.outline && state.outline.rings) || [];
+    var parts = ['<rect class="in-plate" x="' + bx + '" y="' + by + '" width="' + IW
+        + '" height="' + IH + '" rx="8"/>'];
+    for (var r = 0; r < rings.length; r++) {
+        var ring = rings[r], d = '', i;
+        for (i = 0; i < ring.length; i++) {
+            d += (i ? 'L' : 'M') + proj.x(ring[i][0]).toFixed(1) + ' ' + proj.y(ring[i][1]).toFixed(1);
+        }
+        if (d) parts.push('<path class="in-coast" d="' + d + 'Z"/>');
+    }
+    var cLat = (box.minLat + box.maxLat) / 2, cLng = (box.minLng + box.maxLng) / 2;
+    var mx = proj.x(cLng), my = proj.y(cLat);
+    parts.push('<circle class="in-ring" cx="' + mx.toFixed(1) + '" cy="' + my.toFixed(1) + '" r="11"/>');
+    parts.push('<circle class="in-mark" cx="' + mx.toFixed(1) + '" cy="' + my.toFixed(1) + '" r="4.6"/>');
+    g.innerHTML = parts.join('');
 }
 
 function drawCoast(proj) {
@@ -782,9 +909,9 @@ function drawDots(proj) {
     document.getElementById('map-dots').innerHTML = parts.join('');
 }
 
-// "1H · 2024" where FDSN reused the code, plain "9M" otherwise.
+// "1H 2024" — code then start year, which every row now carries.
 function depLabel(sample, key) {
-    if (sample) return sample.depCode + (sample.depYear ? ' · ' + sample.depYear : '');
+    if (sample) return sample.depCode + (sample.depYear ? ' ' + sample.depYear : '');
     return String(key || '').split('|')[0];
 }
 
@@ -811,7 +938,7 @@ function renderLegend() {
             + ' title="' + escapeAttr(label + (desc ? ' — ' + desc : '')) + '">'
             + '<span class="lg-swatch" style="background:' + escapeAttr(NET_PALETTE[state.colourIdx[key] || 0]) + '"></span>'
             + '<span class="lg-code">' + escapeHtml(s.depCode)
-                + (s.depYear ? ' <span class="lg-year">· ' + escapeHtml(s.depYear) + '</span>' : '')
+                + (s.depYear ? ' <span class="lg-year">' + escapeHtml(s.depYear) + '</span>' : '')
             + '</span>'
             + '<span class="lg-name">' + escapeHtml(desc || '(no description)') + '</span>'
             + '<span class="lg-count">' + fmtNum(n) + '</span>'
@@ -834,25 +961,19 @@ function renderLegend() {
 }
 
 function renderCounts() {
-    var i, deps = {}, selected = null;
+    var i, deps = {};
     for (i = 0; i < state.shown.length; i++) {
         deps[state.shown[i].depKey] = true;
-        if (state.netFilter && state.shown[i].depKey === state.netFilter) selected = state.shown[i];
     }
     var nDeps = Object.keys(deps).length;
     var primary = document.getElementById('count-primary');
-    var secondary = document.getElementById('count-secondary');
 
     if (state.netFilter) {
         var only = state.shown.filter(function(s) { return s.depKey === state.netFilter; }).length;
         primary.textContent = fmtNum(only) + ' of ' + fmtNum(state.shown.length) + ' stations';
-        secondary.textContent = depLabel(selected, state.netFilter)
-            + (selected && selected.depDesc ? ' · ' + selected.depDesc : '')
-            + ' — click the row again to clear';
     } else {
         primary.textContent = fmtNum(state.shown.length) + ' stations · '
             + fmtNum(nDeps) + ' deployment' + (nDeps === 1 ? '' : 's');
-        secondary.textContent = 'live from the AusPass FDSN station service';
     }
 
     document.getElementById('map-svg-desc').textContent =
@@ -879,13 +1000,7 @@ function renderNotes() {
     } else {
         html = '<strong>' + fmtNum(outside) + ' station' + (outside === 1 ? '' : 's')
             + ' in ' + fmtNum(nNets) + ' network' + (nNets === 1 ? '' : 's')
-            + '</strong> are deployed outside Australia and are not shown — AusPass hosts '
-            + 'international field experiments from Antarctica to the Pacific.';
-    }
-    if (state.nullIsland > 0) {
-        html += state.nullIsland === 1
-            ? ' One further row is a 0°/0° placeholder, not a real station.'
-            : ' ' + fmtNum(state.nullIsland) + ' further rows are 0°/0° placeholders, not real stations.';
+            + '</strong> are deployed outside Australia and are not shown.';
     }
     // Only surfaced when it actually happens — currently zero, but a registry
     // change could break it, and a silently mis-grouped station is the failure
@@ -896,12 +1011,6 @@ function renderNotes() {
             + 'and ' + (state.unmatched === 1 ? 'is' : 'are') + ' grouped under the bare network code.';
     }
     document.getElementById('legend-note').innerHTML = html;
-
-    document.getElementById('legend-fine').textContent =
-        'Top ' + state.legendKeys.length + ' by station count. Click a row to isolate that '
-        + 'deployment. A code FDSN reused carries its start year — those are separate experiments. '
-        + 'The palette repeats every ' + NET_PALETTE.length + ' deployments, so colour is a '
-        + 'grouping aid, not a unique key.';
 }
 
 // The layout is a pure scale of --u, so 20 rows fit by construction at every
@@ -941,9 +1050,14 @@ function bindEvents() {
         if (!row) return;
         var key = row.getAttribute('data-dep');
         state.netFilter = (state.netFilter === key) ? '' : key;
-        // Only the dots' dim state and the labels change — the shown set, the
-        // ranking and therefore the colours are all unaffected.
-        drawDots(mainProjection());
+        // The frame changes now, not just the dimming, so the coast has to be
+        // redrawn with the same projection or the dots float off it. Ranking
+        // and colours are still untouched — only the window moves.
+        var box = activeBox();
+        var proj = projectionFor(box);
+        drawCoast(proj);
+        drawDots(proj);
+        drawInset(box);
         renderLegend();
         renderCounts();
     });
