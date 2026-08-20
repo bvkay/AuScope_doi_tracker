@@ -76,6 +76,7 @@ const RETRIES = 2;
 const RETRY_DELAY_MS = 3000;
 const CONCURRENCY = 8;             // dataset fetches in flight per node
 const WFS_PAGE = 1000;
+const WFS_SINGLE_MAX = 20000;   // one-shot ceiling; see fetchWfsFiltered
 const FALLBACK_PAGE = 10000;       // unfiltered paging (NT: CQL disabled)
 const CLAMP_FACTOR = 1.5;          // interval vs borehole length garbage clamp
 const MIN_NODES_UP = 5;            // health guard
@@ -266,6 +267,33 @@ async function harvestNode(node) {
 // Standard path: WFS 2.0.0 GET, JSON output, server-side CQL filter, paged.
 async function fetchWfsFiltered(node) {
   const out = new Map();
+
+  // Try the whole collection in ONE request first. WA's GeoServer does not
+  // honour startIndex reliably: paging it at 1000 returns page 0 and page
+  // 1000 with 177 records IN COMMON, so the union came to 1,680 of its 1,897
+  // boreholes — 223 silently lost, which is most of the "unmatched" TSG
+  // archives we were writing off as absent. sortBy does not fix it. Every
+  // other node paginates correctly, but a single request is correct
+  // everywhere and cheaper, so it is the primary path.
+  try {
+    const url = node.wfs + '?service=WFS&version=2.0.0&request=GetFeature'
+      + '&typeName=gsmlp:BoreholeView&outputFormat=application/json'
+      + '&count=' + WFS_SINGLE_MAX
+      + '&CQL_FILTER=' + encodeURIComponent("nvclCollection='true'");
+    const text = await fetchText(url, WFS_TIMEOUT_MS);
+    let features;
+    try { features = (JSON.parse(text).features) || []; }
+    catch (e) { features = parseWfsXml(text); }
+    // Short of the ceiling means we saw everything. Hitting it exactly means
+    // the server capped us, so fall through to paging.
+    if (features.length && features.length < WFS_SINGLE_MAX) {
+      features.forEach(function(f) { addFeature(out, f); });
+      return Array.from(out.values());
+    }
+  } catch (e) {
+    // Fall through to paging — a node that rejects a large count still works.
+  }
+
   let startIndex = 0;
   for (;;) {
     const url = node.wfs + '?service=WFS&version=2.0.0&request=GetFeature'
@@ -464,15 +492,27 @@ function normKey(s) {
 // hard 5 km ceiling stands in for it — longer than any real scanned core.
 function mirrorOnly(st, used) {
   let m = 0, n = 0;
+  // One archive basename = one borehole. An earlier version collapsed a
+  // trailing `-N` on the theory that a hole scanned in sections is mirrored
+  // as `203950-3.zip`, `203950-4.zip`. The cache does not bear that out: all
+  // ten `-N` groups in it have OVERLAPPING depth intervals, so none are
+  // sequential sections. They are distinct holes sharing a project prefix —
+  // WA/MG19-001..010 each start at 0 m, and WA/WTB skips from -07 to -09 to
+  // -14, which no section numbering would do. Collapsing merged 41 real WA
+  // boreholes into 10. If a state ever does mirror true sections, add the
+  // rule back behind a non-overlap test rather than on the name alone.
+  const holes = {};
   st.rows.forEach(function(r) {
     if (used.has(r._key)) return;
+    const hole = String(r.zipName || '').replace(/\.zip$/i, '');
+    if (hole) holes[hole] = true;
     if (r.depthFromM === null || r.depthFromM === undefined) return;
     if (r.depthToM === null || r.depthToM === undefined) return;
     const len = r.depthToM - r.depthFromM;
     if (!(len > 0) || len > 5000) return;
     m += len; n++;
   });
-  return { m: m, n: n };
+  return { m: m, n: n, boreholes: Object.keys(holes).length };
 }
 
 // Attach cache rows to boreholes and report the match rate. Rows that match
@@ -480,13 +520,15 @@ function mirrorOnly(st, used) {
 function attachTsg(result, idx) {
   const st = idx.byState[result.node.code];
   result.tsg = { rows: st ? st.rows.length : 0, matchedRows: 0, matchedBoreholes: 0, tiers: {} };
-  if (!st || !result.boreholes.length) {
-    if (st && st.rows.length) {
-      console.log('  TSG: ' + st.rows.length + ' cache rows, 0 matched (no boreholes harvested)');
-    }
-    return;
-  }
+  if (!st) return;
 
+  // A node that returned NO boreholes — unreachable, or not participating —
+  // still has mirror evidence, and it is the case that needs counting most.
+  // Returning early here dropped 100% of such a state's scanning record: on
+  // 17 Aug 2026 TAS answered HTTP 500 and its 506 archives (~142 km) vanished
+  // from the national figure entirely, as did VIC's 39. That inverts the rule
+  // this whole section exists to enforce. With no boreholes to match against,
+  // `used` stays empty and every cache row falls through to mirror-only.
   const used = new Set();
   result.boreholes.forEach(function(bh) {
     const hit = matchTsgRows(st, bh);
@@ -509,6 +551,15 @@ function attachTsg(result, idx) {
   const mo = mirrorOnly(st, used);
   result.tsg.mirrorOnlyKm = km(mo.m);
   result.tsg.mirrorOnlyArchives = mo.n;
+  result.tsg.mirrorOnlyBoreholes = mo.boreholes;
+
+  if (!result.boreholes.length) {
+    console.log('  TSG: no boreholes harvested — all ' + st.rows.length
+      + ' cache rows counted as mirror-only ('
+      + result.tsg.mirrorOnlyBoreholes + ' boreholes, '
+      + result.tsg.mirrorOnlyKm + ' km from the mirror)');
+    return;
+  }
 
   const pct = st.rows.length ? Math.round(used.size / st.rows.length * 1000) / 10 : 0;
   console.log('  TSG: ' + used.size + '/' + st.rows.length + ' cache rows matched ('
@@ -689,7 +740,7 @@ function aggregate(results, asOf, tsgIndex) {
   let sumDatasets = 0, sumBoreholesWithData = 0, sumUniqueM = 0, sumTotalM = 0;
   let sumUnrecorded = 0, sumClamped = 0, sumDrilledM = 0, sumWithInstrument = 0, sumTir = 0;
   let sumEstimatedM = 0, sumEstimatedBh = 0;
-  let sumMirrorOnlyKm = 0, sumMirrorOnlyArchives = 0;
+  let sumMirrorOnlyKm = 0, sumMirrorOnlyArchives = 0, sumMirrorOnlyBoreholes = 0;
   let sumApiM = 0, sumTsgM = 0, sumTsgBh = 0;
   let sumDatesTsg = 0, sumDatesApi = 0;
   let earliest = null, latest = null;
@@ -700,6 +751,19 @@ function aggregate(results, asOf, tsgIndex) {
   results.forEach(function(r) {
     const node = r.node;
     if (!r.wfsOk) {
+      // The node did not answer, but the mirror may still hold its archives.
+      // Those are scans the instrument demonstrably performed, and they do not
+      // stop being evidence because a state service is down — so they are
+      // counted here rather than lost alongside the node. TAS answered HTTP
+      // 500 on 17 Aug 2026 while the mirror held 506 of its archives; dropping
+      // them cost the national figure ~142 km and penalised the state hardest
+      // hit by its own outage.
+      const moKm = (r.tsg && r.tsg.mirrorOnlyKm) || 0;
+      const moArchives = (r.tsg && r.tsg.mirrorOnlyArchives) || 0;
+      const moBoreholes = (r.tsg && r.tsg.mirrorOnlyBoreholes) || 0;
+      sumMirrorOnlyKm += moKm;
+      sumMirrorOnlyArchives += moArchives;
+      sumMirrorOnlyBoreholes += moBoreholes;
       states.push({
         state: node.code, status: 'unreachable',
         wfs_registered_boreholes: null, total_datasets: 0,
@@ -707,13 +771,22 @@ function aggregate(results, asOf, tsgIndex) {
         unique_scanned_km: 0, total_scan_km: 0, interval_unrecorded: 0,
         latest_dataset_date: null, days_since_latest: null,
         datasets_last_12mo: 0, km_scanned_last_12mo: 0,
-        note: 'Node did not answer during this harvest. Figures from this node are absent, not zero.',
+        mirror_only_km: moKm,
+        mirror_only_archives: moArchives,
+        mirror_only_boreholes: moBoreholes,
+        evidenced_boreholes: moBoreholes,
+        note: moArchives
+          ? 'Node did not answer during this harvest. Its own figures are absent, '
+            + 'not zero; the ' + moArchives + ' archives the mirror holds for it are '
+            + 'counted as mirror-only.'
+          : 'Node did not answer during this harvest. Figures from this node are absent, not zero.',
       });
       return;
     }
 
     let stDatasets = 0, stWithData = 0, stUniqueM = 0, stTotalM = 0;
     let stEstimatedM = 0, stEstimatedBh = 0;
+    let stTsgOnlyBoreholes = 0;
     let stApiM = 0, stTsgM = 0, stTsgBh = 0;
     let stDatesTsg = 0, stDatesApi = 0, stDatesApiScan = 0, stDatesApiCreated = 0;
     const stMonths = {};       // all dated records — descriptive
@@ -722,9 +795,20 @@ function aggregate(results, asOf, tsgIndex) {
     let st12moDatasets = 0, st12moM = 0;
 
     r.boreholes.forEach(function(bh) {
-      if (!bh.datasets.length) return;
+      // A borehole counts as having data if EITHER its node returned datasets
+      // OR we hold a TSG archive for it. Requiring the API to answer meant a
+      // node's failures erased boreholes whose scans we had already read and
+      // measured: QLD's service failed 160 of 587 queries, so a third of its
+      // archive vanished from the map despite sitting in the TSG cache. The
+      // instrument's own file is evidence the scan happened; a broken
+      // endpoint is not evidence that it did not.
+      const tsgOnly = !bh.datasets.length && bh.tsg && bh.tsg.length;
+      if (!bh.datasets.length && !tsgOnly) return;
       stWithData++;
-      stDatasets += bh.datasets.length;
+      if (tsgOnly) stTsgOnlyBoreholes++;
+      // Dataset count follows the evidence: API datasets where the node
+      // answered, otherwise one per TSG archive (each archive IS a dataset).
+      stDatasets += bh.datasets.length || bh.tsg.length;
       if (bh.lengthM && bh.lengthM > 0) sumDrilledM += bh.lengthM;
 
       // Dates first: the metrics below and every date-keyed roll-up must see
@@ -891,10 +975,17 @@ function aggregate(results, asOf, tsgIndex) {
     if (r.fetchFailures) entry.dataset_fetch_failures = r.fetchFailures;
     if (r.tsg && r.tsg.rows) {
       entry.tsg_cache_rows = r.tsg.rows;
+      entry.tsg_only_boreholes = stTsgOnlyBoreholes;
       entry.mirror_only_km = r.tsg.mirrorOnlyKm || 0;
       entry.mirror_only_archives = r.tsg.mirrorOnlyArchives || 0;
+      entry.mirror_only_boreholes = r.tsg.mirrorOnlyBoreholes || 0;
+      // The total this state can actually evidence, versus what its own
+      // services expose. These boreholes have no WFS record, so they carry
+      // no coordinates and cannot be plotted — counted, not drawn.
+      entry.evidenced_boreholes = stWithData + (r.tsg.mirrorOnlyBoreholes || 0);
       sumMirrorOnlyKm += entry.mirror_only_km;
       sumMirrorOnlyArchives += entry.mirror_only_archives;
+      sumMirrorOnlyBoreholes += entry.mirror_only_boreholes;
       entry.tsg_cache_rows_matched = r.tsg.matchedRows;
       entry.tsg_cache_rows_unmatched = r.tsg.rows - r.tsg.matchedRows;
       entry.tsg_matched_boreholes = r.tsg.matchedBoreholes;
@@ -962,6 +1053,8 @@ function aggregate(results, asOf, tsgIndex) {
       // counted on its own line, never folded into per-borehole coverage.
       mirror_only_km: Math.round(sumMirrorOnlyKm * 100) / 100,
       mirror_only_archives: sumMirrorOnlyArchives,
+      mirror_only_boreholes: sumMirrorOnlyBoreholes,
+      evidenced_boreholes: sumBoreholesWithData + sumMirrorOnlyBoreholes,
       national_measured_km: Math.round((sumUniqueM / 1000 + sumMirrorOnlyKm) * 100) / 100,
       estimated_km: km(sumEstimatedM),
       estimated_boreholes: sumEstimatedBh,
@@ -1059,12 +1152,25 @@ function buildDotArray(results) {
   results.forEach(function(r) {
     const idx = order.indexOf(r.node.code);
     r.boreholes.forEach(function(bh) {
-      if (!bh.datasets.length) return;
+      // Same rule as the aggregation: draw a borehole we have TSG evidence
+      // for even when its node's API returned nothing, otherwise a broken
+      // endpoint silently erases dots for core we have measured.
+      const hasTsg = bh.tsg && bh.tsg.length;
+      if (!bh.datasets.length && !hasTsg) return;
       let month = '', tsgDated = 0;
       bh.datasets.forEach(function(ds) {
         if (ds.date && (!month || ds.date.substring(0, 7) < month)) month = ds.date.substring(0, 7);
         if (ds.dateSource === 'tsg') tsgDated = 1;
       });
+      // No API datasets: take the month from the TSG headers instead.
+      if (!month && hasTsg) {
+        bh.tsg.forEach(function(t) {
+          if (t.scanDate && (!month || t.scanDate.substring(0, 7) < month)) {
+            month = t.scanDate.substring(0, 7);
+          }
+        });
+        if (month) tsgDated = 1;
+      }
       const uniqueM = bh.metrics ? bh.metrics.uniqueM : 0;
       dots.push([
         Math.round(bh.lat * 1000) / 1000,
@@ -1088,7 +1194,10 @@ function printSummary(s) {
   console.log('  from node APIs:     ' + sm.api_measured_km + ' km');
   console.log('  from TSG headers:   ' + sm.tsg_measured_km + ' km across ' + sm.tsg_measured_boreholes + ' boreholes (' + sm.tsg_source + ')');
   console.log('Mirror-only measured: ' + sm.mirror_only_km + ' km across '
-    + sm.mirror_only_archives + ' archives (boreholes their node does not surface)');
+    + sm.mirror_only_archives + ' archives = ' + sm.mirror_only_boreholes
+    + ' boreholes their node does not surface (no WFS record, so not plottable)');
+  console.log('EVIDENCED BOREHOLES:  ' + sm.evidenced_boreholes
+    + ' (' + sm.total_boreholes_with_data + ' plottable + ' + sm.mirror_only_boreholes + ' mirror-only)');
   console.log('NATIONAL MEASURED:    ' + sm.national_measured_km + ' km (attributed + mirror-only)');
   console.log('Estimated (no data):  ' + sm.estimated_km + ' km across ' + sm.estimated_boreholes + ' boreholes (drilled-length estimate, disclosed)');
   console.log('Combined estimate:    ' + sm.combined_estimate_km + ' km (measured + estimated)');

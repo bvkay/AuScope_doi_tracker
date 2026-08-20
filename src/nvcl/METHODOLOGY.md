@@ -489,6 +489,47 @@ contributes its interval once. The garbage clamp cannot apply either
 (no drilled length is known without the borehole), so a flat 5 km ceiling
 substitutes; no legitimate scanned interval approaches it.
 
+### A node that is entirely down still counts
+
+Mirror-only applies to nodes that answered *and* to nodes that did not. If a
+state's WFS fails outright, every archive the mirror holds for it becomes
+mirror-only, because a service outage is not evidence that scanning did not
+happen.
+
+This was not always true. Until 17 Aug 2026 an unreachable node returned
+before mirror reconciliation ran, and its entry was written as a zeroed stub.
+Tasmania answered HTTP 500 that day, and its **506 archives — roughly 142 km —
+left the national figure entirely**, while the states whose services happened
+to be up were counted in full. That is the precise inversion this section
+exists to prevent, so it now runs for every node and the stub carries the
+mirror figures with a note distinguishing *absent* from *zero*.
+
+An unreachable node therefore reports `total_boreholes_with_data: 0` (nothing
+is plottable without a WFS record) alongside a non-zero `mirror_only_km` and
+`evidenced_boreholes`. The two are not in conflict: the first says the state
+published nothing this run, the second says the instrument's own files record
+the work regardless.
+
+### Counting mirror-only boreholes
+
+`mirror_only_boreholes` answers a different question from
+`mirror_only_archives`: not "how many files did the mirror hold?" but "how
+many holes has this state scanned that its own service never published?"
+
+The rule is **one archive basename, one borehole**. No name-based grouping
+is applied. An earlier version collapsed a trailing `-N` — reading
+`203950-3.zip` and `203950-4.zip` as two sections of one hole — but the
+cache contradicts that: all ten `-N` groups in it have *overlapping* depth
+intervals, so none can be sequential sections. They are distinct holes
+sharing a project prefix. `WA/MG19-001` through `-010` each start at 0 m,
+and `WA/WTB` runs -05, -06, -07, -09, -14, -21 … , a gapped series no
+section numbering produces. The collapse merged 41 real WA boreholes into
+10 and was removed.
+
+If a state does begin mirroring genuine sections, the rule should return
+behind a non-overlap test on the depth intervals, never on the filename
+alone.
+
 The principle is the same one that governs the dates: if the instrument's
 own file records the scan, the scan happened, whether or not a state
 service mentions the hole. Reporting less because a node is degraded would
