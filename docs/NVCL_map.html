@@ -87,12 +87,19 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- the 16:9 stage ---------- */
+/* ---------- the stage ---------- */
 .stage {
     width: calc(var(--u) * 100);
-    height: calc(var(--u) * 56.25);
+    /* Grows into the height it is actually given, capped at 70u. The live
+       embed is 513x335 (1.53:1) against a bare 16:9 stage at 1.78:1, so a
+       fixed 56.25u letterboxed away 14% of the iframe, and that lost height
+       was paid for in legend rows and type size. At 16:9 the min still
+       resolves to 56.25u, so a full-bleed view is unchanged. */
+    height: min(100vh, calc(var(--u) * 70));
     background: var(--bg);
-    padding: calc(var(--u) * 1.5) calc(var(--u) * 1.8) calc(var(--u) * 1.2);
+    /* Side padding half the top/bottom: at 513px wide every horizontal unit
+       comes straight off the map and the legend. */
+    padding: calc(var(--u) * 1.5) calc(var(--u) * 0.9) calc(var(--u) * 1.2);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -110,7 +117,7 @@ body {
     flex-shrink: 0;
 }
 .title-strip h1 {
-    font-size: calc(var(--u) * 2.75);
+    font-size: calc(var(--u) * 3.1);
     font-weight: 600;
     letter-spacing: -0.015em;
     line-height: 1.15;
@@ -127,16 +134,10 @@ body {
     flex-shrink: 0;
 }
 .counts .primary {
-    font-size: calc(var(--u) * 1.55);
+    font-size: calc(var(--u) * 2.2);
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     color: var(--text);
-    white-space: nowrap;
-}
-.counts .secondary {
-    font-size: calc(var(--u) * 0.95);
-    color: var(--text-muted);
-    margin-top: calc(var(--u) * 0.2);
     white-space: nowrap;
 }
 
@@ -202,7 +203,9 @@ body {
    colour re-accumulates into strong colour that competes with the state
    actually selected. id + two classes beats the .s0–.s7 fills. */
 #map-svg circle.d.dim { fill: #94a3b8; fill-opacity: 0.14; }
-#map-brand image { opacity: 0.85; }
+/* Full strength: these are the only attribution on the page, and at a 513px
+   embed an 0.85 wordmark reads as a rendering fault rather than as restraint. */
+#map-brand image { opacity: 1; }
 
 /* ---------- timeline controls ---------- */
 .map-controls {
@@ -215,7 +218,7 @@ body {
 .btn {
     flex-shrink: 0;
     font-family: var(--sans);
-    font-size: calc(var(--u) * 1.0);
+    font-size: calc(var(--u) * 1.35);
     font-weight: 600;
     line-height: 1;
     color: var(--text);
@@ -233,14 +236,16 @@ body {
 #map-slider {
     flex: 1;
     min-width: 0;
-    height: calc(var(--u) * 1.5);
+    /* Thin deliberately: the slider is a scrubber, not a chart element, and a
+       thick accent bar competes with the map for attention. */
+    height: calc(var(--u) * 0.9);
     cursor: pointer;
     accent-color: var(--accent);
 }
 #map-slider:disabled { cursor: default; opacity: 0.45; }
 #map-label {
     flex-shrink: 0;
-    font-size: calc(var(--u) * 1.0);
+    font-size: calc(var(--u) * 1.45);
     font-variant-numeric: tabular-nums;
     color: var(--text);
     font-weight: 600;
@@ -272,7 +277,14 @@ body {
 
 /* ---------- legend column ---------- */
 .legend-col {
-    width: calc(var(--u) * 35);
+    /* 40u, not 35u. The map pane takes whatever is left, and its aspect is
+       what decides how much of the drawing is wasted: the projection fits
+       Australia (1.053 wide-to-tall) inside it and centres the remainder. At
+       35u the pane came out at 1.151, so the drawing was height-limited and
+       spilled ~60 units of dead ocean down EACH side. Widening the column
+       narrows the pane to about 1.05 and the side gaps close — and the column
+       had the spare width anyway, which the year chart now uses. */
+    width: calc(var(--u) * 40);
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -282,7 +294,7 @@ body {
     overflow: hidden;
 }
 .legend-col h2 {
-    font-size: calc(var(--u) * 0.9);
+    font-size: calc(var(--u) * 1.2);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--text-muted);
@@ -290,7 +302,7 @@ body {
     margin-bottom: calc(var(--u) * 0.3);
     flex-shrink: 0;
 }
-#legend-rows, #fleet-rows { flex-shrink: 0; }
+#legend-rows { flex-shrink: 0; }
 
 .fleet-block {
     flex-shrink: 0;
@@ -309,7 +321,7 @@ body {
     border-radius: calc(var(--u) * 0.22);
     background: none;
     font-family: var(--sans);
-    font-size: calc(var(--u) * 1.1);
+    font-size: calc(var(--u) * 1.85);
     line-height: 1.25;
     text-align: left;
     cursor: pointer;
@@ -330,7 +342,7 @@ body {
 .lg-code {
     font-family: var(--mono);
     font-weight: 600;
-    font-size: calc(var(--u) * 1.05);
+    font-size: calc(var(--u) * 1.72);
     min-width: calc(var(--u) * 4.3);
     white-space: nowrap;
     flex-shrink: 0;
@@ -339,58 +351,76 @@ body {
     color: var(--text-soft);
     flex: 1;
     min-width: 0;
-    font-size: calc(var(--u) * 1.05);
+    font-size: calc(var(--u) * 1.72);
+    /* Centred between the code and the count: with only eight rows and one
+       short name each, left-aligning left a ragged gap before the numbers. */
+    text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* Carried-forward rows are marked, not hidden and not dimmed: the number is
+   real, it is simply older than the rest of the page. */
+.lg-stale {
+    flex-shrink: 0;
+    font-size: calc(var(--u) * 1.15);
+    color: #b45309;
+    background: #fffbeb;
+    border-radius: calc(var(--u) * 0.2);
+    padding: 0 calc(var(--u) * 0.3);
     white-space: nowrap;
 }
 .lg-count {
     font-variant-numeric: tabular-nums;
     font-weight: 600;
-    font-size: calc(var(--u) * 1.05);
+    font-size: calc(var(--u) * 1.72);
     flex-shrink: 0;
     min-width: calc(var(--u) * 3.4);
     text-align: right;
 }
 
-/* ---------- HyLogger fleet rows ----------
-   Display only, so these are <div>s: nothing here is clickable and a button
-   would promise an interaction that does not exist. A proportional bar was
-   tried behind each row and removed: at these widths it read as stray
-   highlighting rather than as data, and the figures carry the comparison
-   on their own. */
-.fl-row {
-    position: relative;
+/* ---------- scanned-per-year chart ----------
+   Replaces the HyLogger fleet list. The fleet answered "which machines did
+   the scanning", which the borehole map already implies; this answers "when",
+   which nothing else on the page does. Sizes are in SVG user units so the
+   whole chart scales with the column rather than with the font. */
+.chart-block {
+    margin-top: calc(var(--u) * 0.9);
+    /* Takes the column's leftover height instead of leaving a hole above the
+       footnote; fitChart() then re-cuts the viewBox to whatever shape that
+       turns out to be, the same trick fitViewBox() plays on the map. */
+    flex: 1;
+    min-height: 0;
     display: flex;
-    align-items: baseline;
-    gap: calc(var(--u) * 0.4);
-    padding: calc(var(--u) * 0.16) calc(var(--u) * 0.34);
-    font-size: calc(var(--u) * 0.98);
-    line-height: 1.2;
-    border-radius: calc(var(--u) * 0.22);
-    overflow: hidden;
+    flex-direction: column;
 }
-.fl-name, .fl-figs {
-    position: relative;
-    z-index: 1;
-    white-space: nowrap;
+.chart-block h2 { margin-bottom: calc(var(--u) * 0.3); }
+#year-chart {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: block;
+    overflow: visible;
 }
-.fl-name {
-    font-weight: 600;
-    font-size: calc(var(--u) * 1.0);
-    flex-shrink: 0;
+#year-chart .yc-bar { fill: var(--accent); fill-opacity: 0.78; }
+#year-chart .yc-bar.hot { fill-opacity: 1; }
+#year-chart .yc-hit { fill: transparent; cursor: pointer; }
+#year-chart .yc-line { fill: none; stroke: #be185d; stroke-width: 1.6; stroke-linejoin: round; }
+#year-chart .yc-axis { stroke: var(--border-strong); stroke-width: 1; }
+#year-chart .yc-tick {
+    fill: var(--text-muted);
+    font-family: var(--sans);
+    font-size: 15px;
 }
-.fl-figs {
-    color: var(--text-soft);
-    font-variant-numeric: tabular-nums;
-    margin-left: auto;
-    text-align: right;
+#year-chart .yc-kbox { fill: #ffffff; fill-opacity: 0.82; }
+#year-chart .yc-ksw.k-km { fill: var(--accent); fill-opacity: 0.78; }
+#year-chart .yc-ksw.k-sites { fill: #be185d; }
+#year-chart .yc-klab {
+    fill: var(--text-soft);
+    font-family: var(--sans);
+    font-size: 12px;
 }
-.fl-figs .fl-km { color: var(--text); font-weight: 600; }
-.fl-row.muted .fl-name { font-weight: 500; color: var(--text-muted); }
-.fl-row.muted .fl-figs, .fl-row.muted .fl-figs .fl-km {
-    color: var(--text-muted); font-weight: 500;
-}
+
 
 .legend-foot {
     margin-top: auto;             /* pinned to the bottom of the column */
@@ -398,7 +428,7 @@ body {
     padding-top: calc(var(--u) * 0.55);
 }
 .legend-note {
-    font-size: calc(var(--u) * 0.92);
+    font-size: calc(var(--u) * 1.25);
     line-height: 1.38;
     color: var(--text-soft);
     border-top: 1px solid var(--border);
@@ -406,7 +436,7 @@ body {
 }
 .legend-note strong { color: var(--text); font-weight: 600; }
 .legend-fine {
-    font-size: calc(var(--u) * 0.85);
+    font-size: calc(var(--u) * 1.12);
     line-height: 1.38;
     color: var(--text-muted);
     margin-top: calc(var(--u) * 0.4);
@@ -418,7 +448,7 @@ body {
     display: none;
     background: #0f172a;
     color: #f1f5f9;
-    font-size: calc(var(--u) * 0.88);
+    font-size: calc(var(--u) * 1.8);
     padding: calc(var(--u) * 0.34) calc(var(--u) * 0.55);
     border-radius: calc(var(--u) * 0.2);
     pointer-events: none;
@@ -437,11 +467,9 @@ body {
     <div class="title-strip">
         <div>
             <h1>AuScope <span class="accent">National Virtual Core Library</span></h1>
-            <div class="sub">Every drill core with HyLogger spectral data, drawn at its registered borehole coordinates</div>
         </div>
         <div class="counts">
             <div class="primary" id="count-primary">&mdash;</div>
-            <div class="secondary" id="count-secondary">loading the national snapshot&hellip;</div>
         </div>
     </div>
 
@@ -499,22 +527,17 @@ body {
                      aria-label="Show boreholes scanned up to a given month">
               <span id="map-label">&mdash;</span>
           </div>
-          <div class="map-caption" id="map-caption"></div>
         </div>
 
         <div class="legend-col" id="legend-col">
             <h2>Nodes</h2>
             <div id="legend-rows"></div>
 
-            <div class="fleet-block">
-                <!-- These rows sum slightly above the national borehole count,
-                     and that is correct: 26 boreholes were rescanned, and a
-                     hole scanned by two machines is a borehole for each of
-                     them. Stated on hover rather than in the footer, which is
-                     already carrying the two disclosures that change a number
-                     on screen. -->
-                <h2 title="Boreholes each unit has scanned. A borehole rescanned on a second machine counts for both, so these rows sum a little above the national total.">HyLogger fleet</h2>
-                <div id="fleet-rows"></div>
+            <div class="chart-block">
+                <h2 id="chart-title">Scanned per year</h2>
+                <svg id="year-chart" viewBox="0 0 200 78" role="img" aria-labelledby="chart-desc">
+                    <desc id="chart-desc"></desc>
+                </svg>
             </div>
 
             <!-- No navigation, no outbound link: this is a display artefact for
@@ -600,29 +623,29 @@ var MAP_W = 1000, MAP_H = 643;
 // CSIRO mark is square (the file is 400x400) where the AuScope one is nearly
 // so, hence 62 against 60 — sized to carry the same visual weight, not to the
 // same box.
-var BRAND = { inset: 12, auscopeW: 60, auscopeH: 61, csiroW: 62, csiroH: 62 };
+var BRAND = { inset: 8, auscopeW: 175, auscopeH: 178, csiroW: 180, csiroH: 180 };
 
 // The domestic window shared with nvcl.html / auspass.html / AusPASS_map.html,
-// and also the "can this borehole be drawn?" test.
+// and also the "can this borehole be drawn?" test. Left generous on purpose:
+// it decides what counts as Australian, and a bound that sits on real data is
+// a bound that quietly deletes it.
 var AU_BOX = { minLat: -44, maxLat: -9, minLng: 112, maxLng: 154 };
+
+// What the map is DRAWN to, which is a different question. AU_BOX carries
+// 1.15 deg of empty ocean west of Steep Point (113.15 E) against 0.4 deg east
+// of Cape Byron, so drawing to it left a western gap half again the eastern
+// one. This hugs the real coastline instead, and its aspect (36.76 / 34.90 =
+// 1.053) is what the map pane is sized to.
+var VIEW_BOX = { minLat: -43.9, maxLat: -9.0, minLng: 112.85, maxLng: 153.9 };
 
 var MAP_PAD_X = 14, MAP_PAD_Y = 8;
 
-var FLEET_MAX = 8;   // starting fleet-row budget; fitLegend() trims if it must
 
 // Whole-run playback target. The archive spans 236 scan months, so a fixed
 // per-frame delay would make the run length a hostage to the data: budget the
 // RUN instead and derive the step, clamped so a short or very long history
 // still animates at a watchable speed.
 var PLAY_RUN_MS = 19000, PLAY_MIN_MS = 40, PLAY_MAX_MS = 140;
-
-// Instrument labels that are not a HyLogger unit. 'Unknown' is the harvester's
-// placeholder for datasets whose metadata carries no instrument field, and '19'
-// is a bare fragment left by one node's free-text field. Neither belongs in a
-// list headed "HyLogger fleet" — but they are NOT dropped: they are counted
-// into the disclosure rows underneath, because silently omitting 410 boreholes
-// would overstate how much of the archive is attributable to a named machine.
-var NON_INSTRUMENT = { 'Unknown': true, '19': true };
 
 // Keep in sync with the #map-svg circle.s0..s7 rules in the <style> block.
 var STATE_PALETTE = ['#16a34a', '#2563eb', '#b45309', '#be185d',
@@ -639,7 +662,7 @@ var st = {
     counts: {},         // stateIdx -> drawn borehole count
     order: [],          // stateIdx values, most boreholes first
     filter: -1,         // isolated stateIdx, -1 = show all
-    fleetMax: FLEET_MAX,
+    chartYears: [],     // [year, sites, km] for the current filter
 
     // ---- timeline ----
     months: [],         // distinct scan months, ascending
@@ -660,9 +683,9 @@ var st = {
 // rule (its 644-wide box for a 600-tall frame is the same 42 x cos(26.5) by 35
 // arithmetic), refitted to this pane's wider aspect and centred in it.
 function projection() {
-    var dLat = AU_BOX.maxLat - AU_BOX.minLat;                 // 35
-    var dLng = AU_BOX.maxLng - AU_BOX.minLng;                 // 42
-    var cosMid = Math.cos(((AU_BOX.minLat + AU_BOX.maxLat) / 2) * Math.PI / 180);
+    var dLat = VIEW_BOX.maxLat - VIEW_BOX.minLat;             // 34.90
+    var dLng = VIEW_BOX.maxLng - VIEW_BOX.minLng;             // 41.05
+    var cosMid = Math.cos(((VIEW_BOX.minLat + VIEW_BOX.maxLat) / 2) * Math.PI / 180);
     var availW = MAP_W - 2 * MAP_PAD_X;
     var availH = MAP_H - 2 * MAP_PAD_Y;
     var k = Math.min(availW / (dLng * cosMid), availH / dLat);  // px per degree of latitude
@@ -670,8 +693,8 @@ function projection() {
     var ox = MAP_PAD_X + (availW - w) / 2;
     var oy = MAP_PAD_Y + (availH - h) / 2;
     return {
-        x: function(lng) { return ox + (lng - AU_BOX.minLng) * cosMid * k; },
-        y: function(lat) { return oy + (AU_BOX.maxLat - lat) * k; }
+        x: function(lng) { return ox + (lng - VIEW_BOX.minLng) * cosMid * k; },
+        y: function(lat) { return oy + (VIEW_BOX.maxLat - lat) * k; }
     };
 }
 
@@ -686,10 +709,17 @@ function fitViewBox() {
     MAP_H = h;
     document.getElementById('map-svg').setAttribute('viewBox', '0 0 ' + MAP_W + ' ' + MAP_H);
 
+    // Size as well as position. This used to set x/y only, so every change to
+    // BRAND's width moved the logos without resizing them — they stayed at the
+    // 60px the markup happened to carry, and looked untouched.
     var a = document.getElementById('brand-auscope');
+    a.setAttribute('width', String(BRAND.auscopeW));
+    a.setAttribute('height', String(BRAND.auscopeH));
     a.setAttribute('x', String(MAP_W - BRAND.inset - BRAND.auscopeW));
     a.setAttribute('y', String(BRAND.inset));
     var c = document.getElementById('brand-csiro');
+    c.setAttribute('width', String(BRAND.csiroW));
+    c.setAttribute('height', String(BRAND.csiroH));
     c.setAttribute('x', String(BRAND.inset));
     c.setAttribute('y', String(MAP_H - BRAND.inset - BRAND.csiroH));
     return true;
@@ -784,7 +814,7 @@ function render() {
     });
 
     renderLegend();
-    renderFleet();
+    renderChart();
     renderCounts();
     renderNotes();
     initControls();
@@ -897,6 +927,24 @@ function nodeName(code) {
     return name === code ? '' : name;      // "CSIRO / CSIRO" is not a label
 }
 
+// A node whose figures were carried forward rather than measured this run.
+// Disclosed on the row itself: a carried-forward number that looks identical
+// to a fresh one is exactly the failure this is here to prevent.
+function staleness(code) {
+    var list = (st.data.states || []);
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].state !== code) continue;
+        var s = list[i].status;
+        if (s !== 'cached' && s !== 'degraded') return null;
+        return {
+            status: s,
+            asOf: list[i].measured_as_of || null,
+            note: list[i].note || '',
+        };
+    }
+    return null;
+}
+
 function renderLegend() {
     var codes = st.data.boreholeStates || [];
     var html = '', i;
@@ -916,90 +964,160 @@ function renderLegend() {
                 + '</div>';
             continue;
         }
-        html += '<button type="button" class="lg-row' + sel + '" data-state="' + escapeAttr(String(idx)) + '"'
+        var stale = staleness(code);
+        var tip = code + (nodeName(code) ? ' — ' + nodeName(code) : '');
+        if (stale) tip += ' · ' + stale.note;
+        html += '<button type="button" class="lg-row' + sel + (stale ? ' stale' : '')
+            + '" data-state="' + escapeAttr(String(idx)) + '"'
             + ' aria-pressed="' + (st.filter === idx ? 'true' : 'false') + '"'
-            + ' title="' + escapeAttr(code + (nodeName(code) ? ' — ' + nodeName(code) : '')) + '">'
+            + ' title="' + escapeAttr(tip) + '">'
             + '<span class="lg-swatch" style="background:' + escapeAttr(STATE_PALETTE[idx & 7]) + '"></span>'
             + '<span class="lg-code">' + escapeHtml(code) + '</span>'
             + '<span class="lg-name">' + escapeHtml(nodeName(code)) + '</span>'
+            + (stale ? '<span class="lg-stale" aria-label="figures carried forward">as at '
+                + escapeHtml(String(stale.asOf || '').slice(0, 10)) + '</span>' : '')
             + '<span class="lg-count">' + fmt(n) + '</span>'
             + '</button>';
     }
     document.getElementById('legend-rows').innerHTML = html;
 }
 
-// The state legend is only eight rows, so the column has room for the thing a
-// borehole map cannot show on its own: which machines did the scanning. Named
-// units first, then two disclosure rows so the listed figures are never
-// mistaken for the whole fleet.
-function renderFleet() {
-    var all = (st.data.instruments || []).slice();
-    var named = [], other = [], i, inst;
-    for (i = 0; i < all.length; i++) {
-        if (NON_INSTRUMENT[all[i].instrument_canonical]) other.push(all[i]);
-        else named.push(all[i]);
+// WHEN the scanning happened, which nothing else on the page shows. This
+// replaced a HyLogger fleet list: that answered "which machine", a question
+// the borehole map already implies, and it cost the same column space.
+//
+// Everything here derives from rows already in the feed — each borehole is
+// [lat, lng, stateIdx, 'YYYY-MM', metres, fromTsg] — so the chart cost no new
+// harvester output and no extra request.
+function yearSeries(filter) {
+    var acc = {}, i, r, y;
+    for (i = 0; i < st.drawn.length; i++) {
+        r = st.drawn[i];
+        if (filter >= 0 && (r[2] & 7) !== filter) continue;
+        if (!r[3]) continue;                       // undated: charted nowhere
+        y = +String(r[3]).slice(0, 4);
+        if (!y) continue;
+        if (!acc[y]) acc[y] = { y: y, sites: 0, m: 0 };
+        acc[y].sites++;
+        acc[y].m += (r[4] || 0);
     }
-    named.sort(function(a, b) {
-        if (b.boreholes !== a.boreholes) return b.boreholes - a.boreholes;
-        return b.km_scanned - a.km_scanned;
-    });
-
-    var top = named.slice(0, st.fleetMax);
-    var rest = named.slice(st.fleetMax);
-
-    var html = '';
-    for (i = 0; i < top.length; i++) {
-        inst = top[i];
-        html += '<div class="fl-row" title="'
-            + escapeAttr(inst.instrument_canonical + ' — '
-                + (inst.states_used || []).join(', ')
-                + ' · ' + fmt(inst.datasets) + ' datasets') + '">'
-            + '<span class="fl-name">' + escapeHtml(inst.instrument_canonical) + '</span>'
-            + '<span class="fl-figs">' + fmt(inst.boreholes) + ' boreholes &middot; '
-            + '<span class="fl-km">' + fmtKm(inst.km_scanned) + ' km</span></span>'
-            + '</div>';
-    }
-
-    html += muteRow(rest, rest.length + ' further unit' + (rest.length === 1 ? '' : 's'));
-    html += muteRow(other, 'Instrument not recorded');
-
-    document.getElementById('fleet-rows').innerHTML = html;
+    var years = Object.keys(acc).map(Number).sort(function(a, b) { return a - b; });
+    if (!years.length) return [];
+    var out = [], lo = years[0], hi = years[years.length - 1];
+    // Every year in the span, empty ones included: a gap is information, and a
+    // chart that closes it silently reads a pause as continuity.
+    for (y = lo; y <= hi; y++) out.push(acc[y] || { y: y, sites: 0, m: 0 });
+    return out;
 }
 
-function muteRow(list, label) {
-    if (!list.length) return '';
-    var bh = 0, km = 0, i;
-    for (i = 0; i < list.length; i++) {
-        bh += list[i].boreholes || 0;
-        km += list[i].km_scanned || 0;
+// Geometry in SVG user units. Width is fixed at 200; HEIGHT is re-cut from
+// the block's real aspect each render, so the chart grows into whatever the
+// node list leaves it rather than sitting on a fixed 78 with a hole beneath.
+var YC = { x0: 2, x1: 198, yTop: 5, yBase: 60, tickY: 72, h: 78 };
+
+function fitChart() {
+    var svg = document.getElementById('year-chart');
+    var r = svg.getBoundingClientRect();
+    if (!(r.width > 0 && r.height > 0)) return;
+    // Clamped: below ~54 the year labels and the bars start to collide, and
+    // above ~150 a handful of bars stretch into columns that read as a
+    // different chart entirely.
+    var h = Math.max(54, Math.min(150, Math.round(200 * r.height / r.width)));
+    YC.h = h;
+    YC.tickY = h - 6;
+    YC.yBase = h - 18;
+    svg.setAttribute('viewBox', '0 0 200 ' + h);
+}
+
+function renderChart() {
+    fitChart();
+    var data = yearSeries(st.filter);
+    st.chartYears = data;
+    var svg = document.getElementById('year-chart');
+    var codes = st.data.boreholeStates || [];
+    var title = st.filter >= 0
+        ? (nodeName(codes[st.filter]) || codes[st.filter]) + ' \u2014 scanned per year'
+        : 'Scanned per year';
+    document.getElementById('chart-title').textContent = title;
+
+    if (!data.length) {
+        svg.innerHTML = '<desc id="chart-desc">No dated scans to chart.</desc>'
+            + '<text class="yc-tick" x="' + YC.x0 + '" y="' + (YC.yBase - 18) + '">no dated scans</text>';
+        return;
     }
-    return '<div class="fl-row muted">'
-        + '<span class="fl-name">' + escapeHtml(label) + '</span>'
-        + '<span class="fl-figs">' + fmt(bh) + ' boreholes &middot; '
-        + '<span class="fl-km">' + fmtKm(km) + ' km</span></span>'
-        + '</div>';
+
+    var maxM = 0, maxSites = 0, i, d;
+    for (i = 0; i < data.length; i++) {
+        if (data[i].m > maxM) maxM = data[i].m;
+        if (data[i].sites > maxSites) maxSites = data[i].sites;
+    }
+    maxM = maxM || 1; maxSites = maxSites || 1;
+
+    var span = YC.x1 - YC.x0;
+    var slot = span / data.length;
+    var bw = Math.max(1.2, slot * 0.68);
+    var h = YC.yBase - YC.yTop;
+    var parts = [], pts = [];
+
+    for (i = 0; i < data.length; i++) {
+        d = data[i];
+        var cx = YC.x0 + slot * (i + 0.5);
+        var bh = (d.m / maxM) * h;
+        parts.push('<rect class="yc-bar" x="' + (cx - bw / 2).toFixed(1) + '" y="'
+            + (YC.yBase - bh).toFixed(1) + '" width="' + bw.toFixed(1)
+            + '" height="' + Math.max(0, bh).toFixed(1) + '" rx="0.6"/>');
+        pts.push(cx.toFixed(1) + ',' + (YC.yBase - (d.sites / maxSites) * h).toFixed(1));
+    }
+
+    var out = '<desc id="chart-desc">' + escapeHtml(title + ': ' + data.length
+        + ' years, peak ' + fmtKm(maxM / 1000) + ' km and ' + fmt(maxSites)
+        + ' sites in a year.') + '</desc>';
+    out += parts.join('');
+    out += '<polyline class="yc-line" points="' + pts.join(' ') + '"/>';
+    out += '<line class="yc-axis" x1="' + YC.x0 + '" y1="' + YC.yBase
+        + '" x2="' + YC.x1 + '" y2="' + YC.yBase + '"/>';
+    // Only the first and last year are labelled. There is no y-axis label:
+    // as one it cost 13 units of gutter down the whole left edge, which is a
+    // lot of plot to spend on a number the tooltip gives exactly on hover.
+    out += '<text class="yc-tick" x="' + YC.x0 + '" y="' + YC.tickY + '">'
+        + data[0].y + '</text>';
+    out += '<text class="yc-tick" x="' + YC.x1 + '" y="' + YC.tickY
+        + '" text-anchor="end">' + data[data.length - 1].y + '</text>';
+    // Transparent hit strips, full height, so a year with almost no scanning
+    // is still reachable by the pointer.
+    for (i = 0; i < data.length; i++) {
+        out += '<rect class="yc-hit" data-yi="' + i + '" x="'
+            + (YC.x0 + slot * i).toFixed(1) + '" y="' + YC.yTop
+            + '" width="' + slot.toFixed(1) + '" height="' + h.toFixed(1) + '"/>';
+    }
+    // Key drawn INSIDE the chart, top-left, where the early low years leave
+    // room. As an HTML line under the chart it had to compete with the
+    // footnote for size and lost; in user units it scales with the plot.
+    out += '<g class="yc-key">'
+        + '<rect class="yc-kbox" x="' + YC.x0 + '" y="' + (YC.yTop - 1) + '" width="76" height="15" rx="3"/>'
+        + '<rect class="yc-ksw k-km" x="' + (YC.x0 + 4) + '" y="' + (YC.yTop + 2.5) + '" width="8" height="8" rx="1.5"/>'
+        + '<text class="yc-klab" x="' + (YC.x0 + 15) + '" y="' + (YC.yTop + 9.5) + '">km</text>'
+        + '<rect class="yc-ksw k-sites" x="' + (YC.x0 + 33) + '" y="' + (YC.yTop + 2.5) + '" width="8" height="8" rx="1.5"/>'
+        + '<text class="yc-klab" x="' + (YC.x0 + 44) + '" y="' + (YC.yTop + 9.5) + '">sites</text>'
+        + '</g>';
+    svg.innerHTML = out;
 }
 
 function renderCounts() {
     var s = st.data.summary || {};
     var codes = st.data.boreholeStates || [];
     var primary = document.getElementById('count-primary');
-    var secondary = document.getElementById('count-secondary');
 
     if (st.filter >= 0) {
-        var code = codes[st.filter] || '?';
         primary.textContent = fmt(st.counts[st.filter] || 0) + ' of '
             + fmt(s.total_boreholes_with_data) + ' boreholes';
-        secondary.textContent = (nodeName(code) || code)
-            + ' — click the row again to clear';
     } else {
         // national_measured_km is the honest national total: the per-borehole
         // measured coverage PLUS the archives measured on the AuScope TSG
         // mirror that no node has a published borehole for. The estimated
         // kilometres are never blended in here.
         primary.textContent = fmt(s.total_boreholes_with_data) + ' boreholes · '
-            + fmtKm(s.national_measured_km) + ' km of core scanned';
-        secondary.textContent = 'measured ' + niceDate(st.data.as_of);
+            + fmtKm(s.national_measured_km) + ' km scanned';
     }
 
     document.getElementById('map-svg-desc').textContent =
@@ -1017,25 +1135,6 @@ function renderNotes() {
     }).join(', ');
     var html = '';
 
-    if (np) {
-        html += '<strong>' + escapeHtml(np) + '</strong> has no HyLogger node; its '
-            + fmt(s.non_participating_borehole_count) + ' registered boreholes may have been '
-            + 'scanned elsewhere and counted there.';
-    }
-    // Disclosed rather than silently clipped: a borehole registered at a
-    // coordinate outside Australia is a metadata fault at the source, and the
-    // legend counts below are of DRAWN boreholes, so the difference has to be
-    // stated somewhere.
-    if (st.offFrame.length > 0) {
-        var codes = st.data.boreholeStates || [];
-        var where = codes[st.offFrame[0][2] & 7] || '?';
-        html += (html ? ' ' : '')
-            + fmt(st.offFrame.length) + ' ' + escapeHtml(where) + ' borehole'
-            + (st.offFrame.length === 1 ? '' : 's') + ' sit'
-            + (st.offFrame.length === 1 ? 's' : '') + ' at a coordinate outside Australia and '
-            + (st.offFrame.length === 1 ? 'is' : 'are') + ' not drawn, so the counts here total '
-            + fmt(st.drawn.length) + '.';
-    }
     document.getElementById('legend-note').innerHTML = html;
 
     document.getElementById('legend-fine').textContent =
@@ -1055,27 +1154,6 @@ function initControls() {
     play.disabled = st.months.length === 0;
     updateLabel(st.months.length);
 
-    // Date provenance belongs next to the animation, not in a footnote: what
-    // the run is worth depends entirely on whether these are scan dates or
-    // upload dates, and until this harvest most of them were upload dates.
-    var dated = 0, fromTsg = 0, i;
-    for (i = 0; i < st.drawn.length; i++) {
-        if (!st.drawn[i][3]) continue;
-        dated++;
-        if (st.drawn[i][5]) fromTsg++;
-    }
-    var cap = '';
-    if (st.undated > 0) {
-        cap += fmt(st.undated) + ' borehole' + (st.undated === 1 ? '' : 's')
-            + ' carr' + (st.undated === 1 ? 'ies' : 'y') + ' no scan date and stay'
-            + (st.undated === 1 ? 's' : '') + ' visible at every position. ';
-    }
-    if (dated > 0) {
-        cap += Math.round(fromTsg / dated * 100) + '% of these scan months are read from '
-            + 'the TSG file’s own header — the instrument’s record of when it scanned — '
-            + 'rather than a node’s ingest date.';
-    }
-    document.getElementById('map-caption').textContent = cap;
 }
 
 function updateLabel(v) {
@@ -1139,12 +1217,9 @@ function fitLegend() {
     var overflows = function() {
         return foot.getBoundingClientRect().bottom - col.getBoundingClientRect().bottom > 0.5;
     };
-    var guard = 0;
-    while (overflows() && st.fleetMax > 3 && guard < 12) {
-        st.fleetMax--;
-        renderFleet();
-        guard++;
-    }
+    // The chart is a fixed-height block now, so the node list is the only
+    // elastic thing left — and it is short enough to always fit.
+    if (overflows()) console.warn('legend column overflows');
     // Trimming rows does not change the pane, but a font that wrapped the
     // caption differently might have — re-fit and redraw only if so.
     if (fitViewBox()) drawMap();
@@ -1165,6 +1240,33 @@ function bindEvents() {
         drawDots(projection());
         renderLegend();
         renderCounts();
+        renderChart();        // the chart follows the selected node
+    });
+
+    // Chart hover reuses the one shared tooltip the map already owns.
+    var chart = document.getElementById('year-chart');
+    chart.addEventListener('mousemove', function(e) {
+        var hit = e.target.closest ? e.target.closest('.yc-hit') : null;
+        var tip = document.getElementById('map-tip');
+        if (!hit) { tip.style.display = 'none'; return; }
+        var d = st.chartYears[+hit.getAttribute('data-yi')];
+        if (!d) { tip.style.display = 'none'; return; }
+        tip.textContent = d.y + ' \u00b7 ' + fmt(d.sites) + ' site'
+            + (d.sites === 1 ? '' : 's') + ' \u00b7 ' + fmtKm(d.m / 1000) + ' km';
+        tip.style.display = 'block';
+        var w = tip.offsetWidth, x = e.clientX + 14;
+        if (x + w > window.innerWidth - 8) x = e.clientX - w - 14;
+        tip.style.left = x + 'px';
+        tip.style.top = (e.clientY + 16) + 'px';
+        var bars = chart.querySelectorAll('.yc-bar');
+        for (var i = 0; i < bars.length; i++) {
+            bars[i].classList.toggle('hot', i === +hit.getAttribute('data-yi'));
+        }
+    });
+    chart.addEventListener('mouseleave', function() {
+        document.getElementById('map-tip').style.display = 'none';
+        var bars = chart.querySelectorAll('.yc-bar.hot');
+        for (var i = 0; i < bars.length; i++) bars[i].classList.remove('hot');
     });
 
     document.getElementById('map-play').addEventListener('click', togglePlay);
@@ -1187,8 +1289,7 @@ function bindEvents() {
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {
-            st.fleetMax = FLEET_MAX;
-            renderFleet();
+            renderChart();
             fitLegend();          // re-fits the viewBox and redraws if needed
         }, 150);
     });
