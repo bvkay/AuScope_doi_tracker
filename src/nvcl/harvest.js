@@ -56,6 +56,10 @@ const DATA_DIR = path.join(ROOT, 'data');
 const DOCS_DIR = path.join(ROOT, 'docs');
 const CONFIG = readJson(path.join(ROOT, 'config.json'), {});
 
+// Every borehole coordinate we have ever successfully read, so a node being
+// down stops meaning its boreholes vanish. See loadBoreholeCache().
+const BOREHOLE_CACHE = path.join(DATA_DIR, 'nvcl', 'boreholes.jsonl');
+
 const OUT_DIR = process.env.NVCL_OUT_DIR || null;   // redirects writes only
 const FORCE = process.env.NVCL_FORCE === '1';
 const ONLY = (process.env.NVCL_ONLY || '').split(',')
@@ -76,7 +80,11 @@ const RETRIES = 2;
 const RETRY_DELAY_MS = 3000;
 const CONCURRENCY = 8;             // dataset fetches in flight per node
 const WFS_PAGE = 1000;
-const WFS_SINGLE_MAX = 20000;   // one-shot ceiling; see fetchWfsFiltered
+const WFS_SINGLE_MAX = 20000;
+
+// Share of a node's dataset queries that must fail before we stop believing
+// this run's figures for it and carry the previous run's forward instead.
+const DEGRADED_FRACTION = 0.5;   // one-shot ceiling; see fetchWfsFiltered
 const FALLBACK_PAGE = 10000;       // unfiltered paging (NT: CQL disabled)
 const CLAMP_FACTOR = 1.5;          // interval vs borehole length garbage clamp
 const MIN_NODES_UP = 5;            // health guard
@@ -131,16 +139,34 @@ async function run() {
   // it, just less measured and on ingest dates).
   const tsgIndex = loadTsgIndex(TSG_CACHE);
 
+  // Coordinates we already hold. A node that cannot be reached now falls back
+  // to these instead of dropping its boreholes off the map.
+  const bhCache = loadBoreholeCache(BOREHOLE_CACHE);
+  // Read BEFORE anything overwrites it: it seeds the coordinate cache for
+  // states we have never held, and supplies the map rows for any node that
+  // cannot be measured this run.
+  const prevFeed = readJson(path.join(DOCS_DIR, 'nvcl-data.json'), null);
+  seedBoreholeCache(bhCache, path.join(DOCS_DIR, 'nvcl-data.json'), asOf);
+
   // Harvest nodes sequentially (politeness); boreholes within a node
   // are fetched with CONCURRENCY workers.
   const results = [];
   for (let i = 0; i < nodes.length; i++) {
-    const r = await harvestNode(nodes[i]);
+    const r = await harvestNode(nodes[i], bhCache, asOf);
     attachTsg(r, tsgIndex);
     results.push(r);
   }
 
-  const snapshot = aggregate(results, asOf, tsgIndex);
+  // Written even when the run later fails its health guard: a coordinate we
+  // successfully read is worth keeping regardless of what the rest of the
+  // harvest did.
+  const cachePath = OUT_DIR ? path.join(OUT_DIR, 'boreholes.jsonl') : BOREHOLE_CACHE;
+  console.log('\nBorehole cache: ' + saveBoreholeCache(bhCache, cachePath) + ' rows written');
+
+  // The previous snapshot serves two purposes: carrying an unreachable node
+  // forward inside aggregate(), and the health guard below.
+  const prev = readJson(path.join(DATA_DIR, 'nvcl-stats.json'), null);
+  const snapshot = aggregate(results, asOf, tsgIndex, prev);
   const elapsed = Math.round((Date.now() - t0) / 1000);
   console.log('\nHarvest finished in ' + elapsed + 's');
   printSummary(snapshot);
@@ -148,7 +174,6 @@ async function run() {
   // ── Health guard ──
   // Compare against the CANONICAL previous snapshot (data/nvcl-stats.json),
   // not the redirect target — the guard exists to protect the national file.
-  const prev = readJson(path.join(DATA_DIR, 'nvcl-stats.json'), null);
   const prevCount = prev && prev.summary ? prev.summary.total_boreholes_with_data : null;
   const nodesUp = results.filter(function(r) { return r.wfsOk; }).length;
   const bhCount = snapshot.summary.total_boreholes_with_data;
@@ -182,7 +207,7 @@ async function run() {
 
   const feed = Object.assign({}, snapshot, {
     boreholeStates: NODES.map(function(n) { return n.code; }),
-    boreholes: buildDotArray(results),
+    boreholes: buildDotArray(results, prevFeed),
   });
   const feedPath = path.join(docsOut, 'nvcl-data.json');
   fs.writeFileSync(feedPath, JSON.stringify(feed));
@@ -204,13 +229,15 @@ async function run() {
 
 // ── Per-node harvest ──────────────────────────────────────────────
 
-async function harvestNode(node) {
+async function harvestNode(node, bhCache, today) {
   console.log('\n[' + node.code + '] ' + node.name);
   const result = {
     node: node, wfsOk: false, dsOk: false,
     boreholes: [],            // { id, name, lat, lng, lengthM, datasets: [] }
     wfsCount: 0,
     fetchFailures: 0,         // borehole dataset fetches that hard-failed
+    fromCache: false,         // coordinates came from cache, not from the node
+    coordsAsOf: null,         // when those cached coordinates were last read
   };
 
   // 1. WFS borehole list
@@ -221,8 +248,26 @@ async function harvestNode(node) {
     result.wfsOk = true;
     result.wfsCount = result.boreholes.length;
     console.log('  WFS: ' + result.wfsCount + ' NVCL boreholes registered');
+    if (bhCache) {
+      const dropped = purgeSeeded(bhCache, node.code);
+      const added = mergeBoreholeCache(bhCache, node.code, result.boreholes, today);
+      if (dropped) console.log('  Cache: replaced ' + dropped + ' seeded placeholder(s) with real rows');
+      if (added) console.log('  Cache: +' + added + ' borehole(s) not seen before');
+    }
   } catch (e) {
     console.warn('  WFS UNREACHABLE: ' + e.message);
+    // Fall back to the coordinates we already hold rather than dropping the
+    // state. Its boreholes still plot, and TSG evidence still measures them.
+    const cached = bhCache ? boreholesFromCache(bhCache, node.code) : [];
+    if (cached.length) {
+      result.boreholes = cached;
+      result.wfsCount = cached.length;
+      result.fromCache = true;
+      result.coordsAsOf = cached[0].coordsAsOf || null;
+      console.log('  CACHED: ' + cached.length + ' borehole(s) from a previous run'
+        + (result.coordsAsOf ? ' (coordinates as at ' + result.coordsAsOf + ')' : ''));
+      return result;          // dsOk stays false: no datasets without the node
+    }
     return result;            // status 'unreachable'; never kills the run
   }
 
@@ -261,6 +306,23 @@ async function harvestNode(node) {
   console.log('  Datasets: ' + withData + '/' + result.boreholes.length + ' boreholes have data'
     + (result.fetchFailures ? ' (' + result.fetchFailures + ' fetch failures)' : ''));
   if (!result.dsOk) console.warn('  DATASET SERVICE UNREACHABLE (all ' + result.fetchFailures + ' queries failed)');
+
+  // A half-answering node is the harder case, and the one that actually bit:
+  // on 17 Aug QLD's WFS served all 587 boreholes while its dataset service
+  // refused every query, so the state came out at 71 boreholes instead of 366
+  // and NOTHING flagged it — the node was "reachable", so the guard was happy.
+  // Losing most of a state's measurements is the same event as losing the
+  // state, and it gets the same treatment: keep the fresh coordinates, but
+  // carry the figures forward rather than publish a collapse as a measurement.
+  const failedFrac = result.boreholes.length
+    ? result.fetchFailures / result.boreholes.length : 0;
+  if (failedFrac > DEGRADED_FRACTION) {
+    result.degraded = true;
+    result.fromCache = true;          // carry stats forward, same as an outage
+    result.coordsAsOf = today;        // coordinates ARE fresh; the figures are not
+    console.warn('  DEGRADED: ' + Math.round(failedFrac * 100) + '% of dataset queries failed'
+      + ' — figures will be carried forward, coordinates kept fresh');
+  }
   return result;
 }
 
@@ -350,8 +412,17 @@ function addFeature(map, f) {
   const coords = (f.geometry && f.geometry.coordinates) || [];
   const lng = num(coords[0]), lat = num(coords[1]);
   if (lat === null || lng === null || (lat === 0 && lng === 0)) return;
+  // The node's own feature number, taken from the GeoJSON feature id
+  // ("gsml.borehole.877270"), NOT from properties.identifier — VIC's
+  // identifier ends in a free-text name ("...borehole/PROSP-KINGSTON;
+  // LOCAL-KIND168"), so the number is nowhere in `id`. VIC and NT name their
+  // mirror archives `<featureNumber>_<HOLE>.zip`, so without this the match
+  // is impossible and VIC reported 0 of its 39 archives.
+  const featureNum = (String(f.id || '').match(/(\d+)\s*$/) || [])[1] || '';
+
   map.set(id, {
     id: id,
+    featureNum: featureNum,
     name: p.name || id,
     lat: lat, lng: lng,
     lengthM: num(p.boreholeLength_m),
@@ -504,7 +575,16 @@ function mirrorOnly(st, used) {
   const holes = {};
   st.rows.forEach(function(r) {
     if (used.has(r._key)) return;
-    const hole = String(r.zipName || '').replace(/\.zip$/i, '');
+    // Archives sharing a leading feature number are one borehole scanned in
+    // sections, not several holes. VIC/976431 is STAVELY04 twice — 0-54.5 m
+    // sonic then 56.4-102.8 m diamond — contiguous, non-overlapping, one hole.
+    // Counting per archive inflated VIC from 29 boreholes to 39. This is the
+    // collapse that IS supported by the data; an earlier rule keyed on a
+    // trailing `-N` was not, and was removed.
+    const base = String(r.zipName || '').replace(/\.zip$/i, '');
+    // NOT `m` — that is the metre accumulator in the enclosing scope.
+    const featureId = base.match(/^(\d+)_/);
+    const hole = featureId ? featureId[1] : base;
     if (hole) holes[hole] = true;
     if (r.depthFromM === null || r.depthFromM === undefined) return;
     if (r.depthToM === null || r.depthToM === undefined) return;
@@ -513,6 +593,146 @@ function mirrorOnly(st, used) {
     m += len; n++;
   });
   return { m: m, n: n, boreholes: Object.keys(holes).length };
+}
+
+// ============================================================
+// BOREHOLE COORDINATE CACHE
+// ============================================================
+// The state WFS services are the only source of a borehole's coordinates, and
+// they are not reliable: TAS answered HTTP 500 on 10 Aug and again on 17 Aug,
+// and because each harvest rebuilt the snapshot from whatever answered THAT
+// DAY, its 482 boreholes simply left the map — for eleven days, unnoticed,
+// because five of eight nodes were up and the health guard only counts nodes.
+//
+// A borehole does not stop existing because a web service is down. So every
+// coordinate we successfully read is written here and reused when the service
+// that gave it to us cannot be reached. WFS becomes the thing that ADDS and
+// CORRECTS rows rather than the thing the map depends on being up.
+//
+// Measurement is already durable this way — tsg-cache.jsonl holds the scan
+// intervals — so with both caches a node that is completely down still
+// reports its boreholes, its kilometres and its scan dates. TAS's 142.3 km is
+// entirely TSG-derived: cached coordinates bring the whole state back.
+function loadBoreholeCache(file) {
+  const byState = {};
+  let rows = 0;
+  if (!fs.existsSync(file)) {
+    console.log('\nBorehole cache: none at ' + file + ' (first run seeds it)');
+    return { byState: byState, rows: 0, path: file };
+  }
+  fs.readFileSync(file, 'utf8').split('\n').forEach(function(line) {
+    if (!line.trim()) return;
+    let r;
+    try { r = JSON.parse(line); } catch (e) { return; }
+    if (!r || !r.state || !r.id) return;
+    (byState[r.state] || (byState[r.state] = new Map())).set(r.id, r);
+    rows++;
+  });
+  const states = Object.keys(byState).sort().map(function(k) {
+    return k + ':' + byState[k].size;
+  }).join(' ');
+  console.log('\nBorehole cache: ' + rows + ' rows  [' + states + ']');
+  return { byState: byState, rows: rows, path: file };
+}
+
+// Fold a live WFS answer back into the cache. Coordinates are overwritten from
+// the service (it is authoritative when it answers); firstSeen is preserved so
+// the cache also records how long we have known about a hole.
+function mergeBoreholeCache(cache, state, boreholes, today) {
+  const m = cache.byState[state] || (cache.byState[state] = new Map());
+  let added = 0;
+  boreholes.forEach(function(bh) {
+    const prev = m.get(bh.id);
+    m.set(bh.id, {
+      state: state, id: bh.id, name: bh.name,
+      lat: bh.lat, lng: bh.lng,
+      lengthM: bh.lengthM, custodian: bh.custodian || '',
+      firstSeen: (prev && prev.firstSeen) || today,
+      lastSeen: today,
+    });
+    if (!prev) added++;
+  });
+  return added;
+}
+
+// Rebuild a node's borehole list from cache. Returned rows are the same shape
+// fetchWfs* produces, so nothing downstream needs to know where they came from.
+function boreholesFromCache(cache, state) {
+  const m = cache.byState[state];
+  if (!m || !m.size) return [];
+  return Array.from(m.values()).map(function(r) {
+    return {
+      id: r.id, name: r.name, lat: r.lat, lng: r.lng,
+      lengthM: r.lengthM, custodian: r.custodian || '',
+      datasets: [], fromCache: true, coordsAsOf: r.lastSeen || null,
+    };
+  });
+}
+
+// Seed from the last published feed for any state the cache has never held.
+// The feed stores boreholes as compact [lat, lng, stateIdx, month, m, tsg]
+// rows with NO identifier, so seeded entries carry a synthetic id and a
+// seeded flag: they are good enough to place a dot, and deliberately not good
+// enough to match a TSG archive or fetch a dataset. The first time the real
+// service answers, its rows replace the seeds for that state outright.
+//
+// This exists because TAS went down on 10 Aug and stayed down: by the time
+// the cache was built there was no way to ask the service for the 482
+// coordinates it had served a week earlier, and the only surviving copy was
+// the feed itself.
+function seedBoreholeCache(cache, feedPath, today) {
+  if (!fs.existsSync(feedPath)) return 0;
+  let feed;
+  try { feed = JSON.parse(fs.readFileSync(feedPath, 'utf8')); } catch (e) { return 0; }
+  const codes = feed.boreholeStates || [];
+  const rows = feed.boreholes || [];
+  const seeded = {};
+  rows.forEach(function(r, i) {
+    const st = codes[(r[2] || 0) & 7];
+    if (!st) return;
+    // Only states we hold NOTHING for. A cache row from the service always
+    // wins; seeding never overwrites, it only fills a hole.
+    if (cache.byState[st] && cache.byState[st].size) return;
+    const m = seeded[st] || (seeded[st] = []);
+    m.push({
+      state: st, id: 'seed:' + st + ':' + i, name: '',
+      lat: r[0], lng: r[1], lengthM: null, custodian: '',
+      firstSeen: feed.as_of || today, lastSeen: feed.as_of || today,
+      seeded: true, seedSource: feed.as_of || null,
+    });
+  });
+  let n = 0;
+  Object.keys(seeded).forEach(function(st) {
+    const m = cache.byState[st] || (cache.byState[st] = new Map());
+    seeded[st].forEach(function(r) { m.set(r.id, r); n++; });
+    console.log('  seeded ' + seeded[st].length + ' ' + st
+      + ' borehole(s) from the published feed (' + (feed.as_of || 'undated') + ')');
+  });
+  if (n) console.log('Borehole cache: ' + n + ' seeded row(s) — coordinates only, no identifiers');
+  return n;
+}
+
+// Drop seeded placeholders for a state once its service answers for real.
+function purgeSeeded(cache, state) {
+  const m = cache.byState[state];
+  if (!m) return 0;
+  let n = 0;
+  Array.from(m.keys()).forEach(function(k) {
+    if (m.get(k) && m.get(k).seeded) { m.delete(k); n++; }
+  });
+  return n;
+}
+
+function saveBoreholeCache(cache, file) {
+  const out = [];
+  Object.keys(cache.byState).sort().forEach(function(st) {
+    Array.from(cache.byState[st].values())
+      .sort(function(a, b) { return a.id < b.id ? -1 : 1; })
+      .forEach(function(r) { out.push(JSON.stringify(r)); });
+  });
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, out.join('\n') + (out.length ? '\n' : ''));
+  return out.length;
 }
 
 // Attach cache rows to boreholes and report the match rate. Rows that match
@@ -530,6 +750,23 @@ function attachTsg(result, idx) {
   // this whole section exists to enforce. With no boreholes to match against,
   // `used` stays empty and every cache row falls through to mirror-only.
   const used = new Set();
+
+  // A node serving cached coordinates reports figures carried forward from the
+  // run that last reached it, and those figures already include every one of
+  // its TSG archives. Letting the same archives fall through to mirror-only
+  // would count the same holes twice — 482 cached TAS boreholes PLUS 499
+  // mirror-only TAS archives, for a state that has about 500 holes in total.
+  if (result.fromCache) {
+    st.rows.forEach(function(r) { used.add(r._key); idx.matchedRows.add(r._key); });
+    result.tsg.matchedRows = used.size;
+    result.tsg.mirrorOnlyKm = 0;
+    result.tsg.mirrorOnlyArchives = 0;
+    result.tsg.mirrorOnlyBoreholes = 0;
+    console.log('  TSG: ' + st.rows.length + ' cache row(s) attributed to the '
+      + 'carried-forward figures for this node, not to mirror-only');
+    return;
+  }
+
   result.boreholes.forEach(function(bh) {
     const hit = matchTsgRows(st, bh);
     if (!hit) return;
@@ -582,8 +819,19 @@ function attachTsg(result, idx) {
 function matchTsgRows(st, bh) {
   const idKey = normKey(bh.id);
   const nameKey = normKey(bh.name);
+  // The bare feature number. VIC and NT name their archives
+  // `<featureNumber>_<HOLE>...` — 877270_KIND168.zip — while their WFS ids
+  // arrive as `gsml.borehole.877270`. normKey flattens that whole string to
+  // GSMLBOREHOLE877270, which can never equal the archive's 877270 key, so
+  // every VIC row missed: 39 archives, 0 matched, and a state that has been
+  // scanned since 2010 reported zero boreholes on the map. Matching the
+  // trailing number as its own tier fixes it, and it is a SAFE key precisely
+  // because it is a node's own feature id, not a free-text name.
+  const numKey = bh.featureNum
+    || (String(bh.id || '').match(/(\d+)\s*$/) || [])[1] || '';
   const tiers = [
     ['id', union(st.full.get(idKey), st.prefix.get(idKey))],
+    ['num', numKey ? union(st.full.get(numKey), st.prefix.get(numKey)) : null],
     ['name', union(st.full.get(nameKey), st.prefix.get(nameKey))],
     ['name-suffix', st.suffix.get(nameKey)],
     ['id-suffix', st.suffix.get(idKey)],
@@ -730,7 +978,13 @@ function unionLength(list) {
 
 // ── Aggregation ───────────────────────────────────────────────────
 
-function aggregate(results, asOf, tsgIndex) {
+// prev is the previous snapshot, used ONLY to carry a node forward when it
+// could not be reached this run.
+function aggregate(results, asOf, tsgIndex, prev) {
+  const prevStates = {};
+  ((prev && prev.states) || []).forEach(function(e) {
+    if (e && e.state) prevStates[e.state] = e;
+  });
   const today = new Date(asOf + 'T00:00:00Z');
   const cutoff12mo = new Date(today.getTime() - 365 * 86400000).toISOString().substring(0, 10);
   tsgIndex = tsgIndex || { loaded: false, rows: 0, byState: {}, matchedRows: new Set() };
@@ -750,8 +1004,10 @@ function aggregate(results, asOf, tsgIndex) {
 
   results.forEach(function(r) {
     const node = r.node;
-    if (!r.wfsOk) {
-      // The node did not answer, but the mirror may still hold its archives.
+    if (!r.wfsOk && !r.boreholes.length) {
+      // The node did not answer AND we hold no cached coordinates for it, so
+      // there is nothing to place on a map. The mirror may still hold its
+      // archives.
       // Those are scans the instrument demonstrably performed, and they do not
       // stop being evidence because a state service is down — so they are
       // counted here rather than lost alongside the node. TAS answered HTTP
@@ -782,6 +1038,53 @@ function aggregate(results, asOf, tsgIndex) {
           : 'Node did not answer during this harvest. Figures from this node are absent, not zero.',
       });
       return;
+    }
+
+    // A node we could not reach keeps the numbers it had, rather than
+    // reporting zero. Its boreholes still plot (cached coordinates) and its
+    // kilometres still count, but both are stamped with the date they were
+    // actually measured so nothing here poses as fresh.
+    if (r.fromCache) {
+      const before = prevStates[node.code];
+      if (before) {
+        const carried = Object.assign({}, before, {
+          status: r.degraded ? 'degraded' : 'cached',
+          coords_as_of: r.coordsAsOf || null,
+          coords_from_cache: !r.degraded,
+          // The date this state was last really MEASURED, not the date of the
+          // run that last carried it. Without the first clause each carry
+          // stamps the previous run's date onto figures it also only carried,
+          // so a node down for months would keep reporting that it was
+          // measured last week — which is precisely the lie this field exists
+          // to prevent.
+          measured_as_of: before.measured_as_of || (prev && prev.as_of) || null,
+          note: r.degraded
+            ? 'This node served its borehole list but its dataset service failed '
+              + 'most queries, so the figures are those last measured on '
+              + ((prev && prev.as_of) || 'an earlier run')
+              + '. Coordinates are current; the measurements are not.'
+            : 'Node did not answer this run. Boreholes are drawn from cached '
+              + 'coordinates and the figures are those last measured on '
+              + ((prev && prev.as_of) || 'an earlier run')
+              + '. Carried forward rather than reported as zero.',
+        });
+        states.push(carried);
+        sumDatasets += carried.total_datasets || 0;
+        sumBoreholesWithData += carried.total_boreholes_with_data || 0;
+        sumUniqueM += (carried.unique_scanned_km || 0) * 1000;
+        sumTotalM += (carried.total_scan_km || 0) * 1000;
+        sumEstimatedM += (carried.estimated_km || 0) * 1000;
+        sumEstimatedBh += carried.estimated_boreholes || 0;
+        sumMirrorOnlyKm += carried.mirror_only_km || 0;
+        sumMirrorOnlyArchives += carried.mirror_only_archives || 0;
+        sumMirrorOnlyBoreholes += carried.mirror_only_boreholes || 0;
+        participating.push(node.code);
+        console.log('  [' + node.code + '] carried forward from '
+          + ((prev && prev.as_of) || '?') + ': '
+          + (carried.total_boreholes_with_data || 0) + ' boreholes, '
+          + (carried.unique_scanned_km || 0) + ' km');
+        return;
+      }
     }
 
     let stDatasets = 0, stWithData = 0, stUniqueM = 0, stTotalM = 0;
@@ -900,9 +1203,15 @@ function aggregate(results, asOf, tsgIndex) {
     if (isParticipating) participating.push(node.code);
     else { nonParticipating.push(node.code); nonPartBoreholes += r.wfsCount; }
 
+    // 'cached' is a THIRD state, distinct from both participating and
+    // unreachable: the node did not answer this run, but we hold its
+    // coordinates from a previous one and its TSG evidence is durable, so it
+    // still reports real boreholes and real kilometres — just not fresh ones.
     const entry = {
       state: node.code,
-      status: isParticipating ? 'participating' : 'non_participating',
+      status: r.fromCache ? 'cached' : (isParticipating ? 'participating' : 'non_participating'),
+      coords_as_of: r.fromCache ? r.coordsAsOf : null,
+      coords_from_cache: !!r.fromCache,
       wfs_registered_boreholes: r.wfsCount,
       total_datasets: stDatasets,
       total_boreholes_with_data: stWithData,
@@ -1146,11 +1455,49 @@ function topMonth(hist) {
 
 // Compact dot array for the page map: [lat, lng, stateIdx, 'YYYY-MM', depth_m].
 // One dot per borehole WITH data; depth is the union (unique) metres.
-function buildDotArray(results) {
+function buildDotArray(results, prevFeed) {
   const order = NODES.map(function(n) { return n.code; });
   const dots = [];
+
+  // Dots for the previous run's month and metres, keyed by state, used only to
+  // put a date back on a carried-forward borehole. Coordinates never come from
+  // here — they come from the cache, which is the durable store.
+  const prevByState = {};
+  if (prevFeed && prevFeed.boreholes && prevFeed.boreholeStates) {
+    prevFeed.boreholes.forEach(function(row) {
+      const code = prevFeed.boreholeStates[(row[2] || 0) & 7];
+      if (code) (prevByState[code] || (prevByState[code] = [])).push(row);
+    });
+  }
+
   results.forEach(function(r) {
     const idx = order.indexOf(r.node.code);
+
+    // A node we could not measure still gets its dots, straight from the
+    // cached coordinates. Drawing these from the previous FEED was the obvious
+    // approach and the wrong one: the feed is the thing a bad run overwrites,
+    // so the first harvest after an outage had already destroyed the rows it
+    // needed to carry forward. The cache survives that, which is the entire
+    // reason it exists.
+    if (r.fromCache && !r.degraded) {
+      const prevRows = prevByState[r.node.code] || [];
+      r.boreholes.forEach(function(bh, i) {
+        if (bh.lat == null || bh.lng == null) return;
+        // Dates and metres, where the previous feed still has them in the same
+        // order. Positional, because seeded rows carry no identifier to join
+        // on — so it is used ONLY for the timeline, never for a count.
+        const p = (prevRows.length === r.boreholes.length) ? prevRows[i] : null;
+        dots.push([
+          Math.round(bh.lat * 1000) / 1000,
+          Math.round(bh.lng * 1000) / 1000,
+          idx,
+          p ? p[3] : '',
+          p ? p[4] : 0,
+          p ? p[5] : 0,
+        ]);
+      });
+      return;
+    }
     r.boreholes.forEach(function(bh) {
       // Same rule as the aggregation: draw a borehole we have TSG evidence
       // for even when its node's API returned nothing, otherwise a broken
@@ -1290,5 +1637,6 @@ function sleep(ms) {
 
 run().catch(function(err) {
   console.error('Harvest failed: ' + err.message);
+  if (process.env.NVCL_TRACE) console.error(err.stack);
   process.exit(1);
 });

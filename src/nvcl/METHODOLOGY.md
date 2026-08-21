@@ -534,3 +534,81 @@ The principle is the same one that governs the dates: if the instrument's
 own file records the scan, the scan happened, whether or not a state
 service mentions the hole. Reporting less because a node is degraded would
 penalise exactly the states most in need of the visibility.
+
+---
+
+## Carry-forward: a snapshot is not a status report (added merged-v1.4, 20 Aug 2026)
+
+Every harvest before this one rebuilt the national snapshot from whatever
+answered **that day**. A state whose service was down did not report "no new
+data" — it reported **nothing**, and its boreholes left the map.
+
+That is the wrong model for what this data is. The NVCL archive is
+cumulative: **core that has been scanned does not become unscanned because a
+web service is returning HTTP 500.** Node uptime is a fact about a server on a
+Tuesday; it is not evidence about scanning.
+
+### What it cost
+
+Measured, not hypothetical. The scheduled harvest of **10 Aug 2026** ran while
+the Tasmanian WFS was down. It wrote, committed and published a snapshot with
+**TAS at zero**: 6,006 boreholes fell to 5,530 and the national figure fell
+from 1,876 km to 1,738 km. Nothing flagged it. The health guard passed,
+because it counts *nodes reachable* (5 of 8 cleared the threshold) and total
+boreholes against an 80% floor, which 5,530/6,006 = 92% comfortably cleared.
+**The loss was invisible for eleven days** and was noticed only because
+Tasmania looked empty on the map.
+
+Queensland showed the same failure in a harder form on 17 Aug: its WFS served
+all 587 boreholes while its **dataset service refused every query**, so the
+state reported 71 boreholes instead of 366. The node was "reachable", so
+nothing complained at all.
+
+### The rules
+
+Three sources of durability, in order of preference:
+
+1. **`data/nvcl/boreholes.jsonl`** — every borehole coordinate ever
+   successfully read, keyed by state and node identifier. WFS becomes the
+   thing that *adds and corrects* rows, not the thing the map depends on being
+   up.
+2. **`data/nvcl/tsg-cache.jsonl`** — scan intervals, dates and instrument, as
+   already established. Measurement was durable before this change; location
+   was not.
+3. **The previous snapshot** — for a node that cannot be measured this run.
+
+A node is carried forward when either:
+
+- its **WFS fails** (`status: cached`) — boreholes are drawn from cached
+  coordinates, and the figures are those last measured; or
+- **more than 50% of its dataset queries fail** (`status: degraded`) —
+  coordinates are current, the figures are not.
+
+In both cases the state entry carries `coords_as_of` and `measured_as_of`, so
+a carried-forward number can always be told from a fresh one.
+
+**A carried-forward node's TSG archives are excluded from mirror-only.** They
+are already represented in the figures being carried forward, and counting
+both would double-count the same holes — 482 cached Tasmanian boreholes *plus*
+499 mirror-only Tasmanian archives, for a state with about 500 holes in total.
+
+### Seeding, and its limits
+
+The cache cannot be populated retroactively from a service that is down. When
+Tasmania went dark on 10 Aug there was no way to ask it for the 482
+coordinates it had served the week before; the only surviving copy was the
+published feed. So a state the cache has never held is seeded from
+`docs/nvcl-data.json`, whose rows are `[lat, lng, stateIdx, month, m, tsg]`
+with **no identifier**. Seeded rows therefore carry a synthetic id and a
+`seeded` flag: good enough to place a dot, deliberately not good enough to
+match a TSG archive or fetch a dataset. The first time the real service
+answers, its rows replace the seeds for that state outright.
+
+### What this does not fix
+
+Carry-forward keeps a number from vanishing; it does not keep it true. A node
+down for six months will keep reporting six-month-old figures. That is why
+every carried-forward entry is dated and labelled rather than silently merged
+— **staleness is disclosed, never averaged away.** Deciding when stale becomes
+unacceptable is a judgement for whoever reads the page, and they can only make
+it if the page says which numbers are old.
