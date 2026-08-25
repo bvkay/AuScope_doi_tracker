@@ -20,6 +20,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { normaliseDoi } = require('./utils');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const DOCS_DIR = path.join(__dirname, '..', 'docs');
@@ -47,15 +48,45 @@ async function run() {
   // get their own pillar rather than inflating the dataset count.
   const dsData = readJson(path.join(DATA_DIR, 'datasets.json'), { records: [] });
   const datasets = dsData.records || [];
+  // NCI records carry a subset tag (MT | DAS) so each data type gets its own
+  // dashboard widget; the subset key is 'NCI MT' / 'NCI DAS'.
+  const subsetKey = function(d) {
+    if (d.platform === 'NCI' && d.subset) return 'NCI ' + d.subset;
+    return d.platform || 'Other';
+  };
   const byPlatform = {};
   let samples = 0;
   datasets.forEach(function(d) {
     if (d.platform === 'EarthBank' && d.type === 'PhysicalObject') { samples++; return; }
-    const key = d.platform || 'Other';
+    const key = subsetKey(d);
     byPlatform[key] = (byPlatform[key] || 0) + 1;
   });
   const dsTotal = datasets.length - samples;
-  pillars.datasets = { total: dsTotal, byPlatform: byPlatform };
+
+  // Per-subset F-UJI averages, joined by DOI from data/fair-scores.json
+  // (written by fair-assess.js; absent file degrades to no averages).
+  const fairStore = readJson(path.join(DATA_DIR, 'fair-scores.json'), { scores: {} });
+  const fairAvg = {};
+  if (fairStore.scores && Object.keys(fairStore.scores).length) {
+    const sums = {};
+    datasets.forEach(function(d) {
+      if (!d.doi || (d.platform === 'EarthBank' && d.type === 'PhysicalObject')) return;
+      const entry = fairStore.scores[normaliseDoi(d.doi)];
+      if (!entry || entry.score == null) return;
+      const key = subsetKey(d);
+      sums[key] = sums[key] || { n: 0, sum: 0 };
+      sums[key].n++; sums[key].sum += entry.score;
+    });
+    Object.keys(sums).forEach(function(k) {
+      fairAvg[k] = Math.round(sums[k].sum / sums[k].n);
+    });
+  }
+  pillars.datasets = {
+    total: dsTotal, byPlatform: byPlatform, fairAvg: fairAvg,
+    fairMeta: fairStore.metadata
+      ? { metric_version: fairStore.metadata.metric_version, last_updated: fairStore.metadata.last_updated }
+      : null
+  };
 
   // ── Samples (EarthBank, live) ──
   // Two facets: PhysicalObject records are per-sample DOIs; Dataset records
@@ -221,6 +252,57 @@ async function run() {
     pillars.ausis = null;
   }
 
+  // ── AusMT (Australia's MT data portal, live) ──
+  // Reads the portal's own machine surfaces (static files, CC0 catalogue):
+  // build_provenance.json carries the corpus counts, collections.json the
+  // AusLAMP programme rollup. Operated by Ben — same trust tier as AuSIS.
+  try {
+    const base = 'https://ausmt.auscope.org.au/data/';
+    const prov = await (await fetch(base + 'build_provenance.json')).json();
+    if (!prov || !prov.n_surveys) throw new Error('no counts in build_provenance');
+    let auslamp = null;
+    try {
+      const coll = await (await fetch(base + 'collections.json')).json();
+      if (coll && coll.auslamp) {
+        auslamp = { surveys: coll.auslamp.n_surveys, stations: coll.auslamp.n_stations };
+      }
+    } catch (e) { /* AusLAMP rollup optional */ }
+    pillars.ausmt = {
+      surveys: prov.n_surveys,
+      stations: prov.n_stations,
+      auslamp: auslamp,
+      generated: (prov.generated || '').substring(0, 10)
+    };
+    // Run-level deployment register (committed snapshot from ausmt-inventory.js —
+    // the SOLE source for MT instrument deployments; the instrument registry's
+    // survey records are deliberately not used for this). Scope: AuScope-funded
+    // instruments only (fundingReferences filter via the registry fetch above),
+    // falling back to unfiltered totals if the registry fetch failed.
+    const runs = readJson(path.join(DATA_DIR, 'ausmt-runs.json'), null);
+    if (runs && runs.metadata) {
+      const m = runs.metadata;
+      const scoped = m.scope_tagged && m.auscope_instruments != null;
+      pillars.ausmt.instrumentsDeployed = scoped ? m.auscope_instruments : m.instruments;
+      pillars.ausmt.occupations = scoped ? m.auscope_occupations : m.occupations;
+      pillars.ausmt.recordingDays = scoped ? m.auscope_recording_days : m.recording_days;
+      pillars.ausmt.surveysPopulated = m.surveys_populated;
+      pillars.ausmt.scopeFiltered = !!scoped;
+      pillars.ausmt.runsFetched = (m.fetched || '').substring(0, 10);
+    }
+    console.log('AusMT: ' + pillars.ausmt.surveys + ' surveys, '
+      + pillars.ausmt.stations + ' stations'
+      + (auslamp ? ' (AusLAMP ' + auslamp.surveys + '/' + auslamp.stations + ')' : '')
+      + (pillars.ausmt.instrumentsDeployed != null
+        ? ' · runs: ' + pillars.ausmt.instrumentsDeployed + ' instruments'
+          + (pillars.ausmt.scopeFiltered ? ' (AuScope-funded)' : ' (unfiltered)')
+          + ', ' + pillars.ausmt.recordingDays + ' recording-days ('
+          + pillars.ausmt.surveysPopulated + '/' + pillars.ausmt.surveys + ' surveys populated)'
+        : ''));
+  } catch (e) {
+    console.warn('AusMT fetch failed: ' + e.message);
+    pillars.ausmt = null;
+  }
+
   // ── Data repository (DataCite, count only) ──
   try {
     const resp = await fetch('https://api.datacite.org/dois?client-id=auscope.repo1&page[size]=0');
@@ -251,7 +333,13 @@ async function run() {
     instrumentUnits: pillars.instruments ? pillars.instruments.units : null,
     surveys: pillars.instruments ? pillars.instruments.surveys : null,
     impactLinks: pillars.instruments
-      ? pillars.instruments.linkedDatasets + pillars.instruments.linkedPapers : null
+      ? pillars.instruments.linkedDatasets + pillars.instruments.linkedPapers : null,
+    ausmtSurveys: pillars.ausmt ? pillars.ausmt.surveys : null,
+    ausmtStations: pillars.ausmt ? pillars.ausmt.stations : null,
+    ausmtInstrumentsDeployed: pillars.ausmt && pillars.ausmt.instrumentsDeployed != null
+      ? pillars.ausmt.instrumentsDeployed : null,
+    ausmtRecordingDays: pillars.ausmt && pillars.ausmt.recordingDays != null
+      ? pillars.ausmt.recordingDays : null
   };
   const filtered = history.filter(function(h) { return h.date !== today; });
   filtered.push(snapshot);

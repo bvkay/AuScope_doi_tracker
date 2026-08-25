@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<!--
+    AuScope MT Deployment Register
+    Run-level MT instrument deployments collated from AusMT per-station
+    station.json records: which AuScope instrument recorded at which
+    station, and for exactly how long. Second-precision acquisition
+    windows naming each recorder and coil by DOI and serial - granularity
+    DataCite cannot reach.
+
+    Everything on this page is computed client-side from the committed
+    same-origin feed docs/ausmt-data.json (regenerated weekly by
+    src/ausmt-inventory.js). No number is hardcoded - tiles, chart,
+    register and coverage tables all refresh with the feed. Register rows
+    expand (instruments.html idiom) into per-survey rollups, the raw
+    occupation list and a mini station-location map; the coastline for
+    that map (australia-outline.json, Natural Earth 1:110m) is fetched
+    lazily on first expand, single-flight, and omitted quietly on failure.
+
+    Shared skin/machinery: tracker-shared.css (styles), tracker-chassis.js
+    (escapeHtml/escapeAttr + logo fallback). No citations module here.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AuScope MT Deployment Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
+    <style>
+        /*
+            Page-specific rules. The shared skin (tokens, header, stat
+            tiles, table base, badges, tooltips) comes from
+            tracker-shared.css, loaded BEFORE this block. Blue family
+            like instruments.html - MT sits in the instruments family.
+        */
+
+        /* ----- provenance banner (green: verified-at-source) ----- */
+        .prov-banner {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            background: var(--good-bg);
+            border: 1px solid #86efac;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+        }
+        .prov-mark { color: var(--good); font-weight: 700; font-size: 16px; line-height: 1.3; }
+        .prov-title { font-size: 13px; font-weight: 600; color: var(--text); }
+        .prov-text { font-size: 12.5px; color: var(--text-soft); margin-top: 2px; max-width: 96ch; line-height: 1.55; }
+        .prov-text .mono { font-family: var(--mono); font-size: 11.5px; }
+
+        /* Stat-tile tooltips: anchor to the tile, not the info icon.
+           The shared [data-tip]::after is laid out even while invisible
+           (opacity 0), so a left-anchored 280px tooltip on a right-column
+           tile silently widens the body and creates horizontal scroll.
+           Spanning the tile (left+right insets) can never overflow.
+           (Same workaround as nvcl.html.) */
+        .stats .stat { position: relative; }
+        .stats .stat [data-tip] { position: static; }
+        .stats .stat [data-tip]::after {
+            left: 10px;
+            right: 10px;
+            width: auto;
+            max-width: none;
+        }
+        .stats .stat [data-tip]::before { left: 16px; }
+
+        /* ----- sections (nvcl idiom) ----- */
+        .section { margin: 28px 0; }
+        .section h2 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 3px;
+        }
+        .section-note { font-size: 12.5px; color: var(--text-soft); margin-bottom: 10px; max-width: 100ch; }
+        .section-note.after { margin-top: 8px; margin-bottom: 0; }
+        .section-note .mono { font-family: var(--mono); font-size: 12px; }
+
+        /* ----- daily-recording chart ----- */
+        .chart-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px;
+            background: var(--bg);
+            overflow-x: auto;
+        }
+        .chart-card svg text { font-family: var(--sans); }
+
+        /* tables scroll inside their own container, never the page body */
+        .table-wrap { overflow-x: auto; }
+        th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+        td .muted { color: var(--text-muted); }
+
+        /* runs-status badges */
+        .badge.populated { background: var(--good-bg); color: #166534; }
+        .badge.scaffolded { background: var(--warn-bg); color: #92400e; }
+        .badge.none { background: var(--bg-muted); color: var(--text-soft); }
+
+        /* ----- register detail rows (expand idiom from instruments.html;
+                 chevron/.detail/.data-row skins come from tracker-shared.css) ----- */
+        table.data.compact { font-size: 12.5px; }
+        table.data.compact thead th { padding: 6px 10px; font-size: 11px; }
+        table.data.compact tbody td { padding: 6px 10px; }
+        .mtd-head { font-size: 13px; color: var(--text); margin-bottom: 14px; line-height: 1.6; }
+        .mtd-head .totals { color: var(--text-soft); }
+        .mtd-flex { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+        .mtd-tables { flex: 1 1 340px; min-width: 280px; }
+        .mtd-tables .table-wrap { margin-bottom: 14px; }
+        .mtd-tables .table-wrap:last-child { margin-bottom: 0; }
+        .mtd-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        .occ-scroll.scrolly { max-height: 300px; overflow-y: auto; }
+        .mtd-map { flex: 0 0 220px; }
+        .mtd-map svg {
+            display: block;
+            width: 220px;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg);
+        }
+        .mtd-map .coast path { fill: var(--bg-soft); stroke: var(--border-strong); stroke-width: 1.5; }
+        .mtd-map .st-dot { fill: var(--accent); fill-opacity: 0.7; }
+        .mtd-map .map-cap { font-size: 11.5px; color: var(--text-soft); margin-top: 6px; line-height: 1.5; }
+        .mtd-note { font-size: 12px; color: var(--text-muted); }
+
+        /* ----- caveats ----- */
+        .caveats {
+            border: 1px solid var(--border);
+            background: var(--bg-soft);
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin-top: 28px;
+        }
+        .caveats h2 { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+        .caveats ol { padding-left: 20px; }
+        .caveats li { font-size: 13px; color: var(--text-soft); margin-bottom: 8px; max-width: 100ch; }
+        .caveats li strong { color: var(--text); }
+        .caveats li:last-child { margin-bottom: 0; }
+        .caveats .mono { font-family: var(--mono); font-size: 12px; }
+
+        /* ----- footer ----- */
+        .foot {
+            margin-top: 30px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            font-size: 11.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .foot p { margin-bottom: 5px; max-width: 110ch; }
+        .foot strong { color: var(--text-soft); }
+        .foot a { color: var(--accent); text-decoration: none; }
+        .foot a:hover { text-decoration: underline; }
+        .foot .mono { font-family: var(--mono); }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- ========== HEADER ========== -->
+        <div class="topbar">
+            <div class="brand">
+                <h1>
+                    <img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope" data-fallback="auscope">
+                    <span class="accent">MT</span> Deployment Register
+                </h1>
+                <p>Which AuScope instruments recorded at which stations, and for exactly how long &mdash; run-level acquisition metadata from AusMT.</p>
+            </div>
+            <div class="links">
+                <a href="index.html">&larr; Impact overview</a>
+                <a href="instruments.html">Instrument Registry</a>
+                <a href="https://ausmt.auscope.org.au/" target="_blank" rel="noopener">AusMT Portal &#8599;</a>
+            </div>
+        </div>
+
+        <!-- ========== PROVENANCE BANNER ========== -->
+        <div class="prov-banner">
+            <div class="prov-mark">&#10003;</div>
+            <div>
+                <div class="prov-title">Every number on this page is verifiable at source</div>
+                <div class="prov-text" id="prov-text"><span class="spinner"></span> Loading deployment feed (ausmt-data.json)&hellip;</div>
+            </div>
+        </div>
+
+        <!-- ========== EVERYTHING BELOW IS FEED-DRIVEN ========== -->
+        <div id="main-content">
+
+            <!-- ========== STAT TILES ========== -->
+            <div class="stats">
+                <div class="stat"><div class="label">AuScope instruments deployed <span class="info-i" data-tip="Distinct AuScope-funded instruments (recorders and magnetic coils, identified by PIDInst DOI) appearing in populated run records.">i</span></div><div class="value" id="stat-inst">&mdash;</div><div class="sub" id="stat-inst-sub">&mdash;</div></div>
+                <div class="stat"><div class="label">Recording-days <span class="info-i" data-tip="Summed acquisition time across all AuScope-funded occupations, in instrument-days (hours &divide; 24). Excludes transport, setup and idle time.">i</span></div><div class="value" id="stat-days">&mdash;</div><div class="sub" id="stat-days-sub">&mdash;</div></div>
+                <div class="stat"><div class="label">Occupations <span class="info-i" data-tip="One occupation = one instrument at one station for one run's time_period, taken directly from the station.json runs block.">i</span></div><div class="value" id="stat-occ">&mdash;</div><div class="sub">instrument &times; station run records</div></div>
+                <div class="stat"><div class="label">Stations covered <span class="info-i" data-tip="Distinct stations with at least one AuScope-funded instrument occupation in the populated run records.">i</span></div><div class="value" id="stat-stations">&mdash;</div><div class="sub">with instrument attribution</div></div>
+                <div class="stat"><div class="label">Surveys populated <span class="info-i" data-tip="AusMT surveys whose per-station runs metadata carries real acquisition times and instrument DOIs. The register grows automatically as more surveys are populated.">i</span></div><div class="value" id="stat-surveys">&mdash;</div><div class="sub">register grows with metadata</div></div>
+            </div>
+
+            <!-- ========== DAILY RECORDING CHART ========== -->
+            <div class="section" id="chart-section">
+                <h2 id="chart-title">Instruments recording, day by day</h2>
+                <div class="section-note" id="chart-note">Loading&hellip;</div>
+                <div class="chart-card"><div id="occ-chart"></div></div>
+            </div>
+
+            <!-- ========== INSTRUMENT REGISTER ========== -->
+            <div class="section" id="register-section">
+                <h2>The register: every instrument, DOI-attributed</h2>
+                <div class="section-note" id="register-note">Loading&hellip;</div>
+                <div class="table-wrap">
+                    <table class="data" id="inst-table">
+                        <thead><tr><th>Instrument DOI</th><th>Model</th><th>Serial</th><th class="num" title="Distinct surveys this unit appears in &mdash; grows as more surveys' runs metadata is populated">Surveys</th><th class="num">Stations occupied</th><th class="num">Recording hours</th><th class="num">Days</th><th class="col-actions"></th></tr></thead>
+                        <tbody><tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading&hellip;</td></tr></tbody>
+                    </table>
+                </div>
+                <div class="section-note after" id="excl-note"></div>
+            </div>
+
+            <!-- ========== SURVEY COVERAGE ========== -->
+            <div class="section" id="coverage-section">
+                <h2>Where the register grows next: run metadata by survey</h2>
+                <div class="section-note" id="coverage-note">Loading&hellip;</div>
+                <div class="table-wrap">
+                    <table class="data" id="survey-table">
+                        <thead><tr><th>Survey</th><th>Years</th><th class="num">Stations</th><th>Organisation</th><th>Run metadata</th></tr></thead>
+                        <tbody><tr><td colspan="5" class="empty-state"><span class="spinner"></span> Loading&hellip;</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ========== CAVEATS ========== -->
+            <div class="caveats">
+                <h2>Reading these numbers</h2>
+                <ol>
+                    <li><strong>Single source of truth.</strong> Deployment figures come only from AusMT per-station <span class="mono">runs</span> records. The instrument registry&rsquo;s field-survey DOIs (coverage windows, component lists) are deliberately not used for deployment accounting &mdash; they remain as PID-graph links.</li>
+                    <li><strong>Coverage grows as runs are populated.</strong> <span id="cv-coverage">&mdash;</span> Every figure on this page grows as AusMT metadata is populated &mdash; the register is a floor, not a ceiling.</li>
+                    <li><strong>Hours measure acquisition, not campaign commitment.</strong> An instrument&rsquo;s recording-hours exclude transport, setup and idle time between stations, so these are conservative utilisation figures.</li>
+                    <li><strong>Scope: AuScope-funded instruments</strong> (DataCite <span class="mono">fundingReferences</span>). <span id="cv-scope">Instruments without an AuScope funding tag are excluded from all totals here.</span></li>
+                    <li><strong>Electrodes are invisible.</strong> Electric-channel hardware carries no identifiers in the source metadata, so only recorders and magnetic coils are countable.</li>
+                    <li><strong>Whole models still wait on runs metadata.</strong> An instrument whose surveys have no populated <span class="mono">runs</span> block does not appear here at all &mdash; a metadata backlog, not idle hardware. Each survey enters the register automatically once populated.</li>
+                </ol>
+            </div>
+
+            <!-- ========== FOOTER ========== -->
+            <div class="foot">
+                <p><strong>Sources.</strong> Run records: ausmt.auscope.org.au <span class="mono">/data/products/&lt;survey&gt;/&lt;station&gt;/station.json</span> &mdash; snapshot fetched <span id="foot-fetched">&mdash;</span> (feed <span class="mono">ausmt-data.json</span>, regenerated weekly by <span class="mono">src/ausmt-inventory.js</span>; upstream build <span id="foot-generated">&mdash;</span>). Fleet scope: DataCite instrument registry, prefix <span class="mono">10.82388</span>, AuScope-funded units via <span class="mono">fundingReferences</span>.</p>
+                <p><strong>Method.</strong> One occupation = one instrument (recorder or coil) at one station for one run&rsquo;s <span class="mono">time_period</span>. Recording-hours sum the acquisition windows; days are hours &divide; 24. Every figure is recomputed from the feed at page load &mdash; nothing on this page is hand-entered.
+                Explore: <a href="index.html">Impact overview</a> &middot; <a href="instruments.html">Instrument Registry</a> &middot; <a href="https://ausmt.auscope.org.au/" target="_blank" rel="noopener">AusMT Portal</a></p>
+            </div>
+
+        </div><!-- /main-content -->
+    </div>
+
+<script src="tracker-chassis.js"></script>
+<script>
+"use strict";
+
+// ============================================================
+// STATE
+// ============================================================
+var mt = {
+    data: null,     // the full ausmt-data.json payload
+    af: [],         // AuScope-funded occupations (af === true)
+    excl: [],       // everything else (af false or untagged) - excluded from totals
+    svTitle: {},    // survey id -> display title (from feed.surveys)
+    reg: null,      // computed register rows: { rows: [...], byKey: {...} }
+    expanded: {},   // register rows currently expanded, keyed by instKey
+    // australia-outline.json: fetched lazily on FIRST row expand, one shared
+    // promise (single-flight) so double-clicks can never double-fetch.
+    outline: { promise: null, rings: null, failed: false }
+};
+
+var MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// ============================================================
+// HELPERS
+// ============================================================
+function fmt(n) {
+    if (n == null || isNaN(n)) return '—';
+    return Number(n).toLocaleString('en-AU');
+}
+
+function fmt1(n) {
+    if (n == null || isNaN(n)) return '—';
+    return Number(n).toLocaleString('en-AU', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+}
+
+function niceDate(iso) {
+    if (!iso) return '—';
+    var p = String(iso).slice(0, 10).split('-');
+    if (p.length < 3) return String(iso);
+    return (+p[2]) + ' ' + MONTH_NAMES[(+p[1]) - 1] + ' ' + (+p[0]);
+}
+
+// Days since epoch for the timestamp's UTC calendar date. String-sliced
+// so 6-digit fractional seconds in the feed can never trip Date.parse.
+function dayIndex(iso) {
+    var p = String(iso).slice(0, 10).split('-');
+    if (p.length < 3) return NaN;
+    return Math.floor(Date.UTC(+p[0], (+p[1]) - 1, +p[2]) / 86400000);
+}
+
+function dayLabel(idx) {
+    var d = new Date(idx * 86400000);
+    return d.getUTCDate() + ' ' + MONTH_NAMES[d.getUTCMonth()];
+}
+
+function dayLabelFull(idx) {
+    var d = new Date(idx * 86400000);
+    return d.getUTCDate() + ' ' + MONTH_NAMES[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+}
+
+function cssVar(v) {
+    return getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+}
+
+// Instrument identity: PIDInst DOI, with model+serial as fallback key.
+function instKey(o) {
+    return o.doi ? String(o.doi) : (String(o.model || '?') + '|' + String(o.serial || '?'));
+}
+
+function countKeys(obj) {
+    var n = 0, k;
+    for (k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) n++; }
+    return n;
+}
+
+// Equirectangular projection for the mini station maps — nvcl.html's exact
+// frame (112..154E, -9..-44S at 644x600): 42 deg lng x cos(26.5 deg mid-lat)
+// at 600px/35deg lat = 644px wide, equal ground-distance scaling.
+function projX(lng) { return (lng - 112) / (154 - 112) * 644; }
+function projY(lat) { return (-9 - lat) / (-9 - -44) * 600; }
+
+// ============================================================
+// ENTRY
+// ============================================================
+function init() {
+    fetch('ausmt-data.json')
+        .then(function(r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+        })
+        .then(function(data) {
+            // A malformed feed must degrade to the empty state, never throw
+            // in the console - route render errors through onLoadError too.
+            try { onData(data); } catch (e) { onLoadError(e); }
+        })
+        .catch(onLoadError);
+}
+
+function onData(data) {
+    if (!data || !data.metadata || !data.occupations || !data.occupations.length || !data.surveys) {
+        throw new Error('unexpected feed shape');
+    }
+    mt.data = data;
+    mt.af = [];
+    mt.excl = [];
+    data.occupations.forEach(function(o) {
+        if (o && o.af === true) mt.af.push(o);
+        else if (o) mt.excl.push(o);
+    });
+    // Untagged-feed fallback: when the harvester could not reach the registry
+    // (metadata.scope_tagged === false, every occupation af:null), showing the
+    // AuScope-scoped view would render zeros against a feed full of data. Fall
+    // back to RAW totals and disclose it loudly rather than lying with zeros.
+    mt.untagged = data.metadata.scope_tagged === false
+        || (mt.af.length === 0 && data.occupations.length > 0);
+    if (mt.untagged) {
+        mt.af = data.occupations.slice();
+        mt.excl = [];
+    }
+
+    mt.svTitle = {};
+    (data.surveys || []).forEach(function(s) {
+        if (s && s.id) mt.svTitle[s.id] = s.title || s.id;
+    });
+
+    renderProvenance();
+    renderTiles();
+    renderChart();
+    renderRegister();
+    bindRegister();
+    renderSurveys();
+    renderFoot();
+}
+
+function onLoadError(err) {
+    var msg = err && err.message ? err.message : 'fetch failed';
+    document.getElementById('prov-text').innerHTML =
+        'Could not load ausmt-data.json (' + escapeHtml(msg) + '). '
+        + 'The deployment feed must be served from the same origin as this page.';
+    document.getElementById('main-content').innerHTML =
+        '<div class="empty-state">Deployment feed failed to load &mdash; nothing to show. '
+        + 'The weekly harvest (<span style="font-family:var(--mono)">src/ausmt-inventory.js</span>) '
+        + 'regenerates <span style="font-family:var(--mono)">docs/ausmt-data.json</span>.</div>';
+}
+
+// ============================================================
+// PROVENANCE BANNER
+// ============================================================
+function renderProvenance() {
+    var m = mt.data.metadata;
+    document.getElementById('prov-text').innerHTML =
+        '<strong>Source of truth: AusMT per-station run records</strong> '
+        + '(<span class="mono">/data/products/&lt;survey&gt;/&lt;station&gt;/station.json</span>) '
+        + '&mdash; second-precision acquisition windows naming each recorder and magnetic coil by DOI and serial, '
+        + 'granularity DataCite cannot reach. '
+        + (mt.untagged
+            ? '<strong>Funding-scope tags are unavailable in this snapshot</strong> (the registry could not be '
+              + 'reached at harvest time), so totals below include ALL instruments — AuScope and partner-funded — '
+              + 'until the next tagged harvest. '
+            : 'The instrument registry (DataCite prefix <span class="mono">10.82388</span>) '
+              + 'scopes this page to <strong>AuScope-funded instruments</strong> via <span class="mono">fundingReferences</span>; ')
+        + 'registry field-survey records are not used for deployment accounting. '
+        + 'Snapshot fetched <strong>' + escapeHtml(niceDate(m.fetched)) + '</strong>.';
+}
+
+// ============================================================
+// STAT TILES
+// ============================================================
+function renderTiles() {
+    var m = mt.data.metadata;
+    var instSet = {}, recSet = {}, coilSet = {}, stSet = {};
+    var hours = 0;
+    mt.af.forEach(function(o) {
+        var k = instKey(o);
+        instSet[k] = 1;
+        if (o.role === 'recorder') recSet[k] = 1; else coilSet[k] = 1;
+        if (o.station != null) stSet[o.station] = 1;
+        hours += (o.hours || 0);
+    });
+
+    var nInst = (m.auscope_instruments != null) ? m.auscope_instruments : countKeys(instSet);
+    var nOcc = (m.auscope_occupations != null) ? m.auscope_occupations : mt.af.length;
+    var days = (m.auscope_recording_days != null) ? m.auscope_recording_days : hours / 24;
+
+    document.getElementById('stat-inst').textContent = fmt(nInst);
+    document.getElementById('stat-inst-sub').textContent =
+        fmt(countKeys(recSet)) + ' recorders + ' + fmt(countKeys(coilSet)) + ' coils';
+    document.getElementById('stat-days').textContent = fmt1(days);
+    document.getElementById('stat-days-sub').textContent = fmt(Math.round(hours)) + ' recording-hours';
+    document.getElementById('stat-occ').textContent = fmt(nOcc);
+    document.getElementById('stat-stations').textContent = fmt(countKeys(stSet));
+    document.getElementById('stat-surveys').textContent =
+        fmt(m.surveys_populated) + ' / ' + fmt(m.surveys_total);
+}
+
+// ============================================================
+// DAILY RECORDING CHART - active AuScope recording windows per UTC day
+// ============================================================
+function renderChart() {
+    // Per-day DISTINCT instruments (not occupation windows): an instrument
+    // leapfrogging stations within one UTC day counts once, so the daily
+    // series can never exceed the instruments tile.
+    var daySets = {}, counts = {}, minI = Infinity, maxI = -Infinity;
+    var windows = 0;
+    var stSet = {};
+    mt.af.forEach(function(o) {
+        if (!o.start || !o.end) return;
+        var a = dayIndex(o.start), b = dayIndex(o.end);
+        if (isNaN(a) || isNaN(b) || b < a) return;
+        windows++;
+        if (o.station != null) stSet[o.station] = 1;
+        var key = instKey(o);
+        for (var i = a; i <= b; i++) (daySets[i] = daySets[i] || {})[key] = 1;
+        if (a < minI) minI = a;
+        if (b > maxI) maxI = b;
+    });
+    var di;
+    for (di in daySets) {
+        if (Object.prototype.hasOwnProperty.call(daySets, di)) counts[di] = countKeys(daySets[di]);
+    }
+
+    var titleEl = document.getElementById('chart-title');
+    var noteEl = document.getElementById('chart-note');
+    var chartEl = document.getElementById('occ-chart');
+    if (!isFinite(minI)) {
+        noteEl.textContent = 'No dated acquisition windows in the feed yet.';
+        chartEl.innerHTML = '<div class="empty-state">Nothing to chart.</div>';
+        return;
+    }
+
+    // Populated survey names for the section title (from the occupations
+    // actually present, so the title always matches what is charted).
+    var svIds = {}, k;
+    mt.af.forEach(function(o) { if (o.survey) svIds[o.survey] = 1; });
+    var svTitles = [];
+    (mt.data.surveys || []).forEach(function(s) {
+        if (svIds[s.id]) svTitles.push(s.title || s.id);
+    });
+    var nSv = countKeys(svIds);
+    if (nSv === 1 && svTitles.length === 1) {
+        titleEl.textContent = 'Instruments recording, day by day — ' + svTitles[0];
+    } else if (nSv > 1) {
+        titleEl.textContent = 'Instruments recording, day by day — across ' + fmt(nSv) + ' populated surveys';
+    }
+
+    // Day list: full contiguous span for short campaigns; recorded days
+    // only (span compressed) once populated surveys stretch over months.
+    var days = [], compressed = false, i;
+    if (maxI - minI + 1 <= 120) {
+        for (i = minI; i <= maxI; i++) days.push({ i: i, c: counts[i] || 0 });
+    } else {
+        compressed = true;
+        var keys = [];
+        for (k in counts) { if (Object.prototype.hasOwnProperty.call(counts, k)) keys.push(+k); }
+        keys.sort(function(a, b) { return a - b; });
+        keys.forEach(function(d) { days.push({ i: d, c: counts[d] }); });
+    }
+
+    var peak = 0, peakAt = -1;
+    days.forEach(function(d, idx) {
+        if (d.c > peak) { peak = d.c; peakAt = idx; }
+    });
+
+    var note = 'Count of AuScope instruments (recorders and coils) with an active acquisition window on each UTC day, '
+        + 'computed from ' + fmt(windows) + ' run windows across ' + fmt(countKeys(stSet)) + ' stations. '
+        + 'Peak: <strong>' + fmt(peak) + ' instruments recording simultaneously</strong> — parallelism the survey-level record cannot show.';
+    if (compressed) note += ' Days with no recording are omitted from the axis.';
+    noteEl.innerHTML = note;
+
+    // ----- SVG (string-built, house tokens) -----
+    var n = days.length;
+    var mL = 44, mR = 12, mT = 18, mB = 30, H = 240;
+    var W = Math.max(680, mL + mR + n * 26);
+    var pw = W - mL - mR, ph = H - mT - mB;
+    var yMax = Math.max(20, Math.ceil(peak / 20) * 20);
+    var step = yMax <= 120 ? 20 : Math.ceil(yMax / 6 / 10) * 10;
+    var bw = pw / n;
+    var labEvery = Math.ceil(n / 24);
+
+    var accent = cssVar('--accent') || '#2563eb';
+    var cBorder = cssVar('--border') || '#e5e7eb';
+    var cStrong = cssVar('--border-strong') || '#cbd5e1';
+    var cMuted = cssVar('--text-muted') || '#94a3b8';
+    var cSoft = cssVar('--text-soft') || '#475569';
+    var cText = cssVar('--text') || '#0f172a';
+
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" style="min-width:640px;display:block" role="img" '
+        + 'aria-label="' + escapeAttr('AuScope instruments recording per day, ' + dayLabelFull(days[0].i) + ' to ' + dayLabelFull(days[n - 1].i)) + '">';
+
+    var v, gy;
+    for (v = 0; v <= yMax; v += step) {
+        gy = mT + ph - (v / yMax) * ph;
+        s += '<line x1="' + mL + '" y1="' + gy.toFixed(1) + '" x2="' + (W - mR) + '" y2="' + gy.toFixed(1) + '" stroke="' + cBorder + '" stroke-width="1"/>';
+        s += '<text x="' + (mL - 8) + '" y="' + (gy + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="' + cMuted + '">' + v + '</text>';
+    }
+
+    days.forEach(function(d, idx) {
+        var h = (d.c / yMax) * ph;
+        var x = mL + idx * bw + bw * 0.2, w = bw * 0.6;
+        var y = mT + ph - h;
+        s += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="3" fill="' + accent + '">'
+            + '<title>' + escapeHtml(dayLabelFull(d.i) + ' — ' + fmt(d.c) + ' instruments recording') + '</title></rect>';
+        if (idx === peakAt) {
+            s += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (y - 7).toFixed(1) + '" text-anchor="middle" font-size="12" font-weight="600" fill="' + cText + '">' + fmt(peak) + '</text>';
+        }
+        if (idx % labEvery === 0) {
+            s += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="' + cSoft + '">' + escapeHtml(dayLabel(d.i)) + '</text>';
+        }
+    });
+
+    s += '<line x1="' + mL + '" y1="' + (mT + ph) + '" x2="' + (W - mR) + '" y2="' + (mT + ph) + '" stroke="' + cStrong + '" stroke-width="1"/>';
+    s += '</svg>';
+    chartEl.innerHTML = s;
+}
+
+// ============================================================
+// INSTRUMENT REGISTER - one row per AuScope-funded instrument
+// ============================================================
+function renderRegister() {
+    var byInst = {}, order = [];
+    mt.af.forEach(function(o) {
+        var k = instKey(o);
+        if (!byInst[k]) {
+            byInst[k] = { key: k, doi: o.doi || '', model: o.model || '', serial: o.serial || '',
+                          stations: {}, surveys: {}, hours: 0, occs: [] };
+            order.push(k);
+        }
+        if (o.station != null) byInst[k].stations[o.station] = 1;
+        if (o.survey) byInst[k].surveys[o.survey] = 1;
+        byInst[k].hours += (o.hours || 0);
+        byInst[k].occs.push(o);
+    });
+
+    var rows = order.map(function(k) { return byInst[k]; });
+    rows.sort(function(a, b) {
+        if (a.model !== b.model) return a.model < b.model ? -1 : 1;
+        return b.hours - a.hours;
+    });
+    mt.reg = { rows: rows, byKey: byInst };
+
+    var totalHours = 0;
+    rows.forEach(function(r) { totalHours += r.hours; });
+    var meanOccDays = mt.af.length ? (totalHours / mt.af.length) / 24 : 0;
+
+    document.getElementById('register-note').textContent =
+        'All ' + fmt(rows.length) + ' AuScope-funded instruments with run-level deployment records. '
+        + 'Hours are summed acquisition time across each unit’s station occupations (mean occupation '
+        + fmt1(meanOccDays) + ' days). Click a row to expand its per-survey rollup, occupation list and '
+        + 'station location map. Electric-field electrodes carry no PIDs in the source metadata and are not countable yet.';
+
+    renderRegisterBody();
+
+    // excluded (non-AuScope / untagged) instruments - named, never silently dropped
+    var exclEl = document.getElementById('excl-note');
+    var scopeEl = document.getElementById('cv-scope');
+    if (mt.excl.length) {
+        var exclInst = {}, exclModels = {}, exclHours = 0, untagged = 0;
+        mt.excl.forEach(function(o) {
+            exclInst[instKey(o)] = 1;
+            if (o.model) exclModels[o.model] = 1;
+            exclHours += (o.hours || 0);
+            if (o.af == null) untagged++;
+        });
+        var modelNames = [], mk;
+        for (mk in exclModels) { if (Object.prototype.hasOwnProperty.call(exclModels, mk)) modelNames.push(mk); }
+        modelNames.sort();
+        var txt = fmt(countKeys(exclInst)) + ' non-AuScope-funded instrument'
+            + (countKeys(exclInst) === 1 ? '' : 's')
+            + (modelNames.length ? ' (' + modelNames.join(', ') + ')' : '')
+            + ' also served (' + fmt(Math.round(exclHours)) + ' h across ' + fmt(mt.excl.length)
+            + ' occupations) — outside every AuScope total on this page.';
+        if (untagged) txt += ' ' + fmt(untagged) + ' of those occupations carry no funding tag at all.';
+        exclEl.textContent = txt;
+        if (scopeEl) scopeEl.textContent = txt;
+    } else if (mt.untagged) {
+        var untaggedTxt = 'Funding-scope tags are unavailable in this snapshot — the figures above include '
+            + 'ALL instruments (AuScope and partner-funded) until the next tagged harvest.';
+        exclEl.textContent = untaggedTxt;
+        if (scopeEl) scopeEl.textContent = untaggedTxt;
+    } else {
+        exclEl.textContent = '';
+        if (scopeEl) scopeEl.textContent = 'Every occupation in the current feed is AuScope-funded; any non-AuScope instruments that appear later will be listed here and excluded from all totals.';
+    }
+
+    renderCoverageCaveat();
+}
+
+// ----- register table body: data rows + detail rows for expanded keys -----
+function renderRegisterBody() {
+    var html = '';
+    (mt.reg ? mt.reg.rows : []).forEach(function(r) {
+        html += renderRegRow(r);
+        if (mt.expanded[r.key]) html += renderRegDetailRow(r);
+    });
+    document.querySelector('#inst-table tbody').innerHTML =
+        html || '<tr><td colspan="8" class="empty-state">No AuScope-funded occupations in the feed yet.</td></tr>';
+    paintMiniMaps();
+}
+
+function renderRegRow(r) {
+    var doiCell = r.doi
+        ? '<a class="doi" href="https://doi.org/' + escapeAttr(r.doi) + '" target="_blank" rel="noopener">' + escapeHtml(r.doi) + '</a>'
+        : '<span class="muted">—</span>';
+    return '<tr class="data-row' + (mt.expanded[r.key] ? ' expanded' : '') + '" data-key="' + escapeAttr(r.key) + '">'
+        + '<td>' + doiCell + '</td>'
+        + '<td>' + escapeHtml(r.model || '—') + '</td>'
+        + '<td>' + escapeHtml(r.serial || '—') + '</td>'
+        + '<td class="num">' + fmt(countKeys(r.surveys)) + '</td>'
+        + '<td class="num">' + fmt(countKeys(r.stations)) + '</td>'
+        + '<td class="num">' + fmt(Math.round(r.hours)) + '</td>'
+        + '<td class="num">' + fmt1(r.hours / 24) + '</td>'
+        + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">&#9662;</span></button></td>'
+        + '</tr>';
+}
+
+function bindRegister() {
+    document.querySelector('#inst-table tbody').addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        var row = e.target.closest('tr.data-row');
+        if (!row) return;
+        var key = row.getAttribute('data-key');
+        if (mt.expanded[key]) delete mt.expanded[key];
+        else mt.expanded[key] = 1;
+        renderRegisterBody();
+    });
+}
+
+function svTitle(id) {
+    return mt.svTitle[id] || String(id);
+}
+
+// One instrument's detail row: header line, per-survey rollup, occupation
+// list, mini location map. Nothing here reads o.af — the untagged-feed
+// fallback (mt.af = ALL occupations) renders identically.
+function renderRegDetailRow(r) {
+    // per-survey rollup
+    var bySv = {}, svOrder = [];
+    r.occs.forEach(function(o) {
+        var id = o.survey || '?';
+        if (!bySv[id]) {
+            bySv[id] = { id: id, stations: {}, hours: 0, minStart: null, maxEnd: null };
+            svOrder.push(id);
+        }
+        var g = bySv[id];
+        if (o.station != null) g.stations[o.station] = 1;
+        g.hours += (o.hours || 0);
+        if (o.start && (g.minStart == null || o.start < g.minStart)) g.minStart = o.start;
+        if (o.end && (g.maxEnd == null || o.end > g.maxEnd)) g.maxEnd = o.end;
+    });
+    svOrder.sort(function(a, b) {
+        var sa = bySv[a].minStart || '', sb = bySv[b].minStart || '';
+        return sa < sb ? -1 : sa > sb ? 1 : 0;
+    });
+
+    var svHtml = '';
+    svOrder.forEach(function(id) {
+        var g = bySv[id];
+        svHtml += '<tr>'
+            + '<td>' + escapeHtml(svTitle(id)) + '</td>'
+            + '<td class="num">' + fmt(countKeys(g.stations)) + '</td>'
+            + '<td class="num">' + fmt(Math.round(g.hours)) + '</td>'
+            + '<td>' + escapeHtml(niceDate(g.minStart)) + ' &rarr; ' + escapeHtml(niceDate(g.maxEnd)) + '</td>'
+            + '</tr>';
+    });
+
+    // occupation list, chronological
+    var occs = r.occs.slice().sort(function(a, b) {
+        var sa = a.start || '', sb = b.start || '';
+        return sa < sb ? -1 : sa > sb ? 1 : 0;
+    });
+    var occHtml = '';
+    occs.forEach(function(o) {
+        var role = (o.role === 'sensor' && o.component)
+            ? o.role + ' · ' + o.component
+            : (o.role || '—');
+        occHtml += '<tr>'
+            + '<td>' + escapeHtml(o.station != null ? String(o.station) : '—') + '</td>'
+            + '<td>' + escapeHtml(role) + '</td>'
+            + '<td>' + escapeHtml(niceDate(o.start)) + ' &rarr; ' + escapeHtml(niceDate(o.end)) + '</td>'
+            + '<td class="num">' + fmt1(o.hours) + '</td>'
+            + '</tr>';
+    });
+    var scrolly = occs.length > 10 ? ' scrolly' : '';
+
+    var label = (r.model || 'Instrument') + (r.serial ? ' ' + r.serial : '');
+    var head = '<div class="mtd-head"><strong>' + escapeHtml(label) + '</strong>'
+        + (r.doi ? ' &middot; <a class="doi" href="https://doi.org/' + escapeAttr(r.doi) + '" target="_blank" rel="noopener">' + escapeHtml(r.doi) + '</a>' : '')
+        + ' <span class="totals">&mdash; ' + fmt(r.occs.length) + ' occupation' + (r.occs.length === 1 ? '' : 's')
+        + ' at ' + fmt(countKeys(r.stations)) + ' station' + (countKeys(r.stations) === 1 ? '' : 's')
+        + ' &middot; ' + fmt(Math.round(r.hours)) + ' recording-hours (' + fmt1(r.hours / 24) + ' days)</span></div>';
+
+    return '<tr class="detail-row"><td colspan="8"><div class="detail" data-key="' + escapeAttr(r.key) + '">'
+        + head
+        + '<div class="mtd-flex">'
+            + '<div class="mtd-tables">'
+                + '<div class="mtd-label">Per-survey rollup</div>'
+                + '<div class="table-wrap"><table class="data compact">'
+                    + '<thead><tr><th>Survey</th><th class="num">Stations</th><th class="num">Hours</th><th>First start &rarr; last end</th></tr></thead>'
+                    + '<tbody>' + svHtml + '</tbody></table></div>'
+                + '<div class="mtd-label">Occupations (' + fmt(occs.length) + ')</div>'
+                + '<div class="table-wrap occ-scroll' + scrolly + '"><table class="data compact">'
+                    + '<thead><tr><th>Station</th><th>Role</th><th>Window</th><th class="num">Hours</th></tr></thead>'
+                    + '<tbody>' + occHtml + '</tbody></table></div>'
+            + '</div>'
+            + renderMiniMapShell(r)
+        + '</div>'
+        + '</div></td></tr>';
+}
+
+// ============================================================
+// MINI STATION MAPS - lazy coastline, painted after the tbody lands
+// ============================================================
+
+// Distinct survey/station keys this instrument occupied, with coordinates
+// from feed.stations["<survey>/<station>"] ([lat, lon]).
+function miniMapPoints(r) {
+    var seen = {}, pts = [], missing = 0;
+    var coords = (mt.data && mt.data.stations) || {};
+    r.occs.forEach(function(o) {
+        if (o.station == null) return;
+        var sk = String(o.survey || '') + '/' + String(o.station);
+        if (seen[sk]) return;
+        seen[sk] = 1;
+        var c = coords[sk];
+        if (c && c.length >= 2 && isFinite(c[0]) && isFinite(c[1])) {
+            pts.push({ lat: Number(c[0]), lng: Number(c[1]) });
+        } else {
+            missing++;
+        }
+    });
+    return { pts: pts, missing: missing, distinct: countKeys(seen) };
+}
+
+// Placeholder only — the SVG is painted by paintMiniMaps() once the
+// coastline has settled. Instruments with no coordinates at all get a
+// muted note instead of a map, and no fetch is triggered for them alone.
+function renderMiniMapShell(r) {
+    var mm = miniMapPoints(r);
+    if (!mm.pts.length) {
+        return '<div class="mtd-map"><div class="mtd-note">No station coordinates in the feed for this instrument &mdash; map omitted.</div></div>';
+    }
+    return '<div class="mtd-map" data-mapkey="' + escapeAttr(r.key) + '"><div class="mtd-note">Loading map&hellip;</div></div>';
+}
+
+// Single-flight coastline fetch + paint. Every register re-render calls
+// this; the fetch fires once, on the first expand that actually needs a
+// map, and failure degrades to a muted note (never a console exception).
+function paintMiniMaps() {
+    var maps = document.querySelectorAll('.mtd-map[data-mapkey]');
+    if (!maps.length) return;
+    if (!mt.outline.promise) {
+        mt.outline.promise = fetch('australia-outline.json')
+            .then(function(r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.json();
+            })
+            .then(function(o) {
+                mt.outline.rings = (o && o.rings && o.rings.length) ? o.rings : null;
+                if (!mt.outline.rings) mt.outline.failed = true;
+            })
+            .catch(function() { mt.outline.failed = true; })
+            .then(function() { paintMiniMaps(); });
+        return;
+    }
+    if (!mt.outline.rings && !mt.outline.failed) return; // in flight; repaint comes with the promise
+    var i;
+    for (i = 0; i < maps.length; i++) paintOneMap(maps[i]);
+}
+
+function paintOneMap(el) {
+    var key = el.getAttribute('data-mapkey');
+    var r = mt.reg && mt.reg.byKey[key];
+    if (!r) return;
+    if (mt.outline.failed) {
+        el.innerHTML = '<div class="mtd-note">Coastline outline unavailable &mdash; map omitted.</div>';
+        return;
+    }
+
+    var mm = miniMapPoints(r);
+    var coast = '', dots = '', i, j, ring, d;
+    for (i = 0; i < mt.outline.rings.length; i++) {
+        ring = mt.outline.rings[i];
+        d = '';
+        for (j = 0; j < ring.length; j++) {
+            d += (j === 0 ? 'M' : 'L') + projX(Number(ring[j][0])).toFixed(1) + ',' + projY(Number(ring[j][1])).toFixed(1);
+        }
+        coast += '<path d="' + d + 'Z"/>';
+    }
+    mm.pts.forEach(function(p) {
+        dots += '<circle class="st-dot" cx="' + Number(projX(p.lng)).toFixed(1) + '" cy="' + Number(projY(p.lat)).toFixed(1) + '" r="5"/>';
+    });
+
+    var svNames = [], k;
+    for (k in r.surveys) {
+        if (Object.prototype.hasOwnProperty.call(r.surveys, k)) svNames.push(svTitle(k));
+    }
+    svNames.sort();
+    var cap = fmt(mm.pts.length) + ' station' + (mm.pts.length === 1 ? '' : 's') + ' &middot; ' + escapeHtml(svNames.join(' · '));
+    if (mm.missing) {
+        cap += '<br><span class="mtd-note">' + fmt(mm.missing) + ' station' + (mm.missing === 1 ? ' has' : 's have') + ' no coordinates in the feed.</span>';
+    }
+    var label = (r.model || 'Instrument') + (r.serial ? ' ' + r.serial : '');
+
+    el.innerHTML = '<svg viewBox="0 0 644 600" role="img" aria-label="'
+        + escapeAttr('Map of ' + mm.pts.length + ' station location' + (mm.pts.length === 1 ? '' : 's') + ' for ' + label) + '">'
+        + '<g class="coast">' + coast + '</g>' + dots + '</svg>'
+        + '<div class="map-cap">' + cap + '</div>';
+}
+
+// caveat #2 - populated / scaffolded / none counts and names
+function renderCoverageCaveat() {
+    var el = document.getElementById('cv-coverage');
+    if (!el) return;
+    var pop = [], nScaf = 0, nNone = 0;
+    (mt.data.surveys || []).forEach(function(s) {
+        var st = s.runs || (mt.data.metadata.survey_status || {})[s.id] || 'none';
+        if (st === 'populated') pop.push(s.title || s.id);
+        else if (st === 'scaffolded') nScaf++;
+        else nNone++;
+    });
+    var txt;
+    if (pop.length === 0) {
+        txt = 'No survey has populated run metadata yet;';
+    } else if (pop.length <= 3) {
+        txt = (pop.length === 1 ? pop.join(', ') + ' is the only survey' : pop.join(', ') + ' are the only surveys')
+            + ' with populated run metadata;';
+    } else {
+        txt = fmt(pop.length) + ' surveys have populated run metadata;';
+    }
+    txt += ' ' + fmt(nScaf) + ' more ' + (nScaf === 1 ? 'is' : 'are') + ' scaffolded and '
+        + fmt(nNone) + ' ' + (nNone === 1 ? 'has' : 'have') + ' none.';
+    el.textContent = txt;
+}
+
+// ============================================================
+// SURVEY COVERAGE TABLE - all surveys, populated first
+// ============================================================
+function renderSurveys() {
+    var RANK = { populated: 0, scaffolded: 1, none: 2 };
+    var LABEL = { populated: 'Populated', scaffolded: 'Scaffolded', none: 'Not present' };
+    var statusMap = mt.data.metadata.survey_status || {};
+
+    var list = (mt.data.surveys || []).slice();
+    var nPop = 0, nScaf = 0, nNone = 0;
+    list.forEach(function(s) {
+        s._st = s.runs || statusMap[s.id] || 'none';
+        if (!(s._st in RANK)) s._st = 'none';
+        if (s._st === 'populated') nPop++;
+        else if (s._st === 'scaffolded') nScaf++;
+        else nNone++;
+    });
+    list.sort(function(a, b) {
+        if (RANK[a._st] !== RANK[b._st]) return RANK[a._st] - RANK[b._st];
+        var ya = a.year_start || 0, yb = b.year_start || 0;
+        if (ya !== yb) return yb - ya;
+        return (b.n_stations || 0) - (a.n_stations || 0);
+    });
+
+    document.getElementById('coverage-note').innerHTML =
+        'Status of <span class="mono">runs</span> metadata per AusMT survey, from the same feed. '
+        + '<strong>Populated</strong> = real acquisition times + instrument DOIs; '
+        + '<strong>scaffolded</strong> = runs structure present, times and instrument links pending; '
+        + '<strong>not present</strong> = no runs block yet. Currently '
+        + fmt(nPop) + ' populated · ' + fmt(nScaf) + ' scaffolded · ' + fmt(nNone) + ' none.';
+
+    var html = '';
+    list.forEach(function(s) {
+        var yrs;
+        if (s.year_start && s.year_end) {
+            yrs = s.year_start === s.year_end ? String(s.year_start) : s.year_start + '–' + s.year_end;
+        } else {
+            yrs = s.year_start ? String(s.year_start) : '—';
+        }
+        html += '<tr>'
+            + '<td>' + escapeHtml(s.title || s.id || '—') + '</td>'
+            + '<td>' + escapeHtml(yrs) + '</td>'
+            + '<td class="num">' + fmt(s.n_stations) + '</td>'
+            + '<td>' + escapeHtml(s.organisation || '—') + '</td>'
+            + '<td><span class="badge ' + s._st + '">' + LABEL[s._st] + '</span></td>'
+            + '</tr>';
+    });
+    document.querySelector('#survey-table tbody').innerHTML =
+        html || '<tr><td colspan="5" class="empty-state">No surveys in the feed.</td></tr>';
+}
+
+// ============================================================
+// FOOTER
+// ============================================================
+function renderFoot() {
+    var m = mt.data.metadata;
+    document.getElementById('foot-fetched').textContent = niceDate(m.fetched);
+    document.getElementById('foot-generated').textContent = niceDate(m.generated);
+}
+
+// Bootstrap (script is at end of body, DOM is available)
+init();
+</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-16T03:21:04.387Z",
+  "generated": "2026-08-25T21:10:59.625Z",
   "pillars": {
     "publications": {
       "total": 2886,
@@ -8,11 +8,22 @@
       "candidate": 0
     },
     "datasets": {
-      "total": 168,
+      "total": 169,
       "byPlatform": {
         "EarthBank": 59,
-        "AusPass": 86,
-        "NCI": 23
+        "AusPass": 87,
+        "NCI MT": 16,
+        "NCI DAS": 7
+      },
+      "fairAvg": {
+        "EarthBank": 47,
+        "AusPass": 55,
+        "NCI MT": 43,
+        "NCI DAS": 42
+      },
+      "fairMeta": {
+        "metric_version": "0.8",
+        "last_updated": "2026-08-25T12:20:22.236Z"
       }
     },
     "samples": {
@@ -22,7 +33,7 @@
       "source": "EarthBank DataCite records"
     },
     "stations": {
-      "total": 3889,
+      "total": 3981,
       "source": "AusPass FDSN station service"
     },
     "instruments": {
@@ -58,20 +69,35 @@
       ]
     },
     "nvcl": {
-      "asOf": "2026-08-10",
-      "boreholes": 5530,
-      "scannedKm": 1441.43,
-      "combinedKm": 1826,
-      "estimatedKm": 88.35,
-      "datasets": 5654,
-      "nodes": 6
+      "asOf": "2026-08-21",
+      "boreholes": 6278,
+      "scannedKm": 1748.06,
+      "combinedKm": 1960.68,
+      "estimatedKm": 4.22,
+      "datasets": 6437,
+      "nodes": 8
     },
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 43,
+      "streaming": 49,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
+    },
+    "ausmt": {
+      "surveys": 27,
+      "stations": 2625,
+      "auslamp": {
+        "surveys": 14,
+        "stations": 1354
+      },
+      "generated": "2026-08-25",
+      "instrumentsDeployed": 48,
+      "occupations": 142,
+      "recordingDays": 285,
+      "surveysPopulated": 1,
+      "scopeFiltered": true,
+      "runsFetched": "2026-08-25"
     },
     "dataRepository": {
       "total": 5

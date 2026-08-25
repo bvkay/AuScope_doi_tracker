@@ -31,7 +31,10 @@ change.
 | `earthbank.html` | EarthBank datasets — DataCite metadata completeness scoring, fleet gap panel, citation reciprocity. | DataCite API (live) |
 | `auspass.html` | AusPass seismic networks — station inventory, DOI coverage, citations. | AusPass FDSN + DataCite (live) |
 | `instruments.html` | PIDInst instrument registry — per-record completeness, survey→component hierarchy, **live #122 bug tracking**. | DataCite `auscope.repo3` (live) |
-| `nci.html` | NCI collections (MT + DAS) — completeness scoring + citations; hosts the NVCL HPC mirror DOI panel. | NCI GeoNetwork + DataCite (live) |
+| `mt-deployments.html` | MT deployment register — run-level instrument deployments from AusMT station.json runs. | `ausmt-data.json` (weekly harvest) |
+| `nci-mt.html` | NCI MT collections — completeness scoring + F-UJI + citations. | NCI GeoNetwork + DataCite (live) |
+| `nci-das.html` | NCI DAS collections — completeness scoring + F-UJI + citations. | NCI GeoNetwork + DataCite (live) |
+| `nci.html` | Chooser page routing to the two NCI trackers (no JS); NVCL HPC mirror DOI is tracked on nvcl.html. | — |
 | `nvcl.html` | National Virtual Core Library — **verifiable at source**: live check queries all 8 state government nodes from the visitor's browser; borehole map; HyLogger fleet. | `nvcl-data.json` (monthly harvest) + live WFS |
 | `ausis.html` | Seismometers in Schools — **fully live**, no snapshot. Station map, streaming status, network DOI citations. | AusPass FDSN + AuScope_Outreach data products |
 | `datasets.html` | Thin router to the platform trackers (100 lines, no JS). | — |

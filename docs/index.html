@@ -182,41 +182,14 @@
     </style>
 </head>
 <body>
-    <!-- ═══ Hero Stats ═══ -->
+    <!-- ═══ Hero ═══ -->
+    <!-- The old "Impact at a Glance" tile band doubled up on the explorer
+         cards below (every number now lives on a card that links to its
+         evidence page), so it was removed. The embeddable widget keeps its
+         own tile band — that is its whole job. -->
     <div class="hero">
         <h1>AuScope Research Impact</h1>
         <p class="subtitle">Tracking publications and citations across AuScope research infrastructure</p>
-        <div class="more-than">AuScope Impact at a Glance</div>
-        <div class="stat-grid">
-            <div class="stat-card">
-                <div class="number">2,886</div>
-                <div class="label">Publications</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">67,006</div>
-                <div class="label">Total Citations</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">168</div>
-                <div class="label">Datasets</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">53,733</div>
-                <div class="label">Samples</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">3,889</div>
-                <div class="label">Seismic Stations</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">1,826</div>
-                <div class="label">km Core Scanned</div>
-            </div>
-            <div class="stat-card">
-                <div class="number">170</div>
-                <div class="label">Instruments</div>
-            </div>
-        </div>
     </div>
 
 
@@ -230,40 +203,65 @@
             <div class="name">Publications</div>
             <div class="sub">evidence-graded · browse all</div>
         </a>
-        <a class="explorer-card" href="datasets.html">
-            <div class="num">168</div>
-            <div class="name">Datasets</div>
-            <div class="sub">3 platforms</div>
+        <a class="explorer-card" href="publications.html">
+            <div class="num">67,006</div>
+            <div class="name">Total citations</div>
+            <div class="sub">of tracked publications</div>
+        </a>
+        <a class="explorer-card" href="earthbank.html">
+            <div class="num">59</div>
+            <div class="name">EarthBank datasets</div>
+            <div class="sub">DataCite metadata health · avg F-UJI 47%</div>
+        </a>
+        <a class="explorer-card" href="nci-mt.html">
+            <div class="num">16</div>
+            <div class="name">NCI MT collections</div>
+            <div class="sub">AusLAMP + legacy surveys · avg F-UJI 43%</div>
+        </a>
+        <a class="explorer-card" href="nci-das.html">
+            <div class="num">7</div>
+            <div class="name">NCI DAS collections</div>
+            <div class="sub">ALIRT · FISSLE · SISSLE · avg F-UJI 42%</div>
+        </a>
+        <a class="explorer-card" href="https://ausmt.auscope.org.au/" target="_blank" rel="noopener">
+            <div class="num">27</div>
+            <div class="name">AusMT surveys</div>
+            <div class="sub">2,625 stations · open MT transfer functions · ausmt.auscope.org.au ↗</div>
+        </a>
+        <a class="explorer-card" href="mt-deployments.html">
+            <div class="num">48</div>
+            <div class="name">Instruments deployed in MT surveys</div>
+            <div class="sub">285 recording-days · run-level AusMT records · 1 of 27 surveys populated</div>
         </a>
         <a class="explorer-card" href="earthbank.html">
             <div class="num">53,733</div>
-            <div class="name">Samples</div>
-            <div class="sub">in DOI-registered datasets</div>
+            <div class="name">EarthBank samples</div>
+            <div class="sub">declared in DOI-registered datasets</div>
         </a>
         <a class="explorer-card" href="auspass.html">
-            <div class="num">86</div>
+            <div class="num">3,981</div>
+            <div class="name">Seismic stations</div>
+            <div class="sub">87 networks · AusPass FDSN</div>
+        </a>
+        <a class="explorer-card" href="auspass.html">
+            <div class="num">87</div>
             <div class="name">AusPass networks</div>
-            <div class="sub">3,889 stations</div>
+            <div class="sub">FDSN network DOIs · avg F-UJI 55%</div>
         </a>
         <a class="explorer-card" href="instruments.html">
             <div class="num">170</div>
             <div class="name">Instruments</div>
             <div class="sub">PIDInst DOIs · metadata health</div>
         </a>
-        <a class="explorer-card" href="instruments.html">
-            <div class="num">13</div>
-            <div class="name">DOI-registered surveys</div>
-            <div class="sub">each lists its PIDInst components · 15 datasets · 12 papers</div>
-        </a>
         <a class="explorer-card" href="nvcl.html">
-            <div class="num">≈ 1,826 km</div>
+            <div class="num">≈ 1,961 km</div>
             <div class="name">NVCL core scanned</div>
-            <div class="sub">1,441 km measured · 5,530 boreholes · 6 state nodes</div>
+            <div class="sub">1,748 km measured · 6,278 boreholes · 8 state nodes</div>
         </a>
         <a class="explorer-card" href="ausis.html">
             <div class="num">53</div>
             <div class="name">Seismometers in schools</div>
-            <div class="sub">51 active · 43 streaming now · since 2011</div>
+            <div class="sub">51 active · 49 streaming now · since 2011</div>
         </a>
         </div>
         <h2 style="margin-top:24px">Most deployed instruments</h2>

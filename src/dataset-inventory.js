@@ -44,7 +44,7 @@ async function run() {
 
   // ── NCI Magnetotellurics ──
   try {
-    const nciMT = await fetchNCICollection('f0824_6578_7486_1991', 'NCI MT');
+    const nciMT = await fetchNCICollection('f0824_6578_7486_1991', 'NCI MT', 'MT');
     allDatasets.push(...nciMT);
     console.log('NCI MT: ' + nciMT.length + ' datasets');
   } catch (err) {
@@ -53,7 +53,7 @@ async function run() {
 
   // ── NCI DAS ──
   try {
-    const nciDAS = await fetchNCICollection('f7227_9397_9402_8183', 'NCI DAS');
+    const nciDAS = await fetchNCICollection('f7227_9397_9402_8183', 'NCI DAS', 'DAS');
     allDatasets.push(...nciDAS);
     console.log('NCI DAS: ' + nciDAS.length + ' datasets');
   } catch (err) {
@@ -183,15 +183,15 @@ async function fetchAusPass() {
 
 // ─── NCI GeoNetwork Collections ─────────────────────────────────────────────
 
-async function fetchNCICollection(rootUuid, label) {
-  const children = await fetchNCIChildren(rootUuid);
+async function fetchNCICollection(rootUuid, label, subset) {
+  const children = await fetchNCIChildren(rootUuid, subset);
   // Recursively fetch one level deep
   const datasets = [];
   for (const child of children) {
     datasets.push(child);
     if (child.nciUuid) {
       try {
-        const grandchildren = await fetchNCIChildren(child.nciUuid);
+        const grandchildren = await fetchNCIChildren(child.nciUuid, subset);
         datasets.push(...grandchildren);
       } catch (e) {
         // Some nodes are leaves
@@ -202,7 +202,7 @@ async function fetchNCICollection(rootUuid, label) {
   return datasets;
 }
 
-async function fetchNCIChildren(parentUuid) {
+async function fetchNCIChildren(parentUuid, subset) {
   const url = 'https://geonetwork.nci.org.au/geonetwork/srv/api/records/' + parentUuid + '/related?type=children';
   const resp = await fetch(url, { headers: { 'Accept': 'application/json' } });
   if (!resp.ok) return [];
@@ -220,6 +220,7 @@ async function fetchNCIChildren(parentUuid) {
       authors: '',
       year: null,
       platform: 'NCI',
+      subset: subset,   // 'MT' | 'DAS' — which GeoNetwork tree this came from
       type: 'Dataset',
       nciUuid: uuid
     });

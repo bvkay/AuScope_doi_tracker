@@ -1,0 +1,53 @@
+name: FAIR Assessment (F-UJI)
+
+on:
+  # Monthly, first Sunday-ish (metadata changes slowly; monthly re-scoring
+  # avoids publishing run-to-run noise from F-UJI's live harvesting)
+  schedule:
+    - cron: '0 3 1 * *'
+
+  # Manual trigger via GitHub UI
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fair-assess:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Pin the image — `latest` tracks unstable master. TODO: replace the
+      # tag with an @sha256 digest after the first successful run.
+      - name: Start F-UJI server
+        run: |
+          docker run -d --name fuji -p 1071:1071 ghcr.io/pangaea-data-publisher/fuji:3.5.0
+          echo "Waiting for F-UJI cold start (~60s, it preloads vocabularies)..."
+          for i in $(seq 1 36); do
+            curl -sf -u marvel:wonderwoman http://localhost:1071/fuji/api/v1/ui/ > /dev/null && echo "up after ~$((i*5))s" && exit 0
+            sleep 5
+          done
+          echo "F-UJI server did not come up"; docker logs fuji; exit 1
+
+      # Assesses the datasets.json roster (skips PhysicalObject records),
+      # keeps previous scores on per-DOI failures, writes
+      # data/fair-scores.json + docs/fair-scores.json
+      - name: FAIR assessment
+        env:
+          FUJI_VERSION: '3.5.0 (docker)'
+        run: node src/fair-assess.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/fair-scores.json docs/fair-scores.json
+          git diff --cached --quiet || git commit -m "FAIR assessment $(date +%Y-%m-%d)"
+          git push

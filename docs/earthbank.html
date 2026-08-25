@@ -39,6 +39,7 @@
         }
         .col-type { width: 110px; }
         .col-mapping { width: 130px; }
+        .col-fair { width: 130px; }
         .col-cites { width: 85px; text-align: center; }
 
         /* badge variants */
@@ -350,6 +351,7 @@
             <div class="stat"><div class="label">PhysicalObjects <span class="info-i" data-tip="Records with resourceTypeGeneral=PhysicalObject — typically physical samples (rocks, mineral specimens) issued individual DOIs via IGSN-style sample registration.">i</span></div><div class="value" id="stat-physobj">—</div><div class="sub">samples / specimens</div></div>
             <div class="stat"><div class="label">Total citations <span class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all datasets. Loaded in batches after page load — may show 0 briefly.">i</span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
             <div class="stat"><div class="label">Avg mapping <span class="info-i" data-tip="Mean DataCite mapping completeness score across all datasets, weighted by field importance. Title/creators/year carry the highest weight; language/sizes the lowest. Open a dataset and check the Mapping tab to see the breakdown.">i</span></div><div class="value" id="stat-mapping">—</div><div class="sub" id="stat-mapping-sub">DataCite completeness</div></div>
+            <div class="stat"><div class="label">Avg F-UJI <span class="info-i" id="stat-fair-tip" data-tip="Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown.">i</span></div><div class="value" id="stat-fair">—</div><div class="sub" id="stat-fair-sub">loading…</div></div>
         </div>
 
         <!-- ========== CONTROL BAR ========== -->
@@ -370,6 +372,8 @@
                 <option value="cites-desc">Most cited</option>
                 <option value="mapping-asc">Lowest mapping score</option>
                 <option value="mapping-desc">Highest mapping score</option>
+                <option value="fair-asc">Lowest F-UJI score</option>
+                <option value="fair-desc">Highest F-UJI score</option>
                 <option value="title-asc">Title A→Z</option>
             </select>
             <button class="btn" id="toggle-issues" title="Show only datasets with mapping issues">Issues only</button>
@@ -399,12 +403,13 @@
                         <th class="col-authors">Authors</th>
                         <th class="col-year sortable" data-sort="year">Year <span class="arrow">▼</span></th>
                         <th class="col-mapping sortable" data-sort="mapping">Mapping <span class="arrow"></span></th>
+                        <th class="col-fair sortable" data-sort="fair">F-UJI <span class="arrow"></span></th>
                         <th class="col-cites sortable" data-sort="cites">Citations <span class="arrow"></span></th>
                         <th class="col-actions"></th>
                     </tr>
                 </thead>
                 <tbody id="ds-tbody">
-                    <tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading from DataCite…</td></tr>
+                    <tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading from DataCite…</td></tr>
                 </tbody>
             </table>
         </div>
@@ -426,6 +431,7 @@
 var state = createTrackerState({
     raw: [],          // array of raw DataCite items
     datasets: [],     // normalized + scored datasets
+    fairScores: null, // parsed fair-scores.json feed (null until loaded / if missing)
     filter: { search: '', type: '', year: '', issuesOnly: false }
 });
 
@@ -510,6 +516,21 @@ var fleetCategories = [
             { id: 'no-related', label: 'No related identifiers', predicate: function(d) { return d.relatedIdentifiers.length === 0; }},
             { id: 'no-geo', label: 'No geolocations', predicate: function(d) { return d.geoLocations.length === 0; }}
         ]
+    },
+    {
+        section: 'F-UJI assessment',
+        items: [
+            { id: 'fuji-low', label: 'F-UJI score below 45%', predicate: function(d) {
+                var e = fairEntryFor(d);
+                return !!e && (Number(e.s) || 0) < 45;
+            }},
+            { id: 'fuji-unassessed', label: 'Not F-UJI assessed (excl. samples)', predicate: function(d) {
+                // Only meaningful once the feed has loaded — otherwise every
+                // record would count as unassessed while the fetch is in flight.
+                if (!state.fairScores) return false;
+                return !fairEntryFor(d) && d.resourceTypeGeneral !== 'PhysicalObject';
+            }}
+        ]
     }
 ];
 
@@ -528,6 +549,7 @@ function init() {
         elements: { panelId: 'fleet-panel', summaryId: 'result-count' },
         onFilterChanged: renderTable
     });
+    loadFairScores();
     loadDatasets();
 }
 
@@ -593,7 +615,7 @@ function bindControls() {
 // FETCH
 // ============================================================
 async function loadDatasets() {
-    setBody('<tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading EarthBank datasets from DataCite…</td></tr>');
+    setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading EarthBank datasets from DataCite…</td></tr>');
     try {
         var raw = await fetchAllEarthBank();
         state.raw = raw;
@@ -616,7 +638,7 @@ async function loadDatasets() {
         }).then(function() { state.citationLoadInFlight = false; })
           .catch(function() { state.citationLoadInFlight = false; renderStats(); });
     } catch (err) {
-        setBody('<tr><td colspan="8" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
+        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
     }
 }
 
@@ -645,11 +667,50 @@ async function fetchAllEarthBank() {
         if (items.length === 0) break;
         all = all.concat(items);
         // Update progress
-        setBody('<tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loaded ' + all.length + ' datasets…</td></tr>');
+        setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loaded ' + all.length + ' datasets…</td></tr>');
         if (items.length < pageSize) break;
         page++;
     }
     return all;
+}
+
+// ============================================================
+// F-UJI SCORES
+// ============================================================
+// Loads the F-UJI FAIR assessment feed (fair-scores.json, same-origin,
+// generated offline). Fail-soft by design: if the file is missing or
+// malformed the F-UJI column shows an em-dash and the tile shows n/a —
+// the page must never break on a missing feed.
+async function loadFairScores() {
+    try {
+        var resp = await fetch('fair-scores.json');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        var data = await resp.json();
+        if (!data || typeof data.scores !== 'object' || data.scores === null) throw new Error('malformed feed');
+        state.fairScores = data;
+        // Datasets may already be on screen — refresh so the column, tile,
+        // and fleet counts pick up the scores. If not, loadDatasets renders later.
+        if (state.datasets.length > 0) {
+            renderStats();
+            renderTable();
+        }
+    } catch (err) {
+        state.fairScores = null;
+    }
+}
+
+// Look up a record's F-UJI entry in the feed. Returns null when the feed
+// is absent, the record has no DOI, or the DOI was not assessed.
+function fairEntryFor(d) {
+    if (!state.fairScores || !d.doi) return null;
+    return state.fairScores.scores[normaliseDoi(d.doi)] || null;
+}
+
+// F-UJI colour thresholds. Deliberately lower than the 80/60 mapping
+// cutoffs — F-UJI v0.8 scores run structurally lower (35–60% is the
+// normal band for well-mapped DataCite records).
+function fairThresholdClass(s) {
+    return s >= 60 ? 'good' : (s >= 45 ? 'warn' : 'bad');
 }
 
 // ============================================================
@@ -1373,6 +1434,14 @@ function visibleDatasets() {
         else if (key === 'type') { av = a.resourceTypeGeneral || ''; bv = b.resourceTypeGeneral || ''; }
         else if (key === 'year') { av = a.publicationYear || 0; bv = b.publicationYear || 0; }
         else if (key === 'mapping') { av = a.mapping.score; bv = b.mapping.score; }
+        else if (key === 'fair') {
+            // Unassessed records sort to the end in both directions.
+            var af = fairEntryFor(a), bf = fairEntryFor(b);
+            if (!af && !bf) return 0;
+            if (!af) return 1;
+            if (!bf) return -1;
+            av = Number(af.s) || 0; bv = Number(bf.s) || 0;
+        }
         else if (key === 'cites') { av = a.citationCount || 0; bv = b.citationCount || 0; }
         if (av < bv) return -1 * dir;
         if (av > bv) return 1 * dir;
@@ -1411,6 +1480,33 @@ function renderStats() {
     if (avgMapping >= 80) mappingSubEl.textContent = 'DataCite completeness — good';
     else if (avgMapping >= 60) mappingSubEl.textContent = 'DataCite completeness — OK';
     else mappingSubEl.textContent = 'DataCite completeness — needs work';
+
+    // Avg F-UJI — mean of available scores. PhysicalObject records (physical
+    // samples, not assessed by F-UJI) stay out of the denominator unless the
+    // feed actually scored one.
+    var fairEl = document.getElementById('stat-fair');
+    var fairSubEl = document.getElementById('stat-fair-sub');
+    if (state.fairScores) {
+        var fairAssessed = 0, fairSum = 0, fairEligible = 0;
+        ds.forEach(function(d) {
+            var entry = fairEntryFor(d);
+            if (entry) { fairAssessed++; fairSum += Number(entry.s) || 0; }
+            if (entry || d.resourceTypeGeneral !== 'PhysicalObject') fairEligible++;
+        });
+        fairEl.textContent = fairAssessed > 0 ? Math.round(fairSum / fairAssessed) + '%' : 'n/a';
+        fairSubEl.textContent = fairAssessed + ' of ' + fairEligible + ' assessed';
+        var fairTipEl = document.getElementById('stat-fair-tip');
+        if (fairTipEl) {
+            fairTipEl.setAttribute('data-tip', 'Mean F-UJI FAIR assessment score (F-UJI v'
+                + state.fairScores.fuji_version + ', metric set v' + state.fairScores.metric_version
+                + ', assessed ' + String(state.fairScores.generated || '').substring(0, 10)
+                + '). Automated metadata-completeness signal, not a data-quality rating. '
+                + 'Open a dataset\'s F-UJI check tab for the per-metric breakdown.');
+        }
+    } else {
+        fairEl.textContent = 'n/a';
+        fairSubEl.textContent = 'no assessment data';
+    }
 }
 
 function populateYearFilter() {
@@ -1448,7 +1544,7 @@ function renderTable() {
     renderFleetPanel();
 
     if (visible.length === 0) {
-        setBody('<tr><td colspan="8" class="empty-state">No datasets match the current filters.</td></tr>');
+        setBody('<tr><td colspan="9" class="empty-state">No datasets match the current filters.</td></tr>');
         return;
     }
 
@@ -1507,6 +1603,20 @@ function renderRow(d, num) {
     var mapping = d.mapping;
     var mapClass = mapping.score >= 80 ? 'good' : (mapping.score >= 60 ? 'warn' : 'bad');
 
+    // F-UJI cell — bar when assessed; physical samples are out of F-UJI's
+    // scope, so they get "n/a" rather than "not yet".
+    var fair = fairEntryFor(d);
+    var fairCellHtml;
+    if (fair) {
+        var fairScore = Number(fair.s) || 0;
+        var fairClass = fairThresholdClass(fairScore);
+        fairCellHtml = '<div class="mapping-bar"><div class="track"><div class="fill ' + fairClass + '" style="width:' + fairScore + '%"></div></div><div class="pct">' + Math.round(fairScore) + '%</div></div>';
+    } else if (d.resourceTypeGeneral === 'PhysicalObject') {
+        fairCellHtml = '<span style="color:var(--text-muted)" title="Physical sample — not assessed">n/a</span>';
+    } else {
+        fairCellHtml = '<span style="color:var(--text-muted)" title="Not yet assessed">—</span>';
+    }
+
     return '<tr class="data-row' + (state.expanded.has(d.doi) ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '">'
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-title">'
@@ -1517,6 +1627,7 @@ function renderRow(d, num) {
         + '<td class="col-authors">' + authorsHtml + '</td>'
         + '<td class="col-year">' + (d.publicationYear || '—') + '</td>'
         + '<td class="col-mapping"><div class="mapping-bar"><div class="track"><div class="fill ' + mapClass + '" style="width:' + mapping.score + '%"></div></div><div class="pct">' + mapping.score + '%</div></div></td>'
+        + '<td class="col-fair">' + fairCellHtml + '</td>'
         + '<td class="col-cites">' + renderCitePill(d, state.citationCache) + '</td>'
         + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
         + '</tr>';
@@ -1580,16 +1691,21 @@ function renderDetailRow(d) {
         citTabBadge = '<span class="badge-count">' + (typeof d.citationCount === 'number' ? d.citationCount : '…') + '</span>';
     }
 
-    return '<tr class="detail-row"><td colspan="8"><div class="detail" data-doi="' + escapeAttr(d.doi) + '">'
+    var fair = fairEntryFor(d);
+    var fujiTabBadge = fair ? ' <span class="badge-count">' + escapeHtml(String(fair.s)) + '%</span>' : '';
+
+    return '<tr class="detail-row"><td colspan="9"><div class="detail" data-doi="' + escapeAttr(d.doi) + '">'
         + '<div class="detail-tabs">'
             + '<button class="detail-tab active" data-pane="overview">Overview</button>'
             + '<button class="detail-tab" data-pane="mapping">Mapping check <span class="badge-count">' + d.mapping.score + '%</span></button>'
+            + '<button class="detail-tab" data-pane="fuji">F-UJI check' + fujiTabBadge + '</button>'
             + '<button class="detail-tab" data-pane="related">Related <span class="badge-count">' + d.relatedIdentifiers.length + '</span></button>'
             + '<button class="detail-tab" data-pane="citations">Citations ' + citTabBadge + '</button>'
             + '<button class="detail-tab" data-pane="raw">Raw JSON</button>'
         + '</div>'
         + '<div class="detail-pane active" data-pane="overview">' + renderOverviewPane(d) + '</div>'
         + '<div class="detail-pane" data-pane="mapping">' + renderMappingPane(d) + '</div>'
+        + '<div class="detail-pane" data-pane="fuji">' + renderFujiPane(d) + '</div>'
         + '<div class="detail-pane" data-pane="related">' + renderRelatedPane(d) + '</div>'
         + '<div class="detail-pane" data-pane="citations" data-loaded="false"><div class="empty-state"><span class="spinner"></span> Click to load citations.</div></div>'
         + '<div class="detail-pane" data-pane="raw">' + renderRawPane(d) + '</div>'
@@ -1981,6 +2097,51 @@ function renderMappingPane(d) {
     return html;
 }
 
+// ----- F-UJI check pane -----
+// Per-metric breakdown from the fair-scores.json feed. Uses the same
+// check-list / summary-banner markup as the Mapping pane; thresholds are
+// the F-UJI-specific ones from fairThresholdClass (60/45, not 80/60).
+function renderFujiPane(d) {
+    var fair = fairEntryFor(d);
+    if (!fair) {
+        if (d.resourceTypeGeneral === 'PhysicalObject') {
+            return '<div class="empty-state">Physical sample — not assessed.<br><small>F-UJI evaluates dataset metadata via the record\'s landing page; physical-sample records are out of scope.</small></div>';
+        }
+        return '<div class="empty-state">Not yet assessed.</div>';
+    }
+    var feed = state.fairScores || {};
+    var metricNames = feed.metric_names || {};
+    var fairScore = Number(fair.s) || 0;
+    var bannerCls = fairThresholdClass(fairScore);
+
+    var html = '<div class="summary-banner ' + bannerCls + '"><strong>' + escapeHtml(String(fair.s)) + '% FAIR score</strong>'
+        + ' · F ' + escapeHtml(String(fair.f)) + '% · A ' + escapeHtml(String(fair.a)) + '% · I ' + escapeHtml(String(fair.i)) + '% · R ' + escapeHtml(String(fair.r)) + '%'
+        + ' · maturity ' + escapeHtml(String(fair.m)) + '/3 (' + escapeHtml(String(fair.p)) + '/' + escapeHtml(String(fair.t)) + ' metrics passed)</div>';
+    html += '<div style="font-size:11px;color:var(--text-muted);margin-bottom:12px;">F-UJI v' + escapeHtml(String(feed.fuji_version || '?'))
+        + ' · metric set v' + escapeHtml(String(feed.metric_version || '?'))
+        + ' · assessed ' + escapeHtml(String(fair.d || '')) + '</div>';
+    html += '<ul class="check-list">';
+    (fair.checks || []).forEach(function(c) {
+        // c = [metric id, score earned, score total, test_status, maturity]
+        var metricId = String(c[0] || '');
+        var earned = Number(c[1]) || 0;
+        var total = Number(c[2]) || 0;
+        var status = earned === total ? 'good' : (earned > 0 ? 'warn' : 'bad');
+        var icon = status === 'good' ? '✓' : (status === 'warn' ? '!' : '✗');
+        var metricName = metricNames[metricId] || '';
+        html += '<li class="check ' + status + '">'
+            + '<div class="icon">' + icon + '</div>'
+            + '<div class="body">'
+                + '<div class="name">' + escapeHtml(metricId.replace(/^FsF-/, '')) + '</div>'
+                + '<div class="value">' + escapeHtml(earned + ' / ' + total) + '</div>'
+                + (metricName ? '<div class="note">' + escapeHtml(metricName) + '</div>' : '')
+            + '</div>'
+        + '</li>';
+    });
+    html += '</ul>';
+    return html;
+}
+
 // ----- Related identifiers pane -----
 function renderRelatedPane(d) {
     if (d.relatedIdentifiers.length === 0) {
@@ -2071,6 +2232,7 @@ var CSV_COLUMNS = [
     { header: 'AffiliationRORs', value: creatorAffiliationRors },
     { header: 'Subjects', value: function(d) { return d.subjects.map(function(s) { return s.subject; }).join('; '); } },
     { header: 'MappingScore', value: function(d) { return d.mapping.score; } },
+    { header: 'FUJIScore', value: function(d) { var e = fairEntryFor(d); return e ? e.s : ''; } },
     { header: 'Citations', value: function(d) { return typeof d.citationCount === 'number' ? d.citationCount : ''; } }
 ];
 

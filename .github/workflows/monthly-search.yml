@@ -78,6 +78,12 @@ jobs:
       - name: Same-work consolidation
         run: node src/consolidate.js
 
+      # AusMT run-level deployment harvest (build_id-gated: a 300-byte
+      # request when the portal has not rebuilt). Sole source for the MT
+      # deployment register — never the instrument registry's survey records.
+      - name: AusMT run harvest
+        run: node src/ausmt-inventory.js
+
       # Cross-pillar stats (instruments, surveys, datasets, repo counts)
       # Must run before the dashboard so explorer cards pick up fresh numbers.
       - name: Aggregate cross-pillar stats

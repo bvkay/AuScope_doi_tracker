@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-08-16T03:17:39.444Z",
-    "total_count": 215
+    "last_updated": "2026-08-25T20:36:21.775Z",
+    "total_count": 216
   },
   "records": [
     {
@@ -1502,6 +1502,14 @@
       "type": "Seismic Network"
     },
     {
+      "code": "Y7",
+      "name": "Okataina Seismic Network (OKSN)",
+      "year": 2025,
+      "doi": "10.7914/kd1t-kt29",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
       "code": "YB",
       "name": "Rugby 2026 MLa 4.4 RDK",
       "year": 2026,
@@ -1547,6 +1555,7 @@
       "authors": "AuScope",
       "year": 2023,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f2104_7817_6176_4235"
     },
@@ -1556,6 +1565,7 @@
       "authors": "AuScope",
       "year": 2023,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f2726_4254_7999_8141"
     },
@@ -1565,6 +1575,7 @@
       "authors": "Graham Heinson",
       "year": 2020,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f6307_9112_1484_3827"
     },
@@ -1574,6 +1585,7 @@
       "authors": "Goleby, Bruce, Thiel, Stephan, Hollmann, Hannes, Hollmann, Hannes",
       "year": 2023,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f3484_7156_3078_9567"
     },
@@ -1583,6 +1595,7 @@
       "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
       "year": 2022,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f6598_1359_7455_7246"
     },
@@ -1592,6 +1605,7 @@
       "authors": "Graham Heinson",
       "year": 2022,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f6277_7362_8380_4100"
     },
@@ -1601,6 +1615,7 @@
       "authors": "Selway, Kate, Manassero,  Maria Constanza, St�l, Tobias, Reading, Anya",
       "year": 2025,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f8303_6396_4487_5442"
     },
@@ -1610,6 +1625,7 @@
       "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Askey-Doran, Niam, Reading, Anya",
       "year": 2025,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f0072_8725_3150_9321"
     },
@@ -1619,6 +1635,7 @@
       "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
       "year": 2025,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f6732_1581_4488_6269"
     },
@@ -1628,6 +1645,7 @@
       "authors": "Graham Heinson",
       "year": 2022,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f4237_9555_3315_5547"
     },
@@ -1637,6 +1655,7 @@
       "authors": "Graham Heinson",
       "year": 2019,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f2066_9902_2549_5960"
     },
@@ -1646,6 +1665,7 @@
       "authors": "Graham Heinson",
       "year": 2019,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f6440_7394_2965_2331"
     },
@@ -1655,6 +1675,7 @@
       "authors": "Graham Heinson",
       "year": 2019,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f4430_5784_1652_3308"
     },
@@ -1664,6 +1685,7 @@
       "authors": "Graham Heinson",
       "year": 2019,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f1746_7402_6625_3811"
     },
@@ -1673,6 +1695,7 @@
       "authors": "Graham Heinson",
       "year": 2019,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f1819_6386_8013_2641"
     },
@@ -1682,6 +1705,7 @@
       "authors": "Graham Heinson",
       "year": 2023,
       "platform": "NCI",
+      "subset": "MT",
       "type": "Dataset",
       "nciUuid": "f3493_5419_2278_8379"
     },
@@ -1691,6 +1715,7 @@
       "authors": "Lai, Voon Hui, Miller, Meghan",
       "year": 2023,
       "platform": "NCI",
+      "subset": "DAS",
       "type": "Dataset",
       "nciUuid": "f0103_2437_2513_4912"
     },
@@ -1700,6 +1725,7 @@
       "authors": "Lai, Voon Hui, Miller, Meghan",
       "year": 2023,
       "platform": "NCI",
+      "subset": "DAS",
       "type": "Dataset",
       "nciUuid": "f7951_4499_3694_3652"
     },
@@ -1709,6 +1735,7 @@
       "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
       "year": 2026,
       "platform": "NCI",
+      "subset": "DAS",
       "type": "Dataset",
       "nciUuid": "f7028_7996_9657_0446"
     },
@@ -1718,6 +1745,7 @@
       "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
       "year": 2026,
       "platform": "NCI",
+      "subset": "DAS",
       "type": "Dataset",
       "nciUuid": "f6919_6315_6758_0339"
     },
@@ -1727,6 +1755,7 @@
       "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
       "year": 2026,
       "platform": "NCI",
+      "subset": "DAS",
       "type": "Dataset",
       "nciUuid": "f4225_7281_3553_5114"
     },
@@ -1736,6 +1765,7 @@
       "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
       "year": 2026,
       "platform": "NCI",
+      "subset": "DAS",
       "type": "Dataset",
       "nciUuid": "f1569_5260_6502_2433"
     },
@@ -1745,6 +1775,7 @@
       "authors": "Townend, John, Lai, Voon Hui, Miller, Meghan",
       "year": 2026,
       "platform": "NCI",
+      "subset": "DAS",
       "type": "Dataset",
       "nciUuid": "f2381_8931_8909_7373"
     }

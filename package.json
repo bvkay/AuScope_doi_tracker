@@ -6,6 +6,8 @@
   "scripts": {
     "search": "node src/search.js",
     "datasets": "node src/dataset-inventory.js",
+    "ausmt": "node src/ausmt-inventory.js",
+    "fair": "node src/fair-assess.js",
     "update-fdsn": "node src/update-fdsn-dois.js",
     "stats": "node src/stats.js",
     "nvcl": "node src/nvcl/harvest.js",

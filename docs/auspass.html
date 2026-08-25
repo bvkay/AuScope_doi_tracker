@@ -36,6 +36,7 @@
         .col-years { width: 110px; font-variant-numeric: tabular-nums; color: var(--text-soft); }
         .col-stations { width: 90px; font-variant-numeric: tabular-nums; text-align: right; }
         .col-status { width: 100px; }
+        .col-fair { width: 110px; }
         .col-cites { width: 90px; text-align: center; }
 
         /* status badges */
@@ -56,6 +57,103 @@
         }
         .badge.status-concluded { background: var(--bg-muted); color: var(--text-soft); }
         .badge.status-unknown { background: #fef3c7; color: #92400e; }
+
+        /* ----- F-UJI FAIR score (column bar + check pane) -----
+           Bar copied from earthbank.html's .mapping-bar (renamed .fair-bar);
+           banner + check rows copied from its mapping-check pane so the
+           F-UJI tab reads the same across the tracker family. Banner text
+           colours are remapped to this page's existing literals/variables
+           rather than importing earthbank's. */
+        .fair-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .fair-bar .track {
+            position: relative;
+            flex: 1;
+            height: 6px;
+            background: var(--bg-muted);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .fair-bar .fill {
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+        .fair-bar .fill.good { background: var(--good); }
+        .fair-bar .fill.warn { background: var(--warn); }
+        .fair-bar .fill.bad { background: var(--bad); }
+        .fair-bar .pct {
+            font-size: 11px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-soft);
+            min-width: 30px;
+            text-align: right;
+        }
+
+        .summary-banner {
+            padding: 10px 14px;
+            border-radius: 5px;
+            margin-bottom: 14px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-banner.good { background: var(--good-bg); color: #065f46; }
+        .summary-banner.warn { background: var(--warn-bg); color: #92400e; }
+        .summary-banner.bad { background: var(--bad-bg); color: var(--bad); }
+
+        .check-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 18px;
+        }
+        @media (max-width: 900px) {
+            .check-list { grid-template-columns: 1fr; }
+        }
+        .check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 4px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+        .check .icon {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            margin-top: 1px;
+        }
+        .check.good .icon { background: var(--good); }
+        .check.warn .icon { background: var(--warn); }
+        .check.bad .icon { background: var(--bad); }
+        .check .body { flex: 1; min-width: 0; }
+        .check .name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        .check .value {
+            font-size: 11.5px;
+            color: var(--text);
+            margin-top: 3px;
+            font-family: var(--mono);
+            word-break: break-word;
+        }
 
         /* ----- Stations pane ----- */
         .stations-table {
@@ -322,6 +420,7 @@
             <div class="stat"><div class="label">Active <span class="info-i" data-tip="Networks still collecting data — endTime is empty or in the future.">i</span></div><div class="value" id="stat-active">—</div><div class="sub">currently deployed</div></div>
             <div class="stat"><div class="label">With DOI <span class="info-i" data-tip="Networks registered with a citable DOI via DataCite. Without a DOI, the network can't be reciprocally tracked for citations.">i</span></div><div class="value" id="stat-doi">—</div><div class="sub" id="stat-doi-sub">DataCite-registered</div></div>
             <div class="stat"><div class="label">Total citations <span class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all networks. Loaded in batches after page load.">i</span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
+            <div class="stat"><div class="label">Avg F-UJI <span class="info-i" id="stat-fair-info" data-tip="Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown.">i</span></div><div class="value" id="stat-fair">—</div><div class="sub" id="stat-fair-sub">loading…</div></div>
         </div>
 
         <!-- ========== FLEET SUMMARY ========== -->
@@ -407,6 +506,8 @@
                 <option value="year-desc">Newest first</option>
                 <option value="year-asc">Oldest first</option>
                 <option value="cites-desc">Most cited</option>
+                <option value="fair-asc">Lowest F-UJI score</option>
+                <option value="fair-desc">Highest F-UJI score</option>
                 <option value="stations-desc">Most stations</option>
                 <option value="code-asc">Code A→Z</option>
             </select>
@@ -427,12 +528,13 @@
                         <th class="col-years sortable" data-sort="year">Years <span class="arrow">▼</span></th>
                         <th class="col-stations sortable" data-sort="stations">Stations <span class="arrow"></span></th>
                         <th class="col-status">Status</th>
+                        <th class="col-fair sortable" data-sort="fair">F-UJI <span class="arrow"></span></th>
                         <th class="col-cites sortable" data-sort="cites">Citations <span class="arrow"></span></th>
                         <th class="col-actions"></th>
                     </tr>
                 </thead>
                 <tbody id="nw-tbody">
-                    <tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading from AusPass…</td></tr>
+                    <tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading from AusPass…</td></tr>
                 </tbody>
             </table>
         </div>
@@ -464,6 +566,10 @@ var state = createTrackerState({
     filter: { search: '', status: '', decade: '' },
     stationCache: {},
     dataciteCache: {},
+    // F-UJI FAIR scores — static same-origin feed (fair-scores.json), loaded
+    // fail-soft at init. scores keys are normalised DOIs (lowercase, no
+    // resolver prefix), matching normaliseDoi in tracker-chassis.js.
+    fair: { loaded: false, failed: false, meta: null, scores: {} },
     // Station map — populated lazily on first expansion of #station-map-panel.
     // Mutated in place (never reassigned) so bound handlers keep working.
     map: {
@@ -545,6 +651,7 @@ function init() {
         onFilterChanged: renderTable
     });
     bindMapPanel();
+    loadFairScores();
     loadNetworks();
 }
 
@@ -602,7 +709,7 @@ function bindControls() {
 // LOAD NETWORKS
 // ============================================================
 async function loadNetworks() {
-    setBody('<tr><td colspan="8" class="empty-state"><span class="spinner"></span> Loading networks from AusPass…</td></tr>');
+    setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading networks from AusPass…</td></tr>');
     try {
         var networks = await fetchAusPassNetworks();
         state.networks = networks.map(normalizeNetwork);
@@ -616,7 +723,7 @@ async function loadNetworks() {
         // Background: fetch DataCite creator info, then citation counts
         enrichWithDataCite();
     } catch (err) {
-        setBody('<tr><td colspan="8" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
+        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
     }
 }
 
@@ -815,6 +922,67 @@ function applyDataCite(network, attrs) {
 }
 
 // ============================================================
+// F-UJI FAIR SCORES
+// ============================================================
+// Static same-origin feed (fair-scores.json), regenerated offline by the
+// F-UJI batch runner. Fail-soft on purpose: if the file is missing or
+// malformed the column shows an em-dash and the tile shows n/a — nothing
+// else on the page depends on it.
+async function loadFairScores() {
+    try {
+        var resp = await fetch('fair-scores.json');
+        if (!resp.ok) throw new Error('fair-scores.json returned HTTP ' + resp.status);
+        var data = await resp.json();
+        state.fair.meta = {
+            generated: data.generated || '',
+            fuji_version: data.fuji_version || '?',
+            metric_version: data.metric_version || '?',
+            metric_names: data.metric_names || {}
+        };
+        state.fair.scores = data.scores || {};
+        state.fair.loaded = true;
+    } catch (err) {
+        state.fair.failed = true;
+        // Set the tile directly too — renderStats only runs once networks
+        // land, and the tile shouldn't sit on "loading…" if the feed is gone.
+        document.getElementById('stat-fair').textContent = 'n/a';
+        document.getElementById('stat-fair-sub').textContent = 'assessment feed unavailable';
+    }
+    // The networks fetch and this one race; whichever lands second completes
+    // the picture. Re-render only if the table already has rows — otherwise
+    // loadNetworks' own renderStats/renderTable will pick the scores up.
+    if (state.networks.length > 0) {
+        renderStats();
+        renderTable();
+    }
+}
+
+// scores entry for a network, or null when the network has no DOI, the feed
+// hasn't loaded, or the DOI wasn't assessed.
+function fairScoreFor(n) {
+    if (!n.doi || !state.fair.loaded) return null;
+    return state.fair.scores[normaliseDoi(n.doi)] || null;
+}
+
+// F-UJI thresholds — deliberately lower than the earthbank mapping bands
+// (80/60): F-UJI v0.8 scores run structurally lower, with 35–60% the
+// normal band, so 60+ is genuinely good and under 45 needs attention.
+function fairClass(score) {
+    if (score >= 60) return 'good';
+    if (score >= 45) return 'warn';
+    return 'bad';
+}
+
+// Column cell — bar + percent, same shape as earthbank's mapping bar.
+function renderFairCell(n) {
+    var s = fairScoreFor(n);
+    if (!s) return '<span style="font-size:11px;color:var(--text-muted);" title="Not yet assessed">—</span>';
+    // Feed data lands in a style attribute — keep it strictly numeric.
+    var sv = Number(s.s) || 0;
+    return '<div class="fair-bar"><div class="track"><div class="fill ' + fairClass(sv) + '" style="width:' + sv + '%"></div></div><div class="pct">' + sv + '%</div></div>';
+}
+
+// ============================================================
 // FETCH STATIONS (lazy, on Stations tab open)
 // ============================================================
 async function fetchStations(networkCode) {
@@ -892,6 +1060,14 @@ function visibleNetworks() {
         else if (key === 'year') { av = parseInt(a.startYear) || 0; bv = parseInt(b.startYear) || 0; }
         else if (key === 'stations') { av = a.totalStations; bv = b.totalStations; }
         else if (key === 'cites') { av = a.citationCount || 0; bv = b.citationCount || 0; }
+        else if (key === 'fair') {
+            // Unassessed networks sink to the end whichever direction is active.
+            var afs = fairScoreFor(a), bfs = fairScoreFor(b);
+            if (!afs && !bfs) return 0;
+            if (!afs) return 1;
+            if (!bfs) return -1;
+            av = afs.s; bv = bfs.s;
+        }
         if (av < bv) return -1 * dir;
         if (av > bv) return 1 * dir;
         return 0;
@@ -919,6 +1095,34 @@ function renderStats() {
     var doiSub = document.getElementById('stat-doi-sub');
     if (total > 0) doiSub.textContent = withDoi + ' / ' + total + ' registered';
     document.getElementById('stat-cites').textContent = totalCites;
+
+    // Avg F-UJI tile — mean over assessed networks only. The info tip gains
+    // the feed's version stamp once loaded (via setAttribute, so the values
+    // are treated as data — no escaping needed).
+    var fairVal = document.getElementById('stat-fair');
+    var fairSub = document.getElementById('stat-fair-sub');
+    if (state.fair.loaded) {
+        var assessed = nw.filter(function(n) { return !!fairScoreFor(n); });
+        if (assessed.length > 0) {
+            var fairSum = 0;
+            assessed.forEach(function(n) { fairSum += fairScoreFor(n).s; });
+            fairVal.textContent = (fairSum / assessed.length).toFixed(1) + '%';
+        } else {
+            fairVal.textContent = 'n/a';
+        }
+        fairSub.textContent = assessed.length + ' of ' + total + ' assessed';
+        var fairInfo = document.getElementById('stat-fair-info');
+        if (fairInfo) {
+            fairInfo.setAttribute('data-tip', 'Mean F-UJI FAIR assessment score (F-UJI v' + state.fair.meta.fuji_version
+                + ', metric set v' + state.fair.meta.metric_version
+                + ', assessed ' + String(state.fair.meta.generated).substring(0, 10)
+                + '). Automated metadata-completeness signal, not a data-quality rating. '
+                + 'Open a dataset\'s F-UJI check tab for the per-metric breakdown.');
+        }
+    } else if (state.fair.failed) {
+        fairVal.textContent = 'n/a';
+        fairSub.textContent = 'assessment feed unavailable';
+    }
 }
 
 function setBody(html) { document.getElementById('nw-tbody').innerHTML = html; }
@@ -953,7 +1157,7 @@ function renderTable() {
     renderFleetPanel();
 
     if (visible.length === 0) {
-        setBody('<tr><td colspan="8" class="empty-state">No networks match the current filters.</td></tr>');
+        setBody('<tr><td colspan="9" class="empty-state">No networks match the current filters.</td></tr>');
         return;
     }
 
@@ -996,6 +1200,7 @@ function renderRow(n, num) {
         + '<td class="col-years">' + escapeHtml(n.yearStr || '—') + '</td>'
         + '<td class="col-stations">' + n.totalStations + '</td>'
         + '<td class="col-status">' + statusBadge + '</td>'
+        + '<td class="col-fair">' + renderFairCell(n) + '</td>'
         + '<td class="col-cites">' + renderCitePill(n, state.citationCache) + '</td>'
         + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
         + '</tr>';
@@ -1034,16 +1239,21 @@ function renderDetailRow(n) {
         citTabBadge = '<span class="badge-count">' + (typeof n.citationCount === 'number' ? n.citationCount : '…') + '</span>';
     }
 
-    return '<tr class="detail-row"><td colspan="8"><div class="detail" data-key="' + escapeAttr(n.rowKey) + '" data-code="' + escapeAttr(n.code) + '">'
+    var fairS = fairScoreFor(n);
+    var fairTabBadge = fairS ? ' <span class="badge-count">' + escapeHtml(String(fairS.s)) + '%</span>' : '';
+
+    return '<tr class="detail-row"><td colspan="9"><div class="detail" data-key="' + escapeAttr(n.rowKey) + '" data-code="' + escapeAttr(n.code) + '">'
         + '<div class="detail-tabs">'
             + '<button class="detail-tab active" data-pane="overview">Overview</button>'
             + '<button class="detail-tab" data-pane="stations">Stations <span class="badge-count">' + n.totalStations + '</span></button>'
             + (n.doi ? '<button class="detail-tab" data-pane="citations">Citations ' + citTabBadge + '</button>' : '')
+            + '<button class="detail-tab" data-pane="fuji">F-UJI check' + fairTabBadge + '</button>'
             + '<button class="detail-tab" data-pane="raw">Raw</button>'
         + '</div>'
         + '<div class="detail-pane active" data-pane="overview">' + renderOverviewPane(n) + '</div>'
         + '<div class="detail-pane" data-pane="stations" data-loaded="false"><div class="empty-state">Click to load station inventory.</div></div>'
         + (n.doi ? '<div class="detail-pane" data-pane="citations" data-loaded="false"><div class="empty-state">Click to load citations.</div></div>' : '')
+        + '<div class="detail-pane" data-pane="fuji">' + renderFairPane(n) + '</div>'
         + '<div class="detail-pane" data-pane="raw">' + renderRawPane(n) + '</div>'
         + '</div></td></tr>';
 }
@@ -1369,6 +1579,45 @@ function renderRawPane(n) {
         return '<div class="empty-state">This network has no DOI registered, so there is no DataCite metadata to display.</div>';
     }
     return '<div class="empty-state">DataCite metadata not yet loaded (or DOI not in DataCite). Reload the page or check the DOI is valid.</div>';
+}
+
+// ----- F-UJI pane -----
+// Rendered eagerly like Overview/Raw — the scores are already local, no
+// per-row fetch. Banner + check rows follow the earthbank mapping-check
+// idiom; thresholds are the F-UJI ones (60/45), not mapping's 80/60.
+function renderFairPane(n) {
+    var s = fairScoreFor(n);
+    if (!s) {
+        if (!n.doi) return '<div class="empty-state">Not yet assessed — this network has no DOI, so F-UJI has nothing to assess.</div>';
+        return '<div class="empty-state">Not yet assessed.</div>';
+    }
+    var meta = state.fair.meta;
+    var html = '<div class="summary-banner ' + fairClass(Number(s.s)) + '"><strong>' + escapeHtml(String(s.s)) + '% FAIR score</strong> · '
+        + 'F ' + escapeHtml(String(s.f)) + '% · A ' + escapeHtml(String(s.a)) + '% · I ' + escapeHtml(String(s.i)) + '% · R ' + escapeHtml(String(s.r)) + '% · '
+        + 'maturity ' + escapeHtml(String(s.m)) + '/3 (' + escapeHtml(String(s.p)) + '/' + escapeHtml(String(s.t)) + ' metrics passed)</div>';
+    html += '<p style="font-size:11.5px;color:var(--text-muted);margin:-6px 0 12px;">F-UJI v' + escapeHtml(meta.fuji_version)
+        + ' · metric set v' + escapeHtml(meta.metric_version)
+        + ' · assessed ' + escapeHtml(s.d || '') + '</p>';
+    html += '<ul class="check-list">';
+    (s.checks || []).forEach(function(c) {
+        // checks[] rows are [metric id, score earned, score total, test_status, maturity]
+        var id = String(c[0] || '');
+        var earned = c[1], totalPts = c[2];
+        var cls, icon;
+        if (earned >= totalPts) { cls = 'good'; icon = '✓'; }
+        else if (earned > 0) { cls = 'warn'; icon = '!'; }
+        else { cls = 'bad'; icon = '✗'; }
+        var name = (meta.metric_names && meta.metric_names[id]) || '';
+        html += '<li class="check ' + cls + '">'
+            + '<div class="icon">' + icon + '</div>'
+            + '<div class="body">'
+                + '<div class="name"><span class="mono" style="font-family:var(--mono);font-size:11px;color:var(--text-soft);margin-right:6px;">' + escapeHtml(id.replace(/^FsF-/, '')) + '</span>' + escapeHtml(name) + '</div>'
+                + '<div class="value">' + escapeHtml(String(earned)) + '/' + escapeHtml(String(totalPts)) + '</div>'
+            + '</div>'
+        + '</li>';
+    });
+    html += '</ul>';
+    return html;
 }
 
 // ============================================================
@@ -2012,7 +2261,8 @@ function exportNetworksCsv() {
             { header: 'DOI', value: function(n) { return n.doi; } },
             { header: 'Operators', value: function(n) { return n.creators.map(function(c) { return c.name; }).join('; '); } },
             { header: 'ORCIDs', value: function(n) { return n.creators.map(function(c) { return c.orcid; }).filter(Boolean).join('; '); } },
-            { header: 'Citations', value: function(n) { return typeof n.citationCount === 'number' ? n.citationCount : ''; } }
+            { header: 'Citations', value: function(n) { return typeof n.citationCount === 'number' ? n.citationCount : ''; } },
+            { header: 'FUJIScore', value: function(n) { var s = fairScoreFor(n); return s ? s.s : ''; } }
         ],
         rows: visibleNetworks(),
         filenamePrefix: 'auspass-networks'

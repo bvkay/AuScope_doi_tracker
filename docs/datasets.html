@@ -9,8 +9,9 @@
       - EarthBank        -> earthbank.html
       - AusPass          -> auspass.html  (FDSN_DOI_DATA now lives only
                             there, via fdsn-doi-data.js)
-      - NCI MT + DAS     -> nci.html      (the GeoNetwork tree machinery
-                            moved there and grew completeness scoring)
+      - NCI MT           -> nci-mt.html   (the GeoNetwork tree machinery
+      - NCI DAS          -> nci-das.html   moved there, one page per data
+                            type; nci.html is now a chooser page)
       - NVCL             -> nvcl.html
 -->
 <html lang="en">
@@ -86,9 +87,13 @@
             <h3>AusPass Seismic Networks</h3>
             <p>FDSN seismic networks &mdash; station inventory, DOI coverage, and citation reciprocity.</p>
         </a>
-        <a class="platform-card" href="nci.html">
-            <h3>NCI Collections (MT + DAS)</h3>
-            <p>AuScope collections on the National Computational Infrastructure &mdash; magnetotelluric and distributed acoustic sensing trees, DataCite metadata health, and citations.</p>
+        <a class="platform-card" href="nci-mt.html">
+            <h3>NCI MT &mdash; Magnetotellurics</h3>
+            <p>AuScope magnetotelluric collections on the National Computational Infrastructure &mdash; AusLAMP and the state and legacy MT surveys, DataCite metadata health, and citations.</p>
+        </a>
+        <a class="platform-card" href="nci-das.html">
+            <h3>NCI DAS &mdash; Distributed Acoustic Sensing</h3>
+            <p>AuScope distributed acoustic sensing collections on the National Computational Infrastructure &mdash; ALIRT, FISSLE, SISSLE and kin, DataCite metadata health, and citations.</p>
         </a>
         <a class="platform-card" href="nvcl.html">
             <h3>NVCL &mdash; National Virtual Core Library</h3>

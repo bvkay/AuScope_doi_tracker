@@ -342,32 +342,6 @@ function buildProgramSection(programs) {
 // countries are deliberately absent — computed over the unverified keyword
 // corpus they inflate beyond belief; they return once evidence tiers let us
 // count them over verified publications only.
-function buildHeroTiles(s, pillarData) {
-  const tiles = [
-    { n: s.totalPublications, label: 'Publications' },
-    { n: s.totalCitations, label: 'Total Citations' }
-  ];
-  const p = pillarData && pillarData.pillars;
-  if (p) {
-    if (p.datasets) tiles.push({ n: p.datasets.total, label: 'Datasets' });
-    if (p.samples && p.samples.declared) tiles.push({ n: p.samples.declared, label: 'Samples' });
-    if (p.stations) tiles.push({ n: p.stations.total, label: 'Seismic Stations' });
-    if (p.nvcl) tiles.push({ n: Math.round(p.nvcl.combinedKm || p.nvcl.scannedKm), label: 'km Core Scanned' });
-    if (p.instruments) {
-      tiles.push({ n: p.instruments.units, label: 'Instruments' });
-      // Surveys deliberately NOT a hero tile: the registry's 9 DOI-registered
-      // surveys are a PID-coverage count, not a count of AuScope fieldwork —
-      // a hero number that needs a footnote invites the wrong question.
-      // They appear on the explorer card below with precise wording.
-    }
-  }
-  return tiles.map(function(t) {
-    return '            <div class="stat-card">\n'
-      + '                <div class="number">' + t.n.toLocaleString() + '</div>\n'
-      + '                <div class="label">' + t.label + '</div>\n'
-      + '            </div>';
-  }).join('\n');
-}
 
 // Explorer cards: cross-pillar numbers from src/stats.js, each linking to
 // the page that IS the evidence behind the number. Skips gracefully when
@@ -380,32 +354,71 @@ function buildExplorerCards(pillarData) {
   if (p.publications) {
     cards.push({ href: 'publications.html', num: p.publications.total.toLocaleString(),
       name: 'Publications', sub: 'evidence-graded · browse all' });
+    if (p.publications.citations) {
+      cards.push({ href: 'publications.html', num: p.publications.citations.toLocaleString(),
+        name: 'Total citations', sub: 'of tracked publications' });
+    }
   }
+  // One card per dataset subset — each platform / data-type tracker is its
+  // own widget with its own tracking numbers (datasets.html remains only as
+  // a quiet router page; it is deliberately not carded here).
   if (p.datasets) {
-    const platforms = Object.keys(p.datasets.byPlatform || {}).length;
-    cards.push({ href: 'datasets.html', num: p.datasets.total.toLocaleString(),
-      name: 'Datasets', sub: platforms + ' platforms' });
+    const bp = p.datasets.byPlatform || {};
+    const fair = p.datasets.fairAvg || {};
+    const fairSub = function(key) {
+      return fair[key] != null ? ' · avg F-UJI ' + fair[key] + '%' : '';
+    };
+    if (bp.EarthBank) {
+      cards.push({ href: 'earthbank.html', num: bp.EarthBank.toLocaleString(),
+        name: 'EarthBank datasets', sub: 'DataCite metadata health' + fairSub('EarthBank') });
+    }
+    if (bp['NCI MT']) {
+      cards.push({ href: 'nci-mt.html', num: bp['NCI MT'].toLocaleString(),
+        name: 'NCI MT collections', sub: 'AusLAMP + legacy surveys' + fairSub('NCI MT') });
+    }
+    if (bp['NCI DAS']) {
+      cards.push({ href: 'nci-das.html', num: bp['NCI DAS'].toLocaleString(),
+        name: 'NCI DAS collections', sub: 'ALIRT · FISSLE · SISSLE' + fairSub('NCI DAS') });
+    }
+  }
+  if (p.ausmt) {
+    cards.push({ href: 'https://ausmt.auscope.org.au/', num: p.ausmt.surveys.toLocaleString(),
+      name: 'AusMT surveys', sub: p.ausmt.stations.toLocaleString()
+        + ' stations · open MT transfer functions · ausmt.auscope.org.au ↗' });
+    // MT deployment register: sourced ONLY from AusMT per-station runs
+    // metadata (station.json) — the instrument registry's survey records
+    // are deliberately not used for deployment accounting.
+    if (p.ausmt.instrumentsDeployed) {
+      cards.push({ href: 'mt-deployments.html', num: p.ausmt.instrumentsDeployed.toLocaleString(),
+        name: 'Instruments deployed in MT surveys',
+        sub: p.ausmt.recordingDays.toLocaleString() + ' recording-days · run-level AusMT records · '
+          + p.ausmt.surveysPopulated + ' of ' + p.ausmt.surveys + ' surveys populated' });
+    }
   }
   if (p.samples && p.samples.declared) {
     // Nearly all samples are covered by their DATASET's DOI; the sampleDois
     // count is samples with their own individual PhysicalObject DOI —
     // wording must not imply the rest are un-PID'd.
     cards.push({ href: 'earthbank.html', num: p.samples.declared.toLocaleString(),
-      name: 'Samples',
-      sub: 'in DOI-registered datasets' });
+      name: 'EarthBank samples',
+      sub: 'declared in DOI-registered datasets' });
+  }
+  if (p.stations) {
+    const networks = p.datasets && (p.datasets.byPlatform || {}).AusPass;
+    cards.push({ href: 'auspass.html', num: p.stations.total.toLocaleString(),
+      name: 'Seismic stations', sub: (networks ? networks + ' networks · ' : '') + 'AusPass FDSN' });
   }
   if ((p.datasets && (p.datasets.byPlatform || {}).AusPass)) {
-    const stations = p.stations ? p.stations.total.toLocaleString() + ' stations' : 'stations + citations';
+    const apFair = (p.datasets.fairAvg || {}).AusPass;
     cards.push({ href: 'auspass.html', num: p.datasets.byPlatform.AusPass.toLocaleString(),
-      name: 'AusPass networks', sub: stations });
+      name: 'AusPass networks', sub: 'FDSN network DOIs' + (apFair != null ? ' · avg F-UJI ' + apFair + '%' : '') });
   }
   if (p.instruments) {
     cards.push({ href: 'instruments.html', num: p.instruments.units.toLocaleString(),
       name: 'Instruments', sub: 'PIDInst DOIs · metadata health' });
-    cards.push({ href: 'instruments.html', num: String(p.instruments.surveys),
-      name: 'DOI-registered surveys', sub: 'each lists its PIDInst components · '
-        + p.instruments.linkedDatasets + ' datasets · '
-        + p.instruments.linkedPapers + ' papers' });
+    // No surveys card: surveys are not shown on instruments.html, and MT
+    // deployment numbers come from the AusMT runs card above — never from
+    // the registry's survey records.
   }
   if (p.nvcl) {
     var nvclNum = p.nvcl.estimatedKm
@@ -429,7 +442,8 @@ function buildExplorerCards(pillarData) {
   if (!cards.length) return '';
 
   const cardHtml = cards.map(function(c) {
-    return '        <a class="explorer-card" href="' + c.href + '">\n'
+    const ext = /^https?:/i.test(c.href) ? ' target="_blank" rel="noopener"' : '';
+    return '        <a class="explorer-card" href="' + c.href + '"' + ext + '>\n'
       + '            <div class="num">' + c.num + '</div>\n'
       + '            <div class="name">' + c.name + '</div>\n'
       + '            <div class="sub">' + c.sub + '</div>\n'
@@ -651,14 +665,14 @@ function buildHTML(stats, lastUpdated, pillarData) {
     </style>
 </head>
 <body>
-    <!-- ═══ Hero Stats ═══ -->
+    <!-- ═══ Hero ═══ -->
+    <!-- The old "Impact at a Glance" tile band doubled up on the explorer
+         cards below (every number now lives on a card that links to its
+         evidence page), so it was removed. The embeddable widget keeps its
+         own tile band — that is its whole job. -->
     <div class="hero">
         <h1>AuScope Research Impact</h1>
         <p class="subtitle">Tracking publications and citations across AuScope research infrastructure</p>
-        <div class="more-than">AuScope Impact at a Glance</div>
-        <div class="stat-grid">
-${buildHeroTiles(s, pillarData)}
-        </div>
     </div>
 
 ${explorerCards}
