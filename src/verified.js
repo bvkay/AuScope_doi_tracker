@@ -85,6 +85,12 @@ async function fetchAllWorks(field, value, opts) {
     } catch (err) {
       console.error('  fetch error: ' + err.message);
       if (page === 0) console.error('  url was: ' + firstUrl);
+      // A failed fetch is NOT an empty result. Returning [] here is what
+      // zeroed the verified tier on 9 and 23 Aug 2026: one transient OpenAlex
+      // error read as "no works for the AuScope ROR", the write block wrote
+      // it, and evidence.js then dropped every ROR-verified record from the
+      // corpus (3,106 -> 2,902). The flag lets the caller tell the difference.
+      works.fetchFailed = true;
       break;
     }
 
@@ -190,9 +196,12 @@ async function run() {
   // organisations (Healthscope hospitals, Scope Australia disability
   // services) onto AuScope's institution entity. Trust the entity match
   // only when the author's RAW affiliation text actually says "AuScope".
+  let anyFetchFailed = false;
+
   for (const ror of (config.auscope_rors || [])) {
     process.stdout.write(`[ROR ${ror}] querying ... `);
     const works = await fetchAllWorks('authorships.institutions.ror', ror, fetchOpts);
+    if (works.fetchFailed) anyFetchFailed = true;
     let kept = 0, rejected = 0;
     for (const w of works) {
       const confirmed = (w.authorships || []).some(a =>
@@ -210,6 +219,7 @@ async function run() {
   for (const fid of (config.funder_ids || [])) {
     process.stdout.write(`[Funder ${fid}] querying ... `);
     const works = await fetchAllWorks('grants.funder', fid, fetchOpts);
+    if (works.fetchFailed) anyFetchFailed = true;
     console.log(`${works.length} works`);
     for (const w of works) {
       const doi = normaliseDoi(w.doi);
@@ -277,6 +287,26 @@ async function run() {
       return acc;
     }, {})
   });
+
+  // GUARD (see HANDOVER §4): refuse to replace a non-empty verified file
+  // with an empty result. A genuinely empty verified tier would mean OpenAlex
+  // stopped indexing the AuScope ROR — possible, but rare enough that it must
+  // be a deliberate, forced act rather than the default behaviour of a bad
+  // network day. VERIFIED_ALLOW_EMPTY=1 is the override.
+  if (verified.length === 0 && process.env.VERIFIED_ALLOW_EMPTY !== '1') {
+    let prevCount = 0;
+    try {
+      prevCount = (JSON.parse(fs.readFileSync(VERIFIED_FILE, 'utf8')).records || []).length;
+    } catch (e) { /* no previous file: an empty write is fine */ }
+    if (prevCount > 0) {
+      console.error('\nREFUSING to overwrite ' + VERIFIED_FILE + ': it holds '
+        + prevCount + ' records and this run produced 0.'
+        + (anyFetchFailed ? ' At least one OpenAlex fetch FAILED this run — this is'
+          + ' almost certainly a transient error, not a real zero.' : '')
+        + ' Set VERIFIED_ALLOW_EMPTY=1 to force.');
+      process.exit(1);
+    }
+  }
 
   fs.writeFileSync(VERIFIED_FILE, JSON.stringify({
     metadata: meta(verified, 'verified'),
