@@ -14,6 +14,10 @@
         }
 
         /* ── Hero Stats (TERN-style) ── */
+        .site-tabs { display: flex; gap: 2px; border-bottom: 2px solid #e5e7eb; margin: 0 auto 4px; max-width: 960px; padding: 10px 24px 0; flex-wrap: wrap; }
+        .site-tabs a { padding: 8px 16px 7px; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; }
+        .site-tabs a:hover { color: #282572; }
+        .site-tabs a.active { color: #282572; border-bottom-color: #282572; }
         .hero {
             background: #282572; /* flat AuScope purple — page embeds as an iframe on auscope.org.au */
             color: #ffffff;
@@ -187,6 +191,14 @@
          cards below (every number now lives on a card that links to its
          evidence page), so it was removed. The embeddable widget keeps its
          own tile band — that is its whole job. -->
+    <!-- Site tabs: keep in step with SITE_TABS in docs/tracker-chassis.js
+         and the static copy in docs/datasets.html. -->
+    <nav class="site-tabs" aria-label="Site sections">
+        <a href="index.html" class="active" aria-current="page">Impact</a>
+        <a href="publications.html">Publications</a>
+        <a href="datasets.html">Datasets</a>
+    </nav>
+
     <div class="hero">
         <h1>AuScope Research Impact</h1>
         <p class="subtitle">Tracking publications and citations across AuScope research infrastructure</p>

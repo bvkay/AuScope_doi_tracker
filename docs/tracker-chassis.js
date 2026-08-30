@@ -341,3 +341,42 @@ function createTrackerState(extraFields) {
     }
     return state;
 }
+
+// ============================================================
+// SITE TABS — one nav bar across the page families.
+// Opt-in: pages declare <body data-site-tab="datasets"> (or "" for
+// the bar with nothing highlighted). No attribute, no bar — which is
+// what keeps it off the widget and the standalone map embeds.
+// NOTE: index.html and datasets.html are standalone (no chassis);
+// they embed this markup statically — if SITE_TABS changes, update
+// buildSiteTabs() in src/dashboard.js and datasets.html to match.
+// ============================================================
+var SITE_TABS = [
+    { id: 'impact', label: 'Impact', href: 'index.html' },
+    { id: 'publications', label: 'Publications', href: 'publications.html' },
+    { id: 'datasets', label: 'Datasets', href: 'datasets.html' }
+];
+
+(function() {
+    function inject() {
+        var active = document.body.getAttribute('data-site-tab');
+        if (active === null) return;                    // page opted out
+        var wrap = document.querySelector('.wrap') || document.body;
+        var nav = document.createElement('nav');
+        nav.className = 'site-tabs';
+        nav.setAttribute('aria-label', 'Site sections');
+        nav.innerHTML = SITE_TABS.map(function(t) {
+            return '<a href="' + t.href + '"'
+                + (t.id === active ? ' class="active" aria-current="page"' : '')
+                + '>' + t.label + '</a>';
+        }).join('');
+        var topbar = wrap.querySelector('.topbar');
+        if (topbar && topbar.nextSibling) wrap.insertBefore(nav, topbar.nextSibling);
+        else wrap.insertBefore(nav, wrap.firstChild);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', inject);
+    } else {
+        inject();
+    }
+})();

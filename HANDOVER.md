@@ -46,6 +46,14 @@ change.
 | `NVCL_map.html` | Standalone NVCL borehole map, sized for a 513px iframe embed. **Orphan** — nothing in `docs/` links it. | `nvcl-data.json` + `australia-outline.json` |
 | `widget.html` | Embeddable stats widget (AuScope purple, iframe). | Generated |
 
+**Site tabs** — one nav bar (Impact / Publications / Datasets, with FAIR /
+Projects / Software to join as those pages land) across the page families.
+Chassis pages opt in with `<body data-site-tab="...">` (`""` shows the bar
+with nothing active — the infrastructure pillars); no attribute, no bar
+(widget + the two `_map` iframe embeds). `SITE_TABS` in `tracker-chassis.js`
+is the source of truth; `src/dashboard.js` (index template) and
+`docs/datasets.html` carry static copies — change all three together.
+
 **Shared front-end chassis** — `docs/tracker-shared.css`, `tracker-chassis.js`
 (utilities, fleet panel, CSV export, state factory), `tracker-citations.js`
 (DataCite GraphQL + OpenCitations + OpenAlex, merge, reciprocity model).
@@ -197,6 +205,21 @@ the coming `survey-metadata.json` contract is an AusMT-side (Ben) action.
 ---
 
 ## 6. The F-UJI FAIR scores
+
+> **History (added 31 Aug 2026):** `fair-scores.json` is a replace store, so
+> per-metric detail used to vanish every run. Each run now appends one line to
+> `data/fair-history.jsonl` — per DOI assessed that day: total, F/A/I/R split,
+> maturity, per-metric earned score AND verdict (both kept: F-UJI awards
+> partial credit on failed metrics, so one is not derivable from the other) —
+> and regenerates `docs/fair-history.json`, a slim per-run aggregate feed
+> (overall + per-platform averages, per-metric pass rates) for the future
+> FAIR-trends page. The 25 Aug baseline (167 DOIs, avg 50.1%) is backfilled as
+> line 1. Scores are comparable only within one metric_version. Same
+> principle planned for the project mapping when it lands: git gives diffable
+> history for free once the mapping is committed data, plus a dated snapshot
+> on change for queryable trends. The more granularity a snapshot holds, the
+> more comparisons it can answer later.
+
 
 **What it is:** every assessable dataset DOI (datasets.json minus
 PhysicalObject samples and empty DOIs — **168 on the current roster; 167 carry

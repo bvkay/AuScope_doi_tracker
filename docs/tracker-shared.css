@@ -917,3 +917,35 @@ tr.detail-row .detail {
     border-radius: 50%;
 }
 .fleet-filter-chip button:hover { background: rgba(37, 99, 235, 0.15); }
+
+/* ============================================================
+   SITE TABS — the one navigation bar shared by every page family
+   (Impact / Publications / Datasets, with FAIR / Projects /
+   Software to join as those pages land). Injected by
+   tracker-chassis.js on pages whose <body> carries data-site-tab;
+   index.html and datasets.html embed the same markup statically.
+   The display-artefact pages (widget, the two _map embeds) carry
+   no attribute and never get a bar.
+   ============================================================ */
+.site-tabs {
+    display: flex;
+    gap: 2px;
+    border-bottom: 2px solid var(--border);
+    margin: 0 0 18px;
+    flex-wrap: wrap;
+}
+.site-tabs a {
+    padding: 8px 16px 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-soft);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+}
+.site-tabs a:hover { color: var(--accent); }
+.site-tabs a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}

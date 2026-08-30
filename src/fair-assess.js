@@ -28,6 +28,8 @@ const { normaliseDoi, sleep } = require('./utils');
 const DS_FILE = path.join(__dirname, '..', 'data', 'datasets.json');
 const STORE_FILE = path.join(__dirname, '..', 'data', 'fair-scores.json');
 const FEED_FILE = path.join(__dirname, '..', 'docs', 'fair-scores.json');
+const HISTORY_FILE = path.join(__dirname, '..', 'data', 'fair-history.jsonl');
+const HISTORY_FEED = path.join(__dirname, '..', 'docs', 'fair-history.json');
 
 const SERVER = process.env.FUJI_SERVER || 'http://localhost:1071';
 const AUTH = 'Basic ' + Buffer.from(
@@ -187,6 +189,25 @@ async function run() {
     scores: feedScores,
   }));
 
+  // ── History: one line per run, full granularity ──
+  // fair-scores.json is a REPLACE store: each run overwrites last month's
+  // per-metric detail, so score trajectories were unrecoverable (the fork's
+  // fair-trends page has to say so out loud). Every run now appends a dated
+  // measurement record carrying, per DOI assessed THIS run, the total, the
+  // F/A/I/R split, maturity and the per-metric earned score AND verdict.
+  // Verdicts are stored separately from scores because F-UJI awards partial
+  // credit on failed metrics (earned 0.5, status fail) — one is not
+  // derivable from the other. The more granularity these snapshots hold,
+  // the more comparisons they can answer later; at ~25 KB per monthly line
+  // the cost is irrelevant.
+  if (ok > 0) {
+    const today = new Date().toISOString().slice(0, 10);
+    appendHistory(store, today, ok, null);
+    writeHistoryFeed();
+  } else {
+    console.log('History: nothing assessed this run, no snapshot appended.');
+  }
+
   console.log('\nDone: ' + ok + ' assessed, ' + failed + ' failed this run; ' + store.metadata.assessed + ' scores in store.');
 
   const byPlatform = {};
@@ -201,4 +222,97 @@ async function run() {
   }
 }
 
-run().catch(err => { console.error('Fatal: ' + err.message); process.exit(1); });
+// Append one measurement line for the entries assessed on `date`.
+// `note` marks non-routine lines (the backfilled baseline).
+function appendHistory(store, date, expected, note) {
+  const entries = Object.values(store.scores)
+    .filter(e => e.score != null && e.assessed === date);
+  if (!entries.length) { console.log('History: no entries dated ' + date); return; }
+
+  // One shared metric-id order per line keeps the per-DOI rows to two
+  // parallel arrays instead of 17 repeated identifiers each.
+  const metricIds = (entries.find(e => (e.checks || []).length) || {}).checks
+    ? entries.find(e => (e.checks || []).length).checks.map(c => c[0]) : [];
+
+  const records = {};
+  for (const e of entries) {
+    const byId = {};
+    for (const c of (e.checks || [])) byId[c[0]] = c;
+    records[e.doi] = {
+      p: e.platform || '',
+      s: e.score, f: e.f, a: e.a, i: e.i, r: e.r,
+      m: e.maturity, pd: e.passed,
+      e: metricIds.map(id => (byId[id] ? byId[id][1] : null)),
+      v: metricIds.map(id => (byId[id] ? (byId[id][3] === 'pass' ? 'p' : 'f') : 'x')).join(''),
+    };
+  }
+  const line = {
+    date: date,
+    fuji_version: FUJI_VERSION,
+    metric_version: METRIC_VERSION.replace('metrics_v', ''),
+    assessed: entries.length,
+    metrics: metricIds,
+  };
+  if (note) line.note = note;
+  line.records = records;
+  fs.appendFileSync(HISTORY_FILE, JSON.stringify(line) + '\n');
+  console.log('History: appended ' + entries.length + ' scores for ' + date
+    + ' -> ' + path.basename(HISTORY_FILE));
+}
+
+// Slim same-origin aggregate feed for the future FAIR-trends page: per run,
+// the overall and per-platform averages plus each metric's pass rate. The
+// per-DOI detail stays in the jsonl; a page charting national trends never
+// needs to download it.
+function writeHistoryFeed() {
+  if (!fs.existsSync(HISTORY_FILE)) return;
+  const runs = [];
+  for (const raw of fs.readFileSync(HISTORY_FILE, 'utf8').split('\n')) {
+    if (!raw.trim()) continue;
+    let l; try { l = JSON.parse(raw); } catch (e) { continue; }
+    const recs = Object.values(l.records || {});
+    if (!recs.length) continue;
+    const platforms = {};
+    let sum = 0;
+    const passCounts = l.metrics.map(() => 0);
+    const rateable = l.metrics.map(() => 0);
+    for (const r of recs) {
+      sum += r.s;
+      const p = r.p || '?';
+      platforms[p] = platforms[p] || { n: 0, sum: 0 };
+      platforms[p].n++; platforms[p].sum += r.s;
+      (r.v || '').split('').forEach((ch, i) => {
+        if (ch === 'x') return;
+        rateable[i]++;
+        if (ch === 'p') passCounts[i]++;
+      });
+    }
+    const metricPass = {};
+    l.metrics.forEach((id, i) => {
+      if (rateable[i]) metricPass[id] = Math.round(passCounts[i] / rateable[i] * 1000) / 10;
+    });
+    for (const p of Object.keys(platforms)) {
+      platforms[p] = { n: platforms[p].n, avg: Math.round(platforms[p].sum / platforms[p].n * 10) / 10 };
+    }
+    runs.push({
+      date: l.date, assessed: recs.length,
+      fuji_version: l.fuji_version, metric_version: l.metric_version,
+      avg: Math.round(sum / recs.length * 10) / 10,
+      platforms: platforms,
+      metric_pass_pct: metricPass,
+    });
+  }
+  fs.writeFileSync(HISTORY_FEED, JSON.stringify({
+    generated: new Date().toISOString(),
+    note: 'Per-run aggregates derived from data/fair-history.jsonl. Scores are '
+      + 'comparable only within one metric_version.',
+    runs: runs,
+  }));
+  console.log('History feed: ' + runs.length + ' run(s) -> ' + path.basename(HISTORY_FEED));
+}
+
+module.exports = { appendHistory, writeHistoryFeed };
+
+if (require.main === module) {
+  run().catch(err => { console.error('Fatal: ' + err.message); process.exit(1); });
+}
