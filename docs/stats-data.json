@@ -1,16 +1,16 @@
 {
-  "generated": "2026-08-25T22:06:07.550Z",
+  "generated": "2026-08-30T08:31:13.841Z",
   "pillars": {
     "publications": {
-      "total": 2902,
-      "citations": 67251,
-      "verified": 0,
-      "candidate": 0
+      "total": 2926,
+      "citations": 67576,
+      "verified": 42,
+      "candidate": 58
     },
     "datasets": {
-      "total": 169,
+      "total": 170,
       "byPlatform": {
-        "EarthBank": 59,
+        "EarthBank": 60,
         "AusPass": 87,
         "NCI MT": 16,
         "NCI DAS": 7
@@ -27,9 +27,9 @@
       }
     },
     "samples": {
-      "declared": 53733,
+      "declared": 53812,
       "sampleDois": 47,
-      "dataPoints": 5312,
+      "dataPoints": 5401,
       "source": "EarthBank DataCite records"
     },
     "stations": {
@@ -91,13 +91,13 @@
         "surveys": 14,
         "stations": 1354
       },
-      "generated": "2026-08-25",
-      "instrumentsDeployed": 48,
-      "occupations": 142,
-      "recordingDays": 285,
-      "surveysPopulated": 1,
+      "generated": "2026-08-30",
+      "instrumentsDeployed": 117,
+      "occupations": 2052,
+      "recordingDays": 3946.2,
+      "surveysPopulated": 9,
       "scopeFiltered": true,
-      "runsFetched": "2026-08-25"
+      "runsFetched": "2026-08-30"
     },
     "dataRepository": {
       "total": 5

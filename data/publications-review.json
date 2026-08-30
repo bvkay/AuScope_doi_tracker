@@ -1,9 +1,4805 @@
 {
   "metadata": {
     "type": "review",
-    "last_updated": "2026-08-23T03:24:06.117Z",
-    "total_count": 0,
-    "by_tier": {}
+    "last_updated": "2026-08-30T08:24:32.917Z",
+    "total_count": 123,
+    "by_tier": {
+      "candidate-review": 123
+    }
   },
-  "records": []
+  "records": [
+    {
+      "doi": "10.25914/mswj-bb88",
+      "title": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per run)",
+      "authors": "Government of South Australia; Nigel Rees; Ben Kay; Hannes Hollmann; Bruce Goleby",
+      "journal": "National Computational Infrastructure",
+      "publisher": "National Computational Infrastructure",
+      "year": 2026,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5143451946",
+        "https://openalex.org/A5060064975",
+        "https://openalex.org/A5075856575",
+        "https://openalex.org/A5069329780",
+        "https://openalex.org/A5121158505"
+      ],
+      "authorOrcids": [
+        "0000-0001-6216-1262",
+        "0000-0002-9738-7277",
+        "0000-0001-6113-1627"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-9738-7277"
+      ]
+    },
+    {
+      "doi": "10.25914/sdda-3d30",
+      "title": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (Level 0 concatenated ASCII time series per run)",
+      "authors": "Government of South Australia; Nigel Rees; Ben Kay; Hannes Hollmann; Bruce Goleby",
+      "journal": "National Computational Infrastructure",
+      "publisher": "National Computational Infrastructure",
+      "year": 2026,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5143451946",
+        "https://openalex.org/A5060064975",
+        "https://openalex.org/A5075856575",
+        "https://openalex.org/A5069329780",
+        "https://openalex.org/A5121158505"
+      ],
+      "authorOrcids": [
+        "0000-0001-6216-1262",
+        "0000-0002-9738-7277",
+        "0000-0001-6113-1627"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-9738-7277"
+      ]
+    },
+    {
+      "doi": "10.25914/2wxz-xj05",
+      "title": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per run)",
+      "authors": "Government of South Australia; Nigel Rees; Ben Kay; Hannes Hollmann; Bruce Goleby",
+      "journal": "National Computational Infrastructure",
+      "publisher": "National Computational Infrastructure",
+      "year": 2026,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5143511527",
+        "https://openalex.org/A5060064975",
+        "https://openalex.org/A5075856575",
+        "https://openalex.org/A5069329780",
+        "https://openalex.org/A5121158505"
+      ],
+      "authorOrcids": [
+        "0000-0001-6216-1262",
+        "0000-0002-9738-7277",
+        "0000-0001-6113-1627"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-9738-7277"
+      ]
+    },
+    {
+      "doi": "10.7914/hwmy-0n24",
+      "title": "DAS Addition for Seismology and Hydrology (DASH)",
+      "authors": "Meghan S. Miller; John Townend; Tianwei Sun; Sara Klaasen",
+      "journal": "NSF Seismological Facility for the Advancement of Geoscience (SAGE)",
+      "publisher": "EarthScope Consortium",
+      "year": 2026,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5048107638",
+        "https://openalex.org/A5100931219",
+        "https://openalex.org/A5069762425"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-7017-620X",
+        "0009-0001-8528-430X",
+        "0000-0003-4094-7891"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.7185/gold2025.28625",
+      "title": "The AuScope EarthBank & GPlates Projects: Translational Research Infrastructure Supporting Industry-Academia Partnerships in Resource Geoscience",
+      "authors": "Brent McInnes; Bryant Ware; Fabian Kohlmann; Angus Nixon; Yoann Gréau; Ehsan Farahbakhsh; Samuel Boone; Malcolm McMillan; Hayden Dalton; Halimulati Ananuer; Andrew Gleadow; Barry P. Kohn; Moritz Theile; Wayne Noble; R. Dietmar Müller; Sara Polanco; Sabin Zahirovic; Maria Seton; Oskar Lindenmayer; Stijn Glorie; Tim Rawling; Lesley Wyborn; Geoffrey Fraser",
+      "journal": "",
+      "publisher": "",
+      "year": 2025,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Geological Modeling and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 23,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5035248686",
+        "https://openalex.org/A5024536355",
+        "https://openalex.org/A5064459347",
+        "https://openalex.org/A5090128717",
+        "https://openalex.org/A5076191297",
+        "https://openalex.org/A5049019010",
+        "https://openalex.org/A5090349385",
+        "https://openalex.org/A5077213648",
+        "https://openalex.org/A5029899597",
+        "https://openalex.org/A5064835491",
+        "https://openalex.org/A5016641627",
+        "https://openalex.org/A5090578995",
+        "https://openalex.org/A5022425273",
+        "https://openalex.org/A5000566753",
+        "https://openalex.org/A5042746575",
+        "https://openalex.org/A5054848810",
+        "https://openalex.org/A5089201033",
+        "https://openalex.org/A5011175371",
+        "https://openalex.org/A5120122657",
+        "https://openalex.org/A5057911678",
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5004401344",
+        "https://openalex.org/A5109836326"
+      ],
+      "authorOrcids": [
+        "0000-0002-2776-0574",
+        "0000-0002-3907-4344",
+        "0000-0002-6143-5636",
+        "0000-0003-3638-1864",
+        "0000-0002-8458-3746",
+        "0000-0003-2618-2458",
+        "0000-0003-2274-7933",
+        "0000-0002-5375-5680",
+        "0000-0003-2114-9894",
+        "0000-0003-0496-0028",
+        "0000-0001-5064-5454",
+        "0000-0002-7161-1875",
+        "0000-0002-3334-5764",
+        "0000-0002-1270-4377",
+        "0000-0002-6751-4976",
+        "0000-0001-8541-1367",
+        "0000-0002-3107-9028",
+        "0000-0002-8841-4384",
+        "0000-0001-5976-4943"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.7185/gold2025.32104",
+      "title": "Ensuring an Inclusive Scientific Culture for Developing and Maintaining Standards Required for the Creation of Global Networks of Geochemical and Isotopic Data Repositories.",
+      "authors": "Lesley Wyborn; Jens Klump; Rebecca Farrington",
+      "journal": "",
+      "publisher": "",
+      "year": 2025,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5004401344",
+        "https://openalex.org/A5062060102",
+        "https://openalex.org/A5016284891"
+      ],
+      "authorOrcids": [
+        "0000-0001-5976-4943",
+        "0000-0001-5911-6022",
+        "0000-0002-2594-6965"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.2139/ssrn.5212847",
+      "title": "Distinct Lithospheric Anisotropic Fabrics Across Southwestern Australia and the Yilgarn Craton Revealed by the New Wa Array",
+      "authors": "Miriam Gauntlett; C. M. Eakin; Nitarani Bishoyi; J.-P. O apos Donnell; Ruth Murdie; Meghan S. Miller; Robert Pickle; Reza Ebrahimi",
+      "journal": "SSRN Electronic Journal",
+      "publisher": "RELX Group (Netherlands)",
+      "year": 2025,
+      "cited": 0,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Geology and Paleoclimatology Research; Geological and Geochemical Analysis; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "Indian Institute of Science Education and Research, Bhopal",
+        "Geological Survey of Western Australia"
+      ],
+      "countries": [
+        "IN",
+        "AU"
+      ],
+      "rors": [
+        "02rb21j89",
+        "05h2dda38"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5071866121",
+        "https://openalex.org/A5049469681",
+        "https://openalex.org/A5092106371",
+        "https://openalex.org/A5117098009",
+        "https://openalex.org/A5025353710",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5045532160",
+        "https://openalex.org/A5072238020"
+      ],
+      "authorOrcids": [
+        "0000-0002-1050-6385",
+        "0000-0001-9187-3138",
+        "0009-0005-3249-8768",
+        "0000-0001-5494-2296",
+        "0000-0002-8550-5256",
+        "0000-0001-8091-503X"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.2139/ssrn.5398068",
+      "title": "Resolving Microplate Kinematics in the Western Banda Arc Using Gps Observations and Multiscale Strain Modeling",
+      "authors": "Hendro Nugroho; Meghan S. Miller; S. McClusky; Babak Hejrani; Sima Mousavi; Rui António Fernandes; Eugenio Soares; Felix Jones; Geovanio Almeida",
+      "journal": "SSRN Electronic Journal",
+      "publisher": "RELX Group (Netherlands)",
+      "year": 2025,
+      "cited": 0,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Seismic Imaging and Inversion Techniques",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "University of Beira Interior"
+      ],
+      "countries": [
+        "PT"
+      ],
+      "rors": [
+        "03nf36p02"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5103234176",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5089444562",
+        "https://openalex.org/A5033693296",
+        "https://openalex.org/A5054982999",
+        "https://openalex.org/A5080780609",
+        "https://openalex.org/A5025921346"
+      ],
+      "authorOrcids": [
+        "0000-0002-2036-6283",
+        "0000-0001-5494-2296",
+        "0000-0003-4040-925X",
+        "0000-0002-4167-4437",
+        "0000-0002-6707-3103",
+        "0000-0002-5355-1944"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.5194/egusphere-egu24-21810",
+      "title": "FAIR Convergence using FAIR Implementation Profiles and the FAIR evolution pathways concept: lessons learned from the WorldFAIR Geochemistry Work Package",
+      "authors": "Alexander Prent; Rebecca Farrington",
+      "journal": "",
+      "publisher": "",
+      "year": 2024,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Geochemistry and Geologic Mapping",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5066123034",
+        "https://openalex.org/A5016284891"
+      ],
+      "authorOrcids": [
+        "0000-0002-1321-7319",
+        "0000-0002-2594-6965"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.31223/x56d8f",
+      "title": "The influence of a sub-lithospheric layer width on the partitioning of the induced mantle flow, surface motions and subduction dynamics",
+      "authors": "Roberta Carluccio; Louis Moresi; Fabio A. Capitanio; Rebecca Farrington; Lorenzo Colli; Ben Mather",
+      "journal": "",
+      "publisher": "",
+      "year": 2024,
+      "cited": 0,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 6,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5030172969",
+        "https://openalex.org/A5027423843",
+        "https://openalex.org/A5003880683",
+        "https://openalex.org/A5016284891",
+        "https://openalex.org/A5048874426",
+        "https://openalex.org/A5090027052"
+      ],
+      "authorOrcids": [
+        "0000-0001-9469-256X",
+        "0000-0003-3685-174X",
+        "0000-0003-2131-8723",
+        "0000-0002-2594-6965",
+        "0000-0002-5284-7524",
+        "0000-0003-3566-1557"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.3389/feart.2024.1354058",
+      "title": "Spatial variability of shear wave velocity: implications for the liquefaction response of a case study from the 2010 Maule Mw 8.8 Earthquake, Chile",
+      "authors": "Sebastián Núñez-Jara; Gonzalo Montalva; Marco Pilz; Meghan S. Miller; H. Saldaña; Andrés Olivar-Castaño; Roberto Araya",
+      "journal": "Frontiers in Earth Science",
+      "publisher": "Frontiers Media",
+      "year": 2024,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; Geotechnical Engineering and Underground Structures; Geotechnical Engineering and Soil Mechanics",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "University of Concepción",
+        "GFZ Helmholtz Centre for Geosciences",
+        "University of Potsdam"
+      ],
+      "countries": [
+        "CL",
+        "DE"
+      ],
+      "rors": [
+        "0460jpj73",
+        "04z8jg394",
+        "03bnmw459"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5093895933",
+        "https://openalex.org/A5067417337",
+        "https://openalex.org/A5033537037",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5093941744",
+        "https://openalex.org/A5043936767",
+        "https://openalex.org/A5015301115"
+      ],
+      "authorOrcids": [
+        "0009-0008-7425-0412",
+        "0000-0001-8598-7120",
+        "0000-0002-8575-579X",
+        "0000-0001-5494-2296",
+        "0000-0002-5957-942X",
+        "0000-0003-2598-8994"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.7185/gold2023.20761",
+      "title": "Basis for geochemistry data science applications; data standardisation through the OneGeochemistry initiative",
+      "authors": "Alexander Prent; Dominik C. Hezel; Lesley Wyborn; Geertje ter Maat; Kerstin Lehnert; Marthe Klöcking; Kirsten Elger; Rebecca Farrington; Lucy Profeta; Tim Rawling",
+      "journal": "",
+      "publisher": "",
+      "year": 2023,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Hydrocarbon exploration and reservoir analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 10,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5066123034",
+        "https://openalex.org/A5047433432",
+        "https://openalex.org/A5004401344",
+        "https://openalex.org/A5051972168",
+        "https://openalex.org/A5057736062",
+        "https://openalex.org/A5081499200",
+        "https://openalex.org/A5003634032",
+        "https://openalex.org/A5016284891",
+        "https://openalex.org/A5046914354",
+        "https://openalex.org/A5006277227"
+      ],
+      "authorOrcids": [
+        "0000-0002-1321-7319",
+        "0000-0002-5059-2281",
+        "0000-0001-5976-4943",
+        "0000-0002-1534-6704",
+        "0000-0001-7036-1977",
+        "0000-0002-6592-9270",
+        "0000-0001-5140-8602",
+        "0000-0002-2594-6965",
+        "0000-0002-8841-4384"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384",
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.22541/au.166516581.17720849/v1",
+      "title": "The Victorian Earthquake Hazard Map",
+      "authors": "Dan Sandiford; Tim Rawling; Gary A. P. Gibson",
+      "journal": "",
+      "publisher": "",
+      "year": 2022,
+      "cited": 0,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; Seismology and Earthquake Studies; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5067369864",
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5034695080"
+      ],
+      "authorOrcids": [
+        "0000-0002-2207-6837",
+        "0000-0002-8841-4384",
+        "0000-0002-8161-7445"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.1029/2021eo163702",
+      "title": "Australia’s Unfolding Geoscience Malady",
+      "authors": "Samuel Boone; Mark Quigley; Peter Betts; Meghan S. Miller; Tim Rawling",
+      "journal": "Eos",
+      "publisher": "Wiley",
+      "year": 2021,
+      "cited": 14,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Delphi Technique in Research; Private Equity and Venture Capital; Geotourism and Geoheritage Conservation",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5090349385",
+        "https://openalex.org/A5053511849",
+        "https://openalex.org/A5074885968",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5006277227"
+      ],
+      "authorOrcids": [
+        "0000-0003-2274-7933",
+        "0000-0002-4430-4212",
+        "0000-0002-2088-7433",
+        "0000-0001-5494-2296",
+        "0000-0002-8841-4384"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384",
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.26180/14971134.v1",
+      "title": "Oscillating orogenesis and exhumation of high-pressure rocks in New Caledonia, SW Pacific",
+      "authors": "Tim Rawling",
+      "journal": "Figshare",
+      "publisher": "Figshare (United Kingdom)",
+      "year": 2021,
+      "cited": 7,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5006277227"
+      ],
+      "authorOrcids": [
+        "0000-0002-8841-4384"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.59350/gmtm6-rs917",
+      "title": "Building Australia's Downward Looking Telescope",
+      "authors": "Tim Rawling; Geo Down Under Contributors",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Education Systems and Policy",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5120746690"
+      ],
+      "authorOrcids": [
+        "0000-0002-8841-4384"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.59350/2353z-nd650",
+      "title": "Australia's geoscience paradox threatens its prosperity and sustainability",
+      "authors": "Samuel Boone; Mark Quigley; Peter Betts; Meghan S. Miller; Tim Rawling; Mike Sandiford",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geological and Geophysical Studies; Geological Modeling and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 6,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5090349385",
+        "https://openalex.org/A5053511849",
+        "https://openalex.org/A5074885968",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5026326429"
+      ],
+      "authorOrcids": [
+        "0000-0003-2274-7933",
+        "0000-0002-4430-4212",
+        "0000-0002-2088-7433",
+        "0000-0001-5494-2296",
+        "0000-0002-8841-4384",
+        "0000-0002-9757-745X"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384",
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1080/14432471.2021.1907919",
+      "title": "ASEG branch news",
+      "authors": "Ben Kay; Mark Duffett; Thong Huynh; Todd Mojesky; Marina Costelloe; Stephanie Kovach; James Alderman",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Diverse Scientific and Economic Studies; Educational Robotics and Engineering; Earthquake and Disaster Impact Studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "Chiesi (France)",
+        "Taegu Science University",
+        "American University of Puerto Rico",
+        "Australasian Society for Infectious Diseases",
+        "Federación de Aseguradores Colombianos"
+      ],
+      "countries": [
+        "FR",
+        "KR",
+        "PR",
+        "AU",
+        "CO"
+      ],
+      "rors": [
+        "024njzv49",
+        "036rtm992",
+        "03cx1e057",
+        "01bn0n770",
+        "013deq447"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5075856575",
+        "https://openalex.org/A5102474634",
+        "https://openalex.org/A5051181787",
+        "https://openalex.org/A5073622473",
+        "https://openalex.org/A5020854086",
+        "https://openalex.org/A5074894638",
+        "https://openalex.org/A5022650643"
+      ],
+      "authorOrcids": [
+        "0000-0002-9738-7277",
+        "0000-0003-2606-1779"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-9738-7277"
+      ]
+    },
+    {
+      "doi": "10.48550/arxiv.2110.06017",
+      "title": "Emerging Directions in Geophysical Inversion",
+      "authors": "A. P. Valentine; Malcolm Sambridge",
+      "journal": "arXiv (Cornell University)",
+      "publisher": "Cornell University",
+      "year": 2021,
+      "cited": 3,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5030571261",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0001-6134-9351",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.31223/x5mg8v",
+      "title": "Lowermost mantle shear-velocity structure from hierarchical trans-dimensional Bayesian tomography",
+      "authors": "Sima Mousavi; ‪Hrvoje Tkalčić; Rhys Hawkins; Malcolm Sambridge",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Seismic Imaging and Inversion Techniques; High-pressure geophysics and materials; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5054982999",
+        "https://openalex.org/A5049393692",
+        "https://openalex.org/A5046498993",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0002-6707-3103",
+        "0000-0001-7072-490X",
+        "0000-0001-7295-6691",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1130/geol.s.13584929",
+      "title": "Supplemental Material: Inherited lithospheric structures control arc-continent collisional heterogeneity",
+      "authors": "Meghan S. Miller; et al.",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 1,
+      "type": "supplementary materials",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Geological Studies and Exploration; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5105422491"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.32858/temblor.208",
+      "title": "Australia surprised by moderate quake, but rumbling is not unusual",
+      "authors": "C. M. Eakin; Meghan S. Miller",
+      "journal": "Temblor",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Rock Mechanics and Modeling; Reservoir Engineering and Simulation Methods; Seismology and Earthquake Studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5049469681",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-9187-3138",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/geol.s.13584929.v1",
+      "title": "Supplemental Material: Inherited lithospheric structures control arc-continent collisional heterogeneity",
+      "authors": "Meghan S. Miller; et al.",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "supplementary materials",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Geological Studies and Exploration; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5105422491"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/sajpn-r7002",
+      "title": "Australian Seismometers in Schools - Noise monitoring dashboard",
+      "authors": "Louis Moresi; Meghan S. Miller",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; Earthquake Detection and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5027423843",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0003-3685-174X",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/1evzk-y6b17",
+      "title": "Australia surprised by moderate quake, but rumbling is not unusual",
+      "authors": "C. M. Eakin; Meghan S. Miller",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Seismology and Earthquake Studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5049469681",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-9187-3138",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/tjg7h-2q731",
+      "title": "Lighting Up Dark Fibre for Seismic Imaging",
+      "authors": "Meghan S. Miller",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Advanced Optical Sensing Technologies; Advanced Fiber Optic Sensors",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/16nst-edw24",
+      "title": "Distributed Acoustic Sensing in Australia's Downward Looking Telescope",
+      "authors": "Voon Hui Lai; Meghan S. Miller; Geo Down Under Contributors",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5032675056",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5120746689"
+      ],
+      "authorOrcids": [
+        "0000-0002-0738-0187",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/jx13r-hwn63",
+      "title": "The inherited structures within the Australian lithosphere define the tectonic evolution along the Banda arc",
+      "authors": "Meghan S. Miller",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Geochemistry and Geologic Mapping",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/56v44-pxt48",
+      "title": "Seismic Fly-past of the Century",
+      "authors": "Voon Hui Lai; C. M. Eakin; Chengxin Jiang; Meghan S. Miller",
+      "journal": "",
+      "publisher": "",
+      "year": 2021,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5032675056",
+        "https://openalex.org/A5049469681",
+        "https://openalex.org/A5065492573",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-0738-0187",
+        "0000-0001-9187-3138",
+        "0000-0002-8768-2782",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.48550/arxiv.2007.15807",
+      "title": "Seating preference analysis for hybrid workplaces",
+      "authors": "Mohammad Saiedur Rahaman; Shaw Kudo; Tim Rawling; Yongli Ren; Flora D. Salim",
+      "journal": "arXiv (Cornell University)",
+      "publisher": "Cornell University",
+      "year": 2020,
+      "cited": 10,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Facilities and Workplace Management; Building Energy and Comfort Optimization",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5031674501",
+        "https://openalex.org/A5068642521",
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5039040673",
+        "https://openalex.org/A5090893421"
+      ],
+      "authorOrcids": [
+        "0000-0003-2320-0112",
+        "0000-0002-8841-4384",
+        "0000-0002-3137-9653",
+        "0000-0002-1237-1664"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.59350/s0yek-cya30",
+      "title": "A decadal vision, a decade later",
+      "authors": "Louis Moresi; Tim Rawling",
+      "journal": "",
+      "publisher": "",
+      "year": 2020,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Ecosystem dynamics and resilience; Earth Systems and Cosmic Evolution; Innovation, Sustainability, Human-Machine Systems",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5027423843",
+        "https://openalex.org/A5006277227"
+      ],
+      "authorOrcids": [
+        "0000-0003-3685-174X",
+        "0000-0002-8841-4384"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.1130/abs/2020am-356713",
+      "title": "CRATON STABILITY: WHAT ABOUT SHAPE?",
+      "authors": "Catherine Cooper; Rebecca Farrington; Meghan S. Miller",
+      "journal": "Abstracts with programs - Geological Society of America",
+      "publisher": "Geological Society of America",
+      "year": 2020,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Syntax, Semantics, Linguistic Variation; Diverse Scientific and Economic Studies; Elasticity and Material Modeling",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5004409560",
+        "https://openalex.org/A5016284891",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-2594-6965",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965",
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.11636/135130",
+      "title": "Ambient noise tomography of Australia: application to AusArray deployment",
+      "authors": "Babak Hejrani; Rakib Hassan; A. Gorbatov; Malcolm Sambridge; R. Hawkibns; A. P. Valentine; Karol Czarnota; Junlei Zhao",
+      "journal": "",
+      "publisher": "",
+      "year": 2020,
+      "cited": 6,
+      "type": "report",
+      "isOA": "No",
+      "subject": "Seismic Waves and Analysis; Underwater Acoustics Research; Noise Effects and Management",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 8,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5033693296",
+        "https://openalex.org/A5034373500",
+        "https://openalex.org/A5056536822",
+        "https://openalex.org/A5026543595",
+        "https://openalex.org/A5072979332",
+        "https://openalex.org/A5030571261",
+        "https://openalex.org/A5082422687",
+        "https://openalex.org/A5101912707"
+      ],
+      "authorOrcids": [
+        "0000-0002-4167-4437",
+        "0000-0002-9100-4191",
+        "0000-0002-2530-1606",
+        "0000-0003-2858-3175",
+        "0000-0001-6134-9351",
+        "0000-0002-7499-0065"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.59350/n8dd4-8de92",
+      "title": "Australian cities are quiet during lockdown. Earthquake scientists are making the most of it",
+      "authors": "Meghan S. Miller; Louis Moresi",
+      "journal": "",
+      "publisher": "",
+      "year": 2020,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Seismology and Earthquake Studies; Disaster Management and Resilience",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5027423843"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0003-3685-174X"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/cz117-60117",
+      "title": "COVID lockdowns and seismic noise in Australia",
+      "authors": "Meghan S. Miller; Louis Moresi",
+      "journal": "",
+      "publisher": "",
+      "year": 2020,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; Earthquake Detection and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5027423843"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0003-3685-174X"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/cyf7a-3kk26",
+      "title": "Testing AuScope's next-gen seismometers at Mt Stromlo",
+      "authors": "Meghan S. Miller; Geo Down Under Contributors",
+      "journal": "",
+      "publisher": "",
+      "year": 2020,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; Seismology and Earthquake Studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5120721225"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/w1n16-58068",
+      "title": "Testing AuScope's next-gen seismometers at Mt Stromlo",
+      "authors": "Meghan S. Miller; Geo Down Under Contributors",
+      "journal": "",
+      "publisher": "",
+      "year": 2020,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; Earthquake Detection and Analysis; Geophysics and Sensor Technology",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5120721225"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1109/percomw.2019.8730762",
+      "title": "OccuSpace: Towards a Robust Occupancy Prediction System for Activity Based Workplace",
+      "authors": "Mohammad Saiedur Rahaman; Harsh Pare; Jonathan Liono; Flora D. Salim; Yongli Ren; Jeffrey Chan; Shaw Kudo; Tim Rawling; Alex Sinickas",
+      "journal": "",
+      "publisher": "",
+      "year": 2019,
+      "cited": 17,
+      "type": "conference paper",
+      "isOA": "Yes",
+      "subject": "Facilities and Workplace Management; Building Energy and Comfort Optimization; Transportation Planning and Optimization",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "RMIT University"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "04ttjf776"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5031674501",
+        "https://openalex.org/A5075559487",
+        "https://openalex.org/A5049618076",
+        "https://openalex.org/A5090893421",
+        "https://openalex.org/A5039040673",
+        "https://openalex.org/A5071422010",
+        "https://openalex.org/A5068642521",
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5063480760"
+      ],
+      "authorOrcids": [
+        "0000-0003-2320-0112",
+        "0000-0003-2288-7004",
+        "0000-0002-1237-1664",
+        "0000-0002-3137-9653",
+        "0000-0002-7865-072X",
+        "0000-0002-8841-4384"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.1525/9780520943728-155",
+      "title": "New Caledonia, Geology",
+      "authors": "Tim Rawling",
+      "journal": "",
+      "publisher": "",
+      "year": 2019,
+      "cited": 2,
+      "type": "reference entry",
+      "isOA": "No",
+      "subject": "Pacific and Southeast Asian Studies; Geological and Geophysical Studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5006277227"
+      ],
+      "authorOrcids": [
+        "0000-0002-8841-4384"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.59350/3atx2-v4j54",
+      "title": "Viscoelasticity in Underworld2",
+      "authors": "Rebecca Farrington",
+      "journal": "",
+      "publisher": "",
+      "year": 2019,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Rheology and Fluid Dynamics Studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5016284891"
+      ],
+      "authorOrcids": [
+        "0000-0002-2594-6965"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.59350/2nhnt-the20",
+      "title": "Viscoelasticity in Underworld2",
+      "authors": "Rebecca Farrington",
+      "journal": "",
+      "publisher": "",
+      "year": 2019,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Elasticity and Material Modeling; Advanced Materials and Mechanics; Force Microscopy Techniques and Applications",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5016284891"
+      ],
+      "authorOrcids": [
+        "0000-0002-2594-6965"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.1016/j.gfs.2019.04.006",
+      "title": "Rural women: Most likely to experience food insecurity and poor health in low- and middle-income countries",
+      "authors": "Kate Sinclair; Davod Ahmadigheidari; Diana Dallmann; Meghan S. Miller; Hugo Melgar‐Quiñonez",
+      "journal": "Global Food Security",
+      "publisher": "Elsevier BV",
+      "year": 2019,
+      "cited": 45,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Food Security and Health in Diverse Populations; Child Nutrition and Water Access; Poverty, Education, and Child Welfare",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "McGill University"
+      ],
+      "countries": [
+        "CA"
+      ],
+      "rors": [
+        "01pxwe438"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5052114163",
+        "https://openalex.org/A5076811808",
+        "https://openalex.org/A5078849167",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5076009805"
+      ],
+      "authorOrcids": [
+        "0000-0003-4534-2875",
+        "0000-0001-7462-579X",
+        "0000-0001-5494-2296",
+        "0000-0001-7014-8260"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1093/cdn/nzz051.p04-067-19",
+      "title": "Food Insecurity and Four Types of Social Support: A Meta-Analysis of 142 Countries (P04-067-19)",
+      "authors": "Meghan S. Miller; Diane C. Mitchell; Muzi Na; Hugo Melgar‐Quiñonez",
+      "journal": "Current Developments in Nutrition",
+      "publisher": "Elsevier BV",
+      "year": 2019,
+      "cited": 0,
+      "type": "review",
+      "isOA": "Yes",
+      "subject": "Food Security and Health in Diverse Populations",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "McGill University",
+        "Pennsylvania State University"
+      ],
+      "countries": [
+        "CA",
+        "US"
+      ],
+      "rors": [
+        "01pxwe438",
+        "04p491231"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5030471680",
+        "https://openalex.org/A5067306943",
+        "https://openalex.org/A5076009805"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0001-7206-6285",
+        "0000-0002-8844-0646",
+        "0000-0001-7014-8260"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/abs/2019am-336218",
+      "title": "EXAMPLES OF NARROW STRIKE-SLIP FAULTS THROUGH THE CRUST INDICATED BY GEOLOGIC AND GEOPHYSICAL EVIDENCE",
+      "authors": "Sarah M. Roeske; Sean R. Mulcahy; William C. McClelland; Meghan S. Miller; Jeffrey A. Benowitz",
+      "journal": "Abstracts with programs - Geological Society of America",
+      "publisher": "Geological Society of America",
+      "year": 2019,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Geological Studies and Exploration",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "University of California, Davis"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "05rrcem69"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5055946939",
+        "https://openalex.org/A5087360514",
+        "https://openalex.org/A5031809072",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5018255149"
+      ],
+      "authorOrcids": [
+        "0000-0002-0511-5865",
+        "0000-0002-8506-178X",
+        "0000-0003-2699-4667",
+        "0000-0001-5494-2296",
+        "0000-0003-2294-9172"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/abs/2019am-340903",
+      "title": "CONGESTED SUBDUCTION ZONES: INSIGHTS FROM EAST GONDWANA RECONSTRUCTIONS AND DYNAMIC MODELS",
+      "authors": "David E. Willis; Peter Betts; Joanne M. Whittaker; Louis Moresi; Meghan S. Miller",
+      "journal": "Abstracts with programs - Geological Society of America",
+      "publisher": "Geological Society of America",
+      "year": 2019,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Water management and technologies; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "University of Kentucky"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "02k3smh20"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5109410197",
+        "https://openalex.org/A5074885968",
+        "https://openalex.org/A5046072480",
+        "https://openalex.org/A5027423843",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-2088-7433",
+        "0000-0002-3170-3935",
+        "0000-0003-3685-174X",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.5194/tc-2018-5",
+      "title": "A statistical fracture model for Antarctic ice shelves and glaciers",
+      "authors": "Veronika Emetc; Paul Tregoning; Mathieu Morlighem; Chris Borstad; Malcolm Sambridge",
+      "journal": "",
+      "publisher": "",
+      "year": 2018,
+      "cited": 0,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Cryospheric studies and observations; Landslides and related hazards; Winter Sports Injuries and Performance",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5070810071",
+        "https://openalex.org/A5004776578",
+        "https://openalex.org/A5091477268",
+        "https://openalex.org/A5074792392",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0001-7192-5391",
+        "0000-0001-5219-1310",
+        "0000-0001-6992-1770",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.5194/tc-2018-5-supplement",
+      "title": "Supplementary material to \"A statistical fracture model for Antarctic ice shelves and glaciers\"",
+      "authors": "Veronika Emetc; Paul Tregoning; Mathieu Morlighem; Chris Borstad; Malcolm Sambridge",
+      "journal": "",
+      "publisher": "",
+      "year": 2018,
+      "cited": 0,
+      "type": "supplementary materials",
+      "isOA": "Yes",
+      "subject": "Cryospheric studies and observations; Landslides and related hazards; Climate change and permafrost",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5070810071",
+        "https://openalex.org/A5004776578",
+        "https://openalex.org/A5091477268",
+        "https://openalex.org/A5074792392",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0001-7192-5391",
+        "0000-0001-5219-1310",
+        "0000-0001-6992-1770",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1017/s136898001800277x",
+      "title": "Does social support modify the relationship between food insecurity and poor mental health? Evidence from thirty-nine sub-Saharan African countries",
+      "authors": "Muzi Na; Meghan S. Miller; Terri Ballard; Diane C. Mitchell; Yuen Wai Hung; Hugo Melgar‐Quiñonez",
+      "journal": "Public Health Nutrition",
+      "publisher": "Cambridge University Press",
+      "year": 2018,
+      "cited": 56,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Food Security and Health in Diverse Populations; Psychological Well-being and Life Satisfaction; COVID-19 Pandemic Impacts",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "Pennsylvania State University",
+        "McGill University",
+        "Akebono (Japan)"
+      ],
+      "countries": [
+        "US",
+        "CA",
+        "JP"
+      ],
+      "rors": [
+        "04p491231",
+        "01pxwe438",
+        "040ehaj20"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5067306943",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5030471680",
+        "https://openalex.org/A5031822113",
+        "https://openalex.org/A5076009805"
+      ],
+      "authorOrcids": [
+        "0000-0002-8844-0646",
+        "0000-0001-5494-2296",
+        "0000-0001-7206-6285",
+        "0000-0002-1171-109X",
+        "0000-0001-7014-8260"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1097/mph.0000000000001266",
+      "title": "Visual Motor Integration in Children With Sickle Cell Disease",
+      "authors": "Robert F. Newby; Amanda Epping; Jennifer A. Geiger; Meghan S. Miller; John P. Scott",
+      "journal": "Journal of Pediatric Hematology/Oncology",
+      "publisher": "Lippincott Williams & Wilkins",
+      "year": 2018,
+      "cited": 7,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Children's Physical and Motor Development; Motor Control and Adaptation; Writing and Handwriting Education",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Children's Hospital of Wisconsin",
+        "Medical College of Wisconsin"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "049cbmb74",
+        "00qqv6244"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5087126286",
+        "https://openalex.org/A5081581657",
+        "https://openalex.org/A5112035652",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5102009037"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-6118-0207"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.59350/b6zct-rar07",
+      "title": "Alaska Moho Model (Reproducible research with containers)",
+      "authors": "Louis Moresi; Meghan S. Miller",
+      "journal": "",
+      "publisher": "",
+      "year": 2018,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Scientific Computing and Data Management",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5027423843",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0003-3685-174X",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.4225/03/58a158e99e4df",
+      "title": "Geodynamic models of lithospheric and mantle processes.",
+      "authors": "Rebecca Farrington",
+      "journal": "Figshare",
+      "publisher": "Figshare (United Kingdom)",
+      "year": 2017,
+      "cited": 0,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "Reservoir Engineering and Simulation Methods; CO2 Sequestration and Geologic Interactions; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5016284891"
+      ],
+      "authorOrcids": [
+        "0000-0002-2594-6965"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.26180/4644928",
+      "title": "Geodynamic models of lithospheric and mantle processes.",
+      "authors": "Rebecca Farrington",
+      "journal": "Monash University",
+      "publisher": "",
+      "year": 2017,
+      "cited": 0,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Scientific Research and Discoveries; Elasticity and Material Modeling",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5016284891"
+      ],
+      "authorOrcids": [
+        "0000-0002-2594-6965"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.26180/4644928.v1",
+      "title": "Geodynamic models of lithospheric and mantle processes.",
+      "authors": "Rebecca Farrington",
+      "journal": "Monash University",
+      "publisher": "",
+      "year": 2017,
+      "cited": 0,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Scientific Research and Discoveries; Elasticity and Material Modeling",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5016284891"
+      ],
+      "authorOrcids": [
+        "0000-0002-2594-6965"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
+      "doi": "10.5194/tc-2017-98-supplement",
+      "title": "Supplementary material to \"A statistical fracture model for Antarctic glaciers\"",
+      "authors": "Veronika Emetc; Paul Tregoning; Malcolm Sambridge",
+      "journal": "",
+      "publisher": "",
+      "year": 2017,
+      "cited": 0,
+      "type": "supplementary materials",
+      "isOA": "Yes",
+      "subject": "Cryospheric studies and observations; Landslides and related hazards; Winter Sports Injuries and Performance",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5070810071",
+        "https://openalex.org/A5004776578",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0001-7192-5391",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1130/abs/2017am-305345",
+      "title": "LARGE VERTICAL OFFSETS OF MOHO COINCIDE WITH MAJOR MESOZOIC TRANSFORM FAULTS IN NORTHERN ALASKA",
+      "authors": "Sarah M. Roeske; Alison B. Till; Meghan S. Miller; Richard W. Saltus; William C. McClelland",
+      "journal": "Abstracts with programs - Geological Society of America",
+      "publisher": "Geological Society of America",
+      "year": 2017,
+      "cited": 2,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Methane Hydrates and Related Phenomena; Arctic and Antarctic ice dynamics; Coastal and Marine Dynamics",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5055946939",
+        "https://openalex.org/A5110102006",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5061346924",
+        "https://openalex.org/A5031809072"
+      ],
+      "authorOrcids": [
+        "0000-0002-0511-5865",
+        "0000-0001-5494-2296",
+        "0000-0001-6920-2936",
+        "0000-0003-2699-4667"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1190/segam2017-17725361.1",
+      "title": "Establishing earthquake monitoring in Timor–Leste",
+      "authors": "Meghan S. Miller; L. O'Driscoll; Robert Porritt; Cooper W. Harris; Luis Teófilo da Costa; Eugenio Soares; Helio Casimiro Guterres",
+      "journal": "",
+      "publisher": "",
+      "year": 2017,
+      "cited": 1,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "University of Southern California",
+        "California Southern University",
+        "National University of East Timor"
+      ],
+      "countries": [
+        "US",
+        "TL"
+      ],
+      "rors": [
+        "03taz7m60",
+        "058zz0t50",
+        "026hhvp67"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5073037360",
+        "https://openalex.org/A5004513808",
+        "https://openalex.org/A5084061780",
+        "https://openalex.org/A5030277510",
+        "https://openalex.org/A5025921346",
+        "https://openalex.org/A5046497880"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0001-6593-0776",
+        "0000-0002-9603-0014",
+        "0000-0001-9117-3908"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2016.06.011",
+      "title": "Continent–arc collision in the Banda Arc imaged by ambient noise tomography",
+      "authors": "Robert Porritt; Meghan S. Miller; L. O'Driscoll; Cooper W. Harris; N. Roosmawati; Luis Teófilo da Costa",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2016,
+      "cited": 43,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5004513808",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5073037360",
+        "https://openalex.org/A5084061780",
+        "https://openalex.org/A5021836421",
+        "https://openalex.org/A5030277510"
+      ],
+      "authorOrcids": [
+        "0000-0001-6593-0776",
+        "0000-0001-5494-2296",
+        "0000-0002-9603-0014",
+        "0000-0001-9117-3908"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1785/0220160124",
+      "title": "Banda Arc Experiment—Transitions in the Banda Arc‐Australian Continental Collision",
+      "authors": "Meghan S. Miller; L. O'Driscoll; N. Roosmawati; Cooper W. Harris; Robert Porritt; Sri Widiyantoro; Luis Teófilo da Costa; Eugenio Soares; T. W. Becker; A. Joshua West",
+      "journal": "Seismological Research Letters",
+      "publisher": "Seismological Society of America",
+      "year": 2016,
+      "cited": 22,
+      "type": "article",
+      "isOA": "No",
+      "subject": "earthquake and tectonic studies; Seismic Waves and Analysis; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 10,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Bandung Institute of Technology",
+        "National University of East Timor"
+      ],
+      "countries": [
+        "US",
+        "ID",
+        "TL"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41",
+        "00apj8t60",
+        "026hhvp67"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5073037360",
+        "https://openalex.org/A5021836421",
+        "https://openalex.org/A5084061780",
+        "https://openalex.org/A5004513808",
+        "https://openalex.org/A5071454623",
+        "https://openalex.org/A5030277510",
+        "https://openalex.org/A5025921346",
+        "https://openalex.org/A5037573161",
+        "https://openalex.org/A5019240865"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-9603-0014",
+        "0000-0001-6593-0776",
+        "0000-0002-8941-7173",
+        "0000-0001-9117-3908",
+        "0000-0002-5656-4564",
+        "0000-0001-6909-1471"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1002/2015jb012534",
+      "title": "Major disruption of D″ beneath Alaska",
+      "authors": "Daoyuan Sun; D. V. Helmberger; Meghan S. Miller; Jennifer M. Jackson",
+      "journal": "Journal of Geophysical Research Solid Earth",
+      "publisher": "Wiley",
+      "year": 2016,
+      "cited": 38,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "University of Science and Technology of China",
+        "Changchun Observatory",
+        "National Observatory",
+        "California Institute of Technology",
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "CN",
+        "BR",
+        "US"
+      ],
+      "rors": [
+        "04c4dkn09",
+        "01ycn3984",
+        "03d47z838",
+        "05dxps055",
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5070209285",
+        "https://openalex.org/A5108727381",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5071966998"
+      ],
+      "authorOrcids": [
+        "0000-0003-4461-4664",
+        "0000-0001-5494-2296",
+        "0000-0002-8256-6336"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1096/fasebj.30.1_supplement.899.13",
+      "title": "Food Insecure Women with Lower Education Report More Health Problems in a Global Sample of Individuals",
+      "authors": "Diana Dallmann; Meghan S. Miller; Hugo Melgar‐Quiñonez",
+      "journal": "The FASEB Journal",
+      "publisher": "Wiley",
+      "year": 2016,
+      "cited": 0,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Food Security and Health in Diverse Populations; COVID-19 Pandemic Impacts",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Ste. Anne's Hospital",
+        "McGill University"
+      ],
+      "countries": [
+        "CA"
+      ],
+      "rors": [
+        "04b64cp31",
+        "01pxwe438"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5078849167",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5076009805"
+      ],
+      "authorOrcids": [
+        "0000-0001-7462-579X",
+        "0000-0001-5494-2296",
+        "0000-0001-7014-8260"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2015.09.026",
+      "title": "Imaging Canary Island hotspot material beneath the lithosphere of Morocco and southern Spain",
+      "authors": "Meghan S. Miller; L. O'Driscoll; A. Butcher; Christine Thomas",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2015,
+      "cited": 70,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geophysical Studies Worldwide; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "University of Southern California",
+        "University of Münster"
+      ],
+      "countries": [
+        "US",
+        "DE"
+      ],
+      "rors": [
+        "03taz7m60",
+        "00pd74e08"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5073037360",
+        "https://openalex.org/A5003372614",
+        "https://openalex.org/A5048130497"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-7845-5385"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1002/2014tc003669",
+      "title": "Lithospheric discontinuity structure in Alaska, thickness variations determined bySpreceiver functions",
+      "authors": "L. O'Driscoll; Meghan S. Miller",
+      "journal": "Tectonics",
+      "publisher": "Wiley",
+      "year": 2015,
+      "cited": 43,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5073037360",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1002/2015tc003908",
+      "title": "Flat‐slab subduction, topography, and mantle dynamics in southwestern Mexico",
+      "authors": "Mélanie Gérault; Laurent Husson; Meghan S. Miller; E. Humphreys",
+      "journal": "Tectonics",
+      "publisher": "Wiley",
+      "year": 2015,
+      "cited": 41,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Lyon 1 Université",
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Laboratoire de Sciences de la Terre",
+        "Centre National de la Recherche Scientifique",
+        "Université Joseph Fourier",
+        "Institut des Sciences de la Terre",
+        "Université Gustave Eiffel",
+        "University of Oregon"
+      ],
+      "countries": [
+        "FR",
+        "US"
+      ],
+      "rors": [
+        "029brtt94",
+        "03taz7m60",
+        "03vhnve41",
+        "0453rk787",
+        "02feahw73",
+        "02aj0kh94",
+        "01cf2sz15",
+        "03x42jk29",
+        "0293rh119"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5054013793",
+        "https://openalex.org/A5012644152",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5091788035"
+      ],
+      "authorOrcids": [
+        "0000-0002-7396-659X",
+        "0000-0002-9585-9074",
+        "0000-0001-5494-2296",
+        "0000-0002-1916-8378"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1002/2015gc005845",
+      "title": "Lithospheric architecture beneath H udson B ay",
+      "authors": "Robert Porritt; Meghan S. Miller; F. A. Darbyshire",
+      "journal": "Geochemistry Geophysics Geosystems",
+      "publisher": "Wiley",
+      "year": 2015,
+      "cited": 36,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Seismic Waves and Analysis; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Université du Québec à Montréal"
+      ],
+      "countries": [
+        "US",
+        "CA"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41",
+        "002rjbv21"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5004513808",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5080796115"
+      ],
+      "authorOrcids": [
+        "0000-0001-6593-0776",
+        "0000-0001-5494-2296",
+        "0000-0003-0967-7248"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.2113/gselements.11.2.119",
+      "title": "Collisional Processes and Links to Episodic Changes in Subduction Zones",
+      "authors": "Jeroen van Hunen; Meghan S. Miller",
+      "journal": "Elements",
+      "publisher": "Mineralogical Society of America",
+      "year": 2015,
+      "cited": 42,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geophysical Studies Worldwide",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Durham University",
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "GB",
+        "US"
+      ],
+      "rors": [
+        "01v29qb04",
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5003489045",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-3050-6753",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/l440.1",
+      "title": "Mantle flow at the highly arcuate northeast corner of the Lesser Antilles subduction zone: Constraints from shear-wave splitting analyses",
+      "authors": "Michael Hodges; Meghan S. Miller",
+      "journal": "Lithosphere",
+      "publisher": "Geological Society of America",
+      "year": 2015,
+      "cited": 12,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5040322382",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-6064-6431",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1096/fasebj.29.1_supplement.585.20",
+      "title": "Trends in the Contribution of Perceived, Received, and Integrative Social Support to Food Security",
+      "authors": "Meghan S. Miller; Hugo Melgar‐Quiñonez; Diana Dallmann; Terri J. Ballard",
+      "journal": "The FASEB Journal",
+      "publisher": "Wiley",
+      "year": 2015,
+      "cited": 3,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Food Security and Health in Diverse Populations; Homelessness and Social Issues; Child Nutrition and Water Access",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "McGill University",
+        "Food and Agriculture Organization of the United Nations"
+      ],
+      "countries": [
+        "CA",
+        "IT"
+      ],
+      "rors": [
+        "01pxwe438",
+        "00pe0tf51"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5076009805",
+        "https://openalex.org/A5078849167",
+        "https://openalex.org/A5111933531"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0001-7014-8260",
+        "0000-0001-7462-579X"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.82308/22127",
+      "title": "Food security and social support: Exploring relationships between social resources and access to adequate food",
+      "authors": "Meghan S. Miller",
+      "journal": "eScholarship@McGill (McGill)",
+      "publisher": "McGill University",
+      "year": 2015,
+      "cited": 4,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "Food Security and Health in Diverse Populations",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1096/fasebj.29.1_supplement.585.26",
+      "title": "Food Insecure Individuals Are More Prone to Health Problems",
+      "authors": "Meghan S. Miller; Diana Dallmann; Hugo Melgar‐Quiñonez",
+      "journal": "The FASEB Journal",
+      "publisher": "Wiley",
+      "year": 2015,
+      "cited": 0,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Food Security and Health in Diverse Populations; Child Nutrition and Water Access",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Global Institute for Water Security",
+        "McGill University"
+      ],
+      "countries": [
+        "CA"
+      ],
+      "rors": [
+        "05997db74",
+        "01pxwe438"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5078849167",
+        "https://openalex.org/A5076009805"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0001-7462-579X",
+        "0000-0001-7014-8260"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2014.09.027",
+      "title": "Isostasy, dynamic topography, and the elevation of the Apennines of Italy",
+      "authors": "Claudio Faccenna; T. W. Becker; Meghan S. Miller; Enrico Serpelloni; Sean D. Willett",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2014,
+      "cited": 129,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; Geological and Geophysical Studies Worldwide",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Roma Tre University",
+        "University of Southern California",
+        "Istituto Nazionale di Geofisica e Vulcanologia",
+        "École Polytechnique Fédérale de Lausanne"
+      ],
+      "countries": [
+        "IT",
+        "US",
+        "CH"
+      ],
+      "rors": [
+        "05vf0dg29",
+        "03taz7m60",
+        "00qps9a02",
+        "02s376052"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5085030476",
+        "https://openalex.org/A5037573161",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5040506413",
+        "https://openalex.org/A5086371435"
+      ],
+      "authorOrcids": [
+        "0000-0002-5656-4564",
+        "0000-0001-5494-2296",
+        "0000-0003-1822-403X",
+        "0000-0002-8408-0567"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1038/nature13878",
+      "title": "Subduction-driven recycling of continental margin lithosphere",
+      "authors": "A. Levander; Maximiliano Bezada; Fenglin Niu; E. Humphreys; I. Palomeras; S. Thurner; J. Masy; Michael Schmitz; J. Gallart; R. Carbonell; Meghan S. Miller",
+      "journal": "Nature",
+      "publisher": "Nature Portfolio",
+      "year": 2014,
+      "cited": 77,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geophysical Studies Worldwide; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 11,
+      "institutions": [
+        "Rice University",
+        "University of Minnesota",
+        "University of Oregon",
+        "China University of Petroleum, Beijing",
+        "Fundacion Venezolana de Investigaciones Sismologicas",
+        "Geociencias Barcelona",
+        "University of Southern California"
+      ],
+      "countries": [
+        "US",
+        "CN",
+        "VE",
+        "ES"
+      ],
+      "rors": [
+        "008zs3103",
+        "017zqws13",
+        "0293rh119",
+        "041qf4r12",
+        "04en6sc21",
+        "01nsd7y51",
+        "03taz7m60"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5020200335",
+        "https://openalex.org/A5007964620",
+        "https://openalex.org/A5038499823",
+        "https://openalex.org/A5091788035",
+        "https://openalex.org/A5012345468",
+        "https://openalex.org/A5084676690",
+        "https://openalex.org/A5083833379",
+        "https://openalex.org/A5001279680",
+        "https://openalex.org/A5046423221",
+        "https://openalex.org/A5007886934",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-1048-0488",
+        "0000-0002-7337-3276",
+        "0000-0002-4156-4780",
+        "0000-0002-1916-8378",
+        "0000-0003-4809-0925",
+        "0000-0003-4543-2352",
+        "0000-0003-3833-9571",
+        "0000-0003-2019-1214",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/l321.1",
+      "title": "Craton formation: Internal structure inherited from closing of the early oceans",
+      "authors": "C. M. Cooper; Meghan S. Miller",
+      "journal": "Lithosphere",
+      "publisher": "Geological Society of America",
+      "year": 2014,
+      "cited": 42,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Washington State University",
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "05dk0ce17",
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5027907366",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-1846-0254",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2014.06.051",
+      "title": "Insights on the upper mantle beneath the Eastern Alps",
+      "authors": "Irene Bianchi; Meghan S. Miller; Götz Bokelmann",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2014,
+      "cited": 30,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological Formations and Processes Exploration; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "University of Vienna",
+        "University of Southern California"
+      ],
+      "countries": [
+        "AT",
+        "US"
+      ],
+      "rors": [
+        "03prydq77",
+        "03taz7m60"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5063848685",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5045343563"
+      ],
+      "authorOrcids": [
+        "0000-0001-8630-5531",
+        "0000-0001-5494-2296",
+        "0000-0001-5677-7677"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2014.10.016",
+      "title": "The fate of the downgoing oceanic plate: Insight from the Northern Cascadia subduction zone",
+      "authors": "Nicola Piana Agostinetti; Meghan S. Miller",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2014,
+      "cited": 32,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Dublin Institute For Advanced Studies",
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "IE",
+        "US"
+      ],
+      "rors": [
+        "051sx6d27",
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5070929298",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0003-3145-2766",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2014.01.034",
+      "title": "High frequency seismic waves and slab structures beneath Italy",
+      "authors": "Daoyuan Sun; Meghan S. Miller; Nicola Piana Agostinetti; Paul D. Asimow; Dunzhu Li",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2014,
+      "cited": 27,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Dublin Institute For Advanced Studies",
+        "California Institute of Technology"
+      ],
+      "countries": [
+        "US",
+        "IE"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41",
+        "051sx6d27",
+        "05dxps055"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5070209285",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5070929298",
+        "https://openalex.org/A5052684939",
+        "https://openalex.org/A5103279510"
+      ],
+      "authorOrcids": [
+        "0000-0003-4461-4664",
+        "0000-0001-5494-2296",
+        "0000-0003-3145-2766",
+        "0000-0001-6025-8925",
+        "0000-0003-3149-0236"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1002/2014gl061884",
+      "title": "Hot upwelling conduit beneath the Atlas Mountains, Morocco",
+      "authors": "Daoyuan Sun; Meghan S. Miller; Adam Holt; T. W. Becker",
+      "journal": "Geophysical Research Letters",
+      "publisher": "American Geophysical Union",
+      "year": 2014,
+      "cited": 25,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geophysical Studies Worldwide; earthquake and tectonic studies; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "University of Southern California",
+        "University of Science and Technology of China",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US",
+        "CN"
+      ],
+      "rors": [
+        "03taz7m60",
+        "04c4dkn09",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5070209285",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5055946604",
+        "https://openalex.org/A5037573161"
+      ],
+      "authorOrcids": [
+        "0000-0003-4461-4664",
+        "0000-0001-5494-2296",
+        "0000-0002-7259-0279",
+        "0000-0002-5656-4564"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/l295.1",
+      "title": "Moho structure across the San Jacinto fault zone: Insights into strain localization at depth",
+      "authors": "Meghan S. Miller; Panxu Zhang; James F. Dolan",
+      "journal": "Lithosphere",
+      "publisher": "Geological Society of America",
+      "year": 2014,
+      "cited": 16,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5044084711",
+        "https://openalex.org/A5050971944"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-6799-5781"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1002/2014gc005320",
+      "title": "Evidence of an upper mantle seismic anomaly opposing the C ocos slab beneath the I sthmus of T ehuantepec, M exico",
+      "authors": "Young‐Hee Kim; Hobin Lim; Meghan S. Miller; Fred Pearce; Robert W. Clayton",
+      "journal": "Geochemistry Geophysics Geosystems",
+      "publisher": "Wiley",
+      "year": 2014,
+      "cited": 4,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "Seoul National University",
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Massachusetts Institute of Technology",
+        "California Institute of Technology"
+      ],
+      "countries": [
+        "KR",
+        "US"
+      ],
+      "rors": [
+        "04h9pn542",
+        "03taz7m60",
+        "03vhnve41",
+        "042nb2s44",
+        "05dxps055"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5100760021",
+        "https://openalex.org/A5001757376",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5112437496",
+        "https://openalex.org/A5085830112"
+      ],
+      "authorOrcids": [
+        "0000-0002-1111-632X",
+        "0000-0001-7510-4507",
+        "0000-0001-5494-2296",
+        "0000-0003-3323-3508"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/g35715y.1",
+      "title": "Reactivated lithospheric-scale discontinuities localize dynamic uplift of the Moroccan Atlas Mountains: REPLY",
+      "authors": "Meghan S. Miller; T. W. Becker",
+      "journal": "Geology",
+      "publisher": "Geological Society of America",
+      "year": 2014,
+      "cited": 0,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geophysical Studies Worldwide",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5037573161"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-5656-4564"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.3997/2214-4609.20131623",
+      "title": "Sustainable Management of our Basin Contained Crustal Services - An Australian Perspective",
+      "authors": "Tim Rawling; Mike Sandiford",
+      "journal": "Proceedings",
+      "publisher": "",
+      "year": 2013,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Reservoir Engineering and Simulation Methods",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5026326429"
+      ],
+      "authorOrcids": [
+        "0000-0002-8841-4384",
+        "0000-0002-9757-745X"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2013.10.012",
+      "title": "Static and dynamic support of western United States topography",
+      "authors": "T. W. Becker; Claudio Faccenna; E. Humphreys; A. R. Lowry; Meghan S. Miller",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2013,
+      "cited": 86,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "University of Southern California",
+        "Roma Tre University",
+        "University of Oregon",
+        "Utah State University"
+      ],
+      "countries": [
+        "US",
+        "IT"
+      ],
+      "rors": [
+        "03taz7m60",
+        "05vf0dg29",
+        "0293rh119",
+        "00h6set76"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5037573161",
+        "https://openalex.org/A5085030476",
+        "https://openalex.org/A5091788035",
+        "https://openalex.org/A5052230991",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-5656-4564",
+        "0000-0002-1916-8378",
+        "0000-0001-6023-3090",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/g34959.1",
+      "title": "Reactivated lithospheric-scale discontinuities localize dynamic uplift of the Moroccan Atlas Mountains",
+      "authors": "Meghan S. Miller; T. W. Becker",
+      "journal": "Geology",
+      "publisher": "Geological Society of America",
+      "year": 2013,
+      "cited": 71,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geophysical Studies Worldwide; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5037573161"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-5656-4564"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2013.05.036",
+      "title": "Constraints on the tectonic evolution of the westernmost Mediterranean and northwestern Africa from shear wave splitting analysis",
+      "authors": "Meghan S. Miller; A. A. Allam; T. W. Becker; J. F. Di Leo; James Wookey",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2013,
+      "cited": 53,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geophysical Studies Worldwide; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "University of Southern California",
+        "Cabot (United States)"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "00ag9jk61"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5025193369",
+        "https://openalex.org/A5037573161",
+        "https://openalex.org/A5059899937",
+        "https://openalex.org/A5031731097"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-6447-0779",
+        "0000-0002-5656-4564",
+        "0000-0002-7403-4380"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1002/jgrb.50309",
+      "title": "Structure beneath the Alboran from geodynamic flow models and seismic anisotropy",
+      "authors": "L. A. Alpert; Meghan S. Miller; T. W. Becker; A. A. Allam",
+      "journal": "Journal of Geophysical Research Solid Earth",
+      "publisher": "Wiley",
+      "year": 2013,
+      "cited": 40,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Geophysical Studies Worldwide; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Bakersfield College"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41",
+        "00tz9e151"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5087522464",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5037573161",
+        "https://openalex.org/A5025193369"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-5656-4564",
+        "0000-0002-6447-0779"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1002/ggge.20185",
+      "title": "Study of the western edge of the African Large Low Shear Velocity Province",
+      "authors": "Daoyuan Sun; Meghan S. Miller",
+      "journal": "Geochemistry Geophysics Geosystems",
+      "publisher": "Wiley",
+      "year": 2013,
+      "cited": 27,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5070209285",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0003-4461-4664",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.pepi.2013.02.001",
+      "title": "Aspherical structural heterogeneity within the uppermost inner core: Insights into the hemispherical boundaries and core formation",
+      "authors": "Meghan S. Miller; Fenglin Niu; Elizabeth Vanacore",
+      "journal": "Physics of The Earth and Planetary Interiors",
+      "publisher": "Elsevier BV",
+      "year": 2013,
+      "cited": 15,
+      "type": "article",
+      "isOA": "No",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "University of Southern California",
+        "China University of Petroleum, Beijing",
+        "Rice University",
+        "University of Leeds"
+      ],
+      "countries": [
+        "US",
+        "CN",
+        "GB"
+      ],
+      "rors": [
+        "03taz7m60",
+        "041qf4r12",
+        "008zs3103",
+        "024mrxd33"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5038499823",
+        "https://openalex.org/A5064424048"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-4156-4780",
+        "0000-0001-8099-2174"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/2012gc004056",
+      "title": "Evolutionary aspects of lithosphere discontinuity structure in the western U.S.",
+      "authors": "A. Levander; Meghan S. Miller",
+      "journal": "Geochemistry Geophysics Geosystems",
+      "publisher": "Wiley",
+      "year": 2012,
+      "cited": 147,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Rice University",
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "008zs3103",
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5020200335",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-1048-0488",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/2012gc004033",
+      "title": "Seismic imaging of the Cocos plate subduction zone system in central Mexico",
+      "authors": "Young‐Hee Kim; Meghan S. Miller; F. D. Pearce; Robert W. Clayton",
+      "journal": "Geochemistry Geophysics Geosystems",
+      "publisher": "Wiley",
+      "year": 2012,
+      "cited": 67,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Lamont-Doherty Earth Observatory",
+        "Columbia University",
+        "University of Southern California",
+        "Massachusetts Institute of Technology",
+        "California Institute of Technology"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "02e2tgs60",
+        "00hj8s172",
+        "03taz7m60",
+        "042nb2s44",
+        "05dxps055"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5100760021",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5112484711",
+        "https://openalex.org/A5085830112"
+      ],
+      "authorOrcids": [
+        "0000-0002-1111-632X",
+        "0000-0001-5494-2296",
+        "0000-0003-3323-3508"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1038/ngeo1553",
+      "title": "Mantle flow deflected by interactions between subducted slabs and cratonic keels",
+      "authors": "Meghan S. Miller; T. W. Becker",
+      "journal": "Nature Geoscience",
+      "publisher": "Nature Portfolio",
+      "year": 2012,
+      "cited": 61,
+      "type": "article",
+      "isOA": "No",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5037573161"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-5656-4564"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2012.06.028",
+      "title": "Insights into the evolution of the Italian lithospheric structure from S receiver function analysis",
+      "authors": "Meghan S. Miller; Nicola Piana Agostinetti",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2012,
+      "cited": 50,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Istituto Nazionale di Geofisica e Vulcanologia"
+      ],
+      "countries": [
+        "US",
+        "IT"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41",
+        "00qps9a02"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5070929298"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0003-3145-2766"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/g32619.1",
+      "title": "Melting under the Colorado Plateau, USA",
+      "authors": "M. R. Reid; Romain Bouchet; Janne Blichert‐Toft; A. Levander; Kaijian Liu; Meghan S. Miller; Frank C. Ramos",
+      "journal": "Geology",
+      "publisher": "Geological Society of America",
+      "year": 2012,
+      "cited": 40,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "Northern Arizona University",
+        "Lyon 1 Université",
+        "École Normale Supérieure de Lyon",
+        "Centre National de la Recherche Scientifique",
+        "Laboratoire de Géologie de Lyon : Terre, Planètes et Environnement",
+        "Rice University",
+        "University of Southern California",
+        "New Mexico State University"
+      ],
+      "countries": [
+        "US",
+        "FR"
+      ],
+      "rors": [
+        "0272j5188",
+        "029brtt94",
+        "04zmssz18",
+        "02feahw73",
+        "04t89f389",
+        "008zs3103",
+        "03taz7m60",
+        "00hpz7z43"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5085516092",
+        "https://openalex.org/A5044094584",
+        "https://openalex.org/A5075189526",
+        "https://openalex.org/A5020200335",
+        "https://openalex.org/A5040751149",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5110740692"
+      ],
+      "authorOrcids": [
+        "0000-0002-9213-9442",
+        "0000-0002-4932-4079",
+        "0000-0002-1048-0488",
+        "0000-0003-2679-7006",
+        "0000-0001-5494-2296",
+        "0009-0007-7655-2281"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/2011jb008522",
+      "title": "VS and density structure beneath the Colorado Plateau constrained by gravity anomalies and joint inversions of receiver function and phase velocity data",
+      "authors": "I. W. Bailey; Meghan S. Miller; Kaijian Liu; A. Levander",
+      "journal": "Journal of Geophysical Research Atmospheres",
+      "publisher": "American Geophysical Union",
+      "year": 2012,
+      "cited": 38,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Seismic Waves and Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Rice University"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41",
+        "008zs3103"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5030793593",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5040751149",
+        "https://openalex.org/A5020200335"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0003-2679-7006",
+        "0000-0002-1048-0488"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/2011jb008943",
+      "title": "Co‐seismic deformation of deep slabs based on summed CMT data",
+      "authors": "I. W. Bailey; L. A. Alpert; T. W. Becker; Meghan S. Miller",
+      "journal": "Journal of Geophysical Research Atmospheres",
+      "publisher": "American Geophysical Union",
+      "year": 2012,
+      "cited": 19,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5030793593",
+        "https://openalex.org/A5087522464",
+        "https://openalex.org/A5037573161",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0002-5656-4564",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1038/nature10001",
+      "title": "Continuing Colorado plateau uplift by delamination-style convective lithospheric downwelling",
+      "authors": "A. Levander; Brandon Schmandt; Meghan S. Miller; K. Liu; Karl E. Karlstrom; Ryan Crow; Cin‐Ty A. Lee; E. Humphreys",
+      "journal": "Nature",
+      "publisher": "Nature Portfolio",
+      "year": 2011,
+      "cited": 316,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "Rice University",
+        "University of Oregon",
+        "University of Southern California",
+        "University of New Mexico"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "008zs3103",
+        "0293rh119",
+        "03taz7m60",
+        "05fs6jp91"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5020200335",
+        "https://openalex.org/A5074646701",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5027561501",
+        "https://openalex.org/A5090086069",
+        "https://openalex.org/A5088131562",
+        "https://openalex.org/A5000404492",
+        "https://openalex.org/A5091788035"
+      ],
+      "authorOrcids": [
+        "0000-0002-1048-0488",
+        "0000-0003-1049-9020",
+        "0000-0001-5494-2296",
+        "0000-0003-2756-1724",
+        "0000-0002-2403-6361",
+        "0000-0002-3586-0110",
+        "0000-0002-1916-8378"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/2011gc003611",
+      "title": "Imaging crustal and upper mantle structure beneath the Colorado Plateau using finite frequency Rayleigh wave tomography",
+      "authors": "Kaijian Liu; A. Levander; Fenglin Niu; Meghan S. Miller",
+      "journal": "Geochemistry Geophysics Geosystems",
+      "publisher": "Wiley",
+      "year": 2011,
+      "cited": 40,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Seismic Waves and Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Rice University",
+        "University of Southern California",
+        "Statewide California Earthquake Center"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "008zs3103",
+        "03taz7m60",
+        "03vhnve41"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5040751149",
+        "https://openalex.org/A5020200335",
+        "https://openalex.org/A5038499823",
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0003-2679-7006",
+        "0000-0002-1048-0488",
+        "0000-0002-4156-4780",
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/2011gl049455",
+      "title": "Erosion of the continental lithosphere at the cusps of the Calabrian arc: Evidence fromSreceiver functions analysis",
+      "authors": "Meghan S. Miller; Nicola Piana Agostinetti",
+      "journal": "Geophysical Research Letters",
+      "publisher": "American Geophysical Union",
+      "year": 2011,
+      "cited": 21,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "Istituto Nazionale di Geofisica e Vulcanologia"
+      ],
+      "countries": [
+        "US",
+        "IT"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41",
+        "00qps9a02"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5070929298"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0003-3145-2766"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.2113/gsecongeo.105.5.895",
+      "title": "Crustal-Scale Fluid Pathways and Source Rocks in the Victorian Gold Province, Australia: Insights from Deep Seismic Reflection Profiles",
+      "authors": "C. E. Willman; R. J. Korsch; D. H. Moore; R. A. Cayley; Vladimir Lisitsin; Tim Rawling; V. J. Morand; P. J. O'Shea",
+      "journal": "Economic Geology",
+      "publisher": "",
+      "year": 2010,
+      "cited": 18,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Seismic Imaging and Inversion Techniques; Geological and Geophysical Studies; Drilling and Well Engineering",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 8,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5030607783",
+        "https://openalex.org/A5002421886",
+        "https://openalex.org/A5028528056",
+        "https://openalex.org/A5112286971",
+        "https://openalex.org/A5005277134",
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5111909512",
+        "https://openalex.org/A5023898009"
+      ],
+      "authorOrcids": [
+        "0000-0002-0886-0342",
+        "0000-0003-3116-924X",
+        "0000-0001-8406-5271",
+        "0000-0002-8841-4384"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.1071/aseg2010ab046",
+      "title": "Down the borehole but outside the box: innovative approaches to wireline log data interpretation",
+      "authors": "Anya M. Reading; Thomas Bodin; Malcolm Sambridge; Stephanie Howe; Michael Roach",
+      "journal": "UTAS Research Repository",
+      "publisher": "",
+      "year": 2010,
+      "cited": 4,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Soil Geostatistics and Mapping; Image Processing and 3D Reconstruction",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5011870706",
+        "https://openalex.org/A5075554992",
+        "https://openalex.org/A5026543595",
+        "https://openalex.org/A5048507208",
+        "https://openalex.org/A5088193178"
+      ],
+      "authorOrcids": [
+        "0000-0002-9316-7605",
+        "0000-0002-7393-6112",
+        "0000-0003-2858-3175",
+        "0000-0001-8085-7693"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1081/22020586.2010.12041870",
+      "title": "Down the borehole but outside the box: innovative approaches to wireline log data interpretation",
+      "authors": "Anya M. Reading; Thomas Bodin; Malcolm Sambridge; Stephanie Howe; Michael Roach",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2010,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Hydrocarbon exploration and reservoir analysis; Reservoir Engineering and Simulation Methods",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5011870706",
+        "https://openalex.org/A5075554992",
+        "https://openalex.org/A5026543595",
+        "https://openalex.org/A5048507208",
+        "https://openalex.org/A5051570421"
+      ],
+      "authorOrcids": [
+        "0000-0002-9316-7605",
+        "0000-0002-7393-6112",
+        "0000-0003-2858-3175",
+        "0000-0001-6954-3730"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1029/2010gl044366",
+      "title": "Formation of cratonic mantle keels by arc accretion: Evidence from S receiver functions",
+      "authors": "Meghan S. Miller; David W. Eaton",
+      "journal": "Geophysical Research Letters",
+      "publisher": "American Geophysical Union",
+      "year": 2010,
+      "cited": 85,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Seismic Waves and Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "University of Southern California",
+        "Statewide California Earthquake Center",
+        "University of Calgary"
+      ],
+      "countries": [
+        "US",
+        "CA"
+      ],
+      "rors": [
+        "03taz7m60",
+        "03vhnve41",
+        "03yjb2x39"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5023596665"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0001-6495-6093"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/2007jb005507",
+      "title": "Upper mantle structure beneath the Caribbean‐South American plate boundary from surface wave tomography",
+      "authors": "Meghan S. Miller; A. Levander; Fenglin Niu; Aibing Li",
+      "journal": "Journal of Geophysical Research Atmospheres",
+      "publisher": "American Geophysical Union",
+      "year": 2009,
+      "cited": 65,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Tectonic Studies in Latin America; earthquake and tectonic studies; High-pressure geophysics and materials",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Rice University",
+        "University of Houston"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "008zs3103",
+        "048sx0r50"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5020200335",
+        "https://openalex.org/A5038499823",
+        "https://openalex.org/A5003023583"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-1048-0488",
+        "0000-0002-4156-4780",
+        "0000-0002-1424-0553"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/2008gc002084",
+      "title": "Identification and tectonic implications of a tear in the South American plate at the southern end of the Lesser Antilles",
+      "authors": "Stephen A. Clark; M. Sobiesiak; C. A. Zelt; M. B. Magnani; Meghan S. Miller; Maximiliano Bezada; A. Levander",
+      "journal": "Geochemistry Geophysics Geosystems",
+      "publisher": "Wiley",
+      "year": 2008,
+      "cited": 55,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological and Tectonic Studies in Latin America; earthquake and tectonic studies; Geological and Geophysical Studies Worldwide",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "University of Oslo",
+        "Rice University",
+        "GFZ Helmholtz Centre for Geosciences",
+        "University of Memphis"
+      ],
+      "countries": [
+        "NO",
+        "US",
+        "DE"
+      ],
+      "rors": [
+        "01xtthb56",
+        "008zs3103",
+        "04z8jg394",
+        "01cq23130"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5080494047",
+        "https://openalex.org/A5071983822",
+        "https://openalex.org/A5046547778",
+        "https://openalex.org/A5058147213",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5007964620",
+        "https://openalex.org/A5020200335"
+      ],
+      "authorOrcids": [
+        "0000-0002-9777-3872",
+        "0000-0002-4686-9460",
+        "0000-0002-5357-8784",
+        "0000-0001-5494-2296",
+        "0000-0002-7337-3276",
+        "0000-0002-1048-0488"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.pepi.2008.07.044",
+      "title": "Bulldozing the core–mantle boundary: Localized seismic scatterers beneath the Caribbean Sea",
+      "authors": "Meghan S. Miller; Fenglin Niu",
+      "journal": "Physics of The Earth and Planetary Interiors",
+      "publisher": "Elsevier BV",
+      "year": 2008,
+      "cited": 23,
+      "type": "article",
+      "isOA": "No",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Tectonic Studies in Latin America",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Rice University"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "008zs3103"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5038499823"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-4156-4780"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1038/ngeo341",
+      "title": "Breaking the slab",
+      "authors": "Meghan S. Miller",
+      "journal": "Nature Geoscience",
+      "publisher": "Nature Portfolio",
+      "year": 2008,
+      "cited": 1,
+      "type": "article",
+      "isOA": "No",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "Rice University"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "008zs3103"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/j.aodf.2008.06.014",
+      "title": "Boston Chapter Centennial Symposium Report",
+      "authors": "Meghan S. Miller",
+      "journal": "Alpha Omegan",
+      "publisher": "Elsevier BV",
+      "year": 2008,
+      "cited": 0,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Human auditory perception and evaluation; Earthquake and Disaster Impact Studies; Educational Robotics and Engineering",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1130/2006.2419(06)",
+      "title": "Thermochronology of the New Caledonian high-pressure terrane: Implications for middle Tertiary plate boundary processes in the southwest Pacific",
+      "authors": "Suzanne L. Baldwin; Tim Rawling; Paul G. Fitzgerald",
+      "journal": "Geological Society of America eBooks",
+      "publisher": "Geological Society of America",
+      "year": 2007,
+      "cited": 52,
+      "type": "book chapter",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geology and Paleoclimatology Research",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5062288385",
+        "https://openalex.org/A5006277227",
+        "https://openalex.org/A5068710042"
+      ],
+      "authorOrcids": [
+        "0000-0003-1700-9303",
+        "0000-0002-8841-4384",
+        "0000-0003-3723-142X"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-8841-4384"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2007.10.039",
+      "title": "Possible chemical modification of oceanic lithosphere by hotspot magmatism: Seismic evidence from the junction of Ninetyeast Ridge and the Sumatra–Andaman arc",
+      "authors": "Meghan S. Miller; Cin‐Ty A. Lee",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2007,
+      "cited": 14,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Rice University"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "008zs3103"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5000404492"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0002-3586-0110"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1071/eg06322",
+      "title": "Seismic wavefront tracking in 3D heterogeneous media: applications with multiple data classes",
+      "authors": "Nicholas Rawlinson; Marthijn de Kool; Malcolm Sambridge",
+      "journal": "Exploration Geophysics",
+      "publisher": "Taylor & Francis",
+      "year": 2006,
+      "cited": 57,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5075778736",
+        "https://openalex.org/A5111879912",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0002-6977-291X",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1071/eg06331",
+      "title": "Phase space methods for multi-arrival wavefronts",
+      "authors": "Juerg Hauser; Malcolm Sambridge; Nick Rawlinson",
+      "journal": "Exploration Geophysics",
+      "publisher": "Taylor & Francis",
+      "year": 2006,
+      "cited": 4,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5049213664",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0002-8964-7331",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.25911/5d5148c01015a",
+      "title": "Four-dimensional structural evolution of the Western Pacific convergent margin based on seismic tomography and palaeogeographic reconstructions",
+      "authors": "Meghan S. Miller",
+      "journal": "ANU Open Research (Australian National University)",
+      "publisher": "Australian National University",
+      "year": 2006,
+      "cited": 0,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "Geological and Geophysical Studies; Geological Studies and Exploration; Hydrocarbon exploration and reservoir analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.3997/2214-4609-pdb.1.h051",
+      "title": "Quantification of Uncertainty in Relative Permeability for Coarse-Scale Reservoir Simulation (SPE94140)",
+      "authors": "Hirofumi Okano; Gillian Elizabeth Pickup; Michael Andrew Christie; Sam Subbey; Malcolm Sambridge; Hashem Monfared",
+      "journal": "",
+      "publisher": "",
+      "year": 2005,
+      "cited": 17,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Reservoir Engineering and Simulation Methods; Enhanced Oil Recovery Techniques; Hydraulic Fracturing and Reservoir Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 6,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5035876703",
+        "https://openalex.org/A5043435795",
+        "https://openalex.org/A5103571240",
+        "https://openalex.org/A5031091157",
+        "https://openalex.org/A5026543595",
+        "https://openalex.org/A5061639006"
+      ],
+      "authorOrcids": [
+        "0000-0001-5754-2802",
+        "0000-0003-0646-9830",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1147/rd.496.0887",
+      "title": "BladeCenter packaging, power, and cooling",
+      "authors": "M. J. Crippen; R. K. Alo; Dean J. Champion; Rachel Clemo; C. M. Grosser; N. J. Gruendler; M. S. Mansuria; J. A. Matteson; Meghan S. Miller; B. A. Trumbo",
+      "journal": "IBM Journal of Research and Development",
+      "publisher": "IBM",
+      "year": 2005,
+      "cited": 29,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Parallel Computing and Optimization Techniques; Interconnection Networks and Systems; Embedded Systems Design Techniques",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 10,
+      "institutions": [
+        "Research Triangle Park Foundation",
+        "IBM (United States)"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03eqttr49",
+        "05hh8d621"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5082356653",
+        "https://openalex.org/A5012183306",
+        "https://openalex.org/A5026316188",
+        "https://openalex.org/A5083800911",
+        "https://openalex.org/A5031224813",
+        "https://openalex.org/A5070071827",
+        "https://openalex.org/A5010259439",
+        "https://openalex.org/A5047889774",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5053483647"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.3809/jvirtex.2005.00141",
+      "title": "Active Seismicity in the Flinders Ranges",
+      "authors": "Meghan S. Miller",
+      "journal": "Journal of the Virtual Explorer",
+      "publisher": "",
+      "year": 2005,
+      "cited": 0,
+      "type": "article",
+      "isOA": "No",
+      "subject": "earthquake and tectonic studies; Seismic Imaging and Inversion Techniques; Seismology and Earthquake Studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1109/ugim.2003.1225690",
+      "title": "Building academic, research, and commercialization programs in micro and nano science and engineering at the University of Utah",
+      "authors": "Ian R. Harvey; Meghan S. Miller; Sheena E E Blair; Tim Ameel; Bruce K. Gale; Terry A. Ring",
+      "journal": "",
+      "publisher": "",
+      "year": 2004,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "University-Industry-Government Innovation Models",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "University of Utah"
+      ],
+      "countries": [
+        "US"
+      ],
+      "rors": [
+        "03r0ha626"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5008076473",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5111393811",
+        "https://openalex.org/A5075244804",
+        "https://openalex.org/A5066534077",
+        "https://openalex.org/A5080687262"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296",
+        "0000-0001-5843-3464",
+        "0000-0001-7368-3648"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1016/s1535-5535(03)00011-x",
+      "title": "Transfer of low nanoliter volumes between microplates using focused acoustics?automation considerations",
+      "authors": "Richard Ellson; Mitchell W. Mutz; Brent Browning; L LEEJR; Meghan S. Miller; Roeland Papen; PICOLITERINC",
+      "journal": "JALA Journal of the Association for Laboratory Automation",
+      "publisher": "SAGE Publishing",
+      "year": 2003,
+      "cited": 81,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Innovative Microfluidic and Catalytic Techniques Innovation; Microfluidic and Bio-sensing Technologies; Electrohydrodynamics and Fluid Dynamics",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "Policy Innovation and Co-ordination Office"
+      ],
+      "countries": [
+        "HK"
+      ],
+      "rors": [
+        "052p8vb75"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5068324856",
+        "https://openalex.org/A5067256770",
+        "https://openalex.org/A5080221631",
+        "https://openalex.org/A5097147637",
+        "https://openalex.org/A5026672994",
+        "https://openalex.org/A5078377568",
+        "https://openalex.org/A5097175591"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.3997/2214-4609.201405961",
+      "title": "Prediction under Uncertainty in Reservoir Modeling",
+      "authors": "Mike Christie; Sam Subbey; Malcolm Sambridge",
+      "journal": "",
+      "publisher": "",
+      "year": 2002,
+      "cited": 16,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Reservoir Engineering and Simulation Methods; Hydraulic Fracturing and Reservoir Analysis; Water resources management and optimization",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5023567285",
+        "https://openalex.org/A5031091157",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0002-8346-9140",
+        "0000-0003-0646-9830",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1090/conm/295/5035",
+      "title": "Uncertainty reduction in reservoir modeling",
+      "authors": "Sam Subbey; Mike Christie; Malcolm Sambridge",
+      "journal": "Contemporary mathematics - American Mathematical Society",
+      "publisher": "American Mathematical Society",
+      "year": 2002,
+      "cited": 15,
+      "type": "other",
+      "isOA": "No",
+      "subject": "Reservoir Engineering and Simulation Methods",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5031091157",
+        "https://openalex.org/A5023567285",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0003-0646-9830",
+        "0000-0002-8346-9140",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.3997/2214-4609.201405756",
+      "title": "Quantifying Uncertainty in Reservoir Performance Prediction",
+      "authors": "Sam Subbey; M. Christie; Malcolm Sambridge",
+      "journal": "",
+      "publisher": "",
+      "year": 2002,
+      "cited": 1,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Reservoir Engineering and Simulation Methods; Hydraulic Fracturing and Reservoir Analysis; Enhanced Oil Recovery Techniques",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5031091157",
+        "https://openalex.org/A5075059745",
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0003-0646-9830",
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1142/s0218396x01000838",
+      "title": "A COMPARATIVE STUDY OF EXPLICIT DIFFERENTIAL OPERATORS ON ARBITRARY GRIDS",
+      "authors": "Martin Käser; Heiner Igel; Malcolm Sambridge; Jean Braun",
+      "journal": "Journal of Theoretical and Computational Acoustics",
+      "publisher": "World Scientific",
+      "year": 2001,
+      "cited": 14,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Seismic Imaging and Inversion Techniques; Advanced Numerical Methods in Computational Mathematics; Computational Fluid Dynamics and Aerodynamics",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Environmental Earth Sciences"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "04rnwed46"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5073614233",
+        "https://openalex.org/A5088160421",
+        "https://openalex.org/A5026543595",
+        "https://openalex.org/A5007061034"
+      ],
+      "authorOrcids": [
+        "0000-0003-2944-7159",
+        "0000-0002-7242-6399",
+        "0000-0003-2858-3175",
+        "0000-0002-7341-6344"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1111/j.1365-246x.2001.00293.x",
+      "title": "Book review",
+      "authors": "Malcolm Sambridge",
+      "journal": "Geophysical Journal International",
+      "publisher": "Oxford University Press",
+      "year": 2001,
+      "cited": 0,
+      "type": "book review",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026543595"
+      ],
+      "authorOrcids": [
+        "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1016/s0950-1401(01)80021-5",
+      "title": "Chapter 7 Seismic interpretation and processing applications",
+      "authors": "Meghan S. Miller; Kathy S. Powell",
+      "journal": "Handbook of geophysical exploration. Section 1, Seismic exploration/Handbook of geophysical exploration. Seismic exploration",
+      "publisher": "Elsevier BV",
+      "year": 2001,
+      "cited": 3,
+      "type": "book chapter",
+      "isOA": "No",
+      "subject": "Seismic Imaging and Inversion Techniques; Seismology and Earthquake Studies; Drilling and Well Engineering",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5137855806",
+        "https://openalex.org/A5031927673"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
+      "doi": "10.1029/97jb02602",
+      "title": "Tomographic systems of equations with irregular cells",
+      "authors": "Malcolm Sambridge; Ólafur Guðmundsson",
+      "journal": "Journal of Geophysical Research Atmospheres",
+      "publisher": "American Geophysical Union",
+      "year": 1998,
+      "cited": 86,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Seismic Imaging and Inversion Techniques; Advanced Mathematical Modeling in Engineering; Numerical methods in inverse problems",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5026543595",
+        "https://openalex.org/A5059638591"
+      ],
+      "authorOrcids": [
+        "0000-0003-2858-3175",
+        "0000-0002-6702-8759"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    },
+    {
+      "doi": "10.1088/0266-5611/14/3/001",
+      "title": "Guest Editors' Introduction",
+      "authors": "Roel Snieder; Malcolm Sambridge; Fernando Sansò",
+      "journal": "Inverse Problems",
+      "publisher": "IOP Publishing",
+      "year": 1998,
+      "cited": 0,
+      "type": "editorial",
+      "isOA": "No",
+      "subject": "Posthumanist Ethics and Activism; Contemporary Sociological Theory and Practice; Decolonial Thought and Epistemologies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5117416175",
+        "https://openalex.org/A5026543595",
+        "https://openalex.org/A5023759645"
+      ],
+      "authorOrcids": [
+        "0000-0003-1445-0857",
+        "0000-0003-2858-3175",
+        "0000-0001-6904-7892"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175"
+      ]
+    }
+  ]
 }
