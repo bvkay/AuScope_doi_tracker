@@ -213,6 +213,51 @@ async function run() {
     pillars.nvcl = null;
   }
 
+  // ── GNSS (AuScope-funded CORS stations, live from GA) ──
+  // GA's CORS metadata API is the operator's registry; the AUSCOPE network
+  // tenancy (ID 101) marks the stations AuScope built or funded. Falls back
+  // to the weekly snapshot committed by bvkay/AuScope_Outreach — the same
+  // source gnss.html uses, so page and card can never disagree on provenance.
+  try {
+    let sites = [];
+    try {
+      let page = 0;
+      for (;;) {
+        const r = await fetch('https://metadata.gnss.ga.gov.au/api/corsSites?size=200&page=' + page);
+        if (!r.ok) throw new Error('GA API HTTP ' + r.status);
+        const batch = (((await r.json())._embedded) || {}).corsSites || [];
+        if (!batch.length) break;
+        sites = sites.concat(batch);
+        if (++page > 30) break;
+      }
+      sites = sites.filter(function(x) {
+        return (x.networkTenancies || []).some(function(t) { return t.corsNetworkId === 101; });
+      });
+      if (!sites.length) throw new Error('AUSCOPE tenancy empty');
+      sites = sites.map(function(x) { return { installed: x.dateInstalled || '' }; });
+    } catch (liveErr) {
+      const gj = await (await fetch('https://raw.githubusercontent.com/bvkay/AuScope_Outreach/main/data/gnss_auscope.geojson')).json();
+      sites = (gj.features || []).map(function(f) {
+        return { installed: (f.properties || {}).dateInstalled || '' };
+      });
+      console.log('GNSS: GA API failed (' + liveErr.message + '), using weekly snapshot');
+    }
+    const years = sites.map(function(x) { return String(x.installed).slice(0, 4); })
+      .filter(Boolean).sort();
+    pillars.gnss = {
+      stations: sites.length,
+      since: years.length ? Number(years[0]) : null,
+      latest: years.length ? Number(years[years.length - 1]) : null,
+      network: 'AUSCOPE tenancy (ID 101) in GA CORS',
+      source: 'GA CORS metadata API',
+    };
+    console.log('GNSS: ' + sites.length + ' AuScope-funded CORS stations'
+      + (years.length ? ' (built ' + years[0] + '-' + years[years.length - 1] + ')' : ''));
+  } catch (e) {
+    console.log('GNSS: unavailable (' + e.message + ')');
+    pillars.gnss = null;
+  }
+
   // ── AuSIS (Australian Seismometers in Schools, live) ──
   // Reads the committed data products of AuScope/AuScope_Outreach (Ben's
   // production outreach platform: daily station backup, hourly streaming

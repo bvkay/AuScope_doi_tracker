@@ -431,6 +431,13 @@ function buildExplorerCards(pillarData) {
         + ' state nodes · verifiable live';
     cards.push({ href: 'nvcl.html', num: nvclNum, name: 'NVCL core scanned', sub: nvclSub });
   }
+  if (p.gnss) {
+    cards.push({ href: 'gnss.html',
+      num: p.gnss.stations.toLocaleString(),
+      name: 'GNSS reference stations',
+      sub: 'AuScope-funded, in GA\u2019s CORS network'
+        + (p.gnss.since ? ' \u00b7 built ' + p.gnss.since + '\u2013' + p.gnss.latest : '') });
+  }
   if (p.ausis) {
     cards.push({ href: 'ausis.html',
       num: p.ausis.stations.toLocaleString(),

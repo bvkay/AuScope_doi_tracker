@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--
+    AuScope GNSS Network Tracker
+    Continuously operating GNSS reference stations funded by AuScope,
+    operating as the AUSCOPE network tenancy (ID 101) inside Geoscience
+    Australia's CORS network. Defining theme: LIVE FROM THE OPERATOR —
+    the page queries GA's own CORS metadata API from the visitor's
+    browser (it is CORS-open) and filters to the AuScope tenancy, so the
+    numbers are GA's, not ours.
+
+    Fallback: the weekly snapshot committed by bvkay/AuScope_Outreach
+    (.github/workflows/gnss-backup.yml -> data/gnss_auscope.geojson).
+    When GA's API cannot be reached the page renders from that snapshot
+    and SAYS SO, with the snapshot's own fetched date — the same
+    carried-forward-and-disclosed rule the NVCL harvest uses. Absent is
+    not zero; stale is not fresh.
+
+    Citation honesty: GA's CORS dataset DOI (10.4225/25/552b5aad0c34a)
+    covers the WHOLE national CORS network, of which AuScope's sites are
+    one tenancy. It is linked as provenance and deliberately NOT counted
+    as AuScope citations.
+
+    Shared skin/machinery: tracker-shared.css, tracker-chassis.js.
+    Coastline: australia-outline.json (Natural Earth 1:110m, public
+    domain) — decoration only; dots are positioned purely by GA's
+    coordinates.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AuScope GNSS Network Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
+    <style>
+        :root {
+            --accent: #282572;        /* AuScope purple */
+            --accent-strong: #1d1b5e;
+            --accent-soft: #dcdbf0;
+            --accent-bg: #f3f3fa;
+        }
+
+        /* Stat-tile tooltips: anchor to the tile, not the info icon (see
+           ausis.html for the overflow rationale). */
+        .stats .stat { position: relative; }
+        .stats .stat [data-tip] { position: static; }
+        .stats .stat [data-tip]::after { left: 10px; right: 10px; width: auto; max-width: none; }
+        .stats .stat [data-tip]::before { left: 16px; }
+
+        /* ----- provenance panel (GA's whole-of-network DOI) ----- */
+        .cite-panel { border: 1px solid var(--border); border-left: 3px solid #282572; border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 18px; background: var(--bg-soft); }
+        .cite-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; }
+        .cite-text { font-size: 13px; color: var(--text); }
+        .cite-text .mono { word-break: break-all; }
+        .cite-meta { margin-top: 6px; font-size: 12px; color: var(--text-soft); }
+        .cite-meta a { color: var(--accent); text-decoration: none; }
+
+        /* ----- provenance banner ----- */
+        .prov-banner { display: flex; align-items: center; gap: 14px; border: 1px solid var(--accent-soft); border-left: 4px solid var(--accent); background: var(--accent-bg); border-radius: 6px; padding: 13px 16px; margin-bottom: 20px; flex-wrap: wrap; }
+        .prov-banner.fallback { border-color: #fcd34d; border-left-color: #b45309; background: var(--warn-bg); }
+        .prov-banner.fallback .prov-mark { background: #b45309; }
+        .prov-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; flex-shrink: 0; }
+        .prov-body { flex: 1; min-width: 260px; }
+        .prov-title { font-size: 14px; font-weight: 600; color: var(--text); }
+        .prov-text { font-size: 12.5px; color: var(--text-soft); margin-top: 2px; line-height: 1.55; }
+        .prov-text a { color: var(--accent); text-decoration: none; }
+        .prov-text a:hover { text-decoration: underline; }
+
+        /* ----- install-year chart ----- */
+        .build-chart { display: flex; align-items: flex-end; gap: 4px; height: 150px; padding: 8px 4px 0; }
+        .build-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+        .build-bar { width: 100%; max-width: 34px; background: var(--accent); border-radius: 3px 3px 0 0; opacity: 0.85; transition: opacity 0.15s; }
+        .build-col:hover .build-bar { opacity: 1; }
+        .build-n { font-size: 10.5px; color: var(--text-soft); font-variant-numeric: tabular-nums; }
+        .build-yr { font-size: 10px; color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+        /* ----- map ----- */
+        .map-panel { display: flex; gap: 18px; align-items: flex-start; }
+        .map-main { flex: 1; min-width: 0; }
+        #map-svg { width: 100%; height: auto; display: block; }
+        #map-coast path { fill: #eef2f7; stroke: #cbd5e1; stroke-width: 1; }
+        #map-dots circle { fill: var(--accent); fill-opacity: 0.8; stroke: white; stroke-width: 0.6; cursor: pointer; }
+        .map-legend { width: 190px; flex-shrink: 0; font-size: 12.5px; }
+        .map-legend h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px; }
+        .lg-row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid var(--bg-muted); }
+        .lg-row b { font-variant-numeric: tabular-nums; }
+        .lg-note { margin-top: 10px; font-size: 11.5px; color: var(--text-muted); line-height: 1.5; }
+        @media (max-width: 720px) { .map-panel { flex-direction: column; } .map-legend { width: 100%; } }
+
+        /* ----- shared tooltip ----- */
+        #map-tip { position: fixed; display: none; background: #0f172a; color: #f1f5f9; font-size: 12px; padding: 6px 9px; border-radius: 5px; pointer-events: none; z-index: 90; max-width: 300px; line-height: 1.5; }
+
+        .foot { margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11.5px; color: var(--text-muted); line-height: 1.6; }
+        .foot a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <!-- ========== HEADER ========== -->
+        <div class="topbar">
+            <div class="brand">
+                <h1>
+                    <img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope" data-fallback="auscope">
+                    <span class="accent">GNSS</span> Network Tracker
+                </h1>
+                <p>AuScope-funded continuously operating GNSS reference stations &mdash; live from Geoscience Australia&rsquo;s own CORS registry.</p>
+            </div>
+            <div class="links">
+                <a href="index.html">&larr; Impact overview</a>
+                <a href="https://gnss.ga.gov.au" target="_blank" rel="noopener">GA GNSS &#8599;</a>
+                <a href="https://metadata.gnss.ga.gov.au" target="_blank" rel="noopener">CORS metadata &#8599;</a>
+            </div>
+        </div>
+
+        <!-- ========== PROVENANCE BANNER ========== -->
+        <div class="prov-banner" id="prov-banner">
+            <div class="prov-mark" id="prov-mark">&#10003;</div>
+            <div class="prov-body">
+                <div class="prov-title" id="prov-title">Every number on this page is fetched live</div>
+                <div class="prov-text" id="prov-text"><span class="spinner"></span> Querying Geoscience Australia&rsquo;s CORS metadata API for the AUSCOPE network tenancy&hellip;</div>
+            </div>
+        </div>
+
+        <!-- ========== PROVENANCE DOI ========== -->
+        <div class="cite-panel">
+            <div class="cite-label">The national dataset these stations feed</div>
+            <div class="cite-text">Geoscience Australia (1990&ndash;). Geodesy &mdash; Continuously Operating Reference Stations.
+                <a href="https://doi.org/10.4225/25/552b5aad0c34a" target="_blank" rel="noopener" class="mono">https://doi.org/10.4225/25/552b5aad0c34a</a>
+            </div>
+            <div class="cite-meta">That DOI covers GA&rsquo;s <strong>whole</strong> CORS network; the AuScope-funded stations on this page are one network tenancy within it (<span class="mono">AUSCOPE</span>, ID&nbsp;101). Its citation counts are therefore <strong>not</strong> claimed as AuScope citations here &mdash; the stations are AuScope&rsquo;s contribution to a shared national instrument. &middot; <a href="https://commons.datacite.org/doi.org/10.4225/25/552b5aad0c34a" target="_blank" rel="noopener">DataCite Commons &#8599;</a></div>
+        </div>
+
+        <!-- ========== STAT TILES ========== -->
+        <div class="stats" id="stat-tiles">
+            <div class="stat"><div class="label">AuScope-funded stations <span class="info-i" data-tip="Every CORS site GA lists under the AUSCOPE network tenancy (ID 101) — stations AuScope built or funded that operate inside GA's national network.">i</span></div><div class="value" id="stat-total">&mdash;</div><div class="sub">in GA&rsquo;s CORS registry</div></div>
+            <div class="stat"><div class="label">Build-out <span class="info-i" data-tip="First to most recent installation date GA records for the tenancy. The bulk of the network was built 2009–2014 under AuScope's NCRIS-funded AGOS program.">i</span></div><div class="value" id="stat-span">&mdash;</div><div class="sub" id="stat-span-sub">installation span</div></div>
+            <div class="stat"><div class="label">States &amp; territories <span class="info-i" data-tip="Derived from each station's coordinates — the registry has no state field. Stations very close to a border could be assigned to the neighbour.">i</span></div><div class="value" id="stat-states">&mdash;</div><div class="sub">derived from coordinates</div></div>
+            <div class="stat"><div class="label">DOMES-registered <span class="info-i" data-tip="Stations carrying an IERS DOMES number — the international geodetic site identifier that lets a monument contribute to global reference-frame solutions (ITRF).">i</span></div><div class="value" id="stat-domes">&mdash;</div><div class="sub">IERS site identifiers</div></div>
+            <div class="stat"><div class="label">Open data <span class="info-i" data-tip="Stations GA flags PUBLIC — their observation data is openly available through GA's GNSS data services.">i</span></div><div class="value" id="stat-public">&mdash;</div><div class="sub" id="stat-public-sub">publicly available</div></div>
+        </div>
+
+        <!-- ========== MAP ========== -->
+        <div class="section" id="map-section">
+            <h2>The network, drawn by its own coordinates</h2>
+            <div class="section-note">Each dot is a continuously operating GNSS monument. Hover for the station&rsquo;s name, code and install date.</div>
+            <div class="map-panel">
+                <div class="map-main">
+                    <svg id="map-svg" viewBox="0 0 644 600" role="img" aria-label="Map of AuScope-funded GNSS stations across Australia">
+                        <g id="map-coast"></g>
+                        <g id="map-dots"></g>
+                    </svg>
+                </div>
+                <div class="map-legend">
+                    <h3>Stations by state</h3>
+                    <div id="map-legend-rows"><span class="spinner"></span></div>
+                    <div class="lg-note" id="map-legend-note"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== BUILD-OUT ========== -->
+        <div class="section" id="build-section">
+            <h2>When the network was built</h2>
+            <div class="section-note">Stations by installation year, as recorded by GA. The 2009&ndash;2014 peak is AuScope&rsquo;s NCRIS-funded geospatial build-out.</div>
+            <div class="build-chart" id="build-chart"><span class="spinner"></span></div>
+        </div>
+
+        <!-- ========== STATION TABLE ========== -->
+        <div class="section" id="stations-section">
+            <h2>Every station</h2>
+            <div class="section-note" id="stations-note">Rows exactly as GA&rsquo;s CORS registry returns them, newest installation first.</div>
+            <div class="table-wrap">
+                <table class="data" id="stations-table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>State <span class="info-i" data-tip="Derived from coordinates — the registry has no state field.">i</span></th>
+                            <th>Installed</th>
+                            <th>Monument <span class="info-i" data-tip="The physical mount GA records for the antenna — pillar, mast, tripod — and its foundation.">i</span></th>
+                            <th>Elev (m)</th>
+                            <th>DOMES <span class="info-i" data-tip="IERS DOMES number — the international geodetic identifier for the monument.">i</span></th>
+                            <th>Access</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stations-tbody">
+                        <tr><td colspan="8" class="empty-state"><span class="spinner"></span> Querying GA&rsquo;s CORS registry&hellip;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== HOW ========== -->
+        <div class="section">
+            <h2>How this page gets its numbers</h2>
+            <div class="how-body">
+                <p><strong>Primary source &mdash; the operator&rsquo;s own registry.</strong> Your browser queries <a href="https://metadata.gnss.ga.gov.au/api/corsSites" target="_blank" rel="noopener"><code>metadata.gnss.ga.gov.au/api/corsSites</code></a> directly (the API is CORS-open) and keeps the sites whose <code>networkTenancies</code> include network ID <code>101</code> &mdash; the <code>AUSCOPE</code> tenancy. Nothing on this page is curated by hand: coordinates, install dates, monument descriptions and DOMES numbers are GA&rsquo;s records, rendered as returned.</p>
+                <p><strong>Fallback &mdash; disclosed, never silent.</strong> If GA&rsquo;s API cannot be reached, the page renders from the weekly snapshot committed by the <a href="https://github.com/bvkay/AuScope_Outreach/blob/main/.github/workflows/gnss-backup.yml" target="_blank" rel="noopener">AuScope Outreach GNSS backup</a> (<code>gnss_auscope.geojson</code>), and the banner above turns amber and shows the snapshot&rsquo;s own fetched date. A service being down is not evidence the stations aren&rsquo;t there.</p>
+                <p><strong>What AuScope funded vs what GA operates.</strong> These monuments were built or funded by AuScope (largely under the NCRIS AGOS program, 2009&ndash;2014) and operate as one tenancy inside GA&rsquo;s national CORS network, which GA runs and publishes. That is why the dataset DOI above belongs to GA and is not counted as AuScope citations &mdash; the honest claim is <em>infrastructure contributed</em>, not <em>dataset owned</em>.</p>
+                <p><strong>States.</strong> Derived from coordinates with simple bounding rules (the registry has no state field); stations very near a border could be assigned to the neighbour.</p>
+                <p><strong>Coastline.</strong> Natural Earth 1:110m (public domain), simplified to two rings in <code>australia-outline.json</code>. Decoration only &mdash; dots are positioned purely by GA&rsquo;s coordinates.</p>
+            </div>
+        </div>
+
+        <div class="foot">
+            Part of the <a href="index.html">AuScope Research Impact</a> tracker &middot;
+            Station registry &copy; Geoscience Australia (CORS metadata API) &middot;
+            Weekly fallback snapshot from <a href="https://github.com/bvkay/AuScope_Outreach" target="_blank" rel="noopener">AuScope_Outreach</a>
+        </div>
+    </div>
+
+    <div id="map-tip"></div>
+
+    <script src="tracker-chassis.js"></script>
+    <script>
+    // ============================================================
+    // CONFIG
+    // ============================================================
+    var GA_API = 'https://metadata.gnss.ga.gov.au/api/corsSites?size=200&page=';
+    var AUSCOPE_NETWORK_ID = 101;
+    var FALLBACK_URL = 'https://raw.githubusercontent.com/bvkay/AuScope_Outreach/main/data/gnss_auscope.geojson';
+    var OUTLINE_URL = 'australia-outline.json';
+    var MAX_PAGES = 30;      // registry is ~700 sites; 30 pages of 200 is a hard stop, not a target
+
+    // ============================================================
+    // STATE + PROJECTION (identical frame to ausis.html)
+    // ============================================================
+    var stations = [];       // { code, name, lat, lng, elev, installed, monument, foundation, domes, status }
+    function projX(lng) { return (lng - 112) / (154 - 112) * 644; }
+    function projY(lat) { return (-9 - lat) / (-9 - -44) * 600; }
+
+    function deriveState(lat, lng) {
+        if (lat < -39.5) return 'TAS';
+        if (lat >= -35.95 && lat <= -35.1 && lng >= 148.7 && lng <= 149.4) return 'ACT';
+        if (lng < 129) return 'WA';
+        if (lng < 138 && lat > -26) return 'NT';
+        if (lng <= 141 && lat <= -26) return 'SA';
+        if (lat > -28.2 || (lat > -29 && lng < 150.5)) return 'QLD';
+        if (lat > -37.6) return 'NSW';
+        return 'VIC';
+    }
+
+    // ============================================================
+    // FETCH — GA live first, snapshot fallback second, both disclosed
+    // ============================================================
+    function init() {
+        fetch(OUTLINE_URL).then(function(r) { return r.json(); }).then(drawCoast).catch(function() {});
+        fetchLive().then(function(list) {
+            stations = list;
+            setBanner(true, null);
+            renderAll();
+        }).catch(function(err) {
+            fetchFallback().then(function(res) {
+                stations = res.list;
+                setBanner(false, { fetched: res.fetched, reason: err.message });
+                renderAll();
+            }).catch(function(err2) {
+                document.getElementById('prov-banner').className = 'prov-banner fallback';
+                document.getElementById('prov-mark').innerHTML = '!';
+                document.getElementById('prov-title').textContent = 'Neither source could be reached';
+                document.getElementById('prov-text').textContent =
+                    'GA’s CORS API failed (' + err.message + ') and the weekly snapshot failed ('
+                    + err2.message + '). Nothing is rendered rather than something invented — reload to retry.';
+            });
+        });
+    }
+
+    function fetchLive() {
+        var all = [];
+        function pageLoop(page) {
+            if (page >= MAX_PAGES) return Promise.resolve(all);
+            return fetch(GA_API + page).then(function(r) {
+                if (!r.ok) throw new Error('GA API HTTP ' + r.status);
+                return r.json();
+            }).then(function(data) {
+                var sites = (data._embedded && data._embedded.corsSites) || [];
+                all = all.concat(sites);
+                return sites.length === 0 ? all : pageLoop(page + 1);
+            });
+        }
+        return pageLoop(0).then(function(sites) {
+            var ours = sites.filter(function(s) {
+                return (s.networkTenancies || []).some(function(t) { return t.corsNetworkId === AUSCOPE_NETWORK_ID; });
+            });
+            if (ours.length === 0) throw new Error('AUSCOPE tenancy returned no sites');
+            return ours.map(function(s) {
+                var c = (s.approximatePosition && s.approximatePosition.coordinates) || [0, 0, 0];
+                var mon = s.monument || {};
+                return {
+                    code: s.fourCharacterId || '', name: s.name || '',
+                    lat: c[0], lng: c[1], elev: c.length > 2 ? c[2] : null,
+                    installed: s.dateInstalled ? String(s.dateInstalled).slice(0, 10) : '',
+                    monument: mon.description || '', foundation: mon.foundation || '',
+                    domes: s.domesNumber || '', status: s.siteStatus || ''
+                };
+            }).filter(function(s) { return !(s.lat === 0 && s.lng === 0); });
+        });
+    }
+
+    function fetchFallback() {
+        return fetch(FALLBACK_URL).then(function(r) {
+            if (!r.ok) throw new Error('snapshot HTTP ' + r.status);
+            return r.json();
+        }).then(function(gj) {
+            var list = (gj.features || []).map(function(f) {
+                var p = f.properties || {}, g = (f.geometry && f.geometry.coordinates) || [0, 0];
+                return {
+                    code: p.code || '', name: p.name || '',
+                    lat: g[1], lng: g[0], elev: p.elevation != null ? p.elevation : null,
+                    installed: p.dateInstalled || '', monument: p.monument || '',
+                    foundation: p.foundation || '', domes: p.domesNumber || '',
+                    status: p.siteStatus || ''
+                };
+            });
+            if (!list.length) throw new Error('snapshot holds no stations');
+            return { list: list, fetched: (gj.metadata && gj.metadata.fetched) || null };
+        });
+    }
+
+    function setBanner(live, info) {
+        var banner = document.getElementById('prov-banner');
+        if (live) {
+            document.getElementById('prov-text').innerHTML =
+                'Fetched moments ago from Geoscience Australia’s '
+                + '<a href="https://metadata.gnss.ga.gov.au" target="_blank" rel="noopener">CORS metadata API</a>'
+                + ' — ' + stations.length + ' sites under the AUSCOPE network tenancy (ID 101). '
+                + 'The numbers are the operator’s, not ours.';
+        } else {
+            banner.className = 'prov-banner fallback';
+            document.getElementById('prov-mark').innerHTML = '⏱';
+            document.getElementById('prov-title').textContent = 'Showing the weekly snapshot — GA’s API did not answer';
+            document.getElementById('prov-text').innerHTML =
+                'Live query failed (' + escapeHtml(info.reason) + '). These ' + stations.length
+                + ' stations come from the <a href="https://github.com/bvkay/AuScope_Outreach" target="_blank" rel="noopener">weekly backup</a>'
+                + (info.fetched ? ' captured <strong>' + escapeHtml(String(info.fetched).slice(0, 10)) + '</strong>' : '')
+                + '. A service being down is not evidence the stations aren’t there — but these figures are that snapshot’s, not today’s.';
+        }
+    }
+
+    // ============================================================
+    // RENDER
+    // ============================================================
+    function renderAll() {
+        renderTiles();
+        renderMap();
+        renderBuildChart();
+        renderTable();
+    }
+
+    function renderTiles() {
+        var years = stations.map(function(s) { return s.installed.slice(0, 4); }).filter(Boolean).sort();
+        var states = {};
+        stations.forEach(function(s) { states[deriveState(s.lat, s.lng)] = true; });
+        var domes = stations.filter(function(s) { return s.domes; }).length;
+        var pub = stations.filter(function(s) { return s.status === 'PUBLIC'; }).length;
+
+        document.getElementById('stat-total').textContent = stations.length;
+        document.getElementById('stat-span').textContent = years.length
+            ? years[0] + '–' + years[years.length - 1] : '—';
+        document.getElementById('stat-states').textContent = Object.keys(states).length;
+        document.getElementById('stat-domes').textContent = domes;
+        document.getElementById('stat-public').textContent = pub;
+        document.getElementById('stat-public-sub').textContent = 'of ' + stations.length + ' stations';
+    }
+
+    function drawCoast(outline) {
+        var parts = [];
+        (outline.rings || []).forEach(function(ring) {
+            var d = '';
+            ring.forEach(function(pt, i) {
+                d += (i ? 'L' : 'M') + projX(pt[0]).toFixed(1) + ',' + projY(pt[1]).toFixed(1);
+            });
+            parts.push('<path d="' + d + 'Z"/>');
+        });
+        document.getElementById('map-coast').innerHTML = parts.join('');
+    }
+
+    function renderMap() {
+        var parts = [];
+        stations.forEach(function(s, i) {
+            parts.push('<circle cx="' + projX(s.lng).toFixed(1) + '" cy="' + projY(s.lat).toFixed(1)
+                + '" r="4" data-i="' + i + '"/>');
+        });
+        document.getElementById('map-dots').innerHTML = parts.join('');
+
+        var byState = {};
+        stations.forEach(function(s) {
+            var st = deriveState(s.lat, s.lng);
+            byState[st] = (byState[st] || 0) + 1;
+        });
+        var rows = Object.keys(byState).sort(function(a, b) { return byState[b] - byState[a]; })
+            .map(function(st) { return '<div class="lg-row"><span>' + st + '</span><b>' + byState[st] + '</b></div>'; });
+        document.getElementById('map-legend-rows').innerHTML = rows.join('');
+        document.getElementById('map-legend-note').textContent =
+            'States derived from coordinates — the registry has no state field.';
+
+        var svg = document.getElementById('map-svg'), tip = document.getElementById('map-tip');
+        svg.addEventListener('mousemove', function(e) {
+            var t = e.target;
+            if (t.tagName !== 'circle') { tip.style.display = 'none'; return; }
+            var s = stations[+t.getAttribute('data-i')];
+            if (!s) { tip.style.display = 'none'; return; }
+            tip.textContent = s.name + ' (' + s.code + ')'
+                + (s.installed ? ' · installed ' + s.installed : '')
+                + (s.elev != null ? ' · ' + Math.round(s.elev) + ' m' : '');
+            tip.style.display = 'block';
+            var w = tip.offsetWidth, x = e.clientX + 14;
+            if (x + w > window.innerWidth - 8) x = e.clientX - w - 14;
+            tip.style.left = x + 'px';
+            tip.style.top = (e.clientY + 16) + 'px';
+        });
+        svg.addEventListener('mouseleave', function() { tip.style.display = 'none'; });
+    }
+
+    function renderBuildChart() {
+        var byYear = {};
+        stations.forEach(function(s) {
+            var y = s.installed.slice(0, 4);
+            if (y) byYear[y] = (byYear[y] || 0) + 1;
+        });
+        var years = Object.keys(byYear).map(Number).sort(function(a, b) { return a - b; });
+        if (!years.length) { document.getElementById('build-section').style.display = 'none'; return; }
+        var max = 0, html = '';
+        // Every year in the span, empty ones included — a gap is information.
+        for (var y = years[0]; y <= years[years.length - 1]; y++) {
+            if ((byYear[y] || 0) > max) max = byYear[y] || 0;
+        }
+        for (var y2 = years[0]; y2 <= years[years.length - 1]; y2++) {
+            var n = byYear[y2] || 0;
+            html += '<div class="build-col" title="' + y2 + ': ' + n + ' station' + (n === 1 ? '' : 's') + '">'
+                + '<div class="build-n">' + (n || '') + '</div>'
+                + '<div class="build-bar" style="height:' + Math.max(2, Math.round(n / max * 110)) + 'px"></div>'
+                + '<div class="build-yr">' + String(y2).slice(2) + '</div></div>';
+        }
+        document.getElementById('build-chart').innerHTML = html;
+    }
+
+    function renderTable() {
+        var rows = stations.slice().sort(function(a, b) {
+            return (b.installed || '').localeCompare(a.installed || '');
+        }).map(function(s) {
+            var mon = [s.monument, s.foundation].filter(Boolean).join(' · ');
+            return '<tr>'
+                + '<td class="mono">' + escapeHtml(s.code) + '</td>'
+                + '<td>' + escapeHtml(s.name) + '</td>'
+                + '<td>' + deriveState(s.lat, s.lng) + '</td>'
+                + '<td class="mono">' + escapeHtml(s.installed || '—') + '</td>'
+                + '<td>' + escapeHtml(mon || '—') + '</td>'
+                + '<td class="mono">' + (s.elev != null ? Math.round(s.elev) : '—') + '</td>'
+                + '<td class="mono">' + escapeHtml(s.domes || '—') + '</td>'
+                + '<td>' + escapeHtml(s.status || '—') + '</td>'
+                + '</tr>';
+        });
+        document.getElementById('stations-tbody').innerHTML = rows.join('');
+        document.getElementById('stations-note').textContent =
+            stations.length + ' stations, newest installation first — rows exactly as the registry returns them.';
+    }
+
+    init();
+    </script>
+</body>
+</html>

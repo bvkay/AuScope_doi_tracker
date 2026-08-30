@@ -39,6 +39,7 @@ change.
 | `nci-das.html` | NCI DAS collections — completeness scoring + F-UJI + citations. | NCI GeoNetwork + DataCite (live) |
 | `nci.html` | Chooser page routing to the two NCI trackers (no JS); NVCL HPC mirror DOI is tracked on nvcl.html. | — |
 | `nvcl.html` | National Virtual Core Library — **verifiable at source**: live check queries all 8 state government nodes from the visitor's browser; borehole map; HyLogger fleet. | `nvcl-data.json` (monthly harvest) + live WFS |
+| `gnss.html` | **AuScope-funded GNSS stations** — live from GA's CORS metadata API (AUSCOPE network tenancy, ID 101), queried from the visitor's browser; amber-disclosed fallback to the weekly `gnss_auscope.geojson` snapshot in bvkay/AuScope_Outreach. GA's whole-of-network CORS DOI is linked as provenance and deliberately **not** counted as AuScope citations. | GA CORS API (live) + outreach snapshot |
 | `ausis.html` | Seismometers in Schools — **fully live**, no snapshot. Station map, streaming status, network DOI citations. | AusPass FDSN + AuScope_Outreach data products |
 | `datasets.html` | Thin router to the platform trackers (no JS). **Demoted 26 Aug**: the hub cards each subset directly, so this is no longer *carded* — still reachable from the hub footer "Explore:" row and from the subset pages' "All datasets" link. | — |
 | `AusPASS_map.html` | Standalone AusPass station map, sized for a 513px iframe embed. **Orphan** — nothing links it except `NVCL_map.html`. | AusPass FDSN (live) + `australia-outline.json` |
