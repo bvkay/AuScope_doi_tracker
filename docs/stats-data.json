@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T08:31:13.841Z",
+  "generated": "2026-08-30T23:46:57.299Z",
   "pillars": {
     "publications": {
       "total": 2926,
@@ -76,6 +76,13 @@
       "estimatedKm": 4.22,
       "datasets": 6394,
       "nodes": 8
+    },
+    "gnss": {
+      "stations": 107,
+      "since": 2007,
+      "latest": 2021,
+      "network": "AUSCOPE tenancy (ID 101) in GA CORS",
+      "source": "GA CORS metadata API"
     },
     "ausis": {
       "stations": 53,
