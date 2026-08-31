@@ -60,6 +60,20 @@ async function run() {
     console.error('NCI DAS error: ' + err.message);
   }
 
+  // ── NVCL (static collection record) ──
+  // The NVCL's thousands of borehole scans sit under ONE registered, citable
+  // collection DOI (the AuScope TSG mirror on NCI) — that collection is the
+  // registry-level record; nvcl.html carries the per-borehole detail. Static
+  // because there is no per-dataset DOI service to inventory.
+  allDatasets.push({
+    doi: '10.25914/bztg-rg43',
+    name: 'AuScope Australian National Virtual Core Library (NVCL) Collection',
+    authors: 'AuScope; CSIRO',
+    year: 2023,
+    platform: 'NVCL',
+    type: 'Collection',
+  });
+
   // Dedup by DOI (some datasets may appear in multiple sources)
   const deduped = dedup(allDatasets);
 

@@ -78,6 +78,21 @@ function run() {
     records: slim
   }));
 
+  // Same-origin feed for the cross-platform dataset registry: one slim row
+  // per dataset record. `subset` distinguishes NCI MT from NCI DAS — the
+  // platform_projects attribution in project-mapping.json keys on it.
+  fs.writeFileSync(path.join(DOCS_DIR, 'datasets-data.json'), JSON.stringify({
+    generated: dsData.metadata && dsData.metadata.last_updated || new Date().toISOString(),
+    records: (dsData.records || []).map(function(r) {
+      return {
+        doi: r.doi || '', name: r.name || r.title || '',
+        authors: r.authors || '', year: r.year || null,
+        platform: r.platform || '', subset: r.subset || '',
+        type: r.type || '',
+      };
+    })
+  }));
+
   // ── Write docs/index.html ──
   // Cross-pillar numbers come from src/stats.js (run it first in CI);
   // missing/stale file just hides the explorer card numbers.
@@ -686,7 +701,7 @@ function buildHTML(stats, lastUpdated, pillarData) {
     <nav class="site-tabs" aria-label="Site sections">
         <a href="index.html" class="active" aria-current="page">Impact</a>
         <a href="publications.html">Publications</a>
-        <a href="datasets.html">Datasets</a>
+        <a href="dataset-registry.html">Datasets</a>
     </nav>
 
     <div class="hero">
@@ -729,7 +744,8 @@ ${buildProgramSection(stats.programs)}
     <div class="footer">
         Explore:
         <a href="publications.html">Publications</a> &middot;
-        <a href="datasets.html">Datasets</a> &middot;
+        <a href="dataset-registry.html">Dataset Registry</a> &middot;
+        <a href="datasets.html">Platform trackers</a> &middot;
         <a href="earthbank.html">EarthBank</a> &middot;
         <a href="auspass.html">AusPass</a> &middot;
         <a href="instruments.html">Instrument Registry</a> &middot;

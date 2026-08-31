@@ -354,7 +354,7 @@ function createTrackerState(extraFields) {
 var SITE_TABS = [
     { id: 'impact', label: 'Impact', href: 'index.html' },
     { id: 'publications', label: 'Publications', href: 'publications.html' },
-    { id: 'datasets', label: 'Datasets', href: 'datasets.html' }
+    { id: 'datasets', label: 'Datasets', href: 'dataset-registry.html' }
 ];
 
 (function() {

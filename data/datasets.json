@@ -2,7 +2,7 @@
   "metadata": {
     "type": "datasets",
     "last_updated": "2026-08-30T08:22:56.469Z",
-    "total_count": 217
+    "total_count": 218
   },
   "records": [
     {
@@ -87,7 +87,7 @@
     },
     {
       "doi": "10.58024/aguab822541d",
-      "name": "The thermo-tectonic evolution of the Lützow-Holm Bay – Sri Lanka conjugate margin",
+      "name": "The thermo-tectonic evolution of the L\u00fctzow-Holm Bay \u2013 Sri Lanka conjugate margin",
       "authors": "Ferdinand Mayer-Ullmann",
       "year": 2026,
       "platform": "EarthBank",
@@ -1620,7 +1620,7 @@
     {
       "doi": "10.25914/nxxw-wd19",
       "name": "Magnetotelluric surveys of the Australian Antarctic Territory",
-      "authors": "Selway, Kate, Manassero,  Maria Constanza, St�l, Tobias, Reading, Anya",
+      "authors": "Selway, Kate, Manassero,  Maria Constanza, St\ufffdl, Tobias, Reading, Anya",
       "year": 2025,
       "platform": "NCI",
       "subset": "MT",
@@ -1630,7 +1630,7 @@
     {
       "doi": "10.25914/rr0p-yb26",
       "name": "Magnetotelluric surveys for deep Earth investigations in East Antarctica",
-      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Askey-Doran, Niam, Reading, Anya",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St\ufffdl, Tobias, Askey-Doran, Niam, Reading, Anya",
       "year": 2025,
       "platform": "NCI",
       "subset": "MT",
@@ -1640,7 +1640,7 @@
     {
       "doi": "10.25914/fyrh-v157",
       "name": "Magnetotelluric surveys for glacier process investigations in East Antarctica",
-      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St\ufffdl, Tobias, Reading, Anya",
       "year": 2025,
       "platform": "NCI",
       "subset": "MT",
@@ -1786,6 +1786,14 @@
       "subset": "DAS",
       "type": "Dataset",
       "nciUuid": "f2381_8931_8909_7373"
+    },
+    {
+      "doi": "10.25914/bztg-rg43",
+      "name": "AuScope Australian National Virtual Core Library (NVCL) Collection",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
     }
   ]
 }

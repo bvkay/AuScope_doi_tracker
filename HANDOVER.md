@@ -41,6 +41,8 @@ change.
 | `nvcl.html` | National Virtual Core Library — **verifiable at source**: live check queries all 8 state government nodes from the visitor's browser; borehole map; HyLogger fleet. | `nvcl-data.json` (monthly harvest) + live WFS |
 | `gnss.html` | **AuScope-funded GNSS stations** — live from GA's CORS metadata API (AUSCOPE network tenancy, ID 101), queried from the visitor's browser; amber-disclosed fallback to the weekly `gnss_auscope.geojson` snapshot in bvkay/AuScope_Outreach. GA's whole-of-network CORS DOI is linked as provenance and deliberately **not** counted as AuScope citations. | GA CORS API (live) + outreach snapshot |
 | `ausis.html` | Seismometers in Schools — **fully live**, no snapshot. Station map, streaming status, network DOI citations. | AusPass FDSN + AuScope_Outreach data products |
+| `dataset-registry.html` | **One searchable catalogue** of citable datasets across all platforms — lens/program/project columns from the Project Mapping sheet, F-UJI + metadata score bars, DataCite licence + ORCID creators, expandable DataCite detail panes, CSV export. Ported from Rebecca Farrington's draft; attribution is platform-level via `platform_projects` in the mapping feed. The **Datasets site tab targets this page.** | `datasets-data.json` + `project-mapping.json` + `fair-scores.json` + `registry-licenses.json` |
+| `project-mapping.html` | Reference table of the shared Project Mapping sheet — project id → DLT lens → program → funding/public name, host, leader, NCRIS status. Labels as supplied. | `project-mapping.json` |
 | `datasets.html` | Thin router to the platform trackers (no JS). **Demoted 26 Aug**: the hub cards each subset directly, so this is no longer *carded* — still reachable from the hub footer "Explore:" row and from the subset pages' "All datasets" link. | — |
 | `AusPASS_map.html` | Standalone AusPass station map, sized for a 513px iframe embed. **Orphan** — nothing links it except `NVCL_map.html`. | AusPass FDSN (live) + `australia-outline.json` |
 | `NVCL_map.html` | Standalone NVCL borehole map, sized for a 513px iframe embed. **Orphan** — nothing in `docs/` links it. | `nvcl-data.json` + `australia-outline.json` |
@@ -150,7 +152,26 @@ permanently rejected candidates.
 
 ---
 
-## 5. The MT deployment register (station.json is the sole source)
+## 5. The project mapping (the DLT lens taxonomy)
+
+`src/update-project-mapping.js` pulls the shared **Project Mapping** Google
+Sheet (the editing surface — labels preserved exactly as supplied, typos
+included) into `data/project-mapping.json` + the `docs/` feed, and appends to
+`data/project-mapping-history.jsonl` **only when the content changed**, so
+the jsonl is an edit log of the taxonomy, not a heartbeat. 106 rows, 6
+Downward-Looking Telescope lenses, 11 programs, 87 project ids.
+`platform_projects` in the same file is the declared platform→project
+attribution table (EarthBank→0, AusPass→3.31, NCI:MT→3.33, NCI:DAS→3.31,
+NVCL→3.41) that the registry — and anything else — reads instead of
+hardcoding. Sheet quality issues to fix AT THE SHEET (they render verbatim):
+"Cuture" in the Community lens label, "Magentotellurics", and sparse rows
+whose Host/Leader columns look shifted (e.g. id 2.5 → host "2.5", leader
+"Ongoing"). Run manually with `node src/update-project-mapping.js`; wire it
+into the weekly workflow alongside the other harvests.
+
+---
+
+## 6. The MT deployment register (station.json is the sole source)
 
 **The decision (Ben, 25–26 Aug 2026):** MT instrument deployments are
 accounted for ONLY from AusMT's per-station run records
