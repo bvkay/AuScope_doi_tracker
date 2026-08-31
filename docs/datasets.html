@@ -19,30 +19,9 @@
     <meta charset="UTF-8">
     <title>AuScope Datasets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #ffffff;
-            color: #333333;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        /* Standard topbar — same structure as every tracker page. */
-        .topbar { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 16px; flex-wrap: wrap; gap: 12px; }
-        .brand h1 { color: #0f172a; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
-        .brand h1 .accent { color: #282572; font-weight: 700; }
-        .brand p { color: #475569; font-size: 13px; margin-top: 4px; }
-        .topbar .links { display: flex; gap: 16px; font-size: 13px; }
-        .topbar .links a { color: #282572; text-decoration: none; }
-        .auscope-logo { height: 28px; width: auto; vertical-align: -8px; margin-right: 10px; }
-        /* Site tabs — static copy; keep in step with SITE_TABS in
-           tracker-chassis.js and the template in src/dashboard.js. */
-        .site-tabs { display: flex; gap: 2px; border-bottom: 2px solid #e5e7eb; margin: 0 0 18px; flex-wrap: wrap; }
-        .site-tabs a { padding: 8px 16px 7px; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; }
-        .site-tabs a:hover { color: #282572; }
-        .site-tabs a.active { color: #282572; border-bottom-color: #282572; }
         .subtitle { color: #6b7280; font-size: 13px; margin-bottom: 20px; }
         .subtitle a { color: #2563eb; text-decoration: none; }
         .subtitle a:hover { text-decoration: underline; }
@@ -81,7 +60,8 @@
         }
     </style>
 </head>
-<body>
+<body data-site-tab="datasets">
+    <div class="wrap">
     <div class="topbar">
         <div class="brand">
             <h1><img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope"><span class="accent">AuScope</span> Platform Trackers</h1>
@@ -91,14 +71,6 @@
             <a href="dataset-registry.html">Dataset registry</a>
         </div>
     </div>
-    <nav class="site-tabs" aria-label="Site sections">
-        <a href="index.html">Impact</a>
-        <a href="publications.html">Publications</a>
-        <a href="dataset-registry.html" class="active" aria-current="page">Datasets</a>
-        <a href="fair-trends.html">FAIR</a>
-        <a href="project-mapping.html">Projects</a>
-        <a href="software-registry.html">Software</a>
-    </nav>
 
     <div class="platform-list">
         <a class="platform-card" href="earthbank.html">
@@ -123,5 +95,7 @@
         </a>
     </div>
 
+    </div>
+    <script src="tracker-chassis.js"></script>
 </body>
 </html>

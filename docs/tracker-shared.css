@@ -53,11 +53,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 18px;
-    margin-bottom: 20px;
+    /* No border here: the site-tabs rule below the topbar is the ONE divider
+       every page shares. A second line under the brand made chassis pages
+       carry two rules while the hub carried one. */
+    padding-bottom: 12px;
     flex-wrap: wrap;
     gap: 12px;
+}
+
+/* Header-only wrapper for pages whose content is NOT inside .wrap (the hub's
+   full-bleed hero): same geometry as .wrap, no bottom padding. */
+.site-head {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px 28px 0;
 }
 .brand h1 {
     font-size: 22px;
@@ -66,7 +75,11 @@ body {
     letter-spacing: -0.01em;
 }
 .brand h1 .accent {
-    color: var(--accent);
+    /* Pinned to AuScope purple, NOT var(--accent): pages re-theme their
+       accent (blue trackers, purple pillars) and the header must not change
+       colour as you tab between them. The header belongs to the site, not
+       the page. */
+    color: #282572;
     font-weight: 700;
 }
 .brand p {
@@ -931,7 +944,7 @@ tr.detail-row .detail {
     display: flex;
     gap: 2px;
     border-bottom: 2px solid var(--border);
-    margin: 0 0 18px;
+    margin: 0 0 20px;
     flex-wrap: wrap;
 }
 .site-tabs a {
@@ -944,8 +957,9 @@ tr.detail-row .detail {
     margin-bottom: -2px;
     white-space: nowrap;
 }
-.site-tabs a:hover { color: var(--accent); }
+.site-tabs a:hover { color: #282572; }
 .site-tabs a.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
+    /* Pinned purple for the same reason as .brand .accent above. */
+    color: #282572;
+    border-bottom-color: #282572;
 }

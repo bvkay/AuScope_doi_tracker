@@ -347,9 +347,9 @@ function createTrackerState(extraFields) {
 // Opt-in: pages declare <body data-site-tab="datasets"> (or "" for
 // the bar with nothing highlighted). No attribute, no bar — which is
 // what keeps it off the widget and the standalone map embeds.
-// NOTE: index.html and datasets.html are standalone (no chassis);
-// they embed this markup statically — if SITE_TABS changes, update
-// buildSiteTabs() in src/dashboard.js and datasets.html to match.
+// Every page — the hub and the router included — gets its bar from
+// HERE. There are no static copies anywhere: this array is the single
+// source of truth, full stop.
 // ============================================================
 var SITE_TABS = [
     { id: 'impact', label: 'Impact', href: 'index.html' },
@@ -364,7 +364,8 @@ var SITE_TABS = [
     function inject() {
         var active = document.body.getAttribute('data-site-tab');
         if (active === null) return;                    // page opted out
-        var wrap = document.querySelector('.wrap') || document.body;
+        var wrap = document.querySelector('.site-head')
+            || document.querySelector('.wrap') || document.body;
         var nav = document.createElement('nav');
         nav.className = 'site-tabs';
         nav.setAttribute('aria-label', 'Site sections');

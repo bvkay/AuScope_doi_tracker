@@ -50,13 +50,19 @@ change.
 | `NVCL_map.html` | Standalone NVCL borehole map, sized for a 513px iframe embed. **Orphan** — nothing in `docs/` links it. | `nvcl-data.json` + `australia-outline.json` |
 | `widget.html` | Embeddable stats widget (AuScope purple, iframe). | Generated |
 
-**Site tabs** — one nav bar (Impact / Publications / Datasets, with FAIR /
-Projects / Software to join as those pages land) across the page families.
-Chassis pages opt in with `<body data-site-tab="...">` (`""` shows the bar
-with nothing active — the infrastructure pillars); no attribute, no bar
-(widget + the two `_map` iframe embeds). `SITE_TABS` in `tracker-chassis.js`
-is the source of truth; `src/dashboard.js` (index template) and
-`docs/datasets.html` carry static copies — change all three together.
+**Site header** — ONE implementation, owned by `tracker-shared.css` +
+`tracker-chassis.js`, on every page including the hub and the router (both
+link the shared css and chassis; there are **no static tab copies
+anywhere** — `SITE_TABS` in the chassis is the single source in fact).
+Pages opt in with `<body data-site-tab="...">` (`""` shows the bar with
+nothing active — the infrastructure pillars); no attribute, no bar (widget
++ the two `_map` iframe embeds). Geometry: 1400px `.wrap`/`.site-head`,
+topbar (logo · title · subtitle · EXTERNAL links only — the "← Impact
+overview" back-links were removed, the Impact tab covers it), then the
+tabs, whose border is the page's ONE horizontal rule. Header colours are
+**pinned to AuScope purple in the shared css**, deliberately not
+`var(--accent)`: pages re-theme their accent and the header must not
+change colour as you tab between them.
 
 **Shared front-end chassis** — `docs/tracker-shared.css`, `tracker-chassis.js`
 (utilities, fleet panel, CSV export, state factory), `tracker-citations.js`

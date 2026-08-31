@@ -650,6 +650,7 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AuScope Research Impact</title>
+    <link rel="stylesheet" href="tracker-shared.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -660,27 +661,13 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount) {
         }
 
         /* ── Hero Stats (TERN-style) ── */
-        /* ── Consistent page head: the same topbar every tracker page has ── */
-        .page-head { max-width: 960px; margin: 0 auto; padding: 18px 24px 0; }
-        .page-head .topbar { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 16px; flex-wrap: wrap; gap: 12px; }
-        .page-head .brand h1 { font-size: 22px; font-weight: 600; color: #0f172a; letter-spacing: -0.01em; }
-        .page-head .brand h1 .accent { color: #282572; font-weight: 700; }
-        .page-head .brand p { font-size: 13px; color: #475569; margin-top: 4px; }
-        .page-head .links { display: flex; gap: 16px; font-size: 13px; }
-        .page-head .links a { color: #282572; text-decoration: none; }
-        .page-head .links a:hover { text-decoration: underline; }
-        .auscope-logo { height: 28px; width: auto; vertical-align: -8px; margin-right: 10px; }
-        .auscope-fallback { color: #282572; font-weight: 700; font-size: 18px; margin-right: 10px; }
-        .site-tabs { display: flex; gap: 2px; border-bottom: 2px solid #e5e7eb; margin: 0; padding: 0; flex-wrap: wrap; }
-        .site-tabs a { padding: 8px 16px 7px; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; }
-        .site-tabs a:hover { color: #282572; }
-        .site-tabs a.active { color: #282572; border-bottom-color: #282572; }
+        /* Header markup + styles come from tracker-shared.css and
+           tracker-chassis.js — no local copies. */
         .hero {
             background: #282572; /* flat AuScope purple — page embeds as an iframe on auscope.org.au */
             color: #ffffff;
             padding: 28px 24px 26px;
             text-align: center;
-            margin-top: 18px;
         }
         .hero h1 {
             font-size: 24px;
@@ -856,9 +843,11 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount) {
         }
     </style>
 </head>
-<body>
-    <!-- ═══ Header — the same topbar every tracker page carries ═══ -->
-    <div class="page-head">
+<body data-site-tab="impact">
+    <!-- ═══ Header — owned by tracker-shared.css + tracker-chassis.js.
+         The chassis injects the site tabs after this topbar; there is no
+         static tab markup on any page. ═══ -->
+    <div class="site-head">
         <div class="topbar">
             <div class="brand">
                 <h1><img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope"
@@ -869,17 +858,8 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount) {
                 <a href="https://www.auscope.org.au" target="_blank" rel="noopener">auscope.org.au &#8599;</a>
             </div>
         </div>
-        <!-- Site tabs: keep in step with SITE_TABS in docs/tracker-chassis.js
-             and the static copy in docs/datasets.html. -->
-        <nav class="site-tabs" aria-label="Site sections">
-            <a href="index.html" class="active" aria-current="page">Impact</a>
-            <a href="publications.html">Publications</a>
-            <a href="dataset-registry.html">Datasets</a>
-            <a href="fair-trends.html">FAIR</a>
-            <a href="project-mapping.html">Projects</a>
-            <a href="software-registry.html">Software</a>
-        </nav>
     </div>
+    <script src="tracker-chassis.js"></script>
 
     <!-- ═══ Hero numbers — flat AuScope purple; the page embeds as an iframe ═══ -->
     <div class="hero">
