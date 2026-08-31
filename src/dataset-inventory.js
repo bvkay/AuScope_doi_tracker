@@ -60,18 +60,31 @@ async function run() {
     console.error('NCI DAS error: ' + err.message);
   }
 
-  // ── NVCL (static collection record) ──
-  // The NVCL's thousands of borehole scans sit under ONE registered, citable
-  // collection DOI (the AuScope TSG mirror on NCI) — that collection is the
-  // registry-level record; nvcl.html carries the per-borehole detail. Static
-  // because there is no per-dataset DOI service to inventory.
-  allDatasets.push({
-    doi: '10.25914/bztg-rg43',
-    name: 'AuScope Australian National Virtual Core Library (NVCL) Collection',
-    authors: 'AuScope; CSIRO',
-    year: 2023,
-    platform: 'NVCL',
-    type: 'Collection',
+  // ── NVCL (static collection records) ──
+  // The NVCL's thousands of borehole scans sit under registered, citable
+  // collection DOIs on NCI: one national parent plus eight per-node children
+  // (minted 2023; surfaced as "Associated Records" on the landing pages from
+  // ~Sept 2026). Static list, deliberately: the parent's DataCite record
+  // carries ZERO relatedIdentifiers — the parent/child structure lives only
+  // in NCI's catalogue — so discovery-by-relation is impossible until NCI
+  // exports HasPart/IsPartOf to DataCite (asked; see HANDOVER). When they
+  // do, replace this list with a DataCite relation walk.
+  [
+    ['10.25914/bztg-rg43', 'AuScope Australian National Virtual Core Library (NVCL) Collection'],
+    ['10.25914/2dy2-2592', 'NVCL Collection - New South Wales'],
+    ['10.25914/jgye-d059', 'NVCL Collection - Northern Territory'],
+    ['10.25914/8q6h-q623', 'NVCL Collection - Queensland'],
+    ['10.25914/7dz2-8t22', 'NVCL Collection - South Australia'],
+    ['10.25914/c4zg-za54', 'NVCL Collection - Tasmania'],
+    ['10.25914/vh88-5s87', 'NVCL Collection - Victoria'],
+    ['10.25914/ctaf-6c13', 'NVCL Collection - Western Australia'],
+    ['10.25914/3cw7-a967', 'NVCL - CSIRO'],
+  ].forEach(function(row) {
+    allDatasets.push({
+      doi: row[0], name: row[1],
+      authors: 'AuScope; CSIRO',
+      year: 2023, platform: 'NVCL', type: 'Collection',
+    });
   });
 
   // Dedup by DOI (some datasets may appear in multiple sources)

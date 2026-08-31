@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-31T00:27:21.470Z",
+  "generated": "2026-08-31T00:46:08.508Z",
   "source": "DataCite REST API",
   "records": {
     "10.58024/agag3126b4ca": "Creative Commons",
@@ -218,7 +218,15 @@
     "10.25914/nn3w-d141": "",
     "10.25914/bztg-rg43": "",
     "10.25914/1phc-8r73": "",
-    "10.58024/agumaec47aff": ""
+    "10.58024/agumaec47aff": "",
+    "10.25914/2dy2-2592": "",
+    "10.25914/jgye-d059": "",
+    "10.25914/8q6h-q623": "",
+    "10.25914/c4zg-za54": "",
+    "10.25914/7dz2-8t22": "",
+    "10.25914/ctaf-6c13": "",
+    "10.25914/vh88-5s87": "",
+    "10.25914/3cw7-a967": ""
   },
   "creators": {
     "10.58024/agag3126b4ca": [
@@ -3274,6 +3282,70 @@
         "given": "Ashley",
         "family": "Savelkouls",
         "orcid": "0009-0000-7168-1606"
+      }
+    ],
+    "10.25914/2dy2-2592": [
+      {
+        "name": "Geological Survey of NSW",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/jgye-d059": [
+      {
+        "name": "Northern Territory Geological Survey",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/8q6h-q623": [
+      {
+        "name": "Geological Survey of Queensland, Department of Resources",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/c4zg-za54": [
+      {
+        "name": "Mineral Resources Tasmania, Government of Tasmania",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/7dz2-8t22": [
+      {
+        "name": "Department for Energy and Mining, Government of South Australia",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/ctaf-6c13": [
+      {
+        "name": "Geological Survey of Western Australia",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/vh88-5s87": [
+      {
+        "name": "Geological Survey Victoria",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/3cw7-a967": [
+      {
+        "name": "Commonwealth Scientific and Industrial Research Organisation (CSIRO)",
+        "given": "",
+        "family": "",
+        "orcid": ""
       }
     ]
   }

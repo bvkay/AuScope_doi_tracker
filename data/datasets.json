@@ -2,7 +2,7 @@
   "metadata": {
     "type": "datasets",
     "last_updated": "2026-08-30T08:22:56.469Z",
-    "total_count": 218
+    "total_count": 226
   },
   "records": [
     {
@@ -1790,6 +1790,70 @@
     {
       "doi": "10.25914/bztg-rg43",
       "name": "AuScope Australian National Virtual Core Library (NVCL) Collection",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
+    },
+    {
+      "doi": "10.25914/2dy2-2592",
+      "name": "NVCL Collection - New South Wales",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
+    },
+    {
+      "doi": "10.25914/jgye-d059",
+      "name": "NVCL Collection - Northern Territory",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
+    },
+    {
+      "doi": "10.25914/8q6h-q623",
+      "name": "NVCL Collection - Queensland",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
+    },
+    {
+      "doi": "10.25914/7dz2-8t22",
+      "name": "NVCL Collection - South Australia",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
+    },
+    {
+      "doi": "10.25914/c4zg-za54",
+      "name": "NVCL Collection - Tasmania",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
+    },
+    {
+      "doi": "10.25914/vh88-5s87",
+      "name": "NVCL Collection - Victoria",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
+    },
+    {
+      "doi": "10.25914/ctaf-6c13",
+      "name": "NVCL Collection - Western Australia",
+      "authors": "AuScope; CSIRO",
+      "year": 2023,
+      "platform": "NVCL",
+      "type": "Collection"
+    },
+    {
+      "doi": "10.25914/3cw7-a967",
+      "name": "NVCL - CSIRO",
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",

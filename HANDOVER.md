@@ -409,7 +409,16 @@ scan — last run May 2026, worth refreshing), `compare.js`.
 
 **Upstream asks (other teams):**
 - `AuScope/AuScope-instrument-registry` — the old #122 self-referencing IsPartOf looks fixed (0 self-refs as of 25 Aug), but new items found: set `types.resourceType: 'Field Survey'` on the 13 survey records + standardise the 4 AusLAMP `Instrument Type` markers (the tracker's survey classification currently rests on incidental signals — Coverage dates + HasPart); publish-or-unlink the dangling ANSIR pool DOI `10.82388/mwwkvyeq` (36 unit IsPartOf edges 404 against it); DOI-type the 432 survey HasPart edges (currently URL-typed); geoLocations still absent everywhere.
-- NCI — PID relations and COUNTER usage stats for the NVCL mirror DOI `10.25914/bztg-rg43`.
+- NCI — half done on their side as of ~1 Sept 2026: the NVCL parent's landing
+  page now lists eight per-node CHILD collections (DOIs minted 2023 — NSW
+  `2dy2-2592`, NT `jgye-d059`, QLD `8q6h-q623`, SA `7dz2-8t22`, TAS
+  `c4zg-za54`, VIC `vh88-5s87`, WA `ctaf-6c13`, CSIRO `3cw7-a967`) plus an
+  "AuScope NCI Collection" grandparent. All nine are registry records now
+  (static list in `dataset-inventory.js`). But **DataCite still carries zero
+  relatedIdentifiers on every one** — the hierarchy is catalogue-only. The
+  sharpened ask: export HasPart/IsPartOf (and COUNTER stats) to DataCite so
+  the PID graph sees what the landing page shows; then the static list
+  becomes a relation walk.
 
 ---
 
