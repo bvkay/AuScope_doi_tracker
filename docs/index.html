@@ -14,15 +14,27 @@
         }
 
         /* ── Hero Stats (TERN-style) ── */
-        .site-tabs { display: flex; gap: 2px; border-bottom: 2px solid #e5e7eb; margin: 0 auto 4px; max-width: 960px; padding: 10px 24px 0; flex-wrap: wrap; }
+        /* ── Consistent page head: the same topbar every tracker page has ── */
+        .page-head { max-width: 960px; margin: 0 auto; padding: 18px 24px 0; }
+        .page-head .topbar { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+        .page-head .brand h1 { font-size: 22px; font-weight: 600; color: #0f172a; letter-spacing: -0.01em; }
+        .page-head .brand h1 .accent { color: #282572; font-weight: 700; }
+        .page-head .brand p { font-size: 13px; color: #475569; margin-top: 4px; }
+        .page-head .links { display: flex; gap: 16px; font-size: 13px; }
+        .page-head .links a { color: #282572; text-decoration: none; }
+        .page-head .links a:hover { text-decoration: underline; }
+        .auscope-logo { height: 28px; width: auto; vertical-align: -8px; margin-right: 10px; }
+        .auscope-fallback { color: #282572; font-weight: 700; font-size: 18px; margin-right: 10px; }
+        .site-tabs { display: flex; gap: 2px; border-bottom: 2px solid #e5e7eb; margin: 0; padding: 0; flex-wrap: wrap; }
         .site-tabs a { padding: 8px 16px 7px; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; }
         .site-tabs a:hover { color: #282572; }
         .site-tabs a.active { color: #282572; border-bottom-color: #282572; }
         .hero {
             background: #282572; /* flat AuScope purple — page embeds as an iframe on auscope.org.au */
             color: #ffffff;
-            padding: 40px 24px 32px;
+            padding: 28px 24px 26px;
             text-align: center;
+            margin-top: 18px;
         }
         .hero h1 {
             font-size: 24px;
@@ -74,6 +86,19 @@
         }
 
         /* ── Explorer cards ── */
+        /* ── Lens bands ── */
+        .lens-section { padding-top: 26px; }
+        .lens-band { border: 1px solid #e5e7eb; border-left: 4px solid #282572; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 12px; background: #ffffff; }
+        .lens-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+        .lens-head h3 { font-size: 15px; font-weight: 700; color: #282572; }
+        .lens-link { font-size: 12.5px; color: #282572; text-decoration: none; font-weight: 600; white-space: nowrap; }
+        .lens-link:hover { text-decoration: underline; }
+        .lens-stats { font-size: 13px; color: #475569; margin-top: 4px; }
+        .lens-num { font-weight: 700; color: #0f172a; font-size: 15px; }
+        .lens-empty { color: #94a3b8; font-style: italic; }
+        .lens-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+        .lens-chip { font-size: 11px; padding: 2px 9px; border-radius: 11px; background: #f3f3fa; color: #45418f; border: 1px solid #dcdbf0; }
+
         .explorers {
             max-width: 960px;
             margin: 0 auto;
@@ -186,22 +211,71 @@
     </style>
 </head>
 <body>
-    <!-- ═══ Hero ═══ -->
-    <!-- The old "Impact at a Glance" tile band doubled up on the explorer
-         cards below (every number now lives on a card that links to its
-         evidence page), so it was removed. The embeddable widget keeps its
-         own tile band — that is its whole job. -->
-    <!-- Site tabs: keep in step with SITE_TABS in docs/tracker-chassis.js
-         and the static copy in docs/datasets.html. -->
-    <nav class="site-tabs" aria-label="Site sections">
-        <a href="index.html" class="active" aria-current="page">Impact</a>
-        <a href="publications.html">Publications</a>
-        <a href="dataset-registry.html">Datasets</a>
-    </nav>
+    <!-- ═══ Header — the same topbar every tracker page carries ═══ -->
+    <div class="page-head">
+        <div class="topbar">
+            <div class="brand">
+                <h1><img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope"
+                         onerror="this.outerHTML='<span class=&quot;auscope-fallback&quot;>AuScope</span>'"><span class="accent">AuScope</span> Research Impact</h1>
+                <p>Publications, datasets and infrastructure service across AuScope research infrastructure &mdash; every number links to its evidence.</p>
+            </div>
+            <div class="links">
+                <a href="https://www.auscope.org.au" target="_blank" rel="noopener">auscope.org.au &#8599;</a>
+            </div>
+        </div>
+        <!-- Site tabs: keep in step with SITE_TABS in docs/tracker-chassis.js
+             and the static copy in docs/datasets.html. -->
+        <nav class="site-tabs" aria-label="Site sections">
+            <a href="index.html" class="active" aria-current="page">Impact</a>
+            <a href="publications.html">Publications</a>
+            <a href="dataset-registry.html">Datasets</a>
+        </nav>
+    </div>
 
+    <!-- ═══ Hero numbers — flat AuScope purple; the page embeds as an iframe ═══ -->
     <div class="hero">
-        <h1>AuScope Research Impact</h1>
-        <p class="subtitle">Tracking publications and citations across AuScope research infrastructure</p>
+        <div class="stat-grid">
+            <div class="stat-card"><div class="number">2,926</div><div class="label">Publications</div></div>
+            <div class="stat-card"><div class="number">67,576</div><div class="label">Citations</div></div>
+            <div class="stat-card"><div class="number">218</div><div class="label">Datasets</div></div>
+            <div class="stat-card"><div class="number">3,981</div><div class="label">Seismic stations</div></div>
+            <div class="stat-card"><div class="number">170</div><div class="label">Instruments</div></div>
+        </div>
+    </div>
+
+    <div class="explorers lens-section">
+        <h2>Through the Downward-Looking Telescope</h2>
+        <p class="note">AuScope’s six lenses, from the shared Project Mapping sheet — labels as supplied. Dataset counts and F-UJI averages join the registry to that taxonomy; attribution is platform-level.</p>
+        <div class="lens-band">
+            <div class="lens-head"><h3>Temporal Lens</h3><a class="lens-link" href="dataset-registry.html?lens=Temporal%20Lens">Browse datasets &rarr;</a></div>
+            <div class="lens-stats"><span class="lens-num">107</span> datasets &middot; avg F-UJI 47% &middot; EarthBank</div>
+            <div class="lens-chips"><span class="lens-chip">Earth Composition and Evolution</span></div>
+        </div>
+        <div class="lens-band">
+            <div class="lens-head"><h3>Observational Lens</h3><a class="lens-link" href="dataset-registry.html?lens=Observational%20Lens">Browse datasets &rarr;</a></div>
+            <div class="lens-stats"><span class="lens-num">110</span> datasets &middot; avg F-UJI 52% &middot; AusPass, NCI MT, NCI DAS</div>
+            <div class="lens-chips"><span class="lens-chip">Geospatial &amp; Geodesy</span><span class="lens-chip">Earth Imaging &amp; Sounding</span><span class="lens-chip">Autonomous Sensing</span></div>
+        </div>
+        <div class="lens-band">
+            <div class="lens-head"><h3>Characterisation Lens</h3><a class="lens-link" href="dataset-registry.html?lens=Characterisation%20Lens">Browse datasets &rarr;</a></div>
+            <div class="lens-stats"><span class="lens-num">1</span> dataset &middot; NVCL</div>
+            <div class="lens-chips"><span class="lens-chip">Characterisation</span><span class="lens-chip">Earth Sampling</span></div>
+        </div>
+        <div class="lens-band">
+            <div class="lens-head"><h3>Analysis Framework</h3></div>
+            <div class="lens-stats"><span class="lens-empty">no registered datasets yet</span></div>
+            <div class="lens-chips"><span class="lens-chip">Simulation, Analysis &amp; Modelling</span></div>
+        </div>
+        <div class="lens-band">
+            <div class="lens-head"><h3>FAIR Data Framework</h3></div>
+            <div class="lens-stats"><span class="lens-empty">no registered datasets yet</span></div>
+            <div class="lens-chips"><span class="lens-chip">AuScope Virtual Research Environment</span><span class="lens-chip">Research Data Systems</span></div>
+        </div>
+        <div class="lens-band">
+            <div class="lens-head"><h3>Community, Cuture &amp; Collaboration</h3></div>
+            <div class="lens-stats"><span class="lens-empty">no registered datasets yet</span></div>
+            <div class="lens-chips"><span class="lens-chip">Outreach &amp; Engagement</span><span class="lens-chip">International Collaboration</span></div>
+        </div>
     </div>
 
 
@@ -414,18 +488,10 @@
             <svg viewBox="0 0 800 280" style="width:100%;max-width:800px;height:auto;"><line x1="50" y1="240.0" x2="784" y2="240.0" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="206.9" x2="784" y2="206.9" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="173.7" x2="784" y2="173.7" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="140.6" x2="784" y2="140.6" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="107.4" x2="784" y2="107.4" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="74.3" x2="784" y2="74.3" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="41.1" x2="784" y2="41.1" stroke="#e2e8f0" stroke-width="1" /><polygon points="50.0,240.0 75.3,240.0 100.6,240.0 125.9,240.0 151.2,239.9 176.6,239.9 201.9,239.8 227.2,239.7 252.5,238.8 277.8,238.5 303.1,237.5 328.4,227.0 353.7,225.5 379.0,224.2 404.3,223.1 429.7,221.6 455.0,218.8 480.3,197.9 505.6,191.9 530.9,184.3 556.2,176.7 581.5,165.5 606.8,157.2 632.1,99.0 657.4,58.8 682.8,35.9 708.1,22.6 733.4,17.2 758.7,16.1 784.0,16.0 784.0,240.0 50.0,240.0" fill="#282572" fill-opacity="0.08" /><polyline points="50.0,240.0 75.3,240.0 100.6,240.0 125.9,240.0 151.2,239.9 176.6,239.9 201.9,239.8 227.2,239.7 252.5,238.8 277.8,238.5 303.1,237.5 328.4,227.0 353.7,225.5 379.0,224.2 404.3,223.1 429.7,221.6 455.0,218.8 480.3,197.9 505.6,191.9 530.9,184.3 556.2,176.7 581.5,165.5 606.8,157.2 632.1,99.0 657.4,58.8 682.8,35.9 708.1,22.6 733.4,17.2 758.7,16.1 784.0,16.0" fill="none" stroke="#282572" stroke-width="2.5" stroke-linejoin="round" /><circle cx="784.0" cy="16.0" r="4" fill="#282572" /><text x="42" y="244.0" text-anchor="end" font-size="11" fill="#64748b">0</text><text x="42" y="210.9" text-anchor="end" font-size="11" fill="#64748b">10,000</text><text x="42" y="177.7" text-anchor="end" font-size="11" fill="#64748b">20,000</text><text x="42" y="144.6" text-anchor="end" font-size="11" fill="#64748b">30,000</text><text x="42" y="111.4" text-anchor="end" font-size="11" fill="#64748b">40,000</text><text x="42" y="78.3" text-anchor="end" font-size="11" fill="#64748b">50,000</text><text x="42" y="45.1" text-anchor="end" font-size="11" fill="#64748b">60,000</text><text x="125.9" y="260" text-anchor="middle" font-size="11" fill="#64748b">2000</text><text x="252.5" y="260" text-anchor="middle" font-size="11" fill="#64748b">2005</text><text x="379.0" y="260" text-anchor="middle" font-size="11" fill="#64748b">2010</text><text x="505.6" y="260" text-anchor="middle" font-size="11" fill="#64748b">2015</text><text x="632.1" y="260" text-anchor="middle" font-size="11" fill="#64748b">2020</text><text x="758.7" y="260" text-anchor="middle" font-size="11" fill="#64748b">2025</text><text x="784.0" y="260" text-anchor="middle" font-size="11" fill="#64748b">2026</text><line x1="50" y1="16" x2="50" y2="240" stroke="#cbd5e1" stroke-width="1" /><line x1="50" y1="240" x2="784" y2="240" stroke="#cbd5e1" stroke-width="1" /></svg>
         </div>
 
-        <!-- Top Subjects -->
-        <div class="chart-section">
-            <h2>Top Research Subjects</h2>
-            <p class="note">35 of 2926 publications lack subject data</p>
-            <div class="bar-chart"><div class="bar-row"><div class="bar-label" title="Geological and Geochemical Analysis">Geological and Geochemical Analysis</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-value">1168</div></div><div class="bar-row"><div class="bar-label" title="earthquake and tectonic studies">earthquake and tectonic studies</div><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><div class="bar-value">760</div></div><div class="bar-row"><div class="bar-label" title="High-pressure geophysics and materials">High-pressure geophysics and materials</div><div class="bar-track"><div class="bar-fill" style="width:49%"></div></div><div class="bar-value">573</div></div><div class="bar-row"><div class="bar-label" title="Geochemistry and Geologic Mapping">Geochemistry and Geologic Mapping</div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><div class="bar-value">516</div></div><div class="bar-row"><div class="bar-label" title="Geology and Paleoclimatology Research">Geology and Paleoclimatology Research</div><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><div class="bar-value">383</div></div><div class="bar-row"><div class="bar-label" title="Paleontology and Stratigraphy of Fossils">Paleontology and Stratigraphy of Fossils</div><div class="bar-track"><div class="bar-fill" style="width:27%"></div></div><div class="bar-value">311</div></div><div class="bar-row"><div class="bar-label" title="Geological and Geophysical Studies">Geological and Geophysical Studies</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-value">230</div></div><div class="bar-row"><div class="bar-label" title="Geophysical and Geoelectrical Methods">Geophysical and Geoelectrical Methods</div><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><div class="bar-value">161</div></div><div class="bar-row"><div class="bar-label" title="Seismic Waves and Analysis">Seismic Waves and Analysis</div><div class="bar-track"><div class="bar-fill" style="width:13%"></div></div><div class="bar-value">157</div></div><div class="bar-row"><div class="bar-label" title="Hydrocarbon exploration and reservoir analysis">Hydrocarbon exploration and reservoir analysis</div><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><div class="bar-value">144</div></div><div class="bar-row"><div class="bar-label" title="Geophysics and Gravity Measurements">Geophysics and Gravity Measurements</div><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><div class="bar-value">143</div></div><div class="bar-row"><div class="bar-label" title="GNSS positioning and interference">GNSS positioning and interference</div><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><div class="bar-value">140</div></div><div class="bar-row"><div class="bar-label" title="Geological formations and processes">Geological formations and processes</div><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><div class="bar-value">139</div></div><div class="bar-row"><div class="bar-label" title="Seismic Imaging and Inversion Techniques">Seismic Imaging and Inversion Techniques</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-value">128</div></div><div class="bar-row"><div class="bar-label" title="Geomagnetism and Paleomagnetism Studies">Geomagnetism and Paleomagnetism Studies</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-value">127</div></div></div>
-        </div>
-
-        <!-- Citation Distribution -->
-        <div class="chart-section">
-            <h2>Citation Distribution</h2>
-            <div class="bucket-chart"><div class="bucket-col"><div class="bucket-count">607</div><div class="bucket-bar" style="height:205px"></div><div class="bucket-label">0</div></div><div class="bucket-col"><div class="bucket-count">680</div><div class="bucket-bar" style="height:229px"></div><div class="bucket-label">1–5</div></div><div class="bucket-col"><div class="bucket-count">831</div><div class="bucket-bar" style="height:280px"></div><div class="bucket-label">6–20</div></div><div class="bucket-col"><div class="bucket-count">512</div><div class="bucket-bar" style="height:173px"></div><div class="bucket-label">21–50</div></div><div class="bucket-col"><div class="bucket-count">192</div><div class="bucket-bar" style="height:65px"></div><div class="bucket-label">51–100</div></div><div class="bucket-col"><div class="bucket-count">104</div><div class="bucket-bar" style="height:35px"></div><div class="bucket-label">100+</div></div></div>
-        </div>
+        <!-- The Top Subjects and Citation Distribution charts were cut
+             26/31 Aug: generic MeSH/S2 subjects say little about AuScope,
+             and a citation histogram answers no question a board asks.
+             Growth (year + cumulative) stays — it is the trend story. -->
     </div>
 
     <!-- ═══ Footer ═══ -->

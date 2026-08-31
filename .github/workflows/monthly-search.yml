@@ -85,6 +85,12 @@ jobs:
         run: node src/ausmt-inventory.js
 
       # Cross-pillar stats (instruments, surveys, datasets, repo counts)
+      # The shared Project Mapping sheet -> data/project-mapping.json + docs
+      # feed; appends to the history jsonl only when the taxonomy changed.
+      # Degrades to a no-op when the sheet is unreachable.
+      - name: Project mapping ingest
+        run: node src/update-project-mapping.js
+
       # Must run before the dashboard so explorer cards pick up fresh numbers.
       - name: Aggregate cross-pillar stats
         run: node src/stats.js

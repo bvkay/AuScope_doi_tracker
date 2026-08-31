@@ -99,7 +99,8 @@ function run() {
   const pillarData = fs.existsSync(PILLAR_FILE)
     ? JSON.parse(fs.readFileSync(PILLAR_FILE, 'utf8'))
     : null;
-  const html = buildHTML(stats, pubData.metadata.last_updated, pillarData);
+  const lensData = computeLensData(datasets);
+  const html = buildHTML(stats, pubData.metadata.last_updated, pillarData, lensData, datasets.length);
   fs.writeFileSync(path.join(DOCS_DIR, 'index.html'), html);
 
   // ── Write docs/widget.html (embeddable stats-only widget) ──
@@ -498,10 +499,98 @@ function buildExplorerCards(pillarData) {
   return out + '    </div>\n';
 }
 
-function buildHTML(stats, lastUpdated, pillarData) {
+// ── The Downward-Looking Telescope ──
+// Joins the dataset roster to the shared Project Mapping sheet's taxonomy at
+// BUILD time (project-mapping.json + fair-scores.json), so the hub carries no
+// client-side fetches for it. Every lens in the sheet gets a band — a lens
+// with no registered datasets yet says so, because the taxonomy itself is the
+// story the page tells.
+function computeLensData(datasets) {
+  const MAP_FILE = path.join(__dirname, '..', 'data', 'project-mapping.json');
+  const FAIR_FILE = path.join(__dirname, '..', 'data', 'fair-scores.json');
+  if (!fs.existsSync(MAP_FILE)) return null;
+  let mapping, fair = { scores: {} };
+  try { mapping = JSON.parse(fs.readFileSync(MAP_FILE, 'utf8')); } catch (e) { return null; }
+  if (fs.existsSync(FAIR_FILE)) {
+    try { fair = JSON.parse(fs.readFileSync(FAIR_FILE, 'utf8')); } catch (e) { /* optional */ }
+  }
+  const norm = d => String(d || '').trim().replace(/^https?:\/\/(www\.)?(dx\.)?doi\.org\//i, '').toLowerCase();
+
+  const lenses = {};
+  (mapping.metadata.lenses || []).forEach(function(name) {
+    lenses[name] = { name: name, programs: [], datasets: 0, fairSum: 0, fairN: 0, platforms: {} };
+  });
+  (mapping.mappings || []).forEach(function(m) {
+    const l = lenses[m.lens];
+    if (l && m.program && l.programs.indexOf(m.program) === -1) l.programs.push(m.program);
+  });
+  (datasets || []).forEach(function(r) {
+    const key = r.platform === 'NCI' ? 'NCI:' + (r.subset || '') : r.platform;
+    const pid = (mapping.platform_projects || {})[key];
+    const proj = pid && mapping.projects[pid];
+    const l = proj && lenses[proj.lens];
+    if (!l) return;
+    l.datasets++;
+    l.platforms[r.platform === 'NCI' ? 'NCI ' + r.subset : r.platform] = true;
+    const f = (fair.scores || {})[norm(r.doi)];
+    if (f && f.score != null) { l.fairSum += f.score; l.fairN++; }
+  });
+  return (mapping.metadata.lenses || []).map(function(name) {
+    const l = lenses[name];
+    return {
+      name: name,
+      programs: l.programs,
+      datasets: l.datasets,
+      fairAvg: l.fairN ? Math.round(l.fairSum / l.fairN) : null,
+      platforms: Object.keys(l.platforms),
+    };
+  });
+}
+
+function buildLensBands(lensData) {
+  if (!lensData || !lensData.length) return '';
+  const bands = lensData.map(function(l) {
+    const stats = l.datasets
+      ? '<span class="lens-num">' + l.datasets + '</span> dataset' + (l.datasets === 1 ? '' : 's')
+        + (l.fairAvg != null ? ' &middot; avg F-UJI ' + l.fairAvg + '%' : '')
+        + (l.platforms.length ? ' &middot; ' + l.platforms.join(', ') : '')
+      : '<span class="lens-empty">no registered datasets yet</span>';
+    const link = l.datasets
+      ? '<a class="lens-link" href="dataset-registry.html?lens=' + encodeURIComponent(l.name) + '">Browse datasets &rarr;</a>'
+      : '';
+    const chips = l.programs.map(function(pn) {
+      return '<span class="lens-chip">' + escapeHtml(pn) + '</span>';
+    }).join('');
+    return '        <div class="lens-band">\n'
+      + '            <div class="lens-head"><h3>' + escapeHtml(l.name) + '</h3>' + link + '</div>\n'
+      + '            <div class="lens-stats">' + stats + '</div>\n'
+      + (chips ? '            <div class="lens-chips">' + chips + '</div>\n' : '')
+      + '        </div>';
+  }).join('\n');
+  return '    <div class="explorers lens-section">\n'
+    + '        <h2>Through the Downward-Looking Telescope</h2>\n'
+    + '        <p class="note">AuScope\u2019s six lenses, from the shared Project Mapping sheet \u2014 labels as supplied. Dataset counts and F-UJI averages join the registry to that taxonomy; attribution is platform-level.</p>\n'
+    + bands + '\n    </div>\n';
+}
+
+function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount) {
   const s = stats.summary;
   const updated = lastUpdated ? new Date(lastUpdated).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }) : 'N/A';
   const explorerCards = buildExplorerCards(pillarData);
+
+  // Five headline numbers, no more: everything else lives on a card below
+  // that links to its evidence page.
+  const pp = (pillarData && pillarData.pillars) || {};
+  const heroTiles = [
+    { n: s.totalPublications, label: 'Publications' },
+    { n: s.totalCitations, label: 'Citations' },
+    { n: datasetCount || null, label: 'Datasets' },
+    { n: pp.stations && pp.stations.total, label: 'Seismic stations' },
+    { n: pp.instruments && pp.instruments.units, label: 'Instruments' },
+  ].filter(function(t) { return t.n != null; }).map(function(t) {
+    return '            <div class="stat-card"><div class="number">'
+      + Number(t.n).toLocaleString() + '</div><div class="label">' + t.label + '</div></div>';
+  }).join('\n');
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -519,15 +608,27 @@ function buildHTML(stats, lastUpdated, pillarData) {
         }
 
         /* ── Hero Stats (TERN-style) ── */
-        .site-tabs { display: flex; gap: 2px; border-bottom: 2px solid #e5e7eb; margin: 0 auto 4px; max-width: 960px; padding: 10px 24px 0; flex-wrap: wrap; }
+        /* ── Consistent page head: the same topbar every tracker page has ── */
+        .page-head { max-width: 960px; margin: 0 auto; padding: 18px 24px 0; }
+        .page-head .topbar { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+        .page-head .brand h1 { font-size: 22px; font-weight: 600; color: #0f172a; letter-spacing: -0.01em; }
+        .page-head .brand h1 .accent { color: #282572; font-weight: 700; }
+        .page-head .brand p { font-size: 13px; color: #475569; margin-top: 4px; }
+        .page-head .links { display: flex; gap: 16px; font-size: 13px; }
+        .page-head .links a { color: #282572; text-decoration: none; }
+        .page-head .links a:hover { text-decoration: underline; }
+        .auscope-logo { height: 28px; width: auto; vertical-align: -8px; margin-right: 10px; }
+        .auscope-fallback { color: #282572; font-weight: 700; font-size: 18px; margin-right: 10px; }
+        .site-tabs { display: flex; gap: 2px; border-bottom: 2px solid #e5e7eb; margin: 0; padding: 0; flex-wrap: wrap; }
         .site-tabs a { padding: 8px 16px 7px; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; }
         .site-tabs a:hover { color: #282572; }
         .site-tabs a.active { color: #282572; border-bottom-color: #282572; }
         .hero {
             background: #282572; /* flat AuScope purple — page embeds as an iframe on auscope.org.au */
             color: #ffffff;
-            padding: 40px 24px 32px;
+            padding: 28px 24px 26px;
             text-align: center;
+            margin-top: 18px;
         }
         .hero h1 {
             font-size: 24px;
@@ -579,6 +680,19 @@ function buildHTML(stats, lastUpdated, pillarData) {
         }
 
         /* ── Explorer cards ── */
+        /* ── Lens bands ── */
+        .lens-section { padding-top: 26px; }
+        .lens-band { border: 1px solid #e5e7eb; border-left: 4px solid #282572; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 12px; background: #ffffff; }
+        .lens-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+        .lens-head h3 { font-size: 15px; font-weight: 700; color: #282572; }
+        .lens-link { font-size: 12.5px; color: #282572; text-decoration: none; font-weight: 600; white-space: nowrap; }
+        .lens-link:hover { text-decoration: underline; }
+        .lens-stats { font-size: 13px; color: #475569; margin-top: 4px; }
+        .lens-num { font-weight: 700; color: #0f172a; font-size: 15px; }
+        .lens-empty { color: #94a3b8; font-style: italic; }
+        .lens-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+        .lens-chip { font-size: 11px; padding: 2px 9px; border-radius: 11px; background: #f3f3fa; color: #45418f; border: 1px solid #dcdbf0; }
+
         .explorers {
             max-width: 960px;
             margin: 0 auto;
@@ -691,24 +805,35 @@ function buildHTML(stats, lastUpdated, pillarData) {
     </style>
 </head>
 <body>
-    <!-- ═══ Hero ═══ -->
-    <!-- The old "Impact at a Glance" tile band doubled up on the explorer
-         cards below (every number now lives on a card that links to its
-         evidence page), so it was removed. The embeddable widget keeps its
-         own tile band — that is its whole job. -->
-    <!-- Site tabs: keep in step with SITE_TABS in docs/tracker-chassis.js
-         and the static copy in docs/datasets.html. -->
-    <nav class="site-tabs" aria-label="Site sections">
-        <a href="index.html" class="active" aria-current="page">Impact</a>
-        <a href="publications.html">Publications</a>
-        <a href="dataset-registry.html">Datasets</a>
-    </nav>
-
-    <div class="hero">
-        <h1>AuScope Research Impact</h1>
-        <p class="subtitle">Tracking publications and citations across AuScope research infrastructure</p>
+    <!-- ═══ Header — the same topbar every tracker page carries ═══ -->
+    <div class="page-head">
+        <div class="topbar">
+            <div class="brand">
+                <h1><img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope"
+                         onerror="this.outerHTML='<span class=&quot;auscope-fallback&quot;>AuScope</span>'"><span class="accent">AuScope</span> Research Impact</h1>
+                <p>Publications, datasets and infrastructure service across AuScope research infrastructure &mdash; every number links to its evidence.</p>
+            </div>
+            <div class="links">
+                <a href="https://www.auscope.org.au" target="_blank" rel="noopener">auscope.org.au &#8599;</a>
+            </div>
+        </div>
+        <!-- Site tabs: keep in step with SITE_TABS in docs/tracker-chassis.js
+             and the static copy in docs/datasets.html. -->
+        <nav class="site-tabs" aria-label="Site sections">
+            <a href="index.html" class="active" aria-current="page">Impact</a>
+            <a href="publications.html">Publications</a>
+            <a href="dataset-registry.html">Datasets</a>
+        </nav>
     </div>
 
+    <!-- ═══ Hero numbers — flat AuScope purple; the page embeds as an iframe ═══ -->
+    <div class="hero">
+        <div class="stat-grid">
+${heroTiles}
+        </div>
+    </div>
+
+${buildLensBands(lensData)}
 ${explorerCards}
 ${buildEvidenceSection(stats.evidence)}
 ${buildProgramSection(stats.programs)}
@@ -726,18 +851,10 @@ ${buildProgramSection(stats.programs)}
             ${buildCumulativeChart(stats.byYear)}
         </div>
 
-        <!-- Top Subjects -->
-        <div class="chart-section">
-            <h2>Top Research Subjects</h2>
-            ${s.noSubjectCount > 0 ? '<p class="note">' + s.noSubjectCount + ' of ' + s.totalPublications + ' publications lack subject data</p>' : ''}
-            ${buildBarChart(stats.topSubjects)}
-        </div>
-
-        <!-- Citation Distribution -->
-        <div class="chart-section">
-            <h2>Citation Distribution</h2>
-            ${buildBucketChart(stats.citationBuckets)}
-        </div>
+        <!-- The Top Subjects and Citation Distribution charts were cut
+             26/31 Aug: generic MeSH/S2 subjects say little about AuScope,
+             and a citation histogram answers no question a board asks.
+             Growth (year + cumulative) stays — it is the trend story. -->
     </div>
 
     <!-- ═══ Footer ═══ -->

@@ -204,6 +204,13 @@
         document.getElementById('generated').textContent = formatDate(data.generated);
         populateFilters();
         renderStats();
+        // Deep links from the hub's lens bands (and anywhere else):
+        // ?lens=, ?program=, ?platform= preselect their filters.
+        var params = new URLSearchParams(location.search);
+        [['lens', lensFilter], ['program', programFilter], ['platform', platform]].forEach(function(pair) {
+            var v = params.get(pair[0]);
+            if (v && Array.prototype.some.call(pair[1].options, function(o) { return o.value === v; })) pair[1].value = v;
+        });
         render();
     }).catch(function(err) {
         body.innerHTML = '<tr><td colspan="11" class="empty-state">Could not load the registry feed. ' + escapeHtml(err.message) + '</td></tr>';

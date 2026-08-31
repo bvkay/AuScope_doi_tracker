@@ -29,7 +29,14 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        h1 { color: #2563eb; margin-bottom: 8px; font-size: 22px; }
+        /* Standard topbar — same structure as every tracker page. */
+        .topbar { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+        .brand h1 { color: #0f172a; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+        .brand h1 .accent { color: #282572; font-weight: 700; }
+        .brand p { color: #475569; font-size: 13px; margin-top: 4px; }
+        .topbar .links { display: flex; gap: 16px; font-size: 13px; }
+        .topbar .links a { color: #282572; text-decoration: none; }
+        .auscope-logo { height: 28px; width: auto; vertical-align: -8px; margin-right: 10px; }
         /* Site tabs — static copy; keep in step with SITE_TABS in
            tracker-chassis.js and the template in src/dashboard.js. */
         .site-tabs { display: flex; gap: 2px; border-bottom: 2px solid #e5e7eb; margin: 0 0 18px; flex-wrap: wrap; }
@@ -75,19 +82,20 @@
     </style>
 </head>
 <body>
+    <div class="topbar">
+        <div class="brand">
+            <h1><img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope"><span class="accent">AuScope</span> Platform Trackers</h1>
+            <p>Each platform has a dedicated tracker with live metadata health checks and citation tracking.</p>
+        </div>
+        <div class="links">
+            <a href="dataset-registry.html">Dataset registry</a>
+        </div>
+    </div>
     <nav class="site-tabs" aria-label="Site sections">
         <a href="index.html">Impact</a>
         <a href="publications.html">Publications</a>
         <a href="dataset-registry.html" class="active" aria-current="page">Datasets</a>
     </nav>
-
-    <h1>AuScope Datasets</h1>
-    <p class="subtitle">Browse datasets across AuScope research infrastructure platforms &middot; <a href="index.html">&larr; Impact overview</a></p>
-
-    <p class="intro">
-        Each platform has a dedicated tracker with live metadata health checks and
-        citation tracking. Select a platform below to open its tracker.
-    </p>
 
     <div class="platform-list">
         <a class="platform-card" href="earthbank.html">
