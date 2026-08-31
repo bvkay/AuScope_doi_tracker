@@ -16,6 +16,8 @@ const DOCS_DIR = path.join(__dirname, '..', 'docs');
 const PUB_FILE = path.join(__dirname, '..', 'data', 'publications.json');
 const DS_FILE = path.join(__dirname, '..', 'data', 'datasets.json');
 const PILLAR_FILE = path.join(DOCS_DIR, 'stats-data.json');
+const FACILITY_FILE = path.join(__dirname, '..', 'data', 'facility-names.json');
+const GITHUB_SOFTWARE_FILE = path.join(__dirname, '..', 'data', 'github-software.json');
 
 // Some source records store titles with HTML entities ("&amp;#8217;") or
 // markup tags (<sup>40</sup>Ar). Decode + strip to plain text at export
@@ -92,6 +94,22 @@ function run() {
       };
     })
   }));
+
+  // Software registry feed: the AuScope GitHub org snapshot plus, per
+  // curated tool in facility-names.json tier-3, the publications whose
+  // EVIDENCE GRADE is text-software and whose text matches the tool's
+  // patterns — the same graded honesty as everything else, never a raw
+  // keyword sweep over the whole corpus.
+  const facilityData = fs.existsSync(FACILITY_FILE)
+    ? JSON.parse(fs.readFileSync(FACILITY_FILE, 'utf8')) : {};
+  const githubData = fs.existsSync(GITHUB_SOFTWARE_FILE)
+    ? JSON.parse(fs.readFileSync(GITHUB_SOFTWARE_FILE, 'utf8')) : { metadata: {}, records: [] };
+  fs.writeFileSync(path.join(DOCS_DIR, 'software-data.json'), JSON.stringify({
+    generated: new Date().toISOString(),
+    records: buildSoftwareRegistry(pubs, facilityData),
+    github: githubData.records || [],
+    githubMetadata: githubData.metadata || {},
+  }, null, 2));
 
   // ── Write docs/index.html ──
   // Cross-pillar numbers come from src/stats.js (run it first in CI);
@@ -499,6 +517,40 @@ function buildExplorerCards(pillarData) {
   return out + '    </div>\n';
 }
 
+// Per curated tool: the text-software-evidence publications matching its
+// patterns, with citation totals and coverage years. (Ported from Rebecca
+// Farrington's fork — her design already gated on the evidence tier.)
+function buildSoftwareRegistry(pubs, facilityData) {
+  const facilities = (((facilityData || {}).tier3_software_use || {}).facilities || {});
+  return Object.keys(facilities).map(function(name) {
+    const patterns = facilities[name].patterns || [];
+    const needles = patterns.map(function(pt) { return String(pt).toLowerCase(); });
+    const matches = pubs.filter(function(p) {
+      if (p.evidence !== 'text-software') return false;
+      const text = [p.title, p.subject].concat(p.searchTerms || []).filter(Boolean).join(' ').toLowerCase();
+      return needles.some(function(n) { return text.indexOf(n) !== -1; });
+    }).map(function(p) {
+      return {
+        doi: p.doi || '', title: decodeEntities(String(p.title || '')),
+        authors: decodeEntities(String(p.authors || '')), year: p.year || '',
+        journal: decodeEntities(String(p.journal || '')),
+        cited: parseInt(p.cited) || 0, oa: /^yes$/i.test(String(p.isOA || '')),
+      };
+    });
+    const years = matches.map(function(p) { return Number(p.year); }).filter(Boolean);
+    return {
+      name: name, aliases: patterns,
+      publications: matches.length,
+      citations: matches.reduce(function(n, p) { return n + p.cited; }, 0),
+      earliestYear: years.length ? Math.min.apply(Math, years) : null,
+      latestYear: years.length ? Math.max.apply(Math, years) : null,
+      records: matches.sort(function(a, b) {
+        return (Number(b.year) || 0) - (Number(a.year) || 0) || a.title.localeCompare(b.title);
+      }),
+    };
+  });
+}
+
 // ── The Downward-Looking Telescope ──
 // Joins the dataset roster to the shared Project Mapping sheet's taxonomy at
 // BUILD time (project-mapping.json + fair-scores.json), so the hub carries no
@@ -823,6 +875,9 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount) {
             <a href="index.html" class="active" aria-current="page">Impact</a>
             <a href="publications.html">Publications</a>
             <a href="dataset-registry.html">Datasets</a>
+            <a href="fair-trends.html">FAIR</a>
+            <a href="project-mapping.html">Projects</a>
+            <a href="software-registry.html">Software</a>
         </nav>
     </div>
 

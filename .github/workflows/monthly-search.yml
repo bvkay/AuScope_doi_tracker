@@ -85,6 +85,17 @@ jobs:
         run: node src/ausmt-inventory.js
 
       # Cross-pillar stats (instruments, surveys, datasets, repo counts)
+      # GitHub org snapshot for the software registry + DataCite licence and
+      # ORCID-creator enrichment for the dataset registry. Both keep previous
+      # values on a failed lookup.
+      - name: GitHub software snapshot
+        run: node src/update-github-software.js
+        continue-on-error: true
+
+      - name: Registry licence enrichment
+        run: node src/update-registry-licenses.js
+        continue-on-error: true
+
       # The shared Project Mapping sheet -> data/project-mapping.json + docs
       # feed; appends to the history jsonl only when the taxonomy changed.
       # Degrades to a no-op when the sheet is unreachable.

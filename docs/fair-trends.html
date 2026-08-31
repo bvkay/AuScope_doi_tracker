@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--
+    AuScope F-UJI FAIR Trends
+    Assessment-date trends from docs/fair-history.json — the per-run
+    aggregate feed that src/fair-assess.js regenerates from
+    data/fair-history.jsonl on every monthly assessment.
+
+    This is the page the history machinery was built for: each monthly run
+    is one measurement point (overall + per-platform averages, per-metric
+    pass rates), so the question it answers is "did the metadata actually
+    improve after we changed something" — attributable to assessment dates,
+    not inferred from publication-year cohorts. Rebecca Farrington's fork
+    prototyped a cohort view and had to disclose that per-DOI trajectories
+    were impossible without snapshots; the snapshots now exist.
+
+    Scores are comparable only within one metric_version (pinned v0.8).
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AuScope F-UJI FAIR Trends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tracker-shared.css">
+    <style>
+        .stats .stat { position: relative; }
+        .stats .stat [data-tip] { position: static; }
+        .stats .stat [data-tip]::after { left: 10px; right: 10px; width: auto; max-width: none; }
+
+        /* ----- run trend ----- */
+        .trend-panel { border: 1px solid var(--border); border-radius: 8px; padding: 18px; background: var(--bg-soft); }
+        .trend-note { font-size: 12.5px; color: var(--text-soft); margin-bottom: 12px; line-height: 1.55; }
+        .run-row { display: flex; align-items: center; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--bg-muted); }
+        .run-date { font-family: var(--mono); font-size: 12px; color: var(--text-soft); width: 90px; flex-shrink: 0; }
+        .run-track { flex: 1; height: 18px; background: var(--bg-muted); border-radius: 4px; overflow: hidden; }
+        .run-fill { height: 100%; background: var(--accent); opacity: 0.85; border-radius: 4px; }
+        .run-val { font-variant-numeric: tabular-nums; font-weight: 600; width: 52px; text-align: right; flex-shrink: 0; }
+        .run-n { font-size: 11px; color: var(--text-muted); width: 78px; flex-shrink: 0; }
+        .run-delta { font-size: 11.5px; width: 52px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+        .run-delta.up { color: var(--good); }
+        .run-delta.down { color: var(--bad); }
+
+        /* ----- metric pass rates ----- */
+        .metric-row { display: flex; align-items: center; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--bg-muted); }
+        .metric-id { font-family: var(--mono); font-size: 12px; width: 130px; flex-shrink: 0; }
+        .metric-name { flex: 1; min-width: 0; font-size: 12.5px; color: var(--text-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .metric-track { width: 180px; height: 8px; background: var(--bg-muted); border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+        .metric-fill { height: 100%; border-radius: 4px; }
+        .metric-fill.good { background: var(--good); }
+        .metric-fill.warn { background: var(--warn); }
+        .metric-fill.bad { background: var(--bad); }
+        .metric-pct { width: 48px; text-align: right; font-variant-numeric: tabular-nums; font-size: 12.5px; flex-shrink: 0; }
+        .metric-delta { width: 56px; font-size: 11.5px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+        .metric-delta.up { color: var(--good); }
+        .metric-delta.down { color: var(--bad); }
+
+        .plat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .plat-table th { text-align: left; padding: 7px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-soft); border-bottom: 1px solid var(--border); }
+        .plat-table td { padding: 7px 10px; border-bottom: 1px solid var(--bg-muted); font-variant-numeric: tabular-nums; }
+
+        .how-body { font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+        .how-body strong { color: var(--text); }
+        .how-body code { font-family: var(--mono); font-size: 11.5px; background: var(--bg-muted); padding: 1px 4px; border-radius: 3px; }
+        .foot { margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11.5px; color: var(--text-muted); }
+        .foot a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body data-site-tab="fair">
+    <div class="wrap">
+
+        <div class="topbar">
+            <div class="brand">
+                <h1><img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope" data-fallback="auscope"><span class="accent">F-UJI</span> FAIR Trends</h1>
+                <p>Monthly automated FAIR assessment of every registered dataset DOI &mdash; measured trends, by assessment date.</p>
+            </div>
+            <div class="links">
+                <a href="dataset-registry.html">Dataset registry</a>
+                <a href="https://github.com/pangaea-data-publisher/fuji" target="_blank" rel="noopener">F-UJI &#8599;</a>
+            </div>
+        </div>
+
+        <div class="stats" id="tiles">
+            <div class="stat"><div class="label">DOIs assessed <span class="info-i" data-tip="Dataset DOIs scored in the most recent monthly assessment run. PhysicalObject sample records are excluded — F-UJI's metrics target data resources.">i</span></div><div class="value" id="stat-assessed">&mdash;</div><div class="sub" id="stat-assessed-sub">latest run</div></div>
+            <div class="stat"><div class="label">Average score <span class="info-i" data-tip="Mean F-UJI score across all DOIs assessed in the latest run. Metric set v0.8 scores run structurally low — 35–60% is the normal band for real-world repositories, not an AuScope failing.">i</span></div><div class="value" id="stat-avg">&mdash;</div><div class="sub" id="stat-avg-sub">&mdash;</div></div>
+            <div class="stat"><div class="label">Measurement runs <span class="info-i" data-tip="One point per monthly assessment. The trend grows one point per month — that is the design, not a limitation: each point is a real measurement on a known date.">i</span></div><div class="value" id="stat-runs">&mdash;</div><div class="sub">monthly, since Aug 2026</div></div>
+            <div class="stat"><div class="label">Metric set <span class="info-i" data-tip="Pinned deliberately: scores are comparable only within one metric version. A version bump restarts the trend, disclosed.">i</span></div><div class="value" id="stat-metric">&mdash;</div><div class="sub" id="stat-fuji-sub">&mdash;</div></div>
+        </div>
+
+        <div class="section">
+            <h2>Average score by assessment run</h2>
+            <div class="trend-panel">
+                <div class="trend-note" id="trend-note"></div>
+                <div id="run-rows"><span class="spinner"></span></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Per-platform averages</h2>
+            <div class="section-note">Each column is one assessment run; the join is by assessment date, so movement is measured, not inferred.</div>
+            <div style="overflow-x:auto"><table class="plat-table" id="plat-table"></table></div>
+        </div>
+
+        <div class="section">
+            <h2>Where the points are lost &mdash; per-metric pass rates</h2>
+            <div class="section-note" id="metric-note">Latest run, worst first. This list is the to-do list: a metric moving from red to green is attributable to a specific fix on a specific date.</div>
+            <div id="metric-rows"><span class="spinner"></span></div>
+        </div>
+
+        <div class="section">
+            <h2>How this page measures</h2>
+            <div class="how-body">
+                <p><strong>One point per assessment run.</strong> Every monthly run of the self-hosted F-UJI server appends a dated snapshot to <code>fair-history.jsonl</code> &mdash; per DOI: the total, the F/A/I/R split, and each metric&rsquo;s earned score <em>and</em> verdict. This page reads the per-run aggregates. Trends here are <strong>by assessment date</strong>: the same DOIs, re-measured &mdash; so a moving average means the metadata changed, not the cohort.</p>
+                <p><strong>Comparability.</strong> Scores are comparable only within one metric version (pinned v0.8, 17 metrics). v0.8 runs structurally low &mdash; several metrics fail on almost every real-world repository &mdash; so 35&ndash;60% is the normal band, and the interesting signal is movement, not level.</p>
+                <p><strong>Averages</strong> weight each assessed DOI equally.</p>
+            </div>
+        </div>
+
+        <div class="foot">
+            Part of the <a href="index.html">AuScope Research Impact</a> tracker &middot;
+            Assessed with a self-hosted <a href="https://github.com/pangaea-data-publisher/fuji" target="_blank" rel="noopener">F-UJI</a> server &middot;
+            Feed: <a href="fair-history.json">fair-history.json</a>
+        </div>
+    </div>
+
+    <script src="tracker-chassis.js"></script>
+    <script>
+    (function() {
+        'use strict';
+        Promise.all([
+            fetch('fair-history.json').then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }),
+        ]).then(function(feeds) {
+            var runs = (feeds[0].runs || []).slice();
+            if (!runs.length) throw new Error('no runs in the history feed');
+            render(runs);
+        }).catch(function(err) {
+            document.getElementById('run-rows').innerHTML = 'Could not load the history feed: ' + escapeHtml(err.message);
+        });
+
+        function render(runs) {
+            var latest = runs[runs.length - 1];
+            var prev = runs.length > 1 ? runs[runs.length - 2] : null;
+
+            document.getElementById('stat-assessed').textContent = latest.assessed;
+            document.getElementById('stat-assessed-sub').textContent = 'run of ' + latest.date;
+            document.getElementById('stat-avg').textContent = latest.avg + '%';
+            document.getElementById('stat-avg-sub').textContent = prev
+                ? delta(latest.avg - prev.avg) + ' vs ' + prev.date : 'first measurement';
+            document.getElementById('stat-runs').textContent = runs.length;
+            document.getElementById('stat-metric').textContent = 'v' + (latest.metric_version || '?');
+            document.getElementById('stat-fuji-sub').textContent = 'F-UJI ' + (latest.fuji_version || '?');
+
+            document.getElementById('trend-note').textContent = runs.length === 1
+                ? 'One measurement so far — the baseline. The trend gains a point with every monthly run; movement from here is attributable to metadata changes, because the same DOIs are re-measured.'
+                : runs.length + ' measurements. Bars are the corpus average per run; the delta column is movement since the previous run.';
+
+            document.getElementById('run-rows').innerHTML = runs.map(function(r, i) {
+                var d = i > 0 ? r.avg - runs[i - 1].avg : null;
+                return '<div class="run-row">'
+                    + '<div class="run-date">' + escapeHtml(r.date) + '</div>'
+                    + '<div class="run-track"><div class="run-fill" style="width:' + Math.min(100, r.avg) + '%"></div></div>'
+                    + '<div class="run-val">' + r.avg + '%</div>'
+                    + '<div class="run-delta ' + (d > 0 ? 'up' : d < 0 ? 'down' : '') + '">' + (d == null ? '' : delta(d)) + '</div>'
+                    + '<div class="run-n">' + r.assessed + ' DOIs</div>'
+                    + '</div>';
+            }).join('');
+
+            // Per-platform table: one row per platform, one column per run.
+            var platNames = {};
+            runs.forEach(function(r) { Object.keys(r.platforms || {}).forEach(function(p) { platNames[p] = true; }); });
+            var head = '<tr><th>Platform</th>' + runs.map(function(r) { return '<th>' + escapeHtml(r.date) + '</th>'; }).join('') + '</tr>';
+            var rows = Object.keys(platNames).sort().map(function(p) {
+                return '<tr><td>' + escapeHtml(p) + '</td>' + runs.map(function(r) {
+                    var v = (r.platforms || {})[p];
+                    return '<td>' + (v ? v.avg + '% <span style="color:var(--text-muted);font-size:11px">(' + v.n + ')</span>' : '&mdash;') + '</td>';
+                }).join('') + '</tr>';
+            }).join('');
+            document.getElementById('plat-table').innerHTML = head + rows;
+
+            // Metric pass rates, latest run, worst first; delta vs previous run.
+            var mp = latest.metric_pass_pct || {};
+            var pm = prev ? (prev.metric_pass_pct || {}) : {};
+            var ids = Object.keys(mp).sort(function(a, b) { return mp[a] - mp[b]; });
+            document.getElementById('metric-rows').innerHTML = ids.map(function(id) {
+                var v = mp[id];
+                var d = (id in pm) ? v - pm[id] : null;
+                var cls = v >= 60 ? 'good' : v >= 25 ? 'warn' : 'bad';
+                return '<div class="metric-row">'
+                    + '<div class="metric-id">' + escapeHtml(id.replace(/^FsF-/, '')) + '</div>'
+                    + '<div class="metric-track"><div class="metric-fill ' + cls + '" style="width:' + v + '%"></div></div>'
+                    + '<div class="metric-pct">' + v + '%</div>'
+                    + '<div class="metric-delta ' + (d > 0 ? 'up' : d < 0 ? 'down' : '') + '">' + (d == null || d === 0 ? '' : delta(d)) + '</div>'
+                    + '<div class="metric-name"></div>'
+                    + '</div>';
+            }).join('');
+        }
+
+        function delta(d) { return (d > 0 ? '+' : '') + (Math.round(d * 10) / 10) + ' pts'; }
+    }());
+    </script>
+</body>
+</html>

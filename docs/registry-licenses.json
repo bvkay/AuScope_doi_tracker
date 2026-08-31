@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-28T05:23:54.560Z",
+  "generated": "2026-08-31T00:27:21.470Z",
   "source": "DataCite REST API",
   "records": {
     "10.58024/agag3126b4ca": "Creative Commons",
@@ -217,7 +217,8 @@
     "10.25914/tzyp-dy03": "",
     "10.25914/nn3w-d141": "",
     "10.25914/bztg-rg43": "",
-    "10.25914/1phc-8r73": ""
+    "10.25914/1phc-8r73": "",
+    "10.58024/agumaec47aff": ""
   },
   "creators": {
     "10.58024/agag3126b4ca": [
@@ -3265,6 +3266,14 @@
         "given": "Meghan",
         "family": "Miller",
         "orcid": "0000-0001-5494-2296"
+      }
+    ],
+    "10.58024/agumaec47aff": [
+      {
+        "name": "Savelkouls, Ashley",
+        "given": "Ashley",
+        "family": "Savelkouls",
+        "orcid": "0009-0000-7168-1606"
       }
     ]
   }

@@ -42,6 +42,8 @@ change.
 | `gnss.html` | **AuScope-funded GNSS stations** — live from GA's CORS metadata API (AUSCOPE network tenancy, ID 101), queried from the visitor's browser; amber-disclosed fallback to the weekly `gnss_auscope.geojson` snapshot in bvkay/AuScope_Outreach. GA's whole-of-network CORS DOI is linked as provenance and deliberately **not** counted as AuScope citations. | GA CORS API (live) + outreach snapshot |
 | `ausis.html` | Seismometers in Schools — **fully live**, no snapshot. Station map, streaming status, network DOI citations. | AusPass FDSN + AuScope_Outreach data products |
 | `dataset-registry.html` | **One searchable catalogue** of citable datasets across all platforms — lens/program/project columns from the Project Mapping sheet, F-UJI + metadata score bars, DataCite licence + ORCID creators, expandable DataCite detail panes, CSV export. Ported from Rebecca Farrington's draft; attribution is platform-level via `platform_projects` in the mapping feed. The **Datasets site tab targets this page.** | `datasets-data.json` + `project-mapping.json` + `fair-scores.json` + `registry-licenses.json` |
+| `fair-trends.html` | **F-UJI trends by assessment date** — one point per monthly run from `fair-history.json`: corpus average with per-run deltas, per-platform table, per-metric pass rates worst-first with movement vs the previous run. The page the history machinery was built for; movement is measured (same DOIs re-assessed), never inferred from publication-year cohorts. | `fair-history.json` |
+| `software-registry.html` | AuScope GitHub org snapshot (64 repos: status/ownership/stars/licence) + curated tools joined to the **text-software evidence tier** (319 use-publications). Ported from the fork — her design already gated on the evidence grade. | `software-data.json` |
 | `project-mapping.html` | Reference table of the shared Project Mapping sheet — project id → DLT lens → program → funding/public name, host, leader, NCRIS status. Labels as supplied. | `project-mapping.json` |
 | `datasets.html` | Thin router to the platform trackers (no JS). **Demoted 26 Aug**: the hub cards each subset directly, so this is no longer *carded* — still reachable from the hub footer "Explore:" row and from the subset pages' "All datasets" link. | — |
 | `AusPASS_map.html` | Standalone AusPass station map, sized for a 513px iframe embed. **Orphan** — nothing links it except `NVCL_map.html`. | AusPass FDSN (live) + `australia-outline.json` |
@@ -110,6 +112,11 @@ between runs (live harvesting) — weekly re-scoring would publish noise.
 **TODO after the first successful dispatch:** diff a few scores against the
 committed baseline (assessed locally with pip v3.5.1) and pin the image by
 `@sha256` digest.
+
+Weekly also runs `update-github-software.js` (org snapshot) and
+`update-registry-licenses.js` (DataCite licences + ORCID creators for the
+registry — only 50 of 217 DOIs carry a licence, itself a FAIR finding; a
+failed lookup keeps the previous value). Both `continue-on-error`.
 
 **Secrets** (repo settings): `S2_API_KEY` (Semantic Scholar), optional
 `CORE_API_KEY`, `DIMENSIONS_API_KEY`. Everything else is keyless — F-UJI's
