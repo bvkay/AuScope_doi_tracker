@@ -612,3 +612,46 @@ every carried-forward entry is dated and labelled rather than silently merged
 — **staleness is disclosed, never averaged away.** Deciding when stale becomes
 unacceptable is a judgement for whoever reads the page, and they can only make
 it if the page says which numbers are old.
+
+---
+
+## TSG collar coordinates (added 31 Aug 2026, extraction from merged-v1.4)
+
+The `.tsg` header's `[borehole]` block carries a `lat lon =` pair, a
+`geo datum =` line, and a `collar =` triple. This was checked properly —
+full archives, six states, 36 samples spread through each catalogue — after
+an earlier inference ("the cache has no coordinates, therefore TSG has
+none") was wrongly repeated as fact. The field is real; the DATA is
+operator-entered free text:
+
+| state | populated | observed faults |
+|---|---|---|
+| WA | 6/6 | none — clean GDA94 |
+| QLD | 3/6 | dropped minus sign (`21.73 148.05`) |
+| SA | 3/6 | swapped axes (`138.92 -34.35`) |
+| NT | 2/6 | rest zeroed |
+| TAS | 2/6 | MGA eastings/northings in the field (`5340643 382466`) |
+| VIC | 0/6 | all zeroed |
+
+**The rule: classify, never trust.** The raw pair is stored verbatim
+(`latRaw`/`lonRaw`), and `lat`/`lng` are emitted only when the value is
+unambiguous under the Australian window (lat −45…−8, lon 110…155):
+
+- `ok` — in the window as written;
+- `swapped` — in the window with axes exchanged;
+- `sign` — in the window with the latitude's sign flipped;
+- `projected` — magnitudes far beyond degrees (MGA/UTM); kept raw, never
+  converted — a zone guess is a wrong map dot with confidence;
+- `out-of-range` — none of the above; kept raw, unplaced.
+
+`coordStatus` travels with every row so a page can disclose which dots are
+corrected values.
+
+**What this changes, and what it does not.** WFS remains the coordinate
+authority: ~44% population with these fault classes cannot anchor a map.
+TSG coordinates serve two roles — **recovering mirror-only boreholes**
+(archives with no WFS record; previously measurable but unplottable) and
+**cross-checking WFS positions** where both exist. Rows enriched before
+this change carry no coordinate fields; a budgeted backfill pass over the
+mirror-only archives is the priority re-read, WA first (best population,
+largest mirror-only share after QLD).

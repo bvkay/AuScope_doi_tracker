@@ -517,6 +517,13 @@ async function harvestOne(state, zipName) {
   row.instrument = parsed.instrument;
   row.tsgUuid = parsed.tsgUuid;
   row.datasetId = parsed.tsgUuid || null;
+  if (parsed.coords) {
+    row.latRaw = parsed.coords.rawLat;
+    row.lonRaw = parsed.coords.rawLon;
+    row.coordStatus = parsed.coords.status;
+    if (parsed.coords.lat != null) { row.lat = parsed.coords.lat; row.lng = parsed.coords.lng; }
+    if (parsed.coords.datum) row.geoDatum = parsed.coords.datum;
+  }
 
   if (parsed.depth) {
     row.depthFromM = parsed.depth.from;
@@ -667,6 +674,33 @@ const INSTRUMENT_EQ_RE = /^\s*hylogger\s*name\s*=\s*(\S.*?)\s*$/mi;
 const INSTRUMENT_COLON_RE = /^\s*HyLogger\s*:\s*(\S.*?)\s*$/mi;
 const UUID_RE = /^\s*UUID\s*:\s*(\S+)/mi;
 
+// Collar position from the [borehole] block. Verified in the wild (31 Aug
+// 2026, 36-archive sample across six states): the field EXISTS everywhere
+// but is operator-entered free text — WA populates it 6/6 in clean GDA94,
+// VIC zeroes it 6/6, and the populated remainder includes swapped axes
+// (SA: "138.91 -34.34"), dropped minus signs (QLD: "+21.73"), and MGA
+// eastings/northings stuffed straight into the field (TAS: "5340643
+// 382466"). So every value is classified, never trusted: the raw pair is
+// stored verbatim, and lat/lng are emitted only when the value is
+// unambiguous — as-is, axis-swapped, or sign-flipped INTO the Australian
+// window. Projected-looking magnitudes are kept raw and never converted.
+const LAT_LON_RE = /^\s*lat lon\s*=\s*(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)/mi;
+const GEO_DATUM_RE = /^\s*geo datum\s*=\s*(\S+)/mi;
+
+// The AU window used everywhere else in this repo (harvest.js AU_BOX).
+function inAu(lat, lng) {
+  return lat >= -45 && lat <= -8 && lng >= 110 && lng <= 155;
+}
+
+function classifyLatLon(a, b) {
+  if (a === 0 && b === 0) return { status: 'zeroed' };
+  if (Math.abs(a) > 360 || Math.abs(b) > 360) return { status: 'projected' };
+  if (inAu(a, b)) return { status: 'ok', lat: a, lng: b };
+  if (inAu(b, a)) return { status: 'swapped', lat: b, lng: a };
+  if (inAu(-a, b)) return { status: 'sign', lat: -a, lng: b };
+  return { status: 'out-of-range' };
+}
+
 function parseTsgHeader(text) {
   const out = {
     scanDate: null, dateConfidence: null, instrument: null, tsgUuid: null,
@@ -675,6 +709,21 @@ function parseTsgHeader(text) {
 
   const u = text.match(UUID_RE);
   if (u) out.tsgUuid = u[1].trim();
+
+  const ll = text.match(LAT_LON_RE);
+  if (ll) {
+    const rawLat = Number(ll[1]), rawLon = Number(ll[2]);
+    const cls = classifyLatLon(rawLat, rawLon);
+    if (cls.status !== 'zeroed') {
+      out.coords = {
+        rawLat: rawLat, rawLon: rawLon,
+        status: cls.status,
+        lat: cls.lat != null ? cls.lat : null,
+        lng: cls.lng != null ? cls.lng : null,
+        datum: (text.match(GEO_DATUM_RE) || [, ''])[1],
+      };
+    }
+  }
 
   let inst = text.match(INSTRUMENT_EQ_RE);
   if (!inst) inst = text.match(INSTRUMENT_COLON_RE);

@@ -119,6 +119,15 @@ between runs (live harvesting) — weekly re-scoring would publish noise.
 committed baseline (assessed locally with pip v3.5.1) and pin the image by
 `@sha256` digest.
 
+**TSG collar coordinates (31 Aug):** tsg-enrich.js now extracts the
+`lat lon =` / `geo datum =` pair from every newly read header, classified
+never trusted (see METHODOLOGY "TSG collar coordinates" — ~44% populated,
+with swapped axes / dropped signs / MGA-in-the-field faults in the wild).
+WFS stays the coordinate authority; TSG coords recover mirror-only
+boreholes and cross-check WFS. The ~5,168 rows cached before this change
+carry no coordinates — a budgeted backfill over the mirror-only archives
+is the outstanding step.
+
 Weekly also runs `update-github-software.js` (org snapshot) and
 `update-registry-licenses.js` (DataCite licences + ORCID creators for the
 registry — only 50 of 217 DOIs carry a licence, itself a FAIR finding; a
