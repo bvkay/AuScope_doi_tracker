@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T23:46:57.299Z",
+  "generated": "2026-08-31T11:41:03.619Z",
   "pillars": {
     "publications": {
       "total": 2926,
@@ -8,12 +8,13 @@
       "candidate": 58
     },
     "datasets": {
-      "total": 170,
+      "total": 179,
       "byPlatform": {
         "EarthBank": 60,
         "AusPass": 87,
         "NCI MT": 16,
-        "NCI DAS": 7
+        "NCI DAS": 7,
+        "NVCL": 9
       },
       "fairAvg": {
         "EarthBank": 47,
@@ -69,12 +70,12 @@
       ]
     },
     "nvcl": {
-      "asOf": "2026-08-24",
-      "boreholes": 6236,
-      "scannedKm": 1737.65,
-      "combinedKm": 1950.26,
+      "asOf": "2026-08-31",
+      "boreholes": 6297,
+      "scannedKm": 1755.89,
+      "combinedKm": 1997.35,
       "estimatedKm": 4.22,
-      "datasets": 6394,
+      "datasets": 6467,
       "nodes": 8
     },
     "gnss": {
@@ -87,7 +88,7 @@
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 49,
+      "streaming": 48,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },
@@ -98,7 +99,7 @@
         "surveys": 14,
         "stations": 1354
       },
-      "generated": "2026-08-30",
+      "generated": "2026-08-31",
       "instrumentsDeployed": 117,
       "occupations": 2052,
       "recordingDays": 3946.2,
