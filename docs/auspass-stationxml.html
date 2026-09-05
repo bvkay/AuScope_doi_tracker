@@ -128,6 +128,18 @@
         .legend-table td { padding: 3px 10px 3px 0; border: none; color: var(--text-soft); }
         .legend-table td:first-child { font-family: var(--mono); font-weight: 700; color: var(--text); }
 
+        .unit-panel { display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 12px; }
+        .unit-map { flex: 0 0 260px; }
+        .unit-map svg { width: 100%; height: auto; display: block; }
+        .unit-map .coast { fill: var(--bg-muted); stroke: var(--border); stroke-width: 1; }
+        .unit-map .path { fill: none; stroke: var(--accent); stroke-width: 1; opacity: 0.35; }
+        .unit-map .dot { fill: var(--accent); stroke: #fff; stroke-width: 0.8; }
+        .unit-map .cap { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+        .unit-stats { flex: 1; min-width: 220px; }
+        .unit-stats dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 12.5px; }
+        .unit-stats dt { color: var(--text-muted); white-space: nowrap; }
+        .unit-stats dd { color: var(--text); font-variant-numeric: tabular-nums; }
+
         .progress { font-size: 12.5px; color: var(--text-soft); }
         .progress .bar { display: inline-block; width: 180px; height: 8px; background: var(--bg-muted); border-radius: 4px; overflow: hidden; vertical-align: middle; margin: 0 8px; }
         .progress .fill { display: block; height: 100%; background: var(--accent); width: 0; }
@@ -316,6 +328,18 @@
 
     // The service returns HTTP 400 for time parameters with a trailing Z.
     function fdsnTime(v) { return encodeURIComponent(String(v).replace(/Z$/, '')); }
+
+    // Simplified Australian coastline (Natural Earth 1:110m, two rings,
+    // rounded to 0.1 degrees), inlined so the file stays self-contained.
+    var AU_COAST = [[[126.2,-32.2],[125.1,-32.7],[124.2,-33.0],[124.0,-33.5],[123.7,-33.9],[122.8,-33.9],[122.2,-34.0],[121.3,-33.8],[120.6,-33.9],[119.9,-34.0],[119.3,-34.5],[119.0,-34.5],[118.5,-34.8],[118.0,-35.1],[117.3,-35.0],[116.6,-35.0],[115.6,-34.4],[115.0,-34.2],[115.0,-33.6],[115.5,-33.5],[115.7,-33.3],[115.7,-32.9],[115.8,-32.2],[115.7,-31.6],[115.2,-30.6],[115.0,-30.0],[115.0,-29.5],[114.6,-28.8],[114.6,-28.5],[114.2,-28.1],[114.0,-27.3],[113.5,-26.5],[113.3,-26.1],[113.8,-26.6],[113.4,-25.6],[113.9,-25.9],[114.2,-26.3],[114.2,-25.8],[113.7,-25.0],[113.6,-24.7],[113.4,-24.4],[113.5,-23.8],[113.7,-23.6],[113.8,-23.1],[113.7,-22.5],[114.2,-21.8],[114.2,-22.5],[114.7,-21.8],[115.5,-21.5],[116.0,-21.1],[116.7,-20.7],[117.2,-20.6],[117.4,-20.8],[118.2,-20.4],[118.8,-20.3],[119.0,-20.0],[119.2,-19.9],[119.8,-20.0],[120.9,-19.7],[121.4,-19.2],[121.7,-18.7],[122.2,-18.2],[122.3,-17.8],[122.3,-17.2],[123.0,-16.4],[123.4,-17.3],[123.9,-17.1],[123.5,-16.6],[123.8,-16.1],[124.3,-16.3],[124.4,-15.6],[124.9,-15.1],[125.2,-14.7],[125.7,-14.5],[125.7,-14.2],[126.1,-14.3],[126.1,-14.1],[126.6,-13.9],[127.1,-13.8],[127.8,-14.3],[128.4,-14.9],[129.0,-14.9],[129.6,-15.0],[129.4,-14.4],[129.9,-13.6],[130.3,-13.4],[130.2,-13.1],[130.6,-12.5],[131.2,-12.2],[131.7,-12.3],[132.6,-12.1],[132.6,-11.6],[131.8,-11.3],[132.4,-11.1],[133.0,-11.4],[133.6,-11.8],[134.4,-12.0],[134.7,-11.9],[135.3,-12.2],[135.9,-12.0],[136.3,-12.1],[136.5,-11.9],[136.9,-12.3],[136.7,-12.9],[136.3,-13.3],[136.0,-13.3],[136.1,-13.7],[135.8,-14.2],[135.4,-14.7],[135.5,-15.0],[136.3,-15.6],[137.1,-15.9],[137.6,-16.2],[138.3,-16.8],[138.6,-16.8],[139.1,-17.1],[139.3,-17.4],[140.2,-17.7],[140.9,-17.4],[141.1,-16.8],[141.3,-16.4],[141.4,-15.8],[141.7,-15.0],[141.6,-14.6],[141.6,-14.3],[141.5,-13.7],[141.7,-12.9],[141.8,-12.7],[141.7,-12.4],[141.9,-11.9],[142.1,-11.3],[142.1,-11.0],[142.5,-10.7],[142.8,-11.2],[142.9,-11.8],[143.1,-11.9],[143.2,-12.3],[143.5,-12.8],[143.6,-13.4],[143.6,-13.8],[143.9,-14.6],[144.6,-14.2],[144.9,-14.6],[145.4,-15.0],[145.3,-15.4],[145.5,-16.3],[145.6,-16.8],[145.9,-16.9],[146.2,-17.8],[146.1,-18.3],[146.4,-19.0],[147.5,-19.5],[148.2,-20.0],[148.8,-20.4],[148.7,-20.6],[149.3,-21.3],[149.7,-22.3],[150.1,-22.1],[150.5,-22.6],[150.7,-22.4],[150.9,-23.5],[151.6,-24.1],[152.1,-24.5],[152.9,-25.3],[153.1,-26.1],[153.2,-26.6],[153.1,-27.3],[153.6,-28.1],[153.5,-29.0],[153.3,-29.5],[153.1,-30.4],[153.1,-30.9],[152.9,-31.6],[152.4,-32.5],[151.7,-33.0],[151.3,-33.8],[151.0,-34.3],[150.7,-35.2],[150.3,-35.7],[150.1,-36.4],[149.9,-37.1],[150.0,-37.4],[149.4,-37.8],[148.3,-37.8],[147.4,-38.2],[146.9,-38.6],[146.3,-39.0],[145.5,-38.6],[144.9,-38.4],[145.0,-37.9],[144.5,-38.1],[143.6,-38.8],[142.8,-38.5],[142.2,-38.4],[141.6,-38.3],[140.6,-38.0],[140.0,-37.4],[139.8,-36.6],[139.6,-36.1],[139.1,-35.7],[138.1,-35.6],[138.4,-35.1],[138.2,-34.4],[137.7,-35.1],[136.8,-35.3],[137.3,-34.7],[137.5,-34.1],[137.9,-33.6],[137.8,-32.9],[137.0,-33.8],[136.4,-34.1],[136.0,-34.9],[135.2,-34.5],[135.2,-34.0],[134.6,-33.2],[134.1,-32.9],[134.3,-32.6],[133.0,-32.0],[132.3,-32.0],[131.3,-31.5],[129.5,-31.6],[128.2,-31.9],[127.1,-32.3],[126.2,-32.2]],[[147.7,-40.8],[148.3,-40.9],[148.4,-42.1],[148.0,-42.4],[147.9,-43.2],[147.6,-42.9],[146.9,-43.6],[146.7,-43.6],[146.1,-43.5],[145.4,-42.7],[145.3,-42.0],[144.7,-41.2],[144.7,-40.7],[145.4,-40.8],[146.4,-41.1],[146.9,-41.0],[147.7,-40.8]]];
+
+    // Mini-map projection: longitude compressed by cos of the mid-latitude
+    // so ground distance reads the same on both axes.
+    var MAP_W = 260, MAP_LAT = [-44, -9], MAP_LNG = [112, 154];
+    var MAP_COS = Math.cos((MAP_LAT[0] + MAP_LAT[1]) / 2 * Math.PI / 180);
+    var MAP_H = Math.round(MAP_W * (MAP_LAT[1] - MAP_LAT[0]) / ((MAP_LNG[1] - MAP_LNG[0]) * MAP_COS));
+    function mapX(lng) { return (lng - MAP_LNG[0]) / (MAP_LNG[1] - MAP_LNG[0]) * MAP_W; }
+    function mapY(lat) { return (MAP_LAT[1] - lat) / (MAP_LAT[1] - MAP_LAT[0]) * MAP_H; }
 
     // SEED channel naming: band code, instrument code, orientation code.
     // Only codes present in a response are listed in its legend.
@@ -699,6 +723,7 @@
             var dk = netKey + '|' + st.code + '|' + (ch.start || '') + '|' + (ch.end || '');
             var d = u.deployments[dk] || (u.deployments[dk] = {
                 net: netLabel, netKey: netKey, station: st.code, site: st.site,
+                lat: parseFloat(st.lat), lon: parseFloat(st.lon),
                 start: ch.start, end: ch.end, channels: [],
             });
             if (d.channels.indexOf(ch.code) === -1) d.channels.push(ch.code);
@@ -793,7 +818,7 @@
                 + '<td class="mono">' + esc(u.last || '—') + '</td>'
                 + '</tr>';
             if (invOpen === key) {
-                var inner = '<table class="data stn-table"><thead><tr>'
+                var inner = unitPanel(u) + '<table class="data stn-table"><thead><tr>'
                     + '<th>Network</th><th>Station</th><th>Site</th><th>Channels</th><th>Deployed</th><th>Recovered</th>'
                     + '</tr></thead><tbody>'
                     + u.deployments.map(function(d) {
@@ -811,6 +836,70 @@
             }
             return row;
         }).join('') || '<tr><td colspan="8">No instruments match.</td></tr>';
+    }
+
+    // Deployment map and service statistics for one unit. Deployed time is
+    // the sum of the unit's channel-epoch windows; an epoch with no end date
+    // is counted to today and noted.
+    function unitPanel(u) {
+        var deps = u.deployments;
+        var now = new Date().toISOString().slice(0, 10);
+        var totalDays = 0, openCount = 0, longest = null;
+        deps.forEach(function(d) {
+            if (!d.start) return;
+            var end = d.end ? String(d.end).slice(0, 10) : now;
+            if (!d.end) openCount++;
+            var days = Math.max(0, (new Date(end) - new Date(String(d.start).slice(0, 10))) / 86400000);
+            totalDays += days;
+            if (!longest || days > longest.days) longest = { days: days, d: d };
+        });
+
+        // Map: one dot per distinct station, joined in deployment order.
+        var seen = {}, dots = [], pathPts = [];
+        deps.forEach(function(d) {
+            if (isNaN(d.lat) || isNaN(d.lon)) return;
+            pathPts.push([mapX(d.lon), mapY(d.lat)]);
+            var k = d.lat.toFixed(3) + ',' + d.lon.toFixed(3);
+            if (!seen[k]) { seen[k] = true; dots.push([mapX(d.lon), mapY(d.lat), d.station]); }
+        });
+        var svg = '<svg viewBox="0 0 ' + MAP_W + ' ' + MAP_H + '" role="img" aria-label="Deployment locations">';
+        AU_COAST.forEach(function(ring) {
+            var dPath = ring.map(function(pt, i) {
+                return (i ? 'L' : 'M') + mapX(pt[0]).toFixed(1) + ',' + mapY(pt[1]).toFixed(1);
+            }).join('');
+            svg += '<path class="coast" d="' + dPath + 'Z"/>';
+        });
+        if (pathPts.length > 1) {
+            svg += '<path class="path" d="' + pathPts.map(function(pt, i) {
+                return (i ? 'L' : 'M') + pt[0].toFixed(1) + ',' + pt[1].toFixed(1);
+            }).join('') + '"/>';
+        }
+        dots.forEach(function(d) {
+            svg += '<circle class="dot" cx="' + d[0].toFixed(1) + '" cy="' + d[1].toFixed(1) + '" r="3.4"><title>' + esc(d[2]) + '</title></circle>';
+        });
+        svg += '</svg>';
+
+        var offMap = deps.filter(function(d) { return isNaN(d.lat) || isNaN(d.lon)
+            || d.lat < MAP_LAT[0] || d.lat > MAP_LAT[1] || d.lon < MAP_LNG[0] || d.lon > MAP_LNG[1]; }).length;
+
+        var stats = '<dl>'
+            + '<dt>Deployments</dt><dd>' + deps.length + '</dd>'
+            + '<dt>Stations</dt><dd>' + u.stationCount + '</dd>'
+            + '<dt>Networks</dt><dd>' + u.networks.length + '</dd>'
+            + '<dt>In service</dt><dd>' + esc((u.first || '?') + ' → ' + (u.last || '?')) + '</dd>'
+            + '<dt>Deployed time</dt><dd>' + Math.round(totalDays).toLocaleString() + ' days'
+                + (openCount ? ' (' + openCount + ' deployment' + (openCount === 1 ? '' : 's') + ' still open, counted to today)' : '') + '</dd>'
+            + (longest ? '<dt>Longest deployment</dt><dd>' + Math.round(longest.days).toLocaleString() + ' days — '
+                + esc(longest.d.station + (longest.d.site ? ', ' + longest.d.site : '') + ' (' + longest.d.net + ')') + '</dd>' : '')
+            + '</dl>';
+
+        return '<div class="unit-panel">'
+            + '<div class="unit-map">' + svg
+            + '<div class="cap">' + dots.length + ' station' + (dots.length === 1 ? '' : 's')
+            + (deps.length > 1 ? '; the line follows deployment order' : '')
+            + (offMap ? '; ' + offMap + ' deployment' + (offMap === 1 ? '' : 's') + ' outside the map frame' : '') + '</div></div>'
+            + '<div class="unit-stats">' + stats + '</div>'
+            + '</div>';
     }
 
     // ── Events ──
