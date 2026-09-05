@@ -22,7 +22,12 @@
     "sync-from-sheet": "node src/sync.js pull",
     "sync-to-sheet": "node src/sync.js push",
     "full-run": "node src/search.js && node src/dashboard.js",
-    "nvcl-catalog": "node src/nvcl/thredds-catalog.js"
+    "nvcl-catalog": "node src/nvcl/thredds-catalog.js",
+    "seismic-harvest": "python3 src/seismic/harvest.py",
+    "seismic-parse": "python3 src/seismic/parse.py",
+    "seismic-candidates": "python3 src/seismic/build_candidates.py",
+    "seismic": "node src/seismic-inventory.js",
+    "seismic-funding": "python3 src/seismic/network_funding.py"
   },
   "engines": {
     "node": ">=18"

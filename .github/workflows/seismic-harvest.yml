@@ -1,0 +1,53 @@
+name: Seismic Instrument Register (AusPASS StationXML)
+
+on:
+  # Monthly. StationXML metadata changes slowly (new network epochs, corrected
+  # serials); a full re-harvest of every AusPASS network is the expensive step,
+  # so it does not belong in the weekly citation job.
+  schedule:
+    - cron: '0 4 2 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  seismic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # The Python steps are stdlib-only (urllib, xml.etree, json, csv) —
+      # no pip install, nothing to pin. Identity resolution (model
+      # canonicalisation, SmartSolo serial reconstruction) lives here and
+      # must stay the single source of truth; see src/seismic/METHODOLOGY.md.
+      - name: Harvest AusPASS StationXML (channel level, all networks)
+        run: python3 src/seismic/harvest.py
+
+      - name: Parse StationXML into deployment rows
+        run: python3 src/seismic/parse.py
+
+      # Funding evidence for network epochs (AusPASS pages + FDSN metadata).
+      # Captured as context only — it never feeds the attribution tiers.
+      - name: Capture network funding evidence
+        run: python3 src/seismic/network_funding.py
+
+      - name: Build PIDINST candidates (attribution tiers + serial resolution)
+        run: python3 src/seismic/build_candidates.py
+
+      - name: Generate the register feed
+        run: node src/seismic-inventory.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/seismic docs/seismic-instruments.json
+          git diff --cached --quiet || git commit -m "Seismic instrument register $(date +%Y-%m-%d)"
+          git push

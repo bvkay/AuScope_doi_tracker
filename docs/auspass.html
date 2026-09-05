@@ -412,14 +412,18 @@
             </div>
         </div>
 
+        <!-- Source health. Hidden while every source answers; a role=alert
+             banner the moment one does not, naming which and why. -->
+        <div id="source-banner"></div>
+
         <!-- ========== STAT TILES ========== -->
         <div class="stats" id="stat-tiles">
-            <div class="stat"><div class="label">Networks <span class="info-i" data-tip="Total seismic networks served by the AusPass FDSN station service.">i</span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
-            <div class="stat"><div class="label">Stations <span class="info-i" data-tip="Sum of stations across all networks (some operate concurrently, some sequentially over decades).">i</span></div><div class="value" id="stat-stations">—</div><div class="sub">across all networks</div></div>
-            <div class="stat"><div class="label">Active <span class="info-i" data-tip="Networks still collecting data — endTime is empty or in the future.">i</span></div><div class="value" id="stat-active">—</div><div class="sub">currently deployed</div></div>
-            <div class="stat"><div class="label">With DOI <span class="info-i" data-tip="Networks registered with a citable DOI via DataCite. Without a DOI, the network can't be reciprocally tracked for citations.">i</span></div><div class="value" id="stat-doi">—</div><div class="sub" id="stat-doi-sub">DataCite-registered</div></div>
-            <div class="stat"><div class="label">Total citations <span class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all networks. Loaded in batches after page load.">i</span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
-            <div class="stat"><div class="label">Avg F-UJI <span class="info-i" id="stat-fair-info" data-tip="Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown.">i</span></div><div class="value" id="stat-fair">—</div><div class="sub" id="stat-fair-sub">loading…</div></div>
+            <div class="stat"><div class="label">Networks <span class="term-wrap"><button type="button" class="info-i" data-tip="Total seismic networks served by the AusPass FDSN station service." aria-label="Total seismic networks served by the AusPass FDSN station service — definition" aria-describedby="gloss-auspass-1" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-1">Total seismic networks served by the AusPass FDSN station service.</span></span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
+            <div class="stat"><div class="label">Stations <span class="term-wrap"><button type="button" class="info-i" data-tip="Sum of stations across all networks (some operate concurrently, some sequentially over decades)." aria-label="Sum of stations across all networks (some operate concurrently, some sequentiall — definition" aria-describedby="gloss-auspass-2" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-2">Sum of stations across all networks (some operate concurrently, some sequentially over decades).</span></span></div><div class="value" id="stat-stations">—</div><div class="sub">across all networks</div></div>
+            <div class="stat"><div class="label">Active <span class="term-wrap"><button type="button" class="info-i" data-tip="Networks still collecting data — endTime is empty or in the future." aria-label="Networks still collecting data — endTime is empty or in the future — definition" aria-describedby="gloss-auspass-3" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-3">Networks still collecting data — endTime is empty or in the future.</span></span></div><div class="value" id="stat-active">—</div><div class="sub">currently deployed</div></div>
+            <div class="stat"><div class="label">With DOI <span class="term-wrap"><button type="button" class="info-i" data-tip="Networks registered with a citable DOI via DataCite. Without a DOI, the network can't be reciprocally tracked for citations." aria-label="Networks registered with a citable DOI via DataCite — definition" aria-describedby="gloss-auspass-4" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-4">Networks registered with a citable DOI via DataCite. Without a DOI, the network can't be reciprocally tracked for citations.</span></span></div><div class="value" id="stat-doi">—</div><div class="sub" id="stat-doi-sub">DataCite-registered</div></div>
+            <div class="stat"><div class="label">Total citations <span class="term-wrap"><button type="button" class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all networks. Loaded in batches after page load." aria-label="Sum of citation counts reported by DataCite GraphQL across all networks — definition" aria-describedby="gloss-auspass-5" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-5">Sum of citation counts reported by DataCite GraphQL across all networks. Loaded in batches after page load.</span></span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
+            <div class="stat"><div class="label">Avg F-UJI <span class="term-wrap"><button type="button" class="info-i" id="stat-fair-info" data-tip="Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown." aria-label="Mean F-UJI FAIR assessment score — definition" aria-describedby="gloss-auspass-6" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-6">Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown.</span></span></div><div class="value" id="stat-fair">—</div><div class="sub" id="stat-fair-sub">loading…</div></div>
         </div>
 
         <!-- ========== FLEET SUMMARY ========== -->
@@ -517,6 +521,11 @@
         </div>
 
         <!-- ========== TABLE ========== -->
+        <!-- Named loading state: which service, how far in. The FDSN
+             station service and the DataCite enrichment are separate waits
+             and used to share one anonymous spinner. -->
+        <div id="load-progress"></div>
+
         <div class="table-wrap">
             <table class="data" id="nw-table">
                 <thead>
@@ -586,6 +595,177 @@ var state = createTrackerState({
     }
 });
 
+// ============================================================
+// SOURCE HEALTH
+// ============================================================
+// Four independent reads, none of which previously had a timeout: a
+// stalled AusPass or DataCite left the page on "loading…" with no way
+// to tell a slow service from a dead one, and a DataCite outage
+// published "Total citations 0" as though it were a measurement.
+// Everything now goes through trackerFetch and reports here; the tiles
+// are wired to this ledger, so a dead source yields "—" and a reason.
+var sources = createSourceLedger({ bannerEl: 'source-banner' });
+sources.declare('auspass', 'AusPass FDSN station service', { critical: true });
+sources.declare('datacite', 'DataCite metadata');
+sources.declare('citations', 'DataCite citation counts');
+sources.declare('fuji', 'F-UJI assessment feed');
+
+var loadProgressUi = null;
+
+// setFigure treats a wired source as vouching for a 0 unless it is
+// *known* to be broken — and a source still loading is not yet known to
+// be broken, so "Networks 0" would print for the whole load. A figure
+// gets its ledger wiring only once its source has settled.
+function figureOpts(key, extra) {
+    var o = extra || {};
+    var e = sources.get(key);
+    var settled = e && (e.status === 'ok' || e.status === 'partial'
+        || e.status === 'failed' || e.status === 'skipped');
+    if (settled) { o.source = sources; o.sourceKey = key; }
+    return o;
+}
+
+var statsRepaintBound = false;
+function bindStatsToLedger() {
+    if (statsRepaintBound) return;
+    statsRepaintBound = true;
+    // Any change in source health invalidates every tile drawn before it.
+    sources.onChange(function() { renderStats(); });
+}
+
+// ------------------------------------------------------------
+// Citation counts, graded
+// ------------------------------------------------------------
+// loadCitationCounts() in tracker-citations.js assigns 0 whenever a
+// lookup returns a non-OK status. That file is shared and out of scope
+// here, so this page runs its own pass over the same endpoint and the
+// same cache, but keeps the outcome: a failed lookup leaves
+// citationCount unset and records citeFailed.
+var citeRun = { started: false, finished: false, done: 0, ok: 0, failed: 0, total: 0, lastReason: '' };
+
+function fetchCiteCountGraded(doi) {
+    return trackerFetch('https://api.datacite.org/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            query: 'query($id: ID!) { work(id: $id) { citationCount } }',
+            // FDSN DOIs carry uppercase segments (10.7914/SN/1E_2013) and
+            // DataCite's GraphQL endpoint 400s on those; lowercasing is
+            // canonical and safe.
+            variables: { id: String(doi).toLowerCase() }
+        }),
+        label: 'DataCite citation counts',
+        timeout: 20000, retries: 2, retryDelay: 1500
+    }).then(function(res) {
+        if (!res.ok) return { ok: false, reason: res.reason };
+        var d = res.data || {};
+        if (d.errors && d.errors.length) {
+            return { ok: false, reason: d.errors[0].message || 'DataCite GraphQL error' };
+        }
+        var work = d.data && d.data.work;
+        if (!work) return { ok: false, reason: 'not present in the DataCite citation graph' };
+        return { ok: true, count: work.citationCount || 0 };
+    });
+}
+
+async function loadCitationCountsGraded() {
+    var withDoi = state.networks.filter(function(n) { return n.doi; });
+    citeRun = { started: true, finished: false, done: 0, ok: 0, failed: 0, total: withDoi.length, lastReason: '' };
+    if (!withDoi.length) {
+        citeRun.finished = true;
+        sources.skip('citations', 'no DOIs to look up');
+        renderStats();
+        return;
+    }
+    sources.start('citations', 'looking up ' + withDoi.length + ' DOIs');
+
+    var batchSize = 5;
+    for (var i = 0; i < withDoi.length; i += batchSize) {
+        await Promise.all(withDoi.slice(i, i + batchSize).map(function(n) {
+            var key = normaliseDoi(n.doi);
+            var cached = state.citationCache[key];
+            if (cached && typeof cached.count === 'number') {
+                n.citationCount = cached.count; n.citeFailed = '';
+                citeRun.ok++; citeRun.done++;
+                return Promise.resolve();
+            }
+            return fetchCiteCountGraded(n.doi).then(function(out) {
+                citeRun.done++;
+                if (out.ok) {
+                    n.citationCount = out.count; n.citeFailed = '';
+                    state.citationCache[key] = state.citationCache[key] || {};
+                    state.citationCache[key].count = out.count;
+                    citeRun.ok++;
+                } else {
+                    // Unset, not zero: unknown must render as unknown.
+                    n.citeFailed = out.reason || 'lookup failed';
+                    citeRun.failed++;
+                    citeRun.lastReason = n.citeFailed;
+                }
+            });
+        }));
+        document.getElementById('stat-cites-sub').textContent =
+            'looked up ' + citeRun.done + ' / ' + citeRun.total;
+        renderStats();
+        renderTableRowsOnly();
+    }
+    citeRun.finished = true;
+    if (citeRun.failed === 0) sources.ok('citations', citeRun.total + ' DOIs');
+    else if (citeRun.ok === 0) sources.fail('citations', citeRun.lastReason || 'no DOI lookup succeeded');
+    else sources.partial('citations', { done: citeRun.ok, total: citeRun.total, reason: citeRun.lastReason });
+    renderStats();
+    renderTableRowsOnly();
+}
+
+// renderCitePill can only say a number or "…"; it has no vocabulary for
+// "we asked and DataCite did not answer".
+function citePill(n) {
+    if (n.doi && n.citeFailed) {
+        var msg = 'Citation count unavailable — ' + n.citeFailed
+            + '. This is missing data, not zero citations.';
+        return '<span class="cite-pill unknown" data-tip="' + escapeAttr(msg) + '" tabindex="0"'
+            + ' role="img" aria-label="' + escapeAttr(msg) + '">?</span>';
+    }
+    return renderCitePill(n, state.citationCache);
+}
+
+// Keep a runtime-updated tooltip and its screen-reader description in step.
+function setTip(el, text) {
+    if (!el) return;
+    el.setAttribute('data-tip', text);
+    var t = document.getElementById(el.getAttribute('aria-describedby') || '');
+    if (t) t.textContent = text;
+}
+
+// Fleet facet chips are <div>s rendered by the shared chassis, so they
+// were mouse-only. Their click handler is already delegated.
+function makeDivControlsOperable() {
+    var chips = document.querySelectorAll('.fleet-item');
+    for (var i = 0; i < chips.length; i++) {
+        var c = chips[i];
+        var inert = c.classList.contains('zero');
+        c.setAttribute('role', 'button');
+        c.setAttribute('aria-pressed', c.classList.contains('active') ? 'true' : 'false');
+        if (inert) { c.removeAttribute('tabindex'); c.setAttribute('aria-disabled', 'true'); }
+        else { c.setAttribute('tabindex', '0'); c.removeAttribute('aria-disabled'); }
+    }
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var t = e.target.closest ? e.target.closest('.fleet-item, tr.data-row') : null;
+    if (!t || t.getAttribute('aria-disabled') === 'true') return;
+    e.preventDefault();
+    var rowKey = t.classList.contains('data-row') ? t.getAttribute('data-key') : null;
+    t.click();
+    // The table re-renders on toggle, discarding the focused element.
+    if (rowKey) {
+        setTimeout(function() {
+            var back = document.querySelector('tr.data-row[data-key="' + rowKey.replace(/"/g, '\\"') + '"]');
+            if (back) back.focus();
+        }, 60);
+    }
+});
+
 // Fleet summary categories — citation/deployment focused, not mapping.
 var fleetCategories = [
     {
@@ -625,6 +805,7 @@ var fleetCategories = [
 // ENTRY
 // ============================================================
 function init() {
+    bindStatsToLedger();
     bindControls();
     bindRowDelegation();
     bindDetailTabs();
@@ -708,28 +889,63 @@ function bindControls() {
 // LOAD NETWORKS
 // ============================================================
 async function loadNetworks() {
-    setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading networks from AusPass…</td></tr>');
-    try {
-        var networks = await fetchAusPassNetworks();
-        state.networks = networks.map(normalizeNetwork);
-        populateDecadeFilter();
+    sources.start('auspass', 'contacting the station service');
+    if (loadProgressUi) loadProgressUi.destroy();
+    loadProgressUi = createProgress('load-progress', {
+        label: 'Loading networks from the AusPass FDSN station service',
+        note: 'auspass.edu.au/fdsnws/station — one request for the whole network list'
+    });
+    // A skeleton shows the table's own shape while it fills.
+    renderSkeleton('nw-tbody', { rows: 8, cols: 9, tbody: true });
+    renderStats();
+
+    var out = await fetchAusPassNetworks();
+    if (!out.ok) {
+        // A failed request and an empty registry are different facts.
+        // Drop the previous load's rows as well: a figure computed from
+        // records we can no longer confirm is a stale figure outliving its
+        // own evidence, which is the defect this whole pass is about.
+        state.networks = [];
+        sources.fail('auspass', out.reason);
+        sources.skip('datacite', 'no networks to enrich');
+        sources.skip('citations', 'no DOIs to look up');
+        loadProgressUi.fail(out.reason, function() { loadNetworks(); });
+        clearSkeleton('nw-tbody');
+        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">'
+            + 'The AusPass station service did not answer: ' + escapeHtml(out.reason)
+            + '. No networks could be listed &mdash; this is a failed request, not an empty registry.'
+            + '</td></tr>');
         renderStats();
-        renderTable();
-        // The map keys its dots on deployments, which are derived from this
-        // table. If the map was drawn before the table landed (both are
-        // independent fetches), re-key it now. No-op when the map is unopened.
-        if (state.map.loaded) renderMap();
-        // Background: fetch DataCite creator info, then citation counts
-        enrichWithDataCite();
-    } catch (err) {
-        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
+        return;
     }
+
+    state.networks = out.networks.map(normalizeNetwork);
+    sources.ok('auspass', state.networks.length + ' networks');
+    loadProgressUi.done(state.networks.length + ' networks read from AusPass');
+    clearSkeleton('nw-tbody');
+
+    populateDecadeFilter();
+    renderStats();
+    renderTable();
+    // The map keys its dots on deployments, which are derived from this
+    // table. If the map was drawn before the table landed (both are
+    // independent fetches), re-key it now. No-op when the map is unopened.
+    if (state.map.loaded) renderMap();
+    // Background: fetch DataCite creator info, then citation counts
+    enrichWithDataCite();
 }
 
+// Returns a classified result rather than throwing: the caller has to be
+// able to distinguish "the service said no networks" from "the service
+// did not answer", because those render differently.
 async function fetchAusPassNetworks() {
-    var resp = await fetch('https://auspass.edu.au/fdsnws/station/1/query?level=network&format=text');
-    if (!resp.ok) throw new Error('AusPass station service returned HTTP ' + resp.status);
-    var text = await resp.text();
+    var res = await trackerFetch('https://auspass.edu.au/fdsnws/station/1/query?level=network&format=text', {
+        parse: 'text',
+        label: 'AusPass FDSN station service',
+        timeout: 25000, retries: 2, retryDelay: 1200
+    });
+    if (!res.ok) return { ok: false, reason: res.reason, networks: [] };
+    var text = res.data || '';
 
     var lines = text.trim().split('\n');
     var networks = [];
@@ -758,8 +974,12 @@ async function fetchAusPassNetworks() {
         var startYr = n.startTime ? n.startTime.substring(0, 4) : '';
         n.doi = doiByCodeYear[n.code + '_' + startYr] || doiByCode[n.code] || '';
     });
+    if (!networks.length) {
+        // A 200 carrying no rows is still a source that told us nothing.
+        return { ok: false, reason: 'the station service returned no network rows', networks: [] };
+    }
 
-    return networks;
+    return { ok: true, reason: '', networks: networks };
 }
 
 function normalizeNetwork(n) {
@@ -827,35 +1047,54 @@ function populateDecadeFilter() {
 // ============================================================
 async function enrichWithDataCite() {
     var withDoi = state.networks.filter(function(n) { return n.doi; });
+    if (!withDoi.length) {
+        sources.skip('datacite', 'no DOIs to enrich');
+        await loadCitationCountsGraded();
+        return;
+    }
+    sources.start('datacite', 'reading ' + withDoi.length + ' DataCite records');
+
     // Fetch DataCite creator metadata in batches
     var batchSize = 5;
+    var okCount = 0, outages = 0, lastReason = '';
     for (var i = 0; i < withDoi.length; i += batchSize) {
         var batch = withDoi.slice(i, i + batchSize);
         await Promise.all(batch.map(function(n) {
             if (state.dataciteCache[n.doi]) {
                 applyDataCite(n, state.dataciteCache[n.doi]);
+                okCount++;
                 return Promise.resolve();
             }
-            return fetch('https://api.datacite.org/dois/' + encodeURIComponent(n.doi))
-                .then(function(r) { return r.ok ? r.json() : null; })
-                .then(function(data) {
-                    if (data && data.data) {
-                        state.dataciteCache[n.doi] = data.data.attributes;
-                        applyDataCite(n, data.data.attributes);
-                    }
-                })
-                .catch(function() {});
+            return trackerFetch('https://api.datacite.org/dois/' + encodeURIComponent(n.doi), {
+                label: 'DataCite metadata', timeout: 20000, retries: 2, retryDelay: 1200
+            }).then(function(res) {
+                if (!res.ok) {
+                    // Transport failure — count it against the source.
+                    outages++; lastReason = res.reason;
+                    n.dcFailed = res.reason;
+                    return;
+                }
+                var data = res.data;
+                if (data && data.data) {
+                    state.dataciteCache[n.doi] = data.data.attributes;
+                    applyDataCite(n, data.data.attributes);
+                    n.dcFailed = '';
+                    okCount++;
+                } else {
+                    // A real finding about this DOI, not an outage.
+                    n.dcFailed = 'DataCite has no record for this DOI';
+                }
+            });
         }));
         renderStats();
         renderTableRowsOnly();
     }
-    // Then citation counts (module-owned; re-entrancy guarded internally)
-    loadCitationCounts({
-        getEntities: function() { return state.networks; },
-        cache: state.citationCache,
-        progressEl: document.getElementById('stat-cites-sub'),
-        onBatch: function() { renderStats(); renderTableRowsOnly(); }
-    });
+    if (outages === 0) sources.ok('datacite', okCount + ' of ' + withDoi.length + ' records');
+    else if (okCount === 0) sources.fail('datacite', lastReason || 'no DataCite record could be read');
+    else sources.partial('datacite', { done: okCount, total: withDoi.length, reason: lastReason });
+
+    // Then citation counts, graded (see loadCitationCountsGraded).
+    await loadCitationCountsGraded();
 }
 
 function applyDataCite(network, attrs) {
@@ -928,10 +1167,16 @@ function applyDataCite(network, attrs) {
 // malformed the column shows an em-dash and the tile shows n/a — nothing
 // else on the page depends on it.
 async function loadFairScores() {
-    try {
-        var resp = await fetch('fair-scores.json');
-        if (!resp.ok) throw new Error('fair-scores.json returned HTTP ' + resp.status);
-        var data = await resp.json();
+    sources.start('fuji');
+    var res = await trackerFetch('fair-scores.json', {
+        label: 'F-UJI assessment feed', timeout: 15000, retries: 1
+    });
+    var data = res.data;
+    if (!res.ok || !data || !data.scores) {
+        state.fair.failed = true;
+        sources.fail('fuji', res.ok ? 'the feed loaded but carries no scores' : res.reason);
+        document.getElementById('stat-fair-sub').textContent = 'assessment feed unavailable';
+    } else {
         state.fair.meta = {
             generated: data.generated || '',
             fuji_version: data.fuji_version || '?',
@@ -940,13 +1185,9 @@ async function loadFairScores() {
         };
         state.fair.scores = data.scores || {};
         state.fair.loaded = true;
-    } catch (err) {
-        state.fair.failed = true;
-        // Set the tile directly too — renderStats only runs once networks
-        // land, and the tile shouldn't sit on "loading…" if the feed is gone.
-        document.getElementById('stat-fair').textContent = 'n/a';
-        document.getElementById('stat-fair-sub').textContent = 'assessment feed unavailable';
+        sources.ok('fuji', Object.keys(state.fair.scores).length + ' assessed DOIs');
     }
+    renderStats();
     // The networks fetch and this one race; whichever lands second completes
     // the picture. Re-render only if the table already has rows — otherwise
     // loadNetworks' own renderStats/renderTable will pick the scores up.
@@ -988,9 +1229,16 @@ async function fetchStations(networkCode) {
     if (state.stationCache[networkCode]) return state.stationCache[networkCode];
     var url = 'https://auspass.edu.au/fdsnws/station/1/query?network=' + encodeURIComponent(networkCode)
         + '&level=station&format=text';
-    var resp = await fetch(url);
-    if (!resp.ok) throw new Error('Station service returned HTTP ' + resp.status);
-    var text = await resp.text();
+    // Bounded like every other read on this page: an unbounded fetch here
+    // leaves the Stations pane spinning forever when the service stalls,
+    // which is the same defect as the page-level hang in a smaller frame.
+    var res = await trackerFetch(url, {
+        parse: 'text',
+        label: 'AusPass station list',
+        timeout: 20000, retries: 1
+    });
+    if (!res.ok) throw new Error(res.reason);
+    var text = res.data || '';
     var lines = text.trim().split('\n');
     var stations = [];
     for (var i = 1; i < lines.length; i++) {
@@ -1084,43 +1332,91 @@ function renderStats() {
     var active = nw.filter(function(n) { return n.status === 'active'; }).length;
     var withDoi = nw.filter(function(n) { return n.doi; }).length;
     var totalCites = nw.reduce(function(s, n) { return s + (n.citationCount || 0); }, 0);
-    var citeKnown = nw.filter(function(n) { return typeof n.citationCount === 'number'; }).length;
 
-    document.getElementById('stat-total').textContent = total;
-    document.getElementById('stat-total-sub').textContent = total > 0 ? 'live from AusPass FDSN' : '';
-    document.getElementById('stat-stations').textContent = stations.toLocaleString();
-    document.getElementById('stat-active').textContent = active;
-    document.getElementById('stat-doi').textContent = withDoi;
+    // Networks / Stations / Active / With DOI all derive from the one
+    // AusPass read, so all four are wired to it: if it failed they read
+    // "—" with the reason, never the 0 an empty list would produce.
+    var listLanded = total > 0 && !sources.broken('auspass');
+    setFigure('stat-total', total, figureOpts('auspass', {
+        missingReason: 'the AusPass station service returned no networks'
+    }));
+    document.getElementById('stat-total-sub').textContent =
+        sources.broken('auspass') ? 'station service unavailable'
+        : total > 0 ? 'live from AusPass FDSN' : 'loading…';
+
+    setFigure('stat-stations', listLanded ? stations : null, figureOpts('auspass', {
+        zeroIsReal: listLanded,
+        missingReason: 'the AusPass station service returned no networks'
+    }));
+    setFigure('stat-active', listLanded ? active : null, figureOpts('auspass', {
+        // Zero active networks is a real, reportable finding — but only
+        // once the list has actually landed.
+        zeroIsReal: listLanded,
+        missingReason: 'the AusPass station service returned no networks'
+    }));
+    setFigure('stat-doi', listLanded ? withDoi : null, figureOpts('auspass', {
+        zeroIsReal: listLanded,
+        missingReason: 'the AusPass station service returned no networks'
+    }));
     var doiSub = document.getElementById('stat-doi-sub');
-    if (total > 0) doiSub.textContent = withDoi + ' / ' + total + ' registered';
-    document.getElementById('stat-cites').textContent = totalCites;
+    doiSub.textContent = listLanded ? (withDoi + ' / ' + total + ' registered')
+        : sources.broken('auspass') ? 'network list unavailable' : 'DataCite-registered';
+
+    // ---- Total citations: never a sum of failed lookups.
+    var citesSub = document.getElementById('stat-cites-sub');
+    if (!listLanded) {
+        setFigure('stat-cites', null, { missingReason: 'no networks loaded, so nothing to count' });
+        citesSub.textContent = 'via DataCite';
+    } else if (!citeRun.finished) {
+        setFigure('stat-cites', citeRun.ok > 0 ? totalCites : null, {
+            zeroIsReal: false,
+            missingReason: citeRun.started
+                ? 'still counting — ' + citeRun.done + ' of ' + citeRun.total + ' DOIs checked'
+                : 'citation counts have not been requested yet'
+        });
+        citesSub.textContent = citeRun.started
+            ? 'counting… ' + citeRun.done + ' / ' + citeRun.total + ' (running floor)'
+            : 'via DataCite';
+    } else {
+        setFigure('stat-cites', totalCites, figureOpts('citations', {
+            // The only route by which a 0 reaches this tile.
+            zeroIsReal: citeRun.failed === 0 && citeRun.ok === citeRun.total,
+            missingReason: 'DataCite did not answer for any of these DOIs'
+        }));
+        citesSub.textContent = citeRun.failed === 0
+            ? 'across ' + citeRun.ok + ' networks'
+            : 'across ' + citeRun.ok + ' of ' + citeRun.total + ' DOIs — ' + citeRun.failed + ' unavailable';
+    }
 
     // Avg F-UJI tile — mean over assessed networks only. The info tip gains
     // the feed's version stamp once loaded (via setAttribute, so the values
     // are treated as data — no escaping needed).
-    var fairVal = document.getElementById('stat-fair');
     var fairSub = document.getElementById('stat-fair-sub');
-    if (state.fair.loaded) {
-        var assessed = nw.filter(function(n) { return !!fairScoreFor(n); });
-        if (assessed.length > 0) {
-            var fairSum = 0;
-            assessed.forEach(function(n) { fairSum += fairScoreFor(n).s; });
-            fairVal.textContent = (fairSum / assessed.length).toFixed(1) + '%';
-        } else {
-            fairVal.textContent = 'n/a';
-        }
-        fairSub.textContent = assessed.length + ' of ' + total + ' assessed';
-        var fairInfo = document.getElementById('stat-fair-info');
-        if (fairInfo) {
-            fairInfo.setAttribute('data-tip', 'Mean F-UJI FAIR assessment score (F-UJI v' + state.fair.meta.fuji_version
-                + ', metric set v' + state.fair.meta.metric_version
-                + ', assessed ' + String(state.fair.meta.generated).substring(0, 10)
-                + '). Automated metadata-completeness signal, not a data-quality rating. '
-                + 'Open a dataset\'s F-UJI check tab for the per-metric breakdown.');
-        }
-    } else if (state.fair.failed) {
-        fairVal.textContent = 'n/a';
-        fairSub.textContent = 'assessment feed unavailable';
+    var assessed = state.fair.loaded ? nw.filter(function(n) { return !!fairScoreFor(n); }) : [];
+    var fairAvg = null;
+    if (assessed.length > 0) {
+        var fairSum = 0;
+        assessed.forEach(function(n) { fairSum += fairScoreFor(n).s; });
+        fairAvg = fairSum / assessed.length;
+    }
+    setFigure('stat-fair', fairAvg, figureOpts('fuji', {
+        format: function(v) { return v.toFixed(1) + '%'; },
+        missingReason: state.fair.failed ? 'the F-UJI assessment feed did not load'
+            : !state.fair.loaded ? 'the F-UJI assessment feed is still loading'
+            : 'none of these networks has been assessed yet'
+    }));
+    if (state.fair.failed) fairSub.textContent = 'assessment feed unavailable';
+    else if (state.fair.loaded) {
+        fairSub.textContent = total === 0
+            ? 'waiting for the network list'
+            : assessed.length + ' of ' + total + ' assessed';
+        // The 35–60% band sentence, carried to the point of display.
+        setTip(document.getElementById('stat-fair-info'),
+            'Mean F-UJI FAIR assessment score (F-UJI v' + state.fair.meta.fuji_version
+            + ', metric set v' + state.fair.meta.metric_version
+            + ', assessed ' + String(state.fair.meta.generated).substring(0, 10)
+            + '). ' + termTip('fuji-band')
+            + ' Open a dataset\'s F-UJI check tab for the per-metric breakdown.');
     }
 }
 
@@ -1154,6 +1450,7 @@ function renderTable() {
     resultEl.innerHTML = msg;
 
     renderFleetPanel();
+    makeDivControlsOperable();
 
     if (visible.length === 0) {
         setBody('<tr><td colspan="9" class="empty-state">No networks match the current filters.</td></tr>');
@@ -1175,7 +1472,7 @@ function renderTableRowsOnly() {
         var n = state.networks.find(function(x) { return x.rowKey === key; });
         if (!n) return;
         var cell = row.querySelector('.col-cites');
-        if (cell) cell.innerHTML = renderCitePill(n, state.citationCache);
+        if (cell) cell.innerHTML = citePill(n);
     });
 }
 
@@ -1189,7 +1486,11 @@ function renderRow(n, num) {
         ? '<a class="doi" href="https://doi.org/' + escapeAttr(n.doi) + '" target="_blank" rel="noopener">' + escapeHtml(n.doi) + '</a>'
         : '<span style="font-size:11px;color:var(--text-muted);">no DOI</span>';
 
-    return '<tr class="data-row' + (state.expanded.has(n.rowKey) ? ' expanded' : '') + '" data-key="' + escapeAttr(n.rowKey) + '" data-code="' + escapeAttr(n.code) + '">'
+    // The row is the expand control, so it needs a tab stop and a state.
+    var isOpen = state.expanded.has(n.rowKey);
+    return '<tr class="data-row' + (isOpen ? ' expanded' : '') + '" data-key="' + escapeAttr(n.rowKey) + '" data-code="' + escapeAttr(n.code) + '"'
+        + ' tabindex="0" role="button" aria-expanded="' + (isOpen ? 'true' : 'false') + '"'
+        + ' aria-label="' + escapeAttr(n.code + ' ' + (n.description || '') + ' — expand for detail') + '">'
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-code">' + escapeHtml(n.code) + '</td>'
         + '<td class="col-desc">'
@@ -1200,7 +1501,7 @@ function renderRow(n, num) {
         + '<td class="col-stations">' + n.totalStations + '</td>'
         + '<td class="col-status">' + statusBadge + '</td>'
         + '<td class="col-fair">' + renderFairCell(n) + '</td>'
-        + '<td class="col-cites">' + renderCitePill(n, state.citationCache) + '</td>'
+        + '<td class="col-cites">' + citePill(n) + '</td>'
         + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
         + '</tr>';
 }
@@ -1505,16 +1806,16 @@ function renderOverviewPane(n) {
         + '<dt>Status</dt><dd>' + (n.status === 'active'
             ? '<span class="badge status-active">Active</span> · still collecting data'
             : '<span class="badge status-concluded">Concluded</span>') + '</dd>'
-        + '<dt>Operating period <span class="info-i" data-tip="From the FDSN station service — when the network was operationally active.">i</span></dt><dd><span class="mono">' + escapeHtml(n.startTime || '') + '</span>'
+        + '<dt>Operating period <span class="term-wrap"><button type="button" class="info-i" data-tip="From the FDSN station service — when the network was operationally active." aria-label="From the FDSN station service — when the network was operationally active — definition" aria-describedby="gloss-auspass-7" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-7">From the FDSN station service — when the network was operationally active.</span></span></dt><dd><span class="mono">' + escapeHtml(n.startTime || '') + '</span>'
             + (n.endTime ? ' &nbsp;→&nbsp; <span class="mono">' + escapeHtml(n.endTime) + '</span>' : ' &nbsp;→&nbsp; <em style="color:var(--text-soft)">ongoing</em>') + '</dd>'
-        + '<dt>Collection dates <span class="info-i" data-tip="From the DataCite record (dates array) — the formally declared data collection period.">i</span></dt><dd>' + dataciteDatesHtml + '</dd>'
+        + '<dt>Collection dates <span class="term-wrap"><button type="button" class="info-i" data-tip="From the DataCite record (dates array) — the formally declared data collection period." aria-label="From the DataCite record (dates array) — the formally declared data collection p — definition" aria-describedby="gloss-auspass-8" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-8">From the DataCite record (dates array) — the formally declared data collection period.</span></span></dt><dd>' + dataciteDatesHtml + '</dd>'
         + '<dt>Stations</dt><dd>' + n.totalStations + ' total · see Stations tab for inventory</dd>'
         + '<dt>DOI</dt><dd>' + doiBlock + '</dd>'
-        + '<dt>Record updated <span class="info-i" data-tip="When DataCite last updated this record. After making changes via FDSN.org, propagation to DataCite typically takes a day or two.">i</span></dt><dd>' + freshnessHtml + '</dd>'
-        + '<dt>Operator(s) <span class="info-i" data-tip="From DataCite creators field — typically the research team that deployed and operated the network.">i</span></dt><dd>' + creators + '</dd>'
-        + '<dt>Contributors <span class="info-i" data-tip="From DataCite contributors field — institutions hosting the network (HostingInstitution), people to contact (ContactPerson), and funding/supporting bodies (Sponsor). Add via the FDSN.org registration form.">i</span></dt><dd>' + contributors + '</dd>'
-        + '<dt>Declared citing papers <span class="info-i" data-tip="DOIs declared in this network\'s relatedIdentifiers as IsCitedBy / IsDocumentedBy / etc. Add via FDSN.org\'s &quot;Add reference&quot; field. The Citations tab cross-checks these against papers found in external citation sources.">i</span></dt><dd>' + declaredPapersHtml + '</dd>'
-        + '<dt>Data extent <span class="info-i" data-tip="From DataCite sizes/formats fields when declared (e.g. SEED data volume).">i</span></dt><dd>' + extentHtml + '</dd>'
+        + '<dt>Record updated <span class="term-wrap"><button type="button" class="info-i" data-tip="When DataCite last updated this record. After making changes via FDSN.org, propagation to DataCite typically takes a day or two." aria-label="When DataCite last updated this record — definition" aria-describedby="gloss-auspass-9" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-9">When DataCite last updated this record. After making changes via FDSN.org, propagation to DataCite typically takes a day or two.</span></span></dt><dd>' + freshnessHtml + '</dd>'
+        + '<dt>Operator(s) <span class="term-wrap"><button type="button" class="info-i" data-tip="From DataCite creators field — typically the research team that deployed and operated the network." aria-label="From DataCite creators field — typically the research team that deployed and ope — definition" aria-describedby="gloss-auspass-10" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-10">From DataCite creators field — typically the research team that deployed and operated the network.</span></span></dt><dd>' + creators + '</dd>'
+        + '<dt>Contributors <span class="term-wrap"><button type="button" class="info-i" data-tip="From DataCite contributors field — institutions hosting the network (HostingInstitution), people to contact (ContactPerson), and funding/supporting bodies (Sponsor). Add via the FDSN.org registration form." aria-label="From DataCite contributors field — institutions hosting the network (HostingInst — definition" aria-describedby="gloss-auspass-11" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-11">From DataCite contributors field — institutions hosting the network (HostingInstitution), people to contact (ContactPerson), and funding/supporting bodies (Sponsor). Add via the FDSN.org registration form.</span></span></dt><dd>' + contributors + '</dd>'
+        + '<dt>Declared citing papers <span class="term-wrap"><button type="button" class="info-i" data-tip="DOIs declared in this network\'s relatedIdentifiers as IsCitedBy / IsDocumentedBy / etc. Add via FDSN.org\'s &quot;Add reference&quot; field. The Citations tab cross-checks these against papers found in external citation sources." aria-label="DOIs declared in this network\&#x27;s relatedIdentifiers as IsCitedBy / IsDocumentedB — definition" aria-describedby="gloss-auspass-12" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-12">DOIs declared in this network\'s relatedIdentifiers as IsCitedBy / IsDocumentedBy / etc. Add via FDSN.org\'s &quot;Add reference&quot; field. The Citations tab cross-checks these against papers found in external citation sources.</span></span></dt><dd>' + declaredPapersHtml + '</dd>'
+        + '<dt>Data extent <span class="term-wrap"><button type="button" class="info-i" data-tip="From DataCite sizes/formats fields when declared (e.g. SEED data volume)." aria-label="From DataCite sizes/formats fields when declared (e — definition" aria-describedby="gloss-auspass-13" aria-expanded="false">i</button><span class="sr-only" id="gloss-auspass-13">From DataCite sizes/formats fields when declared (e.g. SEED data volume).</span></span></dt><dd>' + extentHtml + '</dd>'
         + '<dt>Rights / licence</dt><dd>' + rights + '</dd>'
         + '</dl>';
 }

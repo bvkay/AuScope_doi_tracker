@@ -532,15 +532,29 @@ function onData(data) {
     // from tracker-citations.js; DataCite GraphQL, 429-tolerant).
     fetchCitationCount(COLLECTION_DOI).then(function(n) {
         var chip = document.getElementById('cite-count-chip');
+        if (n == null) { citeChipUnavailable('the DataCite citation service did not answer'); return; }
         chip.className = 'cite-pill' + (n ? '' : ' zero');
         chip.textContent = String(n);
-    }).catch(function() {
-        var chip = document.getElementById('cite-count-chip');
-        chip.className = 'cite-pill zero';
-        chip.textContent = '0';
+        chip.title = n ? 'Formal citations recorded by DataCite.'
+                       : 'DataCite records no formal citations of this DOI yet.';
+    }).catch(function(err) {
+        citeChipUnavailable((err && err.message) || 'the DataCite citation service could not be reached');
     });
+
+
     document.getElementById('map-play').disabled = false;
     document.getElementById('map-slider').disabled = false;
+}
+
+// An unreachable source must never render as a number. '?' plus the reason is
+// the honest state: a real zero and an outage were previously pixel-identical.
+function citeChipUnavailable(reason) {
+    var chip = document.getElementById('cite-count-chip');
+    if (!chip) return;
+    chip.className = 'cite-pill unknown';
+    chip.textContent = '?';
+    chip.title = 'Citation count unavailable — ' + reason + '. This is not a count of zero.';
+    chip.setAttribute('aria-label', chip.title);
 }
 
 function onLoadError(err) {

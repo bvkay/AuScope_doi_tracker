@@ -1,0 +1,1595 @@
+[
+ {
+  "model": "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s",
+  "units": 323,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "GEO",
+   "GP",
+   "SP"
+  ],
+  "descriptions": [
+   "DT-SOLO 16HR-3C 5Hz node (GP)",
+   "DT-SOLO 16HR-3C 5Hz node (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 12
+ },
+ {
+  "model": "16HR-3C 5Hz (built-in)",
+  "units": 322,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 12
+ },
+ {
+  "model": "Lennartz LE-3Dlite MkII (400 v/m/s)",
+  "units": 256,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB",
+   "SP"
+  ],
+  "descriptions": [
+   "LE-3Dlite MkII (SP)",
+   "Lennartz LE-3Dlite MkII (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 12
+ },
+ {
+  "model": "ANU LPR-200 (Beige Box)",
+  "units": 235,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "ANU LPR-200 (Beige Box)"
+  ],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 25
+ },
+ {
+  "model": "Nanometrics Trillium Compact 120s (754 V/m/s)",
+  "units": 144,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB",
+   "Nanometrics Trillium Compact 120s (754 V/m/s)"
+  ],
+  "descriptions": [
+   "Trillium Compact 120s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 22
+ },
+ {
+  "model": "Reftek WRANGLER",
+  "units": 110,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "BD3C-5 (built-in)",
+  "units": 102,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 6
+ },
+ {
+  "model": "DTCC SmartSolo BD3C-5 209.4 V/m/s",
+  "units": 102,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "DT-SOLO BD3C-5 0.2 Hz node (BB)",
+   "DT-SOLO BD3C-5 0.2 Hz node (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 6
+ },
+ {
+  "model": "ANU Seismic Recorder (early models)",
+  "units": 99,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "ANU Seismic Recorder (early models)"
+  ],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 6
+ },
+ {
+  "model": "DTCC SmartSolo DT-SOLO 16HR-3C 76.6 Vms",
+  "units": 99,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP"
+  ],
+  "descriptions": [
+   "DT-SOLO 5Hz node (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "COLT120",
+  "units": 97,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "COLT120"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp CMG-6T",
+  "units": 87,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Guralp CMG-6T 60s (BB)",
+   "Guralp CMG-6TD 30s-100Hz (BB)",
+   "Guralp CMG-6TD 30s-50Hz (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 5
+ },
+ {
+  "model": "ANUSR (1st gen)",
+  "units": 84,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 3
+ },
+ {
+  "model": "DTCC/SmartSolo DT-SOLO 5hz 76.6 V/m/s",
+  "units": 78,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP"
+  ],
+  "descriptions": [
+   "DT-SOLO 5Hz node (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp CMG-6TD",
+  "units": 76,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 3
+ },
+ {
+  "model": "ANU v3 (ANUSR)",
+  "units": 72,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 2
+ },
+ {
+  "model": "ANU TerraSAWR (Yellow Box)",
+  "units": 67,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 7
+ },
+ {
+  "model": "Nanometrics Trillium Compact PostHole 120s (754 V/m/s)",
+  "units": 67,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Nanometrics Trillium Compact PostHole 120s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 4
+ },
+ {
+  "model": "Sercel L-4C 1Hz (171 V/m/s)",
+  "units": 66,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP",
+   "Sercel L-4C 1Hz (171 V/m/s)"
+  ],
+  "descriptions": [
+   "Sercel L-4C (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 6
+ },
+ {
+  "model": "PR6-24",
+  "units": 63,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "Earth Data PR6-24"
+  ],
+  "descriptions": [
+   "Earth Data, PR6-24, Low (default)",
+   "Earth Data, PR6-24, Low (default), 25, 4264",
+   "Earth Data, PR6-24, Low (default), 25, 4266"
+  ],
+  "manufacturers": [
+   "Earth Data"
+  ],
+  "n_networks": 4
+ },
+ {
+  "model": "GaiaCode Theta",
+  "units": 59,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "GaiaCode Theta"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "ANUSR",
+  "units": 56,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "ANUSR"
+  ],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 4
+ },
+ {
+  "model": "Nanometrics Centaur",
+  "units": 52,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 5
+ },
+ {
+  "model": "Guralp MINIMUS",
+  "units": 45,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "?",
+  "units": 43,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB",
+   "Custom Sensor",
+   "ESS1221 2g internal accelerometer",
+   "Gecko SMA-2G"
+  ],
+  "descriptions": [
+   "CMG40T",
+   "Custom Sensor",
+   "ESS1221 2g internal accelerometer"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Lennartz LE-3Dlite MkII",
+  "units": 41,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "Lennartz LE-3Dlite MkII",
+   "SP"
+  ],
+  "descriptions": [
+   "Lennartz LE-3Dlite MkII (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 6
+ },
+ {
+  "model": "CMG-3ESP",
+  "units": 36,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "Guralp CMG-3ESP"
+  ],
+  "descriptions": [
+   "Guralp, CMG-3ESP, 30 s - 50 Hz, 2000",
+   "Guralp, CMG-3ESP, 60 s - 50 Hz, 2000",
+   "Guralp, CMG-3ESP, 60 s - 50 Hz, 2000,  T3R25"
+  ],
+  "manufacturers": [
+   "Guralp"
+  ],
+  "n_networks": 3
+ },
+ {
+  "model": "Silicon Audio 213-120PA",
+  "units": 36,
+  "roles": [
+   "sensor"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "ANU Generation 1",
+  "units": 35,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [
+   "ANU Generation 1"
+  ],
+  "manufacturers": [
+   "ANU"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "ANU LPR-200 (ANUSR)",
+  "units": 35,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "SRC GECKO",
+  "units": 35,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Lennartz LE-3D Lite MkII",
+  "units": 35,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP"
+  ],
+  "descriptions": [
+   "LE-3D Lite MkII (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "ANU Generation 3",
+  "units": 34,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "ANU ANU Generation 3"
+  ],
+  "descriptions": [
+   "ANU,ANU Generation 3,-",
+   "ANU,ANU Generation 3,102",
+   "ANU,ANU Generation 3,106"
+  ],
+  "manufacturers": [
+   "ANU"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "LE-3Dlite MKII",
+  "units": 34,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "Lennartz Electonic LE-3Dlite MKII"
+  ],
+  "descriptions": [
+   "Lennartz Electonic,LE-3Dlite MKII,-",
+   "Lennartz Electonic,LE-3Dlite MKII,11",
+   "Lennartz Electonic,LE-3Dlite MKII,17"
+  ],
+  "manufacturers": [
+   "Lennartz Electonic"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "Trillium Dome 120PA",
+  "units": 34,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Trillium Dome 120PA"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp CMG-40T 30s",
+  "units": 33,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB",
+   "Guralp CMG-40T 30s"
+  ],
+  "descriptions": [
+   "Guralp CMG-40T (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 4
+ },
+ {
+  "model": "LE-3Dlite MkII",
+  "units": 32,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP"
+  ],
+  "descriptions": [
+   "Lennartz LE-3Dlite MkII (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 5
+ },
+ {
+  "model": "Guralp CMG-40T",
+  "units": 30,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Guralp CMG-40T 30s-50Hz (BB)",
+   "Guralp CMG-40T 60s-100Hz (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 3
+ },
+ {
+  "model": "Silicone Audio 213-120PA",
+  "units": 29,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Silicone Audio 213-120PA"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "CMG-40T",
+  "units": 27,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "Guralp CMG-40T"
+  ],
+  "descriptions": [
+   "Guralp, CMG-40T, 30s - 50 Hz, 2000,  T4H96",
+   "Guralp, CMG-40T, 30s - 50 Hz, 800"
+  ],
+  "manufacturers": [
+   "Guralp"
+  ],
+  "n_networks": 3
+ },
+ {
+  "model": "Reftek130",
+  "units": 25,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Trillium Compact 120",
+  "units": 25,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Trillium Compact 120"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Nanometrics Orion HRD-24",
+  "units": 24,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "Nanometrics Orion HRD-24"
+  ],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 5
+ },
+ {
+  "model": "Guralp Minimus",
+  "units": 23,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 4
+ },
+ {
+  "model": "ANU LPR-200",
+  "units": 20,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "EarthData PR6-24 (Blue Face)",
+  "units": 20,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "EarthData PR6-24 (Blue Face)"
+  ],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 3
+ },
+ {
+  "model": "Guralp CMG-3ESP",
+  "units": 20,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB",
+   "Guralp CMG-3ESP"
+  ],
+  "descriptions": [
+   "Guralp CMG-3ESP (BB)",
+   "Guralp CMG-3ESP 30s-50Hz (BB)",
+   "Guralp CMG-3ESP 60s-100Hz (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 6
+ },
+ {
+  "model": "Nanometrics Trillium 120s PostHole (754 V/m/s)",
+  "units": 19,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Trillium 120s PostHole (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Nanometrics Trillium Compact 20s (753 V/m/s)",
+  "units": 19,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Trillium Compact 20s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 4
+ },
+ {
+  "model": "Centaur",
+  "units": 18,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "Nanometrics Centaur"
+  ],
+  "descriptions": [
+   "Centaur",
+   "Nanometrics; Centaur; Full-Scale_Voltage 40Vpp; Final_Sample_Rate 200 Hz; DC_Filter Off; Final_Filter_Phase Linear",
+   "Nanometrics; Centaur; Full-Scale_Voltage 40Vpp; Final_Sample_Rate 40 Hz; DC_Filter Off; Final_Filter_Phase Linear"
+  ],
+  "manufacturers": [
+   "Nanometrics"
+  ],
+  "n_networks": 4
+ },
+ {
+  "model": "Nanometrics Pegasus",
+  "units": 17,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "COLT60",
+  "units": 17,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "COLT60"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Willmore/Sensonics MKIIIA (DS1245)",
+  "units": 17,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP"
+  ],
+  "descriptions": [
+   "Willmore/Sensonics MkIIIA (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Willmore/Sensonics MKIIIC (DSL022)",
+  "units": 17,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP"
+  ],
+  "descriptions": [
+   "Willmore/Sensonics MkIIIC (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "CMG - 3 ESP",
+  "units": 14,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "Guralp CMG - 3 ESP"
+  ],
+  "descriptions": [
+   "Guralp, CMG-3ESP, 30 s - 50 Hz, 2000",
+   "Guralp, CMG-3ESP, 60 s - 50 Hz, 2000"
+  ],
+  "manufacturers": [
+   "Guralp"
+  ],
+  "n_networks": 3
+ },
+ {
+  "model": "Taurus",
+  "units": 12,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Nanometrics Trillium Compact 120s PostHole (754 V/m/s)",
+  "units": 12,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Trillium Compact 120s PostHole (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Nanometrics Orion",
+  "units": 11,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Nanometrics Taurus",
+  "units": 11,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 2
+ },
+ {
+  "model": "Nanometrics Trillium PA 120s (1201 V/m/s)",
+  "units": 11,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Nanometrics Trillium PA 120s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp CMG-CD24 OBS",
+  "units": 10,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 2
+ },
+ {
+  "model": "IGG CAS 50hz logger",
+  "units": 10,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "RT 72A-07",
+  "units": 10,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "Reftek RT 72A-07"
+  ],
+  "descriptions": [
+   "REF TEK, RT 72A-07, CS5321 (installed <mid-1993), 32, 25"
+  ],
+  "manufacturers": [
+   "Reftek"
+  ],
+  "n_networks": 3
+ },
+ {
+  "model": "IGG CAS",
+  "units": 10,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "IGG CAS G-type 60s Broadband OBS"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Streckeisen STS-2 Gen3 (1500 V/m/s)",
+  "units": 10,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB",
+   "Streckeisen STS-2 Gen3 (1500 V/m/s)"
+  ],
+  "descriptions": [
+   "Streckeisen STS-2 (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 4
+ },
+ {
+  "model": "TrilliumCompact120PH",
+  "units": 10,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Nanometrics; TrilliumCompact120PH; Sensitivity 754 V/m/s; Long-Period_Corner 120 s; Sensor_Type groundVel"
+  ],
+  "manufacturers": [
+   "Nanometrics"
+  ],
+  "n_networks": 2
+ },
+ {
+  "model": "16HR-1C 5Hz (built-in)",
+  "units": 9,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "RefTek 72A-07",
+  "units": 9,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "RefTek RT-72A05",
+  "units": 9,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 2
+ },
+ {
+  "model": "CMG-3ESPC",
+  "units": 9,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "Guralp CMG-3ESPC"
+  ],
+  "descriptions": [
+   "Guralp, CMG-3ESP, 60 s - 50 Hz, 2000"
+  ],
+  "manufacturers": [
+   "Guralp"
+  ],
+  "n_networks": 2
+ },
+ {
+  "model": "DTCC SmartSolo 16HR-1C 5 Hz 76.6 V/m/s",
+  "units": 9,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "GP"
+  ],
+  "descriptions": [
+   "DT-SOLO 16HR-1C 5Hz node (GP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "HTI-94-SSQ Hydrophone",
+  "units": 9,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "High Tech Inc. HTI-94-SSQ 2-30kHz"
+  ],
+  "manufacturers": [],
+  "n_networks": 2
+ },
+ {
+  "model": "ANU TerraSawr",
+  "units": 8,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Orion",
+  "units": 8,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "Nanometrics Orion"
+  ],
+  "descriptions": [
+   "Nanometrics, Orion, 5mHz, 25,   0114",
+   "Nanometrics, Orion, 5mHz, 25,   0115",
+   "Nanometrics, Orion, 5mHz, 25,   0117"
+  ],
+  "manufacturers": [
+   "Nanometrics"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp certis",
+  "units": 8,
+  "roles": [
+   "sensor"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Sercel L-4A 2Hz (171 V/m/s)",
+  "units": 8,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP"
+  ],
+  "descriptions": [
+   "Sercel L-4A (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp CMG-3ESPC",
+  "units": 7,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Guralp CMG-3ESP Compact (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp Certimus (built-in)",
+  "units": 5,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Q330HR",
+  "units": 5,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "QUANTERRA"
+  ],
+  "descriptions": [],
+  "manufacturers": [
+   "QUANTERRA"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp Certimus 120s",
+  "units": 5,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Guralp Certimus 120s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp Certis",
+  "units": 5,
+  "roles": [
+   "sensor"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Nanometrics Trillium PostHole 120s (754 V/m/s)",
+  "units": 5,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Nanometrics Trillium PostHole 120s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Titan",
+  "units": 5,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SM"
+  ],
+  "descriptions": [
+   "Nanometrics; Titan; Clip_Level 4g; Full-Scale_Voltage 20Vp; Output_Wiring Differential; High-Frequency_Corner 430 Hz; Sensitivity 0.510 V/m/s**2; Sensor_Type groundAccel"
+  ],
+  "manufacturers": [
+   "Nanometrics"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "Trillium All-Terrain",
+  "units": 5,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Trillium Compact 120"
+  ],
+  "manufacturers": [
+   "Nanometrics"
+  ],
+  "n_networks": 2
+ },
+ {
+  "model": "Nanometrics Meridian",
+  "units": 4,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 2
+ },
+ {
+  "model": "SRC GECKO (Modified V60)",
+  "units": 4,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp CMG-3ESP+ 60s",
+  "units": 4,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "Guralp CMG-3ESP+ 60s"
+  ],
+  "descriptions": [
+   "Guralp CMG-3ESP+ (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Nanometrics Meridian Compact Posthole 120s (754 V/m/s)",
+  "units": 4,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Nanometrics Meridian PH 120s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 2
+ },
+ {
+  "model": "STS-6A",
+  "units": 4,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "STRECKEISEN"
+  ],
+  "descriptions": [
+   "Velocity Sensor"
+  ],
+  "manufacturers": [
+   "STRECKEISEN"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "Titan Accelerometer",
+  "units": 4,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SM"
+  ],
+  "descriptions": [
+   "Titan Accelerometer"
+  ],
+  "manufacturers": [
+   "Nanometrics"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "RefTek RT-72A07",
+  "units": 3,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [
+   "RefTek RT-72A07"
+  ],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "STS-2",
+  "units": 3,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "STRECKEISEN",
+   "Streckeisen STS-2"
+  ],
+  "descriptions": [
+   "Streckeisen, STS-2, 1500, 3 - installed 04/97 to present",
+   "Velocity Sensor"
+  ],
+  "manufacturers": [
+   "STRECKEISEN",
+   "Streckeisen"
+  ],
+  "n_networks": 2
+ },
+ {
+  "model": "Guralp MINIMUSL",
+  "units": 2,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "RefTek Wrangler",
+  "units": 2,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "KS-54000",
+  "units": 2,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "GEOTECH"
+  ],
+  "descriptions": [
+   "Velocity Sensor"
+  ],
+  "manufacturers": [
+   "GEOTECH"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "Nanometrics Trillium 40s (1553 V/m/s)",
+  "units": 2,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "Nanometrics Trillium 40s (1553 V/m/s)"
+  ],
+  "descriptions": [
+   "Trillium 40s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "STS-2.5",
+  "units": 2,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "STRECKEISEN"
+  ],
+  "descriptions": [
+   "Velocity Sensor"
+  ],
+  "manufacturers": [
+   "STRECKEISEN"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "TRILLIUM 120 BOREHOLE",
+  "units": 2,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "NANOMETRICS"
+  ],
+  "descriptions": [
+   "Velocity Sensor"
+  ],
+  "manufacturers": [
+   "NANOMETRICS"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "CENTAUR",
+  "units": 1,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "EarthData EDR-210",
+  "units": 1,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp Minimus LITE",
+  "units": 1,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "PEGASUS",
+  "units": 1,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "SRC Gecko from2000225",
+  "units": 1,
+  "roles": [
+   "datalogger"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "CMG-3TB",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "GURALP"
+  ],
+  "descriptions": [
+   "Velocity Sensor"
+  ],
+  "manufacturers": [
+   "GURALP"
+  ],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp Certis 120s",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Guralp Certis 120s (1000 v/m/s) (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Guralp Certis 120s (750 V/m/s)",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Guralp Certis 120s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 2
+ },
+ {
+  "model": "RefTek RT147A Accelerometer",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SM"
+  ],
+  "descriptions": [
+   "RefTek RT147A (Strong Motion) 0.25493 VMS^2"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Sercel L-28 4.5Hz (30.4 V/m/s)",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "SP"
+  ],
+  "descriptions": [
+   "Sercel L-28 (SP)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "SiliconAudio 213P 40s 750 V/M/S",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "SiliconAudio 40s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Streckeisen STS-2",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "TRILLIUM-120",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [
+   "BB"
+  ],
+  "descriptions": [
+   "Trillium Compact 120s (BB)"
+  ],
+  "manufacturers": [],
+  "n_networks": 1
+ },
+ {
+  "model": "Trillium Compact 120 Posthole",
+  "units": 1,
+  "roles": [
+   "sensor"
+  ],
+  "types": [],
+  "descriptions": [],
+  "manufacturers": [],
+  "n_networks": 1
+ }
+]

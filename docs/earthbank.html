@@ -343,14 +343,18 @@
             </div>
         </div>
 
+        <!-- Source health. Hidden while every source answers; a role=alert
+             banner the moment one does not, naming which and why. -->
+        <div id="source-banner"></div>
+
         <!-- ========== STAT TILES ========== -->
         <div class="stats" id="stat-tiles">
-            <div class="stat"><div class="label">Datasets <span class="info-i" data-tip="Total DOIs registered to the EarthBank DataCite client (hypc.gxglvy). Includes both Dataset and PhysicalObject resourceType records.">i</span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
-            <div class="stat"><div class="label">Datasets type <span class="info-i" data-tip="Records with resourceTypeGeneral=Dataset. The most common type for EarthBank — geochemistry compilations, supplementary tables, etc.">i</span></div><div class="value" id="stat-dataset">—</div><div class="sub">resourceType: Dataset</div></div>
-            <div class="stat"><div class="label">PhysicalObjects <span class="info-i" data-tip="Records with resourceTypeGeneral=PhysicalObject — typically physical samples (rocks, mineral specimens) issued individual DOIs via IGSN-style sample registration.">i</span></div><div class="value" id="stat-physobj">—</div><div class="sub">samples / specimens</div></div>
-            <div class="stat"><div class="label">Total citations <span class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all datasets. Loaded in batches after page load — may show 0 briefly.">i</span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
-            <div class="stat"><div class="label">Avg mapping <span class="info-i" data-tip="Mean DataCite mapping completeness score across all datasets, weighted by field importance. Title/creators/year carry the highest weight; language/sizes the lowest. Open a dataset and check the Mapping tab to see the breakdown.">i</span></div><div class="value" id="stat-mapping">—</div><div class="sub" id="stat-mapping-sub">DataCite completeness</div></div>
-            <div class="stat"><div class="label">Avg F-UJI <span class="info-i" id="stat-fair-tip" data-tip="Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown.">i</span></div><div class="value" id="stat-fair">—</div><div class="sub" id="stat-fair-sub">loading…</div></div>
+            <div class="stat"><div class="label">Datasets <span class="term-wrap"><button type="button" class="info-i" data-tip="Total DOIs registered to the EarthBank DataCite client (hypc.gxglvy). Includes both Dataset and PhysicalObject resourceType records." aria-label="Total DOIs registered to the EarthBank DataCite client (hypc — definition" aria-describedby="gloss-earthbank-1" aria-expanded="false">i</button><span class="sr-only" id="gloss-earthbank-1">Total DOIs registered to the EarthBank DataCite client (hypc.gxglvy). Includes both Dataset and PhysicalObject resourceType records.</span></span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
+            <div class="stat"><div class="label">Datasets type <span class="term-wrap"><button type="button" class="info-i" data-tip="Records with resourceTypeGeneral=Dataset. The most common type for EarthBank — geochemistry compilations, supplementary tables, etc." aria-label="Records with resourceTypeGeneral=Dataset — definition" aria-describedby="gloss-earthbank-2" aria-expanded="false">i</button><span class="sr-only" id="gloss-earthbank-2">Records with resourceTypeGeneral=Dataset. The most common type for EarthBank — geochemistry compilations, supplementary tables, etc.</span></span></div><div class="value" id="stat-dataset">—</div><div class="sub">resourceType: Dataset</div></div>
+            <div class="stat"><div class="label">PhysicalObjects <span class="term-wrap"><button type="button" class="info-i" data-tip="Records with resourceTypeGeneral=PhysicalObject — typically physical samples (rocks, mineral specimens) issued individual DOIs via IGSN-style sample registration." aria-label="Records with resourceTypeGeneral=PhysicalObject — typically physical samples (ro — definition" aria-describedby="gloss-earthbank-3" aria-expanded="false">i</button><span class="sr-only" id="gloss-earthbank-3">Records with resourceTypeGeneral=PhysicalObject — typically physical samples (rocks, mineral specimens) issued individual DOIs via IGSN-style sample registration.</span></span></div><div class="value" id="stat-physobj">—</div><div class="sub">samples / specimens</div></div>
+            <div class="stat"><div class="label">Total citations <span class="term-wrap"><button type="button" class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all datasets. Loaded in batches after page load — may show 0 briefly." aria-label="Sum of citation counts reported by DataCite GraphQL across all datasets — definition" aria-describedby="gloss-earthbank-4" aria-expanded="false">i</button><span class="sr-only" id="gloss-earthbank-4">Sum of citation counts reported by DataCite GraphQL across all datasets. Loaded in batches after page load — may show 0 briefly.</span></span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
+            <div class="stat"><div class="label">Avg mapping <span class="term-wrap"><button type="button" class="info-i" data-tip="Mean DataCite mapping completeness score across all datasets, weighted by field importance. Title/creators/year carry the highest weight; language/sizes the lowest. Open a dataset and check the Mapping tab to see the breakdown." aria-label="Mean DataCite mapping completeness score across all datasets, weighted by field  — definition" aria-describedby="gloss-earthbank-5" aria-expanded="false">i</button><span class="sr-only" id="gloss-earthbank-5">Mean DataCite mapping completeness score across all datasets, weighted by field importance. Title/creators/year carry the highest weight; language/sizes the lowest. Open a dataset and check the Mapping tab to see the breakdown.</span></span></div><div class="value" id="stat-mapping">—</div><div class="sub" id="stat-mapping-sub">DataCite completeness</div></div>
+            <div class="stat"><div class="label">Avg F-UJI <span class="term-wrap"><button type="button" class="info-i" id="stat-fair-tip" data-tip="Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown." aria-label="Mean F-UJI FAIR assessment score — definition" aria-describedby="gloss-earthbank-6" aria-expanded="false">i</button><span class="sr-only" id="gloss-earthbank-6">Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown.</span></span></div><div class="value" id="stat-fair">—</div><div class="sub" id="stat-fair-sub">loading…</div></div>
         </div>
 
         <!-- ========== CONTROL BAR ========== -->
@@ -390,6 +394,12 @@
             </summary>
             <div class="fleet-grid"></div>
         </details>
+
+        <!-- Named, counted loading state. DataCite pagination is 100 records
+             a page and the page previously had no timeout at all, which is
+             how this page sat on "loading…" for 85 seconds and never
+             resolved: the wait had no shape and no end. -->
+        <div id="load-progress"></div>
 
         <!-- ========== TABLE ========== -->
         <div class="table-wrap">
@@ -432,6 +442,180 @@ var state = createTrackerState({
     datasets: [],     // normalized + scored datasets
     fairScores: null, // parsed fair-scores.json feed (null until loaded / if missing)
     filter: { search: '', type: '', year: '', issuesOnly: false }
+});
+
+// ============================================================
+// SOURCE HEALTH
+// ============================================================
+// This page reads three independent things. Before this, none of the
+// reads had a timeout, so a slow DataCite meant the page sat on
+// "loading…" indefinitely — an outage that looked identical to a slow
+// day. Every read now goes through trackerFetch (bounded, retried,
+// classified) and reports here, and every tile is wired to this ledger
+// by key so a dead source yields "—" plus the reason, never a number.
+var sources = createSourceLedger({ bannerEl: 'source-banner' });
+sources.declare('datacite', 'DataCite (EarthBank client)', { critical: true });
+sources.declare('citations', 'DataCite citation counts');
+sources.declare('fuji', 'F-UJI assessment feed');
+
+var loadProgressUi = null;
+
+// setFigure treats a wired source as vouching for a 0 unless that source
+// is *known* to be broken — and a source still loading is not yet known
+// to be broken, so "Datasets 0" would print for the whole load. A figure
+// therefore only gets its ledger wiring once its source has settled;
+// before that it is explicitly "not loaded", which renders as "—".
+function figureOpts(key, extra) {
+    var o = extra || {};
+    var e = sources.get(key);
+    var settled = e && (e.status === 'ok' || e.status === 'partial'
+        || e.status === 'failed' || e.status === 'skipped');
+    if (settled) { o.source = sources; o.sourceKey = key; }
+    return o;
+}
+
+// Any change in source health invalidates every tile drawn before it.
+var statsRepaintBound = false;
+function bindStatsToLedger() {
+    if (statsRepaintBound) return;
+    statsRepaintBound = true;
+    sources.onChange(function() { renderStats(); });
+}
+
+// ------------------------------------------------------------
+// Citation counts, graded
+// ------------------------------------------------------------
+// loadCitationCounts() in tracker-citations.js assigns 0 whenever a
+// lookup returns a non-OK status, so a DataCite outage arrives as a
+// confident "Total citations 0". That file is shared and out of scope
+// here, so this page runs its own pass over the same endpoint, writing
+// the same cache, but keeping the outcome: a failed lookup leaves
+// citationCount unset and records citeFailed.
+var citeRun = { started: false, finished: false, done: 0, ok: 0, failed: 0, total: 0, lastReason: '' };
+
+function fetchCiteCountGraded(doi) {
+    return trackerFetch('https://api.datacite.org/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            query: 'query($id: ID!) { work(id: $id) { citationCount } }',
+            variables: { id: String(doi).toLowerCase() }
+        }),
+        label: 'DataCite citation counts',
+        timeout: 20000, retries: 2, retryDelay: 1500
+    }).then(function(res) {
+        if (!res.ok) return { ok: false, reason: res.reason };
+        var d = res.data || {};
+        if (d.errors && d.errors.length) {
+            return { ok: false, reason: d.errors[0].message || 'DataCite GraphQL error' };
+        }
+        var work = d.data && d.data.work;
+        // A DOI absent from DataCite's citation graph has an unknown
+        // count, not a zero one.
+        if (!work) return { ok: false, reason: 'not present in the DataCite citation graph' };
+        return { ok: true, count: work.citationCount || 0 };
+    });
+}
+
+async function loadCitationCountsGraded() {
+    var withDoi = state.datasets.filter(function(d) { return d.doi; });
+    citeRun = { started: true, finished: false, done: 0, ok: 0, failed: 0, total: withDoi.length, lastReason: '' };
+    if (!withDoi.length) {
+        citeRun.finished = true;
+        sources.skip('citations', 'no DOIs to look up');
+        renderStats();
+        return;
+    }
+    sources.start('citations', 'looking up ' + withDoi.length + ' DOIs');
+
+    var batchSize = 5;
+    for (var i = 0; i < withDoi.length; i += batchSize) {
+        await Promise.all(withDoi.slice(i, i + batchSize).map(function(d) {
+            var key = normaliseDoi(d.doi);
+            var cached = state.citationCache[key];
+            if (cached && typeof cached.count === 'number') {
+                d.citationCount = cached.count; d.citeFailed = '';
+                citeRun.ok++; citeRun.done++;
+                return Promise.resolve();
+            }
+            return fetchCiteCountGraded(d.doi).then(function(out) {
+                citeRun.done++;
+                if (out.ok) {
+                    d.citationCount = out.count; d.citeFailed = '';
+                    state.citationCache[key] = state.citationCache[key] || {};
+                    state.citationCache[key].count = out.count;
+                    citeRun.ok++;
+                } else {
+                    // citationCount is deliberately left unset: unknown
+                    // renders as unknown, where 0 would render as a fact.
+                    d.citeFailed = out.reason || 'lookup failed';
+                    citeRun.failed++;
+                    citeRun.lastReason = d.citeFailed;
+                }
+            });
+        }));
+        document.getElementById('stat-cites-sub').textContent =
+            'looked up ' + citeRun.done + ' / ' + citeRun.total;
+        renderStats();
+        renderTableRowsOnly();
+    }
+    citeRun.finished = true;
+    if (citeRun.failed === 0) sources.ok('citations', citeRun.total + ' DOIs');
+    else if (citeRun.ok === 0) sources.fail('citations', citeRun.lastReason || 'no DOI lookup succeeded');
+    else sources.partial('citations', { done: citeRun.ok, total: citeRun.total, reason: citeRun.lastReason });
+    renderStats();
+    renderTableRowsOnly();
+}
+
+// renderCitePill (tracker-citations.js) can only say a number or "…".
+// It has no way to say "we asked and DataCite did not answer" — left as
+// "…" that reads as a hang, and as 0 it reads as a fact.
+function citePill(d) {
+    if (d.doi && d.citeFailed) {
+        var msg = 'Citation count unavailable — ' + d.citeFailed
+            + '. This is missing data, not zero citations.';
+        return '<span class="cite-pill unknown" data-tip="' + escapeAttr(msg) + '" tabindex="0"'
+            + ' role="img" aria-label="' + escapeAttr(msg) + '">?</span>';
+    }
+    return renderCitePill(d, state.citationCache);
+}
+
+// Keep a runtime-updated tooltip and its screen-reader description in step.
+function setTip(el, text) {
+    if (!el) return;
+    el.setAttribute('data-tip', text);
+    var t = document.getElementById(el.getAttribute('aria-describedby') || '');
+    if (t) t.textContent = text;
+}
+
+// The fleet facet chips are rendered as <div>s by the shared chassis, so
+// they were mouse-only. Their click handler is already delegated, so a
+// role, a tab stop and Enter/Space are all that is missing.
+function makeDivControlsOperable() {
+    var chips = document.querySelectorAll('.fleet-item');
+    for (var i = 0; i < chips.length; i++) {
+        var c = chips[i];
+        var inert = c.classList.contains('zero');
+        c.setAttribute('role', 'button');
+        c.setAttribute('aria-pressed', c.classList.contains('active') ? 'true' : 'false');
+        if (inert) { c.removeAttribute('tabindex'); c.setAttribute('aria-disabled', 'true'); }
+        else { c.setAttribute('tabindex', '0'); c.removeAttribute('aria-disabled'); }
+    }
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var t = e.target.closest ? e.target.closest('.fleet-item, tr.data-row') : null;
+    if (!t || t.getAttribute('aria-disabled') === 'true') return;
+    e.preventDefault();
+    var doi = t.classList.contains('data-row') ? t.getAttribute('data-doi') : null;
+    t.click();
+    // The table re-renders on toggle, discarding the focused element.
+    if (doi) {
+        setTimeout(function() {
+            var back = document.querySelector('tr.data-row[data-doi="' + doi.replace(/"/g, '\\"') + '"]');
+            if (back) back.focus();
+        }, 60);
+    }
 });
 
 // Fleet summary categories. Each item is a clickable predicate that filters
@@ -537,6 +721,7 @@ var fleetCategories = [
 // ENTRY
 // ============================================================
 function init() {
+    bindStatsToLedger();
     bindControls();
     bindRowDelegation();
     bindDetailTabs();
@@ -614,33 +799,68 @@ function bindControls() {
 // FETCH
 // ============================================================
 async function loadDatasets() {
-    setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading EarthBank datasets from DataCite…</td></tr>');
-    try {
-        var raw = await fetchAllEarthBank();
-        state.raw = raw;
-        state.datasets = raw.map(normalizeDataset).map(function(d) {
-            d.mapping = scoreMapping(d);
-            return d;
-        });
-        populateYearFilter();
+    sources.start('datacite', 'contacting DataCite');
+    if (loadProgressUi) loadProgressUi.destroy();
+    loadProgressUi = createProgress('load-progress', {
+        label: 'Loading EarthBank datasets from DataCite',
+        note: 'api.datacite.org — client hypc.gxglvy, 100 records a page'
+    });
+    // A skeleton shows the table's own shape while it fills, rather than a
+    // blank rectangle that reads as "there is nothing here".
+    renderSkeleton('ds-tbody', { rows: 8, cols: 9, tbody: true });
+    renderStats();
+
+    var out = await fetchAllEarthBank();
+    state.raw = out.items;
+    state.datasets = out.items.map(normalizeDataset).map(function(d) {
+        d.mapping = scoreMapping(d);
+        return d;
+    });
+
+    if (!out.items.length) {
+        // No records and a failed request are different facts. Say which.
+        var why = out.reason || 'DataCite returned no records for this client';
+        sources.fail('datacite', why);
+        sources.skip('citations', 'nothing to look up');
+        loadProgressUi.fail(why, function() { loadDatasets(); });
+        clearSkeleton('ds-tbody');
+        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">'
+            + 'DataCite did not answer: ' + escapeHtml(why)
+            + '. No datasets could be listed &mdash; this is a failed request, not an empty collection.'
+            + '</td></tr>');
         renderStats();
-        renderTable();
-        // Lazy: fetch citation counts in batches (tracker-citations.js).
-        // citationLoadInFlight lets renderStats leave the in-progress
-        // "loaded X / Y" label alone while batches are running.
-        state.citationLoadInFlight = true;
-        loadCitationCounts({
-            getEntities: function() { return state.datasets; },
-            cache: state.citationCache,
-            progressEl: document.getElementById('stat-cites-sub'),
-            onBatch: function() { renderStats(); renderTableRowsOnly(); }
-        }).then(function() { state.citationLoadInFlight = false; })
-          .catch(function() { state.citationLoadInFlight = false; renderStats(); });
-    } catch (err) {
-        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
+        return;
     }
+
+    if (out.reason) {
+        // Some pages landed and one did not: the list is a floor, and every
+        // count derived from it has to say so.
+        sources.partial('datacite', {
+            done: out.items.length, total: out.items.length + out.pageSize,
+            reason: 'pagination stopped early — ' + out.reason
+        });
+        loadProgressUi.done(out.items.length + ' datasets loaded (incomplete — ' + out.reason + ')');
+    } else {
+        sources.ok('datacite', out.items.length + ' datasets');
+        loadProgressUi.done(out.items.length + ' datasets loaded from DataCite');
+    }
+    clearSkeleton('ds-tbody');
+
+    populateYearFilter();
+    renderStats();
+    renderTable();
+
+    // Lazy: citation counts in batches, graded (see loadCitationCountsGraded).
+    state.citationLoadInFlight = true;
+    loadCitationCountsGraded().then(function() {
+        state.citationLoadInFlight = false;
+        renderStats();
+    });
 }
 
+// Returns { items, reason, pageSize } rather than throwing: a partial
+// harvest is a real and reportable state, and the caller must be able to
+// tell "no records" from "the request failed on page 3".
 async function fetchAllEarthBank() {
     var all = [];
     var page = 1;
@@ -659,18 +879,23 @@ async function fetchAllEarthBank() {
             + '&page[size]=' + pageSize
             + '&page[number]=' + page
             + '&sort=-created';
-        var resp = await fetch(url);
-        if (!resp.ok) throw new Error('DataCite returned HTTP ' + resp.status);
-        var data = await resp.json();
+        var res = await trackerFetch(url, {
+            label: 'DataCite (EarthBank client)',
+            timeout: 25000, retries: 2, retryDelay: 1200
+        });
+        if (!res.ok) return { items: all, reason: res.reason, pageSize: pageSize };
+        var data = res.data || {};
         var items = data.data || [];
         if (items.length === 0) break;
         all = all.concat(items);
-        // Update progress
-        setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loaded ' + all.length + ' datasets…</td></tr>');
+        // DataCite reports the total up front, so the wait has a real
+        // denominator rather than an open-ended spinner.
+        var total = (data.meta && data.meta.total) || null;
+        if (loadProgressUi) loadProgressUi.set(all.length, total, 'Loading EarthBank datasets from DataCite');
         if (items.length < pageSize) break;
         page++;
     }
-    return all;
+    return { items: all, reason: '', pageSize: pageSize };
 }
 
 // ============================================================
@@ -681,21 +906,22 @@ async function fetchAllEarthBank() {
 // malformed the F-UJI column shows an em-dash and the tile shows n/a —
 // the page must never break on a missing feed.
 async function loadFairScores() {
-    try {
-        var resp = await fetch('fair-scores.json');
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        var data = await resp.json();
-        if (!data || typeof data.scores !== 'object' || data.scores === null) throw new Error('malformed feed');
-        state.fairScores = data;
-        // Datasets may already be on screen — refresh so the column, tile,
-        // and fleet counts pick up the scores. If not, loadDatasets renders later.
-        if (state.datasets.length > 0) {
-            renderStats();
-            renderTable();
-        }
-    } catch (err) {
+    sources.start('fuji');
+    var res = await trackerFetch('fair-scores.json', {
+        label: 'F-UJI assessment feed', timeout: 15000, retries: 1
+    });
+    var data = res.data;
+    if (!res.ok || !data || typeof data.scores !== 'object' || data.scores === null) {
         state.fairScores = null;
+        sources.fail('fuji', res.ok ? 'the feed loaded but carries no scores' : res.reason);
+    } else {
+        state.fairScores = data;
+        sources.ok('fuji', Object.keys(data.scores).length + ' assessed DOIs');
     }
+    // Datasets may already be on screen — refresh so the column, tile, and
+    // fleet counts pick up the scores. If not, loadDatasets renders later.
+    if (state.datasets.length > 0) { renderStats(); renderTable(); }
+    else renderStats();
 }
 
 // Look up a record's F-UJI entry in the feed. Returns null when the feed
@@ -1458,53 +1684,105 @@ function renderStats() {
     var datasetCount = ds.filter(function(d) { return d.resourceTypeGeneral === 'Dataset'; }).length;
     var physobjCount = ds.filter(function(d) { return d.resourceTypeGeneral === 'PhysicalObject'; }).length;
     var totalCites = ds.reduce(function(s, d) { return s + (d.citationCount || 0); }, 0);
-    var avgMapping = total > 0 ? Math.round(ds.reduce(function(s, d) { return s + d.mapping.score; }, 0) / total) : 0;
-    var citeKnown = ds.filter(function(d) { return typeof d.citationCount === 'number'; }).length;
+    var avgMapping = total > 0 ? Math.round(ds.reduce(function(s, d) { return s + d.mapping.score; }, 0) / total) : null;
 
-    document.getElementById('stat-total').textContent = total;
-    document.getElementById('stat-total-sub').textContent = total > 0 ? 'live from DataCite' : '';
-    document.getElementById('stat-dataset').textContent = datasetCount;
-    document.getElementById('stat-physobj').textContent = physobjCount;
-    document.getElementById('stat-cites').textContent = totalCites;
+    // All four counts below come from the DataCite harvest, so all four are
+    // wired to it. If that harvest failed they read "—" with the reason,
+    // never the 0 an empty list would otherwise produce.
+    setFigure('stat-total', total, figureOpts('datacite', {
+        missingReason: 'the DataCite harvest returned no records'
+    }));
+    document.getElementById('stat-total-sub').textContent =
+        sources.broken('datacite') ? 'DataCite unavailable'
+        : total > 0 ? 'live from DataCite' : 'loading…';
+
+    // A zero here is a real finding once the harvest has landed: EarthBank
+    // genuinely may hold no PhysicalObject records. It is allowed to print
+    // only on that condition.
+    var harvestLanded = total > 0 && !sources.broken('datacite');
+    setFigure('stat-dataset', harvestLanded ? datasetCount : null, figureOpts('datacite', {
+        zeroIsReal: harvestLanded,
+        missingReason: 'the DataCite harvest returned no records'
+    }));
+    setFigure('stat-physobj', harvestLanded ? physobjCount : null, figureOpts('datacite', {
+        zeroIsReal: harvestLanded,
+        missingReason: 'the DataCite harvest returned no records'
+    }));
+
+    // ---- Total citations: the tile that published a confident 0 during an
+    // outage. It now prints a number only when the lookups behind it are
+    // accounted for.
     var citesSub = document.getElementById('stat-cites-sub');
-    if (citeKnown < total && state.citationLoadInFlight) {
-        // already updated in loadCitationCounts
-    } else if (citeKnown < total && total > 0) {
-        citesSub.textContent = 'across ' + citeKnown + ' / ' + total;
-    } else if (total > 0) {
-        citesSub.textContent = 'across ' + total + ' datasets';
+    if (total === 0) {
+        setFigure('stat-cites', null, { missingReason: 'no datasets loaded, so nothing to count' });
+        citesSub.textContent = 'via DataCite';
+    } else if (!citeRun.finished) {
+        // Mid-pass the sum is a floor, not a total, and a running 0 is not
+        // presented at all.
+        setFigure('stat-cites', citeRun.ok > 0 ? totalCites : null, {
+            zeroIsReal: false,
+            missingReason: citeRun.started
+                ? 'still counting — ' + citeRun.done + ' of ' + citeRun.total + ' DOIs checked'
+                : 'citation counts have not been requested yet'
+        });
+        citesSub.textContent = citeRun.started
+            ? 'counting… ' + citeRun.done + ' / ' + citeRun.total + ' (running floor)'
+            : 'via DataCite';
+    } else {
+        setFigure('stat-cites', totalCites, figureOpts('citations', {
+            // The only route by which a 0 reaches this tile: every DOI was
+            // asked and every DOI answered.
+            zeroIsReal: citeRun.failed === 0 && citeRun.ok === citeRun.total,
+            missingReason: 'DataCite did not answer for any of these DOIs'
+        }));
+        citesSub.textContent = citeRun.failed === 0
+            ? 'across ' + citeRun.ok + ' datasets'
+            : 'across ' + citeRun.ok + ' of ' + citeRun.total + ' DOIs — ' + citeRun.failed + ' unavailable';
     }
-    document.getElementById('stat-mapping').textContent = avgMapping + '%';
+
+    setFigure('stat-mapping', total > 0 ? avgMapping : null, figureOpts('datacite', {
+        format: function(v) { return v + '%'; },
+        missingReason: 'no DataCite records were read, so there is nothing to average'
+    }));
     var mappingSubEl = document.getElementById('stat-mapping-sub');
-    if (avgMapping >= 80) mappingSubEl.textContent = 'DataCite completeness — good';
+    if (sources.broken('datacite')) mappingSubEl.textContent = 'DataCite unavailable';
+    else if (total === 0) mappingSubEl.textContent = 'DataCite completeness';
+    else if (avgMapping >= 80) mappingSubEl.textContent = 'DataCite completeness — good';
     else if (avgMapping >= 60) mappingSubEl.textContent = 'DataCite completeness — OK';
     else mappingSubEl.textContent = 'DataCite completeness — needs work';
 
     // Avg F-UJI — mean of available scores. PhysicalObject records (physical
     // samples, not assessed by F-UJI) stay out of the denominator unless the
     // feed actually scored one.
-    var fairEl = document.getElementById('stat-fair');
     var fairSubEl = document.getElementById('stat-fair-sub');
+    var fairAssessed = 0, fairSum = 0, fairEligible = 0;
     if (state.fairScores) {
-        var fairAssessed = 0, fairSum = 0, fairEligible = 0;
         ds.forEach(function(d) {
             var entry = fairEntryFor(d);
             if (entry) { fairAssessed++; fairSum += Number(entry.s) || 0; }
             if (entry || d.resourceTypeGeneral !== 'PhysicalObject') fairEligible++;
         });
-        fairEl.textContent = fairAssessed > 0 ? Math.round(fairSum / fairAssessed) + '%' : 'n/a';
-        fairSubEl.textContent = fairAssessed + ' of ' + fairEligible + ' assessed';
-        var fairTipEl = document.getElementById('stat-fair-tip');
-        if (fairTipEl) {
-            fairTipEl.setAttribute('data-tip', 'Mean F-UJI FAIR assessment score (F-UJI v'
-                + state.fairScores.fuji_version + ', metric set v' + state.fairScores.metric_version
-                + ', assessed ' + String(state.fairScores.generated || '').substring(0, 10)
-                + '). Automated metadata-completeness signal, not a data-quality rating. '
-                + 'Open a dataset\'s F-UJI check tab for the per-metric breakdown.');
-        }
+    }
+    setFigure('stat-fair', fairAssessed > 0 ? Math.round(fairSum / fairAssessed) : null, figureOpts('fuji', {
+        format: function(v) { return v + '%'; },
+        missingReason: !state.fairScores
+            ? 'the F-UJI assessment feed did not load'
+            : 'none of these DOIs has been assessed yet'
+    }));
+    if (!state.fairScores) {
+        fairSubEl.textContent = 'assessment feed unavailable';
     } else {
-        fairEl.textContent = 'n/a';
-        fairSubEl.textContent = 'no assessment data';
+        fairSubEl.textContent = fairEligible === 0
+            ? 'waiting for the dataset list'
+            : fairAssessed + ' of ' + fairEligible + ' assessed';
+        // The 35–60% band sentence, carried to the point of display rather
+        // than left at the bottom of some other page.
+        setTip(document.getElementById('stat-fair-tip'),
+            'Mean F-UJI FAIR assessment score (F-UJI v'
+            + state.fairScores.fuji_version + ', metric set v' + state.fairScores.metric_version
+            + ', assessed ' + String(state.fairScores.generated || '').substring(0, 10)
+            + '). ' + termTip('fuji-band')
+            + ' Open a dataset\'s F-UJI check tab for the per-metric breakdown.');
     }
 }
 
@@ -1541,6 +1819,7 @@ function renderTable() {
     resultEl.innerHTML = msg;
 
     renderFleetPanel();
+    makeDivControlsOperable();
 
     if (visible.length === 0) {
         setBody('<tr><td colspan="9" class="empty-state">No datasets match the current filters.</td></tr>');
@@ -1565,7 +1844,7 @@ function renderTableRowsOnly() {
         var d = state.datasets.find(function(x) { return x.doi === doi; });
         if (!d) return;
         var cell = row.querySelector('.col-cites');
-        if (cell) cell.innerHTML = renderCitePill(d, state.citationCache);
+        if (cell) cell.innerHTML = citePill(d);
     });
 }
 
@@ -1616,7 +1895,11 @@ function renderRow(d, num) {
         fairCellHtml = '<span style="color:var(--text-muted)" title="Not yet assessed">—</span>';
     }
 
-    return '<tr class="data-row' + (state.expanded.has(d.doi) ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '">'
+    // The row is the expand control, so it needs a tab stop and a state.
+    var isOpen = state.expanded.has(d.doi);
+    return '<tr class="data-row' + (isOpen ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '"'
+        + ' tabindex="0" role="button" aria-expanded="' + (isOpen ? 'true' : 'false') + '"'
+        + ' aria-label="' + escapeAttr((d.title || 'Untitled record') + ' — expand for detail') + '">'
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-title">'
             + '<div class="title-line">' + escapeHtml(d.title || '(no title)') + '</div>'
@@ -1627,7 +1910,7 @@ function renderRow(d, num) {
         + '<td class="col-year">' + (d.publicationYear || '—') + '</td>'
         + '<td class="col-mapping"><div class="mapping-bar"><div class="track"><div class="fill ' + mapClass + '" style="width:' + mapping.score + '%"></div></div><div class="pct">' + mapping.score + '%</div></div></td>'
         + '<td class="col-fair">' + fairCellHtml + '</td>'
-        + '<td class="col-cites">' + renderCitePill(d, state.citationCache) + '</td>'
+        + '<td class="col-cites">' + citePill(d) + '</td>'
         + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
         + '</tr>';
 }

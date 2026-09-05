@@ -12,188 +12,348 @@
             color: #1e293b;
             background: #ffffff;
             line-height: 1.5;
+            overflow-x: hidden; /* nothing on this page may scroll the body sideways */
         }
 
-        /* ── Hero Stats (TERN-style) ── */
+        /* ── Hero: the one-screen answer ── */
         /* Header markup + styles come from tracker-shared.css and
            tracker-chassis.js — no local copies. */
         .hero {
             background: #282572; /* flat AuScope purple — page embeds as an iframe on auscope.org.au */
             color: #ffffff;
-            padding: 28px 24px 26px;
-            text-align: center;
+            padding: 30px 24px 28px;
         }
-        .hero h1 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
+        .hero-inner { max-width: 960px; margin: 0 auto; }
+        .answer-lead {
+            font-size: 21px;
+            line-height: 1.42;
+            font-weight: 400;
+            max-width: 46em;
+            letter-spacing: -0.2px;
         }
-        .hero .subtitle {
-            font-size: 13px;
-            opacity: 0.8;
-            margin-bottom: 28px;
+        .answer-lead strong { font-weight: 800; }
+        .answer-caveat {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 10px;
+            max-width: 46em;
+            color: #d7d5ee;
         }
-        .hero .more-than {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #EF7256; /* AuScope tangerine — the one accent on the page */
-            margin-bottom: 16px;
-        }
+        .answer-caveat a { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
+
+        /* The chassis stat block, restyled for a dark ground. Same markup,
+           same classes, same aria — only the palette changes. */
         .stat-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 12px;
-            max-width: 900px;
-            margin: 0 auto;
+            margin-top: 22px;
         }
-        .stat-card {
-            flex: 1;
-            min-width: 140px;
-            max-width: 200px;
-            padding: 16px 12px;
-            background: rgba(255,255,255,0.12);
+        .hero .stat.honest {
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.24);
             border-radius: 10px;
-            backdrop-filter: blur(4px);
+            padding: 15px 16px 14px;
+            gap: 3px;
         }
-        .stat-card .number {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1.1;
-            color: #ffffff;
-        }
-        .stat-card .label {
+        .hero .stat.honest .label {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            opacity: 0.85;
-            margin-top: 4px;
+            letter-spacing: 0.6px;
+            font-weight: 700;
+            color: #ffffff;
+            opacity: 0.92;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
+        .hero .stat.honest .value { font-size: 38px; font-weight: 800; line-height: 1.05; color: #fff; }
+        .hero .stat.honest .value a.stat-link { color: #ffffff; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.42); }
+        .hero .stat.honest .value a.stat-link:hover { border-bottom-color: #EF7256; background: none; }
+        .hero .stat.honest .fig-value { font-variant-numeric: tabular-nums; }
+        .hero .grade-row { margin-top: 3px; }
+        .hero .grade-chip {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(255,255,255,0.42);
+            color: #ffffff;
+        }
+        .hero .grade-chip.g-unverified { background: rgba(239,114,86,0.28); border-color: #EF7256; }
+        .hero .grade-sep, .hero .as-of { color: #cfcdea; }
+        .hero .as-of.undated { color: #ffd9cf; background: rgba(239,114,86,0.25); }
+        .hero .stat-note { color: #cfcdea; font-size: 11.5px; }
+        /* Not every tile carries a note, so without this the Copy buttons
+           sit at three different heights across the row. Push them to the
+           bottom of the tile instead of letting the note above set it. */
+        .hero .stat.honest .stat-cite { margin-top: auto; }
+        .hero .stat-cite {
+            color: #ffffff;
+            border-color: rgba(255,255,255,0.45);
+            background: rgba(255,255,255,0.08);
+        }
+        .hero .stat-cite:hover { background: rgba(255,255,255,0.2); color: #ffffff; }
+        .hero .info-i {
+            color: #ffffff;
+            border-color: rgba(255,255,255,0.55);
+            background: rgba(255,255,255,0.12);
+        }
+        .hero .info-i:hover, .hero .info-i.tip-open { background: #ffffff; color: #282572; }
+        .hero-jump {
+            margin-top: 18px;
+            font-size: 12.5px;
+            color: #cfcdea;
+        }
+        .hero-jump a { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
 
-        /* ── Explorer cards ── */
-        /* ── Lens bands ── */
-        .lens-section { padding-top: 26px; }
-        .lens-band { border: 1px solid #e5e7eb; border-left: 4px solid #282572; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 12px; background: #ffffff; }
-        .lens-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-        .lens-head h3 { font-size: 15px; font-weight: 700; color: #282572; }
-        .lens-link { font-size: 12.5px; color: #282572; text-decoration: none; font-weight: 600; white-space: nowrap; }
-        .lens-link:hover { text-decoration: underline; }
-        .lens-stats { font-size: 13px; color: #475569; margin-top: 4px; }
-        .lens-num { font-weight: 700; color: #0f172a; font-size: 15px; }
-        .lens-empty { color: #94a3b8; font-style: italic; }
-        .lens-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
-        .lens-chip { font-size: 11px; padding: 2px 9px; border-radius: 11px; background: #f3f3fa; color: #45418f; border: 1px solid #dcdbf0; }
-
+        /* ── Shared section chrome ── */
         .explorers {
             max-width: 960px;
             margin: 0 auto;
-            padding: 28px 24px 0;
+            padding: 26px 24px 0;
         }
         .explorers h2 {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 700;
             color: #282572;
             margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .explorers h3.group-head, .explorers h3.ladder-head {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin: 22px 0 3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .explorers .note {
-            font-size: 12px;
-            color: #64748b;
+            font-size: 12.5px;
+            color: #475569;
             margin-bottom: 14px;
+            max-width: 74ch;
         }
-        .explorer-grid {
+        .explorers .note.group-note { margin-bottom: 11px; font-size: 12px; }
+        .caveat {
+            font-size: 12px;
+            color: #475569;
+            margin-top: 12px;
+            padding: 9px 12px;
+            border-left: 3px solid #cbd5e1;
+            background: #f8fafc;
+            max-width: 74ch;
+        }
+
+        /* ── Evidence section ── */
+        .evidence-section { padding-top: 30px; }
+        .partition-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 12px;
         }
-        .explorer-card {
-            display: block;
+        .partition-grid .stat.honest {
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             padding: 14px 16px;
+            background: #ffffff;
+        }
+        .partition-grid .stat.honest .label {
+            font-size: 12px; font-weight: 700; color: #0f172a;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .partition-grid .stat.honest .value { font-size: 30px; font-weight: 800; color: #282572; }
+        .partition-grid .stat.honest .value a.stat-link { color: #282572; }
+        .partition-grid .stat.honest.grade-unverified { background: #f8fafc; }
+        .partition-grid .stat.honest.grade-unverified .value { color: #5e6a7a; }
+        .partition-sum {
+            font-size: 12.5px;
+            color: #475569;
+            margin-top: 12px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ── Bar charts (CSS-only) ── */
+        .bar-chart { display: flex; flex-direction: column; gap: 6px; }
+        .bar-row {
+            display: flex; align-items: center; gap: 8px; font-size: 12px;
+            flex-wrap: wrap; text-decoration: none; color: inherit;
+            border-radius: 5px; padding: 2px 4px; margin: 0 -4px;
+        }
+        a.bar-row:hover { background: #f3f3fa; }
+        .bar-label { width: 190px; text-align: right; color: #334155; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
+        .bar-track { flex: 1 1 120px; height: 22px; background: #f1f5f9; border-radius: 4px; overflow: hidden; min-width: 90px; }
+        .bar-fill {
+            height: 100%; background: #282572; border-radius: 4px; min-width: 2px;
+            /* The ladder's palest tiers measured 1.4:1 against the track.
+               An inset edge makes every bar visible while keeping the
+               dark-to-light ramp that carries the grading meaning. */
+            box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.22);
+        }
+        .bar-fill.pale { background: #d9d7ee; }
+        .bar-fill.solid { background: #282572; border-radius: 4px 0 0 4px; height: 100%; }
+        .bar-value { width: 74px; font-weight: 600; color: #282572; font-size: 12px; font-variant-numeric: tabular-nums; }
+        .bar-value .of { color: #5e6a7a; font-weight: 500; }
+        .bar-counted { width: 108px; font-size: 11px; font-weight: 600; flex-shrink: 0; }
+        .bar-counted.in { color: #15803d; }
+        .bar-counted.out { color: #92400e; }
+        .evidence-ladder .bar-label { width: 170px; }
+        .evidence-ladder .bar-value { width: 52px; text-align: right; }
+
+        /* ── Lens bands ── */
+        .lens-section { padding-top: 30px; }
+        .lens-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); gap: 12px; }
+        .lens-band {
+            border: 1px solid #e5e7eb; border-left: 4px solid #282572;
+            border-radius: 0 8px 8px 0; padding: 13px 16px; background: #ffffff;
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        .lens-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .lens-head h3 { font-size: 14.5px; font-weight: 700; color: #282572; }
+        .lens-link { font-size: 12.5px; color: #282572; font-weight: 600; margin-top: 4px; }
+        .lens-stats { font-size: 12.5px; color: #475569; }
+        .lens-num { font-weight: 700; color: #0f172a; font-size: 15px; }
+        .lens-src { font-size: 11px; color: #5e6a7a; }
+        .lens-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+        .lens-chip { font-size: 10.5px; padding: 2px 8px; border-radius: 11px; background: #f3f3fa; color: #45418f; border: 1px solid #dcdbf0; }
+        .lens-chip.more { background: #ffffff; color: #5e6a7a; border-color: #e5e7eb; }
+        .lens-gap {
+            font-size: 12.5px; color: #475569; margin-top: 13px;
+            padding: 10px 13px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 7px;
+            max-width: 88ch;
+        }
+        .lens-gap-n { color: #5e6a7a; }
+        .lens-honesty {
+            font-size: 12.5px; color: #475569; margin-top: 11px; max-width: 88ch;
+            padding-left: 12px; border-left: 3px solid #EF7256;
+        }
+        .lens-more { font-size: 12.5px; margin-top: 11px; }
+        .lens-more a, .lens-link { color: #282572; text-decoration: none; }
+        .lens-more a:hover, .lens-link:hover { text-decoration: underline; }
+
+        /* ── Explorer cards ── */
+        .explorer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(216px, 1fr));
+            gap: 12px;
+        }
+        .explorer-card {
+            /* Flex, not block: a card whose sub wraps to two lines used to push
+               its own grade stamp down and break the row's baseline. The stamp
+               is pinned to the bottom instead, so wrapping never misaligns it. */
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 13px 15px;
             text-decoration: none;
             color: inherit;
             transition: border-color 0.15s, box-shadow 0.15s;
         }
         .explorer-card:hover {
             border-color: #282572;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+            box-shadow: 0 2px 8px rgba(40, 37, 114, 0.12);
         }
-        .explorer-card .num {
-            font-size: 24px;
-            font-weight: 700;
-            color: #282572;
+        .explorer-card .num { font-size: 23px; font-weight: 700; color: #282572; line-height: 1.15; }
+        .explorer-card .name { font-size: 12.5px; font-weight: 600; color: #0f172a; margin-top: 2px; }
+        .explorer-card .sub { font-size: 11px; color: #475569; margin-top: 2px; }
+        .explorer-card .card-stamp { margin-top: auto; padding-top: 8px; }
+        .card-stamp {
+            display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+            margin-top: 8px; padding-top: 7px; border-top: 1px solid #f1f5f9;
+            font-size: 10.5px;
         }
-        .explorer-card .name {
+        .card-stamp .as-of { font-size: 10.5px; }
+
+        /* ── Progressive disclosure ── */
+        .disclosure {
+            margin-top: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0 14px;
+            background: #ffffff;
+        }
+        .disclosure > summary {
+            cursor: pointer;
             font-size: 13px;
             font-weight: 600;
-            color: #0f172a;
-            margin-top: 2px;
-        }
-        .explorer-card .sub {
-            font-size: 11px;
-            color: #64748b;
-            margin-top: 2px;
-        }
-
-        /* ── Charts Section ── */
-        .charts {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 32px 24px;
-        }
-        .chart-section {
-            margin-bottom: 36px;
-        }
-        .chart-section h2 {
-            font-size: 16px;
-            font-weight: 700;
             color: #282572;
-            margin-bottom: 16px;
+            padding: 11px 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 7px;
         }
-        .chart-section .note {
+        .disclosure > summary::-webkit-details-marker { display: none; }
+        .disclosure > summary::before {
+            content: '▸';
             font-size: 11px;
-            color: #94a3b8;
-            margin-bottom: 12px;
-            font-style: italic;
+            transition: transform 0.15s;
         }
+        .disclosure[open] > summary::before { transform: rotate(90deg); }
+        .disclosure > summary:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 2px; border-radius: 4px; }
+        .disclosure > *:last-child { padding-bottom: 14px; }
+        .disclosure .note { margin-top: 2px; }
 
-        /* ── Bar chart (CSS-only) ── */
-        .bar-chart { display: flex; flex-direction: column; gap: 6px; }
-        .bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
-        .bar-label { width: 200px; text-align: right; color: #475569; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
-        .bar-track { flex: 1; height: 22px; background: #f1f5f9; border-radius: 4px; overflow: hidden; }
-        .bar-fill { height: 100%; background: #282572; border-radius: 4px; min-width: 2px; transition: width 0.3s; }
-        .bar-value { width: 40px; font-weight: 600; color: #282572; font-size: 12px; }
+        /* ── Methodology ── */
+        .method { padding-bottom: 8px; }
+        .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+        .method-card {
+            border: 1px solid #e5e7eb; border-radius: 8px; padding: 13px 15px; background: #f8fafc;
+        }
+        .method-card h3 { font-size: 12.5px; font-weight: 700; color: #282572; margin-bottom: 5px; }
+        .method-card p, .method-body { font-size: 12px; color: #334155; line-height: 1.55; }
+        .method-body { margin-bottom: 9px; max-width: 88ch; }
+        .method-card .grade-chip { margin-right: 2px; }
 
-        /* ── SVG charts ── */
-
-        /* ── Citation buckets ── */
-        .bucket-chart { display: flex; align-items: flex-end; gap: 8px; height: 320px; }
-        .bucket-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
-        .bucket-bar { width: 80%; background: #282572; border-radius: 4px 4px 0 0; min-height: 2px; flex-shrink: 0; }
-        .bucket-label { font-size: 11px; color: #64748b; margin-top: 6px; }
-        .bucket-count { font-size: 11px; color: #282572; font-weight: 600; margin-bottom: 3px; }
+        /* ── Charts ── */
+        .charts { max-width: 960px; margin: 0 auto; padding: 26px 24px 8px; }
+        .chart-section { margin-bottom: 30px; }
+        .chart-section h2 { font-size: 17px; font-weight: 700; color: #282572; margin-bottom: 3px; }
+        .chart-section .note { font-size: 12.5px; color: #475569; margin-bottom: 12px; max-width: 74ch; }
+        .chart-scroll { overflow-x: auto; }
+        .chart-legend {
+            display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px;
+            font-size: 11.5px; color: #475569;
+        }
+        .chart-legend span { display: inline-flex; align-items: center; gap: 5px; }
+        .swatch { width: 11px; height: 11px; border-radius: 2px; display: inline-block; border: 1px solid rgba(15, 23, 42, 0.3); }
 
         /* ── Footer ── */
         .footer {
             text-align: center;
-            padding: 16px 24px 24px;
-            font-size: 11px;
-            color: #94a3b8;
+            padding: 18px 24px 26px;
+            font-size: 11.5px;
+            color: #475569;
             border-top: 1px solid #e2e8f0;
             max-width: 960px;
-            margin: 0 auto;
+            margin: 26px auto 0;
         }
         .footer a { color: #282572; text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
+        .footer .built { margin-top: 7px; color: #5e6a7a; }
 
-        @media (max-width: 600px) {
-            .stat-grid { gap: 8px; }
-            .stat-card { min-width: 100px; padding: 12px 8px; }
-            .stat-card .number { font-size: 24px; }
-            .bar-label { width: 120px; }
+        @media (max-width: 640px) {
+            .hero { padding: 22px 16px 24px; }
+            .answer-lead { font-size: 18px; }
+            /* Tighter tiles on a phone. The hero stacks to three cards
+               here, and every pixel it spends is a pixel between the
+               reader and the grading section below it. */
+            .stat-grid { grid-template-columns: 1fr; gap: 9px; margin-top: 18px; }
+            .hero .stat.honest { padding: 11px 13px 12px; }
+            .hero .stat.honest .value { font-size: 28px; }
+            .hero .stat-note { font-size: 11px; line-height: 1.4; }
+            .hero .stat-cite { font-size: 10.5px; padding: 3px 8px; }
+            .explorers, .charts { padding-left: 16px; padding-right: 16px; }
+            .explorer-grid, .partition-grid, .lens-grid, .method-grid { grid-template-columns: 1fr; }
+            .bar-label { width: 100%; text-align: left; font-weight: 600; }
+            .evidence-ladder .bar-label { width: 100%; }
+            .bar-value, .evidence-ladder .bar-value { width: auto; min-width: 56px; text-align: left; }
+            .bar-counted { width: auto; }
+            .footer { padding-left: 16px; padding-right: 16px; }
         }
     </style>
 </head>
@@ -215,285 +375,369 @@
     </div>
     <script src="tracker-chassis.js"></script>
 
-    <!-- ═══ Hero numbers — flat AuScope purple; the page embeds as an iframe ═══ -->
-    <div class="hero">
-        <div class="stat-grid">
-            <div class="stat-card"><div class="number">2,926</div><div class="label">Publications</div></div>
-            <div class="stat-card"><div class="number">67,576</div><div class="label">Citations</div></div>
-            <div class="stat-card"><div class="number">226</div><div class="label">Datasets</div></div>
-            <div class="stat-card"><div class="number">3,981</div><div class="label">Seismic stations</div></div>
-            <div class="stat-card"><div class="number">170</div><div class="label">Instruments</div></div>
+    <!-- ═══ Hero — the one-screen answer, then the three figures that
+         answer it. Flat AuScope purple; the page embeds as an iframe. ═══ -->
+    <div class="hero" id="main">
+        <div class="hero-inner">
+            <p class="answer-lead"><strong>686 publications</strong> carry verifiable evidence of AuScope infrastructure &mdash; an AuScope identifier or a written acknowledgement &mdash; and they have been cited <strong>18,530 times</strong>.</p>
+            <p class="answer-caveat">Excludes <a href="#evidence">1,850 unverified keyword matches</a>.</p>
+            <div class="stat-grid">
+<div class="stat honest grade-measured"><div class="label">Attributed publications<span class="term-wrap"><button type="button" class="info-i" data-term="attributed" data-tip="Attributed publications — The headline count. Papers carrying either an AuScope identifier or an explicit written acknowledgement — verified, candidate, acknowledged-in-text and infrastructure-enabled combined. Every headline figure on this site counts only these." aria-label="Attributed publications — definition" aria-describedby="gloss-3" aria-expanded="false">i</button><span class="sr-only" id="gloss-3">Attributed publications — The headline count. Papers carrying either an AuScope identifier or an explicit written acknowledgement — verified, candidate, acknowledged-in-text and infrastructure-enabled combined. Every headline figure on this site counts only these.</span></span></div><div class="value"><a class="stat-link" href="#evidence"><span class="fig-value">686</span><span class="sr-only"> — see the records behind this number</span></a></div><div class="grade-row"><button type="button" class="grade-chip g-measured" data-tip="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts." aria-describedby="gloss-2" aria-expanded="false"><span class="grade-glyph" aria-hidden="true">●</span>Measured</button><span class="sr-only" id="gloss-2">Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 30 Aug 2026</span></div><button type="button" class="stat-cite" data-stat-cite="686 attributed publications (measured, as of 30 Aug 2026). Excludes 1,850 unverified keyword matches. Source: AuScope Impact Tracker — https://bvkay.github.io/AuScope_doi_tracker/index.html#evidence">Copy with caveat</button></div>
+<div class="stat honest grade-measured"><div class="label">Citations to them<span class="term-wrap"><button type="button" class="info-i" data-term="citations" data-tip="Citations — Times a paper has been cited, per OpenAlex. Counts come from OpenAlex and only ever increase in this tracker: a lower number from a later API call is treated as an API inconsistency, not as a correction." aria-label="Citations — definition" aria-describedby="gloss-5" aria-expanded="false">i</button><span class="sr-only" id="gloss-5">Citations — Times a paper has been cited, per OpenAlex. Counts come from OpenAlex and only ever increase in this tracker: a lower number from a later API call is treated as an API inconsistency, not as a correction.</span></span></div><div class="value"><a class="stat-link" href="#evidence"><span class="fig-value">18,530</span><span class="sr-only"> — see the records behind this number</span></a></div><div class="grade-row"><button type="button" class="grade-chip g-measured" data-tip="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts." aria-describedby="gloss-4" aria-expanded="false"><span class="grade-glyph" aria-hidden="true">●</span>Measured</button><span class="sr-only" id="gloss-4">Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 30 Aug 2026</span></div><button type="button" class="stat-cite" data-stat-cite="18,530 citations to them (measured, as of 30 Aug 2026). Citations to the attributed papers only, per OpenAlex. Source: AuScope Impact Tracker — https://bvkay.github.io/AuScope_doi_tracker/index.html#evidence">Copy with caveat</button></div>
+<div class="stat honest grade-measured"><div class="label">Registered datasets<span class="term-wrap"><button type="button" class="info-i" data-term="doi" data-tip="DOI — Digital Object Identifier. A permanent identifier for a published thing — a paper, a dataset, an instrument. Resolving it through doi.org should always reach the current home of that thing, even if the website behind it changes." aria-label="DOI — definition" aria-describedby="gloss-7" aria-expanded="false">i</button><span class="sr-only" id="gloss-7">DOI — Digital Object Identifier. A permanent identifier for a published thing — a paper, a dataset, an instrument. Resolving it through doi.org should always reach the current home of that thing, even if the website behind it changes.</span></span></div><div class="value"><a class="stat-link" href="dataset-registry.html"><span class="fig-value">193</span><span class="sr-only"> — see the records behind this number</span></a></div><div class="grade-row"><button type="button" class="grade-chip g-measured" data-tip="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts." aria-describedby="gloss-6" aria-expanded="false"><span class="grade-glyph" aria-hidden="true">●</span>Measured</button><span class="sr-only" id="gloss-6">Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div><div class="stat-note">DOI-registered datasets across five AuScope platforms.</div><button type="button" class="stat-cite" data-stat-cite="193 registered datasets (measured, as of 1 Sep 2026). DOI-registered datasets across five AuScope platforms. Source: AuScope Impact Tracker — https://bvkay.github.io/AuScope_doi_tracker/dataset-registry.html">Copy with caveat</button></div>
+            </div>
+            <p class="hero-jump">Next: <a href="#evidence">how that number is graded</a> &middot;
+               <a href="#lenses">the six lenses</a> &middot;
+               <a href="#explore">datasets and infrastructure</a> &middot;
+               <a href="#method">how to read every number here</a></p>
         </div>
     </div>
 
-    <div class="explorers lens-section">
+
+    <!-- ═══ Evidence grading — kept adjacent to the hero it qualifies ═══ -->
+    <div class="explorers evidence-section" id="evidence">
+        <h2>How the headline number is arrived at</h2>
+        <p class="partition-sum">686 attributed &plus; 305 software &plus; 1,850 unverified &equals; 2,841 records searched &mdash; the sets do not overlap, and only the first is claimed as impact.</p>
+        <h3 class="ladder-head" id="evidence-ladder">The six evidence tiers</h3>
+        <div class="bar-chart evidence-ladder">
+            <a class="bar-row evidence-row" href="publications.html?evidence=verified"
+               aria-label="Verified — 42 publications. AuScope ROR or funder ID on the paper. Counted in the headline figure.">
+                <div class="bar-label">Verified</div>
+                <div class="bar-track"><div class="bar-fill" style="width:2%;background:#282572"></div></div>
+                <div class="bar-value">42</div>
+                <div class="bar-counted in"><span aria-hidden="true">✓</span> in headline</div>
+            </a>
+            <a class="bar-row evidence-row" href="publications.html?evidence=candidate"
+               aria-label="Candidate — 58 publications. watchlist ORCID + partner co-affiliation. Counted in the headline figure.">
+                <div class="bar-label">Candidate</div>
+                <div class="bar-track"><div class="bar-fill" style="width:3%;background:#4a43b8"></div></div>
+                <div class="bar-value">58</div>
+                <div class="bar-counted in"><span aria-hidden="true">✓</span> in headline</div>
+            </a>
+            <a class="bar-row evidence-row" href="publications.html?evidence=text-attributed"
+               aria-label="Acknowledged in text — 582 publications. AuScope/facility acknowledgement found. Counted in the headline figure.">
+                <div class="bar-label">Acknowledged in text</div>
+                <div class="bar-track"><div class="bar-fill" style="width:31%;background:#6c66d6"></div></div>
+                <div class="bar-value">582</div>
+                <div class="bar-counted in"><span aria-hidden="true">✓</span> in headline</div>
+            </a>
+            <a class="bar-row evidence-row" href="publications.html?evidence=text-infrastructure"
+               aria-label="Infrastructure-enabled — 4 publications. infrastructure-use wording found. Counted in the headline figure.">
+                <div class="bar-label">Infrastructure-enabled</div>
+                <div class="bar-track"><div class="bar-fill" style="width:2%;background:#8f8ae0"></div></div>
+                <div class="bar-value">4</div>
+                <div class="bar-counted in"><span aria-hidden="true">✓</span> in headline</div>
+            </a>
+            <a class="bar-row evidence-row" href="publications.html?evidence=text-software"
+               aria-label="AuScope software used — 305 publications. GPlates, Underworld, and other tools. Not counted in the headline figure.">
+                <div class="bar-label">AuScope software used</div>
+                <div class="bar-track"><div class="bar-fill" style="width:16%;background:#b3afe9"></div></div>
+                <div class="bar-value">305</div>
+                <div class="bar-counted out"><span aria-hidden="true">✕</span> excluded</div>
+            </a>
+            <a class="bar-row evidence-row" href="publications.html?evidence=keyword"
+               aria-label="Keyword match only — 1,850 publications. no confirmed signal yet — under review. Not counted in the headline figure.">
+                <div class="bar-label">Keyword match only</div>
+                <div class="bar-track"><div class="bar-fill" style="width:100%;background:#cbd5e1"></div></div>
+                <div class="bar-value">1,850</div>
+                <div class="bar-counted out"><span aria-hidden="true">✕</span> excluded</div>
+            </a>
+        </div>
+        <details class="disclosure">
+            <summary>What each evidence tier means</summary>
+            <dl class="gloss-list"><div class="gloss-item"><dt>Verified</dt><dd><strong>Identifier evidence.</strong> This paper carries AuScope&#39;s organisational identifier — the strongest machine-verifiable link, checkable by anyone from the paper&#39;s own metadata.</dd></div><div class="gloss-item"><dt>Candidate</dt><dd><strong>Strong identifier evidence, awaiting confirmation.</strong> An author on this paper is a known AuScope-affiliated researcher at a partner institution. Strong evidence, but the organisational identifier is not yet on the record.</dd></div><div class="gloss-item"><dt>Acknowledged in text</dt><dd><strong>Written acknowledgement.</strong> The paper&#39;s text explicitly acknowledges AuScope or one of its facilities.</dd></div><div class="gloss-item"><dt>Infrastructure-enabled</dt><dd><strong>Used AuScope-supported infrastructure.</strong> The paper&#39;s text shows the research used AuScope-supported infrastructure, without naming AuScope in the acknowledgements.</dd></div><div class="gloss-item"><dt>AuScope software</dt><dd><strong>Used AuScope-supported software.</strong> The paper reports using AuScope-supported software such as GPlates or Underworld. Counted separately from attributed publications, because the software is used far beyond AuScope.</dd></div><div class="gloss-item"><dt>Keyword only</dt><dd><strong>No confirmed link yet.</strong> Found through an AuScope-related search term, with no identifier and no acknowledgement found. Under review, and excluded from every headline figure on this site.</dd></div></dl>
+        </details>
+    </div>
+
+
+    <!-- ═══ Downward-Looking Telescope — framing + filter, not the spine ═══ -->
+    <div class="explorers lens-section" id="lenses">
         <h2>Through the Downward-Looking Telescope</h2>
-        <p class="note">AuScope’s six lenses, from the shared Project Mapping sheet — labels as supplied. Dataset counts and F-UJI averages join the registry to that taxonomy; attribution is platform-level.</p>
-        <div class="lens-band">
-            <div class="lens-head"><h3>Temporal Lens</h3><a class="lens-link" href="dataset-registry.html?lens=Temporal%20Lens">Browse datasets &rarr;</a></div>
-            <div class="lens-stats"><span class="lens-num">107</span> datasets &middot; avg F-UJI 46% &middot; EarthBank</div>
-            <div class="lens-chips"><span class="lens-chip">Earth Composition and Evolution</span></div>
+        <div class="note"><span class="term-wrap"><button type="button" class="info-i" data-term="lens" data-tip="Lens — AuScope&#39;s own grouping of its programs. The Downward-Looking Telescope frames AuScope&#39;s work as six lenses onto the continent. Lenses are a program taxonomy applied to projects; most of the site&#39;s evidence is not yet mapped to one, so lens counts describe coverage of the taxonomy, not the whole evidence base." aria-label="Lens — definition" aria-describedby="gloss-20" aria-expanded="false">i</button><span class="sr-only" id="gloss-20">Lens — AuScope&#39;s own grouping of its programs. The Downward-Looking Telescope frames AuScope&#39;s work as six lenses onto the continent. Lenses are a program taxonomy applied to projects; most of the site&#39;s evidence is not yet mapped to one, so lens counts describe coverage of the taxonomy, not the whole evidence base.</span></span> AuScope’s six lenses onto the continent, from the shared Project Mapping sheet &mdash; labels exactly as supplied (as of 1 Sep 2026).</div>
+        <div class="lens-grid">
+            <div class="lens-band">
+                <div class="lens-head"><h3>Observational Lens</h3><span class="term-wrap"><button type="button" class="info-i" data-term="lens-observational" data-tip="Observational Lens — Seeing the continent as it is now. Programs that image and sound the Earth in the present — seismic, magnetotelluric and geodetic observation." aria-label="Observational Lens — definition" aria-describedby="gloss-14" aria-expanded="false">i</button><span class="sr-only" id="gloss-14">Observational Lens — Seeing the continent as it is now. Programs that image and sound the Earth in the present — seismic, magnetotelluric and geodetic observation.</span></span></div>
+                <div class="lens-stats"><span class="lens-num">113</span> registered datasets &middot; avg F-UJI 52% &middot; 25 mapped projects</div>
+                <div class="lens-src">via AusPass, NCI MT, NCI DAS</div>
+                <div class="lens-chips"><span class="lens-chip">Geospatial &amp; Geodesy</span><span class="lens-chip">Earth Imaging &amp; Sounding</span><span class="lens-chip">Autonomous Sensing</span></div>
+                <a class="lens-link" href="dataset-registry.html?lens=Observational%20Lens">Browse 113 datasets in the Observational Lens &rarr;</a>
+            </div>
+            <div class="lens-band">
+                <div class="lens-head"><h3>Temporal Lens</h3><span class="term-wrap"><button type="button" class="info-i" data-term="lens-temporal" data-tip="Temporal Lens — Reading the continent through time. Programs concerned with age, composition and evolution — geochronology, geochemistry and the sample archives behind them." aria-label="Temporal Lens — definition" aria-describedby="gloss-15" aria-expanded="false">i</button><span class="sr-only" id="gloss-15">Temporal Lens — Reading the continent through time. Programs concerned with age, composition and evolution — geochronology, geochemistry and the sample archives behind them.</span></span></div>
+                <div class="lens-stats"><span class="lens-num">107</span> registered datasets &middot; avg F-UJI 47% &middot; 23 mapped projects</div>
+                <div class="lens-src">via EarthBank</div>
+                <div class="lens-chips"><span class="lens-chip">Earth Composition and Evolution</span></div>
+                <a class="lens-link" href="dataset-registry.html?lens=Temporal%20Lens">Browse 107 datasets in the Temporal Lens &rarr;</a>
+            </div>
+            <div class="lens-band">
+                <div class="lens-head"><h3>FAIR Data Framework</h3><span class="term-wrap"><button type="button" class="info-i" data-term="lens-fair" data-tip="FAIR Data Framework — The plumbing that makes the rest findable. Research data systems and the virtual research environment — the infrastructure that publishes and connects everything else." aria-label="FAIR Data Framework — definition" aria-describedby="gloss-16" aria-expanded="false">i</button><span class="sr-only" id="gloss-16">FAIR Data Framework — The plumbing that makes the rest findable. Research data systems and the virtual research environment — the infrastructure that publishes and connects everything else.</span></span></div>
+                <div class="lens-stats"><span class="lens-num">11</span> registered datasets &middot; 14 mapped projects</div>
+                <div class="lens-src">via NCI MATE</div>
+                <div class="lens-chips"><span class="lens-chip">AuScope Virtual Research Environment</span><span class="lens-chip">Research Data Systems</span></div>
+                <a class="lens-link" href="dataset-registry.html?lens=FAIR%20Data%20Framework">Browse 11 datasets in the FAIR Data Framework &rarr;</a>
+            </div>
+            <div class="lens-band">
+                <div class="lens-head"><h3>Characterisation Lens</h3><span class="term-wrap"><button type="button" class="info-i" data-term="lens-characterisation" data-tip="Characterisation Lens — Measuring what the rock actually is. Programs that characterise material directly — drill-core scanning, mineralogy, spectral and physical property measurement." aria-label="Characterisation Lens — definition" aria-describedby="gloss-17" aria-expanded="false">i</button><span class="sr-only" id="gloss-17">Characterisation Lens — Measuring what the rock actually is. Programs that characterise material directly — drill-core scanning, mineralogy, spectral and physical property measurement.</span></span></div>
+                <div class="lens-stats"><span class="lens-num">9</span> registered datasets &middot; 10 mapped projects</div>
+                <div class="lens-src">via NVCL</div>
+                <div class="lens-chips"><span class="lens-chip">Characterisation</span><span class="lens-chip">Earth Sampling</span></div>
+                <a class="lens-link" href="dataset-registry.html?lens=Characterisation%20Lens">Browse 9 datasets in the Characterisation Lens &rarr;</a>
+            </div>
         </div>
-        <div class="lens-band">
-            <div class="lens-head"><h3>Observational Lens</h3><a class="lens-link" href="dataset-registry.html?lens=Observational%20Lens">Browse datasets &rarr;</a></div>
-            <div class="lens-stats"><span class="lens-num">110</span> datasets &middot; avg F-UJI 50% &middot; AusPass, NCI MT, NCI DAS</div>
-            <div class="lens-chips"><span class="lens-chip">Geospatial &amp; Geodesy</span><span class="lens-chip">Earth Imaging &amp; Sounding</span><span class="lens-chip">Autonomous Sensing</span></div>
-        </div>
-        <div class="lens-band">
-            <div class="lens-head"><h3>Characterisation Lens</h3><a class="lens-link" href="dataset-registry.html?lens=Characterisation%20Lens">Browse datasets &rarr;</a></div>
-            <div class="lens-stats"><span class="lens-num">9</span> datasets &middot; avg F-UJI 42% &middot; NVCL</div>
-            <div class="lens-chips"><span class="lens-chip">Characterisation</span><span class="lens-chip">Earth Sampling</span></div>
-        </div>
-        <div class="lens-band">
-            <div class="lens-head"><h3>Analysis Framework</h3></div>
-            <div class="lens-stats"><span class="lens-empty">no registered datasets yet</span></div>
-            <div class="lens-chips"><span class="lens-chip">Simulation, Analysis &amp; Modelling</span></div>
-        </div>
-        <div class="lens-band">
-            <div class="lens-head"><h3>FAIR Data Framework</h3></div>
-            <div class="lens-stats"><span class="lens-empty">no registered datasets yet</span></div>
-            <div class="lens-chips"><span class="lens-chip">AuScope Virtual Research Environment</span><span class="lens-chip">Research Data Systems</span></div>
-        </div>
-        <div class="lens-band">
-            <div class="lens-head"><h3>Community, Cuture &amp; Collaboration</h3></div>
-            <div class="lens-stats"><span class="lens-empty">no registered datasets yet</span></div>
-            <div class="lens-chips"><span class="lens-chip">Outreach &amp; Engagement</span><span class="lens-chip">International Collaboration</span></div>
-        </div>
+            <p class="lens-gap"><strong>2 of 6 lenses have no evidence attributed yet:</strong> <span class="term-wrap"><button type="button" class="term" data-term="lens-analysis" data-tip="Analysis Framework — Turning observation into model. Simulation, analysis and modelling capability — the computational side of the telescope." aria-describedby="gloss-18" aria-expanded="false">Analysis Framework</button><span class="sr-only" id="gloss-18">Analysis Framework — Turning observation into model. Simulation, analysis and modelling capability — the computational side of the telescope.</span></span>, <span class="term-wrap"><button type="button" class="term" data-term="lens-community" data-tip="Community, Culture &amp; Collaboration — People, outreach and partnership. Outreach, engagement and international collaboration. (The mapping sheet spells this &quot;Cuture&quot;; the pages follow the sheet.)" aria-describedby="gloss-19" aria-expanded="false">Community, Cuture &amp; Collaboration</button><span class="sr-only" id="gloss-19">Community, Culture &amp; Collaboration — People, outreach and partnership. Outreach, engagement and international collaboration. (The mapping sheet spells this &quot;Cuture&quot;; the pages follow the sheet.)</span></span>.</p>
+            <p class="lens-honesty">Lens is inherited from a dataset’s platform, not recorded on the record — so these are groupings, not counts of lens-tagged evidence. <a href="#method">How the numbers are graded</a></p>
+            <p class="lens-more"><a href="project-mapping.html">See all 87 mapped projects across the six lenses &rarr;</a></p>
     </div>
 
 
     <!-- ═══ Explorer cards (from src/stats.js) ═══ -->
-    <div class="explorers">
+    <div class="explorers" id="explore">
         <h2>Explore the evidence</h2>
-        <div class="note">Every number links to the live records behind it.</div>
+        <div class="note">Every number links to the records behind it, with its grade and date.</div>
+        <h3 class="group-head">Registered datasets, by platform</h3>
+        <div class="note group-note"><span class="term-wrap"><button type="button" class="info-i" data-term="fuji" data-tip="F-UJI — An automated FAIR-assessment tool. F-UJI reads a dataset&#39;s public metadata and scores it against a fixed metric set. It measures the record, not the data: a superb dataset with a thin DataCite record scores poorly, and that is the point — the record is what a machine sees." aria-label="F-UJI — definition" aria-describedby="gloss-1" aria-expanded="false">i</button><span class="sr-only" id="gloss-1">F-UJI — An automated FAIR-assessment tool. F-UJI reads a dataset&#39;s public metadata and scores it against a fixed metric set. It measures the record, not the data: a superb dataset with a thin DataCite record scores poorly, and that is the point — the record is what a machine sees.</span></span> F-UJI FAIR scores, assessed as of 25 Aug 2026 on metric set v0.8.</div>
         <div class="explorer-grid">
-        <a class="explorer-card" href="publications.html">
-            <div class="num">2,926</div>
-            <div class="name">Publications</div>
-            <div class="sub">evidence-graded · browse all</div>
-        </a>
-        <a class="explorer-card" href="publications.html">
-            <div class="num">67,576</div>
-            <div class="name">Total citations</div>
-            <div class="sub">of tracked publications</div>
-        </a>
-        <a class="explorer-card" href="earthbank.html">
-            <div class="num">60</div>
-            <div class="name">EarthBank datasets</div>
-            <div class="sub">DataCite metadata health · avg F-UJI 46%</div>
-        </a>
-        <a class="explorer-card" href="nci-mt.html">
-            <div class="num">16</div>
-            <div class="name">NCI MT collections</div>
-            <div class="sub">AusLAMP + legacy surveys · avg F-UJI 43%</div>
-        </a>
-        <a class="explorer-card" href="nci-das.html">
-            <div class="num">7</div>
-            <div class="name">NCI DAS collections</div>
-            <div class="sub">ALIRT · FISSLE · SISSLE · avg F-UJI 42%</div>
-        </a>
-        <a class="explorer-card" href="https://ausmt.auscope.org.au/" target="_blank" rel="noopener">
-            <div class="num">68</div>
-            <div class="name">AusMT surveys</div>
-            <div class="sub">5,313 stations · open MT transfer functions · ausmt.auscope.org.au ↗</div>
-        </a>
-        <a class="explorer-card" href="mt-deployments.html">
-            <div class="num">117</div>
-            <div class="name">Instruments deployed in MT surveys</div>
-            <div class="sub">3,946.2 recording-days · run-level AusMT records · 9 of 68 surveys populated</div>
-        </a>
-        <a class="explorer-card" href="earthbank.html">
-            <div class="num">53,812</div>
-            <div class="name">EarthBank samples</div>
-            <div class="sub">declared in DOI-registered datasets</div>
-        </a>
-        <a class="explorer-card" href="auspass.html">
-            <div class="num">3,981</div>
-            <div class="name">Seismic stations</div>
-            <div class="sub">87 networks · AusPass FDSN</div>
-        </a>
-        <a class="explorer-card" href="auspass.html">
-            <div class="num">87</div>
-            <div class="name">AusPass networks</div>
-            <div class="sub">FDSN network DOIs · avg F-UJI 52%</div>
-        </a>
-        <a class="explorer-card" href="instruments.html">
-            <div class="num">170</div>
-            <div class="name">Instruments</div>
-            <div class="sub">PIDInst DOIs · metadata health</div>
-        </a>
-        <a class="explorer-card" href="nvcl.html">
-            <div class="num">≈ 2,008 km</div>
-            <div class="name">NVCL core scanned</div>
-            <div class="sub">1,750 km measured · 6,281 boreholes · 8 state nodes</div>
-        </a>
-        <a class="explorer-card" href="gnss.html">
-            <div class="num">107</div>
-            <div class="name">GNSS reference stations</div>
-            <div class="sub">AuScope-funded, in GA’s CORS network · built 2007–2021</div>
-        </a>
-        <a class="explorer-card" href="ausis.html">
-            <div class="num">53</div>
-            <div class="name">Seismometers in schools</div>
-            <div class="sub">51 active · 44 streaming now · since 2011</div>
-        </a>
-        </div>
-        <h2 style="margin-top:24px">Most deployed instruments</h2>
-        <div class="note">Survey deployments per instrument model, from the PIDInst registry's survey&rarr;component links.</div>
-        <div class="bar-chart">
-            <div class="bar-row">
-                <div class="bar-label">LEMI-120</div>
-                <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-                <div class="bar-value">218</div>
-            </div>
-            <div class="bar-row">
-                <div class="bar-label">LEMI-423</div>
-                <div class="bar-track"><div class="bar-fill" style="width:49%"></div></div>
-                <div class="bar-value">107</div>
-            </div>
-            <div class="bar-row">
-                <div class="bar-label">MTC-150</div>
-                <div class="bar-track"><div class="bar-fill" style="width:17%"></div></div>
-                <div class="bar-value">36</div>
-            </div>
-            <div class="bar-row">
-                <div class="bar-label">LEMI-424</div>
-                <div class="bar-track"><div class="bar-fill" style="width:16%"></div></div>
-                <div class="bar-value">34</div>
-            </div>
-            <div class="bar-row">
-                <div class="bar-label">PR6-24</div>
-                <div class="bar-track"><div class="bar-fill" style="width:11%"></div></div>
-                <div class="bar-value">23</div>
-            </div>
-            <div class="bar-row">
-                <div class="bar-label">MTU-5C</div>
-                <div class="bar-track"><div class="bar-fill" style="width:6%"></div></div>
-                <div class="bar-value">14</div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ═══ Evidence ladder (from src/evidence.js) ═══ -->
-    <div class="explorers">
-        <h2>Evidence behind the publications count</h2>
-        <div class="note">Every publication is graded by its strongest verifiable link to AuScope — identifier evidence first, then text acknowledgement, then keyword match. Click a row to browse those papers.</div>
-        <div class="bar-chart">
-            <a class="bar-row" href="publications.html?evidence=verified" title="AuScope ROR or funder ID on the paper" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Verified</div>
-                <div class="bar-track"><div class="bar-fill" style="width:2%;background:#282572"></div></div>
-                <div class="bar-value">42</div>
+            <a class="explorer-card" href="earthbank.html">
+                <div class="num">60</div>
+                <div class="name">EarthBank datasets</div>
+                <div class="sub">DataCite metadata health · avg F-UJI 47%</div>
+                <div class="card-stamp"><span class="grade-chip g-measured" title="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
             </a>
-            <a class="bar-row" href="publications.html?evidence=candidate" title="watchlist ORCID + partner co-affiliation" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Candidate</div>
-                <div class="bar-track"><div class="bar-fill" style="width:3%;background:#4a43b8"></div></div>
-                <div class="bar-value">58</div>
+            <a class="explorer-card" href="auspass.html">
+                <div class="num">87</div>
+                <div class="name">AusPass networks</div>
+                <div class="sub">FDSN network DOIs · avg F-UJI 55%</div>
+                <div class="card-stamp"><span class="grade-chip g-measured" title="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
             </a>
-            <a class="bar-row" href="publications.html?evidence=text-attributed" title="AuScope/facility acknowledgement found" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Acknowledged in text</div>
-                <div class="bar-track"><div class="bar-fill" style="width:32%;background:#6c66d6"></div></div>
-                <div class="bar-value">606</div>
+            <a class="explorer-card" href="nci-mt.html">
+                <div class="num">19</div>
+                <div class="name">NCI MT collections</div>
+                <div class="sub">AusLAMP + legacy surveys · avg F-UJI 43%</div>
+                <div class="card-stamp"><span class="grade-chip g-measured" title="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
             </a>
-            <a class="bar-row" href="publications.html?evidence=text-infrastructure" title="infrastructure-use wording found" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Infrastructure-enabled</div>
-                <div class="bar-track"><div class="bar-fill" style="width:2%;background:#8f8ae0"></div></div>
-                <div class="bar-value">5</div>
+            <a class="explorer-card" href="nci-das.html">
+                <div class="num">7</div>
+                <div class="name">NCI DAS collections</div>
+                <div class="sub">ALIRT · FISSLE · SISSLE · avg F-UJI 42%</div>
+                <div class="card-stamp"><span class="grade-chip g-measured" title="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
             </a>
-            <a class="bar-row" href="publications.html?evidence=text-software" title="GPlates, Underworld, and other tools" style="text-decoration:none;color:inherit">
-                <div class="bar-label">AuScope software used</div>
-                <div class="bar-track"><div class="bar-fill" style="width:17%;background:#b3afe9"></div></div>
-                <div class="bar-value">319</div>
+            <a class="explorer-card" href="dataset-registry.html?platform=NCI%20MATE">
+                <div class="num">11</div>
+                <div class="name">M@TE models</div>
+                <div class="sub">Model Atlas of the Earth</div>
+                <div class="card-stamp"><span class="grade-chip g-measured" title="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
             </a>
-            <a class="bar-row" href="publications.html?evidence=keyword" title="no confirmed signal yet — under review" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Keyword match only</div>
-                <div class="bar-track"><div class="bar-fill" style="width:100%;background:#cbd5e1"></div></div>
-                <div class="bar-value">1,896</div>
+            <a class="explorer-card" href="nvcl.html">
+                <div class="num">9</div>
+                <div class="name">NVCL collection DOIs</div>
+                <div class="sub">state drill-core archives</div>
+                <div class="card-stamp"><span class="grade-chip g-measured" title="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
             </a>
         </div>
+        <h3 class="group-head">Infrastructure in the field</h3>
+        <div class="note group-note">What AuScope runs, as distinct from what has been published about it. Inventory is not impact, so none of these numbers feed the headline.</div>
+        <div class="explorer-grid">
+            <a class="explorer-card" href="auspass.html">
+                <div class="num">3,981</div>
+                <div class="name">Seismic stations</div>
+                <div class="sub">served through the AusPass FDSN service</div>
+                <div class="card-stamp"><span class="grade-chip g-snapshot" title="Snapshot — Frozen at the build date. Captured when this page was last built, not read live. The world may have moved since the stated date."><span class="grade-glyph" aria-hidden="true">◷</span>Snapshot</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
+            </a>
+            <a class="explorer-card" href="instruments.html">
+                <div class="num">170</div>
+                <div class="name">Registered instruments</div>
+                <div class="sub">PIDInst DOIs · metadata health</div>
+                <div class="card-stamp"><span class="grade-chip g-measured" title="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
+            </a>
+            <a class="explorer-card" href="https://ausmt.auscope.org.au/" target="_blank" rel="noopener">
+                <div class="num">51</div>
+                <div class="name">AusMT surveys</div>
+                <div class="sub">3,204 stations · open MT transfer functions · ausmt.auscope.org.au ↗</div>
+                <div class="card-stamp"><span class="grade-chip g-snapshot" title="Snapshot — Frozen at the build date. Captured when this page was last built, not read live. The world may have moved since the stated date."><span class="grade-glyph" aria-hidden="true">◷</span>Snapshot</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 31 Aug 2026</span></div>
+            </a>
+            <a class="explorer-card" href="mt-deployments.html">
+                <div class="num">117</div>
+                <div class="name">Instruments deployed in MT surveys</div>
+                <div class="sub">3,946.2 recording-days · run-level AusMT records · 9 of 51 surveys populated</div>
+                <div class="card-stamp"><span class="grade-chip g-partial" title="Partial — Some sources did not answer. This figure is real but incomplete: at least one source it depends on failed or was still loading. Treat it as a floor, not a total."><span class="grade-glyph" aria-hidden="true">◐</span>Partial</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 30 Aug 2026</span></div>
+            </a>
+            <a class="explorer-card" href="gnss.html">
+                <div class="num">107</div>
+                <div class="name">GNSS reference stations</div>
+                <div class="sub">AuScope-funded, in GA’s CORS network · built 2007–2021</div>
+                <div class="card-stamp"><span class="grade-chip g-snapshot" title="Snapshot — Frozen at the build date. Captured when this page was last built, not read live. The world may have moved since the stated date."><span class="grade-glyph" aria-hidden="true">◷</span>Snapshot</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
+            </a>
+            <a class="explorer-card" href="ausis.html">
+                <div class="num">53</div>
+                <div class="name">Seismometers in schools</div>
+                <div class="sub">51 active · 48 streaming at last check · since 2011</div>
+                <div class="card-stamp"><span class="grade-chip g-snapshot" title="Snapshot — Frozen at the build date. Captured when this page was last built, not read live. The world may have moved since the stated date."><span class="grade-glyph" aria-hidden="true">◷</span>Snapshot</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
+            </a>
+            <a class="explorer-card" href="nvcl.html">
+                <div class="num">≈ 1,950 km</div>
+                <div class="name">NVCL core scanned</div>
+                <div class="sub">1,738 km measured · 6,236 boreholes · 8 state nodes</div>
+                <div class="card-stamp"><span class="grade-chip g-estimate" title="Estimate — Derived, not counted. Calculated or extrapolated from other figures rather than counted directly. The method is stated next to the number."><span class="grade-glyph" aria-hidden="true">≈</span>Estimate</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 24 Aug 2026</span></div>
+            </a>
+            <a class="explorer-card" href="earthbank.html">
+                <div class="num">53,812</div>
+                <div class="name">EarthBank samples</div>
+                <div class="sub">declared in DOI-registered datasets</div>
+                <div class="card-stamp"><span class="grade-chip g-measured" title="Measured — Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 1 Sep 2026</span></div>
+            </a>
+        </div>
+        <details class="disclosure">
+            <summary>Most deployed instrument models (6)</summary>
+            <div class="note">Survey deployments per instrument model, from the PIDInst registry’s survey&rarr;component links. A model counts once per survey it appears in.</div>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">LEMI-120</div>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+                    <div class="bar-value">218</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">LEMI-423</div>
+                    <div class="bar-track"><div class="bar-fill" style="width:49%"></div></div>
+                    <div class="bar-value">107</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">MTC-150</div>
+                    <div class="bar-track"><div class="bar-fill" style="width:17%"></div></div>
+                    <div class="bar-value">36</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">LEMI-424</div>
+                    <div class="bar-track"><div class="bar-fill" style="width:16%"></div></div>
+                    <div class="bar-value">34</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">PR6-24</div>
+                    <div class="bar-track"><div class="bar-fill" style="width:11%"></div></div>
+                    <div class="bar-value">23</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">MTU-5C</div>
+                    <div class="bar-track"><div class="bar-fill" style="width:6%"></div></div>
+                    <div class="bar-value">14</div>
+                </div>
+            </div>
+        </details>
     </div>
 
 
     <!-- ═══ Publications by program ═══ -->
     <div class="explorers">
         <h2>Publications by AuScope program</h2>
-        <div class="note">Grouped from the search terms that found each paper — a paper crediting several programs counts in each. Papers added manually carry no program tag yet. Click a row to browse.</div>
-        <div class="bar-chart">
-            <a class="bar-row" href="publications.html?program=AuScope%20(general)" style="text-decoration:none;color:inherit">
+        <div class="note">From the search terms that found each paper; a paper can count in several.</div>
+        <div class="bar-chart program-chart">
+            <a class="bar-row" href="publications.html?program=AuScope%20(general)"
+               aria-label="AuScope (general) — 679 publications found, of which 541 are evidence-attributed">
                 <div class="bar-label">AuScope (general)</div>
-                <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-                <div class="bar-value">711</div>
+                <div class="bar-track"><div class="bar-fill pale" style="width:100%"><div class="bar-fill solid" style="width:80%"></div></div></div>
+                <div class="bar-value"><strong>541</strong><span class="of">/679</span></div>
             </a>
-            <a class="bar-row" href="publications.html?program=Simulation%20%26%20modelling%20software" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Simulation & modelling software</div>
-                <div class="bar-track"><div class="bar-fill" style="width:69%"></div></div>
-                <div class="bar-value">492</div>
+            <a class="bar-row" href="publications.html?program=Simulation%20%26%20modelling%20software"
+               aria-label="Simulation &amp; modelling software — 470 publications found, of which 69 are evidence-attributed">
+                <div class="bar-label">Simulation &amp; modelling software</div>
+                <div class="bar-track"><div class="bar-fill pale" style="width:69%"><div class="bar-fill solid" style="width:14%"></div></div></div>
+                <div class="bar-value"><strong>69</strong><span class="of">/470</span></div>
             </a>
-            <a class="bar-row" href="publications.html?program=Geochemistry%20%26%20characterisation" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Geochemistry & characterisation</div>
-                <div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
-                <div class="bar-value">322</div>
+            <a class="bar-row" href="publications.html?program=Geochemistry%20%26%20characterisation"
+               aria-label="Geochemistry &amp; characterisation — 307 publications found, of which 215 are evidence-attributed">
+                <div class="bar-label">Geochemistry &amp; characterisation</div>
+                <div class="bar-track"><div class="bar-fill pale" style="width:45%"><div class="bar-fill solid" style="width:71%"></div></div></div>
+                <div class="bar-value"><strong>215</strong><span class="of">/307</span></div>
             </a>
-            <a class="bar-row" href="publications.html?program=Earth%20imaging%20%26%20sounding" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Earth imaging & sounding</div>
-                <div class="bar-track"><div class="bar-fill" style="width:22%"></div></div>
-                <div class="bar-value">156</div>
+            <a class="bar-row" href="publications.html?program=Geodesy%20%26%20VLBI"
+               aria-label="Geodesy &amp; VLBI — 146 publications found, of which 66 are evidence-attributed">
+                <div class="bar-label">Geodesy &amp; VLBI</div>
+                <div class="bar-track"><div class="bar-fill pale" style="width:22%"><div class="bar-fill solid" style="width:45%"></div></div></div>
+                <div class="bar-value"><strong>66</strong><span class="of">/146</span></div>
             </a>
-            <a class="bar-row" href="publications.html?program=Geodesy%20%26%20VLBI" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Geodesy & VLBI</div>
-                <div class="bar-track"><div class="bar-fill" style="width:21%"></div></div>
-                <div class="bar-value">150</div>
+            <a class="bar-row" href="publications.html?program=Earth%20imaging%20%26%20sounding"
+               aria-label="Earth imaging &amp; sounding — 143 publications found, of which 51 are evidence-attributed">
+                <div class="bar-label">Earth imaging &amp; sounding</div>
+                <div class="bar-track"><div class="bar-fill pale" style="width:21%"><div class="bar-fill solid" style="width:38%"></div></div></div>
+                <div class="bar-value"><strong>51</strong><span class="of">/143</span></div>
             </a>
-            <a class="bar-row" href="publications.html?program=Education%20%26%20outreach" style="text-decoration:none;color:inherit">
-                <div class="bar-label">Education & outreach</div>
-                <div class="bar-track"><div class="bar-fill" style="width:6%"></div></div>
-                <div class="bar-value">43</div>
+            <a class="bar-row" href="publications.html?program=Education%20%26%20outreach"
+               aria-label="Education &amp; outreach — 42 publications found, of which 20 are evidence-attributed">
+                <div class="bar-label">Education &amp; outreach</div>
+                <div class="bar-track"><div class="bar-fill pale" style="width:6%"><div class="bar-fill solid" style="width:50%"></div></div></div>
+                <div class="bar-value"><strong>20</strong><span class="of">/42</span></div>
             </a>
-            <a class="bar-row" href="publications.html?program=AVRE%20%26%20data%20systems" style="text-decoration:none;color:inherit">
-                <div class="bar-label">AVRE & data systems</div>
-                <div class="bar-track"><div class="bar-fill" style="width:4%"></div></div>
-                <div class="bar-value">27</div>
+            <a class="bar-row" href="publications.html?program=AVRE%20%26%20data%20systems"
+               aria-label="AVRE &amp; data systems — 26 publications found, of which 25 are evidence-attributed">
+                <div class="bar-label">AVRE &amp; data systems</div>
+                <div class="bar-track"><div class="bar-fill pale" style="width:4%"><div class="bar-fill solid" style="width:100%"></div></div></div>
+                <div class="bar-value"><strong>25</strong><span class="of">/26</span></div>
             </a>
         </div>
+        <p class="caveat">These groupings come from this tracker’s search terms, <em>not</em> the Project Mapping sheet the lenses use. The two have never been reconciled &mdash; never add a figure from one to a figure from the other.</p>
     </div>
 
     <!-- ═══ Charts ═══ -->
     <div class="charts">
-        <!-- Publications by Year -->
+        <!-- Publications by year, split by evidence class -->
         <div class="chart-section">
-            <h2>Publications by Year</h2>
-            <svg viewBox="0 0 800 280" style="width:100%;max-width:800px;height:auto;"><line x1="50" y1="240.0" x2="784" y2="240.0" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="244.0" text-anchor="end" font-size="11" fill="#64748b">0</text><line x1="50" y1="198.2" x2="784" y2="198.2" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="202.2" text-anchor="end" font-size="11" fill="#64748b">100</text><line x1="50" y1="156.4" x2="784" y2="156.4" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="160.4" text-anchor="end" font-size="11" fill="#64748b">200</text><line x1="50" y1="114.6" x2="784" y2="114.6" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="118.6" text-anchor="end" font-size="11" fill="#64748b">300</text><line x1="50" y1="72.8" x2="784" y2="72.8" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="76.8" text-anchor="end" font-size="11" fill="#64748b">400</text><line x1="50" y1="31.0" x2="784" y2="31.0" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="35.0" text-anchor="end" font-size="11" fill="#64748b">500</text><rect x="51.0" y="238.0" width="22.5" height="2.0" fill="#282572" rx="2" /><text x="62.2" y="234.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">1</text><rect x="75.5" y="238.0" width="22.5" height="2.0" fill="#282572" rx="2" /><text x="86.7" y="234.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">1</text><rect x="148.9" y="238.0" width="22.5" height="2.0" fill="#282572" rx="2" /><text x="160.1" y="234.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">1</text><rect x="197.8" y="238.0" width="22.5" height="2.0" fill="#282572" rx="2" /><text x="209.0" y="234.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">1</text><rect x="222.3" y="238.0" width="22.5" height="2.0" fill="#282572" rx="2" /><text x="233.5" y="234.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">3</text><rect x="246.7" y="238.0" width="22.5" height="2.0" fill="#282572" rx="2" /><text x="258.0" y="234.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">2</text><rect x="271.2" y="238.0" width="22.5" height="2.0" fill="#282572" rx="2" /><text x="282.4" y="234.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">1</text><rect x="295.7" y="238.0" width="22.5" height="2.0" fill="#282572" rx="2" /><text x="306.9" y="234.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">1</text><rect x="320.1" y="235.0" width="22.5" height="5.0" fill="#282572" rx="2" /><text x="331.4" y="231.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">12</text><rect x="344.6" y="236.2" width="22.5" height="3.8" fill="#282572" rx="2" /><text x="355.8" y="232.2" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">9</text><rect x="369.1" y="234.1" width="22.5" height="5.9" fill="#282572" rx="2" /><text x="380.3" y="230.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">14</text><rect x="393.5" y="233.7" width="22.5" height="6.3" fill="#282572" rx="2" /><text x="404.8" y="229.7" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">15</text><rect x="418.0" y="232.1" width="22.5" height="7.9" fill="#282572" rx="2" /><text x="429.2" y="228.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">19</text><rect x="442.5" y="233.7" width="22.5" height="6.3" fill="#282572" rx="2" /><text x="453.7" y="229.7" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">15</text><rect x="466.9" y="228.3" width="22.5" height="11.7" fill="#282572" rx="2" /><text x="478.2" y="224.3" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">28</text><rect x="491.4" y="222.0" width="22.5" height="18.0" fill="#282572" rx="2" /><text x="502.6" y="218.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">43</text><rect x="515.9" y="217.4" width="22.5" height="22.6" fill="#282572" rx="2" /><text x="527.1" y="213.4" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">54</text><rect x="540.3" y="220.4" width="22.5" height="19.6" fill="#282572" rx="2" /><text x="551.6" y="216.4" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">47</text><rect x="564.8" y="211.2" width="22.5" height="28.8" fill="#282572" rx="2" /><text x="576.0" y="207.2" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">69</text><rect x="589.3" y="201.1" width="22.5" height="38.9" fill="#282572" rx="2" /><text x="600.5" y="197.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">93</text><rect x="613.7" y="16.0" width="22.5" height="224.0" fill="#282572" rx="2" /><text x="625.0" y="12.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">536</text><rect x="638.2" y="33.1" width="22.5" height="206.9" fill="#282572" rx="2" /><text x="649.4" y="29.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">495</text><rect x="662.7" y="46.1" width="22.5" height="193.9" fill="#282572" rx="2" /><text x="673.9" y="42.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">464</text><rect x="687.1" y="78.3" width="22.5" height="161.7" fill="#282572" rx="2" /><text x="698.4" y="74.3" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">387</text><rect x="711.6" y="147.6" width="22.5" height="92.4" fill="#282572" rx="2" /><text x="722.8" y="143.6" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">221</text><rect x="736.1" y="149.7" width="22.5" height="90.3" fill="#282572" rx="2" /><text x="747.3" y="145.7" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">216</text><rect x="760.5" y="165.6" width="22.5" height="74.4" fill="#282572" rx="2" /><text x="771.8" y="161.6" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">178</text><text x="134.6" y="260" text-anchor="middle" font-size="11" fill="#64748b">2000</text><text x="257.0" y="260" text-anchor="middle" font-size="11" fill="#64748b">2005</text><text x="379.3" y="260" text-anchor="middle" font-size="11" fill="#64748b">2010</text><text x="501.6" y="260" text-anchor="middle" font-size="11" fill="#64748b">2015</text><text x="624.0" y="260" text-anchor="middle" font-size="11" fill="#64748b">2020</text><text x="746.3" y="260" text-anchor="middle" font-size="11" fill="#64748b">2025</text><text x="770.8" y="260" text-anchor="middle" font-size="11" fill="#64748b">2026</text><line x1="50" y1="16" x2="50" y2="240" stroke="#cbd5e1" stroke-width="1" /><line x1="50" y1="240" x2="784" y2="240" stroke="#cbd5e1" stroke-width="1" /></svg>
+            <h2>Publications found by year</h2>
+            <div class="note">Dark band = counted. Pale band = found but unconfirmed.</div>
+            <div class="chart-scroll"><svg viewBox="0 0 800 280" style="width:100%;min-width:520px;max-width:800px;height:auto;" role="img" aria-label="Publications found per year from 1997 to 2026, stacked by evidence class: attributed, AuScope software, and unverified keyword matches."><line x1="50" y1="240.0" x2="784" y2="240.0" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="244.0" text-anchor="end" font-size="11" fill="#475569">0</text><line x1="50" y1="197.7" x2="784" y2="197.7" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="201.7" text-anchor="end" font-size="11" fill="#475569">100</text><line x1="50" y1="155.3" x2="784" y2="155.3" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="159.3" text-anchor="end" font-size="11" fill="#475569">200</text><line x1="50" y1="113.0" x2="784" y2="113.0" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="117.0" text-anchor="end" font-size="11" fill="#475569">300</text><line x1="50" y1="70.6" x2="784" y2="70.6" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="74.6" text-anchor="end" font-size="11" fill="#475569">400</text><line x1="50" y1="28.3" x2="784" y2="28.3" stroke="#e2e8f0" stroke-width="1" /><text x="42" y="32.3" text-anchor="end" font-size="11" fill="#475569">500</text><rect x="51.0" y="239.2" width="22.5" height="0.8" fill="#b3afe9" /><rect x="51.0" y="16" width="22.5" height="224.0" fill="transparent"><title>1997: 1 found · 1 AuScope software</title></rect><rect x="75.5" y="239.2" width="22.5" height="0.8" fill="#cbd5e1" /><rect x="75.5" y="16" width="22.5" height="224.0" fill="transparent"><title>1998: 1 found · 1 unverified keyword match</title></rect><rect x="99.9" y="16" width="22.5" height="224.0" fill="transparent"><title>1999: 0 found</title></rect><rect x="124.4" y="16" width="22.5" height="224.0" fill="transparent"><title>2000: 0 found</title></rect><rect x="148.9" y="239.2" width="22.5" height="0.8" fill="#cbd5e1" /><rect x="148.9" y="16" width="22.5" height="224.0" fill="transparent"><title>2001: 1 found · 1 unverified keyword match</title></rect><rect x="173.3" y="16" width="22.5" height="224.0" fill="transparent"><title>2002: 0 found</title></rect><rect x="197.8" y="239.2" width="22.5" height="0.8" fill="#cbd5e1" /><rect x="197.8" y="16" width="22.5" height="224.0" fill="transparent"><title>2003: 1 found · 1 unverified keyword match</title></rect><rect x="222.3" y="238.7" width="22.5" height="1.3" fill="#282572" /><rect x="222.3" y="16" width="22.5" height="224.0" fill="transparent"><title>2004: 3 found · 3 attributed</title></rect><text x="233.5" y="234.7" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">3</text><rect x="246.7" y="239.2" width="22.5" height="0.8" fill="#282572" /><rect x="246.7" y="238.4" width="22.5" height="0.8" fill="#cbd5e1" /><rect x="246.7" y="16" width="22.5" height="224.0" fill="transparent"><title>2005: 2 found · 1 attributed · 1 unverified keyword match</title></rect><text x="258.0" y="235.2" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">1</text><rect x="271.2" y="239.2" width="22.5" height="0.8" fill="#cbd5e1" /><rect x="271.2" y="16" width="22.5" height="224.0" fill="transparent"><title>2006: 1 found · 1 unverified keyword match</title></rect><rect x="295.7" y="239.2" width="22.5" height="0.8" fill="#cbd5e1" /><rect x="295.7" y="16" width="22.5" height="224.0" fill="transparent"><title>2007: 1 found · 1 unverified keyword match</title></rect><rect x="320.1" y="237.0" width="22.5" height="3.0" fill="#282572" /><rect x="320.1" y="235.3" width="22.5" height="1.7" fill="#cbd5e1" /><rect x="320.1" y="16" width="22.5" height="224.0" fill="transparent"><title>2008: 11 found · 7 attributed · 4 unverified keyword match</title></rect><text x="331.4" y="231.3" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">7</text><rect x="344.6" y="237.0" width="22.5" height="3.0" fill="#282572" /><rect x="344.6" y="236.2" width="22.5" height="0.8" fill="#b3afe9" /><rect x="344.6" y="235.4" width="22.5" height="0.8" fill="#cbd5e1" /><rect x="344.6" y="16" width="22.5" height="224.0" fill="transparent"><title>2009: 9 found · 7 attributed · 1 AuScope software · 1 unverified keyword match</title></rect><text x="355.8" y="232.2" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">7</text><rect x="369.1" y="236.6" width="22.5" height="3.4" fill="#282572" /><rect x="369.1" y="234.5" width="22.5" height="2.1" fill="#cbd5e1" /><rect x="369.1" y="16" width="22.5" height="224.0" fill="transparent"><title>2010: 13 found · 8 attributed · 5 unverified keyword match</title></rect><text x="380.3" y="230.5" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">8</text><rect x="393.5" y="234.5" width="22.5" height="5.5" fill="#282572" /><rect x="393.5" y="233.7" width="22.5" height="0.8" fill="#cbd5e1" /><rect x="393.5" y="16" width="22.5" height="224.0" fill="transparent"><title>2011: 14 found · 13 attributed · 1 unverified keyword match</title></rect><text x="404.8" y="230.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">13</text><rect x="418.0" y="234.5" width="22.5" height="5.5" fill="#282572" /><rect x="418.0" y="232.8" width="22.5" height="1.7" fill="#cbd5e1" /><rect x="418.0" y="16" width="22.5" height="224.0" fill="transparent"><title>2012: 17 found · 13 attributed · 4 unverified keyword match</title></rect><text x="429.2" y="228.8" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">13</text><rect x="442.5" y="235.3" width="22.5" height="4.7" fill="#282572" /><rect x="442.5" y="234.5" width="22.5" height="0.8" fill="#b3afe9" /><rect x="442.5" y="233.3" width="22.5" height="1.3" fill="#cbd5e1" /><rect x="442.5" y="16" width="22.5" height="224.0" fill="transparent"><title>2013: 15 found · 11 attributed · 1 AuScope software · 3 unverified keyword match</title></rect><text x="453.7" y="229.6" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">11</text><rect x="466.9" y="231.1" width="22.5" height="8.9" fill="#282572" /><rect x="466.9" y="230.3" width="22.5" height="0.8" fill="#b3afe9" /><rect x="466.9" y="228.1" width="22.5" height="2.1" fill="#cbd5e1" /><rect x="466.9" y="16" width="22.5" height="224.0" fill="transparent"><title>2014: 28 found · 21 attributed · 2 AuScope software · 5 unverified keyword match</title></rect><text x="478.2" y="224.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">21</text><rect x="491.4" y="226.9" width="22.5" height="13.1" fill="#282572" /><rect x="491.4" y="226.0" width="22.5" height="0.8" fill="#b3afe9" /><rect x="491.4" y="221.8" width="22.5" height="4.2" fill="#cbd5e1" /><rect x="491.4" y="16" width="22.5" height="224.0" fill="transparent"><title>2015: 43 found · 31 attributed · 2 AuScope software · 10 unverified keyword match</title></rect><text x="502.6" y="217.8" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">31</text><rect x="515.9" y="227.7" width="22.5" height="12.3" fill="#282572" /><rect x="515.9" y="224.8" width="22.5" height="3.0" fill="#b3afe9" /><rect x="515.9" y="217.1" width="22.5" height="7.6" fill="#cbd5e1" /><rect x="515.9" y="16" width="22.5" height="224.0" fill="transparent"><title>2016: 54 found · 29 attributed · 7 AuScope software · 18 unverified keyword match</title></rect><text x="527.1" y="213.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">29</text><rect x="540.3" y="227.3" width="22.5" height="12.7" fill="#282572" /><rect x="540.3" y="223.1" width="22.5" height="4.2" fill="#b3afe9" /><rect x="540.3" y="220.1" width="22.5" height="3.0" fill="#cbd5e1" /><rect x="540.3" y="16" width="22.5" height="224.0" fill="transparent"><title>2017: 47 found · 30 attributed · 10 AuScope software · 7 unverified keyword match</title></rect><text x="551.6" y="216.1" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">30</text><rect x="564.8" y="229.0" width="22.5" height="11.0" fill="#282572" /><rect x="564.8" y="221.8" width="22.5" height="7.2" fill="#b3afe9" /><rect x="564.8" y="210.8" width="22.5" height="11.0" fill="#cbd5e1" /><rect x="564.8" y="16" width="22.5" height="224.0" fill="transparent"><title>2018: 69 found · 26 attributed · 17 AuScope software · 26 unverified keyword match</title></rect><text x="576.0" y="206.8" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">26</text><rect x="589.3" y="221.8" width="22.5" height="18.2" fill="#282572" /><rect x="589.3" y="217.6" width="22.5" height="4.2" fill="#b3afe9" /><rect x="589.3" y="201.9" width="22.5" height="15.7" fill="#cbd5e1" /><rect x="589.3" y="16" width="22.5" height="224.0" fill="transparent"><title>2019: 90 found · 43 attributed · 10 AuScope software · 37 unverified keyword match</title></rect><text x="600.5" y="197.9" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">43</text><rect x="613.7" y="219.3" width="22.5" height="20.7" fill="#282572" /><rect x="613.7" y="212.5" width="22.5" height="6.8" fill="#b3afe9" /><rect x="613.7" y="16.0" width="22.5" height="196.5" fill="#cbd5e1" /><rect x="613.7" y="16" width="22.5" height="224.0" fill="transparent"><title>2020: 529 found · 49 attributed · 16 AuScope software · 464 unverified keyword match</title></rect><text x="625.0" y="12.0" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">49</text><rect x="638.2" y="208.2" width="22.5" height="31.8" fill="#282572" /><rect x="638.2" y="199.8" width="22.5" height="8.5" fill="#b3afe9" /><rect x="638.2" y="34.6" width="22.5" height="165.1" fill="#cbd5e1" /><rect x="638.2" y="16" width="22.5" height="224.0" fill="transparent"><title>2021: 485 found · 75 attributed · 20 AuScope software · 390 unverified keyword match</title></rect><text x="649.4" y="30.6" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">75</text><rect x="662.7" y="210.8" width="22.5" height="29.2" fill="#282572" /><rect x="662.7" y="197.2" width="22.5" height="13.6" fill="#b3afe9" /><rect x="662.7" y="48.2" width="22.5" height="149.1" fill="#cbd5e1" /><rect x="662.7" y="16" width="22.5" height="224.0" fill="transparent"><title>2022: 453 found · 69 attributed · 32 AuScope software · 352 unverified keyword match</title></rect><text x="673.9" y="44.2" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">69</text><rect x="687.1" y="198.5" width="22.5" height="41.5" fill="#282572" /><rect x="687.1" y="185.4" width="22.5" height="13.1" fill="#b3afe9" /><rect x="687.1" y="81.6" width="22.5" height="103.7" fill="#cbd5e1" /><rect x="687.1" y="16" width="22.5" height="224.0" fill="transparent"><title>2023: 374 found · 98 attributed · 31 AuScope software · 245 unverified keyword match</title></rect><text x="698.4" y="77.6" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">98</text><rect x="711.6" y="215.9" width="22.5" height="24.1" fill="#282572" /><rect x="711.6" y="197.2" width="22.5" height="18.6" fill="#b3afe9" /><rect x="711.6" y="149.8" width="22.5" height="47.4" fill="#cbd5e1" /><rect x="711.6" y="16" width="22.5" height="224.0" fill="transparent"><title>2024: 213 found · 57 attributed · 44 AuScope software · 112 unverified keyword match</title></rect><text x="722.8" y="145.8" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">57</text><rect x="736.1" y="209.1" width="22.5" height="30.9" fill="#282572" /><rect x="736.1" y="184.5" width="22.5" height="24.6" fill="#b3afe9" /><rect x="736.1" y="151.5" width="22.5" height="33.0" fill="#cbd5e1" /><rect x="736.1" y="16" width="22.5" height="224.0" fill="transparent"><title>2025: 209 found · 73 attributed · 58 AuScope software · 78 unverified keyword match</title></rect><text x="747.3" y="147.5" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">73</text><rect x="760.5" y="230.7" width="22.5" height="9.3" fill="#282572" /><rect x="760.5" y="208.2" width="22.5" height="22.4" fill="#b3afe9" /><rect x="760.5" y="173.5" width="22.5" height="34.7" fill="#cbd5e1" /><rect x="760.5" y="16" width="22.5" height="224.0" fill="transparent"><title>2026: 157 found · 22 attributed · 53 AuScope software · 82 unverified keyword match</title></rect><text x="771.8" y="169.5" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">22</text><text x="134.6" y="260" text-anchor="middle" font-size="11" fill="#475569">2000</text><text x="257.0" y="260" text-anchor="middle" font-size="11" fill="#475569">2005</text><text x="379.3" y="260" text-anchor="middle" font-size="11" fill="#475569">2010</text><text x="501.6" y="260" text-anchor="middle" font-size="11" fill="#475569">2015</text><text x="624.0" y="260" text-anchor="middle" font-size="11" fill="#475569">2020</text><text x="746.3" y="260" text-anchor="middle" font-size="11" fill="#475569">2025</text><text x="770.8" y="260" text-anchor="middle" font-size="11" fill="#475569">2026</text><line x1="50" y1="16" x2="50" y2="240" stroke="#cbd5e1" stroke-width="1" /><line x1="50" y1="240" x2="784" y2="240" stroke="#cbd5e1" stroke-width="1" /></svg></div>
+            <div class="chart-legend" role="list">
+                <span role="listitem"><i class="swatch" style="background:#282572"></i> Attributed &mdash; counted</span>
+                <span role="listitem"><i class="swatch" style="background:#b3afe9"></i> AuScope software &mdash; counted separately</span>
+                <span role="listitem"><i class="swatch" style="background:#cbd5e1"></i> Unverified keyword match &mdash; excluded</span>
+            </div>
         </div>
 
-        <!-- Cumulative Citations -->
+        <!-- Cumulative citations — attributed only, matching the hero -->
         <div class="chart-section">
-            <h2>Cumulative Citations</h2>
-            <svg viewBox="0 0 800 280" style="width:100%;max-width:800px;height:auto;"><line x1="50" y1="240.0" x2="784" y2="240.0" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="206.9" x2="784" y2="206.9" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="173.7" x2="784" y2="173.7" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="140.6" x2="784" y2="140.6" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="107.4" x2="784" y2="107.4" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="74.3" x2="784" y2="74.3" stroke="#e2e8f0" stroke-width="1" /><line x1="50" y1="41.1" x2="784" y2="41.1" stroke="#e2e8f0" stroke-width="1" /><polygon points="50.0,240.0 75.3,240.0 100.6,240.0 125.9,240.0 151.2,239.9 176.6,239.9 201.9,239.8 227.2,239.7 252.5,238.8 277.8,238.5 303.1,237.5 328.4,227.0 353.7,225.5 379.0,224.2 404.3,223.1 429.7,221.6 455.0,218.8 480.3,197.9 505.6,191.9 530.9,184.3 556.2,176.7 581.5,165.5 606.8,157.2 632.1,99.0 657.4,58.8 682.8,35.9 708.1,22.6 733.4,17.2 758.7,16.1 784.0,16.0 784.0,240.0 50.0,240.0" fill="#282572" fill-opacity="0.08" /><polyline points="50.0,240.0 75.3,240.0 100.6,240.0 125.9,240.0 151.2,239.9 176.6,239.9 201.9,239.8 227.2,239.7 252.5,238.8 277.8,238.5 303.1,237.5 328.4,227.0 353.7,225.5 379.0,224.2 404.3,223.1 429.7,221.6 455.0,218.8 480.3,197.9 505.6,191.9 530.9,184.3 556.2,176.7 581.5,165.5 606.8,157.2 632.1,99.0 657.4,58.8 682.8,35.9 708.1,22.6 733.4,17.2 758.7,16.1 784.0,16.0" fill="none" stroke="#282572" stroke-width="2.5" stroke-linejoin="round" /><circle cx="784.0" cy="16.0" r="4" fill="#282572" /><text x="42" y="244.0" text-anchor="end" font-size="11" fill="#64748b">0</text><text x="42" y="210.9" text-anchor="end" font-size="11" fill="#64748b">10,000</text><text x="42" y="177.7" text-anchor="end" font-size="11" fill="#64748b">20,000</text><text x="42" y="144.6" text-anchor="end" font-size="11" fill="#64748b">30,000</text><text x="42" y="111.4" text-anchor="end" font-size="11" fill="#64748b">40,000</text><text x="42" y="78.3" text-anchor="end" font-size="11" fill="#64748b">50,000</text><text x="42" y="45.1" text-anchor="end" font-size="11" fill="#64748b">60,000</text><text x="125.9" y="260" text-anchor="middle" font-size="11" fill="#64748b">2000</text><text x="252.5" y="260" text-anchor="middle" font-size="11" fill="#64748b">2005</text><text x="379.0" y="260" text-anchor="middle" font-size="11" fill="#64748b">2010</text><text x="505.6" y="260" text-anchor="middle" font-size="11" fill="#64748b">2015</text><text x="632.1" y="260" text-anchor="middle" font-size="11" fill="#64748b">2020</text><text x="758.7" y="260" text-anchor="middle" font-size="11" fill="#64748b">2025</text><text x="784.0" y="260" text-anchor="middle" font-size="11" fill="#64748b">2026</text><line x1="50" y1="16" x2="50" y2="240" stroke="#cbd5e1" stroke-width="1" /><line x1="50" y1="240" x2="784" y2="240" stroke="#cbd5e1" stroke-width="1" /></svg>
+            <h2>Cumulative citations to attributed publications</h2>
+            <div class="note">Attributed papers only &mdash; the unverified pool is not plotted.</div>
+            <div class="chart-scroll"><svg viewBox="0 0 800 280" style="width:100%;min-width:520px;max-width:800px;height:auto;" role="img" aria-label="Cumulative citations to attributed publications, 1997 to 2026, ending at 18,530 citations."><line x1="56" y1="240.0" x2="784" y2="240.0" stroke="#e2e8f0" stroke-width="1" /><line x1="56" y1="179.6" x2="784" y2="179.6" stroke="#e2e8f0" stroke-width="1" /><line x1="56" y1="119.1" x2="784" y2="119.1" stroke="#e2e8f0" stroke-width="1" /><line x1="56" y1="58.7" x2="784" y2="58.7" stroke="#e2e8f0" stroke-width="1" /><polygon points="56.0,240.0 81.1,240.0 106.2,240.0 131.3,240.0 156.4,240.0 181.5,240.0 206.6,240.0 231.7,239.6 256.8,238.8 281.9,238.8 307.0,238.8 332.1,209.9 357.2,204.3 382.3,201.2 407.4,196.9 432.6,191.5 457.7,182.5 482.8,138.9 507.9,128.1 533.0,112.4 558.1,99.8 583.2,81.7 608.3,71.5 633.4,52.9 658.5,38.7 683.6,29.7 708.7,20.5 733.8,17.5 758.9,16.1 784.0,16.0 784.0,240.0 56.0,240.0" fill="#282572" fill-opacity="0.08" /><polyline points="56.0,240.0 81.1,240.0 106.2,240.0 131.3,240.0 156.4,240.0 181.5,240.0 206.6,240.0 231.7,239.6 256.8,238.8 281.9,238.8 307.0,238.8 332.1,209.9 357.2,204.3 382.3,201.2 407.4,196.9 432.6,191.5 457.7,182.5 482.8,138.9 507.9,128.1 533.0,112.4 558.1,99.8 583.2,81.7 608.3,71.5 633.4,52.9 658.5,38.7 683.6,29.7 708.7,20.5 733.8,17.5 758.9,16.1 784.0,16.0" fill="none" stroke="#282572" stroke-width="2.5" stroke-linejoin="round" /><circle cx="784.0" cy="16.0" r="4" fill="#282572" /><text x="778.0" y="6.0" text-anchor="end" font-size="11" font-weight="700" fill="#282572">18,530</text><text x="48" y="244.0" text-anchor="end" font-size="11" fill="#475569">0</text><text x="48" y="183.6" text-anchor="end" font-size="11" fill="#475569">5,000</text><text x="48" y="123.1" text-anchor="end" font-size="11" fill="#475569">10,000</text><text x="48" y="62.7" text-anchor="end" font-size="11" fill="#475569">15,000</text><text x="131.3" y="260" text-anchor="middle" font-size="11" fill="#475569">2000</text><text x="256.8" y="260" text-anchor="middle" font-size="11" fill="#475569">2005</text><text x="382.3" y="260" text-anchor="middle" font-size="11" fill="#475569">2010</text><text x="507.9" y="260" text-anchor="middle" font-size="11" fill="#475569">2015</text><text x="633.4" y="260" text-anchor="middle" font-size="11" fill="#475569">2020</text><text x="758.9" y="260" text-anchor="middle" font-size="11" fill="#475569">2025</text><text x="784.0" y="260" text-anchor="middle" font-size="11" fill="#475569">2026</text><line x1="56" y1="16" x2="56" y2="240" stroke="#cbd5e1" stroke-width="1" /><line x1="56" y1="240" x2="784" y2="240" stroke="#cbd5e1" stroke-width="1" /></svg></div>
         </div>
-
-        <!-- The Top Subjects and Citation Distribution charts were cut
-             26/31 Aug: generic MeSH/S2 subjects say little about AuScope,
-             and a citation histogram answers no question a board asks.
-             Growth (year + cumulative) stays — it is the trend story. -->
     </div>
+
+
+    <!-- ═══ Methodology ═══ -->
+    <div class="explorers method" id="method">
+        <h2>How to read these numbers</h2>
+        <div class="note">Every figure carries a grade and a date. Hover any <span class="info-i" aria-hidden="true">i</span> for its definition.</div>
+        <p class="method-body"><span class="grade-chip g-measured"><span class="grade-glyph" aria-hidden="true">●</span>Measured</span> from our own records &middot; <span class="grade-chip g-snapshot"><span class="grade-glyph" aria-hidden="true">◷</span>Snapshot</span> from an external service at build time &middot; <span class="grade-chip g-estimate"><span class="grade-glyph" aria-hidden="true">≈</span>Estimate</span> derived &middot; <span class="grade-chip g-partial"><span class="grade-glyph" aria-hidden="true">◐</span>Partial</span> incomplete source, read as a floor &middot; <span class="grade-chip g-unavailable"><span class="grade-glyph" aria-hidden="true">—</span>Unavailable</span> &mdash; a dash is never a zero.</p>
+        <p class="method-body">These are dated snapshots (as of 1 Sep 2026); the platform pages read live, so they can differ. <strong>Copy with caveat</strong> copies a figure with its grade, date and exclusion.</p>
+        <details class="disclosure">
+            <summary>Why lenses are a filter here, not the navigation</summary>
+            <p class="method-body">The taxonomy is real &mdash; 87 projects across all six lenses &mdash; but lens is not a field on any dataset, publication or instrument record. It is inherited through 6 hand-written platform&rarr;project links, so dataset counts resolve to only 4 of 6 lenses. Lenses become the spine once a lens is recorded on the records themselves and publications carry a project tag.</p>
+        </details>
+        <details class="disclosure">
+            <summary>Glossary</summary>
+            <dl class="gloss-list"><div class="gloss-item"><dt>Attributed publications</dt><dd><strong>The headline count.</strong> Papers carrying either an AuScope identifier or an explicit written acknowledgement — verified, candidate, acknowledged-in-text and infrastructure-enabled combined. Every headline figure on this site counts only these.</dd></div><div class="gloss-item"><dt>Keyword only</dt><dd><strong>No confirmed link yet.</strong> Found through an AuScope-related search term, with no identifier and no acknowledgement found. Under review, and excluded from every headline figure on this site.</dd></div><div class="gloss-item"><dt>AuScope software</dt><dd><strong>Used AuScope-supported software.</strong> The paper reports using AuScope-supported software such as GPlates or Underworld. Counted separately from attributed publications, because the software is used far beyond AuScope.</dd></div><div class="gloss-item"><dt>Citations</dt><dd><strong>Times a paper has been cited, per OpenAlex.</strong> Counts come from OpenAlex and only ever increase in this tracker: a lower number from a later API call is treated as an API inconsistency, not as a correction.</dd></div><div class="gloss-item"><dt>Evidence grade</dt><dd><strong>How firmly a paper is linked to AuScope.</strong> Every publication is graded by its strongest verifiable link: an identifier on the paper first, then an acknowledgement in the text, then a bare keyword match. Only the first two kinds are counted in headline figures.</dd></div><div class="gloss-item"><dt>Measured</dt><dd><strong>Counted from records the tracker holds.</strong> A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</dd></div><div class="gloss-item"><dt>Snapshot</dt><dd><strong>Frozen at the build date.</strong> Captured when this page was last built, not read live. The world may have moved since the stated date.</dd></div><div class="gloss-item"><dt>Estimate</dt><dd><strong>Derived, not counted.</strong> Calculated or extrapolated from other figures rather than counted directly. The method is stated next to the number.</dd></div><div class="gloss-item"><dt>Partial</dt><dd><strong>Some sources did not answer.</strong> This figure is real but incomplete: at least one source it depends on failed or was still loading. Treat it as a floor, not a total.</dd></div><div class="gloss-item"><dt>Unavailable</dt><dd><strong>The source did not answer.</strong> The source behind this number failed or timed out, so no number is shown. This is missing data, not a zero.</dd></div><div class="gloss-item"><dt>Lens</dt><dd><strong>AuScope&#39;s own grouping of its programs.</strong> The Downward-Looking Telescope frames AuScope&#39;s work as six lenses onto the continent. Lenses are a program taxonomy applied to projects; most of the site&#39;s evidence is not yet mapped to one, so lens counts describe coverage of the taxonomy, not the whole evidence base.</dd></div><div class="gloss-item"><dt>FAIR</dt><dd><strong>Findable, Accessible, Interoperable, Reusable.</strong> Four principles for research data that a machine, not just a person, can find and use. FAIR is about how well a dataset is described and published — not about how good the science is.</dd></div><div class="gloss-item"><dt>F-UJI</dt><dd><strong>An automated FAIR-assessment tool.</strong> F-UJI reads a dataset&#39;s public metadata and scores it against a fixed metric set. It measures the record, not the data: a superb dataset with a thin DataCite record scores poorly, and that is the point — the record is what a machine sees. <a href="https://www.f-uji.net/" target="_blank" rel="noopener">Reference ↗</a></dd></div><div class="gloss-item"><dt>DOI</dt><dd><strong>Digital Object Identifier.</strong> A permanent identifier for a published thing — a paper, a dataset, an instrument. Resolving it through doi.org should always reach the current home of that thing, even if the website behind it changes.</dd></div></dl>
+        </details>
+    </div>
+
 
     <!-- ═══ Footer ═══ -->
     <div class="footer">
         Explore:
         <a href="publications.html">Publications</a> &middot;
         <a href="dataset-registry.html">Dataset Registry</a> &middot;
+        <a href="project-mapping.html">Projects &amp; lenses</a> &middot;
+        <a href="fair-trends.html">FAIR</a> &middot;
+        <a href="software-registry.html">Software</a> &middot;
         <a href="datasets.html">Platform trackers</a> &middot;
-        <a href="earthbank.html">EarthBank</a> &middot;
-        <a href="auspass.html">AusPass</a> &middot;
-        <a href="instruments.html">Instrument Registry</a> &middot;
+        <a href="instruments.html">Instruments</a> &middot;
         <a href="ausis.html">AuSIS</a> &middot;
         <a href="nvcl.html">NVCL</a>
-        <br>
-        Last updated: 30 August 2026 &middot;
-        Powered by <a href="https://openalex.org" target="_blank">OpenAlex</a>,
-        <a href="https://www.semanticscholar.org" target="_blank">Semantic Scholar</a>, and
-        <a href="https://europepmc.org" target="_blank">Europe PMC</a>
-        &middot; <a href="https://www.auscope.org.au" target="_blank">AuScope</a>
+        <div class="built">
+            Publication records last updated 30 August 2026 &middot; page built 1 Sep 2026.
+            Figures here are snapshots; linked platform pages read from source live and may differ.
+        </div>
+        <div class="built">
+            Powered by <a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a>,
+            <a href="https://www.semanticscholar.org" target="_blank" rel="noopener">Semantic Scholar</a>, and
+            <a href="https://europepmc.org" target="_blank" rel="noopener">Europe PMC</a>
+            &middot; <a href="https://www.auscope.org.au" target="_blank" rel="noopener">AuScope</a>
+        </div>
     </div>
 </body>
 </html>

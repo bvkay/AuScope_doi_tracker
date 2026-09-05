@@ -161,10 +161,10 @@
 
         <!-- ========== STAT TILES ========== -->
         <div class="stats" id="stat-tiles">
-            <div class="stat"><div class="label">Publications <span class="info-i" data-tip="Total publications in the AuScope citation tracker, discovered by automated searches and manual curation.">i</span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
+            <div class="stat"><div class="label">Attributed publications <span class="info-i" data-tip="Publications carrying verifiable evidence of AuScope: an AuScope identifier on the paper, or an explicit acknowledgement of AuScope or one of its facilities in the text. This is the defensible headline count; keyword-only matches are excluded and shown separately.">i</span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
             <div class="stat"><div class="label">Verified + candidate <span class="info-i" data-tip="Publications linked through persistent identifiers — AuScope's organisational ID on the paper (verified) or a watchlist researcher with partner co-affiliation (candidate).">i</span></div><div class="value" id="stat-identifier">—</div><div class="sub">identifier evidence</div></div>
             <div class="stat"><div class="label">Acknowledged in text <span class="info-i" data-tip="Publications whose text explicitly acknowledges AuScope or one of its facilities.">i</span></div><div class="value" id="stat-acknowledged">—</div><div class="sub">explicit acknowledgement</div></div>
-            <div class="stat"><div class="label">Total citations <span class="info-i" data-tip="Combined citation count across every tracked publication, from OpenAlex.">i</span></div><div class="value" id="stat-cites">—</div><div class="sub">across all publications</div></div>
+            <div class="stat"><div class="label">Their citations <span class="info-i" data-tip="Citations to the attributed publications only. The all-records total is larger but is not an impact figure: 62% of it comes from keyword-only matches with no confirmed AuScope link.">i</span></div><div class="value" id="stat-cites">—</div><div class="sub">to attributed publications</div></div><div class="stat"><div class="label">Unverified keyword matches <span class="info-i" data-tip="Records a keyword search surfaced but which carry no confirmed AuScope link yet. Under review, and excluded from the counts above — not an impact claim.">i</span></div><div class="value" id="stat-unverified">—</div><div class="sub" id="stat-unverified-sub">under review</div></div>
             <div class="stat"><div class="label">Open access <span class="info-i" data-tip="Publications anyone can read for free, without a journal subscription.">i</span></div><div class="value" id="stat-oa">—</div><div class="sub" id="stat-oa-sub">of total</div></div>
         </div>
 
@@ -402,26 +402,43 @@ function visiblePublications() {
 // ============================================================
 // STATS
 // ============================================================
+// Tiles lead with the ATTRIBUTED partition, matching the hub. The corpus
+// sum (2,926 / 67,576) is not an impact figure: 1,896 of those records are
+// keyword matches with no confirmed AuScope link, and they carry 62% of the
+// citations. The hub tells the reader they are "excluded from every figure";
+// this page must not silently re-include them one click later.
+var ATTRIBUTED_TIERS = ['verified', 'candidate', 'text-attributed', 'text-infrastructure'];
+
 function renderStats(generated) {
     var recs = state.records;
     var total = recs.length;
     var identifier = 0, acknowledged = 0, cites = 0, oa = 0;
+    var attributed = 0, attributedCites = 0, unverified = 0;
     recs.forEach(function(r) {
         if (r.evidence === 'verified' || r.evidence === 'candidate') identifier++;
         if (r.evidence === 'text-attributed') acknowledged++;
         cites += r.cited || 0;
         if (r.oa) oa++;
+        if (ATTRIBUTED_TIERS.indexOf(r.evidence) !== -1) {
+            attributed++; attributedCites += r.cited || 0;
+        } else if (r.evidence === 'keyword') { unverified++; }
     });
-    document.getElementById('stat-total').textContent = total.toLocaleString();
+    document.getElementById('stat-total').textContent = attributed.toLocaleString();
+    document.getElementById('stat-cites').textContent = attributedCites.toLocaleString();
+    var unvEl = document.getElementById('stat-unverified');
+    if (unvEl) {
+        unvEl.textContent = unverified.toLocaleString();
+        var unvSub = document.getElementById('stat-unverified-sub');
+        if (unvSub) unvSub.textContent = 'of ' + total.toLocaleString() + ' tracked records';
+    }
     var totalSub = document.getElementById('stat-total-sub');
     if (generated) {
-        totalSub.textContent = 'updated ' + String(generated).substring(0, 10);
+        totalSub.textContent = 'evidence-graded · updated ' + String(generated).substring(0, 10);
     } else {
-        totalSub.textContent = 'tracked publications';
+        totalSub.textContent = 'identifier or acknowledgement evidence';
     }
     document.getElementById('stat-identifier').textContent = identifier.toLocaleString();
     document.getElementById('stat-acknowledged').textContent = acknowledged.toLocaleString();
-    document.getElementById('stat-cites').textContent = cites.toLocaleString();
     document.getElementById('stat-oa').textContent = oa.toLocaleString();
     document.getElementById('stat-oa-sub').textContent = total > 0
         ? Math.round(oa / total * 100) + '% of total'

@@ -13,19 +13,33 @@
     --border-strong: #cbd5e1;
     --text: #0f172a;
     --text-soft: #475569;
-    --text-muted: #94a3b8;
+    /* Was #94a3b8, which scored 2.34:1 on --bg-muted and 2.56:1 on white —
+       a WCAG AA failure everywhere it carried text, and it carried a lot:
+       stat labels, zero citation pills, "no record" rows, fleet zero counts.
+       #5e6a7a clears 4.5:1 on white, --bg-soft and --bg-muted alike. Use
+       --text-faint for genuinely decorative marks that carry no meaning. */
+    --text-muted: #5e6a7a;
+    --text-faint: #94a3b8;
     --accent: #2563eb;
     --accent-strong: #1d4ed8;
     --accent-soft: #dbeafe;
     --accent-bg: #eff6ff;
     --good: #16a34a;
     --good-bg: #dcfce7;
-    --warn: #ca8a04;
+    /* Was #ca8a04 — 2.94:1 on white, under even the 3:1 floor for a
+       non-text indicator. #a16207 clears 4.9:1. */
+    --warn: #a16207;
     --warn-bg: #fef3c7;
     --bad: #dc2626;
     --bad-bg: #fee2e2;
     --active: #059669;
     --active-bg: #d1fae5;
+    /* Text-safe partners for the status hues above: --good and --active are
+       fine as dots and borders but fail AA as small text on white. */
+    --good-text: #15803d;
+    --warn-text: #92400e;
+    --bad-text: #b91c1c;
+    --focus-ring: #1d4ed8;
     --mono: 'SFMono-Regular', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
     --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, sans-serif;
 }
@@ -962,4 +976,553 @@ tr.detail-row .detail {
     /* Pinned purple for the same reason as .brand .accent above. */
     color: #282572;
     border-bottom-color: #282572;
+}
+
+/* ============================================================
+   ============================================================
+   HONEST-NUMBER SKIN
+   The visual half of the machinery in tracker-chassis.js: source
+   banners, unavailable figures, graded stat tiles, progress and
+   skeletons, the glossary affordance, and the accessibility fixes
+   that belong to the skin rather than to any one page.
+   ============================================================
+   ============================================================ */
+
+
+/* ========== ACCESSIBILITY PRIMITIVES ========== */
+
+/* Visible focus, everywhere, at 3px so it survives against the tinted
+   backgrounds these pages use. Specificity is deliberate: .controls
+   sets `outline: none` on its inputs at (0,2,1), so the override for
+   those has to bite harder than that. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+.controls input[type="search"]:focus-visible,
+.controls select:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 1px;
+}
+/* Rows and fleet items are hover-tinted; the ring alone can get lost in
+   the tint, so pull the tint off while focused. */
+table.data tbody tr.data-row:focus-visible,
+.fleet-item:focus-visible { background: var(--bg); }
+
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    left: 8px;
+    top: -60px;
+    z-index: 200;
+    padding: 10px 16px;
+    background: var(--text);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 0 0 6px 6px;
+    text-decoration: none;
+    transition: top 0.15s;
+}
+.skip-link:focus { top: 0; }
+
+/* A sortable header is a real button now (tracker-chassis.js moves the
+   th's contents inside one). It must look exactly like the plain <th>
+   text it replaced — the point is keyboard operability, not a new
+   visual affordance. */
+button.th-sort {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    white-space: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+}
+button.th-sort:focus-visible { outline-offset: 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .spinner { animation-duration: 2.4s; }
+    .tp-bar.indeterminate .tp-fill,
+    .skel-bar { animation: none; }
+}
+
+
+/* ========== GLOSSARY AFFORDANCE ========== */
+
+/* .info-i is now a <button>. The base rule higher up this file styles
+   it; these lines strip the user-agent button chrome so it lands in the
+   same pixels as the old <span>. */
+button.info-i {
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    line-height: 1;
+}
+button.info-i:hover,
+button.info-i.tip-open {
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    border-color: var(--accent);
+}
+
+.term-wrap { display: inline; position: relative; }
+
+/* The jargon word itself, marked as glossed. Dotted underline plus the
+   dashed-help cursor: never colour alone. */
+button.term {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: help;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--text-muted);
+}
+button.term:hover,
+button.term.tip-open { text-decoration-color: var(--accent); color: var(--accent-strong); }
+
+/* Tooltips were :hover-only, which made every gloss on this site
+   invisible to keyboard and screen-reader users. Three triggers now:
+   hover, keyboard focus, and a pinned click for touch. */
+[data-tip]:focus-visible::after,
+[data-tip]:focus-visible::before,
+[data-tip].tip-open::after,
+[data-tip].tip-open::before { opacity: 1; }
+
+/* Flip to the left edge when the default left-anchored balloon would
+   run off a narrow screen (tracker-chassis.js adds .tip-left). */
+[data-tip].tip-left::after { left: auto; right: 0; }
+[data-tip].tip-left::before { left: auto; right: 1px; }
+
+[data-tip]::after { max-width: min(280px, calc(100vw - 32px)); }
+@media (max-width: 560px) {
+    [data-tip]::after { width: max-content; max-width: calc(100vw - 28px); }
+}
+
+/* The hidden balloon is still laid out (opacity:0), so a wide tip anchored
+   near the right edge widens the DOCUMENT without any element overflowing —
+   an 8px phantom horizontal scroll at 375px that element scans cannot find.
+   Collapsing the balloon while hidden broke it when shown, so instead clip
+   the phantom at the page container on small screens. Tooltips that would
+   run off the right edge are already flipped by .tip-left, so nothing that
+   should be visible is lost. */
+@media (max-width: 700px) {
+    html, body { overflow-x: clip; }
+}
+
+/* REGRESSION GUARD. Several pages span a stat tile's tooltip across the whole
+   tile (`.stats .stat [data-tip] { position: static }` + left/right insets)
+   so a wide gloss cannot overflow a narrow column. The glossary's new
+   `.term-wrap` is position:relative and only ~19px wide, so it became the
+   containing block instead of the tile and collapsed those tooltips to zero
+   width — an unreadable vertical strip of single characters at 375px.
+   Inside a stat tile the wrapper must not establish a containing block. */
+.stats .stat .term-wrap { position: static; }
+}
+
+.gloss-list {
+    display: grid;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.gloss-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0 18px;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+}
+.gloss-item:last-child { border-bottom: 0; }
+.gloss-item:nth-child(odd) { background: var(--bg-soft); }
+.gloss-item dt { font-weight: 600; color: var(--text); font-size: 13px; }
+.gloss-item dd { color: var(--text-soft); font-size: 13px; line-height: 1.55; }
+.gloss-item dd strong { color: var(--text); font-weight: 600; }
+.gloss-item dd a { color: var(--accent); }
+@media (max-width: 700px) {
+    .gloss-item { grid-template-columns: 1fr; gap: 3px; }
+}
+
+
+/* ========== SOURCE BANNER ==========
+   Level is carried three ways at once — colour, glyph and word — so it
+   survives greyscale printing, colour blindness and a screen reader.
+   An outage must be impossible to mistake for a quiet page. */
+
+.src-banner-host { display: block; }
+.src-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 12px 14px;
+    border: 1px solid;
+    border-left-width: 4px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+.src-banner-glyph {
+    flex: none;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 1px;
+}
+.src-banner-body { flex: 1; min-width: 0; }
+.src-banner-head {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+.src-banner-word { text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; }
+.src-banner-detail {
+    display: block;
+    margin-top: 3px;
+    color: var(--text-soft);
+    line-height: 1.5;
+}
+.src-banner-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 9px;
+}
+.src-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 9px;
+    border-radius: 11px;
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    font-size: 11.5px;
+    color: var(--text-soft);
+}
+.src-chip-glyph { font-weight: 700; line-height: 1; }
+.src-chip-note { color: var(--text-muted); font-size: 11px; }
+.src-chip.s-ok { border-color: #86efac; color: var(--good-text); }
+.src-chip.s-failed { border-color: #fca5a5; color: var(--bad-text); background: var(--bad-bg); }
+.src-chip.s-partial { border-color: #fcd34d; color: var(--warn-text); background: var(--warn-bg); }
+.src-chip.s-loading, .src-chip.s-pending { border-style: dashed; }
+.src-chip.s-skipped { opacity: 0.7; }
+
+.src-banner.level-ok { background: var(--good-bg); border-color: #86efac; }
+.src-banner.level-ok .src-banner-glyph { background: var(--good-text); color: #fff; }
+.src-banner.level-loading { background: var(--bg-soft); border-color: var(--border-strong); }
+.src-banner.level-loading .src-banner-glyph { background: var(--text-soft); color: #fff; }
+.src-banner.level-degraded { background: var(--warn-bg); border-color: #fcd34d; }
+.src-banner.level-degraded .src-banner-glyph { background: var(--warn-text); color: #fff; }
+.src-banner.level-failed { background: var(--bad-bg); border-color: #fca5a5; }
+.src-banner.level-failed .src-banner-glyph { background: var(--bad-text); color: #fff; }
+
+.src-banner-retry {
+    flex: none;
+    align-self: center;
+    padding: 6px 13px;
+    border-radius: 5px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.src-banner-retry:hover { background: var(--bg-muted); }
+
+
+/* ========== FIGURES THAT REFUSE TO LIE ==========
+   A source that did not answer renders an em dash and a reason. It
+   never renders 0, and it never renders blank — a blank looks like a
+   slow load, and a 0 looks like a fact. */
+
+.fig-value { font-variant-numeric: tabular-nums; }
+
+.fig-unavailable {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-muted);
+    font-weight: 500;
+    cursor: help;
+    border-bottom: 1px dashed var(--border-strong);
+}
+.fig-unavailable::before {
+    content: '⚠';
+    font-size: 0.75em;
+    color: var(--warn-text);
+    line-height: 1;
+}
+.fig-unavailable:hover { color: var(--warn-text); border-bottom-color: var(--warn-text); }
+
+.fig-partial {
+    display: inline-flex;
+    align-items: baseline;
+    color: inherit;
+    cursor: help;
+    font-variant-numeric: tabular-nums;
+    border-bottom: 1px dashed var(--warn);
+}
+.fig-partial-mark {
+    font-size: 0.6em;
+    vertical-align: super;
+    color: var(--warn-text);
+    margin-left: 1px;
+    font-weight: 700;
+}
+
+/* An uncited record and an unfetched one must not be the same pixels.
+   .zero is a real, confirmed zero; .unknown is "we do not know yet". */
+.cite-pill.zero {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px dashed var(--border-strong);
+}
+.cite-pill.unknown {
+    background: transparent;
+    color: var(--warn-text);
+    border: 1px dashed var(--warn);
+    font-weight: 500;
+    cursor: help;
+}
+
+
+/* ========== GRADED STAT TILE ========== */
+
+.stat.honest { display: flex; flex-direction: column; gap: 2px; }
+.stat.honest .value { line-height: 1.15; }
+.stat.honest .value a.stat-link {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-soft);
+}
+.stat.honest .value a.stat-link:hover {
+    color: var(--accent-strong);
+    border-bottom-color: var(--accent);
+}
+.stat.honest.grade-unavailable { background: var(--bad-bg); border-color: #fca5a5; }
+.stat.honest.grade-unavailable .value { font-size: 18px; }
+.stat.honest.grade-partial { background: var(--warn-bg); border-color: #fcd34d; }
+
+.grade-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 4px;
+    font-size: 11px;
+}
+.grade-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px 7px 1px 5px;
+    border-radius: 9px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg);
+    color: var(--text-soft);
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    cursor: help;
+}
+.grade-glyph { font-size: 9px; line-height: 1; }
+.grade-chip.g-measured { border-color: #86efac; color: var(--good-text); background: var(--good-bg); }
+.grade-chip.g-snapshot { border-color: var(--border-strong); color: var(--text-soft); }
+.grade-chip.g-partial { border-color: #fcd34d; color: var(--warn-text); background: var(--warn-bg); }
+.grade-chip.g-estimate { border-color: var(--border-strong); color: var(--text-soft); background: var(--bg-muted); }
+.grade-chip.g-unverified { border-color: var(--border-strong); color: var(--text-soft); background: var(--bg-muted); }
+.grade-chip.g-unavailable { border-color: #fca5a5; color: var(--bad-text); background: var(--bad-bg); }
+
+.grade-sep { color: var(--text-faint); }
+.as-of { color: var(--text-soft); font-size: 11px; }
+/* An undated number is the one that ends up in a slide deck a year
+   later with nobody able to say when it was true. Make its absence
+   visible rather than letting it pass as clean. */
+.as-of.undated {
+    color: var(--warn-text);
+    background: var(--warn-bg);
+    padding: 0 5px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+.stat-note {
+    margin-top: 5px;
+    font-size: 11.5px;
+    color: var(--text-soft);
+    line-height: 1.45;
+}
+.stat-cite {
+    align-self: flex-start;
+    margin-top: 7px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg);
+    color: var(--text-soft);
+    font-family: var(--sans);
+    font-size: 11px;
+    cursor: pointer;
+}
+.stat-cite:hover { background: var(--bg-muted); color: var(--text); }
+
+
+/* ========== PROGRESS + SKELETONS ==========
+   "loading…" with no end is indistinguishable from a hang. */
+
+.tracker-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 13px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-soft);
+    font-size: 12.5px;
+    color: var(--text-soft);
+}
+.tracker-progress.finished,
+.tracker-progress.failed { flex-direction: row; align-items: center; gap: 8px; }
+.tracker-progress.failed { background: var(--bad-bg); border-color: #fca5a5; }
+.tracker-progress.stalled { background: var(--warn-bg); border-color: #fcd34d; }
+.tp-head { display: flex; align-items: center; gap: 8px; }
+.tp-label { font-weight: 600; color: var(--text); }
+.tp-count { color: var(--text-soft); font-variant-numeric: tabular-nums; }
+.tp-pct { margin-left: auto; font-variant-numeric: tabular-nums; color: var(--text-muted); }
+.tp-note { color: var(--text-muted); font-size: 11.5px; }
+.tp-stall { color: var(--warn-text); font-size: 11.5px; font-weight: 500; }
+.tp-reason { color: var(--bad-text); }
+.tp-tick { color: var(--good-text); font-weight: 700; }
+.tp-cross { color: var(--bad-text); font-weight: 700; }
+.tp-retry {
+    margin-left: auto;
+    padding: 4px 11px;
+    border-radius: 4px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg);
+    font-family: var(--sans);
+    font-size: 12px;
+    cursor: pointer;
+}
+.tp-bar {
+    height: 5px;
+    border-radius: 3px;
+    background: var(--bg-muted);
+    overflow: hidden;
+}
+.tp-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.25s ease-out;
+}
+.tp-bar.indeterminate .tp-fill {
+    width: 35%;
+    animation: tp-slide 1.4s ease-in-out infinite;
+}
+@keyframes tp-slide {
+    0% { margin-left: -35%; }
+    100% { margin-left: 100%; }
+}
+
+/* Two shapes: skeleton rows inside a real <tbody> stay table rows and
+   inherit the table's cell padding; the standalone <div> variant lays
+   its own cells out. Never `display: contents` on a <tr> — that removes
+   the row box and the cells collapse. */
+div.skel-row {
+    display: flex;
+    gap: 14px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+}
+div.skel-row .skel-cell { flex: 1; min-width: 0; }
+.skel-bar {
+    display: block;
+    height: 11px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--bg-muted) 25%, var(--border) 50%, var(--bg-muted) 75%);
+    background-size: 200% 100%;
+    animation: skel-shimmer 1.3s linear infinite;
+}
+@keyframes skel-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+
+/* ========== MOBILE — verified at 375px ========== */
+@media (max-width: 900px) {
+    /* .table-wrap clips with overflow:hidden for its rounded corners,
+       which on a phone means wide tables are simply cut off. Scroll
+       them instead. */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+@media (max-width: 560px) {
+    .wrap { padding: 16px 14px 60px; }
+    .site-head { padding: 16px 14px 0; }
+    .stats { grid-template-columns: 1fr; gap: 8px; }
+    .controls { gap: 6px; }
+    .controls input[type="search"] { min-width: 0; flex: 1 1 100%; }
+    .controls select, .controls .btn { flex: 1 1 auto; }
+    .brand h1 { font-size: 19px; }
+    .src-banner { flex-wrap: wrap; }
+    .src-banner-retry { align-self: stretch; width: 100%; }
+    .citation-item { grid-template-columns: 1fr; gap: 6px; }
+    .ov-grid { grid-template-columns: 1fr; gap: 2px; }
+    .ov-grid dt { padding-top: 9px; }
+    .detail-tabs { overflow-x: auto; }
+    tr.detail-row .detail { padding: 14px 14px 16px; }
+}
+
+/* Windows high-contrast: the level glyphs are the only cue left once
+   backgrounds are forced, so keep them and the borders. */
+@media (forced-colors: active) {
+    .src-banner { border: 2px solid; }
+    .src-banner-glyph { border: 1px solid; }
+    .fig-unavailable, .fig-partial { border-bottom: 1px dashed; }
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+        outline: 3px solid Highlight;
+    }
 }

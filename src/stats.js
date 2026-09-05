@@ -35,13 +35,44 @@ async function run() {
   // ── Publications (local) ──
   const pubData = readJson(path.join(DATA_DIR, 'publications.json'), { records: [] });
   const pubs = pubData.records || [];
+  // Evidence-graded totals. The unfiltered corpus sum is NOT a publishable
+  // impact figure: 62% of it comes from keyword-only records carrying no
+  // confirmed AuScope link (a Scripps satellite-altimetry paper in Science
+  // matched "EarthByte"; a sports-medicine consortium paper matched
+  // "AusPass"; an obituary matched "SHRIMP II Curtin"). Headlines use
+  // `attributed`; `unverified` is published beside it, never inside it.
+  const ATTRIBUTED_TIERS = ['verified', 'candidate', 'text-attributed', 'text-infrastructure'];
+  const SOFTWARE_TIERS = ['text-software'];
+  function gradeOf(p) {
+    if (ATTRIBUTED_TIERS.indexOf(p.evidence) !== -1) return 'attributed';
+    if (SOFTWARE_TIERS.indexOf(p.evidence) !== -1) return 'software';
+    return 'unverified';
+  }
+  const graded = {
+    attributed: { pubs: 0, citations: 0 },
+    software: { pubs: 0, citations: 0 },
+    unverified: { pubs: 0, citations: 0 }
+  };
+  pubs.forEach(function(p) {
+    const g = graded[gradeOf(p)];
+    g.pubs++; g.citations += (parseInt(p.cited) || 0);
+  });
+
   pillars.publications = {
     total: pubs.length,
     citations: pubs.reduce(function(sum, p) { return sum + (parseInt(p.cited) || 0); }, 0),
     verified: pubs.filter(function(p) { return p.evidence === 'verified'; }).length,
-    candidate: pubs.filter(function(p) { return p.evidence === 'candidate'; }).length
+    candidate: pubs.filter(function(p) { return p.evidence === 'candidate'; }).length,
+    // the publishable pair
+    attributed: graded.attributed,
+    software: graded.software,
+    unverified: graded.unverified
   };
-  console.log('Publications: ' + pillars.publications.total + ' (' + pillars.publications.citations + ' citations)');
+  console.log('Publications: ' + pillars.publications.total + ' tracked ('
+    + graded.attributed.pubs + ' attributed / ' + graded.software.pubs + ' software-linked / '
+    + graded.unverified.pubs + ' unverified keyword)');
+  console.log('Citations: ' + graded.attributed.citations + ' attributed ('
+    + pillars.publications.citations + ' across all tracked records — NOT for publication)');
 
   // ── Datasets + samples (local, from dataset-inventory.js) ──
   // EarthBank PhysicalObject records are physical samples/specimens — they

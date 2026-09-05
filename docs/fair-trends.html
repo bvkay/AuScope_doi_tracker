@@ -43,6 +43,21 @@
         .metric-row { display: flex; align-items: center; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--bg-muted); }
         .metric-id { font-family: var(--mono); font-size: 12px; width: 130px; flex-shrink: 0; }
         .metric-name { flex: 1; min-width: 0; font-size: 12.5px; color: var(--text-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        /* Narrow screens: the row's fixed children (id 130px + track + pct +
+           delta + gaps) leave nothing for the name, so it was squeezed to
+           nothing at 375px — the plain-English gloss vanished exactly where
+           the bare code is least readable. Below 700px the row becomes two
+           lines: name on top at full width, then the code and its bar. */
+        @media (max-width: 700px) {
+            .metric-row { flex-wrap: wrap; row-gap: 4px; padding: 10px 0; }
+            .metric-name {
+                order: -1; flex: 1 0 100%; white-space: normal; overflow: visible;
+                color: var(--text); font-weight: 500;
+            }
+            .metric-id { width: auto; min-width: 92px; }
+            .metric-track { flex: 1 1 auto; min-width: 80px; }
+        }
         .metric-track { width: 180px; height: 8px; background: var(--bg-muted); border-radius: 4px; overflow: hidden; flex-shrink: 0; }
         .metric-fill { height: 100%; border-radius: 4px; }
         .metric-fill.good { background: var(--good); }
@@ -56,6 +71,42 @@
         .plat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
         .plat-table th { text-align: left; padding: 7px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-soft); border-bottom: 1px solid var(--border); }
         .plat-table td { padding: 7px 10px; border-bottom: 1px solid var(--bg-muted); font-variant-numeric: tabular-nums; }
+
+        /* Band context, adjacent to the number it qualifies (finding 4). */
+        .band-callout {
+            margin: 0 0 22px;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            background: var(--bg-soft);
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-soft);
+        }
+        .band-callout strong { color: var(--text); }
+        .band-callout .scale {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-top: 10px;
+            height: 22px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .band-callout .scale span {
+            font-size: 10px;
+            line-height: 20px;
+            text-align: center;
+            color: var(--text-soft);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .band-callout .scale .lo { background: var(--bg-muted); }
+        .band-callout .scale .mid { background: var(--good-bg); color: var(--good-text); font-weight: 600; }
+        .band-callout .scale .hi { background: var(--bg-muted); }
+        .band-callout .marker { font-weight: 700; color: var(--text); }
 
         .how-body { font-size: 13px; color: var(--text-soft); line-height: 1.7; }
         .how-body strong { color: var(--text); }
@@ -78,12 +129,18 @@
             </div>
         </div>
 
-        <div class="stats" id="tiles">
-            <div class="stat"><div class="label">DOIs assessed <span class="info-i" data-tip="Dataset DOIs scored in the most recent monthly assessment run. PhysicalObject sample records are excluded — F-UJI's metrics target data resources.">i</span></div><div class="value" id="stat-assessed">&mdash;</div><div class="sub" id="stat-assessed-sub">latest run</div></div>
-            <div class="stat"><div class="label">Average score <span class="info-i" data-tip="Mean F-UJI score across all DOIs assessed in the latest run. Metric set v0.8 scores run structurally low — 35–60% is the normal band for real-world repositories, not an AuScope failing.">i</span></div><div class="value" id="stat-avg">&mdash;</div><div class="sub" id="stat-avg-sub">&mdash;</div></div>
-            <div class="stat"><div class="label">Measurement runs <span class="info-i" data-tip="One point per monthly assessment. The trend grows one point per month — that is the design, not a limitation: each point is a real measurement on a known date.">i</span></div><div class="value" id="stat-runs">&mdash;</div><div class="sub">monthly, since Aug 2026</div></div>
-            <div class="stat"><div class="label">Metric set <span class="info-i" data-tip="Pinned deliberately: scores are comparable only within one metric version. A version bump restarts the trend, disclosed.">i</span></div><div class="value" id="stat-metric">&mdash;</div><div class="sub" id="stat-fuji-sub">&mdash;</div></div>
-        </div>
+        <!-- Source health. Empty and hidden while everything answers; an
+             alert the moment the history feed does not. -->
+        <div id="source-banner"></div>
+
+        <!-- Tiles are rendered by renderStat() so every figure carries its
+             grade, its assessment date and its caveat. -->
+        <div class="stats" id="tiles"></div>
+
+        <!-- Finding 4: the band sentence used to live at the very bottom of
+             the page, so "Average score 50.1%" read as a bare pass on the
+             way past. It now sits directly under the number it qualifies. -->
+        <div class="band-callout" id="band-callout"></div>
 
         <div class="section">
             <h2>Average score by assessment run</h2>
@@ -111,7 +168,13 @@
                 <p><strong>One point per assessment run.</strong> Every monthly run of the self-hosted F-UJI server appends a dated snapshot to <code>fair-history.jsonl</code> &mdash; per DOI: the total, the F/A/I/R split, and each metric&rsquo;s earned score <em>and</em> verdict. This page reads the per-run aggregates. Trends here are <strong>by assessment date</strong>: the same DOIs, re-measured &mdash; so a moving average means the metadata changed, not the cohort.</p>
                 <p><strong>Comparability.</strong> Scores are comparable only within one metric version (pinned v0.8, 17 metrics). v0.8 runs structurally low &mdash; several metrics fail on almost every real-world repository &mdash; so 35&ndash;60% is the normal band, and the interesting signal is movement, not level.</p>
                 <p><strong>Averages</strong> weight each assessed DOI equally.</p>
+                <p><strong>When a source fails.</strong> The history feed is the only thing this page reads. If it does not
+                answer, a red banner says so and every figure renders as &ldquo;&mdash;&rdquo; with the reason attached.
+                No number on this page is ever produced by a failed request &mdash; a missing measurement and a measured
+                zero are different facts, and they are drawn differently.</p>
             </div>
+            <h3 style="font-size:14px;margin:22px 0 8px">Every term on this page</h3>
+            <div id="glossary-list"></div>
         </div>
 
         <div class="foot">
@@ -125,28 +188,156 @@
     <script>
     (function() {
         'use strict';
-        Promise.all([
-            fetch('fair-history.json').then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }),
-        ]).then(function(feeds) {
-            var runs = (feeds[0].runs || []).slice();
-            if (!runs.length) throw new Error('no runs in the history feed');
-            render(runs);
-        }).catch(function(err) {
-            document.getElementById('run-rows').innerHTML = 'Could not load the history feed: ' + escapeHtml(err.message);
+
+        // ------------------------------------------------------------
+        // Source ledger — one declared dependency, so an outage on it is
+        // reported as an outage rather than becoming an empty page.
+        // ------------------------------------------------------------
+        var sources = createSourceLedger({ bannerEl: 'source-banner' });
+        sources.declare('history', 'FAIR assessment history feed', { critical: true });
+
+        var progress = null;
+
+        load();
+
+        function load() {
+            sources.start('history');
+            progress = createProgress('run-rows', {
+                label: 'Reading the FAIR assessment history feed',
+                note: 'fair-history.json — one record per monthly F-UJI run'
+            });
+            paintTiles(null);   // tiles say "not yet loaded", never 0
+
+            trackerFetch('fair-history.json', {
+                label: 'FAIR assessment history feed',
+                timeout: 15000,
+                retries: 1
+            }).then(function(res) {
+                if (!res.ok) return failed(res.reason);
+                var runs = (res.data && res.data.runs) ? res.data.runs.slice() : [];
+                if (!runs.length) return failed('the feed loaded but contains no assessment runs');
+                sources.ok('history', runs.length + ' run' + (runs.length === 1 ? '' : 's'));
+                progress.done('');
+                render(runs);
+            });
+        }
+
+        // A failed feed must not leave the page looking merely empty. The
+        // banner alerts, the progress slot explains and offers a retry, and
+        // every tile repaints to "—" rather than keeping a stale number.
+        function failed(reason) {
+            sources.fail('history', reason);
+            progress.fail(reason, load);
+            paintTiles(null);
+            document.getElementById('trend-note').textContent = '';
+            document.getElementById('plat-table').innerHTML =
+                '<tr><td class="empty-state">No assessment history to show &mdash; the feed did not load.</td></tr>';
+            document.getElementById('metric-rows').innerHTML =
+                '<div class="empty-state">Per-metric pass rates are unavailable: ' + escapeHtml(reason)
+                + '. These are missing measurements, not zero pass rates.</div>';
+            document.getElementById('band-callout').innerHTML = '';
+        }
+
+        // ------------------------------------------------------------
+        // Tiles. Every figure goes through renderStat, so it carries a
+        // grade chip, the assessment date it was true on, and a
+        // copy-with-caveat button for the board pack.
+        // ------------------------------------------------------------
+        function paintTiles(runs) {
+            var latest = runs && runs.length ? runs[runs.length - 1] : null;
+            var prev = runs && runs.length > 1 ? runs[runs.length - 2] : null;
+
+            var specs = [
+                {
+                    value: latest ? latest.assessed : null,
+                    label: 'DOIs assessed',
+                    grade: 'measured',
+                    asOf: latest ? latest.date : null,
+                    href: 'dataset-registry.html',
+                    term: 'fuji',
+                    source: sources, sourceKey: 'history',
+                    missingReason: 'the assessment history feed has not loaded',
+                    note: "Dataset DOIs scored in the most recent monthly run. PhysicalObject sample records are excluded — F-UJI's metrics target data resources.",
+                    cite: true
+                },
+                {
+                    value: latest ? latest.avg : null,
+                    label: 'Average F-UJI score',
+                    grade: 'measured',
+                    asOf: latest ? latest.date : null,
+                    term: 'fuji-band',
+                    format: function(v) { return v + '%'; },
+                    source: sources, sourceKey: 'history',
+                    missingReason: 'the assessment history feed has not loaded',
+                    // The caveat that has to travel with this number.
+                    note: 'Metric set v0.8 runs structurally low: 35–60% is the normal band for real-world repositories, so this is above the middle of the band, not a bare pass.'
+                        + (prev ? ' Movement since ' + prev.date + ': ' + delta(latest.avg - prev.avg) + '.' : ''),
+                    cite: true
+                },
+                {
+                    value: runs ? runs.length : null,
+                    label: 'Measurement runs',
+                    grade: 'measured',
+                    asOf: latest ? latest.date : null,
+                    source: sources, sourceKey: 'history',
+                    missingReason: 'the assessment history feed has not loaded',
+                    note: 'One point per monthly assessment. Each point is a real measurement on a known date — the trend is short by design, not by omission.'
+                }
+            ];
+
+            // The metric set is a version string, not a measurement, so it
+            // gets a plain tile — but still a glossed one.
+            var mv = latest ? 'v' + (latest.metric_version || '?') : '—';
+            var fv = latest ? 'F-UJI ' + (latest.fuji_version || '?') : 'not loaded';
+            var metricTile = '<div class="stat">'
+                + '<div class="label">Metric set ' + glossaryIcon('metric-version') + '</div>'
+                + '<div class="value">' + escapeHtml(mv) + '</div>'
+                + '<div class="sub">' + escapeHtml(fv) + '</div></div>';
+
+            document.getElementById('tiles').innerHTML =
+                specs.map(function(s) { return renderStat(s); }).join('') + metricTile;
+        }
+
+        // Repaint the tiles if the ledger verdict changes after they were
+        // drawn — a tile must never outlive the source that justified it.
+        sources.onChange(function() {
+            if (document.getElementById('tiles').innerHTML) paintTiles(currentRuns);
         });
+        var currentRuns = null;
+
+        // ------------------------------------------------------------
+        // Band callout — the sentence that makes 50.1% readable, placed
+        // directly beneath the number rather than 2,000px below it.
+        // ------------------------------------------------------------
+        function paintBandCallout(latest) {
+            var e = trackerTerm('fuji-band');
+            var avg = Number(latest.avg);
+            var pos = Math.max(0, Math.min(100, avg));
+            document.getElementById('band-callout').innerHTML =
+                '<strong>Reading a score of ' + escapeHtml(String(latest.avg)) + '%.</strong> '
+                + escapeHtml(e ? e.long : '')
+                + '<div class="scale" role="img" aria-label="Score scale: 0 to 35 percent below the normal band, 35 to 60 percent the normal band for metric set v0.8, 60 to 100 percent above it. The current average is '
+                    + escapeAttr(String(latest.avg)) + ' percent.">'
+                + '<span class="lo" style="width:35%">0–35% below band</span>'
+                + '<span class="mid" style="width:25%">35–60% normal band</span>'
+                + '<span class="hi" style="width:40%">60–100% above band</span>'
+                + '</div>'
+                + '<div style="margin-top:6px;font-size:12px">'
+                + '<span class="marker">▲ ' + escapeHtml(String(latest.avg)) + '%</span> '
+                + escapeHtml(avg >= 60 ? 'above the normal band'
+                    : avg >= 35 ? 'inside the normal band, ' + (pos >= 47.5 ? 'upper' : 'lower') + ' half'
+                    : 'below the normal band')
+                + ' · measured ' + escapeHtml(latest.date) + '.'
+                + '</div>';
+        }
 
         function render(runs) {
+            currentRuns = runs;
             var latest = runs[runs.length - 1];
             var prev = runs.length > 1 ? runs[runs.length - 2] : null;
 
-            document.getElementById('stat-assessed').textContent = latest.assessed;
-            document.getElementById('stat-assessed-sub').textContent = 'run of ' + latest.date;
-            document.getElementById('stat-avg').textContent = latest.avg + '%';
-            document.getElementById('stat-avg-sub').textContent = prev
-                ? delta(latest.avg - prev.avg) + ' vs ' + prev.date : 'first measurement';
-            document.getElementById('stat-runs').textContent = runs.length;
-            document.getElementById('stat-metric').textContent = 'v' + (latest.metric_version || '?');
-            document.getElementById('stat-fuji-sub').textContent = 'F-UJI ' + (latest.fuji_version || '?');
+            paintTiles(runs);
+            paintBandCallout(latest);
 
             document.getElementById('trend-note').textContent = runs.length === 1
                 ? 'One measurement so far — the baseline. The trend gains a point with every monthly run; movement from here is attributable to metadata changes, because the same DOIs are re-measured.'
@@ -179,21 +370,43 @@
             var mp = latest.metric_pass_pct || {};
             var pm = prev ? (prev.metric_pass_pct || {}) : {};
             var ids = Object.keys(mp).sort(function(a, b) { return mp[a] - mp[b]; });
+            // Finding 3: these 17 codes were displayed bare — no tooltip, no
+            // title, no aria-label — and the .metric-name slot beside each
+            // one was rendered empty. Every code is now a glossed control
+            // (mouse, keyboard and screen reader) and carries its plain
+            // English name in the slot that was always meant to hold it.
             document.getElementById('metric-rows').innerHTML = ids.map(function(id) {
                 var v = mp[id];
                 var d = (id in pm) ? v - pm[id] : null;
                 var cls = v >= 60 ? 'good' : v >= 25 ? 'warn' : 'bad';
+                var shortId = id.replace(/^FsF-/, '');
+                var plainName = fujiMetricName(id);
+                var verdict = v >= 60 ? 'mostly passing' : v >= 25 ? 'passing on a minority' : 'failing almost everywhere';
                 return '<div class="metric-row">'
-                    + '<div class="metric-id">' + escapeHtml(id.replace(/^FsF-/, '')) + '</div>'
-                    + '<div class="metric-track"><div class="metric-fill ' + cls + '" style="width:' + v + '%"></div></div>'
+                    + '<div class="metric-id">' + glossaryTerm(id, shortId) + '</div>'
+                    + '<div class="metric-track" role="img" aria-label="'
+                        + escapeAttr(v + '% of assessed DOIs pass this metric — ' + verdict) + '">'
+                        + '<div class="metric-fill ' + cls + '" style="width:' + v + '%"></div></div>'
                     + '<div class="metric-pct">' + v + '%</div>'
                     + '<div class="metric-delta ' + (d > 0 ? 'up' : d < 0 ? 'down' : '') + '">' + (d == null || d === 0 ? '' : delta(d)) + '</div>'
-                    + '<div class="metric-name"></div>'
+                    + '<div class="metric-name" title="' + escapeAttr(plainName) + '">'
+                        + escapeHtml(plainName || 'no plain-English name registered for this code') + '</div>'
                     + '</div>';
             }).join('');
         }
 
         function delta(d) { return (d > 0 ? '+' : '') + (Math.round(d * 10) / 10) + ' pts'; }
+
+        // A definition list of everything this page displays — including all
+        // 17 metric codes, so the vocabulary is readable in one place as well
+        // as at the point of use.
+        document.getElementById('glossary-list').innerHTML = renderGlossaryList([
+            'fuji', 'fuji-score', 'fuji-band', 'metric-version', 'fair', 'doi', 'as-of',
+            'FsF-F1-01MD', 'FsF-F1-02MD', 'FsF-F2-01M', 'FsF-F3-01M', 'FsF-F4-01M',
+            'FsF-A1-01M', 'FsF-A1-02MD', 'FsF-A1.1-01MD', 'FsF-A1.2-01MD',
+            'FsF-I1-01M', 'FsF-I2-01M', 'FsF-I3-01M',
+            'FsF-R1-01M', 'FsF-R1.1-01M', 'FsF-R1.2-01M', 'FsF-R1.3-01M', 'FsF-R1.3-02D'
+        ]);
     }());
     </script>
 </body>

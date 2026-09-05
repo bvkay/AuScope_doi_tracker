@@ -353,13 +353,18 @@
             </div>
         </div>
 
+        <!-- Source health. Hidden while every source answers; a role=alert
+             banner the moment one does not, naming which and why. Sits above
+             the tiles because it governs whether they mean anything. -->
+        <div id="source-banner"></div>
+
         <!-- ========== STAT TILES ========== -->
         <div class="stats" id="stat-tiles">
-            <div class="stat"><div class="label">Collections <span class="info-i" data-tip="Total records across the DAS GeoNetwork tree, including the top-level collection record and every nested survey / package record.">i</span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
-            <div class="stat"><div class="label">With DOIs <span class="info-i" data-tip="Records carrying a minted 10.25914 DOI. Records without a DOI can't be cited, tracked, or linked in the PID graph — the gap is surfaced in the table and fleet summary.">i</span></div><div class="value" id="stat-doi">—</div><div class="sub" id="stat-doi-sub">of total</div></div>
-            <div class="stat"><div class="label">Avg completeness <span class="info-i" data-tip="Mean DataCite metadata completeness score across DOI'd records, weighted by field importance. Title/creators carry the highest weight; language/sizes the lowest. Open a record's Completeness tab for the breakdown.">i</span></div><div class="value" id="stat-score">—</div><div class="sub" id="stat-score-sub">DataCite completeness</div></div>
-            <div class="stat"><div class="label">Avg F-UJI <span class="info-i" id="stat-fair-tip" data-tip="Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown.">i</span></div><div class="value" id="stat-fair">—</div><div class="sub" id="stat-fair-sub">loading…</div></div>
-            <div class="stat"><div class="label">Total citations <span class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all DOI'd records. Loaded in batches after page load — may show 0 briefly.">i</span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
+            <div class="stat"><div class="label">Collections <span class="term-wrap"><button type="button" class="info-i" data-tip="Total records across the DAS GeoNetwork tree, including the top-level collection record and every nested survey / package record." aria-label="Total records across the DAS GeoNetwork tree, including the top-level collection  — definition" aria-describedby="gloss-nci-das-1" aria-expanded="false">i</button><span class="sr-only" id="gloss-nci-das-1">Total records across the DAS GeoNetwork tree, including the top-level collection record and every nested survey / package record.</span></span></div><div class="value" id="stat-total">—</div><div class="sub" id="stat-total-sub">loading…</div></div>
+            <div class="stat"><div class="label">With DOIs <span class="term-wrap"><button type="button" class="info-i" data-tip="Records carrying a minted 10.25914 DOI. Records without a DOI can't be cited, tracked, or linked in the PID graph — the gap is surfaced in the table and fleet summary." aria-label="Records carrying a minted 10 — definition" aria-describedby="gloss-nci-das-2" aria-expanded="false">i</button><span class="sr-only" id="gloss-nci-das-2">Records carrying a minted 10.25914 DOI. Records without a DOI can't be cited, tracked, or linked in the PID graph — the gap is surfaced in the table and fleet summary.</span></span></div><div class="value" id="stat-doi">—</div><div class="sub" id="stat-doi-sub">of total</div></div>
+            <div class="stat"><div class="label">Avg completeness <span class="term-wrap"><button type="button" class="info-i" data-tip="Mean DataCite metadata completeness score across DOI'd records, weighted by field importance. Title/creators carry the highest weight; language/sizes the lowest. Open a record's Completeness tab for the breakdown." aria-label="Mean DataCite metadata completeness score across DOI&#x27;d records, weighted by fiel — definition" aria-describedby="gloss-nci-das-3" aria-expanded="false">i</button><span class="sr-only" id="gloss-nci-das-3">Mean DataCite metadata completeness score across DOI'd records, weighted by field importance. Title/creators carry the highest weight; language/sizes the lowest. Open a record's Completeness tab for the breakdown.</span></span></div><div class="value" id="stat-score">—</div><div class="sub" id="stat-score-sub">DataCite completeness</div></div>
+            <div class="stat"><div class="label">Avg F-UJI <span class="term-wrap"><button type="button" class="info-i" id="stat-fair-tip" data-tip="Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown." aria-label="Mean F-UJI FAIR assessment score — definition" aria-describedby="gloss-nci-das-4" aria-expanded="false">i</button><span class="sr-only" id="gloss-nci-das-4">Mean F-UJI FAIR assessment score. Automated metadata-completeness signal, not a data-quality rating. Open a dataset's F-UJI check tab for the per-metric breakdown.</span></span></div><div class="value" id="stat-fair">—</div><div class="sub" id="stat-fair-sub">loading…</div></div>
+            <div class="stat"><div class="label">Total citations <span class="term-wrap"><button type="button" class="info-i" data-tip="Sum of citation counts reported by DataCite GraphQL across all DOI'd records. Loaded in batches after page load — may show 0 briefly." aria-label="Sum of citation counts reported by DataCite GraphQL across all DOI&#x27;d records — definition" aria-describedby="gloss-nci-das-5" aria-expanded="false">i</button><span class="sr-only" id="gloss-nci-das-5">Sum of citation counts reported by DataCite GraphQL across all DOI'd records. Loaded in batches after page load — may show 0 briefly.</span></span></div><div class="value" id="stat-cites">—</div><div class="sub" id="stat-cites-sub">via DataCite</div></div>
         </div>
 
         <!-- ========== CONTROL BAR ========== -->
@@ -383,6 +388,11 @@
 
         <!-- per-tree failure isolation: one tree down -> other still renders -->
         <div class="tree-note" id="tree-note"></div>
+
+        <!-- Named, counted loading state. The GeoNetwork walk is a tree of
+             one-request-per-node and routinely runs ~30 s, so it has to show
+             which source it is waiting on and how far in it is. -->
+        <div id="load-progress"></div>
 
         <!-- ========== FLEET SUMMARY ========== -->
         <details class="fleet-panel" id="fleet-panel">
@@ -453,6 +463,218 @@ var loadRun = 0;
 // Walk progress counters (per group) for the progressive loading text.
 var walkProgress = { MT: 0, DAS: 0 };
 
+// ============================================================
+// SOURCE HEALTH
+// ============================================================
+// This page reads four independent things. Before this, a failure in any
+// of them was indistinguishable from an empty result: the GeoNetwork
+// fetch had no timeout, and a DataCite outage arrived as "Total
+// citations 0" and 242 rows reading "no record" with nothing on screen
+// saying a request had failed.
+//
+// Now every read goes through trackerFetch (timeout, classified
+// outcome, retry on 5xx/network) and reports here. The tiles are wired
+// to this ledger by key, so a dead source yields "—" plus the reason,
+// never a number.
+var sources = createSourceLedger({ bannerEl: 'source-banner' });
+sources.declare('geonetwork', 'NCI GeoNetwork catalogue', { critical: true });
+sources.declare('datacite', 'DataCite metadata');
+sources.declare('citations', 'DataCite citation counts');
+sources.declare('fuji', 'F-UJI assessment feed');
+
+// The walk's own progress widget (created per load).
+var walkProgressUi = null;
+
+// setFigure treats a wired source as vouching for a 0 unless that source
+// is *known* to be broken — and a source still loading is not yet known
+// to be broken. So "Collections 0" would print for the whole 30 seconds
+// of the walk: the same defect as the outage case, just briefer. A
+// figure therefore only gets its ledger wiring once its source has
+// settled; before that it is explicitly "not loaded yet", which renders
+// as "—" and never as a number.
+function figureOpts(key, extra) {
+    var o = extra || {};
+    var e = sources.get(key);
+    var settled = e && (e.status === 'ok' || e.status === 'partial'
+        || e.status === 'failed' || e.status === 'skipped');
+    if (settled) { o.source = sources; o.sourceKey = key; }
+    return o;
+}
+
+// Any change in source health invalidates every tile drawn before it, so
+// repaint them all. Without this a tile keeps the number it drew while
+// things still looked fine — a stale figure outliving its own evidence.
+var statsRepaintBound = false;
+function bindStatsToLedger() {
+    if (statsRepaintBound) return;
+    statsRepaintBound = true;
+    sources.onChange(function() { renderStats(); });
+}
+
+// ------------------------------------------------------------
+// Citation counts, graded
+// ------------------------------------------------------------
+// loadCitationCounts() in tracker-citations.js assigns 0 whenever a
+// lookup returns a non-OK status. That single line is the origin of the
+// defect this page is named for: during a DataCite outage every DOI
+// scored 0 and the tile published their sum as a fact. That file is
+// shared by other pages and is out of scope here, so this page runs its
+// own pass over the same endpoint, writing the same cache, but keeping
+// the outcome: a failed lookup leaves citationCount unset and records
+// citeFailed, so both the row and the tile can say "unknown".
+var citeRun = { started: false, finished: false, done: 0, ok: 0, failed: 0, total: 0, lastReason: '' };
+
+function fetchCiteCountGraded(doi) {
+    return trackerFetch('https://api.datacite.org/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            query: 'query($id: ID!) { work(id: $id) { citationCount } }',
+            // DataCite's GraphQL endpoint is case-sensitive where its REST
+            // API is not; lowercasing is canonical and safe.
+            variables: { id: String(doi).toLowerCase() }
+        }),
+        label: 'DataCite citation counts',
+        timeout: 20000,
+        retries: 2,
+        retryDelay: 1500
+    }).then(function(res) {
+        if (!res.ok) return { ok: false, reason: res.reason };
+        var d = res.data || {};
+        // GraphQL reports rate limits and query errors inside a 200.
+        if (d.errors && d.errors.length) {
+            return { ok: false, reason: d.errors[0].message || 'DataCite GraphQL error' };
+        }
+        var work = d.data && d.data.work;
+        // A DOI missing from DataCite's citation graph has an unknown
+        // count, not a zero one. Printing 0 here would be the same lie in
+        // a smaller font.
+        if (!work) return { ok: false, reason: 'not present in the DataCite citation graph' };
+        return { ok: true, count: work.citationCount || 0 };
+    });
+}
+
+async function loadCitationCountsGraded(myRun) {
+    var withDoi = state.records.filter(function(r) { return r.doi; });
+    citeRun = { started: true, finished: false, done: 0, ok: 0, failed: 0, total: withDoi.length, lastReason: '' };
+    if (!withDoi.length) {
+        citeRun.finished = true;
+        sources.skip('citations', 'no DOIs to look up');
+        renderStats();
+        return;
+    }
+    sources.start('citations', 'looking up ' + withDoi.length + ' DOIs');
+
+    var batchSize = 5;
+    for (var i = 0; i < withDoi.length; i += batchSize) {
+        if (myRun !== loadRun) return;
+        await Promise.all(withDoi.slice(i, i + batchSize).map(function(rec) {
+            var key = normaliseDoi(rec.doi);
+            var cached = state.citationCache[key];
+            if (cached && typeof cached.count === 'number') {
+                rec.citationCount = cached.count;
+                rec.citeFailed = '';
+                citeRun.ok++; citeRun.done++;
+                return Promise.resolve();
+            }
+            return fetchCiteCountGraded(rec.doi).then(function(out) {
+                citeRun.done++;
+                if (out.ok) {
+                    rec.citationCount = out.count;
+                    rec.citeFailed = '';
+                    state.citationCache[key] = state.citationCache[key] || {};
+                    state.citationCache[key].count = out.count;
+                    citeRun.ok++;
+                } else {
+                    // Deliberately leave citationCount undefined. An unset
+                    // count renders as "unknown"; a 0 would render as a fact.
+                    rec.citeFailed = out.reason || 'lookup failed';
+                    citeRun.failed++;
+                    citeRun.lastReason = rec.citeFailed;
+                }
+            });
+        }));
+        if (myRun !== loadRun) return;
+        document.getElementById('stat-cites-sub').textContent =
+            'looked up ' + citeRun.done + ' / ' + citeRun.total;
+        renderStats();
+        renderTableRowsOnly();
+    }
+    if (myRun !== loadRun) return;
+
+    citeRun.finished = true;
+    if (citeRun.failed === 0) {
+        sources.ok('citations', citeRun.total + ' DOIs');
+    } else if (citeRun.ok === 0) {
+        sources.fail('citations', citeRun.lastReason || 'no DOI lookup succeeded');
+    } else {
+        sources.partial('citations', { done: citeRun.ok, total: citeRun.total, reason: citeRun.lastReason });
+    }
+    renderStats();
+    renderTableRowsOnly();
+}
+
+// renderCitePill (tracker-citations.js) has only two vocabularies: a
+// number, or "…" for not-yet-loaded. It has no way to say "we asked and
+// DataCite did not answer" — left as "…" that reads as a hang, and as 0
+// it reads as a fact. So the unknown case gets its own pill here.
+function citePill(r) {
+    if (r.doi && r.citeFailed) {
+        var msg = 'Citation count unavailable — ' + r.citeFailed
+            + '. This is missing data, not zero citations.';
+        return '<span class="cite-pill unknown" data-tip="' + escapeAttr(msg) + '" tabindex="0"'
+            + ' role="img" aria-label="' + escapeAttr(msg) + '">?</span>';
+    }
+    return renderCitePill(r, state.citationCache);
+}
+
+// Keep a runtime-updated tooltip and its screen-reader description in step.
+function setTip(el, text) {
+    if (!el) return;
+    el.setAttribute('data-tip', text);
+    var d = document.getElementById(el.getAttribute('aria-describedby') || '');
+    if (d) d.textContent = text;
+}
+
+// The fleet facet chips and the expandable rows are rendered as <div>s by
+// the shared chassis, so they were mouse-only. Give them a role, a tab
+// stop and Enter/Space — their click handlers are already delegated, so
+// dispatching a click is all that is needed.
+function makeDivControlsOperable() {
+    var chips = document.querySelectorAll('.fleet-item');
+    for (var i = 0; i < chips.length; i++) {
+        var c = chips[i];
+        // A zero-count chip is inert (the chassis click handler ignores it),
+        // so it must not become a dead tab stop either.
+        var inert = c.classList.contains('zero');
+        c.setAttribute('role', 'button');
+        c.setAttribute('aria-pressed', c.classList.contains('active') ? 'true' : 'false');
+        if (inert) {
+            c.removeAttribute('tabindex');
+            c.setAttribute('aria-disabled', 'true');
+        } else {
+            c.setAttribute('tabindex', '0');
+            c.removeAttribute('aria-disabled');
+        }
+    }
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var t = e.target.closest ? e.target.closest('.fleet-item, tr.data-row') : null;
+    if (!t || t.getAttribute('aria-disabled') === 'true') return;
+    e.preventDefault();
+    var rowKey = t.classList.contains('data-row') ? t.getAttribute('data-key') : null;
+    t.click();
+    // The table re-renders on toggle, discarding the focused element. Put
+    // focus back on the same row so keyboard position is not lost.
+    if (rowKey) {
+        setTimeout(function() {
+            var back = document.querySelector('tr.data-row[data-key="' + rowKey.replace(/"/g, '\\"') + '"]');
+            if (back) back.focus();
+        }, 60);
+    }
+});
+
 // Fleet summary categories. Each item is a clickable predicate that filters
 // the table to records matching the gap. Identification gaps grade the
 // record itself; Connectivity gaps grade its place in the PID graph.
@@ -491,6 +713,7 @@ var fleetCategories = [
 // ENTRY
 // ============================================================
 function init() {
+    bindStatsToLedger();
     bindControls();
     bindRowDelegation();
     bindDetailTabs();
@@ -510,19 +733,24 @@ function init() {
 // if the file is missing or malformed the column shows an em-dash and the
 // tile shows n/a — the page must never break on a missing feed.
 function loadFairScores() {
-    fetch('fair-scores.json').then(function(resp) {
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        return resp.json();
-    }).then(function(data) {
-        state.fair = (data && data.scores) ? data : null;
+    sources.start('fuji');
+    trackerFetch('fair-scores.json', {
+        label: 'F-UJI assessment feed',
+        timeout: 15000,
+        retries: 1
+    }).then(function(res) {
         state.fairFetchDone = true;
+        if (!res.ok || !res.data || !res.data.scores) {
+            state.fair = null;
+            sources.fail('fuji', res.ok ? 'the feed loaded but carries no scores' : res.reason);
+        } else {
+            state.fair = res.data;
+            sources.ok('fuji', Object.keys(res.data.scores).length + ' assessed DOIs');
+        }
         // The walk's own renderStats/renderTable pick the feed up if the
         // records aren't in yet; re-render here only for the late-feed case.
         if (state.records.length > 0) { renderStats(); renderTable(); }
-    }).catch(function() {
-        state.fair = null;
-        state.fairFetchDone = true;
-        if (state.records.length > 0) renderStats();
+        else renderStats();
     });
 }
 
@@ -603,14 +831,31 @@ function gnRelease() {
     else gnInFlight--;
 }
 
+// Every GeoNetwork read is bounded. It previously had no timeout at all,
+// which is how a stalled catalogue turned into a page that sat on
+// "loading…" indefinitely with no way to tell a slow walk from a dead
+// one. trackerFetch aborts at 20 s, retries once on network/5xx, and
+// classifies what went wrong; the walk keeps its throw-on-failure
+// contract so a dead root is still reported per-tree.
+var gnFailureCount = 0;
 async function gnFetchJson(path) {
     await gnAcquire();
     try {
-        var resp = await fetch(GN_API + path, { headers: { 'Accept': 'application/json' } });
-        if (!resp.ok) throw new Error('GeoNetwork HTTP ' + resp.status);
-        // GeoNetwork occasionally emits invalid UTF-8 bytes; response.json()
-        // decodes with replacement characters, so parsing still succeeds.
-        return await resp.json();
+        var res = await trackerFetch(GN_API + path, {
+            headers: { 'Accept': 'application/json' },
+            label: 'NCI GeoNetwork catalogue',
+            timeout: 20000,
+            retries: 1
+        });
+        if (!res.ok) {
+            gnFailureCount++;
+            var err = new Error(res.reason);
+            err.outcome = res.outcome;
+            throw err;
+        }
+        // GeoNetwork occasionally emits invalid UTF-8 bytes; the decode
+        // substitutes replacement characters, so parsing still succeeds.
+        return res.data;
     } finally {
         gnRelease();
     }
@@ -746,9 +991,13 @@ function fillFromRecordMeta(rec, data) {
     if (!rec.title) rec.title = '(untitled record)';
 }
 
+// The walk discovers its own size as it goes, so there is no honest
+// denominator to show — but "how many so far" and "which source" are
+// both known, and a stall watchdog fires if nothing moves for 20 s.
 function updateWalkProgress() {
-    setBody('<tr><td colspan="7" class="empty-state"><span class="spinner"></span> Walking the NCI GeoNetwork tree… '
-        + (walkProgress.MT + walkProgress.DAS) + ' records found</td></tr>');
+    if (!walkProgressUi) return;
+    walkProgressUi.set(walkProgress.MT + walkProgress.DAS, null,
+        'Walking the NCI GeoNetwork tree');
 }
 
 // Walk one tree. The root's own fetches propagate errors (so a dead tree is
@@ -827,8 +1076,20 @@ async function loadAll() {
     state.byUuid = {};
     state.treeErrors = [];
     state.expanded = new Set();
+    gnFailureCount = 0;
+    citeRun = { started: false, finished: false, done: 0, ok: 0, failed: 0, total: 0, lastReason: '' };
     document.getElementById('tree-note').className = 'tree-note';
-    setBody('<tr><td colspan="7" class="empty-state"><span class="spinner"></span> Contacting the NCI GeoNetwork catalogue…</td></tr>');
+
+    sources.start('geonetwork', 'contacting the catalogue');
+    if (walkProgressUi) walkProgressUi.destroy();
+    walkProgressUi = createProgress('load-progress', {
+        label: 'Contacting the NCI GeoNetwork catalogue',
+        note: 'geonetwork.nci.org.au — one request per record; a full walk takes about 30 seconds'
+    });
+    // A skeleton shows the table's own shape while it fills, instead of a
+    // blank rectangle that reads as "there is nothing here".
+    renderSkeleton('nc-tbody', { rows: 8, cols: 7, tbody: true });
+    renderStats();
 
     // allSettled keeps the multi-tree walk shape; this page walks one tree.
     var settled = await Promise.allSettled(TREE_ROOTS.map(function(t) {
@@ -866,12 +1127,36 @@ async function loadAll() {
     renderTreeNote();
 
     if (records.length === 0) {
-        setBody('<tr><td colspan="7" class="empty-state" style="color:var(--bad)">Failed to load the GeoNetwork tree. '
-            + escapeHtml(state.treeErrors.map(function(e) { return e.message; }).join(' · '))
+        var why = state.treeErrors.map(function(e) { return e.message; }).join(' · ')
+            || 'the catalogue returned no records';
+        sources.fail('geonetwork', why);
+        // Nothing downstream can run, so say so rather than leaving those
+        // sources looking as though they simply had nothing to report.
+        sources.skip('datacite', 'nothing to enrich');
+        sources.skip('citations', 'nothing to look up');
+        walkProgressUi.fail(why, function() { loadAll(); });
+        clearSkeleton('nc-tbody');
+        setBody('<tr><td colspan="7" class="empty-state" style="color:var(--bad)">'
+            + 'The NCI GeoNetwork catalogue did not answer: ' + escapeHtml(why)
+            + '. No collections could be listed &mdash; this is a failed request, not an empty catalogue.'
             + '</td></tr>');
         renderStats();
         return;
     }
+
+    // Some branches may have failed while the root answered. That is a
+    // partial walk, and every count derived from it is a floor.
+    if (state.treeErrors.length || gnFailureCount > 0) {
+        sources.partial('geonetwork', {
+            done: records.length,
+            total: records.length + gnFailureCount,
+            reason: gnFailureCount + ' record request' + (gnFailureCount === 1 ? '' : 's') + ' failed during the walk'
+        });
+    } else {
+        sources.ok('geonetwork', records.length + ' records');
+    }
+    walkProgressUi.done(records.length + ' collections read from GeoNetwork');
+    clearSkeleton('nc-tbody');
 
     renderStats();
     renderTable();
@@ -883,17 +1168,12 @@ async function loadAll() {
     renderStats();
     renderTable();
 
-    // Lazy: citation counts in batches (tracker-citations.js).
-    // citationLoadInFlight lets renderStats leave the in-progress
-    // "loaded X / Y" label alone while batches are running.
+    // Lazy: citation counts in batches, graded (see loadCitationCountsGraded).
     state.citationLoadInFlight = true;
-    loadCitationCounts({
-        getEntities: function() { return state.records; },
-        cache: state.citationCache,
-        progressEl: document.getElementById('stat-cites-sub'),
-        onBatch: function() { renderStats(); renderTableRowsOnly(); }
-    }).then(function() { state.citationLoadInFlight = false; })
-      .catch(function() { state.citationLoadInFlight = false; renderStats(); });
+    loadCitationCountsGraded(myRun).then(function() {
+        state.citationLoadInFlight = false;
+        renderStats();
+    });
 }
 
 function renderTreeNote() {
@@ -920,42 +1200,73 @@ function renderTreeNote() {
 // stripping the ROR affiliationIdentifier and publisherIdentifier that the
 // completeness checks grade. The single-DOI endpoint is more generous by
 // default, but the flags make the contract explicit.
+// Returns a classified outcome rather than throwing: the caller has to
+// record *why* a record has no DataCite metadata, because "DataCite was
+// down" and "this DOI has no record" are different facts that used to
+// render as the identical grey "no record" pill on every row.
 async function fetchDataCiteRecord(doi) {
     var url = 'https://api.datacite.org/dois/' + encodeURIComponent(doi)
         + '?affiliation=true&publisher=true';
-    var resp = await fetch(url);
-    if (!resp.ok) throw new Error('DataCite HTTP ' + resp.status);
-    var data = await resp.json();
-    if (!data.data) throw new Error('DataCite returned no record');
-    return data.data;
+    var res = await trackerFetch(url, {
+        label: 'DataCite metadata',
+        timeout: 20000,
+        retries: 2,
+        retryDelay: 1200
+    });
+    if (!res.ok) return { ok: false, reason: res.reason, outage: true };
+    if (!res.data || !res.data.data) {
+        return { ok: false, reason: 'DataCite has no record for this DOI', outage: false };
+    }
+    return { ok: true, item: res.data.data };
 }
 
 async function enrichFromDataCite(myRun) {
     var withDoi = state.records.filter(function(r) { return r.doi; });
-    withDoi.forEach(function(r) { r.enrichPending = true; });
+    withDoi.forEach(function(r) { r.enrichPending = true; r.enrichError = ''; r.enrichOutage = false; });
+    if (!withDoi.length) {
+        sources.skip('datacite', 'no DOIs to enrich');
+        return;
+    }
+    sources.start('datacite', 'reading ' + withDoi.length + ' DataCite records');
+
     var batchSize = 5;
-    var done = 0;
+    var done = 0, okCount = 0, outages = 0, lastReason = '';
     for (var i = 0; i < withDoi.length; i += batchSize) {
         if (myRun !== loadRun) return;
         var batch = withDoi.slice(i, i + batchSize);
         await Promise.all(batch.map(function(rec) {
-            return fetchDataCiteRecord(rec.doi).then(function(item) {
-                rec.dc = normalizeDataCite(item);
-                rec.relatedIdentifiers = rec.dc.relatedIdentifiers; // for loadCitationsInto reciprocity
-                rec.completeness = scoreCompleteness(rec.dc);
-                rec.enrichPending = false;
-                rec._search = '';   // rebuild the memoised search blob with DataCite fields
+            return fetchDataCiteRecord(rec.doi).then(function(out) {
                 done++;
-            }).catch(function(err) {
-                rec.enrichError = err.message || 'fetch failed';
                 rec.enrichPending = false;
-                done++;
+                if (out.ok) {
+                    rec.dc = normalizeDataCite(out.item);
+                    rec.relatedIdentifiers = rec.dc.relatedIdentifiers; // for loadCitationsInto reciprocity
+                    rec.completeness = scoreCompleteness(rec.dc);
+                    rec._search = '';   // rebuild the memoised search blob with DataCite fields
+                    okCount++;
+                } else {
+                    rec.enrichError = out.reason;
+                    rec.enrichOutage = !!out.outage;
+                    if (out.outage) { outages++; lastReason = out.reason; }
+                }
             });
         }));
         if (myRun !== loadRun) return;
         document.getElementById('stat-score-sub').textContent = 'enriching ' + done + ' / ' + withDoi.length + '…';
         renderStats();
         renderTableRowsOnly();
+    }
+    if (myRun !== loadRun) return;
+
+    // Only transport failures count against the source. A DOI DataCite
+    // genuinely has no record for is a real finding about that record,
+    // not an outage — grading it as one would cry wolf.
+    if (outages === 0) {
+        sources.ok('datacite', okCount + ' of ' + withDoi.length + ' records');
+    } else if (okCount === 0) {
+        sources.fail('datacite', lastReason || 'no DataCite record could be read');
+    } else {
+        sources.partial('datacite', { done: okCount, total: withDoi.length, reason: lastReason });
     }
 }
 
@@ -1541,61 +1852,100 @@ function renderStats() {
     var avgScore = scored.length > 0
         ? Math.round(scored.reduce(function(s, r) { return s + r.completeness.score; }, 0) / scored.length)
         : null;
-    var citeKnown = withDoi.filter(function(r) { return typeof r.citationCount === 'number'; }).length;
 
-    document.getElementById('stat-total').textContent = total || '—';
-    document.getElementById('stat-total-sub').textContent = total > 0
-        ? 'live from GeoNetwork'
-        : 'loading…';
+    // ---- Collections / With DOIs: both derived from the GeoNetwork walk.
+    // Wired to the ledger, so if the catalogue failed these read "—" with
+    // the reason rather than the 0 a failed walk would otherwise produce.
+    setFigure('stat-total', total, figureOpts('geonetwork', {
+        missingReason: 'the GeoNetwork walk has not returned any records'
+    }));
+    document.getElementById('stat-total-sub').textContent =
+        sources.broken('geonetwork') ? 'catalogue unavailable'
+        : total > 0 ? 'live from GeoNetwork' : 'walking the catalogue…';
 
-    document.getElementById('stat-doi').textContent = total > 0 ? withDoi.length : '—';
+    setFigure('stat-doi', total > 0 ? withDoi.length : null, figureOpts('geonetwork', {
+        // Zero DOI'd records is a real, meaningful finding once the walk has
+        // completed — so it is allowed to print, but only then.
+        zeroIsReal: total > 0 && !sources.broken('geonetwork'),
+        missingReason: 'the GeoNetwork walk has not returned any records'
+    }));
     document.getElementById('stat-doi-sub').textContent = total > 0
         ? Math.round(withDoi.length / total * 100) + '% of total'
         : 'of total';
 
-    document.getElementById('stat-score').textContent = avgScore === null ? '—' : avgScore + '%';
+    setFigure('stat-score', avgScore, figureOpts('datacite', {
+        format: function(v) { return v + '%'; },
+        missingReason: withDoi.length === 0
+            ? 'no DOI\'d records to score'
+            : 'no DataCite record could be read, so there is nothing to average'
+    }));
     var scoreSub = document.getElementById('stat-score-sub');
-    if (avgScore === null) scoreSub.textContent = 'DataCite completeness';
-    else if (scored.length < withDoi.length) { /* enrichment progress text owns the sub */ }
+    if (sources.broken('datacite')) scoreSub.textContent = 'DataCite unavailable';
+    else if (avgScore === null) scoreSub.textContent = 'DataCite completeness';
+    else if (scored.length < withDoi.length && state.records.length) {
+        scoreSub.textContent = 'across ' + scored.length + ' / ' + withDoi.length + ' DOI\'d records';
+    }
     else if (avgScore >= 80) scoreSub.textContent = 'DataCite completeness — good';
     else if (avgScore >= 60) scoreSub.textContent = 'DataCite completeness — OK';
     else scoreSub.textContent = 'DataCite completeness — needs work';
 
     // Avg F-UJI tile — fed by fair-scores.json (fail-soft: n/a when the
     // feed is missing). M = DOI'd records: only a DOI can be assessed.
-    var fairEl = document.getElementById('stat-fair');
     var fairSub = document.getElementById('stat-fair-sub');
-    if (!state.fairFetchDone) {
-        fairEl.textContent = '—';
-        fairSub.textContent = 'loading…';
-    } else if (!state.fair) {
-        fairEl.textContent = 'n/a';
-        fairSub.textContent = 'no assessment feed';
-    } else {
-        var assessed = withDoi.filter(function(r) { return fairVal(r); });
-        var avgFair = assessed.length > 0
-            ? Math.round(assessed.reduce(function(s, r) { return s + fairVal(r).s; }, 0) / assessed.length)
-            : null;
-        fairEl.textContent = avgFair === null ? 'n/a' : avgFair + '%';
-        fairSub.textContent = assessed.length + ' of ' + withDoi.length + ' assessed';
-        document.getElementById('stat-fair-tip').setAttribute('data-tip',
+    var assessed = state.fair ? withDoi.filter(function(r) { return fairVal(r); }) : [];
+    var avgFair = assessed.length > 0
+        ? Math.round(assessed.reduce(function(s, r) { return s + fairVal(r).s; }, 0) / assessed.length)
+        : null;
+    setFigure('stat-fair', avgFair, figureOpts('fuji', {
+        format: function(v) { return v + '%'; },
+        missingReason: !state.fairFetchDone ? 'the F-UJI assessment feed is still loading'
+            : !state.fair ? 'the F-UJI assessment feed did not load'
+            : 'none of these DOIs has been assessed yet'
+    }));
+    if (!state.fairFetchDone) fairSub.textContent = 'loading…';
+    else if (!state.fair) fairSub.textContent = 'assessment feed unavailable';
+    else {
+        fairSub.textContent = withDoi.length === 0
+            ? 'waiting for the collection list'
+            : assessed.length + ' of ' + withDoi.length + ' assessed';
+        setTip(document.getElementById('stat-fair-tip'),
             'Mean F-UJI FAIR assessment score (F-UJI v' + state.fair.fuji_version
             + ', metric set v' + state.fair.metric_version
             + ', assessed ' + String(state.fair.generated || '').substring(0, 10)
-            + '). Automated metadata-completeness signal, not a data-quality rating. '
-            + 'Open a dataset\'s F-UJI check tab for the per-metric breakdown.');
+            + '). ' + termTip('fuji-band')
+            + ' Open a dataset\'s F-UJI check tab for the per-metric breakdown.');
     }
 
-    document.getElementById('stat-cites').textContent = total > 0 ? totalCites : '—';
+    // ---- Total citations. This is the tile the audit named: during a
+    // DataCite outage it published "0". It now prints a number only when
+    // the lookups that produced it are accounted for.
     var citesSub = document.getElementById('stat-cites-sub');
-    if (citeKnown < withDoi.length && state.citationLoadInFlight) {
-        // loadCitationCounts owns the "loaded X / Y" label while running
-    } else if (citeKnown < withDoi.length && withDoi.length > 0) {
-        citesSub.textContent = 'across ' + citeKnown + ' / ' + withDoi.length + ' DOIs';
-    } else if (withDoi.length > 0) {
-        citesSub.textContent = 'across ' + withDoi.length + ' DOI\'d records';
+    if (withDoi.length === 0) {
+        setFigure('stat-cites', null, { missingReason: 'no DOI\'d records to look up' });
+        citesSub.textContent = 'via DataCite';
+    } else if (!citeRun.finished) {
+        // Mid-pass the sum is a floor, not a total, so it is not presented
+        // as one — and a running sum of 0 is not presented at all.
+        setFigure('stat-cites', citeRun.ok > 0 ? totalCites : null, {
+            zeroIsReal: false,
+            missingReason: citeRun.started
+                ? 'still counting — ' + citeRun.done + ' of ' + citeRun.total + ' DOIs checked'
+                : 'citation counts have not been requested yet'
+        });
+        citesSub.textContent = citeRun.started
+            ? 'counting… ' + citeRun.done + ' / ' + citeRun.total + ' (running floor)'
+            : 'via DataCite';
+    } else {
+        setFigure('stat-cites', totalCites, figureOpts('citations', {
+            // The only route by which a 0 reaches this tile: every DOI was
+            // asked and every DOI answered.
+            zeroIsReal: citeRun.failed === 0 && citeRun.ok === citeRun.total,
+            missingReason: 'DataCite did not answer for any of these DOIs'
+        }));
+        citesSub.textContent = citeRun.failed === 0
+            ? 'across ' + citeRun.ok + ' DOI\'d records'
+            : 'across ' + citeRun.ok + ' of ' + citeRun.total + ' DOIs — ' + citeRun.failed + ' unavailable';
     }
-
 }
 
 function setBody(html) {
@@ -1614,6 +1964,7 @@ function renderTable() {
     resultEl.innerHTML = msg;
 
     renderFleetPanel();
+    makeDivControlsOperable();
 
     if (state.records.length === 0) return; // loading / failure text owns the body
     if (visible.length === 0) {
@@ -1643,7 +1994,7 @@ function renderTableRowsOnly() {
         var fairCell = row.querySelector('.col-fair');
         if (fairCell) fairCell.innerHTML = renderFairCell(r);
         var citeCell = row.querySelector('.col-cites');
-        if (citeCell) citeCell.innerHTML = renderCitePill(r, state.citationCache);
+        if (citeCell) citeCell.innerHTML = citePill(r);
     });
 }
 
@@ -1670,7 +2021,15 @@ function renderScoreCell(r) {
         return '<span style="font-size:11px;color:var(--text-muted);">…</span>';
     }
     if (!r.completeness) {
-        return '<span class="score-none" title="DataCite lookup failed: ' + escapeAttr(r.enrichError || 'unknown error') + '">no record</span>';
+        // "no record" was shown for both cases, so an outage looked exactly
+        // like 242 records that genuinely do not exist. Separate them.
+        if (r.enrichOutage) {
+            var msg = 'Not checked — DataCite did not answer: ' + (r.enrichError || 'request failed')
+                + '. The record may well be complete; we could not read it.';
+            return '<span class="score-none" data-tip="' + escapeAttr(msg) + '" tabindex="0"'
+                + ' role="img" aria-label="' + escapeAttr(msg) + '">not checked</span>';
+        }
+        return '<span class="score-none" title="' + escapeAttr(r.enrichError || 'DataCite has no record for this DOI') + '">no record</span>';
     }
     var score = r.completeness.score;
     var cls = score >= 80 ? 'good' : (score >= 60 ? 'warn' : 'bad');
@@ -1701,7 +2060,11 @@ function renderRow(r, num) {
 
     var year = recordYear(r);
 
-    return '<tr class="data-row' + (state.expanded.has(r.rowKey) ? ' expanded' : '') + '" data-key="' + escapeAttr(r.rowKey) + '">'
+    // The row is the expand control, so it needs a tab stop and a state.
+    var isOpen = state.expanded.has(r.rowKey);
+    return '<tr class="data-row' + (isOpen ? ' expanded' : '') + '" data-key="' + escapeAttr(r.rowKey) + '"'
+        + ' tabindex="0" role="button" aria-expanded="' + (isOpen ? 'true' : 'false') + '"'
+        + ' aria-label="' + escapeAttr((r.title || 'Untitled record') + ' — expand for detail') + '">'
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-title">'
             + '<div class="title-line">' + escapeHtml(r.title || '(no title)') + '</div>'
@@ -1711,7 +2074,7 @@ function renderRow(r, num) {
         + '<td class="col-year">' + (year || '—') + '</td>'
         + '<td class="col-score">' + renderScoreCell(r) + '</td>'
         + '<td class="col-fair">' + renderFairCell(r) + '</td>'
-        + '<td class="col-cites">' + renderCitePill(r, state.citationCache) + '</td>'
+        + '<td class="col-cites">' + citePill(r) + '</td>'
         + '<td class="col-actions"><button class="actions-btn" title="Toggle details"><span class="chevron">▾</span></button></td>'
         + '</tr>';
 }

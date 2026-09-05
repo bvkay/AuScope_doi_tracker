@@ -261,11 +261,15 @@
         </div>
 
         <!-- ========== STAT TILES ========== -->
+        <!-- Source health. Hidden while the registry answers; a role=alert
+             banner the moment it does not. -->
+        <div id="source-banner"></div>
+
         <div class="stats" id="stat-tiles">
-            <div class="stat"><div class="label">Instrument units <span class="info-i" data-tip="Individual instruments (sensors, loggers, receivers) with their own PIDInst DOI — e.g. one LEMI-120 induction coil.">i</span></div><div class="value" id="stat-units">—</div><div class="sub" id="stat-units-sub">loading…</div></div>
-            <div class="stat"><div class="label">Avg PIDInst score <span class="info-i" data-tip="Mean PIDInst metadata completeness score across all instrument units, weighted by field importance. Open a unit's PIDInst check tab for the breakdown.">i</span></div><div class="value" id="stat-score">—</div><div class="sub" id="stat-score-sub">metadata completeness</div></div>
-            <div class="stat"><div class="label">Linked to surveys <span class="info-i" data-tip="Units referenced by at least one registered field survey's HasPart relations. Hierarchy is built from the surveys' side — unit IsPartOf entries are currently unreliable (registry bug #122).">i</span></div><div class="value" id="stat-linked">—</div><div class="sub" id="stat-linked-sub">units via reverse HasPart</div></div>
-            <div class="stat"><div class="label">Impact links <span class="info-i" data-tip="Unique dataset DOIs (Collects) plus unique paper DOIs (IsDescribedBy) declared across all surveys. Units accrue impact through their surveys.">i</span></div><div class="value" id="stat-impact">—</div><div class="sub" id="stat-impact-sub">datasets + papers via surveys</div></div>
+            <div class="stat"><div class="label">Instrument units <span class="term-wrap"><button type="button" class="info-i" data-tip="Individual instruments (sensors, loggers, receivers) with their own PIDInst DOI — e.g. one LEMI-120 induction coil." aria-label="Individual instruments (sensors, loggers, receivers) with their own PIDInst DOI  — definition" aria-describedby="gloss-instruments-1" aria-expanded="false">i</button><span class="sr-only" id="gloss-instruments-1">Individual instruments (sensors, loggers, receivers) with their own PIDInst DOI — e.g. one LEMI-120 induction coil.</span></span></div><div class="value" id="stat-units">—</div><div class="sub" id="stat-units-sub">loading…</div></div>
+            <div class="stat"><div class="label">Avg PIDInst score <span class="term-wrap"><button type="button" class="info-i" data-tip="Mean PIDInst metadata completeness score across all instrument units, weighted by field importance. Open a unit's PIDInst check tab for the breakdown." aria-label="Mean PIDInst metadata completeness score across all instrument units, weighted b — definition" aria-describedby="gloss-instruments-2" aria-expanded="false">i</button><span class="sr-only" id="gloss-instruments-2">Mean PIDInst metadata completeness score across all instrument units, weighted by field importance. Open a unit's PIDInst check tab for the breakdown.</span></span></div><div class="value" id="stat-score">—</div><div class="sub" id="stat-score-sub">metadata completeness</div></div>
+            <div class="stat"><div class="label">Linked to surveys <span class="term-wrap"><button type="button" class="info-i" data-tip="Units referenced by at least one registered field survey's HasPart relations. Hierarchy is built from the surveys' side — unit IsPartOf entries are currently unreliable (registry bug #122)." aria-label="Units referenced by at least one registered field survey&#x27;s HasPart relations — definition" aria-describedby="gloss-instruments-3" aria-expanded="false">i</button><span class="sr-only" id="gloss-instruments-3">Units referenced by at least one registered field survey's HasPart relations. Hierarchy is built from the surveys' side — unit IsPartOf entries are currently unreliable (registry bug #122).</span></span></div><div class="value" id="stat-linked">—</div><div class="sub" id="stat-linked-sub">units via reverse HasPart</div></div>
+            <div class="stat"><div class="label">Impact links <span class="term-wrap"><button type="button" class="info-i" data-tip="Unique dataset DOIs (Collects) plus unique paper DOIs (IsDescribedBy) declared across all surveys. Units accrue impact through their surveys." aria-label="Unique dataset DOIs (Collects) plus unique paper DOIs (IsDescribedBy) declared a — definition" aria-describedby="gloss-instruments-4" aria-expanded="false">i</button><span class="sr-only" id="gloss-instruments-4">Unique dataset DOIs (Collects) plus unique paper DOIs (IsDescribedBy) declared across all surveys. Units accrue impact through their surveys.</span></span></div><div class="value" id="stat-impact">—</div><div class="sub" id="stat-impact-sub">datasets + papers via surveys</div></div>
         </div>
 
         <!-- ========== FLEET SUMMARY ========== -->
@@ -298,6 +302,11 @@
         </div>
 
         <!-- ========== TABLE ========== -->
+        <!-- Named, counted loading state: which registry, how many of how
+             many records. DataCite reports its own total, so this wait has a
+             real denominator rather than an open-ended spinner. -->
+        <div id="load-progress"></div>
+
         <div class="table-wrap">
             <table class="data" id="inst-table">
                 <thead>
@@ -339,6 +348,70 @@ var state = createTrackerState({
                         // surveys feed hierarchy only, never table rows)
     byDoi: {},          // normaliseDoi(doi) -> entity
     filter: { search: '', model: '', issuesOnly: false }
+});
+
+// ============================================================
+// SOURCE HEALTH
+// ============================================================
+// One live source, previously read with a bare fetch and no timeout: a
+// stalled DataCite left this page on a spinner indefinitely, and an
+// empty harvest published "0 instrument units" and "0%" average score
+// as though they had been measured. Every read now goes through
+// trackerFetch and reports here, and the tiles are wired to it.
+var sources = createSourceLedger({ bannerEl: 'source-banner' });
+sources.declare('datacite', 'DataCite instrument registry', { critical: true });
+
+var loadProgressUi = null;
+
+// setFigure treats a wired source as vouching for a 0 unless that source
+// is *known* to be broken — and a source still loading is not yet known
+// to be broken. A figure therefore gets its ledger wiring only once its
+// source has settled; before that it renders as "—", not as 0.
+function figureOpts(key, extra) {
+    var o = extra || {};
+    var e = sources.get(key);
+    var settled = e && (e.status === 'ok' || e.status === 'partial'
+        || e.status === 'failed' || e.status === 'skipped');
+    if (settled) { o.source = sources; o.sourceKey = key; }
+    return o;
+}
+
+var statsRepaintBound = false;
+function bindStatsToLedger() {
+    if (statsRepaintBound) return;
+    statsRepaintBound = true;
+    // Any change in source health invalidates every tile drawn before it.
+    sources.onChange(function() { renderStats(); });
+}
+
+// Fleet facet chips are <div>s rendered by the shared chassis, so they
+// were mouse-only. Their click handler is already delegated, so a role,
+// a tab stop and Enter/Space are all that is missing.
+function makeDivControlsOperable() {
+    var chips = document.querySelectorAll('.fleet-item');
+    for (var i = 0; i < chips.length; i++) {
+        var c = chips[i];
+        var inert = c.classList.contains('zero');
+        c.setAttribute('role', 'button');
+        c.setAttribute('aria-pressed', c.classList.contains('active') ? 'true' : 'false');
+        if (inert) { c.removeAttribute('tabindex'); c.setAttribute('aria-disabled', 'true'); }
+        else { c.setAttribute('tabindex', '0'); c.removeAttribute('aria-disabled'); }
+    }
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var t = e.target.closest ? e.target.closest('.fleet-item, tr.data-row') : null;
+    if (!t || t.getAttribute('aria-disabled') === 'true') return;
+    e.preventDefault();
+    var doi = t.classList.contains('data-row') ? t.getAttribute('data-doi') : null;
+    t.click();
+    // The table re-renders on toggle, discarding the focused element.
+    if (doi) {
+        setTimeout(function() {
+            var back = document.querySelector('tr.data-row[data-doi="' + doi.replace(/"/g, '\\"') + '"]');
+            if (back) back.focus();
+        }, 60);
+    }
 });
 
 // Fleet summary categories — registry-health focused.
@@ -390,6 +463,7 @@ var fleetCategories = [
 // ENTRY
 // ============================================================
 function init() {
+    bindStatsToLedger();
     bindControls();
     bindRowDelegation();
     bindDetailTabs();
@@ -453,22 +527,55 @@ function bindControls() {
 // FETCH
 // ============================================================
 async function loadInstruments() {
-    setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loading instrument registry from DataCite…</td></tr>');
-    try {
-        var raw = await fetchAllInstruments();
-        state.instruments = raw.map(normalizeInstrument);
-        linkHierarchy();
-        state.instruments.forEach(function(d) { d.pidinst = scorePidinst(d); });
-        populateModelFilter();
+    sources.start('datacite', 'contacting the registry');
+    if (loadProgressUi) loadProgressUi.destroy();
+    loadProgressUi = createProgress('load-progress', {
+        label: 'Loading the instrument registry from DataCite',
+        note: 'api.datacite.org — client auscope.repo3, 100 records a page'
+    });
+    // A skeleton shows the table's own shape while it fills.
+    renderSkeleton('inst-tbody', { rows: 8, cols: 9, tbody: true });
+    renderStats();
+
+    var out = await fetchAllInstruments();
+    state.instruments = out.items.map(normalizeInstrument);
+
+    if (!out.items.length) {
+        // A failed request and an empty registry are different facts.
+        var why = out.reason || 'DataCite returned no records for this client';
+        sources.fail('datacite', why);
+        loadProgressUi.fail(why, function() { loadInstruments(); });
+        clearSkeleton('inst-tbody');
+        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">'
+            + 'DataCite did not answer: ' + escapeHtml(why)
+            + '. No instrument records could be listed &mdash; this is a failed request, not an empty registry.'
+            + '</td></tr>');
         renderStats();
-        renderTable();
-        // No citation-count fetch here: units cannot be cited directly (their
-        // citationCount is preset to 0 at normalize time), and survey rows are
-        // no longer displayed, so querying DataCite GraphQL for survey counts
-        // would fetch numbers nothing on the page shows.
-    } catch (err) {
-        setBody('<tr><td colspan="9" class="empty-state" style="color:var(--bad)">Failed to load: ' + escapeHtml(err.message) + '</td></tr>');
+        return;
     }
+
+    if (out.reason) {
+        // Some pages landed and one did not: every count below is a floor.
+        sources.partial('datacite', {
+            done: out.items.length, total: out.items.length + out.pageSize,
+            reason: 'pagination stopped early — ' + out.reason
+        });
+        loadProgressUi.done(out.items.length + ' records loaded (incomplete — ' + out.reason + ')');
+    } else {
+        sources.ok('datacite', out.items.length + ' records');
+        loadProgressUi.done(out.items.length + ' registry records loaded from DataCite');
+    }
+    clearSkeleton('inst-tbody');
+
+    linkHierarchy();
+    state.instruments.forEach(function(d) { d.pidinst = scorePidinst(d); });
+    populateModelFilter();
+    renderStats();
+    renderTable();
+    // No citation-count fetch here: units cannot be cited directly (their
+    // citationCount is preset to 0 at normalize time), and survey rows are
+    // no longer displayed, so querying DataCite GraphQL for survey counts
+    // would fetch numbers nothing on the page shows.
 }
 
 async function fetchAllInstruments() {
@@ -486,17 +593,23 @@ async function fetchAllInstruments() {
             + '&publisher=true'
             + '&page[size]=' + pageSize
             + '&page[number]=' + page;
-        var resp = await fetch(url);
-        if (!resp.ok) throw new Error('DataCite returned HTTP ' + resp.status);
-        var data = await resp.json();
+        var res = await trackerFetch(url, {
+            label: 'DataCite instrument registry',
+            timeout: 25000, retries: 2, retryDelay: 1200
+        });
+        // Returned, not thrown: a partial harvest is a real state, and the
+        // caller must be able to tell "no records" from "failed on page 3".
+        if (!res.ok) return { items: all, reason: res.reason, pageSize: pageSize };
+        var data = res.data || {};
         var items = data.data || [];
         if (items.length === 0) break;
         all = all.concat(items);
-        setBody('<tr><td colspan="9" class="empty-state"><span class="spinner"></span> Loaded ' + all.length + ' records…</td></tr>');
+        var total = (data.meta && data.meta.total) || null;
+        if (loadProgressUi) loadProgressUi.set(all.length, total, 'Loading the instrument registry from DataCite');
         if (items.length < pageSize) break;
         page++;
     }
-    return all;
+    return { items: all, reason: '', pageSize: pageSize };
 }
 
 // ============================================================
@@ -1030,7 +1143,7 @@ function renderStats() {
     var units = unitInstruments();
     var surveys = state.instruments.filter(function(d) { return d.kind === 'survey'; });
     var linked = units.filter(function(d) { return d.memberSurveys.length > 0; }).length;
-    var avg = units.length > 0 ? Math.round(units.reduce(function(s, d) { return s + d.pidinst.score; }, 0) / units.length) : 0;
+    var avg = units.length > 0 ? Math.round(units.reduce(function(s, d) { return s + d.pidinst.score; }, 0) / units.length) : null;
 
     var dsSet = new Set(), papSet = new Set();
     surveys.forEach(function(s) {
@@ -1038,17 +1151,50 @@ function renderStats() {
         s.isDescribedByDois.forEach(function(x) { papSet.add(x); });
     });
 
-    document.getElementById('stat-units').textContent = units.length;
-    document.getElementById('stat-units-sub').textContent = units.length > 0 ? 'live from DataCite' : '';
-    document.getElementById('stat-score').textContent = avg + '%';
+    // Every figure here derives from the one DataCite harvest, so every
+    // figure is wired to it. A failed harvest yields "—" and the reason —
+    // it must never yield "0 instrument units" or "0%".
+    var harvestLanded = state.instruments.length > 0 && !sources.broken('datacite');
+
+    setFigure('stat-units', units.length, figureOpts('datacite', {
+        // Zero units is a real finding only once records have actually
+        // landed (the registry could hold surveys and no units).
+        zeroIsReal: harvestLanded,
+        missingReason: 'the DataCite harvest returned no records'
+    }));
+    document.getElementById('stat-units-sub').textContent =
+        sources.broken('datacite') ? 'registry unavailable'
+        : units.length > 0 ? 'live from DataCite' : 'loading…';
+
+    setFigure('stat-score', avg, figureOpts('datacite', {
+        format: function(v) { return v + '%'; },
+        missingReason: 'no registry records were read, so there is nothing to average'
+    }));
     var scoreSub = document.getElementById('stat-score-sub');
-    if (avg >= 80) scoreSub.textContent = 'metadata completeness — good';
+    if (sources.broken('datacite')) scoreSub.textContent = 'registry unavailable';
+    else if (avg === null) scoreSub.textContent = 'metadata completeness';
+    else if (avg >= 80) scoreSub.textContent = 'metadata completeness — good';
     else if (avg >= 60) scoreSub.textContent = 'metadata completeness — OK';
     else scoreSub.textContent = 'metadata completeness — needs work';
-    document.getElementById('stat-linked').textContent = linked + ' / ' + units.length;
-    document.getElementById('stat-linked-sub').textContent = 'via HasPart from ' + surveys.length + ' registered field survey' + (surveys.length === 1 ? '' : 's');
-    document.getElementById('stat-impact').textContent = dsSet.size + papSet.size;
-    document.getElementById('stat-impact-sub').textContent = dsSet.size + ' datasets + ' + papSet.size + ' papers via surveys';
+
+    // A ratio is still a figure: "0 / 0" during an outage reads as a
+    // measured result, so it is rendered through the same rule.
+    setFigure('stat-linked', harvestLanded ? linked : null, figureOpts('datacite', {
+        zeroIsReal: harvestLanded,
+        format: function(v) { return v + ' / ' + units.length; },
+        missingReason: 'the DataCite harvest returned no records'
+    }));
+    document.getElementById('stat-linked-sub').textContent = harvestLanded
+        ? 'via HasPart from ' + surveys.length + ' registered field survey' + (surveys.length === 1 ? '' : 's')
+        : 'units via reverse HasPart';
+
+    setFigure('stat-impact', harvestLanded ? (dsSet.size + papSet.size) : null, figureOpts('datacite', {
+        zeroIsReal: harvestLanded,
+        missingReason: 'the DataCite harvest returned no records'
+    }));
+    document.getElementById('stat-impact-sub').textContent = harvestLanded
+        ? dsSet.size + ' datasets + ' + papSet.size + ' papers via surveys'
+        : 'datasets + papers via surveys';
 }
 
 function setBody(html) { document.getElementById('inst-tbody').innerHTML = html; }
@@ -1081,6 +1227,7 @@ function renderTable() {
     resultEl.innerHTML = msg;
 
     renderFleetPanel();
+    makeDivControlsOperable();
 
     if (visible.length === 0) {
         setBody('<tr><td colspan="9" class="empty-state">No units match the current filters.</td></tr>');
@@ -1108,7 +1255,12 @@ function renderTableRowsOnly() {
 
 function renderInstCitePill(d) {
     if (d.kind === 'unit') {
-        return '<span class="cite-pill zero" title="Instrument units accrue impact via their surveys">0</span>';
+        // A confirmed, explained zero — not an unfetched one. It is stated
+        // as such so it is never mistaken for a failed lookup.
+        var why = 'Structurally zero: an instrument unit cannot be cited directly. '
+            + 'Units accrue impact through the field surveys that used them.';
+        return '<span class="cite-pill zero" data-tip="' + escapeAttr(why) + '" tabindex="0"'
+            + ' role="img" aria-label="' + escapeAttr('0 direct citations. ' + why) + '">0</span>';
     }
     return renderCitePill(d, state.citationCache);
 }
@@ -1150,7 +1302,11 @@ function renderTypeBadge(d) {
 function renderRow(d, num) {
     var score = d.pidinst.score;
     var scoreCls = score >= 80 ? 'good' : (score >= 60 ? 'warn' : 'bad');
-    return '<tr class="data-row' + (state.expanded.has(d.doi) ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '">'
+    // The row is the expand control, so it needs a tab stop and a state.
+    var isOpen = state.expanded.has(d.doi);
+    return '<tr class="data-row' + (isOpen ? ' expanded' : '') + '" data-doi="' + escapeAttr(d.doi) + '"'
+        + ' tabindex="0" role="button" aria-expanded="' + (isOpen ? 'true' : 'false') + '"'
+        + ' aria-label="' + escapeAttr((d.title || 'Untitled record') + ' — expand for detail') + '">'
         + '<td class="col-num">' + num + '</td>'
         + '<td class="col-title">'
             + '<div class="title-line">' + escapeHtml(d.title || '(no title)') + '</div>'

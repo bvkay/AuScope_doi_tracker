@@ -48,6 +48,14 @@ const PLATFORM_PROJECTS = {
   'NCI:MT': '3.33',
   'NCI:DAS': '3.31',
   'NVCL': '3.41',
+  // M@TE, the Model Atlas of the Earth (DOI 10.25914/yrzp-g882, mate.science).
+  // NOTE the lens this lands in: the sheet files project 3.1276 "AuScope
+  // Modelling Atlas" under the FAIR DATA FRAMEWORK lens (program: Research
+  // Data Systems), not Analysis Framework, where a modelling platform might
+  // be expected. Attribution follows the sheet, per the labels-as-supplied
+  // rule; if that classification is wrong it should be corrected at source
+  // rather than overridden here.
+  'NCI:MATE': '3.1276',
 };
 
 // Minimal RFC-4180 CSV parser — quotes, embedded commas, embedded newlines.

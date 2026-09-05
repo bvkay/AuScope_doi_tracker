@@ -1,0 +1,1118 @@
+[
+ {
+  "network": "1B",
+  "net_start": "2026-07-09T00:00:00Z",
+  "net_end": "2027-02-01T00:00:00Z",
+  "description": "Maunakea Observatory DAS Experiment",
+  "doi": "10.7914/1wr3-b906",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "https://doi.org/10.7914/1wr3-b906",
+   "Meghan Miller, Helen Janiszewski, Tianwei Sun, Robert Pickle, & Marc Kassis. (2026). Maunakea Keck Observatory DAS Experiment [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/1wr3-b906",
+   "Two 120 second seismometers installed on opposite ends of the fibre line between HalePohaku and the summit of Maunakea, Hawaii to complement a 2026-2027 Distributed Acoustic Sensing (DAS) experiment. Data should be available streaming via seedlink and archived at AusPass."
+  ]
+ },
+ {
+  "network": "1E",
+  "net_start": "2013-11-12T05:22:59Z",
+  "net_end": "2014-11-13T18:22:50.52Z",
+  "description": "South QLD Spiral Array",
+  "doi": "10.7914/SN/1E_2013",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "SQSPA is a three arm spiral array. This array was an experimental array designed to enhance weak signals and identify the local character of the wavefield. It consists of 16 trillium compact 120s seismometers and has an array radius of approximately 25 km",
+   "https://www.fdsn.org/networks/detail/1E_2013/",
+   "Stipcevic, J. (2013). Southern Queensland Spiral Array. Australian Passive Seismic Server - Australian National University. https://doi.org/10.7914/SN/1E_2013"
+  ]
+ },
+ {
+  "network": "1F",
+  "net_start": "2009-03-24T06:00:00Z",
+  "net_end": "2009-11-05T07:13:26.7687Z",
+  "description": "CURNAMONA",
+  "doi": "10.7914/SN/1F_2009",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Reference : Michelle Salmon and Brian Kennett(2009), Curnamona. Australian Passive Seismic Server - Australian National University. Dataset/Seismic Network.",
+   "doi: 10.7914/SN/1F_2009"
+  ]
+ },
+ {
+  "network": "1G",
+  "net_start": "2008-07-01T06:19:59Z",
+  "net_end": "2009-04-03T23:18:50.16Z",
+  "description": "GAWLER",
+  "doi": "10.7914/SN/1G_2008",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/1G_2008",
+   "Michelle Salmon, Brian Kennet (2008): Gawler. Australian Passive Seismic Server - Australian National University. Dataset/Seismic Network. 10.7914/SN/1G_2008"
+  ]
+ },
+ {
+  "network": "1G",
+  "net_start": "2019-01-01T00:00:00Z",
+  "net_end": "2019-08-19T03:41:00.04Z",
+  "description": "Transitions in the Banda Arc-Australia continental collision",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": []
+ },
+ {
+  "network": "1G",
+  "net_start": "2020-12-10T08:05:46Z",
+  "net_end": "2021-01-14T23:59:59.996Z",
+  "description": "Lake George Seismic Nodal Array",
+  "doi": "10.7914/t2z3-2m87",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "The Lake George Seismic Nodal Array was a short-term seismic experiment conducted on a then dry lake bed located ~35 km northeast of the Australian capital city, Canberra. The array included 97 three-component SmartSolo sensors recording continuously with 250 Hz sampling rate, and was operated betwe",
+   "https://doi.org/10.7914/t2z3-2m87"
+  ]
+ },
+ {
+  "network": "1H",
+  "net_start": "2010-05-10T04:10:59Z",
+  "net_end": "2011-03-22T02:43:01.92Z",
+  "description": "EAL2",
+  "doi": "10.7914/SN/1H_2010",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/1H_2010",
+   "Nicholas Rawlinson. (2010). EAL2 [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "1H",
+  "net_start": "2024-06-17T22:41:42Z",
+  "net_end": "2024-08-13T01:23:58Z",
+  "description": "Mundi Mundi Passive Seismic Array (Mundi Mundi)",
+  "doi": "10.7914/psbw-7z20",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Hamid Bizhani, Graham Heinson, Ben Kay, Goran Boren, Jianli Zhi, and David Baker. (2024). Mundi Mundi Passive Seismic Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/psbw-7z20"
+  ]
+ },
+ {
+  "network": "1K",
+  "net_start": "2013-11-06T08:51:59Z",
+  "net_end": "2015-09-14T23:57:16.24Z",
+  "description": "ALFREX - Albany-Fraser Experiment",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "http://www.fdsn.org/networks/detail/1K_2013/",
+   "A 70-station passive seismic array was deployed in the east Albany\u2013Fraser Orogen from November 2013 to January 2016.",
+   "https://www.dmp.wa.gov.au/Geological-Survey/Albany-Fraser-Experiment-ALFREX-1452.aspx"
+  ]
+ },
+ {
+  "network": "1L",
+  "net_start": "2021-04-22T04:24:00Z",
+  "net_end": "2021-06-10T00:25:57.18Z",
+  "description": "Canberra Deep Space Centre DAS Experiment",
+  "doi": "10.7914/63mk-n625",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Meghan Miller, Voon Hui Lai, Robert Pickle, & Brian Kennett. (2021). Canberra Deep Space Centre DAS [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/63mk-n625"
+  ]
+ },
+ {
+  "network": "1P",
+  "net_start": "2011-05-22T02:04:59Z",
+  "net_end": "2013-04-28T01:20:59.98Z",
+  "description": "BASS",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": []
+ },
+ {
+  "network": "1Q",
+  "net_start": "2015-11-28T03:48:59Z",
+  "net_end": "2017-10-24T22:18:20.4761Z",
+  "description": "AQT",
+  "doi": "10.7914/SN/1Q_2016",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "This project is an AuScope funded array in Western Queensland, Australia. It consists of 93 sites including 8 Guralp CMG-3ESP, 12 Trillium compact (120s) and 73 Lennartz 3D-Lite MKII seismometers. This project is part of the WOMBAT rolling array.",
+   "https://doi.org/10.7914/SN/1Q_2016",
+   "AusPass (2016): AQT. International Federation of Digital Seismograph Networks. Dataset/Seismic Network. 10.7914/SN/1Q_2016"
+  ]
+ },
+ {
+  "network": "2B",
+  "net_start": "2023-02-23T22:18:14Z",
+  "net_end": "2023-11-09T05:23:58Z",
+  "description": "South Island Seismology at the Speed of Light Experiment",
+  "doi": "10.7914/bfp8-xv25",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "https://doi.org/10.7914/bfp8-xv25",
+   "Meghan Miller, Voon Hui Lai, & John Townend. (2023). South Island Seismology at the Speed of Light Experiment [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "2B",
+  "net_start": "2026-05-20T00:09:34Z",
+  "net_end": "2026-05-26T22:15:26Z",
+  "description": "DAS Addition for Seismology and Hydrology (DASH)",
+  "doi": "10.7914/hwmy-0n24",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Meghan Miller, John Townend, Tianwei Sun, & Sara Klaasen. (2026). DAS Addition for Seismology and Hydrology (DASH) [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/hwmy-0n24"
+  ]
+ },
+ {
+  "network": "2E",
+  "net_start": "2023-09-05T01:01:46Z",
+  "net_end": "2023-11-24T06:46:10Z",
+  "description": "Wairakei Earthquake and Tomography Array (WETA)",
+  "doi": "10.7914/37v8-hv88",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "https://doi.org/10.7914/37v8-hv88",
+   "Chengxin Jiang, Finnigan Illsley-Kemp, & Meghan Miller. (2023). Wairakei Earthquake and Tomography Array (WETA) [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "2J",
+  "net_start": "2009-06-22T05:38:26.16Z",
+  "net_end": "2010-03-18T03:54:46.06Z",
+  "description": "South Coast(SOUTHCOAST)",
+  "doi": "10.7914/64n9-ft63",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Sara H. Pozgay and Brian Kennett. (2009). South Coast [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/64n9-ft63"
+  ]
+ },
+ {
+  "network": "2P",
+  "net_start": "2020-08-13T05:37:00Z",
+  "net_end": "2023-10-01T03:55:45.49Z",
+  "description": "SWAN / SW Australia Network",
+  "doi": "10.7914/SN/2P_2020",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/2P_2020",
+   "Meghan Miller, Trevor Allen, Ruth Murdie, Klaus Gessner, Huaiyu Yuan, Brian Kennett, & Robert Pickle. (2020). South West Australia Network [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "2X",
+  "net_start": "2022-02-09T20:35:58Z",
+  "net_end": "2022-02-24T20:35:58Z",
+  "description": "Vulcan Iron-Oxide Copper-Gold (IOCG) prospect",
+  "doi": "10.7914/xnz7-th21",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Ben Kay, Graham Heinson, & Goran Boren. (2022). Vulcan MT & Passive Seismic Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/xnz7-th21"
+  ]
+ },
+ {
+  "network": "3B",
+  "net_start": "2024-08-25T04:45:16.1Z",
+  "net_end": "2025-01-14T23:59:59.995Z",
+  "description": "Wyalkatchem Temporary Network (WYKM)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": []
+ },
+ {
+  "network": "3D",
+  "net_start": "2008-12-08T04:57:50.66Z",
+  "net_end": "2009-06-01T06:21:14.68Z",
+  "description": "Ambient Seismic Experiment Tasmania 1(ASET1)",
+  "doi": "10.7914/efr0-yc38",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Anya M. Reading. (2008). Ambient Seismic Experiment Tasmania 1 [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/efr0-yc38"
+  ]
+ },
+ {
+  "network": "3F",
+  "net_start": "2020-10-16T02:28:59.98Z",
+  "net_end": "2022-02-15T03:23:03.92Z",
+  "description": "Macquarie Ridge",
+  "doi": "10.7914/SN/3F_2020",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "https://doi.org/10.7914/SN/3F_2020",
+   "Hrvoje Tkalcic, Caroline Eakin, Nicholas Rawlinson, Coffin, M. F., & Joann Miriam Stock. (2020). Macquarie Ridge [Data set]. AusPass: The Australian Passive Seismic Server. https://doi.org/10.7914/SN/3F_2020"
+  ]
+ },
+ {
+  "network": "3G",
+  "net_start": "2018-04-21T02:18:59.83Z",
+  "net_end": "2019-08-04T01:58:05.01Z",
+  "description": "MARLA (High density seismic line)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "No DOI registered",
+   "<reference>",
+   "The Marla Line is a high density seismic line across a major crustal boundary in Central Australia. The line is approximately 230km in length with average station spacing of approximately 3.4km."
+  ]
+ },
+ {
+  "network": "3M",
+  "net_start": "2013-01-01T00:00:00Z",
+  "net_end": "2016-09-01T00:00:00Z",
+  "description": "Australia-Indonesia Tectonics Observatory 2013-2016",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://www.fdsn.org/networks/detail/3M_2013/",
+   "Saygin, E., Cummins, P. R., Cipta, A., Hawkins, R., Pandhu, R., Murjaya, J., ... & Kennett, B. L. N. (2016). Imaging architecture of the Jakarta Basin with transdimensional inversion of seismic noise. Geophysical Journal International, 204(2), 918-931."
+  ]
+ },
+ {
+  "network": "3O",
+  "net_start": "2019-05-09T07:56:59Z",
+  "net_end": "2020-05-22T16:41:13.47Z",
+  "description": "AKIMBA19 / Kimberley Region",
+  "doi": "10.7914/SN/3O_2019",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/3O_2019",
+   "Meghan Miller (2019): AKIMBA. International Federation of Digital Seismograph Networks. Dataset/Seismic Network."
+  ]
+ },
+ {
+  "network": "3X",
+  "net_start": "2022-06-14T23:30:30Z",
+  "net_end": "2022-07-27T16:56:10Z",
+  "description": "Curnamona Deep Earth Imaging Project (Curnamona Cube)",
+  "doi": "10.7914/6q5b-va48",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Ben Kay, Graham Heinson, & Goran Boren. (2022). Curnamona Cube MT & Passive Seismic Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/6q5b-va48"
+  ]
+ },
+ {
+  "network": "4B",
+  "net_start": "2023-03-26T05:31:00Z",
+  "net_end": "2026-05-06T00:22:43.37Z",
+  "description": "Seismic Network Around Kangaroo Eyre York",
+  "doi": "10.7914/9j20-yq91",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Caroline M. Eakin & Robert Pickle. (2023). Seismic Network Around Kangaroo Eyre Yorke [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/9j20-yq91"
+  ]
+ },
+ {
+  "network": "4H",
+  "net_start": "2009-06-02T06:55:59Z",
+  "net_end": "2010-02-26T02:02:42.68Z",
+  "description": "EAL1",
+  "doi": "10.7914/SN/4H_2009",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/4H_2009",
+   "Nicholas Rawlinson. (2009). EAL1 [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "4J",
+  "net_start": "2014-05-20T02:15:59Z",
+  "net_end": "2015-10-29T00:00:00Z",
+  "description": "AQ3 (part WOMBAT transportable array)",
+  "doi": "10.7914/SN/4J_2014",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "AQ3 is part of the Australian WOMBAT transportable array. AQ3 covers a 160000 square km area across the south-west corner of Queensland and the north-west corner of New South Wales. Seismometers are Lennartz LE-3DLite MkII and are sited at approximately 55-65 km spacings. A sample rate of 50 samples",
+   "https://doi.org/10.7914/SN/4J_2014",
+   "AusPass (2014): AQ3 SW Queensland and NW New South Wales. International Federation of Digital Seismograph Networks. Dataset/Seismic Network. 10.7914/SN/4J_2014"
+  ]
+ },
+ {
+  "network": "4K",
+  "net_start": "2024-09-24T04:55:50Z",
+  "net_end": "2024-10-25T00:50:18Z",
+  "description": "Fiordland Seismological Sending of Landslides and Earthquakes (FISSLE)",
+  "doi": "10.7914/7b9m-1d60",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Meghan Miller, Voon Hui Lai, & John Townend. (2024). Fiordland Seismological Sending of Landslides and Earthquakes (FISSLE) [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/7b9m-1d60"
+  ]
+ },
+ {
+  "network": "4N",
+  "net_start": "2017-01-01T00:00:00Z",
+  "net_end": "2019-11-26T03:04:49.55Z",
+  "description": "China-Western Australia Seismic Array (CWAS)",
+  "doi": "10.7914/SN/4N_2017",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Huaiyu Yuan. (2017). China-Western Australia Seismic array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/SN/4N_2017"
+  ]
+ },
+ {
+  "network": "4Z",
+  "net_start": "2021-12-16T00:47:28Z",
+  "net_end": "2022-02-13T17:34:54Z",
+  "description": "Melbourne - ALiRT nodal deployment (ALiRT)",
+  "doi": "10.7914/pgt8-x273",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Meghan Miller, Voon Hui Lai, & Sandra McLaren. (2021). Melbourne - ALiRT nodal deployment [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/pgt8-x273"
+  ]
+ },
+ {
+  "network": "5C",
+  "net_start": "2017-01-23T05:45:00Z",
+  "net_end": "2017-11-29T04:41:19.31Z",
+  "description": "PERTHBASIN",
+  "doi": "10.7914/nx28-a367",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/nx28-a367",
+   "Ruth Murdie, Huaiyu Yuan, & Michael Dentith. (2017). Perth Basin Array [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "5G",
+  "net_start": "2018-10-16T02:28:59Z",
+  "net_end": "2022-09-10T07:26:46.59Z",
+  "description": "Lake Eyre Basin",
+  "doi": "10.7914/SN/5G_2018",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/5G_2018",
+   "Caroline Eakin. (2018). Lake Eyre Basin [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "5J",
+  "net_start": "2017-04-23T00:44:59Z",
+  "net_end": "2019-02-28T16:11:41.51Z",
+  "description": "ASR",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "This project was an infill network to cover areas of South Australia that have never had any seismic imaging work done. Instruments are 120s Trillium compacts.",
+   "http://www.fdsn.org/networks/detail/5J_2017/"
+  ]
+ },
+ {
+  "network": "5K",
+  "net_start": "2002-01-09T14:01:30.68Z",
+  "net_end": "2007-11-15T06:54:25.16Z",
+  "description": "SSCUA",
+  "doi": "10.7914/hf8d-4s28",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "https://doi.org/10.7914/hf8d-4s28",
+   "Sparse seismic network aiming to provide reconnaissance information on the crust and mantle plate tectonic structure in the region encompassing the Lambert-Amery Glacier System, East Antarctica."
+  ]
+ },
+ {
+  "network": "6C",
+  "net_start": "2015-02-15T09:29:59Z",
+  "net_end": "2016-01-03T10:05:18.12Z",
+  "description": "WA Spiral Array",
+  "doi": "10.7914/SN/6C_2015",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "WASPA is a three arm spiral array. This array was an experimental array designed to enhance weak signals and identify the local character of the wavefield. It consists of 16 trillium compact 120s seismometers and has an array radius of approximately 22 km. Note that many sites are missing individual",
+   "https://www.fdsn.org/networks/detail/6C_2015/",
+   "Stipcevic, J. (2015). West Australian Spiral Array. Australian Passive Seismic Server - Australian National University. https://doi.org/10.7914/SN/6C_2015"
+  ]
+ },
+ {
+  "network": "6D",
+  "net_start": "2022-04-02T01:15:46Z",
+  "net_end": "2022-04-12T01:32:06Z",
+  "description": "Western Gawler MT & Passive Seismic Array (Western Gawler ADI)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Ben Kay, Graham Heinson, & Goran Boren. (2022). Western Gawler MT & Passive Seismic Array [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "6F",
+  "net_start": "2008-08-27T03:27:12Z",
+  "net_end": "2011-05-24T00:34:59.98Z",
+  "description": "BILBY",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": []
+ },
+ {
+  "network": "6I",
+  "net_start": "2026-02-19T00:00:00Z",
+  "net_end": null,
+  "description": "Rapid Deployments for local earthquake swarms in Western Australia",
+  "doi": "10.7914/gbnj-wt07",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/gbnj-wt07",
+   "Ruth Murdie, Huaiyu Yuan, John Paul O\u2019Donnell, Reza Ebrahimi, and Sahala Siahaan. (2026). Rapid Deployments for local earthquake swarms in Western Australia [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "6K",
+  "net_start": "2020-10-14T06:41:59Z",
+  "net_end": "2022-06-11T02:19:01.725Z",
+  "description": "AusArray SA",
+  "doi": "10.7914/SN/6K_2020",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/6K_2020",
+   "John Paul O'Donnell, Stephan Thiel, Kate Robertson, Alexei Gorbatov, & Bruce Goleby. (2020). AusArray SA [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "6T",
+  "net_start": "2018-10-09T06:40:00Z",
+  "net_end": "2025-12-25T00:00:00Z",
+  "description": "NTSPA",
+  "doi": "10.7914/4e87-j738",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Lauren Waszek and Hrvoje Tkal\u010di\u0107. (2018). NT Spiral Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/4e87-j738",
+   "This experiment tests the feasibility of using short-aperture spiral-arm arrays for earthquake and man-made explosion monitoring and subsequent applications in studies of the deep Earth\u2019s interior. 16 broadband sensors were deployed at Warramunga Research Station each recording at 100 Hz."
+  ]
+ },
+ {
+  "network": "6Y",
+  "net_start": "2022-10-06T22:15:00Z",
+  "net_end": "2023-10-18T21:59:27.12Z",
+  "description": "Southland Otago Seismic Array(SOSA)",
+  "doi": "10.7914/jr68-qq17",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Jack N. Williams, Donna Eberhart-Phillips, Sandra Bourguignon, & Mark Stirling. (2022). Southland Otago Seismic Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/jr68-qq17"
+  ]
+ },
+ {
+  "network": "7A",
+  "net_start": "2024-07-02T03:35:14Z",
+  "net_end": "2024-08-02T00:17:34Z",
+  "description": "Georgetown inlier for Far North Queensland",
+  "doi": "10.7914/3v05-sw22",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Neil Harbison, & Craig O'Neill. (2024). Georgetown Seismic Traverse, North Queensland [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/3v05-sw22"
+  ]
+ },
+ {
+  "network": "7B",
+  "net_start": "1993-05-03T03:00:57.846Z",
+  "net_end": "1995-08-10T01:25:17.015Z",
+  "description": "SKIPPY",
+  "doi": "10.7914/SN/7B_1993",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/7B_1993",
+   "Rob van der Hilst, & Brian Kennett. (1993). SKIPPY. Australian Passive Seismic Server."
+  ]
+ },
+ {
+  "network": "7D",
+  "net_start": "1997-07-21T03:17:09.846Z",
+  "net_end": "1997-10-14T02:44:25.806Z",
+  "description": "KIMBA97",
+  "doi": "10.7914/SN/7D_1997",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/7D_1997",
+   "Brian Kennett. (1997). KIMBA97. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "7E",
+  "net_start": "1998-05-22T02:27:37.846Z",
+  "net_end": "1998-07-25T02:09:55.806Z",
+  "description": "KIMBA98",
+  "doi": "10.7914/SN/7E_1998",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/7E_1998",
+   "Brian Kennett. (1998). KIMBA98. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "7F",
+  "net_start": "1999-03-04T01:17:40.72Z",
+  "net_end": "1999-11-04T05:19:10.8Z",
+  "description": "QUOLL 1999",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://www.fdsn.org/networks/detail/7F_1999/"
+  ]
+ },
+ {
+  "network": "7G",
+  "net_start": "2000-07-11T04:19:58.72Z",
+  "net_end": "2004-02-05T04:14:07.5719Z",
+  "description": "West Australian Cratons",
+  "doi": "10.7914/SN/7G_2000",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Brian Kennet. (2000). West Australian Cratons [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/SN/7G_2000"
+  ]
+ },
+ {
+  "network": "7H",
+  "net_start": "2001-10-03T05:58:48.84Z",
+  "net_end": "2002-08-16T05:08:35.96Z",
+  "description": "TIGGER (BB)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/?",
+   "Rawlinson, N., Reading, A. M., & Kennett, B. L. (2006). Lithospheric structure of Tasmania from a novel form of teleseismic tomography. Journal of Geophysical Research: Solid Earth, 111(B2)"
+  ]
+ },
+ {
+  "network": "7I",
+  "net_start": "2003-05-01T00:29:59Z",
+  "net_end": "2006-04-11T13:03:00Z",
+  "description": "TASMAL",
+  "doi": "10.7914/SN/7I_2003",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://www.fdsn.org/networks/detail/7I_2003/",
+   "https://doi.org/10.7914/SN/7I_2003",
+   "Kennett, B. (2003). TASMAL. Australian Passive Seismic Server - Australian National University. https://doi.org/10.7914/SN/7I_2003"
+  ]
+ },
+ {
+  "network": "7J",
+  "net_start": "2005-10-20T02:44:30.846Z",
+  "net_end": "2007-05-31T00:00:00.96Z",
+  "description": "CAPRAL",
+  "doi": "10.7914/SN/7J_2005",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/7J_2005",
+   "Anya Reading, & Brian Kennett. (2005). CAPRA - Linkage [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "7K",
+  "net_start": "2007-02-14T01:25:24.7199Z",
+  "net_end": "2008-08-14T03:53:46.56Z",
+  "description": "SOC",
+  "doi": "10.7914/SN/7K_2007",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Fabrice Fontaine, & Brian Kennet. (2007). SOC - Southern Craton [Data set]. International Federation of Digital Seismograph Networks.",
+   "https://doi.org/10.7914/SN/7K_2007"
+  ]
+ },
+ {
+  "network": "7L",
+  "net_start": "2011-11-09T03:21:59Z",
+  "net_end": "2013-03-09T17:09:57.4Z",
+  "description": "EAL3",
+  "doi": "10.7914/SN/7L_2011",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/7L_2011",
+   "Nicholas Rawlinson. (2011). EAL3 [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "7M",
+  "net_start": "2014-02-24T11:00:23.88Z",
+  "net_end": "2018-09-04T07:40:44.99Z",
+  "description": "COPA / Capricorn Orogen Passive-source Array",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://www.fdsn.org/networks/detail/7M_2014/",
+   "The broadband passive source component of a multi-method geophysical program aimed at assessing the mineral deposits potential of the Proterozoic Capricorn Orogen."
+  ]
+ },
+ {
+  "network": "7M",
+  "net_start": "1998-05-04T00:18:59Z",
+  "net_end": "1998-09-23T07:40:20.55Z",
+  "description": "Lachlan Foldbelt",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/?",
+   "https://www.fdsn.org/networks/detail/7M_1998/"
+  ]
+ },
+ {
+  "network": "7N",
+  "net_start": "1999-03-14T23:40:59Z",
+  "net_end": "1999-07-25T07:00:00.35Z",
+  "description": "Murray Basin",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/?",
+   "https://www.fdsn.org/networks/detail/7N_1999/"
+  ]
+ },
+ {
+  "network": "7O",
+  "net_start": "2000-01-16T16:50:59Z",
+  "net_end": "2000-07-08T06:36:58.9Z",
+  "description": "Adelaide Foldbelt",
+  "doi": "10.7914/SN/7O_2000",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/7O_2000",
+   "Gregory Houseman, Stewart Greenhalgh, & Frank Graeber. (2000). AF00 [Data set]. International Federation of Digital Seismograph Networks"
+  ]
+ },
+ {
+  "network": "7P",
+  "net_start": "2002-03-10T03:53:00Z",
+  "net_end": "2002-08-14T05:53:45.55Z",
+  "description": "TIGGER (SP)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/?",
+   "Rawlinson, N., Reading, A. M., & Kennett, B. L. (2006). Lithospheric structure of Tasmania from a novel form of teleseismic tomography. Journal of Geophysical Research: Solid Earth, 111(B2)"
+  ]
+ },
+ {
+  "network": "7Q",
+  "net_start": "2004-11-03T02:28:59Z",
+  "net_end": "2005-04-10T00:00:00Z",
+  "description": "SEAL (South-Eastern Australia Linkeage 1/3)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://www.fdsn.org/networks/detail/7Q_2004/",
+   "DOI TBA",
+   "SEAL [Data set]. Australian Passive Seismic Server (AusPass) - Australian National University."
+  ]
+ },
+ {
+  "network": "7R",
+  "net_start": "2005-07-19T23:37:00Z",
+  "net_end": "2006-05-23T03:40:19.36Z",
+  "description": "EVA - Lachlan Orogen, Victoria Australia",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://www.fdsn.org/networks/detail/7R_2005/",
+   "50 short period single channel seismic stations deployed across the southern end of the Great Dividing Range in Victoria (SE Australia)",
+   "Rawlinson, N., & Kennett, B. L. N. (2008). Teleseismic tomography of the upper mantle beneath the southern Lachlan Orogen, Australia. Physics of the Earth and Planetary Interiors, 167(1-2), 84-97."
+  ]
+ },
+ {
+  "network": "7S",
+  "net_start": "2006-10-02T23:17:59Z",
+  "net_end": "2007-08-26T06:00:01.24Z",
+  "description": "SETA / SE Tasmania Array",
+  "doi": "10.1080/08120099.2010.481325",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://www.fdsn.org/networks/detail/7S_2006/",
+   "N. Rawlinson, H. Tkalcic & A. M. Reading (2010) Structure of the Tasmanian lithosphere from 3D seismic tomography, Australian Journal of Earth Sciences, 57:4, 381-394, DOI: 10.1080/08120099.2010.481325"
+  ]
+ },
+ {
+  "network": "7T",
+  "net_start": "2007-02-11T05:49:59Z",
+  "net_end": "2007-11-19T00:34:57.8Z",
+  "description": "SEAL2 (South-Eastern Australia Linkeage 2/3)",
+  "doi": "10.7914/SN/7T_2007",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/7T_2007",
+   "Nick Rawlinson, Brian Kennett, & Hrvoje Tkal\u010di\u0107. (2007). SEAL2 [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "7U",
+  "net_start": "2007-11-14T03:17:59Z",
+  "net_end": "2009-02-14T16:49:45.08Z",
+  "description": "SEAL3 (South-Eastern Australia Linkeage 3/3)",
+  "doi": "10.7914/SN/7U_2007",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/7U_2007",
+   "Nicholas Rawlinson, Brian Kennett, & Hrvoje Tkal\u010di\u0107. (2007). SEAL3 [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "8A",
+  "net_start": "2024-08-30T08:27:22Z",
+  "net_end": "2024-09-24T06:43:58Z",
+  "description": "Black Mountain SmartSolo Node Testing Experiment (BMNTE)",
+  "doi": "10.7914/ps89-gf83",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Jack Dent. (2024). Black Mountain SmartSolo Node Testing Experiment [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/ps89-gf83"
+  ]
+ },
+ {
+  "network": "8J",
+  "net_start": "2012-11-19T06:12:59Z",
+  "net_end": "2014-10-12T11:20:16.3Z",
+  "description": "SQEAL (South Queensland Eastern Australia Linkage, part of WOMBAT)",
+  "doi": "10.7914/SN/8J_2012",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/SN/8J_2012",
+   "Nicholas Rawlinson, Yingjie Yang (2012): South Queensland Eastern Australia Linkage - ARC Discovery Grant DP120103673. Australian Passive Seismic Server. Dataset/Seismic Network. 10.7914/SN/8J_2012"
+  ]
+ },
+ {
+  "network": "8K",
+  "net_start": "2014-10-12T06:18:59Z",
+  "net_end": "2015-10-16T08:08:01.45Z",
+  "description": "COPA HPS / Capricorn Orogen High-density Passive-Source Array.",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://www.fdsn.org/networks/detail/8K_2014/",
+   "Yuan, H. and Bodin, T., 2018. A probabilistic shear wave velocity model of the crust in the central West Australian Craton constrained by transdimensional inversion of ambient noise dispersion. Tectonics, 37(7), pp.1994-2012."
+  ]
+ },
+ {
+  "network": "8M",
+  "net_start": "2016-06-06T06:38:00Z",
+  "net_end": "2016-09-18T00:40:53.556Z",
+  "description": "MULGA",
+  "doi": "10.7914/SN/8M_2016",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Hrvoje Tkalcic, Christian Sippl, & Michelle Salmon. (2016). MULGA NT Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/SN/8M_2016"
+  ]
+ },
+ {
+  "network": "9B",
+  "net_start": "2020-08-31T02:13:12Z",
+  "net_end": "2020-10-12T12:00:00Z",
+  "description": "Mt. Stromlo Node Array",
+  "doi": "10.7914/z6kv-sg06",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Test network at Mt Stromolo Sept 2020, 78 stations arranged in a grid (ST*) as well as 6 in various backyards (BY*)",
+   "https://doi.org/10.7914/z6kv-sg06",
+   "Chengxin Jiang, Robert Pickle, Meghan Miller, & Michelle Salmon. (2020). Mt. Stromlo Node Array [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "9M",
+  "net_start": "2023-11-21T00:03:10Z",
+  "net_end": "2024-11-05T22:39:42Z",
+  "description": "Eyre Peninsula Nodal Array (EPNA)",
+  "doi": "10.7914/ac1p-7y35",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Caroline M. Eakin, Chengxin Jiang, Meghan Miller, Louis Moresi, & Graham Heinson. (2023). Eyre Peninsula Nodal Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/ac1p-7y35"
+  ]
+ },
+ {
+  "network": "9V",
+  "net_start": "2015-12-27T11:31:00Z",
+  "net_end": "2024-01-12T11:10:14.99Z",
+  "description": "CADAGIA",
+  "doi": "10.7914/nrw9-9825",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "https://doi.org/10.7914/nrw9-9825",
+   "Anya M. Reading, & Tobias St\u00e5l. (2015). CAD Seismic Deployment, Casey-Davis Region, East Antarctica [Data set]. University of Tasmania"
+  ]
+ },
+ {
+  "network": "9X",
+  "net_start": "2021-12-14T21:59:00Z",
+  "net_end": "2022-01-12T04:37:39.971Z",
+  "description": "Kamb Ice Stream Outlet Channel (KambSeis2)",
+  "doi": "10.7914/b1k3-3c71",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Huw Horgan, & Paul Winberry. (2021). Kamb Ice Stream Outlet Channel [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/b1k3-3c71"
+  ]
+ },
+ {
+  "network": "IU",
+  "net_start": "1988-01-01T00:00:00Z",
+  "net_end": null,
+  "description": "Global Seismograph Network (GSN - IRIS/USGS) (GSN)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": []
+ },
+ {
+  "network": "M8",
+  "net_start": "2024-01-09T01:59:00Z",
+  "net_end": null,
+  "description": "Australian Semi-Permanent Support Network (MATE)",
+  "doi": "10.7914/6e8t-6g37",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "https://doi.org/10.7914/6e8t-6g37",
+   "Robert Pickle, Meghan Miller, Ruth Murdie, John Paul O'Donnell, Alexei Gorbatov, Adam Pascale, & Michelle Salmon. (2024). Australian Semi-Permanent Support Network [Data set]. International Federation of Digital Seismograph Networks.",
+   "The MATE (M8) network is an AuScope-funded collection of semi-permanent telemetered broadband stations to support ongoing experiments and/or target regions of elevated research interested within Australia and its periphery. Collaborators include GSWA, GeoScience Australia, University of Tasmania, an"
+  ]
+ },
+ {
+  "network": "OA",
+  "net_start": "2022-11-14T05:33:15Z",
+  "net_end": "2025-11-15T00:16:12.45Z",
+  "description": "AusArray",
+  "doi": null,
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Note that OA data is NOT publically available on AusPass. This inventory is for information only and does not reflect the Aus Array dataset. For more information please reach out to Geoscience Australia."
+  ]
+ },
+ {
+  "network": "OZ",
+  "net_start": "1976-01-01T00:00:00Z",
+  "net_end": null,
+  "description": null,
+  "doi": null,
+  "operator": "SRC",
+  "restricted": null,
+  "comments": [
+   "Seismology Research Centre, Melbourne, Australia"
+  ]
+ },
+ {
+  "network": "S1",
+  "net_start": "2011-09-01T02:22:00Z",
+  "net_end": null,
+  "description": "Australian Seismometers in Schools (AUSiS)",
+  "doi": "10.7914/SN/S1'",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "'Australian National University (ANU, Australia). (2011). Australian Seismometers in Schools [Data set]. AusPass. https://doi.org/10.7914/SN/S1'",
+   "Australian Seismometers in Schools is a dual purpose seismic network. The program offers both education outreach and provides quality data for monitoring and research. We use Guralp CMG-6TD or Nanometrics Trillium Compact 120s seismometers and stream data live data to the schools and Geoscience Aust"
+  ]
+ },
+ {
+  "network": "WG",
+  "net_start": "2022-11-14T06:28:51Z",
+  "net_end": "2026-05-23T08:38:28.16Z",
+  "description": "WA Array",
+  "doi": "10.7914/xagc-se62",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Geological Survey of Western Australia. (2022). WA Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/xagc-se62",
+   "https://doi.org/10.7914/xagc-se62",
+   "Funded by the Government of Western Australia and managed by the Geological Survey of Western Australia, WA-ARRAY is designed to investigate crustal and lithospheric mantle structures, with the primary goal of identifying prospective regions for mineral exploration, particularly in undercover areas."
+  ]
+ },
+ {
+  "network": "WG",
+  "net_start": "2024-08-23T06:56:00.44Z",
+  "net_end": "2025-10-28T03:33:29.076Z",
+  "description": "WA Array",
+  "doi": "10.7914/xagc-se62",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Geological Survey of Western Australia. (2022). WA Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/xagc-se62"
+  ]
+ },
+ {
+  "network": "X5",
+  "net_start": "2023-04-25T04:11:00Z",
+  "net_end": "2026-01-29T21:08:43.49Z",
+  "description": "Auckland-Hauraki Node Array",
+  "doi": "10.7914/8jxr-7029",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "https://doi.org/10.7914/8jxr-7029",
+   "Robert Pickle, Kimberley Berends, & Meghan Miller. (2023). Auckland-Hauraki Node Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/8jxr-7029"
+  ]
+ },
+ {
+  "network": "X8",
+  "net_start": "2005-12-07T00:00:00Z",
+  "net_end": "2006-09-13T23:59:59.96Z",
+  "description": "Mount Gambier Deployment(Mt_Gambier)",
+  "doi": "10.7914/xhzt-cq87",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Fabrice R. Fontaine, Hrvoje Tkal\u010di\u0107, & Brian Kennet. (2005). Mount Gambier deployment [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/xhzt-cq87"
+  ]
+ },
+ {
+  "network": "XX",
+  "net_start": "1980-01-01T00:00:00Z",
+  "net_end": null,
+  "description": null,
+  "doi": null,
+  "operator": null,
+  "restricted": null,
+  "comments": []
+ },
+ {
+  "network": "Y2",
+  "net_start": "2025-08-27T18:59:15.5Z",
+  "net_end": "2026-02-14T03:34:18.05Z",
+  "description": "Kilkivan Temporary Network (Kilkivan)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": []
+ },
+ {
+  "network": "Y7",
+  "net_start": "2025-10-09T02:44:10Z",
+  "net_end": "2026-03-12T10:44:22Z",
+  "description": "Okataina Seismic Network (OKSN)",
+  "doi": "10.7914/kd1t-kt29",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Eleanor R. H. Mestel, Athena Mace, Finnigan Illsley-Kemp, Kelvin Tapuke, Colin J. N. Wilson, Robert Pickle, Chengxin Jiang, & Meghan Miller. (2025). Makatiti and Haroharo Nodal Array [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/kd1t-kt29"
+  ]
+ },
+ {
+  "network": "YB",
+  "net_start": "2026-03-11T23:46:58Z",
+  "net_end": "2026-04-10T07:43:42Z",
+  "description": "Rugby 2026 MLa 4.4 RDK",
+  "doi": "10.7914/g75f-4a16",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Robert Pickle, Meghan Miller, Sima Mousavi, Santiago Velasquez, & Jack Dent. (2026). Rugby NSW aftershock rapid response network [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/g75f-4a16"
+  ]
+ },
+ {
+  "network": "YS",
+  "net_start": "2014-03-15T03:38:32.2Z",
+  "net_end": "2018-12-31T23:59:59Z",
+  "description": "Transitions in the Banda Arc-Australia continental collision",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": []
+ },
+ {
+  "network": "YW",
+  "net_start": "2021-01-01T00:00:00Z",
+  "net_end": "2025-12-31T23:59:59.9999Z",
+  "description": "Muswellbrook (Mus)",
+  "doi": null,
+  "operator": null,
+  "restricted": "open",
+  "comments": []
+ },
+ {
+  "network": "Z9",
+  "net_start": "2022-01-10T02:15:44.41Z",
+  "net_end": "2023-12-08T08:25:43.22Z",
+  "description": "Casey-Wilkins Adaptable Array",
+  "doi": "10.7914/SN/Z9_2021",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "https://doi.org/10.7914/SN/Z9_2021",
+   "Tobias St\u00e5l, & Anya M. Reading. (2021). Casey-Wilkins Adaptable Array [Data set]. International Federation of Digital Seismograph Networks."
+  ]
+ },
+ {
+  "network": "ZJ",
+  "net_start": "2025-11-19T16:00:00Z",
+  "net_end": "2028-04-01T12:00:00Z",
+  "description": "Southern Alps Monitoring of Weather-Influenced Seismicity and Erosion(SAMWISE)",
+  "doi": "10.7914/0zmj-7e94",
+  "operator": null,
+  "restricted": "closed",
+  "comments": [
+   "Konstantinos Michailos, Meghan Miller, John Townend, & Calum John Chamberlain. (2025). Southern Alps Monitoring of Weather-Influenced Seismicity and Erosion [Data set]. International Federation of Digital Seismograph Networks. https://doi.org/10.7914/0zmj-7e94"
+  ]
+ },
+ {
+  "network": "ZR",
+  "net_start": "2009-06-16T03:41:59Z",
+  "net_end": "2011-04-01T23:18:50.4Z",
+  "description": "MINQ (Mount Isa Northern Queensland)",
+  "doi": "10.7914/SN/ZR_2009",
+  "operator": null,
+  "restricted": "open",
+  "comments": [
+   "Kennett, B., & McQueen, H. (2009). Mt Isa Norther Queensland - AuScope [Data set]. Australian Passive Seismic Server.",
+   "https://doi.org/10.7914/SN/ZR_2009"
+  ]
+ }
+]

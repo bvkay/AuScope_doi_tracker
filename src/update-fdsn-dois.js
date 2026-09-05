@@ -9,6 +9,13 @@
  * Sources:
  *   1. AusPass FDSN station service — which networks we care about
  *   2. fdsn.org networks web service — authoritative DOI per code + start year
+ *   3. AusPass's OWN StationXML <Identifier type="DOI"> elements — checked
+ *      31 Aug 2026: 32 of 89 networks embed their DOI in-band, and two of
+ *      them (WG/2024 WA Array, Y7/2025) were in neither the fdsn.org
+ *      registry nor this table, so the tracker under-reported DOI coverage.
+ *      In-band values need normalising ("//doi.org/…", "doi.org/…" prefixes
+ *      in the wild) and one network carries the literal string "tba", which
+ *      is skipped and reported.
  *
  * Merge rules:
  *   - Existing rows are kept. Some are manually curated aliases (e.g. an
@@ -65,7 +72,30 @@ async function run() {
       doiMapExact[net.fdsn_code + '_' + net.start_date.substring(0, 4)] = net.doi;
     }
   }
-  console.log('FDSN registry entries with DOIs: ' + Object.keys(doiMapExact).length + '\n');
+  console.log('FDSN registry entries with DOIs: ' + Object.keys(doiMapExact).length);
+
+  // ── AusPass in-band identifiers (source 3) ──
+  const xmlDois = {};
+  try {
+    const xmlResp = await fetch('https://auspass.edu.au/fdsnws/station/1/query?level=network&format=xml');
+    if (!xmlResp.ok) throw new Error('HTTP ' + xmlResp.status);
+    const xml = await xmlResp.text();
+    const re = /<Network code="([^"]+)" startDate="(\d{4})[^"]*"[^>]*>([\s\S]*?)(?=<Network code=|<\/FDSNStationXML>)/g;
+    let m;
+    while ((m = re.exec(xml)) !== null) {
+      const id = (m[3].match(/<Identifier[^>]*>([^<]*)<\/Identifier>/) || [])[1];
+      if (!id) continue;
+      const doi = String(id).trim().replace(/^(https?:)?\/\/(dx\.)?doi\.org\//i, '').replace(/^doi\.org\//i, '');
+      if (!/^10\./.test(doi)) {
+        console.log('  in-band identifier skipped (not a DOI): ' + m[1] + '/' + m[2] + ' = "' + id + '"');
+        continue;
+      }
+      xmlDois[m[1] + '_' + m[2]] = doi;
+    }
+    console.log('AusPass in-band DOIs: ' + Object.keys(xmlDois).length + '\n');
+  } catch (e) {
+    console.warn('AusPass XML identifiers unavailable (' + e.message + ') — continuing with registry only\n');
+  }
 
   // ── Merge ──
   const table = new Map(existing.map(r => [r[0] + '_' + r[1], r[2]]));
@@ -74,7 +104,15 @@ async function run() {
   for (const net of auspassNetworks) {
     if (EXCLUDED_CODES.has(net.code)) continue;
     const key = net.code + '_' + net.startYear;
-    const registryDoi = doiMapExact[key];
+    // The operator's own in-band declaration outranks the fdsn.org registry
+    // where the registry is silent; where both speak they are compared, and
+    // a disagreement warns rather than silently picking a side.
+    const registryDoi = doiMapExact[key] || xmlDois[key];
+    if (doiMapExact[key] && xmlDois[key]
+        && normDoi(doiMapExact[key]) !== normDoi(xmlDois[key])) {
+      console.warn('  CONFLICT registry vs in-band for ' + key + ': '
+        + doiMapExact[key] + ' vs ' + xmlDois[key]);
+    }
     const existingDoi = table.get(key);
 
     if (existingDoi && registryDoi && normDoi(existingDoi) !== normDoi(registryDoi)) {

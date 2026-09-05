@@ -1,0 +1,250 @@
+{
+ "metadata": {
+  "type": "network-funding-evidence",
+  "note": "Funding of the EXPERIMENT. Not evidence of instrument ownership; deliberately not wired into attribution tiers.",
+  "sources": [
+   "fdsn-metadata (all 89 network-epochs)",
+   "auspass-page (only ~12 experiments have a page)"
+  ],
+  "epochs_with_evidence": 19,
+  "auscope_epochs": 8
+ },
+ "records": [
+  {
+   "network": "1F",
+   "epoch_start": "2009-03-24",
+   "epoch_end": "2009-11-05",
+   "description": "CURNAMONA",
+   "funders": [
+    "AuScope"
+   ],
+   "source": "auspass-page",
+   "evidence": "Auscope",
+   "url": "https://auspass.edu.au/networks/curnamona.html"
+  },
+  {
+   "network": "1G",
+   "epoch_start": "2019-01-01",
+   "epoch_end": "2019-08-19",
+   "description": "Transitions in the Banda Arc-Australia continental collision",
+   "funders": [
+    "ARC"
+   ],
+   "source": "fdsn-metadata",
+   "evidence": null
+  },
+  {
+   "network": "1H",
+   "epoch_start": "2010-05-10",
+   "epoch_end": "2011-03-22",
+   "description": "EAL2",
+   "funders": [
+    "AuScope",
+    "ARC"
+   ],
+   "source": "auspass-page",
+   "evidence": "AuScope,ARC,and more",
+   "url": "https://auspass.edu.au/networks/eal.html"
+  },
+  {
+   "network": "1Q",
+   "epoch_start": "2015-11-28",
+   "epoch_end": "2017-10-24",
+   "description": "AQT",
+   "funders": [
+    "AuScope"
+   ],
+   "source": "fdsn-metadata",
+   "evidence": "AQT ['This project is an AuScope funded array in Western Queensland, Australia. It consists of 93 sites including 8 Guralp CMG-3ESP, 12 Trillium compact"
+  },
+  {
+   "network": "1Q",
+   "epoch_start": "2015-11-28",
+   "epoch_end": "2017-10-24",
+   "description": "AQT",
+   "funders": [
+    "AuScope"
+   ],
+   "source": "auspass-page",
+   "evidence": "AuScope",
+   "url": "https://auspass.edu.au/networks/aqt.html"
+  },
+  {
+   "network": "3F",
+   "epoch_start": "2020-10-16",
+   "epoch_end": "2022-02-15",
+   "description": "Macquarie Ridge",
+   "funders": [
+    "AuScope"
+   ],
+   "source": "auspass-page",
+   "evidence": "AuScope, TBA",
+   "url": "https://auspass.edu.au/networks/macquarieridge.html"
+  },
+  {
+   "network": "4H",
+   "epoch_start": "2009-06-02",
+   "epoch_end": "2010-02-26",
+   "description": "EAL1",
+   "funders": [
+    "AuScope",
+    "ARC"
+   ],
+   "source": "auspass-page",
+   "evidence": "AuScope,ARC,and more",
+   "url": "https://auspass.edu.au/networks/eal.html"
+  },
+  {
+   "network": "6F",
+   "epoch_start": "2008-08-27",
+   "epoch_end": "2011-05-24",
+   "description": "BILBY",
+   "funders": [
+    "ARC"
+   ],
+   "source": "auspass-page",
+   "evidence": "ARC Discovery Project (DP0662984)",
+   "url": "https://auspass.edu.au/networks/bilby.html"
+  },
+  {
+   "network": "7B",
+   "epoch_start": "1993-05-03",
+   "epoch_end": "1995-08-10",
+   "description": "SKIPPY",
+   "funders": [
+    "ANU"
+   ],
+   "source": "auspass-page",
+   "evidence": "Research School of Earth Sciences, ANU",
+   "url": "https://auspass.edu.au/networks/skippy.html"
+  },
+  {
+   "network": "7D",
+   "epoch_start": "1997-07-21",
+   "epoch_end": "1997-10-14",
+   "description": "KIMBA97",
+   "funders": [
+    "ANU"
+   ],
+   "source": "auspass-page",
+   "evidence": "Research School of Earth Sciences, ANU",
+   "url": "https://auspass.edu.au/networks/kimba.html"
+  },
+  {
+   "network": "7E",
+   "epoch_start": "1998-05-22",
+   "epoch_end": "1998-07-25",
+   "description": "KIMBA98",
+   "funders": [
+    "ANU"
+   ],
+   "source": "auspass-page",
+   "evidence": "Research School of Earth Sciences, ANU",
+   "url": "https://auspass.edu.au/networks/kimba.html"
+  },
+  {
+   "network": "7G",
+   "epoch_start": "2000-07-11",
+   "epoch_end": "2004-02-05",
+   "description": "West Australian Cratons",
+   "funders": [
+    "ANU"
+   ],
+   "source": "auspass-page",
+   "evidence": "Research School of Earth Sciences, ANU",
+   "url": "https://auspass.edu.au/networks/wacraton.html"
+  },
+  {
+   "network": "7J",
+   "epoch_start": "2005-10-20",
+   "epoch_end": "2007-05-31",
+   "description": "CAPRAL",
+   "funders": [
+    "ARC"
+   ],
+   "source": "auspass-page",
+   "evidence": "ARC Discovery (DP0342618) and Linkage (LP0560955) projects",
+   "url": "https://auspass.edu.au/networks/capral.html"
+  },
+  {
+   "network": "7K",
+   "epoch_start": "2007-02-14",
+   "epoch_end": "2008-08-14",
+   "description": "SOC",
+   "funders": [
+    "ARC"
+   ],
+   "source": "auspass-page",
+   "evidence": "ARC Discovery Project (DP0662984)",
+   "url": "https://auspass.edu.au/networks/soc.html"
+  },
+  {
+   "network": "7L",
+   "epoch_start": "2011-11-09",
+   "epoch_end": "2013-03-09",
+   "description": "EAL3",
+   "funders": [
+    "AuScope",
+    "ARC"
+   ],
+   "source": "auspass-page",
+   "evidence": "AuScope,ARC,and more",
+   "url": "https://auspass.edu.au/networks/eal.html"
+  },
+  {
+   "network": "8J",
+   "epoch_start": "2012-11-19",
+   "epoch_end": "2014-10-12",
+   "description": "SQEAL (South Queensland Eastern Australia Linkage, part of WOMBAT)",
+   "funders": [
+    "ARC"
+   ],
+   "source": "fdsn-metadata",
+   "evidence": null
+  },
+  {
+   "network": "M8",
+   "epoch_start": "2024-01-09",
+   "epoch_end": null,
+   "description": "Australian Semi-Permanent Support Network (MATE)",
+   "funders": [
+    "AuScope"
+   ],
+   "source": "fdsn-metadata",
+   "evidence": "onal Federation of Digital Seismograph Networks.\", 'The MATE (M8) network is an AuScope-funded collection of semi-permanent telemetered broadband stations to support ongoing experiments and/or target regions"
+  },
+  {
+   "network": "S1",
+   "epoch_start": "2011-09-01",
+   "epoch_end": null,
+   "description": "Australian Seismometers in Schools (AUSiS)",
+   "funders": [
+    "ANU"
+   ],
+   "source": "fdsn-metadata",
+   "evidence": null
+  },
+  {
+   "network": "YS",
+   "epoch_start": "2014-03-15",
+   "epoch_end": "2018-12-31",
+   "description": "Transitions in the Banda Arc-Australia continental collision",
+   "funders": [
+    "ARC"
+   ],
+   "source": "fdsn-metadata",
+   "evidence": null
+  },
+  {
+   "network": "ZR",
+   "epoch_start": "2009-06-16",
+   "epoch_end": "2011-04-01",
+   "description": "MINQ (Mount Isa Northern Queensland)",
+   "funders": [
+    "AuScope"
+   ],
+   "source": "fdsn-metadata",
+   "evidence": "rn Queensland) ['Kennett, B., & McQueen, H. (2009). Mt Isa Norther Queensland - AuScope [Data set]. Australian Passive Seismic Server.', 'https://doi.org/10.7914/SN/ZR_2009']"
+  }
+ ]
+}

@@ -45,7 +45,9 @@ async function fetchCitationCount(doi, retries) {
         await sleep(3000);
         return fetchCitationCount(doi, retries - 1);
     }
-    if (!resp.ok) return 0;
+    // A failed request is NOT a citation count of zero. Returning null lets
+    // callers render '?' with a reason instead of publishing a fabricated 0.
+    if (!resp.ok) return null;
     var result = await resp.json();
     if (result.errors && result.errors[0] && result.errors[0].status === '429' && retries > 0) {
         await sleep(3000);

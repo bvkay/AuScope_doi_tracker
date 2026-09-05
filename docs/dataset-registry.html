@@ -229,7 +229,13 @@
     function trackerUrl(r) {
         if (r.platform === 'EarthBank') return 'earthbank.html';
         if (r.platform === 'AusPass') return 'auspass.html';
-        if (r.platform === 'NCI') return r.subset === 'DAS' ? 'nci-das.html' : 'nci-mt.html';
+        // M@TE has no per-platform tracker page; it must not fall through to
+        // nci-mt.html, which is a different collection entirely.
+        if (r.platform === 'NCI') {
+            if (r.subset === 'DAS') return 'nci-das.html';
+            if (r.subset === 'MT') return 'nci-mt.html';
+            return '';
+        }
         if (r.platform === 'NVCL') return 'nvcl.html';
         return '';
     }

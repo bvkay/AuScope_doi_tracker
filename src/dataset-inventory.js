@@ -60,6 +60,19 @@ async function run() {
     console.error('NCI DAS error: ' + err.message);
   }
 
+  // ── NCI M@TE — Model Atlas of the Earth ──
+  // AuScope's modelling collection (DOI 10.25914/yrzp-g882, mate.science).
+  // It sits in its own GeoNetwork tree, so the MT/DAS walk never saw it —
+  // which is why the Analysis Framework lens showed no evidence at all
+  // despite AuScope running the national modelling platform.
+  try {
+    const nciMATE = await fetchNCICollection('f5843_0804_7329_8095', 'NCI M@TE', 'MATE');
+    allDatasets.push(...nciMATE);
+    console.log('NCI M@TE: ' + nciMATE.length + ' datasets');
+  } catch (err) {
+    console.error('NCI M@TE error: ' + err.message);
+  }
+
   // ── NVCL (static collection records) ──
   // The NVCL's thousands of borehole scans sit under registered, citable
   // collection DOIs on NCI: one national parent plus eight per-node children
@@ -247,8 +260,13 @@ async function fetchNCIChildren(parentUuid, subset) {
       authors: '',
       year: null,
       platform: 'NCI',
-      subset: subset,   // 'MT' | 'DAS' — which GeoNetwork tree this came from
-      type: 'Dataset',
+      subset: subset,   // 'MT' | 'DAS' | 'MATE' — which GeoNetwork tree this came from
+      // Left unset here on purpose. GeoNetwork's children endpoint does not
+      // carry a resource type, and hardcoding 'Dataset' was wrong for 12 of
+      // the 37 NCI records — every M@TE record is a DataCite `Model`, and one
+      // MT record is a `Collection`. Filled from DataCite below, which is the
+      // same source the EarthBank path reads.
+      type: '',
       nciUuid: uuid
     });
   }
@@ -265,9 +283,33 @@ async function fetchNCIChildren(parentUuid, subset) {
       // Skip metadata failures
     }
     await sleep(100);
+    if (kid.doi) {
+      kid.type = await fetchDataCiteType(kid.doi);
+      await sleep(100);
+    }
+    // Only if DataCite could not answer. A record that silently defaults is
+    // still labelled, so keep the fallback visible in the logs rather than
+    // letting a guess pass as a read value.
+    if (!kid.type) {
+      kid.type = 'Dataset';
+      console.warn('  type unresolved, defaulted to Dataset: ' + (kid.doi || kid.nciUuid));
+    }
   }
 
   return kids;
+}
+
+// The authoritative answer to "what kind of thing is this DOI" is the DataCite
+// record, not the catalogue we happened to walk to find it. EarthBank already
+// reads resourceTypeGeneral this way; this brings NCI onto the same source.
+async function fetchDataCiteType(doi) {
+  try {
+    const data = await fetchJSON('https://api.datacite.org/dois/' + encodeURIComponent(doi));
+    const attrs = (data && data.data && data.data.attributes) || {};
+    return (attrs.types && attrs.types.resourceTypeGeneral) || '';
+  } catch (e) {
+    return '';
+  }
 }
 
 function extractTitle(child) {
