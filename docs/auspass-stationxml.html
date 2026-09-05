@@ -233,6 +233,7 @@
                 <option value="sensor">Sensors only</option>
                 <option value="digitiser">Digitisers only</option>
             </select>
+            <select id="inv-model"><option value="">All models</option></select>
             <button id="inv-export" type="button">Export CSV</button>
         </div>
         <div style="overflow-x:auto">
@@ -342,14 +343,24 @@
     // Simplified Australian coastline (Natural Earth 1:110m, two rings,
     // rounded to 0.1 degrees), inlined so the file stays self-contained.
     var AU_COAST = [[[126.2,-32.2],[125.1,-32.7],[124.2,-33.0],[124.0,-33.5],[123.7,-33.9],[122.8,-33.9],[122.2,-34.0],[121.3,-33.8],[120.6,-33.9],[119.9,-34.0],[119.3,-34.5],[119.0,-34.5],[118.5,-34.8],[118.0,-35.1],[117.3,-35.0],[116.6,-35.0],[115.6,-34.4],[115.0,-34.2],[115.0,-33.6],[115.5,-33.5],[115.7,-33.3],[115.7,-32.9],[115.8,-32.2],[115.7,-31.6],[115.2,-30.6],[115.0,-30.0],[115.0,-29.5],[114.6,-28.8],[114.6,-28.5],[114.2,-28.1],[114.0,-27.3],[113.5,-26.5],[113.3,-26.1],[113.8,-26.6],[113.4,-25.6],[113.9,-25.9],[114.2,-26.3],[114.2,-25.8],[113.7,-25.0],[113.6,-24.7],[113.4,-24.4],[113.5,-23.8],[113.7,-23.6],[113.8,-23.1],[113.7,-22.5],[114.2,-21.8],[114.2,-22.5],[114.7,-21.8],[115.5,-21.5],[116.0,-21.1],[116.7,-20.7],[117.2,-20.6],[117.4,-20.8],[118.2,-20.4],[118.8,-20.3],[119.0,-20.0],[119.2,-19.9],[119.8,-20.0],[120.9,-19.7],[121.4,-19.2],[121.7,-18.7],[122.2,-18.2],[122.3,-17.8],[122.3,-17.2],[123.0,-16.4],[123.4,-17.3],[123.9,-17.1],[123.5,-16.6],[123.8,-16.1],[124.3,-16.3],[124.4,-15.6],[124.9,-15.1],[125.2,-14.7],[125.7,-14.5],[125.7,-14.2],[126.1,-14.3],[126.1,-14.1],[126.6,-13.9],[127.1,-13.8],[127.8,-14.3],[128.4,-14.9],[129.0,-14.9],[129.6,-15.0],[129.4,-14.4],[129.9,-13.6],[130.3,-13.4],[130.2,-13.1],[130.6,-12.5],[131.2,-12.2],[131.7,-12.3],[132.6,-12.1],[132.6,-11.6],[131.8,-11.3],[132.4,-11.1],[133.0,-11.4],[133.6,-11.8],[134.4,-12.0],[134.7,-11.9],[135.3,-12.2],[135.9,-12.0],[136.3,-12.1],[136.5,-11.9],[136.9,-12.3],[136.7,-12.9],[136.3,-13.3],[136.0,-13.3],[136.1,-13.7],[135.8,-14.2],[135.4,-14.7],[135.5,-15.0],[136.3,-15.6],[137.1,-15.9],[137.6,-16.2],[138.3,-16.8],[138.6,-16.8],[139.1,-17.1],[139.3,-17.4],[140.2,-17.7],[140.9,-17.4],[141.1,-16.8],[141.3,-16.4],[141.4,-15.8],[141.7,-15.0],[141.6,-14.6],[141.6,-14.3],[141.5,-13.7],[141.7,-12.9],[141.8,-12.7],[141.7,-12.4],[141.9,-11.9],[142.1,-11.3],[142.1,-11.0],[142.5,-10.7],[142.8,-11.2],[142.9,-11.8],[143.1,-11.9],[143.2,-12.3],[143.5,-12.8],[143.6,-13.4],[143.6,-13.8],[143.9,-14.6],[144.6,-14.2],[144.9,-14.6],[145.4,-15.0],[145.3,-15.4],[145.5,-16.3],[145.6,-16.8],[145.9,-16.9],[146.2,-17.8],[146.1,-18.3],[146.4,-19.0],[147.5,-19.5],[148.2,-20.0],[148.8,-20.4],[148.7,-20.6],[149.3,-21.3],[149.7,-22.3],[150.1,-22.1],[150.5,-22.6],[150.7,-22.4],[150.9,-23.5],[151.6,-24.1],[152.1,-24.5],[152.9,-25.3],[153.1,-26.1],[153.2,-26.6],[153.1,-27.3],[153.6,-28.1],[153.5,-29.0],[153.3,-29.5],[153.1,-30.4],[153.1,-30.9],[152.9,-31.6],[152.4,-32.5],[151.7,-33.0],[151.3,-33.8],[151.0,-34.3],[150.7,-35.2],[150.3,-35.7],[150.1,-36.4],[149.9,-37.1],[150.0,-37.4],[149.4,-37.8],[148.3,-37.8],[147.4,-38.2],[146.9,-38.6],[146.3,-39.0],[145.5,-38.6],[144.9,-38.4],[145.0,-37.9],[144.5,-38.1],[143.6,-38.8],[142.8,-38.5],[142.2,-38.4],[141.6,-38.3],[140.6,-38.0],[140.0,-37.4],[139.8,-36.6],[139.6,-36.1],[139.1,-35.7],[138.1,-35.6],[138.4,-35.1],[138.2,-34.4],[137.7,-35.1],[136.8,-35.3],[137.3,-34.7],[137.5,-34.1],[137.9,-33.6],[137.8,-32.9],[137.0,-33.8],[136.4,-34.1],[136.0,-34.9],[135.2,-34.5],[135.2,-34.0],[134.6,-33.2],[134.1,-32.9],[134.3,-32.6],[133.0,-32.0],[132.3,-32.0],[131.3,-31.5],[129.5,-31.6],[128.2,-31.9],[127.1,-32.3],[126.2,-32.2]],[[147.7,-40.8],[148.3,-40.9],[148.4,-42.1],[148.0,-42.4],[147.9,-43.2],[147.6,-42.9],[146.9,-43.6],[146.7,-43.6],[146.1,-43.5],[145.4,-42.7],[145.3,-42.0],[144.7,-41.2],[144.7,-40.7],[145.4,-40.8],[146.4,-41.1],[146.9,-41.0],[147.7,-40.8]]];
+    // New Zealand (same source and simplification) — drawn on every map and
+    // clipped away by the viewBox when the unit never leaves Australia.
+    var NZ_COAST = [[[176.9,-40.1],[176.5,-40.6],[176.0,-41.3],[175.2,-41.7],[175.1,-41.4],[174.7,-41.3],[175.2,-40.5],[174.9,-39.9],[173.8,-39.5],[173.9,-39.1],[174.6,-38.8],[174.7,-38.0],[174.7,-37.4],[174.3,-36.7],[174.3,-36.5],[173.8,-36.1],[173.1,-35.2],[172.6,-34.5],[173.0,-34.5],[173.6,-35.0],[174.3,-35.3],[174.6,-36.2],[175.3,-37.2],[175.4,-36.5],[175.8,-36.8],[176.0,-37.6],[176.8,-37.9],[177.4,-38.0],[178.0,-37.6],[178.5,-37.7],[178.3,-38.6],[178.0,-39.2],[177.2,-39.1],[176.9,-39.4],[177.0,-39.9],[176.9,-40.1]],[[169.7,-43.6],[170.5,-43.0],[171.1,-42.5],[171.6,-41.8],[171.9,-41.5],[172.1,-41.0],[172.8,-40.5],[173.0,-40.9],[173.2,-41.3],[174.0,-40.9],[174.2,-41.3],[174.2,-41.8],[173.9,-42.2],[173.2,-43.0],[172.7,-43.4],[173.1,-43.9],[172.3,-43.9],[171.5,-44.2],[171.2,-44.9],[170.6,-45.9],[169.8,-46.4],[169.3,-46.6],[168.4,-46.6],[167.8,-46.3],[166.7,-46.2],[166.5,-45.9],[167.0,-45.1],[168.3,-44.1],[168.9,-43.9],[169.7,-43.6]]];
+    var COAST = AU_COAST.concat(NZ_COAST);
 
     // Mini-map projection: longitude compressed by cos of the mid-latitude
-    // so ground distance reads the same on both axes.
-    var MAP_W = 260, MAP_LAT = [-44, -9], MAP_LNG = [112, 154];
-    var MAP_COS = Math.cos((MAP_LAT[0] + MAP_LAT[1]) / 2 * Math.PI / 180);
-    var MAP_H = Math.round(MAP_W * (MAP_LAT[1] - MAP_LAT[0]) / ((MAP_LNG[1] - MAP_LNG[0]) * MAP_COS));
-    function mapX(lng) { return (lng - MAP_LNG[0]) / (MAP_LNG[1] - MAP_LNG[0]) * MAP_W; }
-    function mapY(lat) { return (MAP_LAT[1] - lat) / (MAP_LAT[1] - MAP_LAT[0]) * MAP_H; }
+    // so ground distance reads the same on both axes. Two frames: Australia
+    // alone, and Australia with New Zealand for units with trans-Tasman
+    // deployments — several AusPass experiments place instruments in NZ.
+    var MAP_W = 260;
+    var FRAME_AU = { lat: [-44, -9], lng: [112, 154] };
+    var FRAME_TASMAN = { lat: [-47.5, -9], lng: [112, 179.5] };
+    function frameH(f) {
+        var cos = Math.cos((f.lat[0] + f.lat[1]) / 2 * Math.PI / 180);
+        return Math.round(MAP_W * (f.lat[1] - f.lat[0]) / ((f.lng[1] - f.lng[0]) * cos));
+    }
+    function mapX(f, lng) { return (lng - f.lng[0]) / (f.lng[1] - f.lng[0]) * MAP_W; }
+    function mapY(f, lat) { return (f.lat[1] - lat) / (f.lat[1] - f.lat[0]) * frameH(f); }
 
     // SEED channel naming: band code, instrument code, orientation code.
     // Only codes present in a response are listed in its legend.
@@ -602,18 +613,109 @@
         return g.codes.join(' ');
     }
 
+    var dataciteCache = {};
+    function fetchDatacite(doi) {
+        if (dataciteCache[doi]) return Promise.resolve(dataciteCache[doi]);
+        return fetch('https://api.datacite.org/dois/' + encodeURIComponent(doi), {
+            headers: { Accept: 'application/vnd.api+json' },
+        }).then(function(r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+        }).then(function(j) {
+            dataciteCache[doi] = { attrs: (j.data || {}).attributes || {} };
+            return dataciteCache[doi];
+        }).catch(function(err) {
+            dataciteCache[doi] = { error: err.message };
+            return dataciteCache[doi];
+        });
+    }
+
     function loadDetail(key) {
         var n = networks.find(function(x) { return x.code + '|' + x.start === key; });
         if (!n) return;
-        fetchParsed(n).then(function(p) {
+        var doi = n.doi.norm;
+        Promise.all([
+            fetchParsed(n),
+            doi ? fetchDatacite(doi) : Promise.resolve(null),
+        ]).then(function(res) {
+            var p = res[0];
             detailHtml[key] = p.error
                 ? '<div class="err">Channel query failed (' + esc(p.error) + '). Request: <span class="mono">' + esc(p.url) + '</span></div>'
-                : buildDetail(n, p);
+                : buildDetail(n, p, res[1]);
             if (openKey === key) render();
         });
     }
 
-    function buildDetail(n, p) {
+    // Field-by-field reading of the DataCite record behind the network DOI:
+    // what it holds, and what the schema has room for. FundingReferences and
+    // GeoLocations matter most here — funding support currently lives in
+    // free-text network comments where no citation index can read it, and a
+    // bounding box makes the network findable in spatial searches.
+    function dataciteSection(doi, dc) {
+        if (!dc) return '';
+        var html = '<h3>The DataCite record behind ' + esc(doi) + '</h3>';
+        if (dc.error) {
+            return html + '<div class="section-note">DataCite lookup failed (' + esc(dc.error) + ').</div>';
+        }
+        var a = dc.attrs;
+        var creators = a.creators || [];
+        var orcids = creators.filter(function(c) {
+            return (c.nameIdentifiers || []).some(function(x) { return /orcid/i.test((x.nameIdentifierScheme || '') + (x.nameIdentifier || '')); });
+        }).length;
+        var funding = a.fundingReferences || [];
+        var related = a.relatedIdentifiers || [];
+        var geos = a.geoLocations || [];
+        var subjects = a.subjects || [];
+        var descs = a.descriptions || [];
+        var dates = a.dates || [];
+        var collected = dates.filter(function(d) { return d.dateType === 'Collected'; });
+        var rights = a.rightsList || [];
+
+        function row(field, present, value, note) {
+            return '<div class="check ' + (present ? 'ok' : 'warn') + '"><span class="n">' + (present ? '✓' : '—')
+                + '</span><span class="what"><strong>' + esc(field) + '</strong>'
+                + (present && value ? ' — ' + esc(value) : '') + '</span>'
+                + (!present && note ? ' <span class="who">' + esc(note) + '</span>' : '') + '</div>';
+        }
+
+        html += '<div class="section-note">Registered title: &ldquo;'
+            + esc(((a.titles || [])[0] || {}).title || '(none)') + '&rdquo; &middot; publisher '
+            + esc(typeof a.publisher === 'object' ? (a.publisher || {}).name : a.publisher || '?')
+            + ' &middot; ' + esc(String(a.publicationYear || '?'))
+            + ' &middot; ' + Number(a.citationCount || 0).toLocaleString() + ' citations recorded by DataCite'
+            + ' &middot; <a href="https://commons.datacite.org/doi.org/' + esc(doi) + '" target="_blank" rel="noopener">DataCite Commons &#8599;</a></div>';
+        html += '<div class="checks">'
+            + row('Creators', creators.length,
+                creators.length + ' listed, ' + orcids + ' with an ORCID',
+                'who operated the experiment; ORCIDs make the credit machine-readable')
+            + row('Description', descs.length,
+                descs.length ? String((descs[0].description || '')).slice(0, 90) + '…' : '',
+                'an abstract of the experiment; this is what most search interfaces display')
+            + row('FundingReferences', funding.length,
+                funding.map(function(f) { return f.funderName; }).filter(Boolean).join('; ').slice(0, 90),
+                'the field citation indexes read for funder attribution — support recorded only in network comments is invisible to them')
+            + row('GeoLocations', geos.length,
+                geos.length + ' entr' + (geos.length === 1 ? 'y' : 'ies'),
+                'a bounding box makes the network findable in spatial searches')
+            + row('RelatedIdentifiers', related.length,
+                related.map(function(r) { return r.relationType; }).slice(0, 5).join(', '),
+                'links the DOI to the data service, publications and any superseding network')
+            + row('Dates (Collected)', collected.length,
+                collected.map(function(d) { return d.date; }).join('; ').slice(0, 60),
+                'the acquisition window, distinct from the registration year')
+            + row('Subjects', subjects.length,
+                subjects.map(function(x) { return x.subject; }).slice(0, 4).join('; ').slice(0, 80),
+                'discipline keywords for discovery')
+            + row('Rights / licence', rights.length,
+                rights.map(function(r) { return r.rightsIdentifier || r.rights; }).filter(Boolean).join('; ').slice(0, 60),
+                'the data licence, stated where reusers look for it')
+            + '</div>';
+        return html;
+    }
+
+    
+
+    function buildDetail(n, p, dc) {
         var stations = p.stations;
         var issues = [];
         var seenIssue = {};
@@ -651,6 +753,8 @@
             html += '<h3>Network comments (' + n.comments.length + ')</h3>'
                 + n.comments.map(function(c) { return '<div class="comment-block">' + esc(c) + '</div>'; }).join('');
         }
+
+        if (n.doi.norm) html += dataciteSection(n.doi.norm, dc);
 
         html += '<h3>Metadata checks — ' + (issues.length ? issues.length + ' finding' + (issues.length === 1 ? '' : 's') : 'none') + '</h3>';
         html += issues.slice(0, 25).map(function(i) { return '<div class="issue-line">' + esc(i) + '</div>'; }).join('');
@@ -799,6 +903,15 @@
             btn.textContent = 'Rebuild inventory';
             btn.disabled = false;
             document.getElementById('inv-filters').hidden = false;
+
+            // Model filter options come from the inventory itself.
+            var modelCounts = {};
+            inventory.forEach(function(u) { modelCounts[u.model] = (modelCounts[u.model] || 0) + 1; });
+            var sel = document.getElementById('inv-model');
+            sel.innerHTML = '<option value="">All models</option>' + Object.keys(modelCounts).sort()
+                .map(function(m) { return '<option value="' + esc(m) + '">' + esc(m) + ' (' + modelCounts[m] + ')</option>'; })
+                .join('');
+
             renderInventory();
         }
         step();
@@ -810,8 +923,10 @@
     function renderInventory() {
         if (!inventory) return;
         var q = invSearch.value.trim().toLowerCase();
+        var invModel = document.getElementById('inv-model');
         var rows = inventory.filter(function(u) {
             if (invKind.value && u.kind !== invKind.value) return false;
+            if (invModel.value && u.model !== invModel.value) return false;
             if (!q) return true;
             var hay = (u.model + ' ' + u.serial + ' ' + u.networks.join(' ') + ' '
                 + u.deployments.map(function(d) { return d.station + ' ' + d.site; }).join(' ')).toLowerCase();
@@ -839,7 +954,7 @@
                 + '</tr>';
             if (invOpen === key) {
                 var inner = unitPanel(u) + '<table class="data stn-table"><thead><tr>'
-                    + '<th>Network</th><th>Station</th><th>Site</th><th>Channels</th><th>Deployed</th><th>Recovered</th>'
+                    + '<th>Network</th><th>Station</th><th>Site</th><th>Channels</th><th>Deployed</th><th>Recovered</th><th>Days in field</th>'
                     + '</tr></thead><tbody>'
                     + u.deployments.map(function(d) {
                         return '<tr><td class="mono">' + esc(d.nets.join(', ')) + '</td>'
@@ -847,7 +962,8 @@
                             + '<td>' + esc(d.site) + '</td>'
                             + '<td class="mono">' + esc(d.channels.sort().join(' ')) + '</td>'
                             + '<td class="mono">' + esc(d.start || '?') + '</td>'
-                            + '<td class="mono">' + esc(d.end || 'open') + '</td></tr>';
+                            + '<td class="mono">' + esc(d.end || 'open') + '</td>'
+                            + '<td class="mono">' + fieldDays(d) + '</td></tr>';
                     }).join('') + '</tbody></table>';
                 if (u.placeholder) {
                     inner = '<div class="section-note">These channels share a model but report no usable serial number, so individual units cannot be told apart or tracked between deployments.</div>' + inner;
@@ -856,6 +972,17 @@
             }
             return row;
         }).join('') || '<tr><td colspan="8">No instruments match.</td></tr>';
+    }
+
+    // Days a deployment epoch spans; an epoch with no end date is counted
+    // to today and marked. Consecutive epochs at the same station (each
+    // starting the day the previous ends) are metadata epochs of one
+    // continuous occupation, so their day counts add up rather than overlap.
+    function fieldDays(d) {
+        if (!d.start) return '—';
+        var end = d.end || new Date().toISOString().slice(0, 10);
+        var days = Math.round((new Date(end) - new Date(d.start)) / 86400000);
+        return days.toLocaleString() + (d.end ? '' : '+');
     }
 
     // Deployment map and service statistics for one unit. Deployed time is
@@ -874,18 +1001,26 @@
             if (!longest || days > longest.days) longest = { days: days, d: d };
         });
 
-        // Map: one dot per distinct station, joined in deployment order.
+        // Frame selection: the wider trans-Tasman frame when any deployment
+        // sits in the New Zealand box, otherwise Australia alone.
+        var f = deps.some(function(d) {
+            return !isNaN(d.lat) && !isNaN(d.lon)
+                && d.lon >= 160 && d.lon <= 180 && d.lat >= -48 && d.lat <= -33;
+        }) ? FRAME_TASMAN : FRAME_AU;
+        var fh = frameH(f);
+
+        // One dot per distinct station, joined in deployment order.
         var seen = {}, dots = [], pathPts = [];
         deps.forEach(function(d) {
             if (isNaN(d.lat) || isNaN(d.lon)) return;
-            pathPts.push([mapX(d.lon), mapY(d.lat)]);
+            pathPts.push([mapX(f, d.lon), mapY(f, d.lat)]);
             var k = d.lat.toFixed(3) + ',' + d.lon.toFixed(3);
-            if (!seen[k]) { seen[k] = true; dots.push([mapX(d.lon), mapY(d.lat), d.station]); }
+            if (!seen[k]) { seen[k] = true; dots.push([mapX(f, d.lon), mapY(f, d.lat), d.station]); }
         });
-        var svg = '<svg viewBox="0 0 ' + MAP_W + ' ' + MAP_H + '" role="img" aria-label="Deployment locations">';
-        AU_COAST.forEach(function(ring) {
+        var svg = '<svg viewBox="0 0 ' + MAP_W + ' ' + fh + '" role="img" aria-label="Deployment locations">';
+        COAST.forEach(function(ring) {
             var dPath = ring.map(function(pt, i) {
-                return (i ? 'L' : 'M') + mapX(pt[0]).toFixed(1) + ',' + mapY(pt[1]).toFixed(1);
+                return (i ? 'L' : 'M') + mapX(f, pt[0]).toFixed(1) + ',' + mapY(f, pt[1]).toFixed(1);
             }).join('');
             svg += '<path class="coast" d="' + dPath + 'Z"/>';
         });
@@ -900,7 +1035,7 @@
         svg += '</svg>';
 
         var offMap = deps.filter(function(d) { return isNaN(d.lat) || isNaN(d.lon)
-            || d.lat < MAP_LAT[0] || d.lat > MAP_LAT[1] || d.lon < MAP_LNG[0] || d.lon > MAP_LNG[1]; }).length;
+            || d.lat < f.lat[0] || d.lat > f.lat[1] || d.lon < f.lng[0] || d.lon > f.lng[1]; }).length;
 
         var stats = '<dl>'
             + '<dt>Deployments</dt><dd>' + deps.length + '</dd>'
@@ -957,6 +1092,7 @@
     document.getElementById('build-inv').addEventListener('click', buildInventory);
     invSearch.addEventListener('input', renderInventory);
     invKind.addEventListener('change', renderInventory);
+    document.getElementById('inv-model').addEventListener('change', renderInventory);
     document.getElementById('inv-body').addEventListener('click', function(e) {
         var row = e.target.closest('tr.instrow');
         if (!row) return;
@@ -966,11 +1102,11 @@
     });
     document.getElementById('inv-export').addEventListener('click', function() {
         if (!inventory) return;
-        var rows = [['kind', 'model', 'serial', 'network', 'station', 'site', 'channels', 'deployed', 'recovered']];
+        var rows = [['kind', 'model', 'serial', 'network', 'station', 'site', 'channels', 'deployed', 'recovered', 'days_in_field']];
         inventory.forEach(function(u) {
             u.deployments.forEach(function(d) {
                 rows.push([u.kind, u.model, u.placeholder ? '' : u.serial, d.nets.join('; '), d.station, d.site,
-                    d.channels.join(' '), d.start || '', d.end || '']);
+                    d.channels.join(' '), d.start || '', d.end || '', fieldDays(d).replace(/,/g, '')]);
             });
         });
         downloadCsv('auspass-instrument-deployments.csv', rows);
