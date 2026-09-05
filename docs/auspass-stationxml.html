@@ -314,16 +314,26 @@
     // A single physical unit cannot operate at several stations at once, so
     // the number of simultaneously open deployments is a check on whether a
     // serial really identifies one unit or is shared across a batch.
-    function maxConcurrent(deps) {
+    function concurrency(deps) {
         var events = [];
         deps.forEach(function(d) {
-            events.push([String(d.start || ''), 1]);
-            events.push([d.end ? String(d.end) : '9999-12-31', -1]);
+            if (!d.start) return;
+            events.push([d.start, 1]);
+            events.push([d.end || '9999-12-31', -1]);
         });
+        // Ends sort before starts on the same date, so a same-day recovery
+        // and redeployment does not read as an overlap.
         events.sort(function(a, b) { return a[0].localeCompare(b[0]) || a[1] - b[1]; });
-        var cur = 0, max = 0;
-        events.forEach(function(e) { cur += e[1]; if (cur > max) max = cur; });
-        return max;
+        var cur = 0, max = 0, overlapDays = 0, lastDate = null;
+        events.forEach(function(e) {
+            if (lastDate && cur >= 2) {
+                overlapDays += Math.max(0, (new Date(e[0]) - new Date(lastDate)) / 86400000);
+            }
+            lastDate = e[0];
+            cur += e[1];
+            if (cur > max) max = cur;
+        });
+        return { max: max, overlapDays: Math.round(overlapDays) };
     }
 
     // The service returns HTTP 400 for time parameters with a trailing Z.
@@ -720,12 +730,22 @@
                 kind: kind, model: eqp.model || '(model not stated)',
                 serial: serialKey, placeholder: placeholder, deployments: {},
             });
-            var dk = netKey + '|' + st.code + '|' + (ch.start || '') + '|' + (ch.end || '');
+            // Deployment identity: network CODE (not epoch), station, and the
+            // epoch window at DATE precision. Per-channel epochs on the same
+            // installation can differ by seconds, and a code with overlapping
+            // registered epochs (WG 2022–2026 contains WG 2024–2025) returns
+            // the same channels under both — either would split or duplicate
+            // one physical deployment.
+            var code = netKey.split('|')[0];
+            var startD = String(ch.start || '').slice(0, 10);
+            var endD = ch.end ? String(ch.end).slice(0, 10) : '';
+            var dk = code + '|' + st.code + '|' + startD + '|' + endD;
             var d = u.deployments[dk] || (u.deployments[dk] = {
-                net: netLabel, netKey: netKey, station: st.code, site: st.site,
+                code: code, nets: [], station: st.code, site: st.site,
                 lat: parseFloat(st.lat), lon: parseFloat(st.lon),
-                start: ch.start, end: ch.end, channels: [],
+                start: startD, end: endD, channels: [],
             });
+            if (d.nets.indexOf(netLabel) === -1) d.nets.push(netLabel);
             if (d.channels.indexOf(ch.code) === -1) d.channels.push(ch.code);
         }
 
@@ -755,12 +775,12 @@
                 var u = units[k];
                 var deps = Object.keys(u.deployments).map(function(dk) { return u.deployments[dk]; });
                 deps.sort(function(a, b) { return String(a.start).localeCompare(String(b.start)); });
-                var nets = {}; deps.forEach(function(d) { nets[d.net] = 1; });
-                var stns = {}; deps.forEach(function(d) { stns[d.netKey + '|' + d.station] = 1; });
+                var nets = {}; deps.forEach(function(d) { d.nets.forEach(function(nl) { nets[nl] = 1; }); });
+                var stns = {}; deps.forEach(function(d) { stns[d.code + '|' + d.station] = 1; });
                 var last = deps.length ? deps[deps.length - 1] : null;
                 return {
                     kind: u.kind, model: u.model, serial: u.serial, placeholder: u.placeholder,
-                    concurrent: u.placeholder ? 0 : maxConcurrent(deps),
+                    concurrent: u.placeholder ? { max: 0, overlapDays: 0 } : concurrency(deps),
                     deployments: deps,
                     networks: Object.keys(nets).sort(),
                     stationCount: Object.keys(stns).length,
@@ -808,8 +828,8 @@
                 + '<td>' + esc(u.model) + '</td>'
                 + '<td class="mono">' + (u.placeholder
                     ? '<span class="badge warn">no usable serial</span>'
-                    : esc(u.serial) + (u.concurrent > 2
-                        ? ' <span class="badge warn" title="This serial has up to ' + u.concurrent + ' deployments open at the same time; one unit cannot be at several stations at once, so the value is probably shared across a batch rather than identifying a single instrument.">shared: ' + u.concurrent + ' at once</span>'
+                    : esc(u.serial) + (u.concurrent.max > 2 || (u.concurrent.max === 2 && u.concurrent.overlapDays > 7)
+                        ? ' <span class="badge warn" title="This serial has up to ' + u.concurrent.max + ' deployments open at the same time (' + u.concurrent.overlapDays + ' overlapping days in total); one unit cannot operate at several stations at once, so the value is shared across a batch rather than identifying a single instrument.">shared: ' + u.concurrent.max + ' at once</span>'
                         : '')) + '</td>'
                 + '<td>' + u.deployments.length + '</td>'
                 + '<td class="mono">' + esc(u.networks.join(', ')) + '</td>'
@@ -822,12 +842,12 @@
                     + '<th>Network</th><th>Station</th><th>Site</th><th>Channels</th><th>Deployed</th><th>Recovered</th>'
                     + '</tr></thead><tbody>'
                     + u.deployments.map(function(d) {
-                        return '<tr><td class="mono">' + esc(d.net) + '</td>'
+                        return '<tr><td class="mono">' + esc(d.nets.join(', ')) + '</td>'
                             + '<td class="mono">' + esc(d.station) + '</td>'
                             + '<td>' + esc(d.site) + '</td>'
                             + '<td class="mono">' + esc(d.channels.sort().join(' ')) + '</td>'
-                            + '<td class="mono">' + esc(String(d.start || '?').slice(0, 10)) + '</td>'
-                            + '<td class="mono">' + esc(d.end ? String(d.end).slice(0, 10) : 'open') + '</td></tr>';
+                            + '<td class="mono">' + esc(d.start || '?') + '</td>'
+                            + '<td class="mono">' + esc(d.end || 'open') + '</td></tr>';
                     }).join('') + '</tbody></table>';
                 if (u.placeholder) {
                     inner = '<div class="section-note">These channels share a model but report no usable serial number, so individual units cannot be told apart or tracked between deployments.</div>' + inner;
@@ -890,7 +910,7 @@
             + '<dt>Deployed time</dt><dd>' + Math.round(totalDays).toLocaleString() + ' days'
                 + (openCount ? ' (' + openCount + ' deployment' + (openCount === 1 ? '' : 's') + ' still open, counted to today)' : '') + '</dd>'
             + (longest ? '<dt>Longest deployment</dt><dd>' + Math.round(longest.days).toLocaleString() + ' days — '
-                + esc(longest.d.station + (longest.d.site ? ', ' + longest.d.site : '') + ' (' + longest.d.net + ')') + '</dd>' : '')
+                + esc(longest.d.station + (longest.d.site ? ', ' + longest.d.site : '') + ' (' + longest.d.nets.join(', ') + ')') + '</dd>' : '')
             + '</dl>';
 
         return '<div class="unit-panel">'
@@ -949,7 +969,7 @@
         var rows = [['kind', 'model', 'serial', 'network', 'station', 'site', 'channels', 'deployed', 'recovered']];
         inventory.forEach(function(u) {
             u.deployments.forEach(function(d) {
-                rows.push([u.kind, u.model, u.placeholder ? '' : u.serial, d.net, d.station, d.site,
+                rows.push([u.kind, u.model, u.placeholder ? '' : u.serial, d.nets.join('; '), d.station, d.site,
                     d.channels.join(' '), d.start || '', d.end || '']);
             });
         });
