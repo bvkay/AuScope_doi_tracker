@@ -2,32 +2,30 @@
 <!--
     AusPass StationXML Explorer
 
-    Built for the AusPass team: every network, station, channel, sensor,
-    datalogger, serial and epoch their FDSN station service publishes,
-    inspectable in one place, with metadata health checks computed beside
-    the values and the raw StationXML one click away.
+    Browser for the metadata published by the AusPass FDSN station service:
+    networks, station epochs, channels, sensors, digitisers and serial
+    numbers, plus an instrument inventory (which sensor or digitiser
+    operated at which station, on which network, over which epoch) and
+    metadata quality checks.
 
-    DELIBERATELY SELF-CONTAINED. No shared stylesheet, no site chrome, no
-    images, no build step, no second file: everything this page needs is in
-    this file, and everything it shows is fetched live from
-    auspass.edu.au/fdsnws in the visitor's browser (the service is
-    CORS-open). Copy this one file to any webserver — or open it from disk —
-    and it works identically, because its only dependency is the AusPass
-    service itself. That is the point: the operators asked for a page AND
-    the code, and a page that is its own code is the honest answer.
+    Single self-contained file. All data is requested from
+    auspass.edu.au/fdsnws/station/1/ by the visitor's browser at page load;
+    nothing is stored or proxied elsewhere. The file can be copied to any
+    web server, or opened locally, without modification.
 
-    Nothing is stored, proxied or cached by us; every figure is traceable to
-    a query URL shown on the page.
+    Service behaviour this implementation depends on (verified against the
+    live service, 31 Aug 2026):
+      - level=network XML carries no TotalNumberStations element, so
+        station counts are derived from the level=station text listing,
+        with each station epoch assigned to the network epoch containing
+        its start time (five codes are reused across experiments:
+        1G, 1H, 2B, 7M, WG).
+      - Time parameters must not carry a trailing Z (HTTP 400 from the
+        SeisComP implementation); fractional seconds are accepted.
+      - Responses declare the FDSN default XML namespace; parsing uses
+        namespace-agnostic DOM traversal, not CSS selectors.
 
-    Health checks (from a live probe of the real service, 31 Aug 2026):
-      - in-band DOI missing / malformed ("//doi.org/…" prefixes) / literal "TBA"
-      - placeholder or missing serial numbers (999, 0, empty)
-      - Type fields carrying a model string instead of a band code
-      - channels without sensor or datalogger entries
-      - epoch anomalies (end before start)
-
-    Maintained in github.com/bvkay/AuScope_doi_tracker (docs/); linked from
-    the AusPass tracker page. Not part of the site's tab family on purpose.
+    Maintained in github.com/bvkay/AuScope_doi_tracker (docs/).
 -->
 <html lang="en">
 <head>
@@ -49,7 +47,7 @@
         .wrap { max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px; }
         .mono { font-family: var(--mono); font-size: 0.92em; }
 
-        .topbar { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 2px solid var(--border); margin-bottom: 18px; }
+        .topbar { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 2px solid var(--border); margin-bottom: 14px; }
         h1 { font-size: 22px; font-weight: 700; }
         h1 .accent { color: var(--accent); }
         .topbar p { font-size: 13px; color: var(--text-soft); margin-top: 4px; }
@@ -57,8 +55,13 @@
         .topbar .links a { color: var(--accent); text-decoration: none; }
         .topbar .links a:hover { text-decoration: underline; }
 
-        .selfnote { font-size: 12.5px; color: var(--text-soft); background: var(--bg-soft); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 11px 14px; margin-bottom: 18px; line-height: 1.6; }
-        .selfnote .mono { background: var(--bg-muted); padding: 1px 5px; border-radius: 3px; }
+        .srcnote { font-size: 12.5px; color: var(--text-soft); margin-bottom: 16px; }
+        .srcnote .mono { background: var(--bg-muted); padding: 1px 5px; border-radius: 3px; }
+
+        .viewtabs { display: flex; gap: 2px; border-bottom: 2px solid var(--border); margin-bottom: 16px; }
+        .viewtabs button { font: inherit; font-size: 13.5px; font-weight: 600; color: var(--text-soft); background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -2px; padding: 8px 16px 7px; cursor: pointer; }
+        .viewtabs button.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .view[hidden] { display: none; }
 
         .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px; }
         .tile { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--bg-soft); }
@@ -68,7 +71,7 @@
         .tile.warn { border-top: 3px solid var(--warn); background: var(--warn-bg); }
         .tile.warn .value { color: #92400e; }
 
-        h2 { font-size: 16px; font-weight: 700; margin: 26px 0 4px; }
+        h2 { font-size: 16px; font-weight: 700; margin: 24px 0 4px; }
         .section-note { font-size: 12.5px; color: var(--text-soft); margin-bottom: 10px; }
 
         .checks { display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; }
@@ -86,36 +89,48 @@
         .controls input[type=search] { flex: 1; min-width: 200px; padding: 7px 11px; border: 1px solid var(--border); border-radius: 6px; font: inherit; }
         .controls select, .controls button { padding: 7px 11px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); font: inherit; cursor: pointer; }
         .controls button:hover { border-color: var(--accent); color: var(--accent); }
+        .controls button:disabled { opacity: 0.5; cursor: default; }
         .controls .meta { font-size: 12.5px; color: var(--text-soft); margin-left: auto; }
 
         table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
         table.data th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-soft); padding: 8px 10px; border-bottom: 2px solid var(--border); white-space: nowrap; }
         table.data td { padding: 8px 10px; border-bottom: 1px solid var(--bg-muted); vertical-align: top; }
-        tr.netrow { cursor: pointer; }
-        tr.netrow:hover { background: var(--accent-bg); }
-        tr.netrow.open { background: var(--accent-bg); }
+        tr.netrow, tr.instrow { cursor: pointer; }
+        tr.netrow:hover, tr.instrow:hover { background: var(--accent-bg); }
+        tr.netrow.open, tr.instrow.open { background: var(--accent-bg); }
         .code-chip { font-family: var(--mono); font-weight: 700; }
         .badge { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 10px; white-space: nowrap; }
         .badge.ok { background: var(--good-bg); color: var(--good); }
         .badge.warn { background: var(--warn-bg); color: #92400e; }
-        .badge.bad { background: var(--bad-bg); color: var(--bad); }
         .badge.dim { background: var(--bg-muted); color: var(--text-muted); }
         td .doi-link { color: var(--accent); text-decoration: none; }
         td .doi-link:hover { text-decoration: underline; }
 
         .detail { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 4px 0 10px; }
         .detail .loading { color: var(--text-soft); font-size: 13px; }
-        .detail h3 { font-size: 13px; font-weight: 700; margin: 12px 0 6px; }
+        .detail h3 { font-size: 13px; font-weight: 700; margin: 14px 0 6px; }
         .detail h3:first-child { margin-top: 0; }
         .qurl { font-family: var(--mono); font-size: 11.5px; background: var(--bg-muted); border-radius: 5px; padding: 7px 10px; word-break: break-all; margin-bottom: 8px; }
         .qurl a { color: var(--accent); text-decoration: none; }
         .qurl .lbl { color: var(--text-muted); font-family: inherit; margin-right: 6px; }
+        .meta-grid { display: grid; grid-template-columns: 140px 1fr; gap: 4px 14px; font-size: 12.5px; }
+        .meta-grid dt { color: var(--text-muted); }
+        .meta-grid dd { color: var(--text); }
+        .comment-block { font-size: 12.5px; background: var(--bg); border: 1px solid var(--border); border-radius: 5px; padding: 7px 10px; margin: 3px 0; color: var(--text-soft); white-space: pre-wrap; }
         .stn-table { font-size: 12.5px; }
         .stn-table td, .stn-table th { padding: 5px 8px; }
         .issue-line { font-size: 12.5px; color: #92400e; background: var(--warn-bg); border-radius: 5px; padding: 6px 10px; margin: 3px 0; }
         .rawbtn { font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 5px; background: var(--bg); cursor: pointer; }
         .rawbtn:hover { color: var(--accent); border-color: var(--accent); }
         pre.raw { font-family: var(--mono); font-size: 11px; line-height: 1.45; background: #0f172a; color: #e2e8f0; border-radius: 6px; padding: 12px; overflow: auto; max-height: 420px; margin-top: 8px; white-space: pre-wrap; word-break: break-all; }
+
+        .legend-table { font-size: 12px; border-collapse: collapse; margin-top: 4px; }
+        .legend-table td { padding: 3px 10px 3px 0; border: none; color: var(--text-soft); }
+        .legend-table td:first-child { font-family: var(--mono); font-weight: 700; color: var(--text); }
+
+        .progress { font-size: 12.5px; color: var(--text-soft); }
+        .progress .bar { display: inline-block; width: 180px; height: 8px; background: var(--bg-muted); border-radius: 4px; overflow: hidden; vertical-align: middle; margin: 0 8px; }
+        .progress .fill { display: block; height: 100%; background: var(--accent); width: 0; }
 
         .foot { margin-top: 34px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 11.5px; color: var(--text-muted); line-height: 1.7; }
         .foot a { color: var(--accent); text-decoration: none; }
@@ -130,58 +145,98 @@
     <div class="topbar">
         <div>
             <h1><span class="accent">AusPass</span> StationXML Explorer</h1>
-            <p>Every network, station, channel, sensor and serial the AusPass FDSN station service publishes &mdash; fetched live, checked, and traceable to its query URL.</p>
+            <p>Networks, station epochs, channels, sensors, digitisers and serial numbers from the AusPass FDSN station service, with metadata quality checks.</p>
         </div>
         <div class="links">
             <a href="https://auspass.edu.au" target="_blank" rel="noopener">auspass.edu.au &#8599;</a>
-            <a href="https://docs.fdsn.org/projects/stationxml/" target="_blank" rel="noopener">StationXML spec &#8599;</a>
-            <a href="https://www.fdsn.org/networks/" target="_blank" rel="noopener">FDSN registry &#8599;</a>
+            <a href="https://docs.fdsn.org/projects/stationxml/" target="_blank" rel="noopener">StationXML reference &#8599;</a>
+            <a href="https://www.fdsn.org/networks/" target="_blank" rel="noopener">FDSN network registry &#8599;</a>
         </div>
     </div>
 
-    <div class="selfnote">
-        <strong>This page is its own code.</strong> One self-contained HTML file, no build, no
-        server-side anything: every figure is fetched from
-        <span class="mono">https://auspass.edu.au/fdsnws/station/1/</span> by <em>your</em> browser
-        when the page loads, so what you see is what the service said just now. Save this file
-        (<span class="mono">View&nbsp;Source</span> is the entire implementation) and host it
-        anywhere &mdash; it will behave identically, because its only dependency is the AusPass
-        service itself.
+    <p class="srcnote">
+        All data is requested from <span class="mono">https://auspass.edu.au/fdsnws/station/1/</span>
+        when the page loads, and each panel shows the query URL it was built from. Single HTML
+        file with no external dependencies; it can be copied to another web server, or opened
+        locally, without change.
+    </p>
+
+    <div class="viewtabs" role="tablist">
+        <button id="tab-networks" class="active" role="tab">Networks</button>
+        <button id="tab-instruments" role="tab">Instruments</button>
     </div>
 
-    <div class="tiles" id="tiles"><div class="tile"><div class="label">Loading</div><div class="value"><span class="spinner"></span></div><div class="sub">querying the station service&hellip;</div></div></div>
+    <!-- ================= NETWORKS VIEW ================= -->
+    <div class="view" id="view-networks">
 
-    <h2>Metadata health, network level</h2>
-    <div class="section-note">Computed in your browser from the same response the table below renders. A check names the networks it fires on &mdash; nothing is aggregated out of sight. Per-network equipment checks (serials, sensor blocks, epochs) run when you expand a network row.</div>
-    <div class="checks" id="checks"></div>
+        <div class="tiles" id="tiles"><div class="tile"><div class="label">Loading</div><div class="value"><span class="spinner"></span></div><div class="sub">querying the station service&hellip;</div></div></div>
 
-    <h2>Networks</h2>
-    <div class="section-note">Click a row for its stations, channels, equipment and raw StationXML. Years and station counts are the service&rsquo;s own; the DOI column is the network&rsquo;s <em>in-band</em> <span class="mono">&lt;Identifier type="DOI"&gt;</span> declaration &mdash; not the fdsn.org registry, which cannot be queried from a browser (no CORS).</div>
-    <div class="controls">
-        <input id="search" type="search" placeholder="Filter by code, description or DOI&hellip;" aria-label="Filter networks">
-        <select id="doi-filter">
-            <option value="">All networks</option>
-            <option value="ok">In-band DOI present</option>
-            <option value="warn">DOI malformed</option>
-            <option value="none">No in-band DOI</option>
-        </select>
-        <button id="export" type="button">Export CSV</button>
-        <span class="meta" id="count">&mdash;</span>
+        <h2>Metadata quality, network level</h2>
+        <div class="section-note">Computed in the browser from the responses below; each check lists the network epochs it applies to. Channel-level checks (serial numbers, sensor and digitiser entries, epoch ordering) run when a network is expanded.</div>
+        <div class="checks" id="checks"></div>
+
+        <h2>Networks</h2>
+        <div class="section-note">One row per network epoch &mdash; a reused FDSN code (1G, 1H, 2B, 7M, WG) appears once per experiment. Click a row for station epochs, instrumentation, network comments and the raw StationXML. The DOI column shows the <span class="mono">&lt;Identifier type="DOI"&gt;</span> element embedded in the network metadata; the <a href="https://www.fdsn.org/networks/" target="_blank" rel="noopener">FDSN registry</a> may hold a DOI even where none is embedded (the registry sends no CORS headers, so it cannot be queried from this page).</div>
+        <div class="controls">
+            <input id="search" type="search" placeholder="Filter by code, description or DOI&hellip;" aria-label="Filter networks">
+            <select id="doi-filter">
+                <option value="">All networks</option>
+                <option value="ok">Embedded DOI present</option>
+                <option value="warn">DOI malformed</option>
+                <option value="none">No embedded DOI</option>
+            </select>
+            <button id="export" type="button">Export CSV</button>
+            <span class="meta" id="count">&mdash;</span>
+        </div>
+        <div style="overflow-x:auto">
+            <table class="data">
+                <thead><tr>
+                    <th>Code</th><th>Epoch</th><th>Status</th><th>Stations</th><th>Description</th><th>Embedded DOI</th><th>Comments</th>
+                </tr></thead>
+                <tbody id="net-body"><tr><td colspan="7"><span class="spinner"></span> Fetching <span class="mono">level=network</span>&hellip;</td></tr></tbody>
+            </table>
+        </div>
     </div>
-    <div style="overflow-x:auto">
-        <table class="data">
-            <thead><tr>
-                <th>Code</th><th>Years</th><th>Stations</th><th>Description</th><th>In-band DOI</th><th>Comments</th>
-            </tr></thead>
-            <tbody id="net-body"><tr><td colspan="6"><span class="spinner"></span> Fetching <span class="mono">level=network</span>&hellip;</td></tr></tbody>
-        </table>
+
+    <!-- ================= INSTRUMENTS VIEW ================= -->
+    <div class="view" id="view-instruments" hidden>
+        <h2 style="margin-top:0">Instrument inventory</h2>
+        <div class="section-note">
+            Every sensor and digitiser in the service's channel metadata, grouped by model and
+            serial number, with each unit's deployment history: network, station, channels
+            recorded, and operating epoch. Building the inventory requires the channel-level
+            metadata of every network epoch (one request each, typically under a minute).
+            Units without a usable serial number cannot be told apart or tracked between
+            deployments; they are grouped by model at the end of the table.
+        </div>
+        <div class="controls">
+            <button id="build-inv" type="button">Build inventory (queries every network)</button>
+            <span class="progress" id="inv-progress"></span>
+            <span class="meta" id="inv-count"></span>
+        </div>
+        <div class="controls" id="inv-filters" hidden>
+            <input id="inv-search" type="search" placeholder="Filter by model, serial, network or station&hellip;" aria-label="Filter instruments">
+            <select id="inv-kind">
+                <option value="">Sensors and digitisers</option>
+                <option value="sensor">Sensors only</option>
+                <option value="digitiser">Digitisers only</option>
+            </select>
+            <button id="inv-export" type="button">Export CSV</button>
+        </div>
+        <div style="overflow-x:auto">
+            <table class="data">
+                <thead><tr>
+                    <th>Kind</th><th>Model</th><th>Serial</th><th>Deployments</th><th>Networks</th><th>Stations</th><th>First on record</th><th>Last on record</th>
+                </tr></thead>
+                <tbody id="inv-body"><tr><td colspan="8" style="color:var(--text-soft)">Inventory not built yet &mdash; use the button above.</td></tr></tbody>
+            </table>
+        </div>
     </div>
 
     <div class="foot">
-        Source of truth: <a href="https://auspass.edu.au/fdsnws/station/1/" target="_blank" rel="noopener">auspass.edu.au/fdsnws/station/1</a> &middot;
-        this page stores nothing and proxies nothing &mdash; every request is shown as a URL you can open yourself &middot;
-        maintained in <a href="https://github.com/bvkay/AuScope_doi_tracker" target="_blank" rel="noopener">AuScope_doi_tracker</a> (docs/auspass-stationxml.html) as part of the
-        <a href="https://bvkay.github.io/AuScope_doi_tracker/" target="_blank" rel="noopener">AuScope Research Impact</a> tracker &middot;
+        Data source: <a href="https://auspass.edu.au/fdsnws/station/1/" target="_blank" rel="noopener">auspass.edu.au/fdsnws/station/1</a> (FDSN station web service, StationXML 1.2) &middot;
+        nothing is stored or proxied by this page &middot;
+        maintained in <a href="https://github.com/bvkay/AuScope_doi_tracker" target="_blank" rel="noopener">AuScope_doi_tracker</a> &middot;
         related: <a href="auspass.html">AusPass network tracker</a>
     </div>
 </div>
@@ -190,50 +245,26 @@
 (function() {
     'use strict';
     var BASE = 'https://auspass.edu.au/fdsnws/station/1/query';
-    var networks = [];          // { code, start, end, desc, stations, doiRaw, doiNorm, doiStatus, comments[] }
+    var networks = [];          // network epochs
     var visible = [];
-    var detailCache = {};       // code|start -> { html } or { error }
+    var parsedCache = {};       // netKey -> { url, xml, stations } | { error, url }
+    var detailHtml = {};        // netKey -> rendered html
     var openKey = null;
+    var inventory = null;
+    var invOpen = null;
 
     function esc(s) {
         return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
             .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
-    // ── DOI hygiene: the faults observed in the real service ──
-    // "10.7914/x" is well-formed; "//doi.org/10.7914/x" and "doi.org/10.7914/x"
-    // are malformed-but-recoverable; "TBA" and friends are placeholders.
-    function classifyDoi(raw) {
-        if (!raw) return { status: 'none' };
-        var v = String(raw).trim();
-        var norm = v.replace(/^(https?:)?\/\/(dx\.)?doi\.org\//i, '').replace(/^doi\.org\//i, '');
-        if (/^10\.\d{4,}\//.test(norm)) {
-            return { status: norm === v ? 'ok' : 'prefix', norm: norm, raw: v };
-        }
-        return { status: 'placeholder', raw: v };
-    }
-
-    function isPlaceholderSerial(s) {
-        var v = String(s == null ? '' : s).trim();
-        return v === '' || /^0+$/.test(v) || v === '999' || /^(n\/?a|none|unknown|tba|xx+)$/i.test(v);
-    }
-
-    // ── Load: two requests make the whole overview ──
-    // level=network XML for identity/DOIs/comments, plus level=station TEXT
-    // for per-network station counts — AusPass does NOT emit
-    // TotalNumberStations at network level (verified against the live
-    // service, 31 Aug 2026), so counting the station list is the only way
-    // to put a number in that column. Text format is used for the second
-    // request because it is one line per station epoch and ~50x smaller
-    // than station-level XML.
-    //
-    // AusPass declares the FDSN default namespace; getElementsByTagNameNS
-    // with a wildcard namespace is used everywhere instead of querySelector
-    // so matching cannot depend on per-browser CSS-in-XML namespace rules.
+    // Namespace-agnostic DOM helpers: responses declare the FDSN default
+    // namespace, and CSS-selector matching on namespaced XML differs
+    // between browsers; direct traversal does not.
     function childText(el, name) {
         for (var i = 0; i < el.childNodes.length; i++) {
             var c = el.childNodes[i];
-            if (c.nodeType === 1 && (c.localName === name)) return c.textContent || '';
+            if (c.nodeType === 1 && c.localName === name) return c.textContent || '';
         }
         return '';
     }
@@ -246,6 +277,69 @@
         return out;
     }
 
+    // DOI classification. Well-formed: "10.prefix/suffix". Recoverable: the
+    // same behind a "//doi.org/" or "doi.org/" prefix. Anything else that is
+    // not a DOI (e.g. "TBA") is a placeholder.
+    function classifyDoi(raw) {
+        if (!raw) return { status: 'none' };
+        var v = String(raw).trim();
+        var norm = v.replace(/^(https?:)?\/\/(dx\.)?doi\.org\//i, '').replace(/^doi\.org\//i, '');
+        if (/^10\.\d{4,}\//.test(norm)) {
+            return { status: norm === v ? 'ok' : 'prefix', norm: norm, raw: v };
+        }
+        return { status: 'placeholder', raw: v };
+    }
+
+    // Placeholder serials seen in the live metadata: empty, 0, 999/9999,
+    // 9999 behind a vendor prefix (T9999), band codes in the serial field
+    // (SP), and the usual not-applicable spellings.
+    function isPlaceholderSerial(s) {
+        var v = String(s == null ? '' : s).trim();
+        return v === '' || /^0+$/.test(v) || /^9+$/.test(v) || /^[A-Za-z]9{3,}$/.test(v)
+            || /^(sp|bb|n\/?a|none|unknown|tba|xx+)$/i.test(v);
+    }
+
+    // A single physical unit cannot operate at several stations at once, so
+    // the number of simultaneously open deployments is a check on whether a
+    // serial really identifies one unit or is shared across a batch.
+    function maxConcurrent(deps) {
+        var events = [];
+        deps.forEach(function(d) {
+            events.push([String(d.start || ''), 1]);
+            events.push([d.end ? String(d.end) : '9999-12-31', -1]);
+        });
+        events.sort(function(a, b) { return a[0].localeCompare(b[0]) || a[1] - b[1]; });
+        var cur = 0, max = 0;
+        events.forEach(function(e) { cur += e[1]; if (cur > max) max = cur; });
+        return max;
+    }
+
+    // The service returns HTTP 400 for time parameters with a trailing Z.
+    function fdsnTime(v) { return encodeURIComponent(String(v).replace(/Z$/, '')); }
+
+    // SEED channel naming: band code, instrument code, orientation code.
+    // Only codes present in a response are listed in its legend.
+    var BAND_CODES = {
+        F: '1000–5000 Hz sampling', G: '1000–5000 Hz sampling (short-period)',
+        D: '250–1000 Hz sampling', C: '250–1000 Hz sampling (short-period)',
+        E: 'extremely short-period, ≥ 80 Hz sampling', S: 'short-period, 10–80 Hz sampling',
+        H: 'broadband, ≥ 80 Hz sampling', B: 'broadband, 10–80 Hz sampling',
+        M: 'mid-period, 1–10 Hz sampling', L: 'long-period, ~1 Hz sampling',
+        V: 'very long period, ~0.1 Hz sampling', U: 'ultra long period, ~0.01 Hz sampling',
+    };
+    var INSTRUMENT_CODES = {
+        H: 'high-gain seismometer', L: 'low-gain seismometer', N: 'accelerometer (strong motion)',
+        P: 'geophone', D: 'pressure sensor', F: 'fibre / DAS', J: 'rotational seismometer',
+    };
+    var ORIENTATION_CODES = {
+        Z: 'vertical', N: 'north–south', E: 'east–west',
+        1: 'orthogonal horizontal 1 (azimuth in metadata)', 2: 'orthogonal horizontal 2 (azimuth in metadata)',
+        A: 'triaxial A', B: 'triaxial B', C: 'triaxial C',
+    };
+
+    // ── Overview: level=network XML (identity, DOIs, comments, restricted
+    //    status) + level=station text (station counts; the service publishes
+    //    no TotalNumberStations element). ──
     var NET_URL = BASE + '?level=network&format=xml';
     var STN_URL = BASE + '?level=station&format=text';
     Promise.all([
@@ -253,28 +347,26 @@
         fetch(STN_URL).then(function(r) { return r.ok ? r.text() : ''; }).catch(function() { return ''; }),
     ]).then(function(res) {
         var doc = new DOMParser().parseFromString(res[0], 'application/xml');
-        if (doc.getElementsByTagName('parsererror').length) throw new Error('service returned unparseable XML');
-        var netEls = doc.getElementsByTagNameNS('*', 'Network');
-        networks = Array.prototype.map.call(netEls, function(n) {
-            var doi = classifyDoi(childText(n, 'Identifier'));
-            var comments = childEls(n, 'Comment').map(function(c) { return childText(c, 'Value'); });
+        if (doc.getElementsByTagName('parsererror').length) throw new Error('unparseable XML from the service');
+        networks = Array.prototype.map.call(doc.getElementsByTagNameNS('*', 'Network'), function(n) {
             return {
                 code: n.getAttribute('code') || '',
                 startFull: n.getAttribute('startDate') || '',
                 endFull: n.getAttribute('endDate') || '',
                 start: (n.getAttribute('startDate') || '').slice(0, 4),
                 end: (n.getAttribute('endDate') || '').slice(0, 4),
+                restricted: n.getAttribute('restrictedStatus') || '',
                 desc: childText(n, 'Description'),
                 stations: null,
-                doi: doi,
-                comments: comments,
+                doi: classifyDoi(childText(n, 'Identifier')),
+                comments: childEls(n, 'Comment').map(function(c) { return childText(c, 'Value'); }),
             };
         });
         networks.sort(function(a, b) { return a.code.localeCompare(b.code) || a.start.localeCompare(b.start); });
 
-        // Station counts: assign each station epoch to the network epoch
-        // whose window contains its start — the only correct way when five
-        // codes (1G, 1H, 2B, 7M, WG) are reused across the decades.
+        // Station counts: each station epoch is assigned to the network
+        // epoch containing its start time. Text columns:
+        // Network|Station|Lat|Lon|Elevation|SiteName|StartTime|EndTime
         var lines = res[1].trim().split('\n');
         for (var i = 1; i < lines.length; i++) {
             var parts = lines[i].split('|');
@@ -292,28 +384,29 @@
         render();
     }).catch(function(err) {
         document.getElementById('net-body').innerHTML =
-            '<tr><td colspan="6"><div class="err">Could not reach the AusPass station service ('
-            + esc(err.message) + '). This page has no fallback on purpose — it shows the service or nothing. '
-            + 'The request it made: <span class="mono">' + esc(NET_URL) + '</span></div></td></tr>';
+            '<tr><td colspan="7"><div class="err">The AusPass station service did not answer ('
+            + esc(err.message) + '). No cached copy is used; reload to retry. Request: '
+            + '<span class="mono">' + esc(NET_URL) + '</span></div></td></tr>';
         document.getElementById('tiles').innerHTML = '';
     });
 
     function renderTiles() {
         var withDoi = networks.filter(function(n) { return n.doi.status === 'ok' || n.doi.status === 'prefix'; }).length;
-        var issues = checkList().reduce(function(a, c) { return a + (c.level === 'warn' ? c.items.length : 0); }, 0);
+        var flags = checkList().reduce(function(a, c) { return a + (c.level === 'warn' ? c.items.length : 0); }, 0);
         var totalStations = networks.reduce(function(a, n) { return a + (n.stations || 0); }, 0);
+        var open = networks.filter(function(n) { return n.restricted === 'open'; }).length;
         document.getElementById('tiles').innerHTML =
-              tile('Networks', networks.length, 'in the station service')
-            + tile('Stations', totalStations ? totalStations.toLocaleString() : '—', 'counted from the station list')
-            + tile('In-band DOIs', withDoi + ' / ' + networks.length, 'declared inside the XML')
-            + tile('Health flags', issues, 'network-level, itemised below', issues ? 'warn' : '');
+              tile('Network epochs', networks.length, 'reused codes counted per experiment')
+            + tile('Station epochs', totalStations ? totalStations.toLocaleString() : '—', 'from the station-level listing')
+            + tile('Open data', open + ' / ' + networks.length, 'restrictedStatus="open"')
+            + tile('Embedded DOIs', withDoi + ' / ' + networks.length, 'Identifier elements in the XML')
+            + tile('Quality flags', flags, 'network level, itemised below', flags ? 'warn' : '');
     }
     function tile(label, value, sub, cls) {
         return '<div class="tile ' + (cls || '') + '"><div class="label">' + esc(label)
             + '</div><div class="value">' + value + '</div><div class="sub">' + esc(sub) + '</div></div>';
     }
 
-    // ── Network-level checks: each names its offenders ──
     function checkList() {
         var noDoi = networks.filter(function(n) { return n.doi.status === 'none'; });
         var prefix = networks.filter(function(n) { return n.doi.status === 'prefix'; });
@@ -321,13 +414,13 @@
         var noDesc = networks.filter(function(n) { return !n.desc.trim(); });
         return [
             { level: prefix.length ? 'warn' : 'ok', items: prefix,
-              what: 'DOI declared with a malformed prefix ("//doi.org/…" or "doi.org/…") — resolvers and harvesters must guess' },
+              what: 'DOI stored with a "//doi.org/…" or "doi.org/…" prefix inside the Identifier element; harvesters must strip it before the DOI resolves' },
             { level: placeholder.length ? 'warn' : 'ok', items: placeholder,
-              what: 'Identifier element holds a placeholder, not a DOI' },
+              what: 'Identifier element holds a placeholder value rather than a DOI' },
             { level: noDoi.length ? 'warn' : 'ok', items: noDoi,
-              what: 'no in-band DOI — citable only via the fdsn.org registry, invisible to anyone reading the XML' },
+              what: 'no Identifier element — a DOI registered at fdsn.org is not visible in the StationXML itself' },
             { level: noDesc.length ? 'warn' : 'ok', items: noDesc,
-              what: 'network has no Description element' },
+              what: 'no Description element' },
         ];
     }
 
@@ -337,13 +430,13 @@
                 ? '<span class="who">' + c.items.slice(0, 14).map(function(n) {
                       return '<span class="mono">' + esc(n.code + '/' + n.start) + '</span>';
                   }).join(' ') + (c.items.length > 14 ? ' +' + (c.items.length - 14) + ' more' : '') + '</span>'
-                : '<span class="who">none — clean</span>';
+                : '<span class="who">none</span>';
             return '<div class="check ' + c.level + '"><span class="n">' + c.items.length
                 + '</span><span class="what">' + esc(c.what) + '</span> ' + who + '</div>';
         }).join('');
     }
 
-    // ── Network table ──
+    // ── Networks table ──
     var search = document.getElementById('search');
     var doiFilter = document.getElementById('doi-filter');
 
@@ -357,140 +450,222 @@
             if (doiFilter.value === 'none' && n.doi.status !== 'none') return false;
             return true;
         });
-        document.getElementById('count').textContent = visible.length + ' of ' + networks.length + ' networks';
+        document.getElementById('count').textContent = visible.length + ' of ' + networks.length + ' network epochs';
         document.getElementById('net-body').innerHTML = visible.map(function(n) {
             var key = n.code + '|' + n.start;
             var doiCell;
             if (n.doi.status === 'ok') doiCell = '<a class="doi-link mono" href="https://doi.org/' + esc(n.doi.norm) + '" target="_blank" rel="noopener">' + esc(n.doi.norm) + '</a>';
-            else if (n.doi.status === 'prefix') doiCell = '<a class="doi-link mono" href="https://doi.org/' + esc(n.doi.norm) + '" target="_blank" rel="noopener">' + esc(n.doi.norm) + '</a> <span class="badge warn" title="Declared as: ' + esc(n.doi.raw) + '">malformed prefix</span>';
+            else if (n.doi.status === 'prefix') doiCell = '<a class="doi-link mono" href="https://doi.org/' + esc(n.doi.norm) + '" target="_blank" rel="noopener">' + esc(n.doi.norm) + '</a> <span class="badge warn" title="Stored as: ' + esc(n.doi.raw) + '">malformed prefix</span>';
             else if (n.doi.status === 'placeholder') doiCell = '<span class="badge warn">&ldquo;' + esc(n.doi.raw) + '&rdquo;</span>';
             else doiCell = '<span class="badge dim">none</span>';
             var row = '<tr class="netrow' + (openKey === key ? ' open' : '') + '" data-key="' + esc(key) + '">'
                 + '<td><span class="code-chip">' + esc(n.code) + '</span></td>'
                 + '<td class="mono">' + esc(n.start + (n.end ? '–' + n.end : '–')) + '</td>'
+                + '<td>' + (n.restricted ? '<span class="badge ' + (n.restricted === 'open' ? 'ok' : 'dim') + '">' + esc(n.restricted) + '</span>' : '—') + '</td>'
                 + '<td>' + (n.stations != null ? n.stations : '—') + '</td>'
                 + '<td>' + esc(n.desc || '—') + '</td>'
                 + '<td>' + doiCell + '</td>'
-                + '<td>' + (n.comments.length ? n.comments.length : '—') + '</td>'
+                + '<td>' + (n.comments.length || '—') + '</td>'
                 + '</tr>';
             if (openKey === key) {
-                var d = detailCache[key];
-                row += '<tr><td colspan="6"><div class="detail" data-key="' + esc(key) + '">'
-                    + (d ? d.html : '<div class="loading"><span class="spinner"></span> Fetching <span class="mono">level=channel</span> for ' + esc(n.code) + '&hellip;</div>')
+                row += '<tr><td colspan="7"><div class="detail" data-key="' + esc(key) + '">'
+                    + (detailHtml[key] || '<div class="loading"><span class="spinner"></span> Fetching <span class="mono">level=channel</span> for ' + esc(n.code) + '&hellip;</div>')
                     + '</div></td></tr>';
             }
             return row;
-        }).join('') || '<tr><td colspan="6">No networks match.</td></tr>';
+        }).join('') || '<tr><td colspan="7">No network epochs match.</td></tr>';
     }
 
-    // ── Per-network detail: stations, channels, equipment, raw XML ──
-    function loadDetail(key) {
-        var n = networks.find(function(x) { return x.code + '|' + x.start === key; });
-        if (!n) return;
-        // Bounded by the network epoch's FULL timestamps: five AusPass codes
-        // are reused across different experiments (1G, 1H, 2B, 7M, WG), and a
-        // bare start-year window would pull a later reuse's channels into an
-        // earlier network's panel. The trailing Z is stripped because the
-        // service's SeisComP implementation returns HTTP 400 for it —
-        // verified against the live service; fractional seconds are accepted.
-        var t = function(v) { return encodeURIComponent(String(v).replace(/Z$/, '')); };
-        var url = BASE + '?network=' + encodeURIComponent(n.code)
-            + '&starttime=' + t(n.startFull)
-            + (n.endFull ? '&endtime=' + t(n.endFull) : '')
+    // ── Channel-level fetch + parse, shared by the detail panels and the
+    //    inventory. Queries are bounded by the network epoch's full
+    //    timestamps so reused codes return only their own channels. ──
+    function channelUrl(n) {
+        return BASE + '?network=' + encodeURIComponent(n.code)
+            + '&starttime=' + fdsnTime(n.startFull)
+            + (n.endFull ? '&endtime=' + fdsnTime(n.endFull) : '')
             + '&level=channel&format=xml';
-        fetch(url).then(function(r) {
+    }
+
+    function fetchParsed(n) {
+        var key = n.code + '|' + n.start;
+        if (parsedCache[key]) return Promise.resolve(parsedCache[key]);
+        var url = channelUrl(n);
+        return fetch(url).then(function(r) {
             if (!r.ok) throw new Error('HTTP ' + r.status);
             return r.text();
         }).then(function(xml) {
-            detailCache[key] = { html: buildDetail(n, url, xml) };
-            if (openKey === key) render();
+            var doc = new DOMParser().parseFromString(xml, 'application/xml');
+            var stations = Array.prototype.map.call(doc.getElementsByTagNameNS('*', 'Station'), function(st) {
+                var chans = childEls(st, 'Channel').map(function(ch) {
+                    function eq(name) {
+                        var els = childEls(ch, name);
+                        if (!els.length) return null;
+                        return {
+                            type: childText(els[0], 'Type'),
+                            model: childText(els[0], 'Model'),
+                            serial: childText(els[0], 'SerialNumber'),
+                        };
+                    }
+                    return {
+                        code: ch.getAttribute('code') || '', loc: ch.getAttribute('locationCode') || '',
+                        start: ch.getAttribute('startDate') || '', end: ch.getAttribute('endDate') || '',
+                        rate: childText(ch, 'SampleRate'),
+                        sensor: eq('Sensor'), logger: eq('DataLogger'),
+                    };
+                });
+                var siteEls = childEls(st, 'Site');
+                return {
+                    code: st.getAttribute('code') || '',
+                    site: siteEls.length ? childText(siteEls[0], 'Name') : '',
+                    lat: childText(st, 'Latitude'),
+                    lon: childText(st, 'Longitude'),
+                    chans: chans,
+                };
+            });
+            parsedCache[key] = { url: url, xml: xml, stations: stations };
+            return parsedCache[key];
         }).catch(function(err) {
-            detailCache[key] = { html: '<div class="err">Channel query failed (' + esc(err.message)
-                + '). The request: <span class="mono">' + esc(url) + '</span></div>' };
+            parsedCache[key] = { error: err.message, url: url };
+            return parsedCache[key];
+        });
+    }
+
+    // Group a station's channels into installations: channels sharing an
+    // epoch window, location code, sample rate, sensor and digitiser are one
+    // installation recording several components (HHE + HHN + HHZ becomes a
+    // single row listing the three channels). Different bands stay separate:
+    // an HH and an LH stream from the same sensor differ in sample rate.
+    function groupInstallations(st) {
+        var groups = {};
+        st.chans.forEach(function(ch) {
+            var eqKey = function(e) { return e ? e.model + '' + e.serial : ''; };
+            var k = [ch.loc, ch.start, ch.end, ch.rate, eqKey(ch.sensor), eqKey(ch.logger)].join('');
+            var g = groups[k] || (groups[k] = {
+                loc: ch.loc, start: ch.start, end: ch.end, rate: ch.rate,
+                sensor: ch.sensor, logger: ch.logger, codes: [],
+            });
+            if (g.codes.indexOf(ch.code) === -1) g.codes.push(ch.code);
+        });
+        return Object.keys(groups).map(function(k) {
+            var g = groups[k];
+            g.codes.sort();
+            return g;
+        }).sort(function(a, b) {
+            return String(a.start).localeCompare(String(b.start))
+                || a.codes[0].localeCompare(b.codes[0]);
+        });
+    }
+
+    function channelLabel(g) {
+        // HHE HHN HHZ -> HH E,N,Z ; single channels stay as written.
+        if (g.codes.length > 1) {
+            var stem = g.codes[0].slice(0, 2);
+            var sameStem = g.codes.every(function(c) { return c.slice(0, 2) === stem; });
+            if (sameStem) {
+                return stem + ' ' + g.codes.map(function(c) { return c.slice(2); }).join(',');
+            }
+        }
+        return g.codes.join(' ');
+    }
+
+    function loadDetail(key) {
+        var n = networks.find(function(x) { return x.code + '|' + x.start === key; });
+        if (!n) return;
+        fetchParsed(n).then(function(p) {
+            detailHtml[key] = p.error
+                ? '<div class="err">Channel query failed (' + esc(p.error) + '). Request: <span class="mono">' + esc(p.url) + '</span></div>'
+                : buildDetail(n, p);
             if (openKey === key) render();
         });
     }
 
-    function buildDetail(n, url, xml) {
-        var doc = new DOMParser().parseFromString(xml, 'application/xml');
+    function buildDetail(n, p) {
+        var stations = p.stations;
         var issues = [];
-        var stations = Array.prototype.map.call(doc.getElementsByTagNameNS('*', 'Station'), function(st) {
-            var chans = childEls(st, 'Channel').map(function(ch) {
-                function eq(name) {
-                    var els = childEls(ch, name);
-                    if (!els.length) return null;
-                    return {
-                        type: childText(els[0], 'Type'),
-                        model: childText(els[0], 'Model'),
-                        serial: childText(els[0], 'SerialNumber'),
-                    };
-                }
-                return {
-                    code: ch.getAttribute('code') || '', loc: ch.getAttribute('locationCode') || '',
-                    start: ch.getAttribute('startDate') || '', end: ch.getAttribute('endDate') || '',
-                    rate: childText(ch, 'SampleRate'),
-                    sensor: eq('Sensor'), logger: eq('DataLogger'),
-                };
-            });
-            var siteEls = childEls(st, 'Site');
-            return {
-                code: st.getAttribute('code') || '',
-                site: siteEls.length ? childText(siteEls[0], 'Name') : '',
-                lat: childText(st, 'Latitude'),
-                lon: childText(st, 'Longitude'),
-                chans: chans,
-            };
-        });
-
-        // Equipment checks over everything just parsed — offenders named.
         var seenIssue = {};
         function issue(msg) { if (!seenIssue[msg]) { seenIssue[msg] = true; issues.push(msg); } }
-        stations.forEach(function(st) {
-            st.chans.forEach(function(ch) {
-                var tag = st.code + ' ' + ch.code + (ch.loc ? '.' + ch.loc : '');
-                if (!ch.sensor) issue(tag + ': no Sensor element');
+
+        // Checks run per installation, so a triaxial sensor with one missing
+        // serial reports once, not three times.
+        var installed = stations.map(function(st) {
+            var groups = groupInstallations(st);
+            groups.forEach(function(g) {
+                var tag = st.code + ' ' + channelLabel(g) + (g.loc ? ' loc ' + g.loc : '');
+                if (!g.sensor) issue(tag + ': no Sensor element');
                 else {
-                    if (isPlaceholderSerial(ch.sensor.serial)) issue(tag + ': sensor serial is "' + (ch.sensor.serial || 'empty') + '" (placeholder)');
-                    if (ch.sensor.type && ch.sensor.model && ch.sensor.type === ch.sensor.model)
-                        issue(tag + ': sensor Type repeats the Model string instead of a band/type code');
+                    if (isPlaceholderSerial(g.sensor.serial)) issue(tag + ': sensor serial "' + (g.sensor.serial || 'empty') + '" is a placeholder');
+                    if (g.sensor.type && g.sensor.model && g.sensor.type === g.sensor.model)
+                        issue(tag + ': sensor Type repeats the Model string');
                 }
-                if (!ch.logger) issue(tag + ': no DataLogger element');
-                else if (isPlaceholderSerial(ch.logger.serial)) issue(tag + ': datalogger serial is "' + (ch.logger.serial || 'empty') + '" (placeholder)');
-                if (ch.start && ch.end && ch.end < ch.start) issue(tag + ': epoch ends before it starts');
+                if (!g.logger) issue(tag + ': no DataLogger element');
+                else if (isPlaceholderSerial(g.logger.serial)) issue(tag + ': digitiser serial "' + (g.logger.serial || 'empty') + '" is a placeholder');
+                if (g.start && g.end && g.end < g.start) issue(tag + ': channel epoch ends before it starts');
             });
+            return { st: st, groups: groups };
         });
 
-        var html = '<div class="qurl"><span class="lbl">this panel =</span>'
-            + '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(url) + '</a></div>';
+        var html = '<div class="qurl"><span class="lbl">source =</span>'
+            + '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.url) + '</a></div>';
 
-        html += '<h3>Equipment checks — ' + (issues.length ? issues.length + ' finding' + (issues.length === 1 ? '' : 's') : 'clean') + '</h3>';
+        html += '<h3>Network metadata</h3><dl class="meta-grid">'
+            + '<dt>Epoch</dt><dd class="mono">' + esc((n.startFull || '?') + ' → ' + (n.endFull || 'open')) + '</dd>'
+            + '<dt>Restricted status</dt><dd>' + esc(n.restricted || 'not stated') + '</dd>'
+            + '<dt>Description</dt><dd>' + esc(n.desc || '—') + '</dd>'
+            + '<dt>Identifier</dt><dd class="mono">' + esc(n.doi.raw || n.doi.norm || 'none') + '</dd>'
+            + '</dl>';
+        if (n.comments.length) {
+            html += '<h3>Network comments (' + n.comments.length + ')</h3>'
+                + n.comments.map(function(c) { return '<div class="comment-block">' + esc(c) + '</div>'; }).join('');
+        }
+
+        html += '<h3>Metadata checks — ' + (issues.length ? issues.length + ' finding' + (issues.length === 1 ? '' : 's') : 'none') + '</h3>';
         html += issues.slice(0, 25).map(function(i) { return '<div class="issue-line">' + esc(i) + '</div>'; }).join('');
-        if (issues.length > 25) html += '<div class="issue-line">+ ' + (issues.length - 25) + ' more of the same patterns</div>';
+        if (issues.length > 25) html += '<div class="issue-line">+ ' + (issues.length - 25) + ' more with the same patterns</div>';
 
-        html += '<h3>' + stations.length + ' station' + (stations.length === 1 ? '' : 's') + '</h3>'
+        // Channel-code legend for the codes present in this network.
+        var bands = {}, insts = {}, orients = {};
+        stations.forEach(function(st) { st.chans.forEach(function(ch) {
+            if (ch.code.length === 3) { bands[ch.code[0]] = 1; insts[ch.code[1]] = 1; orients[ch.code[2]] = 1; }
+        }); });
+        var legendRows = [];
+        Object.keys(bands).sort().forEach(function(b) { if (BAND_CODES[b]) legendRows.push([b + '••', BAND_CODES[b]]); });
+        Object.keys(insts).sort().forEach(function(c) { if (INSTRUMENT_CODES[c]) legendRows.push(['•' + c + '•', INSTRUMENT_CODES[c]]); });
+        Object.keys(orients).sort().forEach(function(o) { if (ORIENTATION_CODES[o]) legendRows.push(['••' + o, ORIENTATION_CODES[o]]); });
+        if (legendRows.length) {
+            html += '<h3>Channel codes in this network</h3>'
+                + '<table class="legend-table">' + legendRows.map(function(r) {
+                    return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td></tr>';
+                }).join('') + '</table>';
+        }
+
+        var nInstall = installed.reduce(function(a, x) { return a + x.groups.length; }, 0);
+        html += '<h3>' + stations.length + ' station epoch' + (stations.length === 1 ? '' : 's')
+            + ', ' + nInstall + ' installation' + (nInstall === 1 ? '' : 's') + '</h3>'
+            + '<div class="section-note" style="margin-bottom:6px">One row per installation: channels sharing an epoch, sample rate, sensor and digitiser are listed together (HH E,N,Z is a triaxial broadband stream). Location codes, where present, distinguish co-sited installations.</div>'
             + '<div style="overflow-x:auto"><table class="data stn-table"><thead><tr>'
-            + '<th>Station</th><th>Site</th><th>Lat / Lon</th><th>Channel</th><th>Epoch</th><th>Sensor</th><th>Sensor serial</th><th>Logger</th><th>Logger serial</th>'
+            + '<th>Station</th><th>Site</th><th>Lat / Lon</th><th>Channels</th><th>Rate (Hz)</th><th>Epoch</th><th>Sensor</th><th>Sensor serial</th><th>Digitiser</th><th>Digitiser serial</th>'
             + '</tr></thead><tbody>';
-        stations.forEach(function(st) {
-            st.chans.forEach(function(ch, i) {
+        installed.forEach(function(x) {
+            x.groups.forEach(function(g, i) {
                 html += '<tr>'
-                    + '<td class="mono">' + (i === 0 ? esc(st.code) : '') + '</td>'
-                    + '<td>' + (i === 0 ? esc(st.site) : '') + '</td>'
-                    + '<td class="mono">' + (i === 0 ? esc(trim6(st.lat) + ', ' + trim6(st.lon)) : '') + '</td>'
-                    + '<td class="mono">' + esc(ch.code + (ch.loc ? '.' + ch.loc : '')) + '</td>'
-                    + '<td class="mono">' + esc((ch.start || '?').slice(0, 10) + ' → ' + (ch.end ? ch.end.slice(0, 10) : 'open')) + '</td>'
-                    + '<td>' + esc(ch.sensor ? ch.sensor.model : '—') + '</td>'
-                    + '<td class="mono">' + serialCell(ch.sensor) + '</td>'
-                    + '<td>' + esc(ch.logger ? ch.logger.model : '—') + '</td>'
-                    + '<td class="mono">' + serialCell(ch.logger) + '</td>'
+                    + '<td class="mono">' + (i === 0 ? esc(x.st.code) : '') + '</td>'
+                    + '<td>' + (i === 0 ? esc(x.st.site) : '') + '</td>'
+                    + '<td class="mono">' + (i === 0 ? esc(trim4(x.st.lat) + ', ' + trim4(x.st.lon)) : '') + '</td>'
+                    + '<td class="mono">' + esc(channelLabel(g)) + (g.loc ? ' <span class="badge dim">loc ' + esc(g.loc) + '</span>' : '') + '</td>'
+                    + '<td class="mono">' + esc(g.rate ? String(Math.round(Number(g.rate) * 100) / 100) : '—') + '</td>'
+                    + '<td class="mono">' + esc((g.start || '?').slice(0, 10) + ' → ' + (g.end ? g.end.slice(0, 10) : 'open')) + '</td>'
+                    + '<td>' + esc(g.sensor ? g.sensor.model : '—') + '</td>'
+                    + '<td class="mono">' + serialCell(g.sensor) + '</td>'
+                    + '<td>' + esc(g.logger ? g.logger.model : '—') + '</td>'
+                    + '<td class="mono">' + serialCell(g.logger) + '</td>'
                     + '</tr>';
             });
         });
         html += '</tbody></table></div>';
 
         html += '<h3>Raw StationXML</h3>'
-            + '<button class="rawbtn" data-raw="' + esc(n.code + '|' + n.start) + '">Show raw response (' + Math.round(xml.length / 1024) + ' KB)</button>'
-            + '<pre class="raw" hidden>' + esc(xml) + '</pre>';
+            + '<button class="rawbtn">Show raw response (' + Math.round(p.xml.length / 1024) + ' KB)</button>'
+            + '<pre class="raw" hidden>' + esc(p.xml) + '</pre>';
         return html;
     }
 
@@ -499,9 +674,155 @@
         if (isPlaceholderSerial(eqp.serial)) return '<span class="badge warn">' + esc(eqp.serial || 'empty') + '</span>';
         return esc(eqp.serial);
     }
-    function trim6(v) { var f = parseFloat(v); return isNaN(f) ? (v || '?') : f.toFixed(4); }
+    function trim4(v) { var f = parseFloat(v); return isNaN(f) ? (v || '?') : f.toFixed(4); }
+
+    // ── Instrument inventory ──
+    // A deployment is one unit (model + serial) at one station over one
+    // epoch window; the components of a triaxial installation collapse into
+    // a single deployment entry.
+    function buildInventory() {
+        var btn = document.getElementById('build-inv');
+        var prog = document.getElementById('inv-progress');
+        btn.disabled = true;
+        var done = 0, failed = [];
+        var units = {};   // kind|model|serial -> unit
+
+        function addUnit(kind, eqp, netKey, netLabel, st, ch) {
+            if (!eqp || (!eqp.model && !eqp.serial)) return;
+            var placeholder = isPlaceholderSerial(eqp.serial);
+            var serialKey = placeholder ? '—' : eqp.serial;
+            var k = kind + '|' + (eqp.model || '(model not stated)') + '|' + serialKey;
+            var u = units[k] || (units[k] = {
+                kind: kind, model: eqp.model || '(model not stated)',
+                serial: serialKey, placeholder: placeholder, deployments: {},
+            });
+            var dk = netKey + '|' + st.code + '|' + (ch.start || '') + '|' + (ch.end || '');
+            var d = u.deployments[dk] || (u.deployments[dk] = {
+                net: netLabel, netKey: netKey, station: st.code, site: st.site,
+                start: ch.start, end: ch.end, channels: [],
+            });
+            if (d.channels.indexOf(ch.code) === -1) d.channels.push(ch.code);
+        }
+
+        var queue = networks.slice();
+        function step() {
+            if (!queue.length) return finish();
+            var n = queue.shift();
+            done++;
+            prog.innerHTML = 'Querying ' + esc(n.code) + '/' + esc(n.start)
+                + ' <span class="bar"><span class="fill" style="width:' + Math.round(done / networks.length * 100) + '%"></span></span> '
+                + done + ' / ' + networks.length;
+            fetchParsed(n).then(function(p) {
+                if (p.error) { failed.push(n.code + '/' + n.start); return; }
+                var netKey = n.code + '|' + n.start;
+                var netLabel = n.code + ' ' + n.start + (n.end && n.end !== n.start ? '–' + n.end : '');
+                p.stations.forEach(function(st) {
+                    st.chans.forEach(function(ch) {
+                        addUnit('sensor', ch.sensor, netKey, netLabel, st, ch);
+                        addUnit('digitiser', ch.logger, netKey, netLabel, st, ch);
+                    });
+                });
+            }).then(step);
+        }
+
+        function finish() {
+            inventory = Object.keys(units).map(function(k) {
+                var u = units[k];
+                var deps = Object.keys(u.deployments).map(function(dk) { return u.deployments[dk]; });
+                deps.sort(function(a, b) { return String(a.start).localeCompare(String(b.start)); });
+                var nets = {}; deps.forEach(function(d) { nets[d.net] = 1; });
+                var stns = {}; deps.forEach(function(d) { stns[d.netKey + '|' + d.station] = 1; });
+                var last = deps.length ? deps[deps.length - 1] : null;
+                return {
+                    kind: u.kind, model: u.model, serial: u.serial, placeholder: u.placeholder,
+                    concurrent: u.placeholder ? 0 : maxConcurrent(deps),
+                    deployments: deps,
+                    networks: Object.keys(nets).sort(),
+                    stationCount: Object.keys(stns).length,
+                    first: deps.length ? String(deps[0].start).slice(0, 10) : '',
+                    last: last ? (last.end ? String(last.end).slice(0, 10) : 'open') : '',
+                };
+            });
+            inventory.sort(function(a, b) {
+                if (a.placeholder !== b.placeholder) return a.placeholder ? 1 : -1;
+                return b.deployments.length - a.deployments.length
+                    || a.model.localeCompare(b.model) || a.serial.localeCompare(b.serial);
+            });
+            prog.textContent = failed.length
+                ? 'Done; ' + failed.length + ' network(s) did not answer: ' + failed.join(', ')
+                : 'Done — ' + networks.length + ' network epochs read.';
+            btn.textContent = 'Rebuild inventory';
+            btn.disabled = false;
+            document.getElementById('inv-filters').hidden = false;
+            renderInventory();
+        }
+        step();
+    }
+
+    var invSearch = document.getElementById('inv-search');
+    var invKind = document.getElementById('inv-kind');
+
+    function renderInventory() {
+        if (!inventory) return;
+        var q = invSearch.value.trim().toLowerCase();
+        var rows = inventory.filter(function(u) {
+            if (invKind.value && u.kind !== invKind.value) return false;
+            if (!q) return true;
+            var hay = (u.model + ' ' + u.serial + ' ' + u.networks.join(' ') + ' '
+                + u.deployments.map(function(d) { return d.station + ' ' + d.site; }).join(' ')).toLowerCase();
+            return hay.indexOf(q) !== -1;
+        });
+        var tracked = rows.filter(function(u) { return !u.placeholder; });
+        document.getElementById('inv-count').textContent =
+            tracked.length + ' serialised unit' + (tracked.length === 1 ? '' : 's')
+            + (rows.length > tracked.length ? ' + ' + (rows.length - tracked.length) + ' unserialised group' + (rows.length - tracked.length === 1 ? '' : 's') : '');
+        document.getElementById('inv-body').innerHTML = rows.map(function(u, i) {
+            var key = 'u' + i;
+            var row = '<tr class="instrow' + (invOpen === key ? ' open' : '') + '" data-ikey="' + key + '">'
+                + '<td>' + esc(u.kind) + '</td>'
+                + '<td>' + esc(u.model) + '</td>'
+                + '<td class="mono">' + (u.placeholder
+                    ? '<span class="badge warn">no usable serial</span>'
+                    : esc(u.serial) + (u.concurrent > 2
+                        ? ' <span class="badge warn" title="This serial has up to ' + u.concurrent + ' deployments open at the same time; one unit cannot be at several stations at once, so the value is probably shared across a batch rather than identifying a single instrument.">shared: ' + u.concurrent + ' at once</span>'
+                        : '')) + '</td>'
+                + '<td>' + u.deployments.length + '</td>'
+                + '<td class="mono">' + esc(u.networks.join(', ')) + '</td>'
+                + '<td>' + u.stationCount + '</td>'
+                + '<td class="mono">' + esc(u.first || '—') + '</td>'
+                + '<td class="mono">' + esc(u.last || '—') + '</td>'
+                + '</tr>';
+            if (invOpen === key) {
+                var inner = '<table class="data stn-table"><thead><tr>'
+                    + '<th>Network</th><th>Station</th><th>Site</th><th>Channels</th><th>Deployed</th><th>Recovered</th>'
+                    + '</tr></thead><tbody>'
+                    + u.deployments.map(function(d) {
+                        return '<tr><td class="mono">' + esc(d.net) + '</td>'
+                            + '<td class="mono">' + esc(d.station) + '</td>'
+                            + '<td>' + esc(d.site) + '</td>'
+                            + '<td class="mono">' + esc(d.channels.sort().join(' ')) + '</td>'
+                            + '<td class="mono">' + esc(String(d.start || '?').slice(0, 10)) + '</td>'
+                            + '<td class="mono">' + esc(d.end ? String(d.end).slice(0, 10) : 'open') + '</td></tr>';
+                    }).join('') + '</tbody></table>';
+                if (u.placeholder) {
+                    inner = '<div class="section-note">These channels share a model but report no usable serial number, so individual units cannot be told apart or tracked between deployments.</div>' + inner;
+                }
+                row += '<tr><td colspan="8"><div class="detail">' + inner + '</div></td></tr>';
+            }
+            return row;
+        }).join('') || '<tr><td colspan="8">No instruments match.</td></tr>';
+    }
 
     // ── Events ──
+    document.getElementById('tab-networks').addEventListener('click', function() { switchView('networks'); });
+    document.getElementById('tab-instruments').addEventListener('click', function() { switchView('instruments'); });
+    function switchView(which) {
+        document.getElementById('tab-networks').classList.toggle('active', which === 'networks');
+        document.getElementById('tab-instruments').classList.toggle('active', which === 'instruments');
+        document.getElementById('view-networks').hidden = which !== 'networks';
+        document.getElementById('view-instruments').hidden = which !== 'instruments';
+    }
+
     document.getElementById('net-body').addEventListener('click', function(e) {
         var raw = e.target.closest('.rawbtn');
         if (raw) { var pre = raw.nextElementSibling; pre.hidden = !pre.hidden; return; }
@@ -511,24 +832,50 @@
         var key = row.getAttribute('data-key');
         openKey = openKey === key ? null : key;
         render();
-        if (openKey && !detailCache[key]) loadDetail(key);
+        if (openKey && !detailHtml[key]) loadDetail(key);
     });
     search.addEventListener('input', function() { render(); });
     doiFilter.addEventListener('change', render);
     document.getElementById('export').addEventListener('click', function() {
-        var rows = [['code', 'start', 'end', 'stations', 'description', 'inband_doi', 'doi_status', 'comments']];
-        visible.forEach(function(n) {
-            rows.push([n.code, n.start, n.end, n.stations == null ? '' : n.stations, n.desc,
-                n.doi.norm || n.doi.raw || '', n.doi.status, n.comments.length]);
+        downloadCsv('auspass-network-epochs.csv',
+            [['code', 'epoch_start', 'epoch_end', 'restricted_status', 'stations', 'description', 'embedded_doi', 'doi_status', 'comments']]
+            .concat(visible.map(function(n) {
+                return [n.code, n.startFull, n.endFull, n.restricted, n.stations == null ? '' : n.stations,
+                    n.desc, n.doi.norm || n.doi.raw || '', n.doi.status, n.comments.length];
+            })));
+    });
+
+    document.getElementById('build-inv').addEventListener('click', buildInventory);
+    invSearch.addEventListener('input', renderInventory);
+    invKind.addEventListener('change', renderInventory);
+    document.getElementById('inv-body').addEventListener('click', function(e) {
+        var row = e.target.closest('tr.instrow');
+        if (!row) return;
+        var key = row.getAttribute('data-ikey');
+        invOpen = invOpen === key ? null : key;
+        renderInventory();
+    });
+    document.getElementById('inv-export').addEventListener('click', function() {
+        if (!inventory) return;
+        var rows = [['kind', 'model', 'serial', 'network', 'station', 'site', 'channels', 'deployed', 'recovered']];
+        inventory.forEach(function(u) {
+            u.deployments.forEach(function(d) {
+                rows.push([u.kind, u.model, u.placeholder ? '' : u.serial, d.net, d.station, d.site,
+                    d.channels.join(' '), d.start || '', d.end || '']);
+            });
         });
+        downloadCsv('auspass-instrument-deployments.csv', rows);
+    });
+
+    function downloadCsv(filename, rows) {
         var csv = rows.map(function(r) {
             return r.map(function(c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(',');
         }).join('\n');
         var a = document.createElement('a');
         a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-        a.download = 'auspass-stationxml-networks.csv';
+        a.download = filename;
         a.click();
-    });
+    }
 }());
 </script>
 </body>
