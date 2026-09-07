@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-31T11:41:03.619Z",
+  "generated": "2026-09-07T09:34:35.129Z",
   "pillars": {
     "publications": {
       "total": 2926,
@@ -17,14 +17,15 @@
         "NVCL": 9
       },
       "fairAvg": {
-        "EarthBank": 47,
-        "AusPass": 55,
+        "EarthBank": 46,
+        "AusPass": 52,
         "NCI MT": 43,
-        "NCI DAS": 42
+        "NCI DAS": 42,
+        "NVCL": 42
       },
       "fairMeta": {
         "metric_version": "0.8",
-        "last_updated": "2026-08-25T12:20:22.236Z"
+        "last_updated": "2026-09-01T08:46:29.328Z"
       }
     },
     "samples": {
@@ -70,12 +71,12 @@
       ]
     },
     "nvcl": {
-      "asOf": "2026-08-31",
-      "boreholes": 6297,
-      "scannedKm": 1755.89,
-      "combinedKm": 1997.35,
+      "asOf": "2026-09-07",
+      "boreholes": 6298,
+      "scannedKm": 1756.91,
+      "combinedKm": 2013.01,
       "estimatedKm": 4.22,
-      "datasets": 6467,
+      "datasets": 6469,
       "nodes": 8
     },
     "gnss": {
@@ -88,18 +89,18 @@
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 48,
+      "streaming": 47,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },
     "ausmt": {
-      "surveys": 27,
-      "stations": 2625,
+      "surveys": 58,
+      "stations": 4182,
       "auslamp": {
         "surveys": 14,
         "stations": 1354
       },
-      "generated": "2026-08-31",
+      "generated": "2026-09-07",
       "instrumentsDeployed": 117,
       "occupations": 2052,
       "recordingDays": 3946.2,
