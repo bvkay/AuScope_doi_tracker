@@ -1,0 +1,57 @@
+name: Searcher Recall Check
+
+# Manual-only: fires from the Actions tab. Answers "which reference-list
+# papers could the keyword searcher ever find, and via which query?" by
+# working through the query × DOI-batch grid at a deliberately gentle pace
+# (OpenAlex penalises burst clients for hours). Resumable: progress lives
+# in data/recall-check.json, and each dispatch continues where the last
+# one stopped, so it is safe to fire this as often as needed.
+
+on:
+  workflow_dispatch:
+    inputs:
+      reset:
+        description: 'Discard previous progress and start the grid afresh'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+# Serialize with the other pipeline workflows — never compete with the
+# weekly search for OpenAlex goodwill from the same runner pool.
+concurrency:
+  group: citation-pipeline
+  cancel-in-progress: false
+
+jobs:
+  recall-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run recall check (paced)
+        env:
+          RECALL_MAX_REQUESTS: '600'
+          RECALL_PACE_MS: '4000'
+          RECALL_RESET: ${{ github.event.inputs.reset == 'true' && '1' || '0' }}
+        run: node src/recall-check.js
+
+      - name: Commit progress
+        if: ${{ !cancelled() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/recall-check.json
+          git diff --cached --quiet || git commit -m "Recall check progress $(date +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push
