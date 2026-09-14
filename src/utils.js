@@ -107,4 +107,17 @@ function queryLabel(query) {
   return query.replace(/"/g, '').replace(/\s+/g, ' ').trim();
 }
 
-module.exports = { fetchJSON, sleep, stripHtml, normaliseDoi, queryLabel };
+/**
+ * Component deposits — individually-DOI'd figures, tables and data
+ * supplements of a paper (figshare/Zenodo/GSA mint these) — are not
+ * publications. Recognised by their canonical title prefixes; the parent
+ * paper is tracked in its own right.
+ * @param {string} title
+ * @returns {boolean}
+ */
+function isComponentTitle(title) {
+  return /^(figure|fig\.|table|appendix|video|movie|supplemental material|supplementary (information|material|materials|data|figure|table)|data s\d)\b/i
+    .test((title || '').trim());
+}
+
+module.exports = { fetchJSON, sleep, stripHtml, normaliseDoi, queryLabel, isComponentTitle };

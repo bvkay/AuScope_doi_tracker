@@ -1,4 +1,4 @@
-const { normaliseDoi } = require('./utils');
+const { normaliseDoi, isComponentTitle } = require('./utils');
 
 /**
  * Deduplicate an array of citation items by DOI.
@@ -111,6 +111,13 @@ function mergeIntoExisting(existing, newItems) {
         updated++;
       }
     } else {
+      // Individually-DOI'd figure/table/supplement deposits are components
+      // of a paper, not publications — never admit them as new records
+      if (isComponentTitle(item.title)) {
+        console.warn('  skipping component deposit: ' + item.doi + ' — '
+          + String(item.title || '').slice(0, 60));
+        continue;
+      }
       const newRec = copyItem(item);
       newRec.dateAdded = new Date().toISOString().slice(0, 10);
       existing.push(newRec);

@@ -22,7 +22,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { sleep, normaliseDoi } = require('./utils');
+const { sleep, normaliseDoi, isComponentTitle } = require('./utils');
 const { lookupMetadata } = require('./sources/openalex');
 const { lookupCrossref } = require('./sources/crossref');
 
@@ -139,6 +139,7 @@ async function run() {
     await sleep(150);
     const base = cr || {}, o = oa || {};
     if (!base.title && !o.title) { noMeta++; continue; }
+    if (isComponentTitle(base.title || o.title)) { continue; }   // figure/table deposit
     const year = base.year || o.year || null;
     if (year && year < (CONFIG.min_year || 0)) { skippedOld++; continue; }
     pubData.records.push({

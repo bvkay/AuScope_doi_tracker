@@ -1,21 +1,21 @@
 {
-  "generated": "2026-09-14T23:39:23.968Z",
+  "generated": "2026-09-14T23:40:49.167Z",
   "stats": {
-    "totalPublications": 2764,
+    "totalPublications": 2763,
     "totalDatasets": 237,
     "totalCitations": 66163,
     "citedPublications": 2271,
     "citedPercent": 82.2,
     "avgCitations": 23.9,
     "uniqueJournals": 564,
-    "uniqueAuthors": 10565,
+    "uniqueAuthors": 10564,
     "uniqueInstitutions": 1218,
     "uniqueCountries": 91,
     "attributedAuthors": 2995,
     "attributedInstitutions": 881,
     "attributedCountries": 78,
     "yearRange": "2007–2026",
-    "noSubjectCount": 7
+    "noSubjectCount": 6
   },
   "publicationsByYear": [
     {
@@ -254,13 +254,13 @@
     },
     {
       "year": 2025,
-      "count": 207,
-      "cumulative": 2615,
+      "count": 206,
+      "cumulative": 2614,
       "citations": 343,
       "cumulativeCitations": 66127,
       "attributed": 89,
       "software": 54,
-      "unverified": 64,
+      "unverified": 63,
       "attrCitations": 160,
       "cumulativeAttributed": 754,
       "cumulativeAttrCitations": 19742
@@ -268,7 +268,7 @@
     {
       "year": 2026,
       "count": 149,
-      "cumulative": 2764,
+      "cumulative": 2763,
       "citations": 36,
       "cumulativeCitations": 66163,
       "attributed": 34,
@@ -344,7 +344,7 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 493
+      "count": 492
     },
     {
       "label": "1–5",
@@ -371,7 +371,7 @@
     "candidate": 116,
     "text-attributed": 548,
     "verified": 42,
-    "keyword": 1680,
+    "keyword": 1679,
     "text-infrastructure": 82,
     "text-software": 296
   }

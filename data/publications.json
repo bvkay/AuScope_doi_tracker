@@ -2,7 +2,7 @@
   "metadata": {
     "type": "publications",
     "last_updated": "2026-09-14T23:22:15.469Z",
-    "total_count": 2769,
+    "total_count": 2768,
     "evidence_updated": "2026-09-14T23:39:02.207Z",
     "consolidated": "2026-09-14T23:39:02.335Z",
     "dates_enriched": "2026-09-14T23:14:35.729Z"
@@ -69477,30 +69477,6 @@
       "dateAdded": "2026-05-24",
       "evidence": "keyword",
       "publicationDate": "2026-05-18"
-    },
-    {
-      "doi": "10.5281/zenodo.20190230",
-      "title": "FIGURE ST3-3. Synonymizing scenarios under p = 0.05, q = 0.025 (left) and p = 0.02, q = 0.01 (right). Each vertex represents a species, and color represents its geographic distribution. in Diversification dynamics of the Mesozoic ostracod family Cyprideidae Martin, 1940: Disentangling taxonomic inflation and environmental drivers Wonseop Lim",
-      "authors": "Wonseop Lim",
-      "journal": "Open MIND",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2025,
-      "cited": 0,
-      "type": "other",
-      "isOA": "Yes",
-      "subject": "",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "GPlates"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-05-24",
-      "evidence": "keyword",
-      "publicationDate": "2025-12-31"
     },
     {
       "doi": "10.1002/ece3.73280",
