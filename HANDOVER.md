@@ -501,6 +501,39 @@ Transfer-day checklist:
 
 Only substantive changes — the git history has the rest.
 
+### 2026-09-14 — financial-year reporting + 429-storm armour
+
+- **Why:** the weekly search failed 6 and 13 Sep — OpenAlex 429'd every
+  request for the whole run from the shared GitHub-runner IPs (fine from a
+  local machine), verified.js's guard tripped, and the single end-of-run
+  commit threw away everything the run had gathered.
+- **publicationDate** (YYYY-MM-DD) on every record: `src/enrich-dates.js`
+  backfilled 2,839/2,843 from OpenAlex (40-DOI batches) with a Crossref
+  most-specific-date fallback and a Jan-1-placeholder cross-check; runs
+  weekly after maintenance; discovery and pending ingestion now capture it
+  at source and every merge path preserves it.
+- **publications.html**: year filter gained a *Financial year (Jul–Jun)*
+  optgroup (deep link `?fy=2025`; undated records are excluded and counted
+  honestly), and a second **Report CSV** button emits the three-column
+  Title,Year,DOI list reporting asks for. exportCsv (all pages): UTF-8
+  BOM, CRLF, formula-injection guard.
+- **Resilience**: fetchJSON honors Retry-After, backs off exponentially,
+  fails fast per-host after 8 straight rate-limited failures; verified.js
+  refuses *all* writes when any fetch failed (a partial shrink used to
+  cascade through evidence.js — §4) plus a 20% shrink guard
+  (`VERIFIED_ALLOW_SHRINK=1` to override deliberately); monthly-search.yml
+  got a Wednesday backup cron, node 22, a 90-min timeout,
+  continue-on-error on the OpenAlex stages with a final red-flag step, and
+  a commit gated on JSON validity that keeps successful stages' output;
+  all four workflows share one concurrency group and rebase before push;
+  process-pending keeps unresolved DOIs queued for 3 runs instead of
+  dropping them.
+- **Data**: the four reference-list DOIs the tracker lacked were ingested;
+  one HTML-entity junk duplicate DOI and one PLOS figure-component DOI
+  removed. A ~556-DOI reference list cross-check found 99% coverage — but
+  ~80% of those only exist as manual entries; the keyword searcher cannot
+  see software/infrastructure *usage* that never names AuScope in text.
+
 ### 2026-08-30 — handover audit (documentation only, no code changed)
 This document was audited claim-by-claim against the repo and the live site.
 Corrections applied: the NVCL job is **weekly with five steps**, not monthly
