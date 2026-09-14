@@ -1,21 +1,21 @@
 {
-  "generated": "2026-09-14T10:31:39.267Z",
+  "generated": "2026-09-14T10:34:16.345Z",
   "stats": {
-    "totalPublications": 2844,
+    "totalPublications": 2843,
     "totalDatasets": 240,
     "totalCitations": 67570,
     "citedPublications": 2309,
     "citedPercent": 81.2,
     "avgCitations": 23.8,
     "uniqueJournals": 596,
-    "uniqueAuthors": 10985,
+    "uniqueAuthors": 10978,
     "uniqueInstitutions": 1390,
     "uniqueCountries": 96,
     "attributedAuthors": 2645,
     "attributedInstitutions": 820,
     "attributedCountries": 74,
     "yearRange": "1997–2026",
-    "noSubjectCount": 12
+    "noSubjectCount": 11
   },
   "publicationsByYear": [
     {
@@ -397,13 +397,13 @@
     },
     {
       "year": 2026,
-      "count": 157,
-      "cumulative": 2844,
+      "count": 156,
+      "cumulative": 2843,
       "citations": 34,
       "cumulativeCitations": 67570,
       "attributed": 22,
       "software": 53,
-      "unverified": 82,
+      "unverified": 81,
       "attrCitations": 6,
       "cumulativeAttributed": 686,
       "cumulativeAttrCitations": 18530
@@ -474,7 +474,7 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 535
+      "count": 534
     },
     {
       "label": "1–5",
@@ -501,7 +501,7 @@
     "candidate": 58,
     "text-attributed": 582,
     "verified": 42,
-    "keyword": 1849,
+    "keyword": 1848,
     "text-software": 305,
     "text-infrastructure": 4
   }
