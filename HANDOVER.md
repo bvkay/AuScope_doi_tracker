@@ -546,6 +546,20 @@ Only substantive changes — the git history has the rest.
   recall check (src/recall-check.js + the manual recall-check workflow)
   measures reference-list recall without tripping OpenAlex velocity
   limits again.
+- **All four risky pairings triaged** (109 sole-term records, paper by
+  paper): SHRIMP II Curtin turned out mostly GENUINE (36/50 ran analyses
+  at Curtin JdLC — graded text-infrastructure with methods quotes);
+  AGOS mostly cite-only (20/26 removed); Yarragadee split 5 VLBI-antenna
+  users (graded) / 16 site-SLR papers (kept keyword — POLICY CALL:
+  does non-VLBI Yarragadee site use count?); Mt Pleasant 26m astronomy
+  kept keyword pending the same call. Era rule: min_year is now 2007
+  (AuScope's establishment) — pre-2007 records removed.
+- **Data-citation harvest** (src/data-citations.js, weekly): papers
+  citing any of the 239 dataset DOIs (EarthBank / AusPass networks /
+  NCI / NVCL) join the corpus tagged '<Platform> data citation' and
+  grade text-infrastructure via the ladder. AusPass mirrors the global
+  GSN (IU) — excluded, as in update-fdsn-dois.js; letting it in once
+  briefly added 100 GSN-citing papers (purged same day).
 - **Corpus policy (Ben's review)**: software version releases
   (`type: 'software'` — Zenodo/GitHub archive DOIs like underworld2
   v2.6.0b, MTtsdp v2.0.0, G-ADOPT, NVCL Reporting Live System,
