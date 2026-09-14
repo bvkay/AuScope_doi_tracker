@@ -1,11 +1,11 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-09-14T22:14:52.794Z",
+    "last_updated": "2026-09-14T23:22:15.469Z",
     "total_count": 2769,
-    "evidence_updated": "2026-09-14T23:10:37.010Z",
-    "consolidated": "2026-09-14T22:21:35.717Z",
-    "dates_enriched": "2026-09-14T22:14:53.765Z"
+    "evidence_updated": "2026-09-14T23:39:02.207Z",
+    "consolidated": "2026-09-14T23:39:02.335Z",
+    "dates_enriched": "2026-09-14T23:14:35.729Z"
   },
   "records": [
     {
@@ -69202,11 +69202,12 @@
         "AT"
       ],
       "dateAdded": "2026-05-03",
-      "evidence": "keyword",
+      "evidence": "text-software",
       "relatedDois": [
         "10.31223/x5xj22"
       ],
-      "publicationDate": "2026-04-29"
+      "publicationDate": "2026-04-29",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.5281/zenodo.20032536",
@@ -69522,8 +69523,9 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-05-24",
-      "evidence": "keyword",
-      "publicationDate": "2026-03-30"
+      "evidence": "text-software",
+      "publicationDate": "2026-03-30",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.5194/egusphere-2026-2528",
@@ -69677,8 +69679,9 @@
         "US"
       ],
       "dateAdded": "2026-05-31",
-      "evidence": "keyword",
-      "publicationDate": "2026-05-28"
+      "evidence": "text-software",
+      "publicationDate": "2026-05-28",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.31223/x55v2b",
@@ -69893,8 +69896,9 @@
         "FR"
       ],
       "dateAdded": "2026-06-07",
-      "evidence": "keyword",
-      "publicationDate": "2026-05-30"
+      "evidence": "text-software",
+      "publicationDate": "2026-05-30",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.1093/mam/ozag039",
@@ -70036,8 +70040,9 @@
         "BE"
       ],
       "dateAdded": "2026-06-07",
-      "evidence": "keyword",
-      "publicationDate": "2026-06-03"
+      "evidence": "text-software",
+      "publicationDate": "2026-06-03",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.5027/andgeov53n2-3884",
@@ -70088,8 +70093,9 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-06-07",
-      "evidence": "keyword",
-      "publicationDate": "2026-05-27"
+      "evidence": "text-software",
+      "publicationDate": "2026-05-27",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.1080/18366503.2026.2684382",
@@ -70329,8 +70335,9 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-06-14",
-      "evidence": "keyword",
-      "publicationDate": "2026-04-16"
+      "evidence": "text-software",
+      "publicationDate": "2026-04-16",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.5281/zenodo.20754948",
@@ -70644,8 +70651,9 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-06-28",
-      "evidence": "keyword",
-      "publicationDate": "2026-06-15"
+      "evidence": "text-software",
+      "publicationDate": "2026-06-15",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.5194/gmd-19-2717-2026",
@@ -70705,8 +70713,9 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-07-12",
-      "evidence": "keyword",
-      "publicationDate": "2026-06-22"
+      "evidence": "text-software",
+      "publicationDate": "2026-06-22",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.5281/zenodo.21390863",
@@ -73660,8 +73669,9 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-08-09",
-      "evidence": "keyword",
-      "publicationDate": "2022-02-04"
+      "evidence": "text-software",
+      "publicationDate": "2022-02-04",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.21203/rs.3.rs-10367757/v1",
@@ -74285,8 +74295,9 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-08-23",
-      "evidence": "keyword",
-      "publicationDate": "2026-03-01"
+      "evidence": "text-software",
+      "publicationDate": "2026-03-01",
+      "evidenceDetail": "software use verified in full text: GPlates (body)"
     },
     {
       "doi": "10.1002/2016gl068618",
@@ -75441,6 +75452,7 @@
       "evidence": "text-infrastructure",
       "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/2p_2020, 10.7914/sn/5g_2018, 10.7914/sn/s1",
       "relatedDois": [
+        "10.59350/h4nph-she37",
         "10.59350/h4nph-she37"
       ]
     },
@@ -75742,6 +75754,7 @@
       "evidence": "text-infrastructure",
       "evidenceDetail": "cites AuScope dataset DOI: 10.25914/5eaa30cc934d0",
       "relatedDois": [
+        "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591"
       ]
     },
@@ -75767,120 +75780,6 @@
       "dateAdded": "2026-09-14",
       "evidence": "text-infrastructure",
       "evidenceDetail": "cites AuScope dataset DOI: 10.25914/kf96-nb26"
-    },
-    {
-      "doi": "10.5194/egusphere-2023-53-rc1",
-      "title": "Comment on egusphere-2023-53",
-      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
-      "journal": "",
-      "publisher": "",
-      "year": 2023,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Methane Hydrates and Related Phenomena",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 9,
-      "institutions": [
-        "The University of Sydney",
-        "University of Kansas",
-        "The University of Melbourne",
-        "AuScope",
-        "Planetary Science Institute",
-        "University of California, Los Angeles",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "US"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ],
-      "dateAdded": "2026-09-14",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
-    },
-    {
-      "doi": "10.5194/egusphere-2023-53-rc2",
-      "title": "Comment on egusphere-2023-53",
-      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
-      "journal": "",
-      "publisher": "",
-      "year": 2023,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Methane Hydrates and Related Phenomena",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 9,
-      "institutions": [
-        "The University of Sydney",
-        "University of Kansas",
-        "The University of Melbourne",
-        "AuScope",
-        "Planetary Science Institute",
-        "University of California, Los Angeles",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "US"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ],
-      "dateAdded": "2026-09-14",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
-    },
-    {
-      "doi": "10.5194/egusphere-2023-53-ec1",
-      "title": "Associate Editor's Comment on egusphere-2023-53",
-      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
-      "journal": "",
-      "publisher": "",
-      "year": 2023,
-      "cited": 0,
-      "type": "peer review",
-      "isOA": "Yes",
-      "subject": "Geological formations and processes; Geology and Paleoclimatology Research; Methane Hydrates and Related Phenomena",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 9,
-      "institutions": [
-        "The University of Sydney",
-        "University of Kansas",
-        "The University of Melbourne",
-        "AuScope",
-        "Planetary Science Institute",
-        "University of California, Los Angeles",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "US"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564"
-      ],
-      "dateAdded": "2026-09-14",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
     }
   ]
 }

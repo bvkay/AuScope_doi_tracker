@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T23:10:46.802Z",
+  "generated": "2026-09-14T23:39:23.989Z",
   "records": [
     {
       "name": "GPlates",
@@ -10,8 +10,8 @@
         "GPlately",
         "gplates-python"
       ],
-      "publications": 232,
-      "citations": 6787,
+      "publications": 243,
+      "citations": 6838,
       "earliestYear": 2013,
       "latestYear": 2026,
       "records": [
@@ -43,11 +43,29 @@
           "oa": true
         },
         {
+          "doi": "10.1002/ece3.73246",
+          "title": "A Plant-Diversity Dark Spot at the Intersection of Three Biodiversity Hotspots: Environmental Drivers of Brassicaceae Richness in Türkiye.",
+          "authors": "İlayda Dumlupınar; Barış Özüdoğru; Hakan Gür",
+          "year": 2026,
+          "journal": "Ecology and Evolution",
+          "cited": 0,
+          "oa": true
+        },
+        {
           "doi": "10.1007/s13137-025-00280-5",
           "title": "A robust matrix-free approach for large-scale non-isothermal high-contrast viscosity Stokes flow on blended domains with applications to geophysics",
           "authors": "Andreas Burkhart; Nils Kohl; Barbara Wohlmuth; Jan Zawallich",
           "year": 2026,
           "journal": "GEM - International Journal on Geomathematics",
+          "cited": 1,
+          "oa": true
+        },
+        {
+          "doi": "10.1038/s41598-026-46309-z",
+          "title": "A user-friendly online tool for paleocoordinate calculation and 3D visualization.",
+          "authors": "Noa Scholz-Murcia; Alejandro Rodríguez-Mena; Víctor Madarnás-Gómez; Antonio Monleón-Getino",
+          "year": 2026,
+          "journal": "Scientific Reports",
           "cited": 1,
           "oa": true
         },
@@ -115,6 +133,24 @@
           "oa": true
         },
         {
+          "doi": "10.1002/ece3.73280",
+          "title": "ENHYDROSS: A New Mechanistic Model Supports the Trans-Oceanic Dispersal Capability of Terrestrial Vertebrates.",
+          "authors": "Alexandros Pantelides; Paul Upchurch; Philip D Mannion; Elias Gravanis; Donald M Henderson; Phaedon Kyriakidis",
+          "year": 2026,
+          "journal": "Ecology and Evolution",
+          "cited": 0,
+          "oa": true
+        },
+        {
+          "doi": "10.1126/sciadv.aee0530",
+          "title": "Evolution of Southern Hemisphere Westerly asymmetry since the Early Miocene.",
+          "authors": "Congcong Gai; Torben Struve; Andrew P Roberts; Yiwen Li; Chenguang Zhu; Yanhong Chen; Jilin Wei; Wei Liu; Weijie Zhang; Hailong Liu; Huaichun Wu; Qingsong Liu",
+          "year": 2026,
+          "journal": "Science Advances",
+          "cited": 0,
+          "oa": true
+        },
+        {
           "doi": "10.1029/2025gc012556",
           "title": "Evolution of the Source Mineralogy and Lithospheric Controls on Magmatism During the Northeast Atlantic Continental Breakup",
           "authors": "E.H. Cunningham; Sarah Lambart; Pengyuan Guo; Sayantani Chatterjee; Christian Tegner; Autumn Hartley; Ashley Morris; Sverre Planke; Christian Berndt; C. A. Alvarez Zarikian; Peter Betlem; Henk Brinkhuis; Marialena Christopoulou; Eric Ferre; Irina Y. Filina; Joost Frieling; Dustin T. Harper; Morgan T. Jones; Jack Longman; John Millett; Geoffroy T. F. Mohn; Reed P. Scherer; Natalia Varela; Weimu Xu; Stacy L. Yager",
@@ -138,6 +174,24 @@
           "authors": "Michaël Pons; Stephan V. Sobolev; Charitra Jain; Menno Fraters",
           "year": 2026,
           "journal": "",
+          "cited": 0,
+          "oa": true
+        },
+        {
+          "doi": "10.1093/nsr/nwag230",
+          "title": "From manganese mineral evolution history to atmospheric oxygen reconstruction.",
+          "authors": "Yan Li; Ziyi Zhuang; Xinran Xu; Rongzhang Yin; Yanzhang Li; Yadong Wang; Chunjiang Li; Yong Lai; Yanan Zhang; Huan Ye; Zhaoyang Hu; Anhuai Lu; Robert M Hazen; Xiangzhi Bai",
+          "year": 2026,
+          "journal": "National Science Review",
+          "cited": 1,
+          "oa": true
+        },
+        {
+          "doi": "10.7717/peerj.21192",
+          "title": "How did climate drive the historical distribution of relict plants: a case study on Metasequoia using deep-time ecological niche modelling.",
+          "authors": "Junmei Chen; Ai Song; Li Wang; Shufeng Li; Tao Su",
+          "year": 2026,
+          "journal": "PeerJ",
           "cited": 0,
           "oa": true
         },
@@ -187,6 +241,15 @@
           "oa": true
         },
         {
+          "doi": "10.1186/s12915-026-02617-4",
+          "title": "New exceptionally preserved arthropod from the Furongian of Canada.",
+          "authors": "Russell D. C. Bicknell; Julien Kimmig; Aaron Goodman; Thomas Turner; Patrick M. Smith",
+          "year": 2026,
+          "journal": "BMC Biology",
+          "cited": 1,
+          "oa": true
+        },
+        {
           "doi": "10.7717/peerj.21007",
           "title": "Obligate faunivorous megatheropod size class patterns across the Jurassic-Cretaceous Periods.",
           "authors": "Colin Boisvert; Jack Perkins; Cassius Morrison; Samuel J. L. Gascoigne; Thomas R. Holtz; Brian Curtice",
@@ -223,6 +286,15 @@
           "oa": true
         },
         {
+          "doi": "10.1371/journal.pone.0346817",
+          "title": "Paleolatitude.org 3.0: A calculator for paleoclimate and paleobiology studies based on a new global paleogeography model.",
+          "authors": "Douwe J J van Hinsbergen; Bram Vaes; Lydian M Boschman; Nalan Lom; Suzanna H.A. Lagemaat; Eldert L Advokaat; Sanne Baar; Menno R. T. Fraters (23811852); Joren Paridaens; Emilia B. Jarochowska (23811858)",
+          "year": 2026,
+          "journal": "PLOS One",
+          "cited": 1,
+          "oa": false
+        },
+        {
           "doi": "10.5281/zenodo.18992412",
           "title": "Pangaea Humanis: The Spatial Morphology of Humanity Under Continental Reassembly",
           "authors": "Adrian Avramescu",
@@ -247,6 +319,15 @@
           "year": 2026,
           "journal": "Science Advances",
           "cited": 0,
+          "oa": true
+        },
+        {
+          "doi": "10.1126/sciadv.aec8978",
+          "title": "Rise of modern marine fishes captured in an early Paleocene Lagerstätte",
+          "authors": "Sanaa El-Sayed; matt Friedman; Belal S. Salem; Abdullah S. Gohar; Shorouq F. Al-Ashqar; Mohamed Amin; Hossam El-Saka; Hadeel Saad; Robert P. Speijer; Hesham Sallam",
+          "year": 2026,
+          "journal": "Science Advances",
+          "cited": 1,
           "oa": true
         },
         {
@@ -284,6 +365,15 @@
           "journal": "Journal of African Earth Sciences",
           "cited": 0,
           "oa": false
+        },
+        {
+          "doi": "10.1038/s41467-026-73363-y",
+          "title": "Tectonic and climatic implications of the Aleutian Arc initiation ≥56 million years ago.",
+          "authors": "Kaj Hoernle; B. Jicha; Maxim Portnyagin; S. Zahirovic; D. Müller; Folkmar Hauff; Christian Timm; Tobias Höfig; G. Yogodzinski; M. Guillong; Christian Berndt; D. Savelyev; R. Bezard; B. Baranov",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "cited": 0,
+          "oa": true
         },
         {
           "doi": "10.5194/egusphere-egu26-12622",
@@ -1192,6 +1282,15 @@
           "year": 2022,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 53,
+          "oa": true
+        },
+        {
+          "doi": "10.1038/s41467-022-28290-z",
+          "title": "Catastrophic slab loss in southwestern Pangea preserved in the mantle and igneous record.",
+          "authors": "Guido M Gianni; César R Navarrete",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "cited": 46,
           "oa": true
         },
         {
@@ -2730,8 +2829,8 @@
       "forks": 0,
       "openIssues": 3,
       "createdAt": "2026-05-18T10:25:20Z",
-      "updatedAt": "2026-09-14T20:56:22Z",
-      "pushedAt": "2026-09-14T22:24:07Z"
+      "updatedAt": "2026-09-14T22:30:42Z",
+      "pushedAt": "2026-09-14T22:30:39Z"
     },
     {
       "name": "AuScope-Cat",
@@ -3771,7 +3870,7 @@
     }
   ],
   "githubMetadata": {
-    "generated": "2026-09-14T22:29:36.006Z",
+    "generated": "2026-09-14T23:39:04.237Z",
     "organisation": "AuScope",
     "organisationUrl": "https://github.com/AuScope",
     "source": "https://api.github.com/orgs/AuScope/repos",

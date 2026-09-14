@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-14T23:10:46.786Z",
+  "generated": "2026-09-14T23:39:23.968Z",
   "stats": {
-    "totalPublications": 2767,
+    "totalPublications": 2764,
     "totalDatasets": 237,
     "totalCitations": 66163,
     "citedPublications": 2271,
-    "citedPercent": 82.1,
+    "citedPercent": 82.2,
     "avgCitations": 23.9,
     "uniqueJournals": 564,
     "uniqueAuthors": 10565,
@@ -220,62 +220,62 @@
       "citations": 6907,
       "cumulativeCitations": 60461,
       "attributed": 80,
-      "software": 28,
-      "unverified": 340,
+      "software": 29,
+      "unverified": 339,
       "attrCitations": 834,
       "cumulativeAttributed": 481,
       "cumulativeAttrCitations": 18400
     },
     {
       "year": 2023,
-      "count": 367,
-      "cumulative": 2214,
+      "count": 364,
+      "cumulative": 2211,
       "citations": 3915,
       "cumulativeCitations": 64376,
-      "attributed": 113,
+      "attributed": 110,
       "software": 31,
       "unverified": 223,
       "attrCitations": 824,
-      "cumulativeAttributed": 594,
+      "cumulativeAttributed": 591,
       "cumulativeAttrCitations": 19224
     },
     {
       "year": 2024,
       "count": 197,
-      "cumulative": 2411,
+      "cumulative": 2408,
       "citations": 1408,
       "cumulativeCitations": 65784,
       "attributed": 74,
       "software": 42,
       "unverified": 81,
       "attrCitations": 358,
-      "cumulativeAttributed": 668,
+      "cumulativeAttributed": 665,
       "cumulativeAttrCitations": 19582
     },
     {
       "year": 2025,
       "count": 207,
-      "cumulative": 2618,
+      "cumulative": 2615,
       "citations": 343,
       "cumulativeCitations": 66127,
       "attributed": 89,
       "software": 54,
       "unverified": 64,
       "attrCitations": 160,
-      "cumulativeAttributed": 757,
+      "cumulativeAttributed": 754,
       "cumulativeAttrCitations": 19742
     },
     {
       "year": 2026,
       "count": 149,
-      "cumulative": 2767,
+      "cumulative": 2764,
       "citations": 36,
       "cumulativeCitations": 66163,
       "attributed": 34,
-      "software": 45,
-      "unverified": 70,
+      "software": 55,
+      "unverified": 60,
       "attrCitations": 13,
-      "cumulativeAttributed": 791,
+      "cumulativeAttributed": 788,
       "cumulativeAttrCitations": 19755
     }
   ],
@@ -298,7 +298,7 @@
     },
     {
       "topic": "Geology and Paleoclimatology Research",
-      "count": 379
+      "count": 376
     },
     {
       "topic": "Paleontology and Stratigraphy of Fossils",
@@ -321,12 +321,12 @@
       "count": 143
     },
     {
-      "topic": "Geological formations and processes",
-      "count": 139
-    },
-    {
       "topic": "Geophysics and Gravity Measurements",
       "count": 138
+    },
+    {
+      "topic": "Geological formations and processes",
+      "count": 136
     },
     {
       "topic": "GNSS positioning and interference",
@@ -344,7 +344,7 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 496
+      "count": 493
     },
     {
       "label": "1–5",
@@ -370,9 +370,9 @@
   "evidenceBreakdown": {
     "candidate": 116,
     "text-attributed": 548,
-    "verified": 45,
-    "keyword": 1691,
+    "verified": 42,
+    "keyword": 1680,
     "text-infrastructure": 82,
-    "text-software": 285
+    "text-software": 296
   }
 }
