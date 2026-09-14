@@ -272,6 +272,87 @@
         "Geodesy & VLBI"
       ],
       "reason": "Published version of the RadioAstron 3C279 study; Australian LBA ground array [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.18452/15060",
+      "action": "remove",
+      "reason": "Auscope stethoscope/text collision in a 2004 German medical dissertation; also pre-AuScope [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1186/1467-4866-7-10",
+      "action": "remove",
+      "reason": "2006 paper predates AuScope establishment (2006-07); SHRIMP II work pre-AuScope-funding [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1130/g21485ar.1",
+      "action": "remove",
+      "reason": "2005 WAAIF argon paper predates AuScope establishment [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.jafrearsci.2004.07.052",
+      "action": "remove",
+      "reason": "2004 WAAIF argon paper predates AuScope establishment [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.26749/rstpp.138.11",
+      "action": "remove",
+      "reason": "2004 WAAIF argon paper predates AuScope establishment [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1051/0004-6361:20035855",
+      "action": "remove",
+      "reason": "2005 Mt Pleasant 26m maser catalogue predates AuScope establishment [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1071/as03023",
+      "action": "remove",
+      "reason": "2003 Mt Pleasant paper predates AuScope establishment [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1017/s0252921100044936",
+      "action": "remove",
+      "reason": "1998 VLBI survey predates AuScope establishment [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1042/bj3230489",
+      "action": "remove",
+      "reason": "1997 cell-biology paper; GPlates query matched culture \"G plates\" (GPlates did not exist until ~2004) [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1042/0264-6021:3570457",
+      "action": "remove",
+      "reason": "2001 biochemistry paper; GPlates query matched culture \"G plates\" [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.5758/vsi.250023",
+      "action": "remove",
+      "reason": "Korean vascular-surgery guideline; GPlates text collision, no plate-tectonic content [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1186/s13034-021-00370-w",
+      "action": "remove",
+      "reason": "Sierra Leone child-psychology paper; Underworld2 matched the word underworld [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/su18020806",
+      "action": "remove",
+      "reason": "Urban-planning paper; G-Adopt query text collision [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1136/bjsports-2025-111283",
+      "action": "remove",
+      "reason": "ProPASS/AusPASS physical-activity cohort — name collision with the seismology service [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1101/2025.11.18.25339671",
+      "action": "remove",
+      "reason": "AusPASS here is a thigh-worn accelerometry cohort study — name collision with the seismology service [era/collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.5281/zenodo.5584797",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Paper states the seismometer used is an AuSIS network station [collision review, 14 Sep 2026]"
     }
   ]
 }

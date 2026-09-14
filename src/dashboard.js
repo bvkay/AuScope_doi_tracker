@@ -450,7 +450,7 @@ const PROGRAM_GROUPS = [
   { name: 'Simulation & modelling software', terms: ['GPlates', 'EarthByte', 'Underworld2', 'G-Adopt geodynamic', 'Simulation Analysis Modelling AuScope'] },
   { name: 'Geochemistry & characterisation', terms: ['SHRIMP II Curtin', 'AusGeochem', 'Hylogger CSIRO', 'Western Australia Argon Isotope Facility', 'National Virtual Core Library', 'Geoscience Atom Probe', 'AuScope Geochemistry Network', 'Noble Gas Geochronology Laboratory', 'National Argon Map', 'Characterisation AuScope'] },
   { name: 'Geodesy & VLBI', terms: ['Katherine VLBI', 'Yarragadee VLBI', 'AuScope VLBI', 'Mt Pleasant VLBI', 'Geospatial Geodesy AuScope'] },
-  { name: 'Earth imaging & sounding', terms: ['AusLAMP', 'AusPass', 'Australian Geophysical Observing System', 'Earth Imaging Sounding AuScope'] },
+  { name: 'Earth imaging & sounding', terms: ['AusLAMP', 'AusPass', 'AusPass seismic', 'Australian Geophysical Observing System', 'Earth Imaging Sounding AuScope'] },
   { name: 'Education & outreach', terms: ['Australian Seismometers in Schools', 'Outreach Engagement AuScope'] },
   { name: 'AVRE & data systems', terms: ['AuScope Discovery Portal', 'AVRE AuScope', 'AuScope Virtual Research Environment', 'Research Data Systems AuScope', 'Australian Scalable Drone Cloud'] },
   { name: 'AuScope (general)', terms: ['AuScope', 'International Collaboration AuScope', 'Earth Composition Evolution AuScope', 'Earth Sampling AuScope', 'Geophysics2030'] }

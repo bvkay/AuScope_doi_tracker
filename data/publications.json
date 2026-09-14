@@ -2,7 +2,7 @@
   "metadata": {
     "type": "publications",
     "last_updated": "2026-09-14T12:47:10.087Z",
-    "total_count": 2811,
+    "total_count": 2796,
     "evidence_updated": "2026-08-30T08:24:33.026Z",
     "consolidated": "2026-09-01T00:57:57.015Z",
     "dates_enriched": "2026-09-14T10:13:28.053Z"
@@ -13885,29 +13885,6 @@
       "publicationDate": "2008-01-01"
     },
     {
-      "doi": "10.18452/15060",
-      "title": "Die emotionale Verarbeitung und Akzeptanz des medikamentösen Schwangerschaftsabruches mit Mifepriston (Mifegyne®)",
-      "authors": "Anke Hemmerling",
-      "journal": "edoc Publication server (Humboldt University of Berlin)",
-      "publisher": "Humboldt-Universität zu Berlin",
-      "year": 2004,
-      "cited": 0,
-      "type": "dissertation",
-      "isOA": "Yes",
-      "subject": "Complementary and Alternative Medicine Studies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 1,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2004-07-28"
-    },
-    {
       "doi": "10.1016/j.chemgeo.2025.123092",
       "title": "Volcanoes to vugs: Demonstrating a FAIR geochemistry framework with a diverse application of major and trace element data through the AuScope EarthBank platform",
       "authors": "Angus Nixon; Samuel Boone; Yoann Gréau; Fabian Kohlmann; Moritz Theile; Wayne Noble; Alexander Prent; John Foden; Steven S. Barnes; Ashlea N. Wainwright; Benjamin P. Wade; Karsten Goemann; Sarah C. Gilbert; Noreen J. Evans; Hayden Dalton; Bryant Ware; Brent McInnes",
@@ -18136,27 +18113,6 @@
       "publicationDate": "2016-05-11"
     },
     {
-      "doi": "10.1186/1467-4866-7-10",
-      "title": "Enhanced diffusion of uranium and thorium linked to crystal plasticity in zircon.",
-      "authors": "Nicholas E Timms; Peter D Kinny; Steven M Reddy",
-      "journal": "Geochemical Transactions",
-      "publisher": "Springer Science and Business Media LLC",
-      "year": 2006,
-      "cited": 86,
-      "type": "journal article",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
-      "sources": [
-        "Europe PMC"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2006-12-01"
-    },
-    {
       "doi": "10.1130/b38303.1",
       "title": "Crustal exhumation in the Georgetown Inlier of NE Australia after 1.6 Ga Nuna assembly: New insights from Ar thermochronology",
       "authors": "Jiangyu Li; Zheng-Xiang Li; Amaury Pourteau; F. Jourdan; Silvia Volante; Adam Nordsvan; William J. Collins; H. K. H. Olierook",
@@ -19302,105 +19258,6 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "publicationDate": "2009-02-16"
-    },
-    {
-      "doi": "10.1130/g21485ar.1",
-      "title": "Amazonian Mesoproterozoic basement in the core of the Ibero-Armorican Arc: 40Ar/39Ar detrital mica ages complement the zircon's tale",
-      "authors": "Gabriel Gutiérrez‐Alonso; Javier Fernández‐Suárez; Alan S. Collins; Isabel Abad; Fernando Nieto",
-      "journal": "Geology",
-      "publisher": "Geological Society of America",
-      "year": 2005,
-      "cited": 69,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide; Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Western Australia Argon Isotope Facility"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Universidad de Salamanca",
-        "Universidad Complutense de Madrid",
-        "University of Adelaide",
-        "Universidad de Jaén",
-        "Universidad de Granada"
-      ],
-      "countries": [
-        "ES",
-        "AU"
-      ],
-      "authorCount": 5,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2005-08-01"
-    },
-    {
-      "doi": "10.1016/j.jafrearsci.2004.07.052",
-      "title": "Heterogeneous excess argon and Neoproterozoic heating in the Usagaran Orogen, Tanzania, revealed by single grain 40Ar/39Ar thermochronology",
-      "authors": "Steven M. Reddy; Alan S. Collins; Craig Buchan; A. H. Mruma",
-      "journal": "Journal of African Earth Sciences",
-      "publisher": "Elsevier BV",
-      "year": 2004,
-      "cited": 30,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Western Australia Argon Isotope Facility"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Curtin University",
-        "University of Dar es Salaam"
-      ],
-      "countries": [
-        "AU",
-        "TZ"
-      ],
-      "authorCount": 4,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2004-06-01"
-    },
-    {
-      "doi": "10.26749/rstpp.138.11",
-      "title": "A Cretaceous phonolite dyke from the Tomahawk River, northeast Tasmania",
-      "authors": "JL Everard; FL Sutherland; Horst Zwingmann",
-      "journal": "Papers and proceedings of the Royal Society of Tasmania",
-      "publisher": "",
-      "year": 2004,
-      "cited": 3,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geological formations and processes; Geological and Geochemical Analysis; Geological and Geophysical Studies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Western Australia Argon Isotope Facility"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Curtin University",
-        "Mineral Resources",
-        "University of Tasmania",
-        "Australian Museum",
-        "Tasmanian Land Conservancy",
-        "Commonwealth Scientific and Industrial Research Organisation"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "authorCount": 3,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2004-01-01"
     },
     {
       "doi": "10.1130/ges02602.1",
@@ -21459,103 +21316,6 @@
       "publicationDate": "2009-12-19"
     },
     {
-      "doi": "10.1051/0004-6361:20035855",
-      "title": "A general catalogue of 6.7-GHz methanol masers",
-      "authors": "M. R. Pestalozzi; V. Minier; R. S. Booth",
-      "journal": "Astronomy and Astrophysics",
-      "publisher": "EDP Sciences",
-      "year": 2005,
-      "cited": 209,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysics and Star Formation Studies; Astronomy and Astrophysical Research; Galaxies: Formation, Evolution, Phenomena",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Mt Pleasant VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Chalmers University of Technology",
-        "CEA Paris-Saclay",
-        "DSM (Netherlands)",
-        "Commissariat à l'Énergie Atomique et aux Énergies Alternatives"
-      ],
-      "countries": [
-        "SE",
-        "FR",
-        "NL"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2005-03-01"
-    },
-    {
-      "doi": "10.1071/as03023",
-      "title": "Variability in GPS Sources",
-      "authors": "D. L. Jauncey; Edward King; Hayley Bignall; J. E. J. Lovell; Lucyna Kedziora‐Chudczer; A. K. Tzioumis; S. J. Tingay; Jean‐Pierre Macquart; P. M. McCulloch",
-      "journal": "Publications of the Astronomical Society of Australia",
-      "publisher": "Cambridge University Press",
-      "year": 2003,
-      "cited": 19,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysics and Cosmic Phenomena; GNSS positioning and interference; Radio Astronomy Observations and Technology",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Mt Pleasant VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Commonwealth Scientific and Industrial Research Organisation",
-        "Australia Telescope National Facility",
-        "University of Adelaide",
-        "University of Groningen",
-        "University of Tasmania"
-      ],
-      "countries": [
-        "AU",
-        "NL"
-      ],
-      "authorCount": 9,
-      "evidence": "keyword",
-      "publicationDate": "2013-03-05"
-    },
-    {
-      "doi": "10.1017/s0252921100044936",
-      "title": "A VLBI Survey of 461 Southern Flat Spectrum Sources",
-      "authors": "E. A. King; J. E. J. Lovell; S. P. Ellingsen; M. E. Costa; P. M. McCulloch; J. E. Reynolds; D. L. Jauncey",
-      "journal": "International Astronomical Union Colloquium",
-      "publisher": "Cambridge University Press",
-      "year": 1998,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Radio Astronomy Observations and Technology; Geophysics and Gravity Measurements; GNSS positioning and interference",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Mt Pleasant VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Australia Telescope National Facility",
-        "Institute of Space and Astronautical Science",
-        "University of Tasmania"
-      ],
-      "countries": [
-        "AU",
-        "JP"
-      ],
-      "authorCount": 7,
-      "evidence": "keyword",
-      "publicationDate": "2016-04-12"
-    },
-    {
       "doi": "10.22541/essoar.176790173.31128656/v1",
       "title": "Ambient Noise Tomography beneath the Banda Basin reveals new insights into the Arc-Continent Collision Zone",
       "authors": "Hoang Anh Nguyen; Daniel Manu-Marfo; Abdelkrim Aoudia",
@@ -21650,37 +21410,6 @@
       "evidence": "candidate",
       "evidenceDetail": "watchlist ORCID + partner co-affiliation",
       "publicationDate": "2025-12-01"
-    },
-    {
-      "doi": "10.1101/2025.11.18.25339671",
-      "title": "Gait Analysis for Thigh-Worn Accelerometry A Data Processing Pipeline using Data-Driven Approaches",
-      "authors": "Claas Lendt; Martin Grimmer; Ingo Froboese; Tom Stewart",
-      "journal": "medRxiv",
-      "publisher": "openRxiv",
-      "year": 2025,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Balance, Gait, and Falls Prevention; Context-Aware Activity Recognition Systems; Gait Recognition and Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AusPass"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "German Sport University Cologne",
-        "Technische Universität Darmstadt",
-        "Auckland University of Technology"
-      ],
-      "countries": [
-        "DE",
-        "NZ"
-      ],
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2025-11-19"
     },
     {
       "doi": "10.26443/seismica.v4i2.1738",
@@ -26871,52 +26600,6 @@
       "publicationDate": "2026-01-13"
     },
     {
-      "doi": "10.5758/vsi.250023",
-      "title": "Clinical Practice Guidelines of the Korean Society for Vascular Surgery for the Management of Abdominal Aortic Aneurysms: Focused on 18 Key Clinical Questions",
-      "authors": "Hyangkyoung Kim; Ahram Han; Minsu Noh; Kyunghak Choi; Sang Jun Park; S. K. Ahn; Chanjoong Choi; Miju Bae; Shin-Seok Yang; Sungsin Cho; Hyunmin Ko; hyokee kim; Eol Choi; Eunae Byun; Woo‐Sung Yun; K. Velhagen jun.",
-      "journal": "Vascular Specialist International",
-      "publisher": "Medrang",
-      "year": 2026,
-      "cited": 1,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Aortic aneurysm repair treatments; Cardiac, Anesthesia and Surgical Outcomes; Aortic Disease and Treatment Approaches",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "GPlates"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Korea University Medical Center",
-        "Ewha Womans University Medical Center",
-        "Korea University",
-        "Seoul National University Hospital",
-        "Ulsan College",
-        "University of Ulsan",
-        "Ulsan University Hospital",
-        "Dr Youth Clinic",
-        "Pusan National University Hospital",
-        "Samsung Medical Center",
-        "Sungkyunkwan University",
-        "Kyung Hee University Hospital at Gangdong",
-        "Chung-Ang University Hospital",
-        "Soonchunhyang University",
-        "Bucheon University",
-        "Kyungpook National University Hospital",
-        "The Catholic University of Korea Bucheon St. Mary's Hospital"
-      ],
-      "countries": [
-        "KR",
-        "JP"
-      ],
-      "authorCount": 16,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "publicationDate": "2026-01-07"
-    },
-    {
       "doi": "10.1007/s13137-025-00280-5",
       "title": "A robust matrix-free approach for large-scale non-isothermal high-contrast viscosity Stokes flow on blended domains with applications to geophysics",
       "authors": "Andreas Burkhart; Nils Kohl; Barbara Wohlmuth; Jan Zawallich",
@@ -31261,28 +30944,6 @@
       "publicationDate": "2013-09-25"
     },
     {
-      "doi": "10.1042/bj3230489",
-      "title": "Promotion-resistant JB6 mouse epidermal cells exhibit defects in phosphatidylethanolamine synthesis and phorbol ester-induced phosphatidylcholine hydrolysis.",
-      "authors": "Z Kiss; B Guyer; Z Dong",
-      "journal": "Biochemical Journal",
-      "publisher": "Portland Press Ltd.",
-      "year": 1997,
-      "cited": 4,
-      "type": "journal article",
-      "isOA": "No",
-      "subject": "Cell Line; Tumor Cells, Cultured; Animals",
-      "sources": [
-        "Europe PMC"
-      ],
-      "searchTerms": [
-        "GPlates"
-      ],
-      "dateAdded": "2026-03-24",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "publicationDate": "1997-04-15"
-    },
-    {
       "doi": "10.21203/rs.3.rs-5102982/v1",
       "title": "Magnetostratigraphic resolution of the late Ediacaran paleomagnetic enigma",
       "authors": "James Pierce; David Evans; Dana Polomski; Nasrrddine Youbi; Mohamed Mediany; Jihane Ounar; Rachid Oukhro; Moulay Ahmed Boumehdi; Justin Strauss; Brenhin Keller; Andreas Gärtner; Maria Ovtcharova; Joern Wotzlaw; Ulf Linnemann",
@@ -32571,59 +32232,6 @@
       "evidence": "text-software",
       "evidenceDetail": "text scan (tier3)",
       "publicationDate": "2022-09-19"
-    },
-    {
-      "doi": "10.1186/s13034-021-00370-w",
-      "title": "Child witchcraft confessions as an idiom of distress in Sierra Leone; results of a rapid qualitative inquiry and recommendations for mental health interventions.",
-      "authors": "Hélène N C Yoder; Joop T V M de Jong; Wietse A Tol; Joshua A Duncan; Amjata Bayoh; Ria Reis",
-      "journal": "Child and Adolescent Psychiatry and Mental Health",
-      "publisher": "Springer Science and Business Media LLC",
-      "year": 2021,
-      "cited": 7,
-      "type": "journal article",
-      "isOA": "Yes",
-      "subject": "Sierra Leone; Child And Adolescent Mental Health; Child Idiom Of Distress",
-      "sources": [
-        "Europe PMC"
-      ],
-      "searchTerms": [
-        "Underworld2"
-      ],
-      "dateAdded": "2026-03-24",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "publicationDate": "2021-04-09"
-    },
-    {
-      "doi": "10.3390/su18020806",
-      "title": "The Concept of Multifunctional Social Spaces as a High-Quality Intergenerational Premise: Sustainable Environmental Education Impetus",
-      "authors": "Dmitry Radushinsky; Alexandra I. Radushinskaya; E E Smirnova",
-      "journal": "Sustainability",
-      "publisher": "Multidisciplinary Digital Publishing Institute",
-      "year": 2026,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Environmental Education and Sustainability; Educational Environments and Student Outcomes; Sustainability in Higher Education",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "G-Adopt geodynamic"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Saint Petersburg Mining University",
-        "St Petersburg University",
-        "Russian Scientific Center \"Applied Chemistry\""
-      ],
-      "countries": [
-        "RU"
-      ],
-      "authorCount": 3,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "publicationDate": "2026-01-13"
     },
     {
       "doi": "10.1093/gji/ggaf026",
@@ -50122,8 +49730,9 @@
         "GB"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "keyword",
-      "publicationDate": "2021-10-23"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2021-10-23",
+      "evidenceDetail": "manual override: \"The seismometer used in this study is a part of The Australian Seismometers in Schools Network\" — AuSIS station data used alongside DAS"
     },
     {
       "doi": "10.59350/jwred-p0t13",
@@ -72371,101 +71980,6 @@
       "publicationDate": "2026-06-25"
     },
     {
-      "doi": "10.1136/bjsports-2025-111283",
-      "title": "Prospective Physical Activity, Sitting and Sleep consortium (ProPASS): addressing methodological and geographical barriers to inform global public health guidelines, interventions and precision medicine",
-      "authors": "Emmanuel Stamatakis; Nicholas A. Koemel; John J. Mitchell; Andrew J. Atkin; Richard Pulsford; Kar Hau Chong; Vegar Rangul; Joanna M Blodgett; Raaj Kishore Biswas; Carlos Celis‐Morales; Lauren Sherar; G. Mishra; Joanne McVeigh; Marla Beauchamp; Sebastián Jannas-Vela; Christina Bjørk Petersen; Mette Korshøj; Mette Aadahl; Randi Jepsen; Laura Karavirta; Sari Stenholm; Sèverine Sabia; David Richter; Peter A. Cistulli; Timothy Chi-Yui Kwok; Yuta Nemoto; D H J Thijssen; Thijs M.H. Eijsvogels; Paul Jarle Mork; Abdulrahman I. Alaqil; Falk Müller‐Riemenschneider; Lisa Micklesfield; Katia Gallegos-Carrillo; Gianluca Severi; Parminder Raina; Verónica Cabanas‐Sánchez; Amal Wanigatunga; Eleanor M Simonsick; Jennifer A Schrack; Daniel Gallardo‐Gómez; Esmée A. Bakker; Andreas Holtermann; I‐Min Lee; Borja del Pozo Cruz; Annemarie Koster; Matthew Ahmadi; Mark Hamer",
-      "journal": "British Journal of Sports Medicine",
-      "publisher": "BMJ",
-      "year": 2026,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Physical Activity and Health; Mobile Health and mHealth Applications; Health Promotion and Cardiovascular Prevention",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AusPass"
-      ],
-      "authorCount": 47,
-      "institutions": [
-        "The University of Sydney",
-        "Monash University",
-        "National Institute for Health and Care Research",
-        "University College London",
-        "University of East Anglia",
-        "University of Exeter",
-        "Norwegian University of Science and Technology",
-        "Catholic University of the Maule",
-        "University of Glasgow",
-        "Loughborough University",
-        "The University of Queensland",
-        "Curtin University",
-        "McMaster University",
-        "University of O'Higgins",
-        "University of Southern Denmark",
-        "Copenhagen University Hospital",
-        "Frederiksberg Hospital",
-        "Center for Clinical Research and Prevention",
-        "Region Zealand",
-        "Zealand University Hospital",
-        "University of Jyväskylä",
-        "University of Turku",
-        "Turku University Hospital",
-        "Inserm",
-        "Université Paris Cité",
-        "Sorbonne Paris Cité",
-        "Centre de Recherche Épidémiologie et Statistique",
-        "Hong Kong Polytechnic University",
-        "Chinese University of Hong Kong",
-        "Kanagawa University of Human Services",
-        "Radboud University Nijmegen",
-        "Radboud University Medical Center",
-        "King Faisal University",
-        "National University of Singapore",
-        "National University Health System",
-        "University of the Witwatersrand",
-        "Mexican Social Security Institute",
-        "Université de Versailles Saint-Quentin-en-Yvelines",
-        "Université Paris-Saclay",
-        "Centre de recherche en Epidémiologie et Santé des Populations",
-        "Centro de Investigación Biomédica en Red de Epidemiología y Salud Pública",
-        "Universidad Autónoma de Madrid",
-        "Johns Hopkins University",
-        "National Institute on Aging",
-        "Universidad de Sevilla",
-        "National Research Centre for the Working Environment",
-        "Brigham and Women's Hospital",
-        "Harvard University",
-        "Universidad Europea de Madrid",
-        "Maastricht University",
-        "Department of Health"
-      ],
-      "countries": [
-        "AU",
-        "GB",
-        "NO",
-        "CL",
-        "CA",
-        "DK",
-        "FI",
-        "FR",
-        "HK",
-        "JP",
-        "NL",
-        "SA",
-        "SG",
-        "ZA",
-        "MX",
-        "ES",
-        "US",
-        "TW"
-      ],
-      "dateAdded": "2026-06-28",
-      "evidence": "keyword",
-      "publicationDate": "2026-06-22"
-    },
-    {
       "doi": "10.1038/s41598-026-46309-z",
       "title": "A user-friendly online tool for paleocoordinate calculation and 3D visualization.",
       "authors": "Noa Scholz-Murcia; Alejandro Rodríguez-Mena; Víctor Madarnás-Gómez; Antonio Monleón-Getino",
@@ -76402,30 +75916,6 @@
       "dateAdded": "2026-08-30",
       "evidence": "keyword",
       "publicationDate": "2017-04-03"
-    },
-    {
-      "doi": "10.1042/0264-6021:3570457",
-      "title": "Platelet-activating factor acetylhydrolase and transacetylase activities in human plasma low-density lipoprotein.",
-      "authors": "D C Tsoukatos; T A Liapikos; A D Tselepis; M J Chapman; E Ninio",
-      "journal": "Biochemical Journal",
-      "publisher": "Portland Press Ltd.",
-      "year": 2001,
-      "cited": 28,
-      "type": "journal article",
-      "isOA": "No",
-      "subject": "Humans; Phospholipases A; 1-Alkyl-2-acetylglycerophosphocholine Esterase",
-      "sources": [
-        "Europe PMC"
-      ],
-      "searchTerms": [
-        "GPlates"
-      ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-08-30",
-      "evidence": "keyword",
-      "publicationDate": "2001-07-15"
     },
     {
       "doi": "10.5281/zenodo.20616618",
