@@ -554,6 +554,13 @@ Only substantive changes — the git history has the rest.
   does non-VLBI Yarragadee site use count?); Mt Pleasant 26m astronomy
   kept keyword pending the same call. Era rule: min_year is now 2007
   (AuScope's establishment) — pre-2007 records removed.
+- **Keyword-in-context verifier** (src/verify-keywords.js, weekly,
+  15 Sep): for keyword-tier records with OA full text in Europe PMC,
+  records WHERE each term occurs (ack/body/reference list) + snippet +
+  PMCID. Flags referenceOnly / ackMention / notFound for review — never
+  auto-acts. EPMC covers little geoscience (~6% of a 100-record sample),
+  so this drains the OA slice; reviews and the recall check carry the
+  rest. State: data/keyword-context.json.
 - **Data-citation harvest** (src/data-citations.js, weekly): papers
   citing any of the 239 dataset DOIs (EarthBank / AusPass networks /
   NCI / NVCL) join the corpus tagged '<Platform> data citation' and
