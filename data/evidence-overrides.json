@@ -785,6 +785,71 @@
       "action": "grade",
       "evidence": "text-infrastructure",
       "reason": "Downloaded the thesis front matter from the University of Adelaide DSpace repository (item 2440/111944, Alison Louise Kirkby, 'The resistivity and permeability of fractured rocks') [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.6084/m9.figshare.32101921",
+      "action": "remove",
+      "reason": "figshare flood-geology preprint deposit, not a research publication (Ben, 15 Sep 2026) [deposit/supplement review]"
+    },
+    {
+      "doi": "10.6084/m9.figshare.32146135",
+      "action": "remove",
+      "reason": "figshare flood-geology preprint deposit (duplicate variant), not a research publication (Ben, 15 Sep 2026) [deposit/supplement review]"
+    },
+    {
+      "doi": "10.5281/zenodo.18528712",
+      "action": "remove",
+      "reason": "Data S3-S5 supplement deposit for a paper, not a publication (Ben, 15 Sep 2026) [deposit/supplement review]"
+    },
+    {
+      "doi": "10.6084/m9.figshare.31021144",
+      "action": "remove",
+      "reason": "Supplementary-information component of a submitted paper, not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.1130/geol.s.30651320",
+      "action": "remove",
+      "reason": "GSA Supplemental Material component DOI, not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.1130/geol.s.24944901",
+      "action": "remove",
+      "reason": "GSA Supplemental Material component DOI, not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.1130/geol.s.21644681",
+      "action": "remove",
+      "reason": "GSA Supplemental Material component DOI, not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.1130/geol.s.20465538.v1",
+      "action": "remove",
+      "reason": "GSA Supplemental Material component DOI, not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.1130/geol.s.19879795",
+      "action": "remove",
+      "reason": "GSA Supplemental Material component DOI, not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.6084/m9.figshare.1574004.v1",
+      "action": "remove",
+      "reason": "figshare slide/poster deposit (Curtin library), not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.6084/m9.figshare.1399430.v1",
+      "action": "remove",
+      "reason": "figshare slide/poster deposit (Curtin library), not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.6084/m9.figshare.1495336.v1",
+      "action": "remove",
+      "reason": "figshare slide/poster deposit (Curtin library), not a publication [deposit/supplement review]"
+    },
+    {
+      "doi": "10.6084/m9.figshare.763139.v1",
+      "action": "remove",
+      "reason": "figshare slide/poster deposit (Curtin library), not a publication [deposit/supplement review]"
     }
   ]
 }

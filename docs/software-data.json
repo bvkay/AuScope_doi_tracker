@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T22:35:31.522Z",
+  "generated": "2026-09-14T23:10:46.802Z",
   "records": [
     {
       "name": "GPlates",
@@ -10,7 +10,7 @@
         "GPlately",
         "gplates-python"
       ],
-      "publications": 234,
+      "publications": 232,
       "citations": 6787,
       "earliestYear": 2013,
       "latestYear": 2026,
@@ -76,15 +76,6 @@
           "year": 2026,
           "journal": "Science Advances",
           "cited": 1,
-          "oa": true
-        },
-        {
-          "doi": "10.5281/zenodo.18528712",
-          "title": "Data S3, S4, S5 for Phanerozoic Continental Magmatism: Linking Spatiotemporal Evolution, Isotopic Composition, and Chemical Weathering",
-          "authors": "Wenrong Cao",
-          "year": 2026,
-          "journal": "Open MIND",
-          "cited": 0,
           "oa": true
         },
         {
@@ -293,15 +284,6 @@
           "journal": "Journal of African Earth Sciences",
           "cited": 0,
           "oa": false
-        },
-        {
-          "doi": "10.6084/m9.figshare.31021144",
-          "title": "Supplementary Information to van Hinsbergen et al., PLoS One (submitted, 2026)",
-          "authors": "D. J. van Hinsbergen",
-          "year": 2026,
-          "journal": "Figshare",
-          "cited": 0,
-          "oa": true
         },
         {
           "doi": "10.5194/egusphere-egu26-12622",
@@ -2130,7 +2112,7 @@
         "Underworld 2",
         "Underworld geodynamics"
       ],
-      "publications": 51,
+      "publications": 46,
       "citations": 178,
       "earliestYear": 2022,
       "latestYear": 2026,
@@ -2250,15 +2232,6 @@
           "year": 2025,
           "journal": "Science Advances",
           "cited": 4,
-          "oa": true
-        },
-        {
-          "doi": "10.1130/geol.s.30651320",
-          "title": "Supplemental Material: Strain controls the electrical conductivity distribution in the lithosphere",
-          "authors": "Sinan Özaydın; et al.",
-          "year": 2025,
-          "journal": "",
-          "cited": 0,
           "oa": true
         },
         {
@@ -2394,15 +2367,6 @@
           "year": 2024,
           "journal": "Geophysical Research Letters",
           "cited": 6,
-          "oa": true
-        },
-        {
-          "doi": "10.1130/geol.s.24944901",
-          "title": "Supplemental Material: Correlating mantle cooling with tectonic transitions on early Earth",
-          "authors": "Prasanna Mahesh Gunawardana; Priyadarshi Chowdhury; et al.",
-          "year": 2024,
-          "journal": "",
-          "cited": 0,
           "oa": true
         },
         {
@@ -2556,33 +2520,6 @@
           "year": 2022,
           "journal": "Journal of Geophysical Research Solid Earth",
           "cited": 9,
-          "oa": true
-        },
-        {
-          "doi": "10.1130/geol.s.19879795",
-          "title": "Supplemental Material: Crustal transpressional fault geometry influenced by viscous lower crustal flow",
-          "authors": "Haibin Yang; et al.",
-          "year": 2022,
-          "journal": "",
-          "cited": 0,
-          "oa": true
-        },
-        {
-          "doi": "10.1130/geol.s.20465538.v1",
-          "title": "Supplemental Material: Orogenic belt resulting from ocean-continent collision",
-          "authors": "Jun-Hong Zhao; et al.",
-          "year": 2022,
-          "journal": "",
-          "cited": 0,
-          "oa": true
-        },
-        {
-          "doi": "10.1130/geol.s.21644681",
-          "title": "Supplemental Material: The role of surface processes in basin inversion and breakup unconformity",
-          "authors": "Luke Mondy; Patrice Rey; et al.",
-          "year": 2022,
-          "journal": "",
-          "cited": 0,
           "oa": true
         },
         {

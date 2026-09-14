@@ -70,6 +70,26 @@ function run() {
     tier3: 'text-software'
   };
 
+  // Keyword-in-context verification (src/verify-keywords.js): a software
+  // term verified in the paper's BODY or ACKNOWLEDGMENTS (not merely the
+  // reference list) is a confirmed software use — the same judgment
+  // facility-names.json tier3 encodes, backed by read fulltext. EarthByte
+  // is deliberately absent (AuScope funds GPlates, not EarthByte outputs).
+  const SOFTWARE_LABELS = ['GPlates', 'Underworld2', 'G-Adopt geodynamic'];
+  const softwareInText = {}; // doi -> 'GPlates (body)' etc.
+  const kwCtx = (readJson(path.join(DATA_DIR, 'keyword-context.json'), { results: {} }).results) || {};
+  Object.entries(kwCtx).forEach(function(pair) {
+    const r = pair[1];
+    if (r.status !== 'checked') return;
+    for (const label of SOFTWARE_LABELS) {
+      const t = (r.terms || {})[label];
+      if (t && (t.ack > 0 || t.body > 0)) {
+        softwareInText[pair[0]] = label + ' (' + (t.ack > 0 ? 'acknowledgments' : 'body') + ')';
+        break;
+      }
+    }
+  });
+
   // Data citations (src/data-citations.js): papers that formally cite an
   // AuScope dataset DOI (EarthBank, AusPass network, NCI, NVCL). Machine-
   // verifiable infrastructure use — grades text-infrastructure, outranked
@@ -123,6 +143,9 @@ function run() {
     } else if (TIER_EVIDENCE[tierMap[k]]) {
       evidence = TIER_EVIDENCE[tierMap[k]];
       detail = 'text scan (' + tierMap[k] + ')';
+    } else if (softwareInText[k]) {
+      evidence = 'text-software';
+      detail = 'software use verified in full text: ' + softwareInText[k];
     } else {
       evidence = 'keyword';
       detail = '';

@@ -2,8 +2,8 @@
   "metadata": {
     "type": "publications",
     "last_updated": "2026-09-14T22:14:52.794Z",
-    "total_count": 2782,
-    "evidence_updated": "2026-09-14T22:21:35.587Z",
+    "total_count": 2769,
+    "evidence_updated": "2026-09-14T23:10:37.010Z",
     "consolidated": "2026-09-14T22:21:35.717Z",
     "dates_enriched": "2026-09-14T22:14:53.765Z"
   },
@@ -30138,32 +30138,6 @@
       "publicationDate": "2025-11-18"
     },
     {
-      "doi": "10.1130/geol.s.30651320",
-      "title": "Supplemental Material: Strain controls the electrical conductivity distribution in the lithosphere",
-      "authors": "Sinan Özaydın; et al.",
-      "journal": "",
-      "publisher": "Geological Society of America",
-      "year": 2025,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Earthquake Detection and Analysis; Advanced Materials and Semiconductor Technologies; Ferroelectric and Piezoelectric Materials",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Underworld2"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 2,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "relatedDois": [
-        "10.1130/geol.s.30651320.v1"
-      ],
-      "publicationDate": "2025-11-18"
-    },
-    {
       "doi": "10.5194/egusphere-2025-5403",
       "title": "Simplified modeling of the impact of lithospheric-scale geological processes on thermal histories and low-temperature thermochronometers",
       "authors": "Dawn A. Kellett; David Whipp",
@@ -30682,41 +30656,6 @@
       "publicationDate": "2024-01-12"
     },
     {
-      "doi": "10.1130/geol.s.24944901",
-      "title": "Supplemental Material: Correlating mantle cooling with tectonic transitions on early Earth",
-      "authors": "Prasanna Mahesh Gunawardana; Priyadarshi Chowdhury; et al.",
-      "journal": "",
-      "publisher": "Geological Society of America",
-      "year": 2024,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological Studies and Exploration",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Underworld2"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Monash University",
-        "Homi Bhabha National Institute",
-        "National Institute of Science Education and Research"
-      ],
-      "countries": [
-        "AU",
-        "IN"
-      ],
-      "authorCount": 3,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "relatedDois": [
-        "10.1130/geol.s.24944901.v1"
-      ],
-      "publicationDate": "2024-01-04"
-    },
-    {
       "doi": "10.22541/essoar.170224480.07642827/v1",
       "title": "Ice Modeling Indicates Formation Mechanisms of Large-scale Folding in Greenland's Ice Sheet",
       "authors": "Yu Zhang; Till Sachau; Steven Franke; Haibin Yang; Dian Li; Ilka Weikusat; Paul D. Bons",
@@ -31053,91 +30992,6 @@
       "evidence": "text-software",
       "evidenceDetail": "text scan (tier3)",
       "publicationDate": "2022-12-05"
-    },
-    {
-      "doi": "10.1130/geol.s.21644681",
-      "title": "Supplemental Material: The role of surface processes in basin inversion and breakup unconformity",
-      "authors": "Luke Mondy; Patrice Rey; et al.",
-      "journal": "",
-      "publisher": "Geological Society of America",
-      "year": 2022,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Hydraulic Fracturing and Reservoir Analysis; Seismic Imaging and Inversion Techniques; Enhanced Oil Recovery Techniques",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Underworld2"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "University of Sydney"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "authorCount": 3,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "publicationDate": "2022-11-29"
-    },
-    {
-      "doi": "10.1130/geol.s.20465538.v1",
-      "title": "Supplemental Material: Orogenic belt resulting from ocean-continent collision",
-      "authors": "Jun-Hong Zhao; et al.",
-      "journal": "",
-      "publisher": "Geological Society of America",
-      "year": 2022,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Underworld2"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 2,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "publicationDate": "2022-08-10"
-    },
-    {
-      "doi": "10.1130/geol.s.19879795",
-      "title": "Supplemental Material: Crustal transpressional fault geometry influenced by viscous lower crustal flow",
-      "authors": "Haibin Yang; et al.",
-      "journal": "",
-      "publisher": "Geological Society of America",
-      "year": 2022,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "earthquake and tectonic studies; Seismology and Earthquake Studies; Seismic Imaging and Inversion Techniques",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Underworld2"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "University of Melbourne",
-        "Australian National University",
-        "Boğaziçi University",
-        "Kandilli Observatory and Earthquake Research Institute"
-      ],
-      "countries": [
-        "AU",
-        "TR"
-      ],
-      "authorCount": 2,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "publicationDate": "2022-05-25"
     },
     {
       "doi": "10.46690/ager.2022.03.04",
@@ -46746,83 +46600,6 @@
       "publicationDate": "2016-02-01"
     },
     {
-      "doi": "10.6084/m9.figshare.1574004.v1",
-      "title": "Major Open Data: The Digital Mineral Library at Curtin University",
-      "authors": "Matthias Liffers; Adam Brown; Brent McInnes",
-      "journal": "INDIGO (University of Illinois at Chicago)",
-      "publisher": "University of Illinois Chicago",
-      "year": 2015,
-      "cited": 1,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Image Processing and 3D Reconstruction",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope",
-        "AuScope Discovery Portal"
-      ],
-      "authorCount": 3,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2015-01-01"
-    },
-    {
-      "doi": "10.6084/m9.figshare.1399430.v1",
-      "title": "Digital Mineral Library",
-      "authors": "Brown Adam; Matthias Liffers; McInnes Brent",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2015,
-      "cited": 0,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Mining Techniques and Economics",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope",
-        "AuScope Discovery Portal"
-      ],
-      "authorCount": 3,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2015-01-01"
-    },
-    {
-      "doi": "10.6084/m9.figshare.1495336.v1",
-      "title": "Curtin Library Rocking the (meta)data",
-      "authors": "Green Peter",
-      "journal": "INDIGO (University of Illinois at Chicago)",
-      "publisher": "University of Illinois Chicago",
-      "year": 2015,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Research Data Management Practices; Geochemistry and Geologic Mapping; Image Processing and 3D Reconstruction",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2015-01-01"
-    },
-    {
       "doi": "10.13140/rg.2.1.3277.9360",
       "title": "ICRF-3: Roadmap to the next generation ICRF",
       "authors": "C. S. Jacobs; E. F. Arias; D. Boboltz; J. Boehm; S. Bolotin; G. Bourda; Patrick Charlot; A. de Witt; A. L. Fey; R. A. Gaume; Dorothy A. Gordon; Robert Heinkelmann; Sébastien Lambert; C. Ma; Zinovy Malkin; A. Nothnagel; M. Seitz; E. Skurikhina; Jean Souchay; Oleg Titov",
@@ -46875,31 +46652,6 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "publicationDate": "2015-01-01"
-    },
-    {
-      "doi": "10.6084/m9.figshare.763139.v1",
-      "title": "Software Reuse targeted at community developed simulation models",
-      "authors": "Steve Quenette; Moresi Louis",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2013,
-      "cited": 0,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Scientific Computing and Data Management",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope"
-      ],
-      "authorCount": 2,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2013-01-01"
     },
     {
       "doi": "10.59350/2e7kf-wjz12",
@@ -49297,68 +49049,6 @@
       "evidence": "text-software",
       "evidenceDetail": "text scan (tier3)",
       "publicationDate": "2026-02-10"
-    },
-    {
-      "doi": "10.5281/zenodo.18528712",
-      "title": "Data S3, S4, S5 for Phanerozoic Continental Magmatism: Linking Spatiotemporal Evolution, Isotopic Composition, and Chemical Weathering",
-      "authors": "Wenrong Cao",
-      "journal": "Open MIND",
-      "publisher": "",
-      "year": 2026,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geological Studies and Exploration; Paleontology and Stratigraphy of Fossils",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "GPlates"
-      ],
-      "authorCount": 1,
-      "institutions": [
-        "University of Nevada, Reno"
-      ],
-      "countries": [
-        "US"
-      ],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "relatedDois": [
-        "10.5281/zenodo.18528713"
-      ],
-      "publicationDate": "2026-02-08"
-    },
-    {
-      "doi": "10.6084/m9.figshare.31021144",
-      "title": "Supplementary Information to van Hinsbergen et al., PLoS One (submitted, 2026)",
-      "authors": "D. J. van Hinsbergen",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2026,
-      "cited": 0,
-      "type": "other",
-      "isOA": "Yes",
-      "subject": "",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "GPlates"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
-      "relatedDois": [
-        "10.6084/m9.figshare.31021144.v1",
-        "10.6084/m9.figshare.31021144.v2",
-        "10.6084/m9.figshare.31021144.v3"
-      ],
-      "publicationDate": "2026-01-07"
     },
     {
       "doi": "10.31223/x5n760",
@@ -69474,36 +69164,6 @@
       "publicationDate": "2026-04-27"
     },
     {
-      "doi": "10.6084/m9.figshare.32101921",
-      "title": "Catastrophic Plate Tectonics in Orbital Time: A 19-Point Kinematic Reconstruction of the Anatolian Block, Adria, and the Levantine Margin from the Flood to the Present Final",
-      "authors": "Ian Shears",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2026,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; earthquake and tectonic studies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "GPlates"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-05-03",
-      "evidence": "keyword",
-      "relatedDois": [
-        "10.6084/m9.figshare.32101921.v4",
-        "10.6084/m9.figshare.32101921.v2",
-        "10.6084/m9.figshare.32101921.v3",
-        "10.6084/m9.figshare.32101921.v1"
-      ],
-      "publicationDate": "2026-04-26"
-    },
-    {
       "doi": "10.1371/journal.pone.0346817",
       "title": "Paleolatitude.org 3.0: A calculator for paleoclimate and paleobiology studies based on a new global paleogeography model.",
       "authors": "Douwe J J van Hinsbergen; Bram Vaes; Lydian M Boschman; Nalan Lom; Suzanna H.A. Lagemaat; Eldert L Advokaat; Sanne Baar; Menno R. T. Fraters (23811852); Joren Paridaens; Emilia B. Jarochowska (23811858)",
@@ -69631,39 +69291,6 @@
       "dateAdded": "2026-05-10",
       "evidence": "keyword",
       "publicationDate": "2026-05-04"
-    },
-    {
-      "doi": "10.6084/m9.figshare.32146135",
-      "title": "Catastrophic Plate Tectonics in Orbital Time:",
-      "authors": "Ian Shears",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2026,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Geological and Geophysical Studies Worldwide; Geology and Paleoclimatology Research; Geomagnetism and Paleomagnetism Studies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "GPlates"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-05-10",
-      "evidence": "keyword",
-      "relatedDois": [
-        "10.6084/m9.figshare.32146135.v4",
-        "10.6084/m9.figshare.32146135.v5",
-        "10.6084/m9.figshare.32146135.v3",
-        "10.6084/m9.figshare.32146135.v2",
-        "10.6084/m9.figshare.32146135.v1",
-        "10.6084/m9.figshare.32146135.v7",
-        "10.6084/m9.figshare.32146135.v6"
-      ],
-      "publicationDate": "2026-06-29"
     },
     {
       "doi": "10.1144/jgs2019-017",
@@ -76140,6 +75767,120 @@
       "dateAdded": "2026-09-14",
       "evidence": "text-infrastructure",
       "evidenceDetail": "cites AuScope dataset DOI: 10.25914/kf96-nb26"
+    },
+    {
+      "doi": "10.5194/egusphere-2023-53-rc1",
+      "title": "Comment on egusphere-2023-53",
+      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
+      "journal": "",
+      "publisher": "",
+      "year": 2023,
+      "cited": 0,
+      "type": "peer review",
+      "isOA": "Yes",
+      "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Methane Hydrates and Related Phenomena",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "The University of Sydney",
+        "University of Kansas",
+        "The University of Melbourne",
+        "AuScope",
+        "Planetary Science Institute",
+        "University of California, Los Angeles",
+        "Australian National University"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-09-14",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564"
+    },
+    {
+      "doi": "10.5194/egusphere-2023-53-rc2",
+      "title": "Comment on egusphere-2023-53",
+      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
+      "journal": "",
+      "publisher": "",
+      "year": 2023,
+      "cited": 0,
+      "type": "peer review",
+      "isOA": "Yes",
+      "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Methane Hydrates and Related Phenomena",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "The University of Sydney",
+        "University of Kansas",
+        "The University of Melbourne",
+        "AuScope",
+        "Planetary Science Institute",
+        "University of California, Los Angeles",
+        "Australian National University"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-09-14",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564"
+    },
+    {
+      "doi": "10.5194/egusphere-2023-53-ec1",
+      "title": "Associate Editor's Comment on egusphere-2023-53",
+      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
+      "journal": "",
+      "publisher": "",
+      "year": 2023,
+      "cited": 0,
+      "type": "peer review",
+      "isOA": "Yes",
+      "subject": "Geological formations and processes; Geology and Paleoclimatology Research; Methane Hydrates and Related Phenomena",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "The University of Sydney",
+        "University of Kansas",
+        "The University of Melbourne",
+        "AuScope",
+        "Planetary Science Institute",
+        "University of California, Los Angeles",
+        "Australian National University"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-09-14",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564"
     }
   ]
 }
