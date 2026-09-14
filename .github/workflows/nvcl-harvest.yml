@@ -14,6 +14,11 @@ on:
 permissions:
   contents: write
 
+# All four workflows push to main; one shared group serializes them.
+concurrency:
+  group: citation-pipeline
+  cancel-in-progress: false
+
 jobs:
   harvest:
     runs-on: ubuntu-latest
@@ -79,6 +84,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/nvcl/tsg-cache.jsonl data/nvcl/thredds-catalog.json data/nvcl-stats.json data/nvcl-history.jsonl docs/nvcl-data.json docs/stats-data.json docs/index.html docs/data.json docs/widget.html
+          # dashboard.js regenerates ALL the docs feeds — commit them together
+          # or Pages serves a fresh index.html against stale sibling feeds
+          git add data/nvcl/tsg-cache.jsonl data/nvcl/thredds-catalog.json data/nvcl-stats.json data/nvcl-history.jsonl docs/nvcl-data.json docs/stats-data.json docs/index.html docs/data.json docs/widget.html docs/publications-data.json docs/datasets-data.json docs/software-data.json
           git diff --cached --quiet || git commit -m "NVCL harvest $(date +%Y-%m-%d)"
+          git pull --rebase origin main
           git push

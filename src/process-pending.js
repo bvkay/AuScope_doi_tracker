@@ -55,7 +55,11 @@ async function run() {
     existingDois.add(normaliseDoi(rec.doi));
   }
 
-  // Process each pending DOI
+  // Process each pending DOI. A DOI whose metadata lookups fail is kept in
+  // the queue for the next run (an API outage must not eat submissions);
+  // after MAX_ATTEMPTS runs it is dropped as genuinely unresolvable.
+  const MAX_ATTEMPTS = 3;
+  const retained = [];
   const newItems = [];
   let skipped = 0;
   let errors = 0;
@@ -103,7 +107,13 @@ async function run() {
     }
 
     if (!meta && !oaMeta) {
-      console.log('no metadata found');
+      const attempts = (pending[i].attempts || 0) + 1;
+      if (attempts < MAX_ATTEMPTS) {
+        console.log('no metadata found — kept in queue (attempt ' + attempts + '/' + MAX_ATTEMPTS + ')');
+        retained.push(Object.assign({}, pending[i], { attempts: attempts }));
+      } else {
+        console.log('no metadata found after ' + attempts + ' runs — dropped');
+      }
       errors++;
       await sleep(200);
       continue;
@@ -124,6 +134,7 @@ async function run() {
       type: base.type || oa.type || '',
       isOA: (oa.isOA && oa.isOA !== 'Unknown') ? oa.isOA : (base.isOA || 'Unknown'),
       subject: oa.subject || base.subject || '',  // OpenAlex has better subjects
+      publicationDate: oa.publicationDate || undefined,
       sources: sources,
       searchTerms: ['Manual submission'],
       dateAdded: new Date().toISOString().slice(0, 10)
@@ -145,8 +156,8 @@ async function run() {
     console.log('\nAdded: ' + added + ', Updated: ' + updated);
   }
 
-  // Clear pending.json
-  fs.writeFileSync(PENDING_FILE, '[]');
+  // Clear processed entries; unresolved ones stay for the next run
+  fs.writeFileSync(PENDING_FILE, JSON.stringify(retained));
 
   console.log('\nSummary:');
   console.log('  Processed: ' + pending.length);
@@ -154,7 +165,9 @@ async function run() {
   console.log('  Already existed: ' + skipped);
   console.log('  No metadata found: ' + errors);
   console.log('  Total in database: ' + pubData.records.length);
-  console.log('\nPending queue cleared.');
+  console.log(retained.length > 0
+    ? '\nPending queue: ' + retained.length + ' unresolved kept for next run.'
+    : '\nPending queue cleared.');
 }
 
 run().catch(err => {

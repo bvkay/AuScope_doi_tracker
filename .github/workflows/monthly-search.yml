@@ -1,9 +1,14 @@
 name: Citation Search & DOI Processing
 
 on:
-  # Weekly full keyword search (Sundays 2am UTC)
+  # Weekly full keyword search (Sundays 2am UTC), with a Wednesday backup
+  # slot: OpenAlex rate-limits shared GitHub runner IPs in whole-run storms
+  # (every request 429s — see the 6 and 13 Sep 2026 failures), so a second
+  # weekly attempt gives the same idempotent run another draw from the IP
+  # pool rather than losing the whole week.
   schedule:
     - cron: '0 2 * * 0'
+    - cron: '0 2 * * 3'
 
   # Process pending DOIs, sheet decisions/overrides, or regenerate dashboard
   push:
@@ -27,17 +32,23 @@ on:
 
 permissions:
   contents: write
-  pages: write
+
+# Never let the Sunday and Wednesday slots (or a push-triggered run) overlap:
+# they read and write the same data files and both push to main.
+concurrency:
+  group: citation-pipeline
+  cancel-in-progress: false
 
 jobs:
   process-and-search:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       # Always process pending DOIs if any exist
       - name: Process pending DOIs
@@ -45,8 +56,13 @@ jobs:
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
         run: node src/process-pending.js
 
-      # Run full search on schedule, or if manually requested
+      # Run full search on schedule, or if manually requested.
+      # continue-on-error: an OpenAlex 429 storm must not stop the later
+      # stages (they degrade gracefully on stale inputs) or the commit of
+      # whatever this run DID gather. The final step re-surfaces the failure.
       - name: Run full keyword search
+        id: search
+        continue-on-error: true
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.run_search == 'true')
         env:
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
@@ -62,12 +78,22 @@ jobs:
       - name: Maintenance (dedup + metadata fill)
         run: node src/maintain.js
 
+      # Month-level publication dates for financial-year reporting
+      # (best-effort: exits 0 even when the APIs are unreachable)
+      - name: Publication dates
+        run: node src/enrich-dates.js
+
       # Apply human accept/reject decisions from the Google Sheet review queue
       - name: Review queue decisions
         run: node src/process-review-decisions.js
 
-      # Identifier-based verification (AuScope ROR / watchlist ORCIDs via OpenAlex)
+      # Identifier-based verification (AuScope ROR / watchlist ORCIDs via
+      # OpenAlex). Its internal guard already protects the verified file from
+      # an all-fetches-failed zero; continue-on-error keeps the rest of the
+      # pipeline (and the commit) alive when that guard trips.
       - name: Verified discovery
+        id: verified
+        continue-on-error: true
         run: node src/verified.js
 
       # Merge identifier + text evidence into the evidence ladder on publications.json
@@ -103,18 +129,42 @@ jobs:
         run: node src/update-project-mapping.js
 
       # Must run before the dashboard so explorer cards pick up fresh numbers.
+      # !cancelled(): regenerate docs from whatever data exists even when an
+      # upstream network stage hard-failed — keeps data/ and docs/ consistent.
       - name: Aggregate cross-pillar stats
+        if: ${{ !cancelled() }}
         run: node src/stats.js
 
       # Regenerate dashboard
       - name: Generate dashboard
+        if: ${{ !cancelled() }}
         run: node src/dashboard.js
 
-      # Commit and push all changes
+      # Commit and push all changes. !cancelled() (NOT always(), which would
+      # also run after a cancellation that may have SIGKILLed node mid-write)
+      # keeps the successful stages' output even when a later stage failed.
+      # Staged JSON is parse-checked first so a truncated file can never be
+      # committed. The rebase-before-push survives a race with the NVCL and
+      # seismic harvest workflows pushing to main mid-run.
       - name: Commit and push
+        if: ${{ !cancelled() }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ docs/
+          for f in $(git diff --cached --name-only --diff-filter=d -- '*.json'); do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" \
+              || { echo "::error::$f is not valid JSON — aborting commit"; exit 1; }
+          done
           git diff --cached --quiet || git commit -m "Update citations $(date +%Y-%m-%d)"
+          git pull --rebase origin main
           git push
+
+      # The fragile OpenAlex-dependent stages run with continue-on-error so
+      # their output still commits; re-surface their failure here so a
+      # rate-limited run is visibly red rather than silently degraded.
+      - name: Surface stage failures
+        if: steps.search.outcome == 'failure' || steps.verified.outcome == 'failure'
+        run: |
+          echo "::error::A pipeline stage failed this run (search: ${{ steps.search.outcome }}, verified: ${{ steps.verified.outcome }}). Its output was skipped but everything else was committed."
+          exit 1

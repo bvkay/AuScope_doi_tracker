@@ -20,32 +20,9 @@
 const fs = require('fs');
 const path = require('path');
 
-let utils;
-try {
-  utils = require('./utils');
-} catch (e) {
-  utils = {
-    fetchJSON: async (url, opts = {}) => {
-      const headers = opts.headers || {};
-      for (let attempt = 0; attempt <= 3; attempt++) {
-        if (attempt > 0) await new Promise(r => setTimeout(r, 3000 * attempt));
-        const resp = await fetch(url, { headers });
-        if (resp.status === 404) return {};
-        if (resp.ok) return resp.json();
-        if (resp.status === 429 || resp.status >= 500) continue;
-        let body = '';
-        try { body = (await resp.text()).slice(0, 200); } catch (_) {}
-        throw new Error('HTTP ' + resp.status + ' ' + url.split('?')[0] + (body ? ' — ' + body : ''));
-      }
-      throw new Error('retries exhausted: ' + url.split('?')[0]);
-    },
-    sleep: ms => new Promise(r => setTimeout(r, ms)),
-    normaliseDoi: d => (d || '').toString().toLowerCase()
-      .replace(/^https?:\/\/doi\.org\//i, '').replace(/^doi:/i, '').trim(),
-    stripHtml: s => (s || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
-  };
-}
-const { fetchJSON, sleep, normaliseDoi, stripHtml } = utils;
+// One retry policy for the whole pipeline — an embedded fallback here once
+// diverged silently from utils.js and hid 429 bodies; never reintroduce one.
+const { fetchJSON, sleep, normaliseDoi, stripHtml } = require('./utils');
 
 const CONFIG_FILE   = path.join(__dirname, '..', 'data', 'verified-config.json');
 const VERIFIED_FILE = path.join(__dirname, '..', 'data', 'publications-verified.json');
@@ -236,6 +213,7 @@ async function run() {
       `https://orcid.org/${orcid}`,
       fetchOpts
     );
+    if (works.fetchFailed) anyFetchFailed = true;
     console.log(`${works.length} works`);
 
     for (const w of works) {
@@ -288,24 +266,41 @@ async function run() {
     }, {})
   });
 
-  // GUARD (see HANDOVER §4): refuse to replace a non-empty verified file
-  // with an empty result. A genuinely empty verified tier would mean OpenAlex
-  // stopped indexing the AuScope ROR — possible, but rare enough that it must
-  // be a deliberate, forced act rather than the default behaviour of a bad
-  // network day. VERIFIED_ALLOW_EMPTY=1 is the override.
-  if (verified.length === 0 && process.env.VERIFIED_ALLOW_EMPTY !== '1') {
-    let prevCount = 0;
-    try {
-      prevCount = (JSON.parse(fs.readFileSync(VERIFIED_FILE, 'utf8')).records || []).length;
-    } catch (e) { /* no previous file: an empty write is fine */ }
-    if (prevCount > 0) {
-      console.error('\nREFUSING to overwrite ' + VERIFIED_FILE + ': it holds '
-        + prevCount + ' records and this run produced 0.'
-        + (anyFetchFailed ? ' At least one OpenAlex fetch FAILED this run — this is'
-          + ' almost certainly a transient error, not a real zero.' : '')
-        + ' Set VERIFIED_ALLOW_EMPTY=1 to force.');
-      process.exit(1);
-    }
+  // GUARDS (see HANDOVER §4). A shrunken verified file is as dangerous as an
+  // empty one: evidence.js trusts it and deletes publications.json records the
+  // file no longer confirms (the 9/23 Aug 2026 cascade). So:
+  //   1. Any failed OpenAlex fetch → keep BOTH previous files, exit 1. The
+  //      workflow runs this step continue-on-error, so downstream stages use
+  //      last-known-good data and the run is still marked red.
+  //   2. A zero result with no fetch failures → refuse (VERIFIED_ALLOW_EMPTY=1
+  //      overrides — deliberate act only).
+  //   3. A >20% shrink with no fetch failures → refuse (VERIFIED_ALLOW_SHRINK=1
+  //      overrides — legitimate when tightening the mis-affiliation filter).
+  let prevCount = 0;
+  try {
+    prevCount = (JSON.parse(fs.readFileSync(VERIFIED_FILE, 'utf8')).records || []).length;
+  } catch (e) { /* no previous file: any write is fine */ }
+
+  if (anyFetchFailed) {
+    console.error('\nREFUSING to write: at least one OpenAlex fetch FAILED this run, so '
+      + verified.length + ' verified / ' + review.length + ' review records are an'
+      + ' undercount. Keeping the previous files (' + prevCount + ' verified records).');
+    process.exit(1);
+  }
+  if (verified.length === 0 && prevCount > 0 && process.env.VERIFIED_ALLOW_EMPTY !== '1') {
+    console.error('\nREFUSING to overwrite ' + VERIFIED_FILE + ': it holds ' + prevCount
+      + ' records and this run produced 0 with no fetch errors — if OpenAlex truly'
+      + ' dropped the AuScope ROR, set VERIFIED_ALLOW_EMPTY=1 to force.');
+    process.exit(1);
+  }
+  if (prevCount > 0 && verified.length < prevCount * 0.8
+      && process.env.VERIFIED_ALLOW_SHRINK !== '1'
+      && process.env.VERIFIED_ALLOW_EMPTY !== '1') {
+    console.error('\nREFUSING to overwrite ' + VERIFIED_FILE + ': this run produced '
+      + verified.length + ' records, more than 20% below the previous ' + prevCount
+      + ', with no fetch errors reported. If the shrink is deliberate (e.g. a'
+      + ' tightened mis-affiliation filter), set VERIFIED_ALLOW_SHRINK=1.');
+    process.exit(1);
   }
 
   fs.writeFileSync(VERIFIED_FILE, JSON.stringify({

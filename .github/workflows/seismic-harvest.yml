@@ -11,6 +11,11 @@ on:
 permissions:
   contents: write
 
+# All four workflows push to main; one shared group serializes them.
+concurrency:
+  group: citation-pipeline
+  cancel-in-progress: false
+
 jobs:
   seismic:
     runs-on: ubuntu-latest
