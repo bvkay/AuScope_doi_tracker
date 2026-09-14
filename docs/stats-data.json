@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-07T09:34:35.129Z",
+  "generated": "2026-09-14T09:55:58.197Z",
   "pillars": {
     "publications": {
       "total": 2926,
@@ -71,12 +71,12 @@
       ]
     },
     "nvcl": {
-      "asOf": "2026-09-07",
-      "boreholes": 6298,
-      "scannedKm": 1756.91,
-      "combinedKm": 2013.01,
-      "estimatedKm": 4.22,
-      "datasets": 6469,
+      "asOf": "2026-09-14",
+      "boreholes": 6281,
+      "scannedKm": 1750.14,
+      "combinedKm": 2007.75,
+      "estimatedKm": 4.07,
+      "datasets": 6453,
       "nodes": 8
     },
     "gnss": {
@@ -89,18 +89,18 @@
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 47,
+      "streaming": 44,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },
     "ausmt": {
-      "surveys": 58,
-      "stations": 4182,
+      "surveys": 68,
+      "stations": 5313,
       "auslamp": {
         "surveys": 14,
         "stations": 1354
       },
-      "generated": "2026-09-07",
+      "generated": "2026-09-13",
       "instrumentsDeployed": 117,
       "occupations": 2052,
       "recordingDays": 3946.2,
