@@ -183,7 +183,7 @@
             <select id="filter-program">
                 <option value="">All programs</option>
             </select>
-            <select id="filter-year">
+            <select id="filter-year" title="Filter by calendar year or Australian financial year (July–June)">
                 <option value="">All years</option>
             </select>
             <select id="sort-by">
@@ -194,7 +194,8 @@
             </select>
             <div class="spacer"></div>
             <span class="meta" id="result-count"></span>
-            <button class="btn primary" id="export-csv" title="Download the filtered list as CSV">Export CSV</button>
+            <button class="btn" id="export-report-csv" title="Download the filtered list as a simple Title / Year / DOI report">Report CSV</button>
+            <button class="btn primary" id="export-csv" title="Download the filtered list as CSV (all columns)">Export CSV</button>
         </div>
 
         <!-- ========== PUBLICATION LIST ========== -->
@@ -290,6 +291,7 @@ function bindControls() {
         renderList();
     });
     document.getElementById('export-csv').addEventListener('click', exportPublicationsCsv);
+    document.getElementById('export-report-csv').addEventListener('click', exportReportCsv);
     document.getElementById('show-more-btn').addEventListener('click', showMore);
 }
 
@@ -333,17 +335,49 @@ function populateProgramFilter() {
     });
 }
 
+// Australian financial year start (as an integer year) for a YYYY-MM… date
+// string: Jul–Dec belong to the FY starting that year, Jan–Jun to the FY
+// that started the year before. null when the record has no month-level date.
+function fyStartOf(date) {
+    if (!date || date.length < 7) return null;
+    var y = parseInt(date.substring(0, 4), 10);
+    var m = parseInt(date.substring(5, 7), 10);
+    if (!y || !m) return null;
+    return m >= 7 ? y : y - 1;
+}
+
+function fyLabel(start) {
+    return 'FY ' + start + '–' + String(start + 1).substring(2);
+}
+
 function populateYearFilter() {
-    var seen = {};
-    state.records.forEach(function(r) { if (r.year) seen[r.year] = true; });
-    var years = Object.keys(seen).sort(function(a, b) { return parseInt(b) - parseInt(a); });
     var sel = document.getElementById('filter-year');
+    var seenYear = {}, seenFy = {};
+    state.records.forEach(function(r) {
+        if (r.year) seenYear[r.year] = true;
+        var fy = fyStartOf(r.date);
+        if (fy !== null) seenFy[fy] = true;
+    });
+    var years = Object.keys(seenYear).sort(function(a, b) { return parseInt(b) - parseInt(a); });
+    var ogYears = document.createElement('optgroup');
+    ogYears.label = 'Calendar year';
     years.forEach(function(y) {
         var opt = document.createElement('option');
         opt.value = y;
         opt.textContent = y;
-        sel.appendChild(opt);
+        ogYears.appendChild(opt);
     });
+    sel.appendChild(ogYears);
+    var fys = Object.keys(seenFy).sort(function(a, b) { return parseInt(b) - parseInt(a); });
+    var ogFy = document.createElement('optgroup');
+    ogFy.label = 'Financial year (Jul–Jun)';
+    fys.forEach(function(fy) {
+        var opt = document.createElement('option');
+        opt.value = 'fy' + fy;
+        opt.textContent = fyLabel(parseInt(fy, 10));
+        ogFy.appendChild(opt);
+    });
+    sel.appendChild(ogFy);
 }
 
 // Deep links from the impact overview: ?evidence=<grade> and ?program=<name>.
@@ -362,6 +396,15 @@ function applyDeepLinks() {
         state.filter.program = prog;
         document.getElementById('filter-program').value = prog;
     }
+    // ?fy=2025 selects FY 2025–26 (July 2025 – June 2026), if present in the data
+    var fy = params.get('fy');
+    if (fy && /^\d{4}$/.test(fy)) {
+        var sel = document.getElementById('filter-year');
+        if (sel.querySelector('option[value="fy' + fy + '"]')) {
+            state.filter.year = 'fy' + fy;
+            sel.value = 'fy' + fy;
+        }
+    }
 }
 
 // ============================================================
@@ -374,11 +417,17 @@ function publicationSearchFields(r) {
 
 function visiblePublications() {
     var f = state.filter;
+    var fyFilter = f.year && f.year.substring(0, 2) === 'fy' ? parseInt(f.year.substring(2), 10) : null;
+    state.fyExcludedUndated = 0;
     var list = state.records.filter(function(r) {
         if (f.search && buildSearchBlob(r, publicationSearchFields).indexOf(f.search) === -1) return false;
         if (f.evidence && r.evidence !== f.evidence) return false;
         if (f.program && (r.programs || []).indexOf(f.program) === -1) return false;
-        if (f.year && String(r.year) !== f.year) return false;
+        if (fyFilter !== null) {
+            var fy = fyStartOf(r.date);
+            if (fy === null) { state.fyExcludedUndated++; return false; }
+            if (fy !== fyFilter) return false;
+        } else if (f.year && String(r.year) !== f.year) return false;
         return true;
     });
     var key = state.sortKey;
@@ -457,9 +506,15 @@ function renderList() {
     var visible = state.visibleCache;
 
     var countEl = document.getElementById('result-count');
-    countEl.textContent = visible.length === state.records.length
+    var countText = visible.length === state.records.length
         ? visible.length.toLocaleString() + ' publications'
         : visible.length.toLocaleString() + ' of ' + state.records.length.toLocaleString() + ' publications';
+    // A financial-year filter can only place records with a month-level
+    // publication date; say so rather than silently dropping the rest.
+    if (state.fyExcludedUndated > 0) {
+        countText += ' · ' + state.fyExcludedUndated + ' undated excluded';
+    }
+    countEl.textContent = countText;
 
     var listEl = document.getElementById('pub-list');
     if (visible.length === 0) {
@@ -567,9 +622,12 @@ function renderDetail(r) {
 
     return '<div class="pub-detail">'
         + '<dl class="ov-grid">'
-        + '<dt>Full author list</dt><dd>' + (r.authors ? escapeHtml(r.authors) : '<span class="empty">no author data</span>') + '</dd>'
+        + '<dt>Authors</dt><dd>' + (r.authors
+            ? escapeHtml(r.authors) + (/…$/.test(r.authors) ? ' <span class="empty">(list abridged)</span>' : '')
+            : '<span class="empty">no author data</span>') + '</dd>'
         + '<dt>Journal</dt><dd>' + (r.journal ? escapeHtml(r.journal) : '<span class="empty">not recorded</span>') + '</dd>'
         + '<dt>Year</dt><dd>' + (r.year ? escapeHtml(String(r.year)) : '<span class="empty">unknown</span>') + '</dd>'
+        + '<dt>Published</dt><dd>' + (r.date ? escapeHtml(r.date) + (fyStartOf(r.date) !== null ? ' · ' + escapeHtml(fyLabel(fyStartOf(r.date))) : '') : '<span class="empty">no month-level date</span>') + '</dd>'
         + '<dt>DOI</dt><dd>' + doiHtml + '</dd>'
         + '<dt>Citations</dt><dd>' + (r.cited || 0).toLocaleString() + ' · times other papers have cited this one</dd>'
         + '<dt>Evidence</dt><dd>' + evidenceHtml + '</dd>'
@@ -627,6 +685,29 @@ function exportPublicationsCsv() {
         ],
         rows: visiblePublications(),
         filenamePrefix: 'auscope-publications'
+    });
+}
+
+// Simple three-column report (Title / Year / DOI) of whatever is filtered —
+// the format AuScope's reporting asks for. Filename names the period when
+// a year or financial-year filter is active.
+function exportReportCsv() {
+    var f = state.filter.year;
+    var suffix = '';
+    if (f && f.substring(0, 2) === 'fy') {
+        var start = parseInt(f.substring(2), 10);
+        suffix = '-FY' + start + '-' + String(start + 1).substring(2);
+    } else if (f) {
+        suffix = '-' + f;
+    }
+    exportCsv({
+        columns: [
+            { header: 'Title', value: function(r) { return r.title; } },
+            { header: 'Year', value: function(r) { return r.year; } },
+            { header: 'DOI', value: function(r) { return r.doi; } }
+        ],
+        rows: visiblePublications(),
+        filenamePrefix: 'auscope-publications-report' + suffix
     });
 }
 

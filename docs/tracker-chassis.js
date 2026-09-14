@@ -174,11 +174,16 @@ function exportCsv(config) {
     var csv = [headers].concat(dataRows).map(function(r) {
         return r.map(function(v) {
             v = v == null ? '' : String(v);
-            if (v.indexOf(',') >= 0 || v.indexOf('"') >= 0 || v.indexOf('\n') >= 0) v = '"' + v.replace(/"/g, '""') + '"';
+            // Formula-injection guard: Excel executes cells starting = + - @
+            if (/^[=+\-@]/.test(v)) v = "'" + v;
+            if (v.indexOf(',') >= 0 || v.indexOf('"') >= 0 || v.indexOf('\n') >= 0 || v.indexOf('\r') >= 0) {
+                v = '"' + v.replace(/"/g, '""') + '"';
+            }
             return v;
         }).join(',');
-    }).join('\n');
-    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    }).join('\r\n');
+    // BOM so Excel reads UTF-8 (author names otherwise mojibake)
+    var blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
