@@ -104,6 +104,14 @@ jobs:
         continue-on-error: true
         run: node src/data-citations.js
 
+      # Keyword-in-context verification: where does each search term
+      # actually appear (ack / body / reference list) in the OA full text?
+      # Flags cite-only suspects and acknowledgment upgrade candidates for
+      # review; capped per run, drains the backlog over successive weeks.
+      - name: Verify keywords in context
+        continue-on-error: true
+        run: node src/verify-keywords.js
+
       # Merge identifier + text evidence into the evidence ladder on publications.json
       - name: Evidence ladder
         run: node src/evidence.js

@@ -21,6 +21,7 @@
     "enrich-dates": "node src/enrich-dates.js",
     "recall-check": "node src/recall-check.js",
     "data-citations": "node src/data-citations.js",
+    "verify-keywords": "node src/verify-keywords.js",
     "dashboard": "node src/dashboard.js",
     "sync-from-sheet": "node src/sync.js pull",
     "sync-to-sheet": "node src/sync.js push",
