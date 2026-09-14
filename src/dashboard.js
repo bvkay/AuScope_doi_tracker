@@ -141,7 +141,11 @@ function run() {
     ? JSON.parse(fs.readFileSync(DS_FILE, 'utf8'))
     : { metadata: {}, records: [] };
 
-  const pubs = pubData.records || [];
+  // Software version releases (Zenodo/GitHub archive DOIs, type 'software')
+  // are outputs of the software pillar, not publications — counting a
+  // v2.0.0 tag as a paper would not survive an audit. They stay in
+  // publications.json (typed) but out of every publication count and page.
+  const pubs = (pubData.records || []).filter(p => (p.type || '') !== 'software');
   const datasets = dsData.records || [];
 
   // ── Compute stats ──
@@ -168,6 +172,7 @@ function run() {
       year: p.year || '',
       date: p.publicationDate || '',
       journal: decodeEntities(String(p.journal || '')),
+      type: p.type || '',
       cited: parseInt(p.cited) || 0,
       evidence: p.evidence || 'keyword',
       programs: recordPrograms(p),
@@ -457,12 +462,15 @@ PROGRAM_GROUPS.forEach(function(g) {
 });
 
 // Per-record program list + per-group counts (a record counts once per group).
+// curatedPrograms comes from the evidence-overrides valve — manual
+// submissions carry no discoverable search term, so a curator can tag them.
 function recordPrograms(p) {
   const seen = {};
   (p.searchTerms || []).forEach(function(t) {
     const g = TERM_TO_GROUP[t];
     if (g) seen[g] = true;
   });
+  (p.curatedPrograms || []).forEach(function(g) { seen[g] = true; });
   return Object.keys(seen);
 }
 

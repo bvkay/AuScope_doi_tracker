@@ -154,15 +154,19 @@ function run() {
   // ── Human curation overrides (data/evidence-overrides.json) ──
   // Machine evidence is only as good as OpenAlex's affiliation matching;
   // this is the documented valve for correcting it. Each entry:
-  //   { doi, action: 'remove' | 'grade', evidence?, reason }
+  //   { doi, action: 'remove' | 'grade' | 'programs', evidence?, programs?, reason }
+  // 'programs' sets curatedPrograms on the record — dashboard.js unions it
+  // with the searchTerm-derived program tags (for records that arrived via
+  // manual submission and so carry no discoverable term).
   const overrides = readJson(path.join(DATA_DIR, 'evidence-overrides.json'), { records: [] }).records || [];
   if (overrides.length) {
-    const removeSet = {}, gradeMap = {};
+    const removeSet = {}, gradeMap = {}, progMap = {};
     overrides.forEach(function(o) {
       const k = normDoi(o.doi);
       if (!k) return;
       if (o.action === 'remove') removeSet[k] = o.reason || '';
       else if (o.action === 'grade' && o.evidence) gradeMap[k] = o;
+      else if (o.action === 'programs' && Array.isArray(o.programs)) progMap[k] = o.programs;
     });
     const before = pubData.records.length;
     pubData.records = pubData.records.filter(function(p) {
@@ -174,13 +178,15 @@ function run() {
       return true;
     });
     pubData.records.forEach(function(p) {
-      const o = gradeMap[normDoi(p.doi)];
+      const k = normDoi(p.doi);
+      const o = gradeMap[k];
       if (o && p.evidence !== o.evidence) {
         counts[p.evidence] = (counts[p.evidence] || 1) - 1;
         counts[o.evidence] = (counts[o.evidence] || 0) + 1;
         p.evidence = o.evidence;
         p.evidenceDetail = 'manual override: ' + (o.reason || 'curator decision');
       }
+      if (progMap[k]) p.curatedPrograms = progMap[k];
     });
     const removedN = before - pubData.records.length;
     if (removedN || Object.keys(gradeMap).length) {

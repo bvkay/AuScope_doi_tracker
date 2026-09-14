@@ -626,6 +626,7 @@ function renderDetail(r) {
             ? escapeHtml(r.authors) + (/…$/.test(r.authors) ? ' <span class="empty">(list abridged)</span>' : '')
             : '<span class="empty">no author data</span>') + '</dd>'
         + '<dt>Journal</dt><dd>' + (r.journal ? escapeHtml(r.journal) : '<span class="empty">not recorded</span>') + '</dd>'
+        + '<dt>Type</dt><dd>' + (r.type ? escapeHtml(r.type) : '<span class="empty">not recorded</span>') + '</dd>'
         + '<dt>Year</dt><dd>' + (r.year ? escapeHtml(String(r.year)) : '<span class="empty">unknown</span>') + '</dd>'
         + '<dt>Published</dt><dd>' + (r.date ? escapeHtml(r.date) + (fyStartOf(r.date) !== null ? ' · ' + escapeHtml(fyLabel(fyStartOf(r.date))) : '') : '<span class="empty">no month-level date</span>') + '</dd>'
         + '<dt>DOI</dt><dd>' + doiHtml + '</dd>'

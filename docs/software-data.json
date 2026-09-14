@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T10:34:16.359Z",
+  "generated": "2026-09-14T12:33:03.101Z",
   "records": [
     {
       "name": "GPlates",
@@ -10,8 +10,8 @@
         "GPlately",
         "gplates-python"
       ],
-      "publications": 238,
-      "citations": 6793,
+      "publications": 236,
+      "citations": 6791,
       "earliestYear": 1997,
       "latestYear": 2026,
       "records": [
@@ -49,15 +49,6 @@
           "year": 2026,
           "journal": "GEM - International Journal on Geomathematics",
           "cited": 1,
-          "oa": true
-        },
-        {
-          "doi": "10.5281/zenodo.17642349",
-          "title": "alxala123/PaleocoordinatesCalculator: Paleocoordinates Calculator v1.0.1",
-          "authors": "alex_rodriguez",
-          "year": 2026,
-          "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-          "cited": 0,
           "oa": true
         },
         {
@@ -166,15 +157,6 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
-        },
-        {
-          "doi": "10.5281/zenodo.19688884",
-          "title": "G-ADOPT",
-          "authors": "Angus Gibson; Rhodri Davies; Stephan Kramer; Sia Ghelichkhan; Ruby Turner; Thomas Duvernay; Will Scott",
-          "year": 2026,
-          "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-          "cited": 2,
           "oa": true
         },
         {
@@ -2657,8 +2639,8 @@
         "G-ADOPT",
         "Geodynamic ADjOint Optimisation PlaTform"
       ],
-      "publications": 14,
-      "citations": 26,
+      "publications": 13,
+      "citations": 24,
       "earliestYear": 2009,
       "latestYear": 2026,
       "records": [
@@ -2687,15 +2669,6 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
-        },
-        {
-          "doi": "10.5281/zenodo.19688884",
-          "title": "G-ADOPT",
-          "authors": "Angus Gibson; Rhodri Davies; Stephan Kramer; Sia Ghelichkhan; Ruby Turner; Thomas Duvernay; Will Scott",
-          "year": 2026,
-          "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-          "cited": 2,
           "oa": true
         },
         {

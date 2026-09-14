@@ -533,6 +533,18 @@ Only substantive changes — the git history has the rest.
   removed. A ~556-DOI reference list cross-check found 99% coverage — but
   ~80% of those only exist as manual entries; the keyword searcher cannot
   see software/infrastructure *usage* that never names AuScope in text.
+- **Corpus policy (Ben's review)**: software version releases
+  (`type: 'software'` — Zenodo/GitHub archive DOIs like underworld2
+  v2.6.0b, MTtsdp v2.0.0, G-ADOPT, NVCL Reporting Live System,
+  PaleocoordinatesCalculator) stay in publications.json but are excluded
+  from every publication count and page — they are software-pillar
+  outputs, not papers. The overrides valve gained `action: 'programs'`
+  (curatedPrograms) so manual submissions — which carry no discoverable
+  search term — can be program-tagged by a curator; dashboard unions them
+  with term-derived tags. First uses: the JUICE/PRIDE preprint → Geodesy
+  & VLBI, the Gawler natural-hydrogen MT paper → Earth imaging &
+  sounding. One keyword false positive (Frontiers "Future technology
+  strategies", AusGeochem passing mention) removed via the valve.
 
 ### 2026-08-30 — handover audit (documentation only, no code changed)
 This document was audited claim-by-claim against the repo and the live site.

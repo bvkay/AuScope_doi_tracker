@@ -1,10 +1,31 @@
 {
-  "note": "Human curation valve for the evidence ladder. Each record: { doi, action: 'remove' | 'grade', evidence (for grade), reason }. Applied by src/evidence.js on every run, after machine grading.",
+  "note": "Human curation valve for the evidence ladder. Each record: { doi, action: 'remove' | 'grade' | 'programs', evidence (for grade), programs (for programs), reason }. Applied by src/evidence.js on every run, after machine grading.",
   "records": [
     {
       "doi": "10.1016/j.idh.2025.10.108",
       "action": "remove",
       "reason": "OpenAlex mis-affiliation: Healthscope hospital paper matched to AuScope ROR. Not AuScope-related."
+    },
+    {
+      "doi": "10.3389/feart.2025.1743903",
+      "action": "remove",
+      "reason": "AusGeochem keyword match only; Ben reviewed 14 Sep 2026 — no AuScope relation."
+    },
+    {
+      "doi": "10.5194/egusphere-2026-1936",
+      "action": "programs",
+      "programs": [
+        "Geodesy & VLBI"
+      ],
+      "reason": "PRIDE/JUICE VLBI observations use AuScope VLBI facilities (Ben, 14 Sep 2026)."
+    },
+    {
+      "doi": "10.1080/08120099.2025.2608806",
+      "action": "programs",
+      "programs": [
+        "Earth imaging & sounding"
+      ],
+      "reason": "AusLAMP/MT study of the southern Gawler Craton (Ben, 14 Sep 2026)."
     }
   ]
 }

@@ -34,7 +34,8 @@ async function run() {
 
   // ── Publications (local) ──
   const pubData = readJson(path.join(DATA_DIR, 'publications.json'), { records: [] });
-  const pubs = pubData.records || [];
+  // Same rule as dashboard.js: software version releases are not publications
+  const pubs = (pubData.records || []).filter(p => (p.type || '') !== 'software');
   // Evidence-graded totals. The unfiltered corpus sum is NOT a publishable
   // impact figure: 62% of it comes from keyword-only records carrying no
   // confirmed AuScope link (a Scripps satellite-altimetry paper in Science

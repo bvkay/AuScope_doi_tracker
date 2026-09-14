@@ -2,7 +2,7 @@
   "metadata": {
     "type": "publications",
     "last_updated": "2026-09-14T10:30:40.445Z",
-    "total_count": 2843,
+    "total_count": 2842,
     "evidence_updated": "2026-08-30T08:24:33.026Z",
     "consolidated": "2026-09-01T00:57:57.015Z",
     "dates_enriched": "2026-09-14T10:13:28.053Z"
@@ -33789,34 +33789,6 @@
       "publicationDate": "2009-12-01"
     },
     {
-      "doi": "10.3389/feart.2025.1743903",
-      "title": "Future technology strategies for the geoscience sector: insights from STEEP and SWOT analyses",
-      "authors": "Si Woong Bae; Jae-Wook Lee",
-      "journal": "Frontiers in Earth Science",
-      "publisher": "Frontiers Media",
-      "year": 2026,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geochemistry and Geologic Mapping; Reservoir Engineering and Simulation Methods; Geological Modeling and Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AusGeochem"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Korea Institute of Geoscience and Mineral Resources"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "authorCount": 2,
-      "evidence": "keyword",
-      "publicationDate": "2026-01-08"
-    },
-    {
       "doi": "10.1038/s41597-025-06376-9",
       "title": "Towards a FAIR metadata framework for drone and uncrewed aerial vehicle data",
       "authors": "Florian Ellsäßer; Alice Nikuze",
@@ -48633,7 +48605,10 @@
       "dateAdded": "2026-03-24",
       "evidence": "candidate",
       "evidenceDetail": "watchlist ORCID + partner co-affiliation",
-      "publicationDate": "2026-01-21"
+      "publicationDate": "2026-01-21",
+      "curatedPrograms": [
+        "Earth imaging & sounding"
+      ]
     },
     {
       "doi": "10.1144/geochem2025-027",
@@ -51533,7 +51508,7 @@
       "publisher": "European Organization for Nuclear Research",
       "year": 2026,
       "cited": 0,
-      "type": "other",
+      "type": "software",
       "isOA": "Yes",
       "subject": "",
       "sources": [
@@ -53070,7 +53045,7 @@
       "publisher": "European Organization for Nuclear Research",
       "year": 2026,
       "cited": 2,
-      "type": "other",
+      "type": "software",
       "isOA": "Yes",
       "subject": "",
       "sources": [
@@ -72398,7 +72373,10 @@
       "countries": [],
       "dateAdded": "2026-05-20",
       "evidence": "keyword",
-      "publicationDate": "2026-04-21"
+      "publicationDate": "2026-04-21",
+      "curatedPrograms": [
+        "Geodesy & VLBI"
+      ]
     },
     {
       "doi": "10.5194/gc-9-223-2026",
@@ -73621,7 +73599,7 @@
       "publisher": "European Organization for Nuclear Research",
       "year": 2026,
       "cited": 0,
-      "type": "article",
+      "type": "software",
       "isOA": "Yes",
       "subject": "Geological Modeling and Analysis; Geodetic Measurements and Engineering Structures; Distributed and Parallel Computing Systems",
       "sources": [
