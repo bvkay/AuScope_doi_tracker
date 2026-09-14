@@ -353,6 +353,438 @@
       "action": "grade",
       "evidence": "text-infrastructure",
       "reason": "Paper states the seismometer used is an AuSIS network station [collision review, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.70880/001c.140863",
+      "action": "remove",
+      "reason": "Biographical obituary of William Compston in J. Roy. Soc. WA; no new SHRIMP analyses are reported. SHRIMP/Curtin mentions are historical: \"Bill's strong ties with John De Laeter co [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1144/jgs2024-093",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods (Kinny et al., OA PDF via NERC Open Research Archive): \"U–Pb analyses were undertaken by sensitive high-resolution ion microprobe (SHRIMP) at the John de Laeter Centre, Cur [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1007/s00410-024-02117-0",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"Isotopic analyses were undertaken using a sensitive high resolution ion microprobe (SHRIMP II B) at the John de Laeter Centre, Curtin University, Perth.\" Acknowledgments: [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.7185/geochemlet.2332",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"Zircon crystals from sample AC13 were analysed for U–Pb isotopes using the SHRIMP II ion probe at Curtin University.\" Acknowledgments: \"The Sensitive High-Resolution Ion  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.epsl.2023.118346",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"The rutile was analysed for U–Pb isotopes (Appendix Table A-4) by SHRIMP II at the John de Laeter Centre, Curtin University, following the methodology of Taylor et al. (2 [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1111/ggr.12522",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"The selected zircon grains were analysed ... and by SHRIMP at the John de Laeter Centre – Curtin University, Perth, Australia (SZR 1). Measurement procedures for the John [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.2113/rgg20224532",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"Measurements of U, Th and Pb in zircon from Strelka pluton leucocratic granite samples A-08-10 and A-08-9-6 were done on the SHRIMP II ion microprobe of the John de Laete [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.31223/x5km18",
+      "action": "remove",
+      "reason": "EarthArXiv preprint (Mikolaichuk et al., Kyrgyz/Kazakh institutions) is a regional correlation/compilation with no analytical methods section and no new SHRIMP analyses. All SHRIMP [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/min12111432",
+      "action": "remove",
+      "reason": "SHRIMP-II work was NOT at Curtin — methods: \"we performed a local U–Th–Pb analysis of zircon and baddeleyite applying the secondary-ion mass-spectrometry method (SIMS) with the SHR [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3389/feart.2022.852261",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods (Sampling and Analytical Methods): \"The zircon was dated using the SHRIMP II in Curtin University of Technology at the Beijing SHRIMP Center using the SHRIMP Remote Operati [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.5281/zenodo.5811041",
+      "action": "remove",
+      "reason": "Title/metadata: 'DOES GATT ARTICLE XX PROVIDE MEMBERS SUFFICIENT SCOPE TO PROTECT IMPORTANT PUBLIC POLICY GOALS?' — a WTO/GATT trade-law essay. The Zenodo record now returns HTTP 4 [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/min11111288",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"Zircons were hand picked from the non-magnetic fraction, mounted in epoxy discs, polished and coated, and imaged in the SEM (Figure S1) prior to analysis in the Sensitive [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/min11090944",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"Analysis of selected zircons was conducted using the SHRIMP II (Sensitive High-mass Resolution Ion Microprobe) at the John de Laeter Centre (Curtin University), based on  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1590/2317-4889202120200046",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Materials and Methods: \"The sample DI-10a was analyzed by the ionic microprobe SHRIMP II of the geochronology lab of the Curtin University, Perth, Australia.\" [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.chemer.2020.125683",
+      "action": "remove",
+      "reason": "Methods 2.3: \"Pb isotope data for the VHK basalt clasts from Apollo 14 sample 14305 were collected using a SHRIMP IIe MC ion microprobe at the Beijing SHRIMP Center, Institute of G [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41598-020-62075-y",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"U-Pb isotopes were analysed on the SHRIMP II at the John de Laeter Centre SHRIMP Facility, Curtin University, Perth, Western Australia.\" [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41467-019-13985-7",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"Following EBSD mapping of monazite and zircon, in situ U-Th-Pb isotopic measurements targeting specific shock microstructural domains were carried out using the SHRIMP-II [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1590/2317-4889202020190063",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"U-Th-Pb isotope analyses of monazite were carried out on Sensitive High-Resolution Ion Microprobe II (SHRIMP II) B at Curtin University, Western Australia\". Acknowledgmen [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1590/2317-4889202020190082",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"The FRP327G sample mount was analysed for U-Pb isotopes and concentrations at the SHRIMP II Laboratory of the John de Laeter Centre, Curtin University, Perth, Australia.\" [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/min9120774",
+      "action": "remove",
+      "reason": "Methods: \"The Cameca IMS 1280HR ion microprobe was used for the Li isotopic measurements of BB zircons at the Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGC [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3989/egeol.43593.573",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "\"the U and Pb isotope ratios in zircon grains were measured in a High Resolution Ion Micro Probe (SHRIMP II) equipment housed at Curtin University, Australia.\" [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.31857/s0869-56524893267-271",
+      "action": "remove",
+      "reason": "The same authors' companion paper on the same dikes and identical 626-623 Ma ages (Vernikovskaya et al. 2020, Minerals 10.3390/min10060565) states: \"U-Th-Pb isotope analyses of zir [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.precamres.2019.105450",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Acknowledgements: \"Zircon analyses were carried out on the Sensitive High Resolution Ion MicroProbe mass spectrometer (SHRIMP II) at the John de Laeter Centre, Curtin University, w [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.gr.2019.07.017",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "\"Sample CWX was analysed by SIMS as follows: U-Pb analyses were undertaken using the SHRIMP II ion microprobe facility at the John de Laeter Centre, Curtin University.\" [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.precamres.2019.105425",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "\"U-Pb analyses of monazite were conducted using a SHRIMP II ion microprobe in the John de Laeter Centre at Curtin University, Perth.\" Acknowledgements: \"U-Pb measurements were cond [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.11606/t.44.2018.tde-06122018-153140",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods (Portuguese): \"Datacoes U-Pb em zircao foram coletadas utilizando microssonda ionica (Sensitive High Resolution Ion Microprobe - SHRIMP II), localizada no John de Laeter Ce [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.gsf.2018.09.002",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "\"Analyses were undertaken on a SHRIMP II instrument at the John de Laeter Centre for Isotope Research at Curtin University. The analytical procedures for the Curtin consortium SHRI [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1111/jmg.12451",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "\"Zircon U-Th-Pb isotope ratios were measured using the SHRIMP II in the John de Laeter Centre, Curtin University.\" And for monazite: \"U-Pb isotope measurements on the SHRIMP II use [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41598-018-26530-1",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"U-Pb isotope analysis on the SHRIMP II sensitive high resolution ion microprobe at the John de Laeter Centre, Curtin University.\" Also: \"The mount was polished to expose  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.31223/osf.io/q76tz",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Geochronology section of the preprint PDF: \"Zircon U-Pb geochronology was conducted on sample 04AP01... using the sensitive high-resolution ion microprobe (SHRIMP) facility at the  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.oregeorev.2018.03.011",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods: \"Xenotime and baddeleyite were analysed for U, Th and Pb isotopes using the SHRIMP II instrument at the John de Laeter Centre at Curtin University in Perth, Western Austra [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.11606/issn.2316-9095.v18-434",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods (Portuguese): \"Os dados isotópicos foram obtidos por microssonda iônica SHRIMP II no Laboratório de Geocronologia da Curtin University, em Perth, Austrália.\" (Isotopic data [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.25903/5eb1ed92284d2",
+      "action": "remove",
+      "reason": "JCU PhD thesis (Owusu Agyemang 2018). Methods: detrital zircon U-Pb dating followed procedures \"adapted by Tucker et al. (2013) for Advanced Analytical Centre at James Cook Univers [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.4225/23/5afb8a524287d",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Thesis methods (Ch. 5): \"U-Pb age data were obtained using the SHRIMP II facilities at the John de Laeter Center for Isotope Research, Curtin University (Perth), and compiled in Ap [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.dib.2021.107213",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Experimental design, materials and methods: \"The ion-microprobe SHRIMP U-Pb analyses were undertaken at the John de Laeter Centre, Curtin University, Perth, Western Australia.\" [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41467-020-14857-1",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods, \"Zircons and SHRIMP age dating\": \"Initial analyses involved single-cycle runs on a SHRIMP II at Curtin University\", with re-analysis \"using 6-cycle runs on a SHRIMP II at  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1111/ggr.12239",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "\"...their SIMS analysis performance... was checked by multiple analyses using the SHRIMP II (Sensitive High-mass Resolution Ion MicroProbe) of the John de Laeter Centre for Isotopi [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41598-018-25494-6",
+      "action": "remove",
+      "reason": "Methods (full text via Europe PMC PMC5935743): \"Zircon separation, CL imaging, inclusion analysis and SHRIMP U-Pb dating were carried out at the Beijing SHRIMP Center, Institute of [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1126/sciadv.aao3159",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Materials and Methods (full text via Europe PMC PMC5817928): \"SIMS dating was performed using a SHRIMP II ion microprobe at Curtin University, following the standard procedures des [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/srep25751",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods (full text via Europe PMC PMC4863176): \"Zircon U-Pb isotope analyses were obtained using the sensitive high resolution ion microprobe (SHRIMP II) at the John de Laeter Cent [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.cageo.2021.104947",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Abstract (via Semantic Scholar; paper is closed access on ScienceDirect): the workflow was developed on \"the SHRIMP II instrument at Curtin University\", investigated with 3 nA and  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.gca.2023.05.011",
+      "action": "remove",
+      "reason": "Methods section 2.4 (OA manuscript from GFZ repository): grains were imaged on a SEM at \"Tachikawa-shi, Tokyo-to, Japan\" and \"Spots were carefully chosen from SEM imaging for Th, U [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1130/2021.2550(20)",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods (OA copy via Edinburgh Pure): \"Xenotime grain 14VD64-1 was analyzed on 13 March 2017 using a sensitive high-resolution ion microprobe (SHRIMP) II in the John de Laeter Cent [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1144/jgs2019-017",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Analytical methods (accepted manuscript, archived Durham Research Online copy): \"U–Pb isotopic compositions were measured in two analytical sessions using a Sensitive High Resoluti [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1130/spe550",
+      "action": "remove",
+      "reason": "Crossref metadata: type \"edited-volume\", \"Large Meteorite Impacts and Planetary Evolution VI\", eds. Reimold & Koeberl, Geological Society of America, 2021. The volume itself report [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3389/feart.2020.594355",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Methods (Frontiers open access full text): zircon U-Pb analyses were performed on \"the SHRIMP ion microprobe at the John de Laeter Center for Mass Spectrometry at Curtin University [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.18520/cs/v129/i12/1048-1057",
+      "action": "remove",
+      "reason": "Full PDF read (currentscience.ac.in). Sole Yarragadee mention: \"Currently, Indian Regional Navigation Satellite System (IRNSS) satellites with LARA are tracked at Yarragadee under  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1093/mnras/stae533",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "arXiv 2402.09908 full text. Table 2 (archival Astrogeo VLBI data used) antenna key: \"Additional antennas: Fortaleza (Ft, Brazil), Hartebeesthoek (Hh, South Africa), Kokee Park (Kk, [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/universe10020078",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "arXiv 2402.04011 full text. \"...as well as other geodetic VLBI radio telescopes, Goddard (GG, USA), Gilmore Creek (GC, USA), Hartebeesthoek 15-m (HT, South Africa), Kokee Park (KK, [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1007/1345_2024_269",
+      "action": "remove",
+      "reason": "Chapter full text paywalled (Springer cookie wall). Published-chapter abstract (via CoLab mirror) and the IUGG23-1589 conference abstract (GFZpublic) both read: \"C-band PSInSAR res [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1093/mnras/stad415",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "arXiv 2210.16895 full text. \"In both runs, the phased Australia Telescope Compact Array (ATCA; 5 × 22 m diameter used for VLBI), Ceduna (30 m), Hartebeesthoek (26 m), Hobart (26 m) [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1017/pasa.2023.2",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Observations section, 8.5 GHz LBA experiment: \"The observation...with the following participating antennas: CD, HO, MP, PA, Katherine (KE), Yarragadee (YG), the tied array of ATCA  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3847/2041-8213/ac96e7",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Observations section (arXiv:2210.10324 / ar5iv full text): \"TIW and MEX were observed in the same beam by the EVN telescopes of Hartebeesthoek 25 m (Hh), Zelenchukskaya 32 m (Zc),  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.5281/zenodo.7313064",
+      "action": "remove",
+      "reason": "Sole Yarragadee mention in the 5-page PDF (extracted from BNO_StatusReport_GGOSdays2022.pdf): \"Multiple tie surveys completed in the past two years (Mauna Kea, Ishioka, Yarragadee, [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1007/978-3-319-91843-3_5",
+      "action": "remove",
+      "reason": "Concluding chapter of the history book 'Golden Years of Australian Radio Astronomy: An Illustrated History' (Orchiston, Robertson & Sullivan, Springer Historical & Cultural Astrono [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1051/0004-6361/201424039",
+      "action": "remove",
+      "reason": "Hou & Han 2014 (arXiv:1407.7331) is a literature compilation: \"We collected data for more than 2500 known HII regions, 1300 GMCs, and 900 6.7-GHz methanol masers.\" Mt Pleasant appe [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/rs18050770",
+      "action": "remove",
+      "reason": "Full text scanned on mdpi.com: the only occurrences of the phrase are reference-list entries, e.g. \"Garthwaite, M.; Nancarrow, S.; Hislop, A.; Thankapan, M.; Dawson, J.; Lawrie, S. [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1002/eco.70140",
+      "action": "remove",
+      "reason": "Full text on Wiley: Garthwaite et al. (2015) (the AGOS design report, DOI 10.11636/Record.2015.003) appears once in a table of measurement approaches — \"Remote sensing PSI | Weeks  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.26650/ijegeo.1694769",
+      "action": "remove",
+      "reason": "Full PDF read via publisher's pdf.js viewer: single in-text citation — \"According to Garthwaite et al., (2015), the InSAR technique requires two complex SAR images captured of the  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.25140/2411-5363-2025-2(40)-463-471",
+      "action": "remove",
+      "reason": "Full publisher PDF extracted (pdfminer): AGOS appears only as reference 3, \"Garthwaite, M. C., Nancarrow, S., ... (2015). Design of radar corner reflectors for the Australian Geoph [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1002/9781394218912.ch4",
+      "action": "remove",
+      "reason": "Wiley chapter page: reference list includes \"M. C. Garthwaite, S. Nancarrow, A. Hislop, A. Thankappan, J. H. Dawson, and S. Lawrie. The design of radar corner reflectors for the Au [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1117/12.3037227",
+      "action": "remove",
+      "reason": "Accepted manuscript PDF from DLR elib (elib.dlr.de/209109): AGOS appears only as reference [24] \"Garthwaite, M. C., ... The Design of Radar Corner Reflectors for the Australian Geo [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/rs16101696",
+      "action": "remove",
+      "reason": "Full text scanned on mdpi.com: all 11 matches for Australia/AGOS/Surat/Queensland fall in the reference list (e.g. Garthwaite et al. 2015 AGOS design report; Thankappan et al. 2013 [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.22761/gd.2024.0002",
+      "action": "remove",
+      "reason": "Full Korean text on publisher site: Garthwaite et al. (2015) cited twice for design guidance (aluminium plate choice; perforation hole diameter kept under 1/6 of radar wavelength)  [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.ultras.2023.106999",
+      "action": "remove",
+      "reason": "HAL open-access PDF (hal-04051806): AGOS appears only as reference [4] (Garthwaite et al. 2015, DOI 10.11636/Record.2015.003); the sole related in-text citation is generic — \"as hi [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/rs14143251",
+      "action": "remove",
+      "reason": "Full text scanned on mdpi.com: the only AGOS/Australia occurrence is the reference entry \"Garthwaite, M.C.; Nancarrow, S.; ... The Design of Radar Corner Reflectors for the Austral [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.5194/isprs-archives-xliii-b3-2022-285-2022",
+      "action": "remove",
+      "reason": "AGOS appears only as a literature-review example: \"an array of 40 trihedral corner reflectors-triangle co-located with survey marks, was installed by the end of 2014 in the norther [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1109/tgrs.2022.3140290",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "\"In order to demonstrate the high resolution capability of the Staring Spotlight part of the acquisition, a corner reflector was imaged. The corner reflector is part of the Austral [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1515/jag-2020-0040",
+      "action": "remove",
+      "reason": "Studies the Greater Sydney NSW network, not AGOS: \"Our investigations make use of a regional network of geodetic monitoring sites located in the Greater Sydney area, Australia... c [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.5194/amt-13-6853-2020",
+      "action": "remove",
+      "reason": "Cloud-radar calibration at the SIRTA observatory, Palaiseau, France, using the authors' own 10 cm and 20 cm trihedral targets on masts. Sole Garthwaite mention: \"Our corner reflect [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.24425/gac.2020.131079",
+      "action": "remove",
+      "reason": "Sentinel-1 PS/SBAS monitoring of the Stebnyk-Truskavets area, Ukraine (Lviv Polytechnic authors); no corner reflectors deployed. Sole body mention: \"The control of the obtained res [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.ultras.2020.106149",
+      "action": "remove",
+      "reason": "Underwater acoustics paper (CEA/Aix-Marseille): \"the ultrasonic reflective characteristics of a corner-cube retroreflector (CCR) are investigated... experimentations are made in va [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.5194/amt-2019-498",
+      "action": "remove",
+      "reason": "AMTD discussion preprint of 10.5194/amt-13-6853-2020 (same FMCW cloud-radar calibration at SIRTA, France). Grep of the full preprint PDF finds Garthwaite only in one in-text citati [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.30699/jsst.2020.1159",
+      "action": "remove",
+      "reason": "Fetched full article at jsstpub.com (DOI resolves to article_102347.html). The paper is a theoretical design study of multiband, wide-angle reflectors intended to counter space/air [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41467-019-10326-6",
+      "action": "remove",
+      "reason": "Fetched full text at nature.com. The paper concerns corner reflection of electron (Dirac fermion) trajectories in hBN-encapsulated graphene as a phonon-scattering sensor — condense [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1680/icsic.64669.639",
+      "action": "remove",
+      "reason": "Read the open-access chapter on emerald.com (ICSIC 2019 proceedings). The study installed its own corner reflectors on Waterloo Bridge, London, and compared InSAR with total-statio [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1130/abs/2019am-332308",
+      "action": "remove",
+      "reason": "Fetched the full GSA abstract at gsa.confex.com (Paper332308). It concerns structural geology and geochronology of the Debdou-Mekkam Massif, eastern Moroccan Meseta (Variscan oroge [pairing triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.4225/55/5af268123e1e9",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Downloaded the thesis front matter from the University of Adelaide DSpace repository (item 2440/111944, Alison Louise Kirkby, 'The resistivity and permeability of fractured rocks') [pairing triage, 14 Sep 2026]"
     }
   ]
 }

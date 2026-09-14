@@ -2,7 +2,7 @@
   "metadata": {
     "type": "publications",
     "last_updated": "2026-09-14T13:23:38.646Z",
-    "total_count": 2820,
+    "total_count": 2787,
     "evidence_updated": "2026-09-14T13:24:53.458Z",
     "consolidated": "2026-09-01T00:57:57.015Z",
     "dates_enriched": "2026-09-14T10:13:28.053Z"
@@ -16784,36 +16784,6 @@
       "publicationDate": "2026-02-01"
     },
     {
-      "doi": "10.70880/001c.140863",
-      "title": "William Compston FAA FTSE FRS (19 February 1931 – 16 May 2025)",
-      "authors": "Malcolm T. McCulloch; Ian S. Williams",
-      "journal": "Journal of the Royal Society of Western Australia",
-      "publisher": "Royal Society of Western Australia",
-      "year": 2025,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Space exploration and regulation",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Australian Institute of Marine Science",
-        "University of Western Australia",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "authorCount": 2,
-      "evidence": "keyword",
-      "publicationDate": "2025-06-20"
-    },
-    {
       "doi": "10.1144/jgs2024-093",
       "title": "Early Neoproterozoic (Tonian) subduction-related magmatism and tectonothermal activity in Shetland and northern mainland Scotland: implications for the tectonic evolution of NE Laurentia and Rodinia reconstructions",
       "authors": "P. D. Kinny; Rob Strachan; Mike Fowler; Emilie Bruand; Ian Millar; Martin Hand; Chris Clark; Kathryn Cutts",
@@ -16846,8 +16816,9 @@
         "FI"
       ],
       "authorCount": 8,
-      "evidence": "keyword",
-      "publicationDate": "2024-08-20"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-08-20",
+      "evidenceDetail": "manual override: Methods (Kinny et al., OA PDF via NERC Open Research Archive): \"U–Pb analyses were undertaken by sensitive high-resolution ion microprobe (SHRIMP) at the John de Laeter Centre, Cur"
     },
     {
       "doi": "10.1007/s00410-024-02117-0",
@@ -16876,8 +16847,9 @@
         "AU"
       ],
       "authorCount": 10,
-      "evidence": "keyword",
-      "publicationDate": "2024-04-15"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-04-15",
+      "evidenceDetail": "manual override: Methods: \"Isotopic analyses were undertaken using a sensitive high resolution ion microprobe (SHRIMP II B) at the John de Laeter Centre, Curtin University, Perth.\" Acknowledgments:"
     },
     {
       "doi": "10.5194/gchron-2024-4",
@@ -16940,8 +16912,9 @@
         "CH"
       ],
       "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2023-10-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2023-10-01",
+      "evidenceDetail": "manual override: Methods: \"Zircon crystals from sample AC13 were analysed for U–Pb isotopes using the SHRIMP II ion probe at Curtin University.\" Acknowledgments: \"The Sensitive High-Resolution Ion "
     },
     {
       "doi": "10.1016/j.epsl.2023.118346",
@@ -16979,8 +16952,9 @@
         "FR"
       ],
       "authorCount": 7,
-      "evidence": "keyword",
-      "publicationDate": "2023-08-25"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2023-08-25",
+      "evidenceDetail": "manual override: Methods: \"The rutile was analysed for U–Pb isotopes (Appendix Table A-4) by SHRIMP II at the John de Laeter Centre, Curtin University, following the methodology of Taylor et al. (2"
     },
     {
       "doi": "10.1111/ggr.12522",
@@ -17016,8 +16990,9 @@
         "CN"
       ],
       "authorCount": 11,
-      "evidence": "keyword",
-      "publicationDate": "2023-08-03"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2023-08-03",
+      "evidenceDetail": "manual override: Methods: \"The selected zircon grains were analysed ... and by SHRIMP at the John de Laeter Centre – Curtin University, Perth, Australia (SZR 1). Measurement procedures for the John"
     },
     {
       "doi": "10.1016/j.chemgeo.2023.121444",
@@ -17081,8 +17056,9 @@
         "AU"
       ],
       "authorCount": 7,
-      "evidence": "keyword",
-      "publicationDate": "2023-02-09"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2023-02-09",
+      "evidenceDetail": "manual override: Methods: \"Measurements of U, Th and Pb in zircon from Strelka pluton leucocratic granite samples A-08-10 and A-08-9-6 were done on the SHRIMP II ion microprobe of the John de Laete"
     },
     {
       "doi": "10.47749/t/unicamp.2022.1265989",
@@ -17113,66 +17089,6 @@
       "publicationDate": "2022-12-14"
     },
     {
-      "doi": "10.31223/x5km18",
-      "title": "Correlation of geological complexes of the Khan-Tengri Mountain massif",
-      "authors": "Alexander Mikolaichuk; F. Apayarov; Dmitry Gordeev",
-      "journal": "",
-      "publisher": "California Digital Library (CDL)",
-      "year": 2022,
-      "cited": 6,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Geochemistry and Geologic Mapping; Geochemistry and Geochronology of Asian Mineral Deposits; Geological and Geochemical Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Czech Academy of Sciences, Institute of Geology"
-      ],
-      "countries": [
-        "CZ"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2022-12-09"
-    },
-    {
-      "doi": "10.3390/min12111432",
-      "title": "Paleoproterozoic Layered Intrusions of the Monchegorsk Ore District: Geochemistry and U–Pb, Sm–Nd, Re–Os Isotope Analysis",
-      "authors": "V. F. Smolkin; Artem Mokrushin",
-      "journal": "Minerals",
-      "publisher": "Multidisciplinary Digital Publishing Institute",
-      "year": 2022,
-      "cited": 9,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; earthquake and tectonic studies",
-      "sources": [
-        "OpenAlex",
-        "Crossref (metadata fill)"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Russian Academy of Sciences",
-        "Vernadsky State Geological Museum",
-        "Kola Science Centre",
-        "Geological Institute"
-      ],
-      "countries": [
-        "RU"
-      ],
-      "authorCount": 2,
-      "evidence": "keyword",
-      "publicationDate": "2022-11-11"
-    },
-    {
       "doi": "10.3389/feart.2022.852261",
       "title": "Qia’erdunbasixi Fe–Cu Deposit in Sawur, Xinjiang: A Case Study of Skarn Deposit Hosted by Volcanic Rock",
       "authors": "Shuang Yang; Qiushi Zhou; Rui Wang; Yongfeng Zhu",
@@ -17198,36 +17114,9 @@
         "CN"
       ],
       "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2022-06-24"
-    },
-    {
-      "doi": "10.5281/zenodo.5811041",
-      "title": "DOES GATT ARTICLE XX PROVIDE MEMBERS SUFFICIENT SCOPE TO PROTECT IMPORTANT PUBLIC POLICY GOALS?",
-      "authors": "Axtamova Yulduz Axtamovna",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2021,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Hermeneutics and Narrative Identity; Aging, Elder Care, and Social Issues; Health, Medicine and Society",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Tashkent State University of Law"
-      ],
-      "countries": [
-        "UZ"
-      ],
-      "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2021-12-31"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2022-06-24",
+      "evidenceDetail": "manual override: Methods (Sampling and Analytical Methods): \"The zircon was dated using the SHRIMP II in Curtin University of Technology at the Beijing SHRIMP Center using the SHRIMP Remote Operati"
     },
     {
       "doi": "10.3390/min11111288",
@@ -17255,8 +17144,9 @@
         "AU"
       ],
       "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2021-11-19"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2021-11-19",
+      "evidenceDetail": "manual override: Methods: \"Zircons were hand picked from the non-magnetic fraction, mounted in epoxy discs, polished and coated, and imaged in the SEM (Figure S1) prior to analysis in the Sensitive"
     },
     {
       "doi": "10.3390/min11090944",
@@ -17283,8 +17173,9 @@
         "AU"
       ],
       "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2021-08-30"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2021-08-30",
+      "evidenceDetail": "manual override: Methods: \"Analysis of selected zircons was conducted using the SHRIMP II (Sensitive High-mass Resolution Ion Microprobe) at the John de Laeter Centre (Curtin University), based on "
     },
     {
       "doi": "10.1590/2317-4889202120200046",
@@ -17312,44 +17203,9 @@
         "BR"
       ],
       "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2020-12-14"
-    },
-    {
-      "doi": "10.1016/j.chemer.2020.125683",
-      "title": "Ages of lunar impact breccias: Limits for timing of the Imbrium impact",
-      "authors": "A. A. Nemchin; Tao Long; Bradley L. Jolliff; Yusheng Wan; J. F. Snape; R. A. Zeigler; M. L. Grange; Dunyi Liu; Martin J. Whitehouse; Nicholas E. Timms; Fred Jourdan",
-      "journal": "Geochemistry",
-      "publisher": "Elsevier BV",
-      "year": 2020,
-      "cited": 50,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astro and Planetary Science; Planetary Science and Exploration; Geological and Geochemical Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Curtin University",
-        "Chinese Academy of Geological Sciences",
-        "Shandong Geological Sciences Institute",
-        "Washington University in St. Louis",
-        "Swedish Museum of Natural History",
-        "Johnson Space Center"
-      ],
-      "countries": [
-        "AU",
-        "CN",
-        "US",
-        "SE"
-      ],
-      "authorCount": 11,
-      "evidence": "keyword",
-      "publicationDate": "2020-09-24"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2020-12-14",
+      "evidenceDetail": "manual override: Materials and Methods: \"The sample DI-10a was analyzed by the ionic microprobe SHRIMP II of the geochronology lab of the Curtin University, Perth, Australia.\""
     },
     {
       "doi": "10.1038/s41598-020-62075-y",
@@ -17378,8 +17234,9 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2020-03-25"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2020-03-25",
+      "evidenceDetail": "manual override: Methods: \"U-Pb isotopes were analysed on the SHRIMP II at the John de Laeter Centre SHRIMP Facility, Curtin University, Perth, Western Australia.\""
     },
     {
       "doi": "10.1038/s41467-019-13985-7",
@@ -17413,8 +17270,9 @@
         "GB"
       ],
       "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2020-01-21"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2020-01-21",
+      "evidenceDetail": "manual override: Methods: \"Following EBSD mapping of monazite and zircon, in situ U-Th-Pb isotopic measurements targeting specific shock microstructural domains were carried out using the SHRIMP-II"
     },
     {
       "doi": "10.1590/2317-4889202020190063",
@@ -17446,8 +17304,9 @@
         "AU"
       ],
       "authorCount": 8,
-      "evidence": "keyword",
-      "publicationDate": "2020-01-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2020-01-01",
+      "evidenceDetail": "manual override: Methods: \"U-Th-Pb isotope analyses of monazite were carried out on Sensitive High-Resolution Ion Microprobe II (SHRIMP II) B at Curtin University, Western Australia\". Acknowledgmen"
     },
     {
       "doi": "10.1590/2317-4889202020190082",
@@ -17478,38 +17337,9 @@
         "BR"
       ],
       "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2020-01-01"
-    },
-    {
-      "doi": "10.3390/min9120774",
-      "title": "Further Characterization of the BB Zircon via SIMS and MC-ICP-MS for Li, O, and Hf Isotopic Compositions",
-      "authors": "Chao Huang; Hao Wang; Jin‐Hui Yang; Lie‐Wen Xie; Yue‐Heng Yang; Shitou Wu",
-      "journal": "Minerals",
-      "publisher": "Multidisciplinary Digital Publishing Institute",
-      "year": 2019,
-      "cited": 4,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Radioactive element chemistry and processing",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Institute of Geology and Geophysics",
-        "Chinese Academy of Sciences",
-        "University of Chinese Academy of Sciences"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2019-12-11"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2020-01-01",
+      "evidenceDetail": "manual override: Methods: \"The FRP327G sample mount was analysed for U-Pb isotopes and concentrations at the SHRIMP II Laboratory of the John de Laeter Centre, Curtin University, Perth, Australia.\""
     },
     {
       "doi": "10.3989/egeol.43593.573",
@@ -17542,39 +17372,9 @@
         "US"
       ],
       "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2019-12-02"
-    },
-    {
-      "doi": "10.31857/s0869-56524893267-271",
-      "title": "Dyke magmatism in the evolution of the transform active continental margin of the Siberian Craton in the Ediacaran",
-      "authors": "A. E. Vernikovskaya; V. А. Vernikovsky; N. Yu. Matushkin; P. I. Kadilnikov; Д. В. Метелкин; Zheng‐Xiang Li; Simon A. Wilde; И. В. Романова; E. A. Bogdanov",
-      "journal": "Доклады Академии наук",
-      "publisher": "Nauka",
-      "year": 2019,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geological Studies and Exploration; Geological and Geochemical Analysis; Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Novosibirsk State University",
-        "Institute of Petroleum Geology and Geophysics",
-        "Curtin University"
-      ],
-      "countries": [
-        "RU",
-        "AU"
-      ],
-      "authorCount": 9,
-      "evidence": "keyword",
-      "publicationDate": "2019-11-29"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2019-12-02",
+      "evidenceDetail": "manual override: \"the U and Pb isotope ratios in zircon grains were measured in a High Resolution Ion Micro Probe (SHRIMP II) equipment housed at Curtin University, Australia.\""
     },
     {
       "doi": "10.1016/j.precamres.2019.105450",
@@ -17610,8 +17410,9 @@
         "SN"
       ],
       "authorCount": 10,
-      "evidence": "keyword",
-      "publicationDate": "2019-09-12"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2019-09-12",
+      "evidenceDetail": "manual override: Acknowledgements: \"Zircon analyses were carried out on the Sensitive High Resolution Ion MicroProbe mass spectrometer (SHRIMP II) at the John de Laeter Centre, Curtin University, w"
     },
     {
       "doi": "10.1016/j.gr.2019.07.017",
@@ -17640,8 +17441,9 @@
         "CN"
       ],
       "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2019-09-02"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2019-09-02",
+      "evidenceDetail": "manual override: \"Sample CWX was analysed by SIMS as follows: U-Pb analyses were undertaken using the SHRIMP II ion microprobe facility at the John de Laeter Centre, Curtin University.\""
     },
     {
       "doi": "10.1016/j.precamres.2019.105425",
@@ -17672,8 +17474,9 @@
         "CN"
       ],
       "authorCount": 8,
-      "evidence": "keyword",
-      "publicationDate": "2019-08-21"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2019-08-21",
+      "evidenceDetail": "manual override: \"U-Pb analyses of monazite were conducted using a SHRIMP II ion microprobe in the John de Laeter Centre at Curtin University, Perth.\" Acknowledgements: \"U-Pb measurements were cond"
     },
     {
       "doi": "10.47749/t/unicamp.2019.1231213",
@@ -17716,8 +17519,9 @@
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2018-12-13"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-12-13",
+      "evidenceDetail": "manual override: Methods (Portuguese): \"Datacoes U-Pb em zircao foram coletadas utilizando microssonda ionica (Sensitive High Resolution Ion Microprobe - SHRIMP II), localizada no John de Laeter Ce"
     },
     {
       "doi": "10.1016/j.gsf.2018.09.002",
@@ -17749,8 +17553,9 @@
         "RU"
       ],
       "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2018-09-29"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-09-29",
+      "evidenceDetail": "manual override: \"Analyses were undertaken on a SHRIMP II instrument at the John de Laeter Centre for Isotope Research at Curtin University. The analytical procedures for the Curtin consortium SHRI"
     },
     {
       "doi": "10.1111/jmg.12451",
@@ -17786,8 +17591,9 @@
         "GB"
       ],
       "authorCount": 7,
-      "evidence": "keyword",
-      "publicationDate": "2018-09-12"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-09-12",
+      "evidenceDetail": "manual override: \"Zircon U-Th-Pb isotope ratios were measured using the SHRIMP II in the John de Laeter Centre, Curtin University.\" And for monazite: \"U-Pb isotope measurements on the SHRIMP II use"
     },
     {
       "doi": "10.1038/s41598-018-26530-1",
@@ -17818,8 +17624,9 @@
         "AU"
       ],
       "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2018-05-24"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-05-24",
+      "evidenceDetail": "manual override: Methods: \"U-Pb isotope analysis on the SHRIMP II sensitive high resolution ion microprobe at the John de Laeter Centre, Curtin University.\" Also: \"The mount was polished to expose "
     },
     {
       "doi": "10.31223/osf.io/q76tz",
@@ -17849,8 +17656,9 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2018-04-16"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-04-16",
+      "evidenceDetail": "manual override: Geochronology section of the preprint PDF: \"Zircon U-Pb geochronology was conducted on sample 04AP01... using the sensitive high-resolution ion microprobe (SHRIMP) facility at the "
     },
     {
       "doi": "10.1016/j.oregeorev.2018.03.011",
@@ -17879,8 +17687,9 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2018-03-15"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-03-15",
+      "evidenceDetail": "manual override: Methods: \"Xenotime and baddeleyite were analysed for U, Th and Pb isotopes using the SHRIMP II instrument at the John de Laeter Centre at Curtin University in Perth, Western Austra"
     },
     {
       "doi": "10.11606/issn.2316-9095.v18-434",
@@ -17912,30 +17721,9 @@
         "ES"
       ],
       "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2018-03-14"
-    },
-    {
-      "doi": "10.25903/5eb1ed92284d2",
-      "title": "Mesozoic detrital zircon provenance of Central Africa: implications for Jurassic-Cretaceous tectonics, paleogeography and landscape evolution",
-      "authors": "Owusu Agyemang",
-      "journal": "",
-      "publisher": "",
-      "year": 2018,
-      "cited": 0,
-      "type": "dissertation",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Paleontology and Stratigraphy of Fossils; Geological and Geophysical Studies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2018-01-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-03-14",
+      "evidenceDetail": "manual override: Methods (Portuguese): \"Os dados isotópicos foram obtidos por microssonda iônica SHRIMP II no Laboratório de Geocronologia da Curtin University, em Perth, Austrália.\" (Isotopic data"
     },
     {
       "doi": "10.4225/23/5afb8a524287d",
@@ -17956,8 +17744,9 @@
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2018-01-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-01-01",
+      "evidenceDetail": "manual override: Thesis methods (Ch. 5): \"U-Pb age data were obtained using the SHRIMP II facilities at the John de Laeter Center for Isotope Research, Curtin University (Perth), and compiled in Ap"
     },
     {
       "doi": "10.1038/s41467-022-35208-2",
@@ -17998,8 +17787,9 @@
         "SHRIMP II Curtin"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2021-06-10"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2021-06-10",
+      "evidenceDetail": "manual override: Experimental design, materials and methods: \"The ion-microprobe SHRIMP U-Pb analyses were undertaken at the John de Laeter Centre, Curtin University, Perth, Western Australia.\""
     },
     {
       "doi": "10.1038/s41467-020-14857-1",
@@ -18028,8 +17818,9 @@
         "AU"
       ],
       "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2020-03-06"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2020-03-06",
+      "evidenceDetail": "manual override: Methods, \"Zircons and SHRIMP age dating\": \"Initial analyses involved single-cycle runs on a SHRIMP II at Curtin University\", with re-analysis \"using 6-cycle runs on a SHRIMP II at "
     },
     {
       "doi": "10.1111/ggr.12239",
@@ -18049,29 +17840,9 @@
         "SHRIMP II Curtin"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2018-08-30"
-    },
-    {
-      "doi": "10.1038/s41598-018-25494-6",
-      "title": "Evidence of Enriched, Hadean Mantle Reservoir from 4.2-4.0 Ga zircon xenocrysts from Paleoarchean TTGs of the Singhbhum Craton, Eastern India.",
-      "authors": "Trisrota Chaudhuri; Yusheng Wan; Rajat Mazumder; Mingzhu Ma; Dunyi Liu",
-      "journal": "Scientific Reports",
-      "publisher": "Springer Science and Business Media LLC",
-      "year": 2018,
-      "cited": 164,
-      "type": "journal article",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; earthquake and tectonic studies; High-pressure geophysics and materials",
-      "sources": [
-        "Europe PMC"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2018-04-30"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-08-30",
+      "evidenceDetail": "manual override: \"...their SIMS analysis performance... was checked by multiple analyses using the SHRIMP II (Sensitive High-mass Resolution Ion MicroProbe) of the John de Laeter Centre for Isotopi"
     },
     {
       "doi": "10.1126/sciadv.aao3159",
@@ -18091,8 +17862,9 @@
         "SHRIMP II Curtin"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2018-02-02"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2018-02-02",
+      "evidenceDetail": "manual override: Materials and Methods (full text via Europe PMC PMC5817928): \"SIMS dating was performed using a SHRIMP II ion microprobe at Curtin University, following the standard procedures des"
     },
     {
       "doi": "10.1038/srep25751",
@@ -18112,8 +17884,9 @@
         "SHRIMP II Curtin"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2016-05-11"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2016-05-11",
+      "evidenceDetail": "manual override: Methods (full text via Europe PMC PMC4863176): \"Zircon U-Pb isotope analyses were obtained using the sensitive high resolution ion microprobe (SHRIMP II) at the John de Laeter Cent"
     },
     {
       "doi": "10.1130/b38303.1",
@@ -20098,34 +19871,6 @@
       "publicationDate": "2016-09-02"
     },
     {
-      "doi": "10.18520/cs/v129/i12/1048-1057",
-      "title": "The role of satellite laser ranging in space geodesy: developments, applications and Indian perspective",
-      "authors": "Pramod Gandugade; Sushant Shekhar; Somalin Nath; B. Nagarajan; Onkar Dikshit",
-      "journal": "Current Science",
-      "publisher": "Indian Academy of Sciences",
-      "year": 2025,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Space Satellite Systems and Control; Geophysics and Sensor Technology; Satellite Image Processing and Photogrammetry",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Yarragadee VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Indian Institute of Technology Kanpur"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2025-12-25"
-    },
-    {
       "doi": "10.1029/2024sw004225",
       "title": "Studying the Inner Heliosphere Using Radio Signals Transmitted From Spacecraft Orbiting Mars",
       "authors": "Jasper Edwards; Guifre Molera Calvés; P. Kummamuru; N. M. M. Said; Mingyang Ma",
@@ -20254,11 +19999,12 @@
         "RU"
       ],
       "authorCount": 10,
-      "evidence": "keyword",
+      "evidence": "text-infrastructure",
       "relatedDois": [
         "10.48550/arxiv.2402.09908"
       ],
-      "publicationDate": "2024-02-20"
+      "publicationDate": "2024-02-20",
+      "evidenceDetail": "manual override: arXiv 2402.09908 full text. Table 2 (archival Astrogeo VLBI data used) antenna key: \"Additional antennas: Fortaleza (Ft, Brazil), Hartebeesthoek (Hh, South Africa), Kokee Park (Kk,"
     },
     {
       "doi": "10.3390/universe10020078",
@@ -20290,57 +20036,9 @@
         "DE"
       ],
       "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2024-02-06"
-    },
-    {
-      "doi": "10.1007/1345_2024_269",
-      "title": "Relevance of PSInSAR Analyses at ITRF Co-location Sites",
-      "authors": "Xavier Collilieux; Z. Altamimi; Jingyi Chen; Clément Courde; Zheyuan Du; Thomas Furhmann; Christoph Gisinger; Thomas Gruber; Ryan Hippenstiel; Davod Poreh; Paul Rebischung; Yudai Sato",
-      "journal": "International Association of Geodesy symposia",
-      "publisher": "Springer Nature",
-      "year": 2024,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Geophysics and Gravity Measurements; Advanced SAR Imaging Techniques",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Yarragadee VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Centre National de la Recherche Scientifique",
-        "Institut national de l’information géographique et forestière",
-        "Institut de physique du globe de Paris",
-        "Université Paris Cité",
-        "The University of Texas at Austin",
-        "Observatoire de la Côte d’Azur",
-        "Géoazur",
-        "Institut de Recherche pour le Développement",
-        "Geoscience Australia",
-        "UNSW Sydney",
-        "Airbus (Germany)",
-        "Deutsches Zentrum für Luft- und Raumfahrt e. V. (DLR)",
-        "Technical University of Munich",
-        "NOAA National Geodetic Survey",
-        "Ingegneria dei Trasporti (Italy)",
-        "University of Naples Federico II",
-        "Geospatial Information Authority of Japan"
-      ],
-      "countries": [
-        "FR",
-        "US",
-        "AU",
-        "DE",
-        "IT",
-        "JP"
-      ],
-      "authorCount": 12,
-      "evidence": "keyword",
-      "publicationDate": "2024-08-08"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-02-06",
+      "evidenceDetail": "manual override: arXiv 2402.04011 full text. \"...as well as other geodetic VLBI radio telescopes, Goddard (GG, USA), Gilmore Creek (GC, USA), Hartebeesthoek 15-m (HT, South Africa), Kokee Park (KK,"
     },
     {
       "doi": "10.55676/asi.v4i2.62",
@@ -20571,8 +20269,9 @@
         "AU"
       ],
       "authorCount": 9,
-      "evidence": "keyword",
-      "publicationDate": "2023-02-07"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2023-02-07",
+      "evidenceDetail": "manual override: arXiv 2210.16895 full text. \"In both runs, the phased Australia Telescope Compact Array (ATCA; 5 × 22 m diameter used for VLBI), Ceduna (30 m), Hartebeesthoek (26 m), Hobart (26 m)"
     },
     {
       "doi": "10.1017/pasa.2023.2",
@@ -20623,11 +20322,12 @@
         "CN"
       ],
       "authorCount": 10,
-      "evidence": "keyword",
+      "evidence": "text-infrastructure",
       "relatedDois": [
         "10.48550/arxiv.2301.04533"
       ],
-      "publicationDate": "2023-02-14"
+      "publicationDate": "2023-02-14",
+      "evidenceDetail": "manual override: Observations section, 8.5 GHz LBA experiment: \"The observation...with the following participating antennas: CD, HO, MP, PA, Katherine (KE), Yarragadee (YG), the tied array of ATCA "
     },
     {
       "doi": "10.3847/2041-8213/ac96e7",
@@ -20679,30 +20379,9 @@
         "IT"
       ],
       "authorCount": 33,
-      "evidence": "keyword",
-      "publicationDate": "2022-11-25"
-    },
-    {
-      "doi": "10.5281/zenodo.7313064",
-      "title": "GGOS Days 2022 - Status Report - GGOS Bureau of Networks and Observations",
-      "authors": "M. R. Pearlman",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2022,
-      "cited": 0,
-      "type": "report",
-      "isOA": "Yes",
-      "subject": "Geophysics and Gravity Measurements; Astronomical Observations and Instrumentation; GNSS positioning and interference",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Yarragadee VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2022-11-11"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2022-11-25",
+      "evidenceDetail": "manual override: Observations section (arXiv:2210.10324 / ar5iv full text): \"TIW and MEX were observed in the same beam by the EVN telescopes of Hartebeesthoek 25 m (Hh), Zelenchukskaya 32 m (Zc), "
     },
     {
       "doi": "10.1016/j.asr.2022.04.050",
@@ -21179,69 +20858,6 @@
       "authorCount": 1,
       "evidence": "keyword",
       "publicationDate": "1997-01-01"
-    },
-    {
-      "doi": "10.1007/978-3-319-91843-3_5",
-      "title": "Where did it all Lead?",
-      "authors": "Wayne Orchiston; Peter Robertson; Woodruff T. Sullivan",
-      "journal": "Historical & cultural astronomy",
-      "publisher": "Springer International Publishing",
-      "year": 2021,
-      "cited": 0,
-      "type": "book chapter",
-      "isOA": "Yes",
-      "subject": "History and Developments in Astronomy; Twentieth Century Scientific Developments; History of Science and Natural History",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Mt Pleasant VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "University of Southern Queensland",
-        "National Astronomical Research Institute of Thailand",
-        "The University of Melbourne",
-        "University of Washington",
-        "Seattle University"
-      ],
-      "countries": [
-        "AU",
-        "TH",
-        "US"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2022-01-20"
-    },
-    {
-      "doi": "10.1051/0004-6361/201424039",
-      "title": "The observed spiral structure of the Milky Way",
-      "authors": "Li‐Peng Hou; J. L. Han",
-      "journal": "Astronomy and Astrophysics",
-      "publisher": "EDP Sciences",
-      "year": 2014,
-      "cited": 277,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysics and Star Formation Studies; Stellar, planetary, and galactic studies; Galaxies: Formation, Evolution, Phenomena",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Mt Pleasant VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Chinese Academy of Sciences",
-        "National Astronomical Observatories"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "authorCount": 2,
-      "evidence": "keyword",
-      "publicationDate": "2014-07-25"
     },
     {
       "doi": "10.1051/0004-6361/200912724",
@@ -23308,312 +22924,6 @@
       "publicationDate": "2010-12-07"
     },
     {
-      "doi": "10.3390/rs18050770",
-      "title": "Design and In-Orbit Validation of a Novel Compact Bidirectional Trapezoidal Reflector for X-Band Spaceborne SAR Absolute Radiometric Calibration",
-      "authors": "Shiyu Sun; Yu Wang; H. Li; Xin Zhang",
-      "journal": "Remote Sensing",
-      "publisher": "Multidisciplinary Digital Publishing Institute",
-      "year": 2026,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Soil Moisture and Remote Sensing; Advanced SAR Imaging Techniques",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Chinese Academy of Sciences",
-        "Aerospace Information Research Institute",
-        "Chinese Academy of Surveying and Mapping"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2026-03-03"
-    },
-    {
-      "doi": "10.1002/eco.70140",
-      "title": "Peatland Surface Motion: Terminology, Measurement Approaches, Models and Insights From a Global Dataset",
-      "authors": "Ronny Seidel; Ullrich Dettmann; Bärbel Tiemeyer",
-      "journal": "Ecohydrology",
-      "publisher": "Wiley",
-      "year": 2025,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Peatlands and Wetlands Ecology; Coastal wetland ecosystem dynamics; Fire effects on ecosystems",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Johann Heinrich von Thünen-Institut"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2025-12-01"
-    },
-    {
-      "doi": "10.26650/ijegeo.1694769",
-      "title": "Suitable Storage Areas for Estimated Demolished Waste Using InSAR and GIS-Based AHP For Kahramanmaraş Earthquake, Türkiye",
-      "authors": "Ahmet Genç; Levent Genç; Nilgün Ayman Öz; Ramazan Cüneyt Erenoğlu",
-      "journal": "International Journal of Environment and Geoinformatics",
-      "publisher": "IJEGEO",
-      "year": 2025,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Disaster Response and Management; Healthcare and Environmental Waste Management; Disaster Management and Resilience",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2025-09-25"
-    },
-    {
-      "doi": "10.25140/2411-5363-2025-2(40)-463-471",
-      "title": "The orientation method of terrestrial corner reflectors for the satellite radar observation",
-      "authors": "Д. Кухтар; L. Dorosh",
-      "journal": "TECHNICAL SCIENCES AND TECHNOLOGIES",
-      "publisher": "",
-      "year": 2025,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Space exploration and regulation; Spacecraft Design and Technology; Synthetic Aperture Radar (SAR) Applications and Techniques",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 2,
-      "evidence": "keyword",
-      "publicationDate": "2025-08-12"
-    },
-    {
-      "doi": "10.1002/9781394218912.ch4",
-      "title": "Correlating: Passive and Active Software‐Defined Radio (SDR)–RADAR",
-      "authors": "",
-      "journal": "Communication Systems Engineering with GNU Radio",
-      "publisher": "Wiley",
-      "year": 2024,
-      "cited": 0,
-      "type": "other",
-      "isOA": "Yes",
-      "subject": "Radar Systems and Signal Processing; Advanced SAR Imaging Techniques; Geophysical Methods and Applications",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2024-10-25"
-    },
-    {
-      "doi": "10.1117/12.3037227",
-      "title": "Sentinel-1A assessment results from the use of permanent SAR corner reflectors in Cyprus by means of the CyCLOPS strategic infrastructure",
-      "authors": "Dimitris Kakoullis; Kyriaki Fotiou; Nerea Ibarrola Subiza; Ramon Brcic; Michael Eineder; Chris Danezis",
-      "journal": "Tenth International Conference on Remote Sensing and Geoinformation of the Environment (RSCy2024)",
-      "publisher": "SPIE",
-      "year": 2024,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Cyprus University of Technology",
-        "Deutsches Zentrum für Luft- und Raumfahrt e. V. (DLR)"
-      ],
-      "countries": [
-        "CY",
-        "DE"
-      ],
-      "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2024-09-13"
-    },
-    {
-      "doi": "10.3390/rs16101696",
-      "title": "An Advanced Quality Assessment and Monitoring of ESA Sentinel-1 SAR Products via the CyCLOPS Infrastructure in the Southeastern Mediterranean Region",
-      "authors": "Dimitris Kakoullis; Kyriaki Fotiou; Nerea Ibarrola Subiza; Ramon Brcic; Michael Eineder; Chris Danezis",
-      "journal": "Remote Sensing",
-      "publisher": "Multidisciplinary Digital Publishing Institute",
-      "year": 2024,
-      "cited": 4,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Advanced SAR Imaging Techniques; Radioactivity and Radon Measurements",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Cyprus University of Technology",
-        "Deutsches Zentrum für Luft- und Raumfahrt e. V. (DLR)"
-      ],
-      "countries": [
-        "CY",
-        "DE"
-      ],
-      "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2024-05-10"
-    },
-    {
-      "doi": "10.22761/gd.2024.0002",
-      "title": "Evaluation of Calibration Using Corner Reflector with Ground-Based Interferometric Radar",
-      "authors": "Je-Yun Lee; Jeong-Heon Ju; Sang‐Hoon Hong",
-      "journal": "GEO DATA",
-      "publisher": "",
-      "year": 2024,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Soil Moisture and Remote Sensing; Structural Health Monitoring Techniques",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Pusan National University"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2024-03-27"
-    },
-    {
-      "doi": "10.1016/j.ultras.2023.106999",
-      "title": "A new retroreflector named “quatriplan” based on the corner-cube principle, for advanced ultrasonic telemetry applications",
-      "authors": "Marie-Aude Ploix; Cécile Gueudre; G. Corneloup; François Baqué",
-      "journal": "Ultrasonics",
-      "publisher": "Elsevier BV",
-      "year": 2023,
-      "cited": 2,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Underwater Vehicles and Communication Systems; Soil Moisture and Remote Sensing",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Centre National de la Recherche Scientifique",
-        "Aix-Marseille Université",
-        "Laboratoire de Mécanique et d’Acoustique",
-        "Centrale Marseille",
-        "Commissariat à l'Énergie Atomique et aux Énergies Alternatives",
-        "CEA Cadarache",
-        "Institut de Recherche sur les Systèmes Nucléaires pour la production d'Energie bas carbone"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2023-03-28"
-    },
-    {
-      "doi": "10.3390/rs14143251",
-      "title": "Nationwide, Operational Sentinel-1 Based InSAR Monitoring System in the Cloud for Strategic Water Facilities in Hungary",
-      "authors": "Levente Ronczyk; András Zelenka-Hegyi; Gábor Török; Zoltán Orbán; Marco Defilippi; István Péter Kovács; Dániel Márton Kovács; Péter Burai; Paolo Pasquali",
-      "journal": "Remote Sensing",
-      "publisher": "Multidisciplinary Digital Publishing Institute",
-      "year": 2022,
-      "cited": 5,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Geophysical Methods and Applications; Soil Moisture and Remote Sensing",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "University of Pecs",
-        "Sarmap (Switzerland)",
-        "University of Debrecen"
-      ],
-      "countries": [
-        "HU",
-        "CH"
-      ],
-      "authorCount": 9,
-      "evidence": "keyword",
-      "publicationDate": "2022-07-06"
-    },
-    {
-      "doi": "10.5194/isprs-archives-xliii-b3-2022-285-2022",
-      "title": "INTERFEROMETRIC SAR DEFORMATION MONITORING USING PASSIVE REFLECTORS AND ASCENDING AND DESCENDING PASSES",
-      "authors": "Natalia Kotulak; M. Mleczko; Michele Crosetto; R. Palamà; M. Mróz",
-      "journal": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
-      "publisher": "Copernicus Publications",
-      "year": 2022,
-      "cited": 1,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Geological Modeling and Analysis; Satellite Image Processing and Photogrammetry",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "University of Warmia and Mazury in Olsztyn",
-        "Centre Tecnologic de Telecomunicacions de Catalunya"
-      ],
-      "countries": [
-        "PL",
-        "ES"
-      ],
-      "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2022-05-30"
-    },
-    {
       "doi": "10.3390/rs14041020",
       "title": "Considerations and Multi-Criteria Decision Analysis for the Installation of Collocated Permanent GNSS and SAR Infrastructures for Continuous Space-Based Monitoring of Natural Hazards",
       "authors": "Dimitris Kakoullis; Kyriaki Fotiou; George Μelillos; Chris Danezis",
@@ -23668,8 +22978,9 @@
         "BR"
       ],
       "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2022-01-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2022-01-01",
+      "evidenceDetail": "manual override: \"In order to demonstrate the high resolution capability of the Staring Spotlight part of the acquisition, a corner reflector was imaged. The corner reflector is part of the Austral"
     },
     {
       "doi": "10.35180/gse-2021-0061",
@@ -23698,37 +23009,6 @@
       "authorCount": 5,
       "evidence": "keyword",
       "publicationDate": "2021-12-01"
-    },
-    {
-      "doi": "10.1515/jag-2020-0040",
-      "title": "Investigating GNSS multipath effects induced by co-located Radar Corner Reflectors",
-      "authors": "Thomas Fuhrmann; Matthew C. Garthwaite; S. McClusky",
-      "journal": "Journal of Applied Geodesy",
-      "publisher": "De Gruyter",
-      "year": 2021,
-      "cited": 11,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "GNSS positioning and interference; Synthetic Aperture Radar (SAR) Applications and Techniques; Soil Moisture and Remote Sensing",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Airbus (Germany)",
-        "Geoscience Australia",
-        "Australian National University"
-      ],
-      "countries": [
-        "DE",
-        "AU"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2021-04-03"
     },
     {
       "doi": "10.3390/rs13050926",
@@ -23761,248 +23041,6 @@
       "publicationDate": "2021-03-02"
     },
     {
-      "doi": "10.5194/amt-13-6853-2020",
-      "title": "Absolute calibration method for frequency-modulated continuous wave (FMCW) cloud radars based on corner reflectors",
-      "authors": "Felipe Toledo; Julien Delanoe͏̈; Martial Haeffelin; Jean‐Charles Dupont; Susana Jorquera; Christophe Le Gac",
-      "journal": "Atmospheric measurement techniques",
-      "publisher": "Copernicus Publications",
-      "year": 2020,
-      "cited": 34,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Atmospheric aerosols and clouds; Meteorological Phenomena and Simulations; Precipitation Measurement and Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Laboratoire de Météorologie Dynamique",
-        "École Polytechnique",
-        "Institut Pierre-Simon Laplace",
-        "Sorbonne Université",
-        "Université Paris-Saclay",
-        "Centre National de la Recherche Scientifique",
-        "Laboratoire atmosphères, milieux, observations spatiales",
-        "Université de Versailles Saint-Quentin-en-Yvelines"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2020-12-16"
-    },
-    {
-      "doi": "10.24425/gac.2020.131079",
-      "title": "Monitoring of displacements and deformations of the earth’s surface near the Stebnyk city using radar images of Sentinel-1",
-      "authors": "I. ТREVOHO; B. CHETVERIKOV; Lyubov Babiy; M. Malanchuk",
-      "journal": "Geodesy and Cartography",
-      "publisher": "De Gruyter Open",
-      "year": 2020,
-      "cited": 2,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Geotechnical and Mining Engineering; Geophysical Methods and Applications",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Lviv Polytechnic National University"
-      ],
-      "countries": [
-        "UA"
-      ],
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2020-06-01"
-    },
-    {
-      "doi": "10.1016/j.ultras.2020.106149",
-      "title": "Acoustical properties of an immersed corner-cube retroreflector alone and behind screen for ultrasonic telemetry applications",
-      "authors": "Marie-Aude Ploix; Pierre Kauffmann; Jean François Chaix; Ivan Lillamand; François Baqué; G. Corneloup",
-      "journal": "Ultrasonics",
-      "publisher": "Elsevier BV",
-      "year": 2020,
-      "cited": 7,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Underwater Acoustics Research; Underwater Vehicles and Communication Systems; Soil Moisture and Remote Sensing",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Centre National de la Recherche Scientifique",
-        "Centrale Marseille",
-        "Commissariat à l'Énergie Atomique et aux Énergies Alternatives",
-        "CEA Cadarache"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2020-04-02"
-    },
-    {
-      "doi": "10.5194/amt-2019-498",
-      "title": "Absolute Calibration method for FMCW Cloud Radars",
-      "authors": "Felipe Toledo; Julien Delanoe͏̈; Martial Haeffelin; Jean‐Charles Dupont",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2020,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Atmospheric aerosols and clouds; Meteorological Phenomena and Simulations; Precipitation Measurement and Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "École Polytechnique",
-        "Laboratoire de Météorologie Dynamique",
-        "Institut Pierre-Simon Laplace",
-        "Laboratoire atmosphères, milieux, observations spatiales",
-        "Centre National de la Recherche Scientifique",
-        "Université Paris-Saclay",
-        "Université de Versailles Saint-Quentin-en-Yvelines",
-        "Sorbonne Université"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2020-01-14"
-    },
-    {
-      "doi": "10.30699/jsst.2020.1159",
-      "title": "Design of a Multiband and Wide Angle Reflector",
-      "authors": "Mojtaba Behzad Fallahpour; Hamid Dehghani; Ali Jabbar Rashidi; Abbas Sheikhi",
-      "journal": "Faṣlnāmah-i ̒ulūm va fanāvarī-i faz̤āyī/Faṣlnāmah-i ̒ulūm va fanāvarī-i faz̤āyī",
-      "publisher": "",
-      "year": 2019,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Antenna Design and Optimization; Advanced Antenna and Metasurface Technologies; Antenna Design and Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2019-12-22"
-    },
-    {
-      "doi": "10.1038/s41467-019-10326-6",
-      "title": "A corner reflector of graphene Dirac fermions as a phonon-scattering sensor",
-      "authors": "H. Graef; Quentin Wilmart; Michaël Rosticher; D. Mele; Luca Banszerus; Christoph Stampfer; Takashi Taniguchi; Kenji Watanabe; Jean‐Marc Berroir; Erwann Bocquillon; Gwendal Fève; Edwin Hang Tong Teo; Bernard Plaçais",
-      "journal": "Nature Communications",
-      "publisher": "Nature Portfolio",
-      "year": 2019,
-      "cited": 16,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Graphene research and applications; Topological Materials and Phenomena; Quantum and electron transport phenomena",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Centre National de la Recherche Scientifique",
-        "Délégation Paris 7",
-        "Nanyang Technological University",
-        "Université Paris Cité",
-        "Université Paris Sciences et Lettres",
-        "École Normale Supérieure - PSL",
-        "Sorbonne Université",
-        "Sorbonne Paris Cité",
-        "RWTH Aachen University",
-        "National Institute for Materials Science"
-      ],
-      "countries": [
-        "FR",
-        "SG",
-        "DE",
-        "JP"
-      ],
-      "authorCount": 13,
-      "evidence": "keyword",
-      "publicationDate": "2019-06-03"
-    },
-    {
-      "doi": "10.1680/icsic.64669.639",
-      "title": "Waterloo Bridge Monitoring: Comparing Measurements from Earth and Space",
-      "authors": "Sivasakthy Selvakumaran; Graham T. Webb; John Bennetts; Campbell Middleton; Cristian Rossi",
-      "journal": "International Conference on Smart Infrastructure and Construction 2019 (ICSIC)",
-      "publisher": "ICE Publishing",
-      "year": 2019,
-      "cited": 4,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Synthetic Aperture Radar (SAR) Applications and Techniques; Structural Health Monitoring Techniques; Geophysical Methods and Applications",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "University of Cambridge",
-        "Satellite Applications Catapult (United Kingdom)"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2019-07-05"
-    },
-    {
-      "doi": "10.1130/abs/2019am-332308",
-      "title": "STRUCTURAL AND GEOCHRONOLOGICAL CONSTRAINTS ON THE EARLY VARISCAN EVOLUTION OF THE EASTERN MOROCCAN MESETA",
-      "authors": "Cristina Accotto; David Jesús Martinez Poyatos; António Azor; A. Jabaloy",
-      "journal": "Abstracts with programs - Geological Society of America",
-      "publisher": "Geological Society of America",
-      "year": 2019,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Marine and environmental studies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Australian Geophysical Observing System"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2019-01-01"
-    },
-    {
       "doi": "10.4225/55/5af268123e1e9",
       "title": "The resistivity and permeability of fractured rocks",
       "authors": "Alison Kirkby",
@@ -24021,8 +23059,9 @@
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2017-01-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2017-01-01",
+      "evidenceDetail": "manual override: Downloaded the thesis front matter from the University of Adelaide DSpace repository (item 2440/111944, Alison Louise Kirkby, 'The resistivity and permeability of fractured rocks')"
     },
     {
       "doi": "10.1038/s41467-026-70649-z",
@@ -41943,8 +40982,9 @@
         "DE"
       ],
       "authorCount": 7,
-      "evidence": "keyword",
-      "publicationDate": "2021-09-24"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2021-09-24",
+      "evidenceDetail": "manual override: Abstract (via Semantic Scholar; paper is closed access on ScienceDirect): the workflow was developed on \"the SHRIMP II instrument at Curtin University\", investigated with 3 nA and "
     },
     {
       "doi": "10.1016/j.palaeo.2021.110779",
@@ -44219,46 +43259,6 @@
       ],
       "evidence": "keyword",
       "publicationDate": "2023-01-25"
-    },
-    {
-      "doi": "10.1016/j.gca.2023.05.011",
-      "title": "Metasomatic alteration of zircon at lower crustal P-T conditions utilizing alkali- and F-bearing fluids: Trace element incorporation, depletion, and resetting the zircon geochronometer",
-      "authors": "Daniel E. Harlov; Robert Anczkiewicz; Daniel J. Dunkley",
-      "journal": "Geochimica et Cosmochimica Acta",
-      "publisher": "Elsevier BV",
-      "year": 2023,
-      "cited": 31,
-      "type": "journal article",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; earthquake and tectonic studies",
-      "sources": [
-        "Crossref (metadata fill)",
-        "OpenAlex"
-      ],
-      "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
-      "searchTerms": [
-        "Manual entry",
-        "SHRIMP II Curtin"
-      ],
-      "institutions": [
-        "University of Johannesburg",
-        "China University of Geosciences",
-        "GFZ Helmholtz Centre for Geosciences",
-        "Instytut Nauk Geologicznych",
-        "Polish Academy of Sciences",
-        "National Institute of Polar Research",
-        "Institute of Geophysics Polish Academy of Sciences"
-      ],
-      "countries": [
-        "ZA",
-        "CN",
-        "DE",
-        "PL",
-        "JP"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2023-05-19"
     },
     {
       "doi": "10.1038/s43247-023-00709-5",
@@ -65097,8 +64097,9 @@
         "US"
       ],
       "dateAdded": "2026-04-29",
-      "evidence": "keyword",
-      "publicationDate": "2021-06-05"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2021-06-05",
+      "evidenceDetail": "manual override: Methods (OA copy via Edinburgh Pure): \"Xenotime grain 14VD64-1 was analyzed on 13 March 2017 using a sensitive high-resolution ion microprobe (SHRIMP) II in the John de Laeter Cent"
     },
     {
       "doi": "10.1130/b35065.1",
@@ -70674,8 +69675,9 @@
         "GB"
       ],
       "dateAdded": "2026-05-17",
-      "evidence": "keyword",
-      "publicationDate": "2019-05-17"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2019-05-17",
+      "evidenceDetail": "manual override: Analytical methods (accepted manuscript, archived Durham Research Online copy): \"U–Pb isotopic compositions were measured in two analytical sessions using a Sensitive High Resoluti"
     },
     {
       "doi": "10.1080/08120099.2026.2653999",
@@ -71247,38 +70249,6 @@
       "dateAdded": "2026-06-07",
       "evidence": "keyword",
       "publicationDate": "2026-05-30"
-    },
-    {
-      "doi": "10.1130/spe550",
-      "title": "Large Meteorite Impacts and Planetary Evolution VI",
-      "authors": "Aaron J. Cavosie; Christopher L. Kirkland; Steven M. Reddy; Nicholas E. Timms; Cristina Talavera; Maya Pincus",
-      "journal": "Geological Society of America eBooks",
-      "publisher": "Geological Society of America",
-      "year": 2021,
-      "cited": 40,
-      "type": "book",
-      "isOA": "Yes",
-      "subject": "Planetary Science and Exploration; Astro and Planetary Science",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "SHRIMP II Curtin"
-      ],
-      "authorCount": 6,
-      "institutions": [
-        "American Museum of Natural History",
-        "Curtin University",
-        "University of Edinburgh"
-      ],
-      "countries": [
-        "US",
-        "AU",
-        "GB"
-      ],
-      "dateAdded": "2026-06-07",
-      "evidence": "keyword",
-      "publicationDate": "2021-03-19"
     },
     {
       "doi": "10.1093/mam/ozag039",
@@ -74921,8 +73891,9 @@
         "IN"
       ],
       "dateAdded": "2026-08-09",
-      "evidence": "keyword",
-      "publicationDate": "2021-02-12"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2021-02-12",
+      "evidenceDetail": "manual override: Methods (Frontiers open access full text): zircon U-Pb analyses were performed on \"the SHRIMP ion microprobe at the John de Laeter Center for Mass Spectrometry at Curtin University"
     },
     {
       "doi": "10.1016/j.epsl.2016.02.008",

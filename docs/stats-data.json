@@ -1,22 +1,22 @@
 {
-  "generated": "2026-09-14T13:25:17.561Z",
+  "generated": "2026-09-14T13:57:36.587Z",
   "pillars": {
     "publications": {
-      "total": 2818,
-      "citations": 66830,
+      "total": 2782,
+      "citations": 66163,
       "verified": 45,
       "candidate": 61,
       "attributed": {
-        "pubs": 720,
-        "citations": 18463
+        "pubs": 762,
+        "citations": 19522
       },
       "software": {
         "pubs": 297,
         "citations": 7110
       },
       "unverified": {
-        "pubs": 1801,
-        "citations": 41257
+        "pubs": 1723,
+        "citations": 39531
       }
     },
     "datasets": {
