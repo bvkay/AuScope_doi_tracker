@@ -61,7 +61,7 @@ async function searchOpenAlexFilter_(query, filterType, email, maxPages, extraFi
   for (let page = 1; page <= maxPages; page++) {
     const url = 'https://api.openalex.org/works?per_page=25&page=' + page
       + '&filter=' + filterType + ':' + encodeURIComponent(query) + (extraFilter || '')
-      + '&select=id,doi,title,publication_year,authorships,primary_location,cited_by_count,type,open_access,topics'
+      + '&select=id,doi,title,publication_year,publication_date,authorships,primary_location,cited_by_count,type,open_access,topics'
       + '&sort=publication_year:desc'
       + '&mailto=' + encodeURIComponent(email);
 
@@ -94,6 +94,7 @@ async function searchOpenAlexFilter_(query, filterType, email, maxPages, extraFi
         journal: src.display_name || '',
         publisher: src.host_organization_name || '',
         year: w.publication_year || null,
+        publicationDate: /^\d{4}-\d{2}/.test(w.publication_date || '') ? w.publication_date : undefined,
         cited: w.cited_by_count || 0,
         type: (w.type || '').replace(/-/g, ' '),
         isOA: w.open_access ? (w.open_access.is_oa ? 'Yes' : 'No') : 'No',
@@ -152,6 +153,7 @@ async function lookupMetadata(doi, email) {
       journal: src.display_name || '',
       publisher: src.host_organization_name || '',
       year: data.publication_year || null,
+      publicationDate: /^\d{4}-\d{2}/.test(data.publication_date || '') ? data.publication_date : undefined,
       cited: data.cited_by_count || 0,
       type: (data.type || '').replace(/-/g, ' '),
       isOA: data.open_access ? (data.open_access.is_oa ? 'Yes' : 'No') : 'Unknown',

@@ -166,6 +166,7 @@ function run() {
       title: decodeEntities(String(p.title || '')),
       authors: authors,
       year: p.year || '',
+      date: p.publicationDate || '',
       journal: decodeEntities(String(p.journal || '')),
       cited: parseInt(p.cited) || 0,
       evidence: p.evidence || 'keyword',

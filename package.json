@@ -18,6 +18,7 @@
     "review-decisions": "node src/process-review-decisions.js",
     "process-pending": "node src/process-pending.js",
     "maintain": "node src/maintain.js",
+    "enrich-dates": "node src/enrich-dates.js",
     "dashboard": "node src/dashboard.js",
     "sync-from-sheet": "node src/sync.js pull",
     "sync-to-sheet": "node src/sync.js push",

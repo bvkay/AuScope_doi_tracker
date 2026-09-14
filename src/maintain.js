@@ -89,6 +89,7 @@ function mergeRecord(target, source) {
   if (source.subject && source.subject.length > (target.subject || '').length) target.subject = source.subject;
   if ((!target.isOA || target.isOA === 'Unknown') && source.isOA && source.isOA !== 'Unknown') target.isOA = source.isOA;
   if (!target.dateAdded && source.dateAdded) target.dateAdded = source.dateAdded;
+  if (!target.publicationDate && source.publicationDate) target.publicationDate = source.publicationDate;
 }
 
 /**

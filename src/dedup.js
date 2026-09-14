@@ -50,6 +50,8 @@ function mergeInto(target, source) {
   if ((source.countries || []).length > (target.countries || []).length) target.countries = source.countries;
   // Keep highest author count
   if ((source.authorCount || 0) > (target.authorCount || 0)) target.authorCount = source.authorCount;
+  // Month-level publication date: fill, never overwrite
+  if (!target.publicationDate && source.publicationDate) target.publicationDate = source.publicationDate;
 }
 
 function copyItem(item) {
@@ -68,7 +70,8 @@ function copyItem(item) {
     searchTerms: (item.searchTerms || []).slice(),
     authorCount: item.authorCount || 0,
     institutions: (item.institutions || []).slice(),
-    countries: (item.countries || []).slice()
+    countries: (item.countries || []).slice(),
+    publicationDate: item.publicationDate || undefined
   };
 }
 
