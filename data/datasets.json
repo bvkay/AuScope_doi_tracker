@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-09-01T00:50:31.443Z",
-    "total_count": 239
+    "last_updated": "2026-09-14T22:14:26.655Z",
+    "total_count": 237
   },
   "records": [
     {
@@ -1438,14 +1438,6 @@
       "type": "Seismic Network"
     },
     {
-      "code": "OA",
-      "name": "AusArray",
-      "year": 2022,
-      "doi": "10.11636/135284",
-      "platform": "AusPass",
-      "type": "Seismic Network"
-    },
-    {
       "code": "OZ",
       "name": "",
       "year": 1976,
@@ -1482,14 +1474,6 @@
       "name": "Mount Gambier Deployment(Mt_Gambier)",
       "year": 2005,
       "doi": "10.7914/xhzt-cq87",
-      "platform": "AusPass",
-      "type": "Seismic Network"
-    },
-    {
-      "code": "XX",
-      "name": "",
-      "year": 1980,
-      "doi": "10.7914/SN/XX_2013",
       "platform": "AusPass",
       "type": "Seismic Network"
     },

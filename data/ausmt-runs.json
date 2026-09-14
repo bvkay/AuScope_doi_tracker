@@ -2,12 +2,13 @@
   "metadata": {
     "type": "ausmt-runs",
     "source": "ausmt.auscope.org.au per-station station.json runs",
-    "build_id": "35ef3db2eb12b964c61c2ea99fcc27c83b5424d4-7fdb4be-2026-08-30T07:24:22.754016+00:00",
-    "generated": "2026-08-30T07:24:22.754016+00:00",
-    "fetched": "2026-08-30T08:31:04.927Z",
-    "surveys_total": 27,
-    "surveys_populated": 9,
+    "build_id": "7df0aa799037de85121d3e96e467172abe865b3e-e52de45-2026-09-13T13:32:45.703439+00:00",
+    "generated": "2026-09-13T13:32:45.703439+00:00",
+    "fetched": "2026-09-14T22:29:33.051Z",
+    "surveys_total": 68,
+    "surveys_populated": 11,
     "survey_status": {
+      "adelaide-geosyncline-1983-92": "none",
       "auslamp-eftf-phase-1-nt-qld": "none",
       "auslamp-musgraves-apy-2016": "scaffolded",
       "auslamp-nsw-2016-21": "scaffolded",
@@ -22,30 +23,79 @@
       "auslamp-sa-se-2014": "scaffolded",
       "auslamp-tas": "none",
       "auslamp-vic-2013-2018": "none",
+      "awags-1989-90": "none",
+      "ballarat-1992": "none",
+      "black-hill-2005-06": "none",
+      "bowen-basin-1976-80": "none",
+      "broken-hill-2002": "none",
       "burra-2017-18": "populated",
+      "buyung-ne-tasmania-1978-79": "none",
       "capricorn-2010": "populated",
+      "carpentaria-north-1995": "none",
+      "carpentaria-south-1995": "none",
+      "carrapateena-2018": "scaffolded",
       "ccmt-2017": "populated",
+      "central-australia-1976-79": "none",
       "central-delamerian-2020": "none",
+      "cicada97-1997-98": "none",
+      "code-11-western-sa": "none",
+      "code-15-southwest-wa": "none",
+      "copper-coast-2020": "scaffolded",
+      "halls-creek-2000": "none",
+      "hanekop-eastern-qld-2003": "none",
       "jupiter-2021": "populated",
       "kalkaroo-2022": "populated",
+      "kuth-lake-leake-2008": "none",
+      "kuth-lamont-2010": "none",
+      "kuth-midlands-2009": "none",
+      "kuth-tamar-valley-2008": "none",
+      "milligan-extension-1988": "none",
+      "moradzadeh-mt-1996-97": "none",
+      "mundi-mundi": "none",
       "newer-volcanic-province-2019": "populated",
+      "north-western-tasmania-transect-2016": "populated",
       "olympic-dam-2004": "none",
+      "olympic-domain-2018": "scaffolded",
+      "roxby-downs-2018": "scaffolded",
+      "samas-1995": "none",
+      "skippy-3-1994": "none",
+      "southeast-australia-1971": "none",
+      "southern-eyre-1980-84": "none",
+      "southwest-traverse-1966": "none",
+      "swaggie-land-array-1998": "none",
+      "swaggie-seafloor-gds-1998": "none",
+      "tamar-tasmania-1980s": "none",
+      "tasman-land-1983-84": "none",
+      "tasman-seafloor-1983-84": "none",
       "tumby-bay-2018-19": "populated",
       "vulcan-2022": "populated",
       "vulcan-2024-25": "none",
+      "wang-adelaide-geosyncline-mt-1993": "none",
       "western-gawler": "populated",
-      "western-gawler-2023": "scaffolded"
+      "western-gawler-2023": "scaffolded",
+      "western-tasmania-transect-2016": "populated",
+      "wm-sag-pilot-1981-82": "none",
+      "wp-robe-profile-1976": "none"
     },
-    "instruments": 120,
-    "occupations": 2082,
-    "recording_hours": 96369,
-    "recording_days": 4015.4,
+    "instruments": 125,
+    "occupations": 2195,
+    "recording_hours": 101903,
+    "recording_days": 4245.9,
     "scope_tagged": true,
-    "auscope_instruments": 117,
-    "auscope_occupations": 2052,
-    "auscope_recording_days": 3946.2
+    "auscope_instruments": 122,
+    "auscope_occupations": 2165,
+    "auscope_recording_days": 4176.8
   },
   "surveys": [
+    {
+      "id": "adelaide-geosyncline-1983-92",
+      "title": "Adelaide Geosyncline 1983-92",
+      "organisation": "Flinders University",
+      "year_start": 1983,
+      "year_end": 1992,
+      "n_stations": 86,
+      "runs": "none"
+    },
     {
       "id": "auslamp-eftf-phase-1-nt-qld",
       "title": "EFTF Phase 1 - Northern Territory and Queensland",
@@ -173,6 +223,51 @@
       "runs": "none"
     },
     {
+      "id": "awags-1989-90",
+      "title": "AWAGS 1989-90",
+      "organisation": "Flinders University",
+      "year_start": 1989,
+      "year_end": 1990,
+      "n_stations": 58,
+      "runs": "none"
+    },
+    {
+      "id": "ballarat-1992",
+      "title": "Ballarat 1992",
+      "organisation": "University of Adelaide",
+      "year_start": 1992,
+      "year_end": 1992,
+      "n_stations": 10,
+      "runs": "none"
+    },
+    {
+      "id": "black-hill-2005-06",
+      "title": "Black Hill 2005-06",
+      "organisation": "Geological Survey of South Australia",
+      "year_start": 2005,
+      "year_end": 2006,
+      "n_stations": 409,
+      "runs": "none"
+    },
+    {
+      "id": "bowen-basin-1976-80",
+      "title": "Bowen Basin magnetotelluric survey 1976-80",
+      "organisation": "The University of Queensland",
+      "year_start": 1976,
+      "year_end": 1980,
+      "n_stations": 15,
+      "runs": "none"
+    },
+    {
+      "id": "broken-hill-2002",
+      "title": "Broken Hill 2002",
+      "organisation": "University of Adelaide",
+      "year_start": 2002,
+      "year_end": 2002,
+      "n_stations": 15,
+      "runs": "none"
+    },
+    {
       "id": "burra-2017-18",
       "title": "Burra 2017-18",
       "organisation": "Adelaide University",
@@ -182,13 +277,49 @@
       "runs": "populated"
     },
     {
+      "id": "buyung-ne-tasmania-1978-79",
+      "title": "North East Tasmania induction study 1978-79",
+      "organisation": "University of Tasmania",
+      "year_start": 1978,
+      "year_end": 1979,
+      "n_stations": 11,
+      "runs": "none"
+    },
+    {
       "id": "capricorn-2010",
       "title": "Capricorn 2010",
       "organisation": "Adelaide University",
       "year_start": null,
       "year_end": null,
-      "n_stations": 147,
+      "n_stations": 148,
       "runs": "populated"
+    },
+    {
+      "id": "carpentaria-north-1995",
+      "title": "Carpentaria Array 1995 (Northern Sub-array)",
+      "organisation": "Flinders University",
+      "year_start": 1995,
+      "year_end": 1995,
+      "n_stations": 20,
+      "runs": "none"
+    },
+    {
+      "id": "carpentaria-south-1995",
+      "title": "Carpentaria Array 1995 (Southern Sub-array)",
+      "organisation": "Flinders University",
+      "year_start": 1995,
+      "year_end": 1995,
+      "n_stations": 23,
+      "runs": "none"
+    },
+    {
+      "id": "carrapateena-2018",
+      "title": "Carrapateena AMT 2018",
+      "organisation": "Geological Survey of South Australia",
+      "year_start": 2018,
+      "year_end": 2018,
+      "n_stations": 130,
+      "runs": "scaffolded"
     },
     {
       "id": "ccmt-2017",
@@ -200,12 +331,75 @@
       "runs": "populated"
     },
     {
+      "id": "central-australia-1976-79",
+      "title": "Central Australia 1976-77",
+      "organisation": "Australian National University",
+      "year_start": 1976,
+      "year_end": 1977,
+      "n_stations": 41,
+      "runs": "none"
+    },
+    {
       "id": "central-delamerian-2020",
       "title": "Central Delamerian 2020",
       "organisation": "Geological Survey of South Australia",
       "year_start": 2020,
       "year_end": 2020,
       "n_stations": 53,
+      "runs": "none"
+    },
+    {
+      "id": "cicada97-1997-98",
+      "title": "CICADA97 induction array 1997-98",
+      "organisation": "Australian National University",
+      "year_start": 1997,
+      "year_end": 1998,
+      "n_stations": 10,
+      "runs": "none"
+    },
+    {
+      "id": "code-11-western-sa",
+      "title": "Western South Australia Array",
+      "organisation": "Flinders University",
+      "year_start": null,
+      "year_end": null,
+      "n_stations": 28,
+      "runs": "none"
+    },
+    {
+      "id": "code-15-southwest-wa",
+      "title": "Southwest Western Australia Array",
+      "organisation": "Flinders University",
+      "year_start": null,
+      "year_end": null,
+      "n_stations": 20,
+      "runs": "none"
+    },
+    {
+      "id": "copper-coast-2020",
+      "title": "Copper Coast MT 2020",
+      "organisation": "Geological Survey of South Australia",
+      "year_start": 2020,
+      "year_end": 2020,
+      "n_stations": 38,
+      "runs": "scaffolded"
+    },
+    {
+      "id": "halls-creek-2000",
+      "title": "Halls Creek Orogen array 2000",
+      "organisation": "Flinders University",
+      "year_start": 2000,
+      "year_end": 2000,
+      "n_stations": 17,
+      "runs": "none"
+    },
+    {
+      "id": "hanekop-eastern-qld-2003",
+      "title": "Hanekop Eastern Queensland 2003",
+      "organisation": "Institut fuer Geophysik, Georg-August-Universitaet Goettingen",
+      "year_start": 2003,
+      "year_end": 2003,
+      "n_stations": 35,
       "runs": "none"
     },
     {
@@ -227,6 +421,69 @@
       "runs": "populated"
     },
     {
+      "id": "kuth-lake-leake-2008",
+      "title": "KUTh Lake Leake 2008",
+      "organisation": "Mineral Resources Tasmania",
+      "year_start": 2008,
+      "year_end": 2008,
+      "n_stations": 52,
+      "runs": "none"
+    },
+    {
+      "id": "kuth-lamont-2010",
+      "title": "KUTh Lamont 2010",
+      "organisation": "Mineral Resources Tasmania",
+      "year_start": 2010,
+      "year_end": 2010,
+      "n_stations": 43,
+      "runs": "none"
+    },
+    {
+      "id": "kuth-midlands-2009",
+      "title": "KUTh Midlands 2009",
+      "organisation": "Mineral Resources Tasmania",
+      "year_start": 2009,
+      "year_end": 2009,
+      "n_stations": 153,
+      "runs": "none"
+    },
+    {
+      "id": "kuth-tamar-valley-2008",
+      "title": "KUTh Tamar Valley 2008",
+      "organisation": "Mineral Resources Tasmania",
+      "year_start": 2008,
+      "year_end": 2008,
+      "n_stations": 36,
+      "runs": "none"
+    },
+    {
+      "id": "milligan-extension-1988",
+      "title": "Eyre Peninsula Northern Extension 1988",
+      "organisation": "Flinders University",
+      "year_start": 1988,
+      "year_end": 1988,
+      "n_stations": 16,
+      "runs": "none"
+    },
+    {
+      "id": "moradzadeh-mt-1996-97",
+      "title": "Moradzadeh Adelaide Geosyncline MT 1996-97",
+      "organisation": "Flinders University",
+      "year_start": 1996,
+      "year_end": 1997,
+      "n_stations": 21,
+      "runs": "none"
+    },
+    {
+      "id": "mundi-mundi",
+      "title": "Mundi Mundi Plain profile",
+      "organisation": "University of Adelaide",
+      "year_start": null,
+      "year_end": null,
+      "n_stations": 18,
+      "runs": "none"
+    },
+    {
       "id": "newer-volcanic-province-2019",
       "title": "Newer Volcanic Province 2019",
       "organisation": "Adelaide University",
@@ -236,12 +493,129 @@
       "runs": "populated"
     },
     {
+      "id": "north-western-tasmania-transect-2016",
+      "title": "North-Western Tasmania 2016",
+      "organisation": "University of Tasmania",
+      "year_start": 2016,
+      "year_end": 2016,
+      "n_stations": 27,
+      "runs": "populated"
+    },
+    {
       "id": "olympic-dam-2004",
       "title": "Olympic Dam 2004",
       "organisation": "Adelaide University",
       "year_start": null,
       "year_end": null,
       "n_stations": 58,
+      "runs": "none"
+    },
+    {
+      "id": "olympic-domain-2018",
+      "title": "Olympic Domain Infill MT Survey 2018",
+      "organisation": "Geological Survey of South Australia",
+      "year_start": 2018,
+      "year_end": 2018,
+      "n_stations": 341,
+      "runs": "scaffolded"
+    },
+    {
+      "id": "roxby-downs-2018",
+      "title": "Roxby Downs Regional MT 2017-18",
+      "organisation": "Geological Survey of South Australia",
+      "year_start": 2017,
+      "year_end": 2018,
+      "n_stations": 763,
+      "runs": "scaffolded"
+    },
+    {
+      "id": "samas-1995",
+      "title": "SAMAS 1995",
+      "organisation": "Flinders University",
+      "year_start": 1995,
+      "year_end": 1995,
+      "n_stations": 26,
+      "runs": "none"
+    },
+    {
+      "id": "skippy-3-1994",
+      "title": "Skippy-3 Array 1994",
+      "organisation": "Australian National University",
+      "year_start": 1994,
+      "year_end": 1994,
+      "n_stations": 10,
+      "runs": "none"
+    },
+    {
+      "id": "southeast-australia-1971",
+      "title": "Southeast Australia array 1971",
+      "organisation": "Australian National University",
+      "year_start": 1971,
+      "year_end": 1971,
+      "n_stations": 26,
+      "runs": "none"
+    },
+    {
+      "id": "southern-eyre-1980-84",
+      "title": "Southern Eyre Dense Array 1980-84",
+      "organisation": "Flinders University",
+      "year_start": 1980,
+      "year_end": 1984,
+      "n_stations": 36,
+      "runs": "none"
+    },
+    {
+      "id": "southwest-traverse-1966",
+      "title": "Southwest Australia Traverse 1966",
+      "organisation": "Australian National University",
+      "year_start": 1966,
+      "year_end": 1966,
+      "n_stations": 10,
+      "runs": "none"
+    },
+    {
+      "id": "swaggie-land-array-1998",
+      "title": "SWAGGIE land array 1998",
+      "organisation": "Flinders University",
+      "year_start": 1998,
+      "year_end": 1998,
+      "n_stations": 21,
+      "runs": "none"
+    },
+    {
+      "id": "swaggie-seafloor-gds-1998",
+      "title": "SWAGGIE seafloor GDS 1998",
+      "organisation": "Flinders University",
+      "year_start": 1998,
+      "year_end": 1998,
+      "n_stations": 4,
+      "runs": "none"
+    },
+    {
+      "id": "tamar-tasmania-1980s",
+      "title": "Tamar Anomaly Array 1983-84",
+      "organisation": "University of Tasmania",
+      "year_start": 1983,
+      "year_end": 1984,
+      "n_stations": 35,
+      "runs": "none"
+    },
+    {
+      "id": "tasman-land-1983-84",
+      "title": "Tasman Project land line 1983-84",
+      "organisation": "Australian National University",
+      "year_start": 1983,
+      "year_end": 1984,
+      "n_stations": 8,
+      "runs": "none"
+    },
+    {
+      "id": "tasman-seafloor-1983-84",
+      "title": "Tasman Project seafloor line 1983-84",
+      "organisation": "Australian National University",
+      "year_start": 1983,
+      "year_end": 1984,
+      "n_stations": 9,
       "runs": "none"
     },
     {
@@ -272,6 +646,15 @@
       "runs": "none"
     },
     {
+      "id": "wang-adelaide-geosyncline-mt-1993",
+      "title": "Wang Adelaide Geosyncline MT 1993",
+      "organisation": "Flinders University",
+      "year_start": 1993,
+      "year_end": 1993,
+      "n_stations": 14,
+      "runs": "none"
+    },
+    {
       "id": "western-gawler",
       "title": "Western Gawler 2022",
       "organisation": "Adelaide University",
@@ -288,6 +671,33 @@
       "year_end": 2023,
       "n_stations": 312,
       "runs": "scaffolded"
+    },
+    {
+      "id": "western-tasmania-transect-2016",
+      "title": "Western Tasmania 2016",
+      "organisation": "University of Tasmania",
+      "year_start": 2016,
+      "year_end": 2016,
+      "n_stations": 33,
+      "runs": "populated"
+    },
+    {
+      "id": "wm-sag-pilot-1981-82",
+      "title": "Southern Adelaide Geosyncline Pilot 1981-82",
+      "organisation": "Flinders University",
+      "year_start": 1981,
+      "year_end": 1982,
+      "n_stations": 12,
+      "runs": "none"
+    },
+    {
+      "id": "wp-robe-profile-1976",
+      "title": "Robe-Mildura Coast Effect Profile 1976",
+      "organisation": "Flinders University",
+      "year_start": 1976,
+      "year_end": 1976,
+      "n_stations": 7,
+      "runs": "none"
     }
   ],
   "stations": {
@@ -1174,6 +1584,10 @@
     "capricorn-2010/CP3B20": [
       -25.98928,
       116.6248
+    ],
+    "capricorn-2010/CP3B21": [
+      -26.03227,
+      116.60547
     ],
     "capricorn-2010/CP3B22": [
       -26.0774,
@@ -2487,6 +2901,114 @@
       -37.95911,
       140.55478
     ],
+    "north-western-tasmania-transect-2016/site_201": [
+      -41.21098,
+      146.24009
+    ],
+    "north-western-tasmania-transect-2016/site_202": [
+      -41.2298,
+      146.25859
+    ],
+    "north-western-tasmania-transect-2016/site_203": [
+      -41.24825,
+      146.26967
+    ],
+    "north-western-tasmania-transect-2016/site_204": [
+      -41.284,
+      146.23765
+    ],
+    "north-western-tasmania-transect-2016/site_206": [
+      -41.31383,
+      146.218
+    ],
+    "north-western-tasmania-transect-2016/site_207": [
+      -41.33761,
+      146.20616
+    ],
+    "north-western-tasmania-transect-2016/site_208": [
+      -41.34965,
+      146.19817
+    ],
+    "north-western-tasmania-transect-2016/site_209": [
+      -41.36308,
+      146.18851
+    ],
+    "north-western-tasmania-transect-2016/site_210": [
+      -41.3884,
+      146.1671
+    ],
+    "north-western-tasmania-transect-2016/site_211": [
+      -41.40028,
+      146.15999
+    ],
+    "north-western-tasmania-transect-2016/site_212": [
+      -41.41599,
+      146.1472
+    ],
+    "north-western-tasmania-transect-2016/site_213": [
+      -41.42421,
+      146.14479
+    ],
+    "north-western-tasmania-transect-2016/site_214": [
+      -41.44184,
+      146.12314
+    ],
+    "north-western-tasmania-transect-2016/site_215": [
+      -41.45702,
+      146.11066
+    ],
+    "north-western-tasmania-transect-2016/site_216": [
+      -41.47072,
+      146.10833
+    ],
+    "north-western-tasmania-transect-2016/site_217": [
+      -41.48555,
+      146.07801
+    ],
+    "north-western-tasmania-transect-2016/site_218": [
+      -41.51818,
+      146.10163
+    ],
+    "north-western-tasmania-transect-2016/site_219": [
+      -41.52411,
+      146.06799
+    ],
+    "north-western-tasmania-transect-2016/site_220": [
+      -41.53474,
+      146.06986
+    ],
+    "north-western-tasmania-transect-2016/site_221": [
+      -41.55625,
+      146.05848
+    ],
+    "north-western-tasmania-transect-2016/site_222": [
+      -41.55567,
+      146.02705
+    ],
+    "north-western-tasmania-transect-2016/site_223": [
+      -41.54442,
+      146.00938
+    ],
+    "north-western-tasmania-transect-2016/site_224": [
+      -41.54763,
+      145.98227
+    ],
+    "north-western-tasmania-transect-2016/site_225": [
+      -41.5503,
+      145.95928
+    ],
+    "north-western-tasmania-transect-2016/site_226": [
+      -41.56503,
+      145.94502
+    ],
+    "north-western-tasmania-transect-2016/site_227": [
+      -41.58398,
+      145.93681
+    ],
+    "north-western-tasmania-transect-2016/site_228": [
+      -41.59702,
+      145.93546
+    ],
     "tumby-bay-2018-19/TB07rNew": [
       -34.3567,
       135.9473
@@ -3342,6 +3864,138 @@
     "western-gawler/WG-9": [
       -30.69802,
       132.8751
+    ],
+    "western-tasmania-transect-2016/site_300": [
+      -41.82283,
+      145.06304
+    ],
+    "western-tasmania-transect-2016/site_301": [
+      -41.81688,
+      145.08471
+    ],
+    "western-tasmania-transect-2016/site_303": [
+      -41.82457,
+      145.13942
+    ],
+    "western-tasmania-transect-2016/site_304": [
+      -41.817,
+      145.15456
+    ],
+    "western-tasmania-transect-2016/site_305": [
+      -41.81731,
+      145.18053
+    ],
+    "western-tasmania-transect-2016/site_306": [
+      -41.80667,
+      145.21118
+    ],
+    "western-tasmania-transect-2016/site_307": [
+      -41.81434,
+      145.24299
+    ],
+    "western-tasmania-transect-2016/site_310": [
+      -41.83155,
+      145.28568
+    ],
+    "western-tasmania-transect-2016/site_311": [
+      -41.8499,
+      145.30738
+    ],
+    "western-tasmania-transect-2016/site_313": [
+      -41.8674,
+      145.32869
+    ],
+    "western-tasmania-transect-2016/site_314": [
+      -41.88414,
+      145.35865
+    ],
+    "western-tasmania-transect-2016/site_315": [
+      -41.89182,
+      145.39394
+    ],
+    "western-tasmania-transect-2016/site_319": [
+      -41.94337,
+      145.44171
+    ],
+    "western-tasmania-transect-2016/site_320": [
+      -41.95748,
+      145.45635
+    ],
+    "western-tasmania-transect-2016/site_322": [
+      -41.9942,
+      145.47099
+    ],
+    "western-tasmania-transect-2016/site_326": [
+      -42.04443,
+      145.53449
+    ],
+    "western-tasmania-transect-2016/site_328": [
+      -42.07253,
+      145.53436
+    ],
+    "western-tasmania-transect-2016/site_329": [
+      -42.07704,
+      145.57092
+    ],
+    "western-tasmania-transect-2016/site_330": [
+      -42.06528,
+      145.60444
+    ],
+    "western-tasmania-transect-2016/site_331": [
+      -42.07137,
+      145.62722
+    ],
+    "western-tasmania-transect-2016/site_332": [
+      -42.10066,
+      145.63542
+    ],
+    "western-tasmania-transect-2016/site_333": [
+      -42.11327,
+      145.6546
+    ],
+    "western-tasmania-transect-2016/site_334": [
+      -42.09653,
+      145.67496
+    ],
+    "western-tasmania-transect-2016/site_335": [
+      -42.09062,
+      145.69992
+    ],
+    "western-tasmania-transect-2016/site_336": [
+      -42.10242,
+      145.72257
+    ],
+    "western-tasmania-transect-2016/site_337": [
+      -42.10537,
+      145.73863
+    ],
+    "western-tasmania-transect-2016/site_338": [
+      -42.1131,
+      145.7766
+    ],
+    "western-tasmania-transect-2016/site_339": [
+      -42.11716,
+      145.79128
+    ],
+    "western-tasmania-transect-2016/site_340": [
+      -42.12147,
+      145.80636
+    ],
+    "western-tasmania-transect-2016/site_341": [
+      -42.12586,
+      145.82768
+    ],
+    "western-tasmania-transect-2016/site_342": [
+      -42.12733,
+      145.84625
+    ],
+    "western-tasmania-transect-2016/site_343": [
+      -42.12736,
+      145.89041
+    ],
+    "western-tasmania-transect-2016/site_344": [
+      -42.16194,
+      145.92026
     ]
   },
   "occupations": [
@@ -11757,6 +12411,48 @@
       "model": "LEMI-120",
       "serial": "129",
       "doi": "10.82388/o3t7dcdi",
+      "af": true
+    },
+    {
+      "survey": "capricorn-2010",
+      "station": "CP3B21",
+      "run": "CP3B21_001",
+      "start": "2010-11-27T02:00:00+00:00",
+      "end": "2010-11-28T22:05:00+00:00",
+      "hours": 44.08,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62135",
+      "doi": "10.82388/ibnrh5rj",
+      "af": true
+    },
+    {
+      "survey": "capricorn-2010",
+      "station": "CP3B21",
+      "run": "CP3B21_001",
+      "start": "2010-11-27T02:00:00+00:00",
+      "end": "2010-11-28T22:05:00+00:00",
+      "hours": 44.08,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "250",
+      "doi": "10.82388/b90dg2e3",
+      "af": true
+    },
+    {
+      "survey": "capricorn-2010",
+      "station": "CP3B21",
+      "run": "CP3B21_001",
+      "start": "2010-11-27T02:00:00+00:00",
+      "end": "2010-11-28T22:05:00+00:00",
+      "hours": 44.08,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "251",
+      "doi": "10.82388/2tjo49xx",
       "af": true
     },
     {
@@ -23534,6 +24230,1084 @@
       "af": true
     },
     {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_201",
+      "run": "site_201_001",
+      "start": "2016-02-08T22:40:13+00:00",
+      "end": "2016-02-10T21:26:00+00:00",
+      "hours": 46.76,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60771",
+      "doi": "10.82388/sp7hw1av",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_201",
+      "run": "site_201_001",
+      "start": "2016-02-08T22:40:13+00:00",
+      "end": "2016-02-10T21:26:00+00:00",
+      "hours": 46.76,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "241",
+      "doi": "10.82388/xcokbnoe",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_201",
+      "run": "site_201_001",
+      "start": "2016-02-08T22:40:13+00:00",
+      "end": "2016-02-10T21:26:00+00:00",
+      "hours": 46.76,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "243",
+      "doi": "10.82388/7sx5wcer",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_202",
+      "run": "site_202_001",
+      "start": "2016-02-10T03:09:11+00:00",
+      "end": "2016-02-14T02:02:00+00:00",
+      "hours": 94.88,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60967",
+      "doi": "10.82388/v87pd2ab",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_203",
+      "run": "site_203_001",
+      "start": "2016-02-12T22:24:10+00:00",
+      "end": "2016-02-14T21:46:00+00:00",
+      "hours": 47.36,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "61000",
+      "doi": "10.82388/fjac53j6",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_203",
+      "run": "site_203_001",
+      "start": "2016-02-12T22:24:10+00:00",
+      "end": "2016-02-14T21:46:00+00:00",
+      "hours": 47.36,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "125",
+      "doi": "10.82388/ahbao8tk",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_203",
+      "run": "site_203_001",
+      "start": "2016-02-12T22:24:10+00:00",
+      "end": "2016-02-14T21:46:00+00:00",
+      "hours": 47.36,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "126",
+      "doi": "10.82388/1nhybg3w",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_204",
+      "run": "site_204_001",
+      "start": "2016-02-09T01:06:42+00:00",
+      "end": "2016-02-10T21:21:00+00:00",
+      "hours": 44.24,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62138",
+      "doi": "10.82388/w0tttqt9",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_204",
+      "run": "site_204_001",
+      "start": "2016-02-09T01:06:42+00:00",
+      "end": "2016-02-10T21:21:00+00:00",
+      "hours": 44.24,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "245",
+      "doi": "10.82388/mwqtg78c",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_204",
+      "run": "site_204_001",
+      "start": "2016-02-09T01:06:42+00:00",
+      "end": "2016-02-10T21:21:00+00:00",
+      "hours": 44.24,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "244",
+      "doi": "10.82388/3y6e9dem",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_206",
+      "run": "site_206_001",
+      "start": "2016-02-10T05:05:00+00:00",
+      "end": "2016-02-12T04:01:00+00:00",
+      "hours": 46.93,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60969",
+      "doi": "10.82388/c8gf4j5z",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_206",
+      "run": "site_206_001",
+      "start": "2016-02-10T05:05:00+00:00",
+      "end": "2016-02-12T04:01:00+00:00",
+      "hours": 46.93,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "123",
+      "doi": "10.82388/huwxlqgi",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_206",
+      "run": "site_206_001",
+      "start": "2016-02-10T05:05:00+00:00",
+      "end": "2016-02-12T04:01:00+00:00",
+      "hours": 46.93,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "124",
+      "doi": "10.82388/demqei8m",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_207",
+      "run": "site_207_001",
+      "start": "2016-02-10T02:49:16+00:00",
+      "end": "2016-02-12T04:38:00+00:00",
+      "hours": 49.81,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60992",
+      "doi": "10.82388/wxmy79ze",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_207",
+      "run": "site_207_001",
+      "start": "2016-02-10T02:49:16+00:00",
+      "end": "2016-02-12T04:38:00+00:00",
+      "hours": 49.81,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "134",
+      "doi": "10.82388/cvpf8iny",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_207",
+      "run": "site_207_001",
+      "start": "2016-02-10T02:49:16+00:00",
+      "end": "2016-02-12T04:38:00+00:00",
+      "hours": 49.81,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "139",
+      "doi": "10.82388/eejs8g0x",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_208",
+      "run": "site_208_001",
+      "start": "2016-02-09T02:15:00+00:00",
+      "end": "2016-02-10T22:12:00+00:00",
+      "hours": 43.95,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "61002",
+      "doi": "10.82388/pqespgbo",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_208",
+      "run": "site_208_001",
+      "start": "2016-02-09T02:15:00+00:00",
+      "end": "2016-02-10T22:12:00+00:00",
+      "hours": 43.95,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "255",
+      "doi": "10.82388/sdwh4xau",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_208",
+      "run": "site_208_001",
+      "start": "2016-02-09T02:15:00+00:00",
+      "end": "2016-02-10T22:12:00+00:00",
+      "hours": 43.95,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "254",
+      "doi": "10.82388/8mjsxxkg",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_209",
+      "run": "site_209_001",
+      "start": "2016-02-09T05:05:09+00:00",
+      "end": "2016-02-10T22:42:00+00:00",
+      "hours": 41.61,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62136",
+      "doi": "10.82388/05hyhja8",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_209",
+      "run": "site_209_001",
+      "start": "2016-02-09T05:05:09+00:00",
+      "end": "2016-02-10T22:42:00+00:00",
+      "hours": 41.61,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "242",
+      "doi": "10.82388/sxoo8ztz",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_209",
+      "run": "site_209_001",
+      "start": "2016-02-09T05:05:09+00:00",
+      "end": "2016-02-10T22:42:00+00:00",
+      "hours": 41.61,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "240",
+      "doi": "10.82388/5wbvrzu0",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_210",
+      "run": "site_210_001",
+      "start": "2016-02-10T05:46:28+00:00",
+      "end": "2016-02-12T05:41:00+00:00",
+      "hours": 47.91,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60962",
+      "doi": "10.82388/2uztc2j6",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_210",
+      "run": "site_210_001",
+      "start": "2016-02-10T05:46:28+00:00",
+      "end": "2016-02-12T05:41:00+00:00",
+      "hours": 47.91,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "266",
+      "doi": "10.82388/8owf1wis",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_210",
+      "run": "site_210_001",
+      "start": "2016-02-10T05:46:28+00:00",
+      "end": "2016-02-12T05:41:00+00:00",
+      "hours": 47.91,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "269",
+      "doi": "10.82388/exnq4adi",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_211",
+      "run": "site_211_001",
+      "start": "2016-02-09T04:20:27+00:00",
+      "end": "2016-02-10T22:45:00+00:00",
+      "hours": 42.41,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62218",
+      "doi": "10.82388/51qz0g08",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_211",
+      "run": "site_211_001",
+      "start": "2016-02-09T04:20:27+00:00",
+      "end": "2016-02-10T22:45:00+00:00",
+      "hours": 42.41,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "247",
+      "doi": "10.82388/4ysryjun",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_212",
+      "run": "site_212_001",
+      "start": "2016-02-07T22:55:17+00:00",
+      "end": "2016-02-09T21:17:00+00:00",
+      "hours": 46.36,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60993",
+      "doi": "10.82388/ygxhw2p5",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_212",
+      "run": "site_212_001",
+      "start": "2016-02-07T22:55:17+00:00",
+      "end": "2016-02-09T21:17:00+00:00",
+      "hours": 46.36,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "118",
+      "doi": "10.82388/fkcn8o9m",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_212",
+      "run": "site_212_001",
+      "start": "2016-02-07T22:55:17+00:00",
+      "end": "2016-02-09T21:17:00+00:00",
+      "hours": 46.36,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "117",
+      "doi": "10.82388/5rezalvk",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_213",
+      "run": "site_213_001",
+      "start": "2016-02-08T00:36:10+00:00",
+      "end": "2016-02-10T00:15:00+00:00",
+      "hours": 47.65,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60992",
+      "doi": "10.82388/wxmy79ze",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_213",
+      "run": "site_213_001",
+      "start": "2016-02-08T00:36:10+00:00",
+      "end": "2016-02-10T00:15:00+00:00",
+      "hours": 47.65,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "139",
+      "doi": "10.82388/eejs8g0x",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_213",
+      "run": "site_213_001",
+      "start": "2016-02-08T00:36:10+00:00",
+      "end": "2016-02-10T00:15:00+00:00",
+      "hours": 47.65,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "134",
+      "doi": "10.82388/cvpf8iny",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_214",
+      "run": "site_214_001",
+      "start": "2016-02-07T22:49:44+00:00",
+      "end": "2016-02-09T22:17:00+00:00",
+      "hours": 47.45,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60968",
+      "doi": "10.82388/vboc9r8p",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_214",
+      "run": "site_214_001",
+      "start": "2016-02-07T22:49:44+00:00",
+      "end": "2016-02-09T22:17:00+00:00",
+      "hours": 47.45,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "124",
+      "doi": "10.82388/demqei8m",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_214",
+      "run": "site_214_001",
+      "start": "2016-02-07T22:49:44+00:00",
+      "end": "2016-02-09T22:17:00+00:00",
+      "hours": 47.45,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "123",
+      "doi": "10.82388/huwxlqgi",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_215",
+      "run": "site_215_001",
+      "start": "2016-02-06T23:35:00+00:00",
+      "end": "2016-02-08T22:04:00+00:00",
+      "hours": 46.48,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62136",
+      "doi": "10.82388/05hyhja8",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_215",
+      "run": "site_215_001",
+      "start": "2016-02-06T23:35:00+00:00",
+      "end": "2016-02-08T22:04:00+00:00",
+      "hours": 46.48,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "242",
+      "doi": "10.82388/sxoo8ztz",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_215",
+      "run": "site_215_001",
+      "start": "2016-02-06T23:35:00+00:00",
+      "end": "2016-02-08T22:04:00+00:00",
+      "hours": 46.48,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "240",
+      "doi": "10.82388/5wbvrzu0",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_216",
+      "run": "site_216_001",
+      "start": "2016-02-08T00:50:00+00:00",
+      "end": "2016-02-09T21:43:00+00:00",
+      "hours": 44.88,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60969",
+      "doi": "10.82388/c8gf4j5z",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_216",
+      "run": "site_216_001",
+      "start": "2016-02-08T00:50:00+00:00",
+      "end": "2016-02-09T21:43:00+00:00",
+      "hours": 44.88,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "125",
+      "doi": "10.82388/ahbao8tk",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_216",
+      "run": "site_216_001",
+      "start": "2016-02-08T00:50:00+00:00",
+      "end": "2016-02-09T21:43:00+00:00",
+      "hours": 44.88,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "126",
+      "doi": "10.82388/1nhybg3w",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_217",
+      "run": "site_217_001",
+      "start": "2016-02-07T01:50:00+00:00",
+      "end": "2016-02-08T21:30:00+00:00",
+      "hours": 43.67,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62138",
+      "doi": "10.82388/w0tttqt9",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_217",
+      "run": "site_217_001",
+      "start": "2016-02-07T01:50:00+00:00",
+      "end": "2016-02-08T21:30:00+00:00",
+      "hours": 43.67,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "114",
+      "doi": "10.82388/l2nbl2sf",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_217",
+      "run": "site_217_001",
+      "start": "2016-02-07T01:50:00+00:00",
+      "end": "2016-02-08T21:30:00+00:00",
+      "hours": 43.67,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "112",
+      "doi": "10.82388/wwo07kxn",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_218",
+      "run": "site_218_001",
+      "start": "2016-02-07T04:40:24+00:00",
+      "end": "2016-02-08T20:48:00+00:00",
+      "hours": 40.13,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62219",
+      "doi": "10.82388/2nyr7j3t",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_218",
+      "run": "site_218_001",
+      "start": "2016-02-07T04:40:24+00:00",
+      "end": "2016-02-08T20:48:00+00:00",
+      "hours": 40.13,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "245",
+      "doi": "10.82388/mwqtg78c",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_218",
+      "run": "site_218_001",
+      "start": "2016-02-07T04:40:24+00:00",
+      "end": "2016-02-08T20:48:00+00:00",
+      "hours": 40.13,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "244",
+      "doi": "10.82388/3y6e9dem",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_219",
+      "run": "site_219_001",
+      "start": "2016-02-08T02:57:32+00:00",
+      "end": "2016-02-09T21:07:00+00:00",
+      "hours": 42.16,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "61000",
+      "doi": "10.82388/fjac53j6",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_219",
+      "run": "site_219_001",
+      "start": "2016-02-08T02:57:32+00:00",
+      "end": "2016-02-09T21:07:00+00:00",
+      "hours": 42.16,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "262",
+      "doi": "10.82388/d88byqa6",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_219",
+      "run": "site_219_001",
+      "start": "2016-02-08T02:57:32+00:00",
+      "end": "2016-02-09T21:07:00+00:00",
+      "hours": 42.16,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "261",
+      "doi": "10.82388/3wrjhk6v",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_220",
+      "run": "site_220_001",
+      "start": "2016-02-09T23:35:27+00:00",
+      "end": "2016-02-14T00:40:00+00:00",
+      "hours": 97.08,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60993",
+      "doi": "10.82388/ygxhw2p5",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_220",
+      "run": "site_220_001",
+      "start": "2016-02-09T23:35:27+00:00",
+      "end": "2016-02-14T00:40:00+00:00",
+      "hours": 97.08,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "118",
+      "doi": "10.82388/fkcn8o9m",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_220",
+      "run": "site_220_001",
+      "start": "2016-02-09T23:35:27+00:00",
+      "end": "2016-02-14T00:40:00+00:00",
+      "hours": 97.08,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "117",
+      "doi": "10.82388/5rezalvk",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_221",
+      "run": "site_221_001",
+      "start": "2016-02-08T03:23:53+00:00",
+      "end": "2016-02-10T03:32:00+00:00",
+      "hours": 48.14,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60962",
+      "doi": "10.82388/2uztc2j6",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_221",
+      "run": "site_221_001",
+      "start": "2016-02-08T03:23:53+00:00",
+      "end": "2016-02-10T03:32:00+00:00",
+      "hours": 48.14,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "269",
+      "doi": "10.82388/exnq4adi",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_221",
+      "run": "site_221_001",
+      "start": "2016-02-08T03:23:53+00:00",
+      "end": "2016-02-10T03:32:00+00:00",
+      "hours": 48.14,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "266",
+      "doi": "10.82388/8owf1wis",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_222",
+      "run": "site_222_001",
+      "start": "2016-02-17T23:21:48+00:00",
+      "end": "2016-02-19T22:44:00+00:00",
+      "hours": 47.37,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60992",
+      "doi": "10.82388/wxmy79ze",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_222",
+      "run": "site_222_001",
+      "start": "2016-02-17T23:21:48+00:00",
+      "end": "2016-02-19T22:44:00+00:00",
+      "hours": 47.37,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "245",
+      "doi": "10.82388/mwqtg78c",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_222",
+      "run": "site_222_001",
+      "start": "2016-02-17T23:21:48+00:00",
+      "end": "2016-02-19T22:44:00+00:00",
+      "hours": 47.37,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "242",
+      "doi": "10.82388/sxoo8ztz",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_223",
+      "run": "site_223_001",
+      "start": "2016-02-17T22:27:44+00:00",
+      "end": "2016-02-19T23:28:00+00:00",
+      "hours": 49,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60771",
+      "doi": "10.82388/sp7hw1av",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_223",
+      "run": "site_223_001",
+      "start": "2016-02-17T22:27:44+00:00",
+      "end": "2016-02-19T23:28:00+00:00",
+      "hours": 49,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "124",
+      "doi": "10.82388/demqei8m",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_223",
+      "run": "site_223_001",
+      "start": "2016-02-17T22:27:44+00:00",
+      "end": "2016-02-19T23:28:00+00:00",
+      "hours": 49,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "123",
+      "doi": "10.82388/huwxlqgi",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_224",
+      "run": "site_224_001",
+      "start": "2016-02-17T23:49:10+00:00",
+      "end": "2016-02-20T00:05:00+00:00",
+      "hours": 48.26,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60965",
+      "doi": "10.82388/8hjqyq4t",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_224",
+      "run": "site_224_001",
+      "start": "2016-02-17T23:49:10+00:00",
+      "end": "2016-02-20T00:05:00+00:00",
+      "hours": 48.26,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "255",
+      "doi": "10.82388/sdwh4xau",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_224",
+      "run": "site_224_001",
+      "start": "2016-02-17T23:49:10+00:00",
+      "end": "2016-02-20T00:05:00+00:00",
+      "hours": 48.26,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "254",
+      "doi": "10.82388/8mjsxxkg",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_225",
+      "run": "site_225_001",
+      "start": "2016-02-18T02:10:32+00:00",
+      "end": "2016-02-20T01:20:00+00:00",
+      "hours": 47.16,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60993",
+      "doi": "10.82388/ygxhw2p5",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_225",
+      "run": "site_225_001",
+      "start": "2016-02-18T02:10:32+00:00",
+      "end": "2016-02-20T01:20:00+00:00",
+      "hours": 47.16,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "139",
+      "doi": "10.82388/eejs8g0x",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_225",
+      "run": "site_225_001",
+      "start": "2016-02-18T02:10:32+00:00",
+      "end": "2016-02-20T01:20:00+00:00",
+      "hours": 47.16,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "134",
+      "doi": "10.82388/cvpf8iny",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_226",
+      "run": "site_226_001",
+      "start": "2016-02-18T02:03:10+00:00",
+      "end": "2016-02-20T01:52:00+00:00",
+      "hours": 47.81,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62137",
+      "doi": "10.82388/doj4kua9",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_226",
+      "run": "site_226_001",
+      "start": "2016-02-18T02:03:10+00:00",
+      "end": "2016-02-20T01:52:00+00:00",
+      "hours": 47.81,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "262",
+      "doi": "10.82388/d88byqa6",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_226",
+      "run": "site_226_001",
+      "start": "2016-02-18T02:03:10+00:00",
+      "end": "2016-02-20T01:52:00+00:00",
+      "hours": 47.81,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "261",
+      "doi": "10.82388/3wrjhk6v",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_227",
+      "run": "site_227_001",
+      "start": "2016-02-11T04:41:03+00:00",
+      "end": "2016-02-13T04:18:00+00:00",
+      "hours": 47.62,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62138",
+      "doi": "10.82388/w0tttqt9",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_227",
+      "run": "site_227_001",
+      "start": "2016-02-11T04:41:03+00:00",
+      "end": "2016-02-13T04:18:00+00:00",
+      "hours": 47.62,
+      "role": "sensor",
+      "component": "hx",
+      "model": "LEMI-120",
+      "serial": "255",
+      "doi": "10.82388/sdwh4xau",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_227",
+      "run": "site_227_001",
+      "start": "2016-02-11T04:41:03+00:00",
+      "end": "2016-02-13T04:18:00+00:00",
+      "hours": 47.62,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "254",
+      "doi": "10.82388/8mjsxxkg",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_228",
+      "run": "site_228_001",
+      "start": "2016-02-11T03:47:36+00:00",
+      "end": "2016-02-13T00:00:00+00:00",
+      "hours": 44.21,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62218",
+      "doi": "10.82388/51qz0g08",
+      "af": true
+    },
+    {
+      "survey": "north-western-tasmania-transect-2016",
+      "station": "site_228",
+      "run": "site_228_001",
+      "start": "2016-02-11T03:47:36+00:00",
+      "end": "2016-02-13T00:00:00+00:00",
+      "hours": 44.21,
+      "role": "sensor",
+      "component": "hy",
+      "model": "LEMI-120",
+      "serial": "247",
+      "doi": "10.82388/4ysryjun",
+      "af": true
+    },
+    {
       "survey": "tumby-bay-2018-19",
       "station": "TB07rNew",
       "run": "TB07repeat_001",
@@ -32491,6 +34265,468 @@
       "model": "LEMI-120",
       "serial": "262",
       "doi": "10.82388/d88byqa6",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_300",
+      "run": "site_300_001",
+      "start": "2016-02-01T23:27:17+00:00",
+      "end": "2016-02-03T21:37:00+00:00",
+      "hours": 46.16,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60771",
+      "doi": "10.82388/sp7hw1av",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_301",
+      "run": "site_301_001",
+      "start": "2016-02-02T00:42:18+00:00",
+      "end": "2016-02-03T22:14:00+00:00",
+      "hours": 45.53,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "61002",
+      "doi": "10.82388/pqespgbo",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_303",
+      "run": "site_303_001",
+      "start": "2016-02-01T23:35:44+00:00",
+      "end": "2016-02-03T23:14:00+00:00",
+      "hours": 47.64,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60962",
+      "doi": "10.82388/2uztc2j6",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_304",
+      "run": "site_304_001",
+      "start": "2016-02-02T23:22:00+00:00",
+      "end": "2016-02-04T21:20:00+00:00",
+      "hours": 45.97,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62136",
+      "doi": "10.82388/05hyhja8",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_305",
+      "run": "site_305_001",
+      "start": "2016-02-03T01:55:10+00:00",
+      "end": "2016-02-04T21:54:00+00:00",
+      "hours": 43.98,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62218",
+      "doi": "10.82388/51qz0g08",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_306",
+      "run": "site_306_001",
+      "start": "2016-02-04T01:19:45+00:00",
+      "end": "2016-02-05T20:46:00+00:00",
+      "hours": 43.44,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60771",
+      "doi": "10.82388/sp7hw1av",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_307",
+      "run": "site_307_001",
+      "start": "2016-02-04T03:00:41+00:00",
+      "end": "2016-02-05T21:22:00+00:00",
+      "hours": 42.36,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60962",
+      "doi": "10.82388/2uztc2j6",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_310",
+      "run": "site_310_001",
+      "start": "2016-02-03T04:34:53+00:00",
+      "end": "2016-02-04T22:55:00+00:00",
+      "hours": 42.34,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60968",
+      "doi": "10.82388/vboc9r8p",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_311",
+      "run": "site_311_001",
+      "start": "2016-02-01T01:55:54+00:00",
+      "end": "2016-02-02T23:35:00+00:00",
+      "hours": 45.65,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60968",
+      "doi": "10.82388/vboc9r8p",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_313",
+      "run": "site_313_001",
+      "start": "2016-02-01T01:46:05+00:00",
+      "end": "2016-02-02T21:02:00+00:00",
+      "hours": 43.27,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62136",
+      "doi": "10.82388/05hyhja8",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_314",
+      "run": "site_314_001",
+      "start": "2016-02-02T22:18:04+00:00",
+      "end": "2016-02-04T23:03:00+00:00",
+      "hours": 48.75,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60969",
+      "doi": "10.82388/c8gf4j5z",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_315",
+      "run": "site_315_001",
+      "start": "2016-01-31T23:22:02+00:00",
+      "end": "2016-02-02T20:24:00+00:00",
+      "hours": 45.03,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62218",
+      "doi": "10.82388/51qz0g08",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_319",
+      "run": "site_319_001",
+      "start": "2016-01-31T03:20:32+00:00",
+      "end": "2016-02-01T21:16:00+00:00",
+      "hours": 41.92,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60771",
+      "doi": "10.82388/sp7hw1av",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_320",
+      "run": "site_320_001",
+      "start": "2016-01-31T01:57:52+00:00",
+      "end": "2016-02-01T20:16:00+00:00",
+      "hours": 42.3,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60962",
+      "doi": "10.82388/2uztc2j6",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_322",
+      "run": "site_322_001",
+      "start": "2016-01-31T23:36:57+00:00",
+      "end": "2016-02-02T20:16:00+00:00",
+      "hours": 44.65,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60969",
+      "doi": "10.82388/c8gf4j5z",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_326",
+      "run": "site_326_001",
+      "start": "2016-01-31T00:53:14+00:00",
+      "end": "2016-02-01T20:15:00+00:00",
+      "hours": 43.36,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "61002",
+      "doi": "10.82388/pqespgbo",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_328",
+      "run": "site_328_001",
+      "start": "2016-01-30T02:25:18+00:00",
+      "end": "2016-01-31T21:07:00+00:00",
+      "hours": 42.7,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62136",
+      "doi": "10.82388/05hyhja8",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_329",
+      "run": "site_329_001",
+      "start": "2016-01-30T00:09:14+00:00",
+      "end": "2016-01-31T20:11:00+00:00",
+      "hours": 44.03,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62218",
+      "doi": "10.82388/51qz0g08",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_330",
+      "run": "site_330_001",
+      "start": "2016-01-30T04:24:20+00:00",
+      "end": "2016-01-31T21:13:00+00:00",
+      "hours": 40.81,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60969",
+      "doi": "10.82388/c8gf4j5z",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_331",
+      "run": "site_331_001",
+      "start": "2016-01-29T04:31:50+00:00",
+      "end": "2016-01-30T22:44:00+00:00",
+      "hours": 42.2,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60962",
+      "doi": "10.82388/2uztc2j6",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_332",
+      "run": "site_332_001",
+      "start": "2016-01-29T02:09:40+00:00",
+      "end": "2016-01-30T22:31:00+00:00",
+      "hours": 44.36,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "61002",
+      "doi": "10.82388/pqespgbo",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_333",
+      "run": "site_333_001",
+      "start": "2016-01-29T01:08:48+00:00",
+      "end": "2016-01-30T22:21:00+00:00",
+      "hours": 45.2,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62219",
+      "doi": "10.82388/2nyr7j3t",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_334",
+      "run": "site_334_001",
+      "start": "2016-01-30T01:45:59+00:00",
+      "end": "2016-01-31T20:33:00+00:00",
+      "hours": 42.78,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60968",
+      "doi": "10.82388/vboc9r8p",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_335",
+      "run": "site_335_001",
+      "start": "2016-01-29T00:05:10+00:00",
+      "end": "2016-01-30T22:00:00+00:00",
+      "hours": 45.91,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60771",
+      "doi": "10.82388/sp7hw1av",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_336",
+      "run": "site_336_001",
+      "start": "2016-01-28T01:03:30+00:00",
+      "end": "2016-01-29T21:38:00+00:00",
+      "hours": 44.58,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60968",
+      "doi": "10.82388/vboc9r8p",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_337",
+      "run": "site_337_001",
+      "start": "2016-01-28T01:00:23+00:00",
+      "end": "2016-01-29T21:36:00+00:00",
+      "hours": 44.59,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62218",
+      "doi": "10.82388/51qz0g08",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_338",
+      "run": "site_338_001",
+      "start": "2016-01-27T22:52:54+00:00",
+      "end": "2016-01-29T20:46:00+00:00",
+      "hours": 45.89,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62136",
+      "doi": "10.82388/05hyhja8",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_339",
+      "run": "site_339_001",
+      "start": "2016-01-27T22:47:19+00:00",
+      "end": "2016-01-29T20:50:00+00:00",
+      "hours": 46.04,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60969",
+      "doi": "10.82388/c8gf4j5z",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_340",
+      "run": "site_340_001",
+      "start": "2016-01-27T03:23:56+00:00",
+      "end": "2016-01-28T21:54:00+00:00",
+      "hours": 42.5,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "62219",
+      "doi": "10.82388/2nyr7j3t",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_341",
+      "run": "site_341_001",
+      "start": "2016-01-27T02:37:12+00:00",
+      "end": "2016-01-28T21:42:00+00:00",
+      "hours": 43.08,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60771",
+      "doi": "10.82388/sp7hw1av",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_342",
+      "run": "site_342_001",
+      "start": "2016-01-27T00:52:38+00:00",
+      "end": "2016-01-28T21:07:00+00:00",
+      "hours": 44.24,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60962",
+      "doi": "10.82388/2uztc2j6",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_343",
+      "run": "site_343_001",
+      "start": "2016-01-27T00:27:01+00:00",
+      "end": "2016-01-28T20:57:00+00:00",
+      "hours": 44.5,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "61002",
+      "doi": "10.82388/pqespgbo",
+      "af": true
+    },
+    {
+      "survey": "western-tasmania-transect-2016",
+      "station": "site_344",
+      "run": "site_344_remote_001",
+      "start": "2016-01-26T22:31:05+00:00",
+      "end": "2016-02-05T20:51:00+00:00",
+      "hours": 238.33,
+      "role": "recorder",
+      "component": null,
+      "model": "PR6-24",
+      "serial": "60992",
+      "doi": "10.82388/wxmy79ze",
       "af": true
     }
   ]

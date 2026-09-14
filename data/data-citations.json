@@ -1,5 +1,5 @@
 {
- "harvested": "2026-09-14T13:21:07.744Z",
+ "harvested": "2026-09-14T22:21:35.452Z",
  "sources": {
   "10.58024/agumaec47aff": {
    "platform": "EarthBank",
@@ -430,6 +430,11 @@
    "name": "NP01-01",
    "citing": []
   },
+  "10.58024/aguqf27586b2": {
+   "platform": "EarthBank",
+   "name": "PB03-01",
+   "citing": []
+  },
   "10.58024/aguq62b54c17": {
    "platform": "EarthBank",
    "name": "PPH-Pinpin Harz",
@@ -458,6 +463,11 @@
   "10.58024/aguq66cf7173": {
    "platform": "EarthBank",
    "name": "19BS03",
+   "citing": []
+  },
+  "10.58024/aguq82641a11": {
+   "platform": "EarthBank",
+   "name": "Ouehat1",
    "citing": []
   },
   "10.58024/aguqa34474f6": {
@@ -1019,11 +1029,6 @@
     "10.1785/0220250308"
    ]
   },
-  "10.11636/135284": {
-   "platform": "AusPass",
-   "name": "AusArray",
-   "citing": []
-  },
   "10.7914/sn/s1": {
    "platform": "AusPass",
    "name": "Australian Seismometers in Schools (AUSiS)",
@@ -1064,11 +1069,6 @@
   "10.7914/xhzt-cq87": {
    "platform": "AusPass",
    "name": "Mount Gambier Deployment(Mt_Gambier)",
-   "citing": []
-  },
-  "10.7914/sn/xx_2013": {
-   "platform": "AusPass",
-   "name": "",
    "citing": []
   },
   "10.7914/r4x6-3573": {

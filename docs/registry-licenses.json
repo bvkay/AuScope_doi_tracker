@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-31T00:46:08.508Z",
+  "generated": "2026-09-14T22:29:40.633Z",
   "source": "DataCite REST API",
   "records": {
     "10.58024/agag3126b4ca": "Creative Commons",
@@ -226,7 +226,21 @@
     "10.25914/7dz2-8t22": "",
     "10.25914/ctaf-6c13": "",
     "10.25914/vh88-5s87": "",
-    "10.25914/3cw7-a967": ""
+    "10.25914/3cw7-a967": "",
+    "10.25914/c7cn-cc79": "",
+    "10.25914/rgpm-7528": "",
+    "10.25914/msrb-9j13": "",
+    "10.25914/t2mn-bk81": "",
+    "10.25914/4m82-y773": "",
+    "10.25914/fhew-h678": "",
+    "10.25914/r3ya-bg54": "",
+    "10.25914/t13d-0r63": "",
+    "10.25914/3jz9-mv44": "",
+    "10.25914/tm6d-t466": "",
+    "10.25914/vw5k-q269": "",
+    "10.25914/xy60-b940": "",
+    "10.25914/0a2t-by03": "",
+    "10.25914/aaen-nc33": ""
   },
   "creators": {
     "10.58024/agag3126b4ca": [
@@ -1421,16 +1435,16 @@
         "orcid": "0000-0003-1425-7969"
       },
       {
-        "name": "Tianwei Sun",
-        "given": "",
-        "family": "",
-        "orcid": "0009-0001-8528-430X"
-      },
-      {
         "name": "Robert Pickle",
         "given": "",
         "family": "",
         "orcid": "0000-0002-8550-5256"
+      },
+      {
+        "name": "Tianwei Sun",
+        "given": "",
+        "family": "",
+        "orcid": "0009-0001-8528-430X"
       },
       {
         "name": "Marc Kassis",
@@ -3346,6 +3360,370 @@
         "given": "",
         "family": "",
         "orcid": ""
+      }
+    ],
+    "10.25914/c7cn-cc79": [
+      {
+        "name": "AuScope",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/rgpm-7528": [
+      {
+        "name": "AuScope",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/msrb-9j13": [
+      {
+        "name": "AuScope",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.25914/t2mn-bk81": [
+      {
+        "name": "Mather, Ben",
+        "given": "Ben",
+        "family": "Mather",
+        "orcid": "0000-0003-3566-1557"
+      },
+      {
+        "name": "Müller, Dietmar",
+        "given": "Dietmar",
+        "family": "Müller",
+        "orcid": "0000-0002-3334-5764"
+      },
+      {
+        "name": "O'Neill, Craig",
+        "given": "Craig",
+        "family": "O'Neill",
+        "orcid": "0000-0002-6034-1881"
+      },
+      {
+        "name": "Beall, Adam",
+        "given": "Adam",
+        "family": "Beall",
+        "orcid": "0000-0002-7182-1864"
+      },
+      {
+        "name": "Vervoort, R.Willem",
+        "given": "R.Willem",
+        "family": "Vervoort",
+        "orcid": "0000-0002-6557-0237"
+      },
+      {
+        "name": "Moresi, Louis-Noel",
+        "given": "Louis-Noel",
+        "family": "Moresi",
+        "orcid": "0000-0003-3685-174X"
+      }
+    ],
+    "10.25914/4m82-y773": [
+      {
+        "name": "Polanco, Sara",
+        "given": "Sara",
+        "family": "Polanco",
+        "orcid": "0000-0002-1270-4377"
+      },
+      {
+        "name": "Blum, Michael",
+        "given": "Michael",
+        "family": "Blum",
+        "orcid": "0000-0003-0263-0084"
+      },
+      {
+        "name": "Salles, Tristan",
+        "given": "Tristan",
+        "family": "Salles",
+        "orcid": "0000-0001-6095-7689"
+      },
+      {
+        "name": "Frederick, Bruce C.",
+        "given": "Bruce C.",
+        "family": "Frederick",
+        "orcid": ""
+      },
+      {
+        "name": "Farrington, Rebecca",
+        "given": "Rebecca",
+        "family": "Farrington",
+        "orcid": "0000-0002-2594-6965"
+      },
+      {
+        "name": "Ding, Xuesong",
+        "given": "Xuesong",
+        "family": "Ding",
+        "orcid": "0000-0003-3693-932X"
+      },
+      {
+        "name": "Mather, Ben",
+        "given": "Ben",
+        "family": "Mather",
+        "orcid": "0000-0003-3566-1557"
+      },
+      {
+        "name": "Mallard, Claire A.",
+        "given": "Claire A.",
+        "family": "Mallard",
+        "orcid": "0000-0003-2595-2414"
+      },
+      {
+        "name": "Moresi, Louis-Noel",
+        "given": "Louis-Noel",
+        "family": "Moresi",
+        "orcid": "0000-0003-3685-174X"
+      }
+    ],
+    "10.25914/fhew-h678": [
+      {
+        "name": "AuScope",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      },
+      {
+        "name": "Sachau, Till",
+        "given": "Till",
+        "family": "Sachau",
+        "orcid": "0000-0002-3790-1385"
+      },
+      {
+        "name": "Yang, Haibin",
+        "given": "Haibin",
+        "family": "Yang",
+        "orcid": "0000-0002-8628-3704"
+      },
+      {
+        "name": "Bons, Paul D.",
+        "given": "Paul D.",
+        "family": "Bons",
+        "orcid": "0000-0002-6469-3526"
+      },
+      {
+        "name": "Moresi, Louis-Noel",
+        "given": "Louis-Noel",
+        "family": "Moresi",
+        "orcid": "0000-0003-3685-174X"
+      }
+    ],
+    "10.25914/r3ya-bg54": [
+      {
+        "name": "Sandiford, Dan",
+        "given": "Dan",
+        "family": "Sandiford",
+        "orcid": "0000-0002-2207-6837"
+      },
+      {
+        "name": "Whittaker, Joanne",
+        "given": "Joanne",
+        "family": "Whittaker",
+        "orcid": "0000-0002-3170-3935"
+      },
+      {
+        "name": "Naliboff, John",
+        "given": "John",
+        "family": "Naliboff",
+        "orcid": "0000-0002-5697-7203"
+      },
+      {
+        "name": "Glerum, Anne",
+        "given": "Anne",
+        "family": "Glerum",
+        "orcid": "0000-0002-9481-1749"
+      },
+      {
+        "name": "Brune, Sascha",
+        "given": "Sascha",
+        "family": "Brune",
+        "orcid": "0000-0003-4985-1810"
+      }
+    ],
+    "10.25914/t13d-0r63": [
+      {
+        "name": "Sandiford, Dan",
+        "given": "Dan",
+        "family": "Sandiford",
+        "orcid": "0000-0002-2207-6837"
+      },
+      {
+        "name": "Craig, Timothy",
+        "given": "Timothy",
+        "family": "Craig",
+        "orcid": "0000-0003-2198-9172"
+      }
+    ],
+    "10.25914/3jz9-mv44": [
+      {
+        "name": "AuScope",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      },
+      {
+        "name": "Yang, Haibin",
+        "given": "Haibin",
+        "family": "Yang",
+        "orcid": "0000-0002-8628-3704"
+      },
+      {
+        "name": "Moresi, Louis-Noel",
+        "given": "Louis-Noel",
+        "family": "Moresi",
+        "orcid": "0000-0003-3685-174X"
+      },
+      {
+        "name": "Weng, Huihui",
+        "given": "Huihui",
+        "family": "Weng",
+        "orcid": "0000-0002-2936-2342"
+      },
+      {
+        "name": "Giordani, Julian",
+        "given": "Julian",
+        "family": "Giordani",
+        "orcid": "0000-0003-4515-9296"
+      }
+    ],
+    "10.25914/tm6d-t466": [
+      {
+        "name": "AuScope",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      },
+      {
+        "name": "Cenki-Tok or Cenki, Bénédicte",
+        "given": "Bénédicte",
+        "family": "Cenki-Tok or Cenki",
+        "orcid": "0000-0001-7649-4498"
+      },
+      {
+        "name": "Rey, Patrice",
+        "given": "Patrice",
+        "family": "Rey",
+        "orcid": "0000-0002-1767-8593"
+      },
+      {
+        "name": "Arcay, Diane",
+        "given": "Diane",
+        "family": "Arcay",
+        "orcid": "0000-0001-6773-0807"
+      }
+    ],
+    "10.25914/vw5k-q269": [
+      {
+        "name": "AuScope",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      },
+      {
+        "name": "Gollapalli, Thyagarajulu",
+        "given": "Thyagarajulu",
+        "family": "Gollapalli",
+        "orcid": "0000-0001-9394-4104"
+      }
+    ],
+    "10.25914/xy60-b940": [
+      {
+        "name": "Rodriguez Corcho, Andres Felipe",
+        "given": "Andres Felipe",
+        "family": "Rodriguez Corcho",
+        "orcid": "0000-0002-1521-7910"
+      },
+      {
+        "name": "Polanco, Sara",
+        "given": "Sara",
+        "family": "Polanco",
+        "orcid": "0000-0002-1270-4377"
+      },
+      {
+        "name": "Farrington, Rebecca",
+        "given": "Rebecca",
+        "family": "Farrington",
+        "orcid": "0000-0002-2594-6965"
+      },
+      {
+        "name": "Beucher, Romain",
+        "given": "Romain",
+        "family": "Beucher",
+        "orcid": "0000-0003-3891-5444"
+      },
+      {
+        "name": "Montes, Camilo",
+        "given": "Camilo",
+        "family": "Montes",
+        "orcid": "0000-0002-3553-0787"
+      },
+      {
+        "name": "Moresi, Louis-Noel",
+        "given": "Louis-Noel",
+        "family": "Moresi",
+        "orcid": "0000-0003-3685-174X"
+      }
+    ],
+    "10.25914/0a2t-by03": [
+      {
+        "name": "Knight, Ben Steven",
+        "given": "Ben Steven",
+        "family": "Knight",
+        "orcid": "0000-0001-7919-2575"
+      },
+      {
+        "name": "Clark, Chris",
+        "given": "Chris",
+        "family": "Clark",
+        "orcid": "0000-0001-9982-7849"
+      },
+      {
+        "name": "YU, Jie",
+        "given": "Jie",
+        "family": "YU",
+        "orcid": "0000-0002-9437-6847"
+      },
+      {
+        "name": "Kirkland, Christopher",
+        "given": "Christopher",
+        "family": "Kirkland",
+        "orcid": "0000-0003-3367-8961"
+      }
+    ],
+    "10.25914/aaen-nc33": [
+      {
+        "name": "AuScope",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      },
+      {
+        "name": "Cenki-Tok or Cenki, Bénédicte",
+        "given": "Bénédicte",
+        "family": "Cenki-Tok or Cenki",
+        "orcid": "0000-0001-7649-4498"
+      },
+      {
+        "name": "Rey, Patrice",
+        "given": "Patrice",
+        "family": "Rey",
+        "orcid": "0000-0002-1767-8593"
+      },
+      {
+        "name": "Arcay, Diane",
+        "given": "Diane",
+        "family": "Arcay",
+        "orcid": "0000-0001-6773-0807"
+      },
+      {
+        "name": "Giordani, Julian",
+        "given": "Julian",
+        "family": "Giordani",
+        "orcid": "0000-0003-4515-9296"
       }
     ]
   }

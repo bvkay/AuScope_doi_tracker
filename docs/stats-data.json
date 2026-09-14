@@ -1,29 +1,29 @@
 {
-  "generated": "2026-09-14T13:57:36.587Z",
+  "generated": "2026-09-14T22:29:54.777Z",
   "pillars": {
     "publications": {
-      "total": 2782,
-      "citations": 66163,
-      "verified": 45,
-      "candidate": 61,
+      "total": 2777,
+      "citations": 66164,
+      "verified": 42,
+      "candidate": 116,
       "attributed": {
-        "pubs": 762,
-        "citations": 19522
+        "pubs": 792,
+        "citations": 19756
       },
       "software": {
-        "pubs": 297,
-        "citations": 7110
+        "pubs": 292,
+        "citations": 7094
       },
       "unverified": {
-        "pubs": 1723,
-        "citations": 39531
+        "pubs": 1693,
+        "citations": 39314
       }
     },
     "datasets": {
-      "total": 192,
+      "total": 190,
       "byPlatform": {
         "EarthBank": 60,
-        "AusPass": 86,
+        "AusPass": 84,
         "NCI MT": 19,
         "NCI DAS": 7,
         "NCI MATE": 11,
@@ -102,7 +102,7 @@
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 45,
+      "streaming": 46,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },
@@ -114,12 +114,12 @@
         "stations": 1354
       },
       "generated": "2026-09-13",
-      "instrumentsDeployed": 117,
-      "occupations": 2052,
-      "recordingDays": 3946.2,
-      "surveysPopulated": 9,
+      "instrumentsDeployed": 122,
+      "occupations": 2165,
+      "recordingDays": 4176.8,
+      "surveysPopulated": 11,
       "scopeFiltered": true,
-      "runsFetched": "2026-08-30"
+      "runsFetched": "2026-09-14"
     },
     "dataRepository": {
       "total": 5
