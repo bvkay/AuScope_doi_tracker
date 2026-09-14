@@ -70,6 +70,21 @@ function run() {
     tier3: 'text-software'
   };
 
+  // Data citations (src/data-citations.js): papers that formally cite an
+  // AuScope dataset DOI (EarthBank, AusPass network, NCI, NVCL). Machine-
+  // verifiable infrastructure use — grades text-infrastructure, outranked
+  // only by identifier evidence and an explicit text acknowledgement.
+  const dataCites = {}; // citing doi -> [dataset dois]
+  const dcSources = (readJson(path.join(DATA_DIR, 'data-citations.json'), { sources: {} }).sources) || {};
+  Object.entries(dcSources).forEach(function(pair) {
+    (pair[1].citing || []).forEach(function(c) {
+      const k = normDoi(c);
+      if (!k) return;
+      dataCites[k] = dataCites[k] || [];
+      dataCites[k].push(pair[0]);
+    });
+  });
+
   // Self-healing: records that entered the corpus ONLY as ROR-verified
   // auto-appends are removed again if the current verified run no longer
   // confirms them (e.g. after tightening the mis-affiliation guard).
@@ -98,6 +113,13 @@ function run() {
     } else if (id && id.attribution === 'candidate-strong') {
       evidence = 'candidate';
       detail = 'watchlist ORCID + partner co-affiliation';
+    } else if (tierMap[k] === 'tier1') {
+      evidence = 'text-attributed';
+      detail = 'text scan (tier1)';
+    } else if (dataCites[k]) {
+      evidence = 'text-infrastructure';
+      detail = 'cites AuScope dataset DOI: ' + dataCites[k].slice(0, 3).join(', ')
+        + (dataCites[k].length > 3 ? ' (+' + (dataCites[k].length - 3) + ' more)' : '');
     } else if (TIER_EVIDENCE[tierMap[k]]) {
       evidence = TIER_EVIDENCE[tierMap[k]];
       detail = 'text scan (' + tierMap[k] + ')';

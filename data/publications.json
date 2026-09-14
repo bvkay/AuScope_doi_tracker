@@ -1,9 +1,9 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-09-14T12:47:10.087Z",
-    "total_count": 2796,
-    "evidence_updated": "2026-08-30T08:24:33.026Z",
+    "last_updated": "2026-09-14T13:23:38.646Z",
+    "total_count": 2820,
+    "evidence_updated": "2026-09-14T13:24:53.458Z",
     "consolidated": "2026-09-01T00:57:57.015Z",
     "dates_enriched": "2026-09-14T10:13:28.053Z"
   },
@@ -154,7 +154,8 @@
         "GPlates",
         "AusGeochem",
         "Characterisation AuScope",
-        "Simulation Analysis Modelling AuScope"
+        "Simulation Analysis Modelling AuScope",
+        "EarthBank data citation"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -2551,7 +2552,8 @@
         "AuScope",
         "AusPass",
         "Australian Seismometers in Schools",
-        "Simulation Analysis Modelling AuScope"
+        "Simulation Analysis Modelling AuScope",
+        "AusPass data citation"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -15395,7 +15397,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AusGeochem"
+        "AusGeochem",
+        "EarthBank data citation"
       ],
       "dateAdded": "2026-03-24",
       "evidence": "text-attributed",
@@ -20998,10 +21001,10 @@
       "authorCount": 7,
       "evidence": "text-infrastructure",
       "publicationDate": "2025-02-11",
-      "evidenceDetail": "manual override: LBA VLBI observations using AuScope antennas. Observations section (Table 1): 'The participating stations are the Australia Telescope Compact Array (AT), Ceduna (CD), Katherine (KE",
       "curatedPrograms": [
         "Geodesy & VLBI"
-      ]
+      ],
+      "evidenceDetail": "manual override: LBA VLBI observations using AuScope antennas. Observations section (Table 1): 'The participating stations are the Australia Telescope Compact Array (AT), Ceduna (CD), Katherine (KE [triage 14 Sep 2026]"
     },
     {
       "doi": "10.1007/s12567-024-00563-x",
@@ -21036,10 +21039,10 @@
       "authorCount": 12,
       "evidence": "text-infrastructure",
       "publicationDate": "2024-09-09",
-      "evidenceDetail": "manual override: PRIDE JUICE operations paper explicitly names the AuScope/UTAS Katherine antenna as a participating telescope in its PRIDE demonstration campaign (Section 4.2, BepiColombo test): \"",
       "curatedPrograms": [
         "Geodesy & VLBI"
-      ]
+      ],
+      "evidenceDetail": "manual override: PRIDE JUICE operations paper explicitly names the AuScope/UTAS Katherine antenna as a participating telescope in its PRIDE demonstration campaign (Section 4.2, BepiColombo test): \" [triage 14 Sep 2026]"
     },
     {
       "doi": "10.3847/2041-8213/ad6572",
@@ -21094,10 +21097,10 @@
       "authorCount": 24,
       "evidence": "text-infrastructure",
       "publicationDate": "2024-08-01",
-      "evidenceDetail": "manual override: Observations used the VLBA and the Australian Long Baseline Array including the AuScope antennas: \"Using the Very Long Baseline Array and the Long Baseline Array, we imaged Swift J",
       "curatedPrograms": [
         "Geodesy & VLBI"
-      ]
+      ],
+      "evidenceDetail": "manual override: Observations used the VLBA and the Australian Long Baseline Array including the AuScope antennas: \"Using the Very Long Baseline Array and the Long Baseline Array, we imaged Swift J [triage 14 Sep 2026]"
     },
     {
       "doi": "10.1051/0004-6361/202450590",
@@ -21120,10 +21123,10 @@
       "authorCount": 13,
       "evidence": "text-infrastructure",
       "publicationDate": "2024-06-13",
-      "evidenceDetail": "manual override: TANAMI/LBA observation using AuScope-operated antennas. Observations section: \"The participating antennas ATCA (AT; 5×22 m), Ceduna (CD; 30 m), Hobart (HO; 26 m), Katherine (KE; 12",
       "curatedPrograms": [
         "Geodesy & VLBI"
-      ]
+      ],
+      "evidenceDetail": "manual override: TANAMI/LBA observation using AuScope-operated antennas. Observations section: \"The participating antennas ATCA (AT; 5×22 m), Ceduna (CD; 30 m), Hobart (HO; 26 m), Katherine (KE; 12 [triage 14 Sep 2026]"
     },
     {
       "doi": "10.21203/rs.3.rs-1449452/v1",
@@ -21461,7 +21464,8 @@
       ],
       "searchTerms": [
         "AusPass",
-        "Australian Seismometers in Schools"
+        "Australian Seismometers in Schools",
+        "AusPass data citation"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -21478,8 +21482,9 @@
         "TW"
       ],
       "authorCount": 7,
-      "evidence": "keyword",
-      "publicationDate": "2025-06-30"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2025-06-30",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/s1"
     },
     {
       "doi": "10.1029/2024jb031032",
@@ -21496,7 +21501,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AusPass"
+        "AusPass",
+        "AusPass data citation"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -21508,8 +21514,9 @@
         "CN"
       ],
       "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2025-06-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2025-06-01",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/3f_2020, 10.7914/sn/5g_2018, 10.7914/sn/6c_2015 (+1 more)"
     },
     {
       "doi": "10.1093/gji/ggaf172",
@@ -21670,7 +21677,8 @@
       ],
       "searchTerms": [
         "AusPass",
-        "Australian Seismometers in Schools"
+        "Australian Seismometers in Schools",
+        "AusPass data citation"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -21683,8 +21691,9 @@
         "CN"
       ],
       "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2024-01-17"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-01-17",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/4h_2009, 10.7914/sn/s1"
     },
     {
       "doi": "10.26443/seismica.v2i2.389",
@@ -22926,7 +22935,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Australian Seismometers in Schools"
+        "Australian Seismometers in Schools",
+        "AusPass data citation"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -22937,8 +22947,9 @@
         "DE"
       ],
       "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2024-01-29"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-01-29",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/s1"
     },
     {
       "doi": "10.3390/educsci13111088",
@@ -23013,7 +23024,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Australian Seismometers in Schools"
+        "Australian Seismometers in Schools",
+        "AusPass data citation"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -23027,11 +23039,12 @@
         "US"
       ],
       "authorCount": 7,
-      "evidence": "keyword",
+      "evidence": "text-infrastructure",
       "relatedDois": [
         "10.1002/essoar.10511643.2"
       ],
-      "publicationDate": "2023-03-24"
+      "publicationDate": "2023-03-24",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/s1"
     },
     {
       "doi": "10.1093/gji/ggab271",
@@ -34013,7 +34026,7 @@
         "AuScope"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "text-attributed",
+      "evidence": "keyword",
       "relatedDois": [
         "10.31223/osf.io/t28zx"
       ],
@@ -34424,11 +34437,13 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "EarthBank data citation"
       ],
       "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2024-07-05"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-07-05",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.58024/agum6a344358"
     },
     {
       "doi": "10.1016/j.jvolgeores.2020.107007",
@@ -36169,7 +36184,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AusPass data citation"
       ],
       "dateAdded": "2026-03-24",
       "evidence": "candidate",
@@ -38026,7 +38042,8 @@
       ],
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
-        "Manual entry"
+        "Manual entry",
+        "AusPass data citation"
       ],
       "evidence": "candidate",
       "evidenceDetail": "watchlist ORCID + partner co-affiliation",
@@ -38333,7 +38350,7 @@
         "Katherine VLBI",
         "Simulation Analysis Modelling AuScope"
       ],
-      "evidence": "text-attributed",
+      "evidence": "keyword",
       "relatedDois": [
         "10.48550/arxiv.2412.07020"
       ],
@@ -38376,10 +38393,12 @@
       ],
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
-        "Manual entry"
+        "Manual entry",
+        "EarthBank data citation"
       ],
-      "evidence": "keyword",
-      "publicationDate": "2025-02-19"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2025-02-19",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.58024/agcu9cb45313"
     },
     {
       "doi": "10.1093/petrology/egaf055",
@@ -43754,7 +43773,7 @@
         "G-Adopt geodynamic",
         "Simulation Analysis Modelling AuScope"
       ],
-      "evidence": "text-attributed",
+      "evidence": "keyword",
       "relatedDois": [
         "10.31223/x55w5t"
       ],
@@ -44837,10 +44856,12 @@
       ],
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
-        "Manual entry"
+        "Manual entry",
+        "AusPass data citation"
       ],
-      "evidence": "keyword",
-      "publicationDate": "2023-06-08"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2023-06-08",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/6k_2020"
     },
     {
       "doi": "10.1016/j.cretres.2023.105627",
@@ -45215,10 +45236,12 @@
       ],
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
-        "Manual entry"
+        "Manual entry",
+        "AusPass data citation"
       ],
-      "evidence": "keyword",
-      "publicationDate": "2023-05-23"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2023-05-23",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/6k_2020"
     },
     {
       "doi": "10.1109/tgrs.2022.3232488",
@@ -46174,10 +46197,12 @@
       ],
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
-        "Manual entry"
+        "Manual entry",
+        "EarthBank data citation"
       ],
-      "evidence": "keyword",
-      "publicationDate": "2023-03-23"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2023-03-23",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.58024/agum98746938"
     },
     {
       "doi": "10.1029/2022gc010330",
@@ -49515,10 +49540,10 @@
       "dateAdded": "2026-04-05",
       "evidence": "text-infrastructure",
       "publicationDate": "2025-02-15",
-      "evidenceDetail": "manual override: Geoscience Australia technical report on the October 2024 local tie survey at the Katherine Geodetic Observatory, NT, measuring terrestrial connections between co-located systems: ",
       "curatedPrograms": [
         "Geodesy & VLBI"
-      ]
+      ],
+      "evidenceDetail": "manual override: Geoscience Australia technical report on the October 2024 local tie survey at the Katherine Geodetic Observatory, NT, measuring terrestrial connections between co-located systems:  [triage 14 Sep 2026]"
     },
     {
       "doi": "10.1029/2024gl108433",
@@ -49732,7 +49757,7 @@
       "dateAdded": "2026-04-05",
       "evidence": "text-infrastructure",
       "publicationDate": "2021-10-23",
-      "evidenceDetail": "manual override: \"The seismometer used in this study is a part of The Australian Seismometers in Schools Network\" — AuSIS station data used alongside DAS"
+      "evidenceDetail": "manual override: Paper states the seismometer used is an AuSIS network station [collision review, 14 Sep 2026]"
     },
     {
       "doi": "10.59350/jwred-p0t13",
@@ -54978,7 +55003,7 @@
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "text-attributed",
+      "evidence": "keyword",
       "relatedDois": [
         "10.31223/x55p64"
       ],
@@ -63805,14 +63830,16 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "AusPass data citation"
       ],
       "authorCount": 0,
       "institutions": [],
       "countries": [],
       "dateAdded": "2026-04-29",
-      "evidence": "keyword",
-      "publicationDate": "2021-05-28"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2021-05-28",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/s1"
     },
     {
       "doi": "10.1093/gji/ggab286",
@@ -72033,7 +72060,7 @@
         "GB"
       ],
       "dateAdded": "2026-07-12",
-      "evidence": "text-software",
+      "evidence": "keyword",
       "relatedDois": [
         "10.5194/egusphere-2025-4168"
       ],
@@ -73160,7 +73187,7 @@
         "AU"
       ],
       "dateAdded": "2026-08-09",
-      "evidence": "text-attributed",
+      "evidence": "keyword",
       "relatedDois": [
         "10.5281/zenodo.5637353",
         "10.5281/zenodo.5637353",
@@ -75787,7 +75814,7 @@
         "AU"
       ],
       "dateAdded": "2026-08-30",
-      "evidence": "text-software",
+      "evidence": "keyword",
       "relatedDois": [
         "10.5194/egusphere-2025-6323"
       ],
@@ -75950,7 +75977,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "relatedDois": [
         "10.5281/zenodo.20616619"
       ],
@@ -75991,7 +76018,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "publicationDate": "2025-03-11"
     },
     {
@@ -76075,7 +76102,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "publicationDate": "2024-02-01"
     },
     {
@@ -76117,7 +76144,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "publicationDate": "2024-01-01"
     },
     {
@@ -76157,7 +76184,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "publicationDate": "2023-03-03"
     },
     {
@@ -76193,7 +76220,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-8841-4384,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965",
       "publicationDate": "2023-02-26"
     },
     {
@@ -76231,7 +76258,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "publicationDate": "2023-02-26"
     },
     {
@@ -76268,7 +76295,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "relatedDois": [
         "10.5281/zenodo.7977116"
       ],
@@ -76314,7 +76341,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "publicationDate": "2023-01-01"
     },
     {
@@ -76350,7 +76377,7 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-8841-4384",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384",
       "publicationDate": "2022-03-28"
     },
     {
@@ -76494,7 +76521,8 @@
       "institutions": [],
       "countries": [],
       "publicationDate": "2022-04-23",
-      "dateAdded": "2026-09-14"
+      "dateAdded": "2026-09-14",
+      "evidence": "keyword"
     },
     {
       "doi": "10.1029/2022gc010372",
@@ -76518,7 +76546,8 @@
       "institutions": [],
       "countries": [],
       "publicationDate": "2022-04-25",
-      "dateAdded": "2026-09-14"
+      "dateAdded": "2026-09-14",
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/00288306.2023.2239175",
@@ -76542,7 +76571,8 @@
       "institutions": [],
       "countries": [],
       "publicationDate": "2023-08-02",
-      "dateAdded": "2026-09-14"
+      "dateAdded": "2026-09-14",
+      "evidence": "keyword"
     },
     {
       "doi": "10.1080/08912963.2023.2209784",
@@ -76566,7 +76596,8 @@
       "institutions": [],
       "countries": [],
       "publicationDate": "2023-05-17",
-      "dateAdded": "2026-09-14"
+      "dateAdded": "2026-09-14",
+      "evidence": "keyword"
     },
     {
       "doi": "10.1038/s41550-023-02105-7",
@@ -76593,7 +76624,672 @@
       "dateAdded": "2026-09-14",
       "curatedPrograms": [
         "Geodesy & VLBI"
-      ]
+      ],
+      "evidence": "keyword"
+    },
+    {
+      "doi": "10.1016/j.epsl.2026.119950",
+      "title": "Permo-Triassic rift nucleation in East Antarctica revealed by low-temperature thermochronology",
+      "authors": "Ferdinand Mayer-Ullmann; Stijn Glorie; Martin Hand; Samuel C. Boone; Angus Nixon; Martin Danišík; Jacqueline A. Halpin; Jacob A. Mulder",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2026,
+      "cited": 1,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Paleontology and Stratigraphy of Fossils; High-pressure geophysics and materials",
+      "publicationDate": "2026-03-07",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "EarthBank data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.58024/agua531ecf21"
+    },
+    {
+      "doi": "10.5382/econgeo.5223",
+      "title": "Tracking the Evolution of Mineral Systems Using Apatite Petrochronology and Geochemistry: A Case Study from the Ernest Henry Iron Oxide Copper-Gold Deposit, Australia",
+      "authors": "Xin Wang; Alkis Kontonikas-Charos; Elena Belousova; Lisa Kearney; Courteney Dhnaram; Vladimir Lisitsin; Renjie Zhou",
+      "journal": "Economic Geology",
+      "publisher": "Society of Economic Geologists, Inc.",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; Geomagnetism and Paleomagnetism Studies",
+      "publicationDate": "2026-04-01",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "EarthBank data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.58024/aguqd44783c4"
+    },
+    {
+      "doi": "10.1029/2025gc012887",
+      "title": "Comment on Nixon, A. L. et al. (2022) on Intracontinental Fault Reactivation in High Heat Production Areas of Central Australia: Insights From Apatite Fission Track Thermochronology",
+      "authors": "A. L. Nixon; S. Glorie",
+      "journal": "Geochemistry, Geophysics, Geosystems",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Nuclear materials and radiation effects; Paleontology and Stratigraphy of Fossils",
+      "publicationDate": "2026-02-01",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "EarthBank data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.58024/agua9bc2394d"
+    },
+    {
+      "doi": "10.1093/gji/ggag282",
+      "title": "Lowermost mantle deformation beneath Australia linked to deep mantle upwellings and putative remnant slab material",
+      "authors": "Ella Xu; Jonathan Wolf; Daniel A Frost; Mingming Li; Maureen D Long",
+      "journal": "Geophysical Journal International",
+      "publisher": "Oxford University Press (OUP)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "publicationDate": "2026-07-10",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/1e_2013, 10.7914/sn/1f_2009, 10.7914/sn/1g_2008 (+19 more)"
+    },
+    {
+      "doi": "10.1785/0120250054",
+      "title": "Systematic Estimation of Earthquake Source Parameters for Continental Australia: Attenuation and Stress Drop",
+      "authors": "Trevor I. Allen",
+      "journal": "Bulletin of the Seismological Society of America",
+      "publisher": "Seismological Society of America (SSA)",
+      "year": 2025,
+      "cited": 4,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Seismic Performance and Analysis",
+      "publicationDate": "2025-08-14",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/1h_2010, 10.7914/sn/1k_2013, 10.7914/sn/1p_2011 (+15 more)"
+    },
+    {
+      "doi": "10.1785/0220250316",
+      "title": "AGMD: A Ground-Motion Database for the Australian Continental Crust",
+      "authors": "Hadi Ghasemi; Trevor Allen; Abhi Sunketa; Callum Mckenna; Deepika Mani",
+      "journal": "Seismological Research Letters",
+      "publisher": "Seismological Society of America (SSA)",
+      "year": 2026,
+      "cited": 2,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Seismic Performance and Analysis; Seismic Waves and Analysis; High-pressure geophysics and materials",
+      "publicationDate": "2026-01-12",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/1h_2010, 10.7914/sn/1k_2013, 10.7914/sn/1p_2011 (+15 more)"
+    },
+    {
+      "doi": "10.1029/2025gl119309",
+      "title": "New Insights Into the Cooling of the Oceanic Lithosphere From Surface‐Wave Tomographic Inferences",
+      "authors": "Franck Latallerie; Paula Koelemeijer; Andrew Walker; Alessia Maggi; Sophie Lambotte; Christophe Zaroli",
+      "journal": "Geophysical Research Letters",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Seismic Waves and Analysis; earthquake and tectonic studies",
+      "publicationDate": "2026-02-14",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/1p_2011, 10.7914/sn/7d_1997, 10.7914/sn/s1"
+    },
+    {
+      "doi": "10.59350/1evzk-y6b17",
+      "title": "Australia surprised by moderate quake, but rumbling is not unusual",
+      "authors": "Caroline Eakin; Meghan S. Miller",
+      "journal": "",
+      "publisher": "Front Matter",
+      "year": 2021,
+      "cited": 0,
+      "type": "posted content",
+      "isOA": "Yes",
+      "subject": "Seismology and Earthquake Studies",
+      "publicationDate": "2021-09-26",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/2p_2020, 10.7914/sn/5g_2018, 10.7914/sn/s1"
+    },
+    {
+      "doi": "10.1029/2025gl117119",
+      "title": "Building Blocks of Cratonic Lithosphere in Southwestern Australia: Early Results of WA Array",
+      "authors": "Vadim Levin; Huaiyu Yuan; Ruth Murdie; Klaus Gessner; Raphael Quentin de Gromard; Meghan S. Miller",
+      "journal": "Geophysical Research Letters",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2025,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geochemistry and Geologic Mapping",
+      "publicationDate": "2025-09-19",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "candidate",
+      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+    },
+    {
+      "doi": "10.1785/0220250308",
+      "title": "A New High-Resolution Seismic Catalog for Southwestern Australia (2020–2025) and Analysis of Long-Term Clustering Behavior",
+      "authors": "Robert Pickle; Meghan S. Miller; Trevor Allen; Sima Mousavi; Ping Zhang; Huaiyu Yuan; Ruth Murdie",
+      "journal": "Seismological Research Letters",
+      "publisher": "Seismological Society of America (SSA)",
+      "year": 2026,
+      "cited": 3,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; Seismology and Earthquake Studies; High-pressure geophysics and materials",
+      "publicationDate": "2026-01-15",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "candidate",
+      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+    },
+    {
+      "doi": "10.1093/gji/ggag290",
+      "title": "Crustal heterogeneity and Moho uplift in the northern Gawler Craton from trans-dimensional Bayesian joint inversion of receiver functions and surface wave dispersion",
+      "authors": "Haoran Lin; Peng Guo; Erdinc Saygin; B L N Kennett; Mehdi Tork Qashqai; Lei Xing",
+      "journal": "Geophysical Journal International",
+      "publisher": "Oxford University Press (OUP)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geochemical Analysis",
+      "publicationDate": "2026-07-20",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/3g_2018"
+    },
+    {
+      "doi": "10.1785/0220260139",
+      "title": "Snow Avalanche Characteristics Along Milford Road, Aotearoa New Zealand, Using Distributed Acoustic Sensing",
+      "authors": "Konstantinos Michailos; Simon Morris; Voon Hui Lai; Meghan S. Miller; John Townend; Hans-Peter Anderson; Graham Clarke",
+      "journal": "Seismological Research Letters",
+      "publisher": "Seismological Society of America (SSA)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Landslides and related hazards; Cryospheric studies and observations; Synthetic Aperture Radar (SAR) Applications and Techniques",
+      "publicationDate": "2026-08-18",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "candidate",
+      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+    },
+    {
+      "doi": "10.59350/h4nph-she37",
+      "title": "Australia surprised by moderate quake, but rumbling is not unusual",
+      "authors": "Caroline Eakin; Meghan S. Miller",
+      "journal": "",
+      "publisher": "Front Matter",
+      "year": 2021,
+      "cited": 0,
+      "type": "posted content",
+      "isOA": "Yes",
+      "subject": "Seismology and Earthquake Studies; earthquake and tectonic studies; Disaster Response and Management",
+      "publicationDate": "2021-09-26",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/5g_2018, 10.7914/sn/s1"
+    },
+    {
+      "doi": "10.1785/0220250032",
+      "title": "Exploring Seismic Signal Detection and Source Identification of Atmospheric Entries: The Hayabusa2 Sample Return Capsule as a Benchmark",
+      "authors": "Iona Clemente; Eleanor K. Sansom; Hadrien A. R. Devillepoix; Taichi Kawamura; Benjamin A. Fernando; Raphael F. Garcia; Olivia Collet",
+      "journal": "Seismological Research Letters",
+      "publisher": "Seismological Society of America (SSA)",
+      "year": 2025,
+      "cited": 11,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; Earthquake Detection and Analysis",
+      "publicationDate": "2025-07-23",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/5g_2018"
+    },
+    {
+      "doi": "10.1785/0120260045",
+      "title": "Systematic Estimation of Earthquake Source Parameters for Continental Australia: Magnitude Conversions and Ground-Motion Variability",
+      "authors": "Trevor I. Allen",
+      "journal": "Bulletin of the Seismological Society of America",
+      "publisher": "Seismological Society of America (SSA)",
+      "year": 2026,
+      "cited": 0,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; Seismic Performance and Analysis; High-pressure geophysics and materials",
+      "publicationDate": "2026-07-15",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/5g_2018, 10.7914/sn/6k_2020, 10.7914/xagc-se62"
+    },
+    {
+      "doi": "10.1785/0220240435",
+      "title": "Detection of Seismic Core Phases from the Northern Atlantic Cyclones on the Australian Spiral-Arm Arrays",
+      "authors": "Abhay Pandey; Hrvoje Tkalčić",
+      "journal": "Seismological Research Letters",
+      "publisher": "Seismological Society of America (SSA)",
+      "year": 2025,
+      "cited": 1,
+      "type": "journal article",
+      "isOA": "No",
+      "subject": "Seismic Waves and Analysis; earthquake and tectonic studies; Seismic Imaging and Inversion Techniques",
+      "publicationDate": "2025-05-02",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/6c_2015"
+    },
+    {
+      "doi": "10.1007/s12040-025-02560-y",
+      "title": "Moho variations in the Archean Cratons of Australia from joint inversion of receiver function and Rayleigh wave group velocity",
+      "authors": "Alolika Chakraborty; Pousali Mukherjee; Swati Sharma; Kajaljyoti Borah",
+      "journal": "Journal of Earth System Science",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2025,
+      "cited": 1,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis",
+      "publicationDate": "2025-05-08",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/7g_2000, 10.7914/sn/7j_2005"
+    },
+    {
+      "doi": "10.1029/2022gl099643",
+      "title": "The 2021 Mw 7.3 East Cape Earthquake: Triggered Rupture in Complex Faulting Revealed by Multi‐Array Back‐Projections",
+      "authors": "Y. Xie; L. Meng; T. Zhou; L. Xu; H. Bao; R. Chu",
+      "journal": "Geophysical Research Letters",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2022,
+      "cited": 4,
+      "type": "journal article",
+      "isOA": "No",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Seismic Waves and Analysis",
+      "publicationDate": "2022-10-07",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/s1"
+    },
+    {
+      "doi": "10.1029/2024gl113015",
+      "title": "The 2021 Mw8.1 Kermadec Megathrust Earthquake: An Event Rupturing the Slab‐Mantle Interface With Up‐Dip High‐Frequency Seismic Energy Radiation",
+      "authors": "Hongyu Zeng; Shengji Wei; Hongfeng Yang",
+      "journal": "Geophysical Research Letters",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2025,
+      "cited": 6,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
+      "publicationDate": "2025-02-25",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/s1, 10.7914/sn/yw_2021"
+    },
+    {
+      "doi": "10.1029/2024jb029649",
+      "title": "Evidence for Lithospheric Mantle Uniformity Beneath Cratons",
+      "authors": "Federico D. Munch; Paolo A. Sossi; Amir Khan",
+      "journal": "Journal of Geophysical Research: Solid Earth",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2025,
+      "cited": 7,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "publicationDate": "2025-04-01",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/s1"
+    },
+    {
+      "doi": "10.1029/2025jb031483",
+      "title": "Toward Back‐Projection Earthquake Rupture Imaging With Ocean Bottom Distributed Acoustic Sensing",
+      "authors": "Yuqing Xie; Jean‐Paul Ampuero; Martijn van den Ende; Alister Trabattoni; Marie Baillet; Diane Rivet",
+      "journal": "Journal of Geophysical Research: Solid Earth",
+      "publisher": "American Geophysical Union (AGU)",
+      "year": 2025,
+      "cited": 3,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; earthquake and tectonic studies; Geophysical Methods and Applications",
+      "publicationDate": "2025-08-01",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "AusPass data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/s1"
+    },
+    {
+      "doi": "10.5281/zenodo.11100590",
+      "title": "Geophysics 2030 Community Connect Workshop Presentations",
+      "authors": "Wyborn, Lesley; Rees, Nigel; Hollmann, Hannes; Croucher, Jo; Peacock, Jared; Kappler, Karl; Yang, Rui; Kerr, Janelle; Thiel, Stephan; Seillé, Hoël; Ray, Anandaroop; Pickle, Robert; Lai, Voon Hui; Wang, Sheng; Evans, Ben; Farrington, Rebecca",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2023,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Environmental Monitoring and Data Management; Geophysics and Gravity Measurements; Geophysical and Geoelectrical Methods",
+      "publicationDate": "2023-11-01",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "NCI data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.25914/5eaa30cc934d0"
+    },
+    {
+      "doi": "10.5281/zenodo.11100591",
+      "title": "Geophysics 2030 Community Connect Workshop Presentations",
+      "authors": "Wyborn, Lesley; Rees, Nigel; Hollmann, Hannes; Croucher, Jo; Peacock, Jared; Kappler, Karl; Yang, Rui; Kerr, Janelle; Thiel, Stephan; Seillé, Hoël; Ray, Anandaroop; Pickle, Robert; Lai, Voon Hui; Wang, Sheng; Evans, Ben; Farrington, Rebecca",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2023,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Environmental Monitoring and Data Management; Geophysics and Gravity Measurements; Geophysical and Geoelectrical Methods",
+      "publicationDate": "2023-11-01",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "NCI data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.25914/5eaa30cc934d0"
+    },
+    {
+      "doi": "10.1785/0220230325",
+      "title": "Toward a Metadata Standard for Distributed Acoustic Sensing (DAS) Data Collection",
+      "authors": "Voon Hui Lai; Kathleen M. Hodgkinson; Robert W. Porritt; Robert Mellors",
+      "journal": "Seismological Research Letters",
+      "publisher": "Seismological Society of America (SSA)",
+      "year": 2024,
+      "cited": 14,
+      "type": "journal article",
+      "isOA": "No",
+      "subject": "Seismic Waves and Analysis; Seismology and Earthquake Studies; Geophysical Methods and Applications",
+      "publicationDate": "2024-02-02",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "NCI data citation"
+      ],
+      "dateAdded": "2026-09-14",
+      "evidence": "text-infrastructure",
+      "evidenceDetail": "cites AuScope dataset DOI: 10.25914/kf96-nb26"
+    },
+    {
+      "doi": "10.5194/egusphere-2023-53-rc1",
+      "title": "Comment on egusphere-2023-53",
+      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
+      "journal": "",
+      "publisher": "",
+      "year": 2023,
+      "cited": 0,
+      "type": "peer review",
+      "isOA": "Yes",
+      "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Methane Hydrates and Related Phenomena",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "The University of Sydney",
+        "University of Kansas",
+        "The University of Melbourne",
+        "AuScope",
+        "Planetary Science Institute",
+        "University of California, Los Angeles",
+        "Australian National University"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-09-14",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564"
+    },
+    {
+      "doi": "10.5194/egusphere-2023-53-rc2",
+      "title": "Comment on egusphere-2023-53",
+      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
+      "journal": "",
+      "publisher": "",
+      "year": 2023,
+      "cited": 0,
+      "type": "peer review",
+      "isOA": "Yes",
+      "subject": "Geology and Paleoclimatology Research; Geological formations and processes; Methane Hydrates and Related Phenomena",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "The University of Sydney",
+        "University of Kansas",
+        "The University of Melbourne",
+        "AuScope",
+        "Planetary Science Institute",
+        "University of California, Los Angeles",
+        "Australian National University"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-09-14",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564"
+    },
+    {
+      "doi": "10.5194/egusphere-2023-53-ec1",
+      "title": "Associate Editor's Comment on egusphere-2023-53",
+      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
+      "journal": "",
+      "publisher": "",
+      "year": 2023,
+      "cited": 0,
+      "type": "peer review",
+      "isOA": "Yes",
+      "subject": "Geological formations and processes; Geology and Paleoclimatology Research; Methane Hydrates and Related Phenomena",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 9,
+      "institutions": [
+        "The University of Sydney",
+        "University of Kansas",
+        "The University of Melbourne",
+        "AuScope",
+        "Planetary Science Institute",
+        "University of California, Los Angeles",
+        "Australian National University"
+      ],
+      "countries": [
+        "AU",
+        "US"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-09-14",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564"
     }
   ]
 }

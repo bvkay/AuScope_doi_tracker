@@ -2,7 +2,7 @@
   "metadata": {
     "type": "datasets",
     "last_updated": "2026-09-01T00:50:31.443Z",
-    "total_count": 240
+    "total_count": 239
   },
   "records": [
     {
@@ -1426,14 +1426,6 @@
       "name": "Kamb Ice Stream Outlet Channel (KambSeis2)",
       "year": 2021,
       "doi": "10.7914/b1k3-3c71",
-      "platform": "AusPass",
-      "type": "Seismic Network"
-    },
-    {
-      "code": "IU",
-      "name": "Global Seismograph Network (GSN - IRIS/USGS) (GSN)",
-      "year": 1988,
-      "doi": "10.7914/SN/IU",
       "platform": "AusPass",
       "type": "Seismic Network"
     },

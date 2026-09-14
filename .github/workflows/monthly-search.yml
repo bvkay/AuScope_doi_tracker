@@ -96,6 +96,14 @@ jobs:
         continue-on-error: true
         run: node src/verified.js
 
+      # Papers citing AuScope dataset DOIs (EarthBank, AusPass networks,
+      # NCI, NVCL) via DataCite — merged into the corpus and read by the
+      # evidence ladder. Internally best-effort (failed lookups keep
+      # previous values); continue-on-error belt-and-braces.
+      - name: Data citations
+        continue-on-error: true
+        run: node src/data-citations.js
+
       # Merge identifier + text evidence into the evidence ladder on publications.json
       - name: Evidence ladder
         run: node src/evidence.js

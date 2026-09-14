@@ -1,29 +1,29 @@
 {
-  "generated": "2026-09-14T12:59:28.241Z",
+  "generated": "2026-09-14T13:25:17.561Z",
   "pillars": {
     "publications": {
-      "total": 2791,
-      "citations": 66773,
-      "verified": 42,
-      "candidate": 58,
+      "total": 2818,
+      "citations": 66830,
+      "verified": 45,
+      "candidate": 61,
       "attributed": {
-        "pubs": 687,
-        "citations": 18467
+        "pubs": 720,
+        "citations": 18463
       },
       "software": {
-        "pubs": 299,
-        "citations": 7112
+        "pubs": 297,
+        "citations": 7110
       },
       "unverified": {
-        "pubs": 1805,
-        "citations": 41194
+        "pubs": 1801,
+        "citations": 41257
       }
     },
     "datasets": {
-      "total": 193,
+      "total": 192,
       "byPlatform": {
         "EarthBank": 60,
-        "AusPass": 87,
+        "AusPass": 86,
         "NCI MT": 19,
         "NCI DAS": 7,
         "NCI MATE": 11,

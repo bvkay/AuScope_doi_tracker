@@ -162,6 +162,12 @@ async function fetchEarthBank() {
 
 // ─── AusPass (FDSN Station + Networks API) ──────────────────────────────────
 
+// Non-AuScope networks mirrored by AusPass (IRIS/USGS global, test
+// networks) — same exclusion as update-fdsn-dois.js. Papers citing the
+// Global Seismograph Network are not AuScope outputs; letting IU into the
+// inventory once fed 100 GSN-citing papers into the publications corpus.
+const EXCLUDED_NETWORK_CODES = new Set(['IU', 'OA', 'XX']);
+
 async function fetchAusPass() {
   // Step 1: Fetch network list from AusPass FDSN station service
   const stationResp = await fetch('https://auspass.edu.au/fdsnws/station/1/query?level=network&format=text');
@@ -174,6 +180,7 @@ async function fetchAusPass() {
     const parts = lines[i].split('|');
     if (parts.length < 5) continue;
     const code = parts[0].trim();
+    if (EXCLUDED_NETWORK_CODES.has(code)) continue;
     const desc = parts[1].trim();
     const startTime = parts[2].trim();
     const startYear = startTime ? startTime.substring(0, 4) : '';

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T12:59:28.341Z",
+  "generated": "2026-09-14T13:25:17.672Z",
   "records": [
     {
       "name": "GPlates",
@@ -2130,20 +2130,11 @@
         "Underworld 2",
         "Underworld geodynamics"
       ],
-      "publications": 52,
-      "citations": 179,
+      "publications": 51,
+      "citations": 178,
       "earliestYear": 2022,
       "latestYear": 2026,
       "records": [
-        {
-          "doi": "10.5194/gmd-19-5191-2026",
-          "title": "A novel ALE scheme with the internal boundary for true free surface simulation in geodynamic models",
-          "authors": "Neng Lu; Louis Moresi; Julian Giordani",
-          "year": 2026,
-          "journal": "Geoscientific model development",
-          "cited": 1,
-          "oa": true
-        },
         {
           "doi": "10.59350/5fe9q-8ps48",
           "title": "Constitutive Models in Symbolic Form",
@@ -2612,8 +2603,8 @@
         "G-ADOPT",
         "Geodynamic ADjOint Optimisation PlaTform"
       ],
-      "publications": 12,
-      "citations": 24,
+      "publications": 11,
+      "citations": 23,
       "earliestYear": 2009,
       "latestYear": 2026,
       "records": [
@@ -2624,15 +2615,6 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
-        },
-        {
-          "doi": "10.5194/gmd-19-2717-2026",
-          "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth",
-          "authors": "William Scott; Mark Hoggard; Thomas Duvernay; Siavash Ghelichkhan; A. H. Gibson; Dale S. Roberts; Stephan C. Kramer; D. Rhodri Davies",
-          "year": 2026,
-          "journal": "Geoscientific model development",
-          "cited": 1,
           "oa": true
         },
         {
