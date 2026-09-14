@@ -533,6 +533,19 @@ Only substantive changes — the git history has the rest.
   removed. A ~556-DOI reference list cross-check found 99% coverage — but
   ~80% of those only exist as manual entries; the keyword searcher cannot
   see software/infrastructure *usage* that never names AuScope in text.
+- **"Katherine VLBI" purge**: the unquoted query matched Katherine
+  (Bouman, the EHT scientist) AND VLBI anywhere, flooding the corpus with
+  Event Horizon Telescope and black-hole papers. Query now quoted (both
+  config.json and the Apps Script mirror). All 38 sole-term records were
+  web-verified paper by paper (facility/observation sections): 32 removed
+  via the overrides valve; 6 confirmed as genuine AuScope antenna use
+  (LBA/TANAMI/PRIDE campaigns naming Katherine or Hobart 12m, plus the GA
+  Katherine local-tie survey) — 5 graded text-infrastructure with quoted
+  evidence, 1 (Ceduna/Hobart-26m only — UTAS, not the AuScope 12m array)
+  left keyword-tier with a program tag. A paced, resumable searcher
+  recall check (src/recall-check.js + the manual recall-check workflow)
+  measures reference-list recall without tripping OpenAlex velocity
+  limits again.
 - **Corpus policy (Ben's review)**: software version releases
   (`type: 'software'` — Zenodo/GitHub archive DOIs like underworld2
   v2.6.0b, MTtsdp v2.0.0, G-ADOPT, NVCL Reporting Live System,

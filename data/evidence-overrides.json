@@ -26,6 +26,252 @@
         "Earth imaging & sounding"
       ],
       "reason": "AusLAMP/MT study of the southern Gawler Craton (Ben, 14 Sep 2026)."
+    },
+    {
+      "doi": "10.56726/irjmets88889",
+      "action": "remove",
+      "reason": "General review article on black hole formation/evolution (Schwarzschild, Penrose, gravitational waves, M87 EHT result). Full PDF text extracted: no observations by the authors and  [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1017/s026988972510094x",
+      "action": "remove",
+      "reason": "Philosophy/history of science case study by Luca Guzzardi (University of Milan) analysing the EHT collaboration's epistemic constraints: 'In this paper I present a case study of th [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2504.07549",
+      "action": "remove",
+      "reason": "Machine learning methods paper (STeP: spatiotemporal diffusion priors for video inverse problems) by Zhang, Wu, Feng, Song, Yue and Katherine L. Bouman. Validated on 'black hole vi [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1103/physrevd.111.064075",
+      "action": "remove",
+      "reason": "Theoretical general relativity paper (arXiv:2408.16049, Zhou, Zhong, Chen & Cardoso) developing a forward ray tracing method from the analytic integral solution of Kerr geodesics t [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2502.07522",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "LBA VLBI observations using AuScope antennas. Observations section (Table 1): 'The participating stations are the Australia Telescope Compact Array (AT), Ceduna (CD), Katherine (KE [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2502.07522",
+      "action": "programs",
+      "programs": [
+        "Geodesy & VLBI"
+      ],
+      "reason": "Uses AuScope VLBI antennas [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.4324/9781003437956",
+      "action": "remove",
+      "reason": "Crossref metadata: Routledge book 'Exploring Ethnography of Outer Space: Methods and Perspectives' (Gorbanenko, Jeevendrampillai, Kozel, Jan 2025) — an anthropology/ethnographic-me [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1515/9783839461204-002",
+      "action": "remove",
+      "reason": "Crossref metadata: chapter by Paula Muhr in 'Ain't Nothing Like the Real Thing?' (transcript Verlag, Edition Medienwissenschaft series) — a media-studies (Medienwissenschaft) analy [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41550-024-02407-4",
+      "action": "remove",
+      "reason": "Full text read via arXiv 2411.09099 (Fernández Gil et al.). VLBI data comes solely from the bulk Astrogeo database: 'The Astrogeo VLBI image database contains over 112,000 images o [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2410.08246",
+      "action": "remove",
+      "reason": "arXiv abstract page: purely theoretical study of geodesics, photon spheres, shadows, absorption/greybody factors and lensing of black holes in an effective quantum gravity framewor [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2410.02986",
+      "action": "remove",
+      "reason": "Full text (arXiv HTML): a 5-year EHT science-objectives framework. Stations named are ALMA, GLT, Kitt Peak, LMT, SMT, SPT, JCMT, Pico Veleta, Haystack, Onsala, NOEMA, sites in Chin [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2409.07570",
+      "action": "remove",
+      "reason": "Kavli-IAU workshop report on post-2030 far-infrared to millimeter facilities; facilities discussed are ALMA (an 'ALMA2040 vision'), ngVLA, a space-based far-IR observatory, and lar [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1007/s12567-024-00563-x",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "PRIDE JUICE operations paper explicitly names the AuScope/UTAS Katherine antenna as a participating telescope in its PRIDE demonstration campaign (Section 4.2, BepiColombo test): \" [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1007/s12567-024-00563-x",
+      "action": "programs",
+      "programs": [
+        "Geodesy & VLBI"
+      ],
+      "reason": "Uses AuScope VLBI antennas [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3847/2041-8213/ad6572",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Observations used the VLBA and the Australian Long Baseline Array including the AuScope antennas: \"Using the Very Long Baseline Array and the Long Baseline Array, we imaged Swift J [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3847/2041-8213/ad6572",
+      "action": "programs",
+      "programs": [
+        "Geodesy & VLBI"
+      ],
+      "reason": "Uses AuScope VLBI antennas [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2407.00899",
+      "action": "remove",
+      "reason": "Perspective paper on classical vs quantum optical frequency combs for satellite-based optical clock synchronization (squeezing/entanglement beyond the standard quantum limit). No r [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1051/0004-6361/202450590",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "TANAMI/LBA observation using AuScope-operated antennas. Observations section: \"The participating antennas ATCA (AT; 5×22 m), Ceduna (CD; 30 m), Hobart (HO; 26 m), Katherine (KE; 12 [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1051/0004-6361/202450590",
+      "action": "programs",
+      "programs": [
+        "Geodesy & VLBI"
+      ],
+      "reason": "Uses AuScope VLBI antennas [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1016/j.dark.2024.101501",
+      "action": "remove",
+      "reason": "Purely theoretical black-hole shadow study. Its data availability statement reads: \"Since this work is theoretical, there is no data used to support the findings of this study.\" It [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3847/2041-8213/ad2df0",
+      "action": "remove",
+      "reason": "EHT-only observations. Section 2 of the paper: \"The observatories participating in the 2017 campaign were the phased Atacama Large Millimeter/submillimeter Array (ALMA) and the Ata [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3847/2041-8213/ad2df1",
+      "action": "remove",
+      "reason": "Companion interpretation paper using the same EHT-only dataset: \"In Paper VII, static polarimetric images are constructed from the Sgr A* EHT data taken on 2017 April 6th and 7...\" [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2403.00897",
+      "action": "remove",
+      "reason": "Machine-learning methods paper using simulated data only: visibilities generated with the eht-imaging toolkit from the Galaxy10 DECals galaxy-image dataset, under a simulated 8-tel [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1051/swsc/2024024",
+      "action": "remove",
+      "reason": "Ionospheric study using the Low-Frequency Array (LOFAR) — 38 stations across the Netherlands — observing Cygnus A at 24.9-64.0 MHz on 2018 July 14, with independent confirmation fr [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.31389/pop.74",
+      "action": "remove",
+      "reason": "Philosophy of physics paper (Philosophy of Physics, LSE Press) analysing the epistemic robustness of the EHT M87* image. No new observations; it discusses the EHT array of 'eight r [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2312.11351",
+      "action": "remove",
+      "reason": "Theory paper on detecting photon-ring signatures beyond General Relativity using synthetic black-hole images and hypothetical upgraded EHT configurations ('if the array is upgraded [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1525/001c.88163",
+      "action": "remove",
+      "reason": "Media studies / visual studies article (Media+Environment, author Paula Muhr) treating the EHT M87* image as an 'operative image'; no original observations. It describes the EHT's  [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3847/2041-8213/acff70",
+      "action": "remove",
+      "reason": "EHT Collaboration M87* Paper IX (circular polarization) uses the 2017 EHT array; the paper's facilities line (arXiv:2311.10976 full text) reads 'Facilities: EHT, ALMA, APEX, IRAM:3 [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2310.07687",
+      "action": "remove",
+      "reason": "Sgr A* flare tomography paper analysing ALMA light curves: 'the first three-dimensional (3D) reconstruction of an emission flare recovered from ALMA light curves observed on April  [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2310.05860",
+      "action": "remove",
+      "reason": "Theoretical black-hole paper: derives photon equations of motion via Hamilton-Jacobi formalism for Kerr-Newman quintessential black holes and compares shadow predictions to EHT mea [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2309.01949",
+      "action": "remove",
+      "reason": "Machine-learning methods paper (score-based diffusion priors for Bayesian inverse imaging), published in Transactions on Machine Learning Research. Authors are Berthy T. Feng and K [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.48550/arxiv.2308.14610",
+      "action": "remove",
+      "reason": "Machine-learning paper proposing PolarRec, a transformer-based visibility reconstruction pipeline using polar-coordinate representation. Purely a methods/algorithm contribution; no [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.22323/1.444.1040",
+      "action": "remove",
+      "reason": "ICRC2023 proceedings on probing pseudo-Dirac neutrino masses using IceCube Neutrino Observatory data (NGC 1068). The facility used is IceCube, a South Pole neutrino detector — no V [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.26855/jamc.2023.03.013",
+      "action": "remove",
+      "reason": "Speculative SETI-style paper claiming detection of Kardashev Type II/III civilization objects ('Dyson Eggs and Dyson Cells') via a 'Mathematical Microscope' data-analysis technique [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3390/s21165342",
+      "action": "remove",
+      "reason": "GNSS-only study: derives Euler poles for five plates purely from the published ITRF2014 GNSS solution. For the Australian plate it uses 20 GNSS stations (Appendix B) — 'Katherine'  [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1098/rsos.170522",
+      "action": "remove",
+      "reason": "Pure review of extragalactic radio continuum surveys (3CR, NVSS, FIRST, VLA, WSRT, COSMOS, LOFAR, ASKAP, MeerKAT, VLASS); reports no new observations. Full text contains no Katheri [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.21203/rs.3.rs-1449452/v1",
+      "action": "programs",
+      "programs": [
+        "Geodesy & VLBI"
+      ],
+      "reason": "Australian LBA ground array (Ceduna/Hobart 26m — UTAS, not the AuScope 12m array); kept keyword-tier [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3847/1538-4357/acf4f2",
+      "action": "remove",
+      "reason": "Abstract: 'We present a search for pulsars close to Sgr A* using the data from the three most sensitive stations in the EHT 2017 campaign: the Atacama Large Millimeter/submillimete [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.26186/150190",
+      "action": "grade",
+      "evidence": "text-infrastructure",
+      "reason": "Geoscience Australia technical report on the October 2024 local tie survey at the Katherine Geodetic Observatory, NT, measuring terrestrial connections between co-located systems:  [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.26186/150190",
+      "action": "programs",
+      "programs": [
+        "Geodesy & VLBI"
+      ],
+      "reason": "Uses AuScope VLBI antennas [triage 14 Sep 2026]"
+    },
+    {
+      "doi": "10.3847/1538-4357/ae34af",
+      "action": "remove",
+      "reason": "EHT Collaboration paper (arXiv:2601.00394) using only Event Horizon Telescope data: \"Event Horizon Telescope (EHT) images of the supermassive black hole M87* depict an asymmetric r [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1177/02783649241234367",
+      "action": "remove",
+      "reason": "Robotics paper on autonomous monocular spacecraft navigation near asteroids/small bodies (SLAM with a novel relative-dynamics 'RelDyn' factor, tested on real mission imagery and te [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41586-026-10988-5",
+      "action": "remove",
+      "reason": "The paper's data are \"VLBA observations of 3C 345 at 15 GHz from the MOJAVE monitoring program\" (per the authors' own code/data repository for the Nature paper, github.com/marianna [Katherine VLBI triage, 14 Sep 2026]"
+    },
+    {
+      "doi": "10.1038/s41550-023-02105-7",
+      "action": "programs",
+      "programs": [
+        "Geodesy & VLBI"
+      ],
+      "reason": "Published version of the RadioAstron 3C279 study; Australian LBA ground array [triage 14 Sep 2026]"
     }
   ]
 }

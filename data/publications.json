@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-09-14T10:30:40.445Z",
-    "total_count": 2842,
+    "last_updated": "2026-09-14T12:47:10.087Z",
+    "total_count": 2811,
     "evidence_updated": "2026-08-30T08:24:33.026Z",
     "consolidated": "2026-09-01T00:57:57.015Z",
     "dates_enriched": "2026-09-14T10:13:28.053Z"
@@ -21121,113 +21121,6 @@
       "publicationDate": "2018-09-03"
     },
     {
-      "doi": "10.56726/irjmets88889",
-      "title": "Formation and Evolution of Black Holes",
-      "authors": "",
-      "journal": "International Research Journal of Modernization in Engineering Technology and Science",
-      "publisher": "International Research Journal of Modernization in Engineering Technology and Science",
-      "year": 2026,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysical Phenomena and Observations; Black Holes and Theoretical Physics; Pulsars and Gravitational Waves Research",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2026-01-23"
-    },
-    {
-      "doi": "10.1017/s026988972510094x",
-      "title": "Imaging a black hole shadow through the Event Horizon Telescope: A study in scientific collaboration and its epistemic constraints",
-      "authors": "Luca Guzzardi",
-      "journal": "Science in Context",
-      "publisher": "Cambridge University Press",
-      "year": 2026,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysical Phenomena and Observations; Digital Education and Society; International Science and Diplomacy",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "University of Milan"
-      ],
-      "countries": [
-        "IT"
-      ],
-      "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2024-03-01"
-    },
-    {
-      "doi": "10.48550/arxiv.2504.07549",
-      "title": "STeP: A Framework for Solving Scientific Video Inverse Problems with Spatiotemporal Diffusion Priors",
-      "authors": "Bingliang Zhang; Zihui Wu; Berthy T. Feng; Yang Song; Yisong Yue; Katherine L. Bouman",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2025,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Generative Adversarial Networks and Image Synthesis; Advanced Image Processing Techniques; Sparse and Compressive Sensing Techniques",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2025-04-10"
-    },
-    {
-      "doi": "10.1103/physrevd.111.064075",
-      "title": "Forward ray tracing and hot spots in Kerr spacetime",
-      "authors": "Lihang Zhou; Zhen Zhong; Yifan Chen; Vítor Cardoso",
-      "journal": "Physical review. D/Physical review. D.",
-      "publisher": "American Physical Society",
-      "year": 2025,
-      "cited": 8,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysical Phenomena and Observations; Pulsars and Gravitational Waves Research; Astrophysics and Cosmic Phenomena",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "California Institute of Technology",
-        "Kavli Institute for Theoretical Sciences",
-        "Peking University",
-        "University of Lisbon"
-      ],
-      "countries": [
-        "US",
-        "CN",
-        "PT"
-      ],
-      "authorCount": 4,
-      "evidence": "keyword",
-      "relatedDois": [
-        "10.48550/arxiv.2408.16049"
-      ],
-      "publicationDate": "2025-03-31"
-    },
-    {
       "doi": "10.48550/arxiv.2502.07522",
       "title": "The Extraordinary Maser Flaring Event in the Massive Protostellar System NGC6334I: Multi-Epoch Milliarcsecond Resolution Investigation of the 6.7-GHz Methanol Masers",
       "authors": "Jayender Kumar; S. P. Ellingsen; Gábor Orosz; Lucas J. Hyland; Chris Phillips; Cormac Reynolds; Gordon MacLeod",
@@ -21246,172 +21139,12 @@
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 7,
-      "evidence": "keyword",
-      "publicationDate": "2025-02-11"
-    },
-    {
-      "doi": "10.4324/9781003437956",
-      "title": "Exploring Ethnography of Outer Space",
-      "authors": "Jenia Gorbanenko; David Jeevendrampillai; Adryon Kozel",
-      "journal": "",
-      "publisher": "Routledge",
-      "year": 2025,
-      "cited": 4,
-      "type": "book",
-      "isOA": "Yes",
-      "subject": "Arctic and Russian Policy Studies; Space exploration and regulation",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2025-01-20"
-    },
-    {
-      "doi": "10.1515/9783839461204-002",
-      "title": "»What We Thought Was Unseeable«: Die mediale Konstruktion der ersten authentischen empirischen Bilder eines Schwarzen Lochs",
-      "authors": "Paula Cisternas Muhr",
-      "journal": "transcript Verlag eBooks",
-      "publisher": "Transcript Verlag",
-      "year": 2024,
-      "cited": 0,
-      "type": "book chapter",
-      "isOA": "Yes",
-      "subject": "Historical Influence and Diplomacy; Libraries and Information Services",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2024-12-31"
-    },
-    {
-      "doi": "10.1038/s41550-024-02407-4",
-      "title": "Detection of an orthogonal alignment between parsec-scale AGN jets and their host galaxies",
-      "authors": "D. Fernández Gil; Jeffrey A. Hodgson; Benjamin L’Huillier; J. Asorey; C. Saulder; Kyle Finner; M. James Jee; David Parkinson; F. Combes",
-      "journal": "Nature Astronomy",
-      "publisher": "Nature Portfolio",
-      "year": 2024,
-      "cited": 4,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysics and Cosmic Phenomena; Radio Astronomy Observations and Technology; Gamma-ray bursts and supernovae",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Centro de Estudios de Física del Cosmos de Aragón",
-        "Sejong University",
-        "Universidad Complutense de Madrid",
-        "Universidad de Zaragoza",
-        "Max Planck Institute for Extraterrestrial Physics",
-        "Stuttgart Observatory",
-        "Korea Astronomy and Space Science Institute",
-        "Infrared Processing and Analysis Center",
-        "California Institute of Technology",
-        "Yonsei University",
-        "The University of Queensland",
-        "Collège de France",
-        "Laboratoire d’Etudes du Rayonnement et de la Matière en Astrophysique et Atmosphères",
-        "Observatoire de Paris",
-        "Sorbonne Université",
-        "Centre National de la Recherche Scientifique"
-      ],
-      "countries": [
-        "ES",
-        "KR",
-        "DE",
-        "US",
-        "AU",
-        "FR"
-      ],
-      "authorCount": 9,
-      "evidence": "keyword",
-      "publicationDate": "2024-11-14"
-    },
-    {
-      "doi": "10.48550/arxiv.2410.08246",
-      "title": "Absorption, Scattering, Geodesics, Shadows and Lensing Phenomena of Black Holes in Effective Quantum Gravity",
-      "authors": "N. Heidari; A. A. Araújo Filho; Reggie C. Pantig; Ali Övgün",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2024,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Black Holes and Theoretical Physics; Noncommutative and Quantum Gravity Theories; Quantum Electrodynamics and Casimir Effect",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2024-10-10"
-    },
-    {
-      "doi": "10.48550/arxiv.2410.02986",
-      "title": "Mid-Range Science Objectives for the Event Horizon Telescope",
-      "authors": "The Event Horizon Telescope Collaboration",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2024,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Dark Matter and Cosmic Phenomena; Astrophysics and Cosmic Phenomena; Radiation Detection and Scintillator Technologies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2024-10-03"
-    },
-    {
-      "doi": "10.48550/arxiv.2409.07570",
-      "title": "Report of the Kavli-IAU Workshop on Global Coordination, \"Probing the Universe from far-infrared to millimeter wavelengths: future facilities and their synergies\"",
-      "authors": "Committee, Science Organizing; :; G. Hélou; E. F. van Dishoeck; J. Žmuidzinas; Alberto D. Bolatto; Ilse Cleeves; Daniel A. Dale; Kentaro Motohara; P. F. Roche; L. Tacconi",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2024,
-      "cited": 1,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Astronomy and Astrophysical Research; Astronomical Observations and Instrumentation; Adaptive optics and wavefront sensing",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Sesame Workshop"
-      ],
-      "countries": [
-        "US"
-      ],
-      "authorCount": 11,
-      "evidence": "keyword",
-      "publicationDate": "2024-09-11"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2025-02-11",
+      "evidenceDetail": "manual override: LBA VLBI observations using AuScope antennas. Observations section (Table 1): 'The participating stations are the Australia Telescope Compact Array (AT), Ceduna (CD), Katherine (KE",
+      "curatedPrograms": [
+        "Geodesy & VLBI"
+      ]
     },
     {
       "doi": "10.1007/s12567-024-00563-x",
@@ -21444,8 +21177,12 @@
         "AU"
       ],
       "authorCount": 12,
-      "evidence": "keyword",
-      "publicationDate": "2024-09-09"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-09-09",
+      "evidenceDetail": "manual override: PRIDE JUICE operations paper explicitly names the AuScope/UTAS Katherine antenna as a participating telescope in its PRIDE demonstration campaign (Section 4.2, BepiColombo test): \"",
+      "curatedPrograms": [
+        "Geodesy & VLBI"
+      ]
     },
     {
       "doi": "10.3847/2041-8213/ad6572",
@@ -21498,30 +21235,12 @@
         "RO"
       ],
       "authorCount": 24,
-      "evidence": "keyword",
-      "publicationDate": "2024-08-01"
-    },
-    {
-      "doi": "10.48550/arxiv.2407.00899",
-      "title": "Classical and Quantum Frequency Combs for Satellite-based Clock Synchronization",
-      "authors": "Ronakraj Gosalia; Ryan Aguinaldo; Jonathan Green; Holly Leopardi; Peter Brereton; Robert Malaney",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2024,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Advanced Frequency and Time Standards; Advancements in PLL and VCO Technologies; Network Time Synchronization Technologies",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 6,
-      "evidence": "keyword",
-      "publicationDate": "2024-07-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-08-01",
+      "evidenceDetail": "manual override: Observations used the VLBA and the Australian Long Baseline Array including the AuScope antennas: \"Using the Very Long Baseline Array and the Long Baseline Array, we imaged Swift J",
+      "curatedPrograms": [
+        "Geodesy & VLBI"
+      ]
     },
     {
       "doi": "10.1051/0004-6361/202450590",
@@ -21542,749 +21261,12 @@
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 13,
-      "evidence": "keyword",
-      "publicationDate": "2024-06-13"
-    },
-    {
-      "doi": "10.1016/j.dark.2024.101501",
-      "title": "Signatures of the accelerating black holes with a cosmological constant from the Sgr A⋆ and M87⋆ shadow prospects",
-      "authors": "L. Chakhchi; H. El Moumni; K. Masmar",
-      "journal": "Physics of the Dark Universe",
-      "publisher": "Elsevier BV",
-      "year": 2024,
-      "cited": 18,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Pulsars and Gravitational Waves Research; Astrophysical Phenomena and Observations; Particle Accelerators and Free-Electron Lasers",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Université Ibn Zohr",
-        "University of Hassan II Casablanca"
-      ],
-      "countries": [
-        "MA"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2024-04-18"
-    },
-    {
-      "doi": "10.3847/2041-8213/ad2df0",
-      "title": "First Sagittarius A* Event Horizon Telescope Results. VII. Polarization of the Ring",
-      "authors": "The Event Horizon Telescope Collaboration; Kazunori Akiyama; A. Alberdi; W. Alef; Juan Carlos Algaba; Richard Anantua; Keiichi Asada; Rebecca Azulay; U. Bach; Anne-Kathrin Baczko; David Ball; Mislav Baloković; Bidisha Bandyopadhyay; John Barrett; Michi Bauböck; B. A. Benson; Dan Bintley; Lindy Blackburn; R. Blundell; Katherine L. Bouman; Geoffrey C. Bower; Hope Boyce; Michael Bremer; Christiaan D. Brinkerink; Roger Brissenden; S. Britzen; Avery E. Broderick; Dominique Broguière; Thomas Bronzwaer; Sandra Bustamante; Do‐Young Byun; J. E. Carlstrom; Chiara Ceccobello; Andrew Chael; Chi‐kwan Chan; Dominic O. Chang; Koushik Chatterjee; Shami Chatterjee; Ming‐Tang Chen; Xiaopeng Cheng; Xiaopeng Cheng; Ilje Cho; Pierre Christian; Nicholas S. Conroy; J. E. Conway; J. M. Cordes; T. M. Crawford; G. Crew; Alejandro Cruz-Osorio; Yuzhu Cui; Rohan Dahale; Jordy Davelaar; Mariafelicia De Laurentis; Roger Deane; Jessica Dempsey; G. Desvignes; Jason Dexter; Vedant Dhruv; Indu K. Dihingia; Sheperd S. Doeleman; Sean Dougal; Sergio A. Dzib; Ralph P. Eatough; Razieh Emami; H. Falcke; Joseph Farah; Vincent L. Fish; E. B. Fomalont; H. Alyson Ford; Marianna Foschi; Raquel Fraga-Encinas; William T. Freeman; Per Friberg; Christian M. Fromm; Antonio Fuentes; Peter Galison; Charles F. Gammie; Roberto García; Olivier Gentaz; Boris Georgiev; C. Goddi; Roman Gold; Arturo I. Gómez-Ruiz; José L. Gómez; Minfeng Gu; Mark Gurwell; Kazuhiro Hada; Daryl Haggard; Kari Haworth; M. H. Hecht; Ronald Hesper; Dirk Heumann; Luis C. Ho; Paul T. P. Ho; Mareki Honma; Wu Jiang; Lei Huang; D. H. Hughes; Shiro Ikeda; C. M. Violette Impellizzeri",
-      "journal": "The Astrophysical Journal Letters",
-      "publisher": "IOP Publishing",
-      "year": 2024,
-      "cited": 105,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysics and Cosmic Phenomena; Astrophysical Phenomena and Observations; Pulsars and Gravitational Waves Research",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Woodwell Climate Research Center",
-        "Harvard University",
-        "National Astronomical Observatory of Japan",
-        "Massachusetts Institute of Technology",
-        "Instituto de Astrofísica de Andalucía",
-        "Max Planck Institute for Radio Astronomy",
-        "University of Malaya",
-        "Center for Astrophysics Harvard & Smithsonian",
-        "The University of Texas at San Antonio",
-        "Institute of Astronomy and Astrophysics, Academia Sinica",
-        "Universitat de València",
-        "Parc Científic de la Universitat de València",
-        "Chalmers University of Technology",
-        "University of Arizona",
-        "Yale University",
-        "University of Concepción",
-        "University of Illinois Urbana-Champaign",
-        "Fermi National Accelerator Laboratory",
-        "University of Chicago",
-        "East Asian Observatory",
-        "California Institute of Technology",
-        "University of Hawaiʻi at Mānoa",
-        "McGill University",
-        "Institut de Radioastronomie Millimétrique",
-        "Radboud University Nijmegen",
-        "University of Waterloo",
-        "Perimeter Institute",
-        "University of Massachusetts Amherst",
-        "Korea Astronomy and Space Science Institute",
-        "Korea University of Science and Technology",
-        "Princeton University",
-        "Princeton Plasma Physics Laboratory",
-        "Applied Mathematics (United States)",
-        "Cornell University",
-        "Yonsei University",
-        "Fairfield University",
-        "Goethe University Frankfurt",
-        "Universidad Nacional Autónoma de México",
-        "Flatiron Health (United States)",
-        "Flatiron Institute",
-        "Columbia University",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Napoli",
-        "University of the Witwatersrand",
-        "Rhodes University",
-        "University of Pretoria",
-        "AstroTec Holding (Netherlands)",
-        "Netherlands Institute for Radio Astronomy",
-        "Centre National de la Recherche Scientifique",
-        "Université Paris Cité",
-        "Université Paris Sciences et Lettres",
-        "Sorbonne Université",
-        "Laboratoire d’études spatiales et d’instrumentation en astrophysique",
-        "Joint Institute for Laboratory Astrophysics",
-        "University of Colorado Boulder",
-        "Shanghai Jiao Tong University",
-        "Chinese Academy of Sciences",
-        "National Astronomical Observatories",
-        "Las Cumbres Observatory Global Telescope Network",
-        "University of California, Santa Barbara",
-        "Université Bourgogne Franche-Comté",
-        "National Radio Astronomy Observatory",
-        "Google (United States)",
-        "University of Würzburg",
-        "National Center for Supercomputing Applications",
-        "University of Cagliari",
-        "Universidade de São Paulo",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Cagliari",
-        "Osservatorio Astronomico di Cagliari",
-        "University of Southern Denmark",
-        "National Institute of Astrophysics, Optics and Electronics",
-        "Secretaría de Ciencia, Humanidades, Tecnología e Innovación",
-        "The Graduate University for Advanced Studies, SOKENDAI",
-        "University of Groningen",
-        "The University of Tokyo",
-        "Kavli Institute for the Physics and Mathematics of the Universe",
-        "The Institute of Statistical Mathematics",
-        "Leiden University"
-      ],
-      "countries": [
-        "US",
-        "JP",
-        "ES",
-        "DE",
-        "MY",
-        "TW",
-        "SE",
-        "CL",
-        "CA",
-        "FR",
-        "NL",
-        "KR",
-        "MX",
-        "IT",
-        "ZA",
-        "CN",
-        "BR",
-        "DK"
-      ],
-      "authorCount": 100,
-      "evidence": "keyword",
-      "publicationDate": "2024-03-27"
-    },
-    {
-      "doi": "10.3847/2041-8213/ad2df1",
-      "title": "First Sagittarius A* Event Horizon Telescope Results. VIII. Physical Interpretation of the Polarized Ring",
-      "authors": "The Event Horizon Telescope Collaboration; Kazunori Akiyama; A. Alberdi; W. Alef; Juan Carlos Algaba; Richard Anantua; Keiichi Asada; Rebecca Azulay; U. Bach; Anne-Kathrin Baczko; David Ball; Mislav Baloković; Bidisha Bandyopadhyay; John Barrett; Michi Bauböck; B. A. Benson; Dan Bintley; Lindy Blackburn; R. Blundell; Katherine L. Bouman; Geoffrey C. Bower; Hope Boyce; Michael Bremer; Christiaan D. Brinkerink; Roger Brissenden; S. Britzen; Avery E. Broderick; Dominique Broguière; Thomas Bronzwaer; Sandra Bustamante; Do‐Young Byun; J. E. Carlstrom; Chiara Ceccobello; Andrew Chael; Chi‐kwan Chan; Dominic O. Chang; Koushik Chatterjee; Shami Chatterjee; Ming‐Tang Chen; Xiaopeng Cheng; Xiaopeng Cheng; Ilje Cho; Pierre Christian; Nicholas S. Conroy; J. E. Conway; J. M. Cordes; T. M. Crawford; G. Crew; Alejandro Cruz-Osorio; Yuzhu Cui; Rohan Dahale; Jordy Davelaar; Mariafelicia De Laurentis; Roger Deane; Jessica Dempsey; G. Desvignes; Jason Dexter; Vedant Dhruv; Indu K. Dihingia; Sheperd S. Doeleman; Sean Taylor Dougall; Sergio A. Dzib; Ralph P. Eatough; Razieh Emami; H. Falcke; Joseph Farah; Vincent L. Fish; E. B. Fomalont; H. Alyson Ford; Marianna Foschi; Raquel Fraga-Encinas; William T. Freeman; Per Friberg; Christian M. Fromm; Antonio Fuentes; Peter Galison; Charles F. Gammie; Roberto García; Olivier Gentaz; Boris Georgiev; C. Goddi; Roman Gold; Arturo I. Gómez-Ruiz; José L. Gómez; Minfeng Gu; Mark Gurwell; Kazuhiro Hada; Daryl Haggard; Kari Haworth; M. H. Hecht; Ronald Hesper; Dirk Heumann; Luis C. Ho; Paul T. P. Ho; Mareki Honma; Wu Jiang; Lei Huang; D. H. Hughes; Shiro Ikeda; C. M. Violette Impellizzeri",
-      "journal": "The Astrophysical Journal Letters",
-      "publisher": "IOP Publishing",
-      "year": 2024,
-      "cited": 104,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysics and Cosmic Phenomena; Astrophysical Phenomena and Observations; Gamma-ray bursts and supernovae",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Woodwell Climate Research Center",
-        "Harvard University",
-        "National Astronomical Observatory of Japan",
-        "Massachusetts Institute of Technology",
-        "Instituto de Astrofísica de Andalucía",
-        "Max Planck Institute for Radio Astronomy",
-        "University of Malaya",
-        "Center for Astrophysics Harvard & Smithsonian",
-        "The University of Texas at San Antonio",
-        "Institute of Astronomy and Astrophysics, Academia Sinica",
-        "Universitat de València",
-        "Parc Científic de la Universitat de València",
-        "Chalmers University of Technology",
-        "University of Arizona",
-        "Yale University",
-        "University of Concepción",
-        "University of Illinois Urbana-Champaign",
-        "Fermi National Accelerator Laboratory",
-        "University of Chicago",
-        "East Asian Observatory",
-        "California Institute of Technology",
-        "University of Hawaiʻi at Mānoa",
-        "McGill University",
-        "Institut de Radioastronomie Millimétrique",
-        "Radboud University Nijmegen",
-        "University of Waterloo",
-        "Perimeter Institute",
-        "University of Massachusetts Amherst",
-        "Korea Astronomy and Space Science Institute",
-        "Korea University of Science and Technology",
-        "Princeton University",
-        "Princeton Plasma Physics Laboratory",
-        "Applied Mathematics (United States)",
-        "Cornell University",
-        "Yonsei University",
-        "Fairfield University",
-        "Goethe University Frankfurt",
-        "Universidad Nacional Autónoma de México",
-        "Flatiron Health (United States)",
-        "Flatiron Institute",
-        "Columbia University",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Napoli",
-        "University of the Witwatersrand",
-        "Rhodes University",
-        "University of Pretoria",
-        "AstroTec Holding (Netherlands)",
-        "Netherlands Institute for Radio Astronomy",
-        "Centre National de la Recherche Scientifique",
-        "Université Paris Cité",
-        "Université Paris Sciences et Lettres",
-        "Observatoire de Paris",
-        "Sorbonne Université",
-        "Laboratoire d’études spatiales et d’instrumentation en astrophysique",
-        "Joint Institute for Laboratory Astrophysics",
-        "University of Colorado Boulder",
-        "Shanghai Jiao Tong University",
-        "Chinese Academy of Sciences",
-        "National Astronomical Observatories",
-        "Las Cumbres Observatory Global Telescope Network",
-        "University of California, Santa Barbara",
-        "Université Bourgogne Franche-Comté",
-        "National Radio Astronomy Observatory",
-        "Google (United States)",
-        "University of Würzburg",
-        "National Center for Supercomputing Applications",
-        "University of Cagliari",
-        "Universidade de São Paulo",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Cagliari",
-        "Osservatorio Astronomico di Cagliari",
-        "University of Southern Denmark",
-        "National Institute of Astrophysics, Optics and Electronics",
-        "Secretaría de Ciencia, Humanidades, Tecnología e Innovación",
-        "The Graduate University for Advanced Studies, SOKENDAI",
-        "University of Groningen",
-        "The University of Tokyo",
-        "Kavli Institute for the Physics and Mathematics of the Universe",
-        "The Institute of Statistical Mathematics",
-        "Leiden University"
-      ],
-      "countries": [
-        "US",
-        "JP",
-        "ES",
-        "DE",
-        "MY",
-        "TW",
-        "SE",
-        "CL",
-        "CA",
-        "FR",
-        "NL",
-        "KR",
-        "MX",
-        "IT",
-        "ZA",
-        "CN",
-        "BR",
-        "DK"
-      ],
-      "authorCount": 100,
-      "evidence": "keyword",
-      "publicationDate": "2024-03-27"
-    },
-    {
-      "doi": "10.48550/arxiv.2403.00897",
-      "title": "VisRec: A Semi-Supervised Approach to Radio Interferometric Data Reconstruction",
-      "authors": "Ruoqi Wang; Haitao Wang; Qiong Luo; Feng Wang; Hejun Wu",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2024,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Radio Astronomy Observations and Technology; Soil Moisture and Remote Sensing",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2024-03-01"
-    },
-    {
-      "doi": "10.1051/swsc/2024024",
-      "title": "Quasi-stationary substructure within a sporadic E layer observed by the Low-Frequency Array (LOFAR)",
-      "authors": "Alan Wood; Gareth Dorrian; Ben Boyde; R. A. Fallows; David R. Themens; M. Mevius; Tim Sprenger; Robert Main; S. E. Pryse; Sean Elvidge",
-      "journal": "Journal of Space Weather and Space Climate",
-      "publisher": "EDP Open",
-      "year": 2024,
-      "cited": 3,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Ionosphere and magnetosphere dynamics; GNSS positioning and interference; Astrophysics and Cosmic Phenomena",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Department of Space",
-        "University of Birmingham",
-        "Rutherford Appleton Laboratory",
-        "Science and Technology Facilities Council",
-        "Netherlands Institute for Radio Astronomy",
-        "Max Planck Institute for Radio Astronomy",
-        "McGill University",
-        "Aberystwyth University"
-      ],
-      "countries": [
-        "IN",
-        "GB",
-        "NL",
-        "DE",
-        "CA"
-      ],
-      "authorCount": 10,
-      "evidence": "keyword",
-      "publicationDate": "2024-10-11"
-    },
-    {
-      "doi": "10.31389/pop.74",
-      "title": "Robustness and the Event Horizon Telescope: the case of the first image of M87*",
-      "authors": "Juliusz Doboszewski; Jamee Elder",
-      "journal": "Philosophy of Physics",
-      "publisher": "LSE Press",
-      "year": 2024,
-      "cited": 4,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Gamma-ray bursts and supernovae; Astrophysics and Cosmic Phenomena; Astrophysical Phenomena and Observations",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Harvard University",
-        "University of Bonn",
-        "Woodwell Climate Research Center",
-        "Czech Academy of Sciences, Institute of Philosophy",
-        "Tufts University"
-      ],
-      "countries": [
-        "US",
-        "DE",
-        "CZ"
-      ],
-      "authorCount": 2,
-      "evidence": "keyword",
-      "relatedDois": [
-        "10.48550/arxiv.2401.16323"
-      ],
-      "publicationDate": "2024-03-28"
-    },
-    {
-      "doi": "10.48550/arxiv.2312.11351",
-      "title": "Disentangling photon rings beyond General Relativity with future radio-telescope arrays",
-      "authors": "Raúl Carballo-Rubio; Héloïse Delaporte; Astrid Eichhorn; Aaron Held",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2023,
-      "cited": 1,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Radio Astronomy Observations and Technology; Pulsars and Gravitational Waves Research; Astrophysics and Cosmic Phenomena",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2023-12-18"
-    },
-    {
-      "doi": "10.1525/001c.88163",
-      "title": "The “Cartographic Impulse” and Its Epistemic Gains in the Process of Iteratively Mapping M87’s Black Hole",
-      "authors": "Paula Muhr",
-      "journal": "Media+Environment",
-      "publisher": "University of California Press",
-      "year": 2023,
-      "cited": 4,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysical Phenomena and Observations",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Karlsruhe Institute of Technology"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "authorCount": 1,
-      "evidence": "keyword",
-      "publicationDate": "2023-11-09"
-    },
-    {
-      "doi": "10.3847/2041-8213/acff70",
-      "title": "First M87 Event Horizon Telescope Results. IX. Detection of Near-horizon Circular Polarization",
-      "authors": "Kazunori Akiyama; A. Alberdi; W. Alef; Juan Carlos Algaba; Richard Anantua; Keiichi Asada; Rebecca Azulay; U. Bach; Anne-Kathrin Baczko; David Ball; Mislav Baloković; John Barrett; Michi Bauböck; B. A. Benson; Dan Bintley; Lindy Blackburn; R. Blundell; Katherine L. Bouman; Geoffrey C. Bower; Hope Boyce; Michael Bremer; Christiaan D. Brinkerink; Roger Brissenden; S. Britzen; Avery E. Broderick; Dominique Broguière; Thomas Bronzwaer; Sandra Bustamante; Do‐Young Byun; J. E. Carlstrom; Chiara Ceccobello; Andrew Chael; Chi‐kwan Chan; Dominic O. Chang; Koushik Chatterjee; Shami Chatterjee; Ming‐Tang Chen; Yongjun 永军 Chen 陈; Xiaopeng Cheng; Ilje Cho; Pierre Christian; Nicholas S. Conroy; J. E. Conway; J. M. Cordes; T. M. Crawford; G. Crew; Alejandro Cruz-Osorio; Yuzhu Cui; Rohan Dahale; Jordy Davelaar; Mariafelicia De Laurentis; Roger Deane; Jessica Dempsey; G. Desvignes; Jason Dexter; Vedant Dhruv; Sheperd S. Doeleman; Sean Dougal; Sergio A. Dzib; Ralph P. Eatough; Razieh Emami; H. Falcke; Joseph Farah; Vincent L. Fish; Ed Fomalont; H. Alyson Ford; Marianna Foschi; Raquel Fraga-Encinas; William T. Freeman; Per Friberg; Christian M. Fromm; Antonio Fuentes; Peter Galison; Charles F. Gammie; Roberto García; Olivier Gentaz; Boris Georgiev; C. Goddi; Roman Gold; Arturo I. Gómez-Ruiz; José L. Gómez; Minfeng Gu; Mark Gurwell; Kazuhiro Hada; Daryl Haggard; Kari Haworth; M. H. Hecht; Ronald Hesper; Dirk Heumann; Luis C. Ho; Paul T. P. Ho; Mareki Honma; Chih-Wei L. Huang; Lei Huang; D. H. Hughes; Shiro Ikeda; C. M. Violette Impellizzeri; Makoto Inoue; Sara Issaoun; D. J. James",
-      "journal": "The Astrophysical Journal Letters",
-      "publisher": "IOP Publishing",
-      "year": 2023,
-      "cited": 87,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysics and Cosmic Phenomena; Radio Astronomy Observations and Technology; Astrophysical Phenomena and Observations",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Woodwell Climate Research Center",
-        "Harvard University",
-        "National Astronomical Observatory of Japan",
-        "Massachusetts Institute of Technology",
-        "Instituto de Astrofísica de Andalucía",
-        "Max Planck Institute for Radio Astronomy",
-        "University of Malaya",
-        "Center for Astrophysics Harvard & Smithsonian",
-        "The University of Texas at San Antonio",
-        "Institute of Astronomy and Astrophysics, Academia Sinica",
-        "Universitat de València",
-        "Parc Científic de la Universitat de València",
-        "Chalmers University of Technology",
-        "University of Arizona",
-        "Yale University",
-        "University of Illinois Urbana-Champaign",
-        "Fermi National Accelerator Laboratory",
-        "University of Chicago",
-        "East Asian Observatory",
-        "California Institute of Technology",
-        "University of Hawaiʻi at Mānoa",
-        "McGill University",
-        "Institut de Radioastronomie Millimétrique",
-        "Radboud University Nijmegen",
-        "University of Waterloo",
-        "Perimeter Institute",
-        "University of Massachusetts Amherst",
-        "Korea Astronomy and Space Science Institute",
-        "Korea University of Science and Technology",
-        "Princeton University",
-        "Princeton Plasma Physics Laboratory",
-        "Applied Mathematics (United States)",
-        "Cornell University",
-        "Fairfield University",
-        "Goethe University Frankfurt",
-        "Universidad Nacional Autónoma de México",
-        "Flatiron Health (United States)",
-        "Flatiron Institute",
-        "Columbia University",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Napoli",
-        "University of the Witwatersrand",
-        "Rhodes University",
-        "University of Pretoria",
-        "AstroTec Holding (Netherlands)",
-        "Netherlands Institute for Radio Astronomy",
-        "Centre National de la Recherche Scientifique",
-        "Université Paris Cité",
-        "Université Paris Sciences et Lettres",
-        "Observatoire de Paris",
-        "Sorbonne Université",
-        "Laboratoire d’études spatiales et d’instrumentation en astrophysique",
-        "Joint Institute for Laboratory Astrophysics",
-        "University of Colorado Boulder",
-        "Chinese Academy of Sciences",
-        "National Astronomical Observatories",
-        "Las Cumbres Observatory Global Telescope Network",
-        "University of California, Santa Barbara",
-        "Université Bourgogne Franche-Comté",
-        "National Radio Astronomy Observatory",
-        "Google (United States)",
-        "University of Würzburg",
-        "National Center for Supercomputing Applications",
-        "University of Cagliari",
-        "Universidade de São Paulo",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Cagliari",
-        "Osservatorio Astronomico di Cagliari",
-        "University of Southern Denmark",
-        "National Institute of Astrophysics, Optics and Electronics",
-        "Secretaría de Ciencia, Humanidades, Tecnología e Innovación",
-        "The Graduate University for Advanced Studies, SOKENDAI",
-        "University of Groningen",
-        "The University of Tokyo",
-        "Kavli Institute for the Physics and Mathematics of the Universe",
-        "The Institute of Statistical Mathematics",
-        "Leiden University",
-        "Applied Materials (United States)",
-        "Whale Center of New England",
-        "Atmospheric and Space Technology Research Associates (United States)"
-      ],
-      "countries": [
-        "US",
-        "JP",
-        "ES",
-        "DE",
-        "MY",
-        "TW",
-        "SE",
-        "CA",
-        "FR",
-        "NL",
-        "KR",
-        "MX",
-        "IT",
-        "ZA",
-        "CN",
-        "BR",
-        "DK"
-      ],
-      "authorCount": 100,
-      "evidence": "keyword",
-      "publicationDate": "2023-11-01"
-    },
-    {
-      "doi": "10.48550/arxiv.2310.07687",
-      "title": "Orbital Polarimetric Tomography of a Flare Near the Sagittarius A* Supermassive Black Hole",
-      "authors": "Aviad Levis; Andrew Chael; Katherine L. Bouman; Maciek Wielgus; Pratul P. Srinivasan",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2023,
-      "cited": 1,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Relativity and Gravitational Theory; Astrophysical Phenomena and Observations; Pulsars and Gravitational Waves Research",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2023-10-11"
-    },
-    {
-      "doi": "10.48550/arxiv.2310.05860",
-      "title": "Optical features of rotating quintessential charged black holes in de-Sitter spacetime",
-      "authors": "Saeed Ullah Khan; Javlon Rayimbaev; Furkat Sarikulov; Ozodbek Abdurakhmonov",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2023,
-      "cited": 1,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Adaptive optics and wavefront sensing; Astrophysical Phenomena and Observations; Cosmology and Gravitation Theories",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Shenzhen University",
-        "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers",
-        "New Uzbekistan University",
-        "National University of Uzbekistan",
-        "Ulugh Beg Astronomical Institute"
-      ],
-      "countries": [
-        "UZ",
-        "CN"
-      ],
-      "authorCount": 4,
-      "evidence": "keyword",
-      "publicationDate": "2023-10-09"
-    },
-    {
-      "doi": "10.48550/arxiv.2309.01949",
-      "title": "Variational Bayesian Imaging with an Efficient Surrogate Score-based Prior",
-      "authors": "Berthy T. Feng; Katherine L. Bouman",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2023,
-      "cited": 1,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Statistical Methods and Inference; Gaussian Processes and Bayesian Inference; Generative Adversarial Networks and Image Synthesis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 2,
-      "evidence": "keyword",
-      "publicationDate": "2023-09-05"
-    },
-    {
-      "doi": "10.48550/arxiv.2308.14610",
-      "title": "PolarRec: Radio Interferometric Data Reconstruction with Polar Coordinate Representation",
-      "authors": "Ruoqi Wang; Chen, Zhuoyang; Zhu, Jiayi; Luo, Qiong; Wang, Feng",
-      "journal": "arXiv (Cornell University)",
-      "publisher": "Cornell University",
-      "year": 2023,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Radio Astronomy Observations and Technology; Optical measurement and interference techniques; Antenna Design and Optimization",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2023-08-28"
-    },
-    {
-      "doi": "10.22323/1.444.1040",
-      "title": "Probing Pseudo-Dirac Neutrinos with Astrophysical Sources at IceCube",
-      "authors": "Kiara Carloni; C. Argüelles; Ivan Martínez-Soler; K. S. Babu; P. S. Bhupal Dev",
-      "journal": "Proceedings of 38th International Cosmic Ray Conference — PoS(ICRC2023)",
-      "publisher": "Sissa Medialab",
-      "year": 2023,
-      "cited": 4,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysics and Cosmic Phenomena; Neutrino Physics Research; Radio Astronomy Observations and Technology",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Harvard University",
-        "Oklahoma State University"
-      ],
-      "countries": [
-        "US"
-      ],
-      "authorCount": 5,
-      "evidence": "keyword",
-      "publicationDate": "2023-07-25"
-    },
-    {
-      "doi": "10.26855/jamc.2023.03.013",
-      "title": "Objects of Civilization of the Second and Third Types",
-      "authors": "Evgeni N. Terentiev; Fedor Vasilievich Shugaev; Nikolay Evgenievich Shilin-Terentyev",
-      "journal": "Journal of Applied Mathematics and Computation",
-      "publisher": "",
-      "year": 2023,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Regional Socio-Economic Development Trends",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Lomonosov Moscow State University",
-        "Moscow State University"
-      ],
-      "countries": [
-        "RU",
-        "TJ"
-      ],
-      "authorCount": 3,
-      "evidence": "keyword",
-      "publicationDate": "2023-05-06"
-    },
-    {
-      "doi": "10.3390/s21165342",
-      "title": "Determination of Motion Parameters of Selected Major Tectonic Plates Based on GNSS Station Positions and Velocities in the ITRF2014.",
-      "authors": "Marcin Jagoda",
-      "journal": "Sensors",
-      "publisher": "MDPI AG",
-      "year": 2021,
-      "cited": 9,
-      "type": "journal article",
-      "isOA": "Yes",
-      "subject": "Itrf; Gnss Stations; Tectonic Plate Motion Parameters",
-      "sources": [
-        "Europe PMC"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2021-08-07"
-    },
-    {
-      "doi": "10.1098/rsos.170522",
-      "title": "Extragalactic radio surveys in the pre-Square Kilometre Array era.",
-      "authors": "Chris Simpson",
-      "journal": "Royal Society Open Science",
-      "publisher": "The Royal Society",
-      "year": 2017,
-      "cited": 12,
-      "type": "journal article",
-      "isOA": "Yes",
-      "subject": "Surveys; Galaxies: Active; Radio Continuum: Galaxies",
-      "sources": [
-        "Europe PMC"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "dateAdded": "2026-03-24",
-      "evidence": "keyword",
-      "publicationDate": "2017-07-01"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2024-06-13",
+      "evidenceDetail": "manual override: TANAMI/LBA observation using AuScope-operated antennas. Observations section: \"The participating antennas ATCA (AT; 5×22 m), Ceduna (CD; 30 m), Hobart (HO; 26 m), Katherine (KE; 12",
+      "curatedPrograms": [
+        "Geodesy & VLBI"
+      ]
     },
     {
       "doi": "10.21203/rs.3.rs-1449452/v1",
@@ -22305,7 +21287,10 @@
       ],
       "dateAdded": "2026-03-24",
       "evidence": "keyword",
-      "publicationDate": "2022-03-23"
+      "publicationDate": "2022-03-23",
+      "curatedPrograms": [
+        "Geodesy & VLBI"
+      ]
     },
     {
       "doi": "10.25959/23232722",
@@ -48710,127 +47695,6 @@
       "publicationDate": "2026-01-01"
     },
     {
-      "doi": "10.3847/1538-4357/acf4f2",
-      "title": "A Search for Pulsars around Sgr A* in the First Event Horizon Telescope Data Set",
-      "authors": "Pablo Torné; Kuo Liu; Ralph P. Eatough; J. Wongphechauxsorn; J. M. Cordes; G. Desvignes; Mariafelicia De Laurentis; Michael Kramer; S. M. Ransom; Shami Chatterjee; Robert Wharton; R. Karuppusamy; Lindy Blackburn; Michaël Janssen; Chi‐kwan Chan; G. Crew; Lynn D. Matthews; C. Goddi; Helge Rottmann; Jan Wagner; Salvador Sánchez; Ignacio Ruiz; Federico Abbate; Geoffrey C. Bower; Juan J. Salamanca; Arturo I. Gómez-Ruiz; Alfredo Herrera–Aguilar; Wu Jiang; Ru-Sen Lu; Ue‐Li Pen; Alexander W. Raymond; Lijing Shao; Zhi-Qiang Shen; G. Paubert; M. Sánchez‐Portal; C. Krämer; Manuel Castillo; S. Navarro; John David; K. Schüster; Michael D. Johnson; K. L. J. Rygl; Kazunori Akiyama; A. Alberdi; W. Alef; Juan Carlos Algaba; Richard Anantua; Keiichi Asada; Rebecca Azulay; U. Bach; Anne-Kathrin Baczko; David Ball; Mislav Baloković; John Barrett; Michi Bauböck; B. A. Benson; Dan Bintley; R. Blundell; Katherine L. Bouman; Hope Boyce; Michael Bremer; Christiaan D. Brinkerink; Roger Brissenden; S. Britzen; Avery E. Broderick; Dominique Broguière; Thomas Bronzwaer; Sandra Bustamante; Do‐Young Byun; J. E. Carlstrom; Chiara Ceccobello; Andrew Chael; Dominic O. Chang; Koushik Chatterjee; Ming‐Tang Chen; Yongjun 永军 Chen 陈; Xiaopeng Cheng; Ilje Cho; Pierre Christian; Nicholas S. Conroy; J. E. Conway; T. M. Crawford; Alejandro Cruz-Osorio; Yuzhu Cui; Rohan Dahale; Jordy Davelaar; Roger Deane; Jessica Dempsey; Jason Dexter; Vedant Dhruv; Sheperd S. Doeleman; Sean Dougal; Sergio A. Dzib; Razieh Emami; H. Falcke; Joseph Farah; Vincent L. Fish; Ed Fomalont; H. Alyson Ford; Marianna Foschi",
-      "journal": "The Astrophysical Journal",
-      "publisher": "IOP Publishing",
-      "year": 2023,
-      "cited": 13,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Pulsars and Gravitational Waves Research; Astrophysical Phenomena and Observations; Gamma-ray bursts and supernovae",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "authorCount": 100,
-      "institutions": [
-        "Instituto de Radioastronomía Milimétrica",
-        "Max Planck Institute for Radio Astronomy",
-        "Chinese Academy of Sciences",
-        "National Astronomical Observatories",
-        "Cornell University",
-        "Centre National de la Recherche Scientifique",
-        "Université Paris Cité",
-        "Université Paris Sciences et Lettres",
-        "Observatoire de Paris",
-        "Sorbonne Université",
-        "Laboratoire d’études spatiales et d’instrumentation en astrophysique",
-        "Goethe University Frankfurt",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Napoli",
-        "University of Manchester",
-        "National Radio Astronomy Observatory",
-        "Jet Propulsion Laboratory",
-        "Woodwell Climate Research Center",
-        "Harvard University",
-        "Center for Astrophysics Harvard & Smithsonian",
-        "University of Arizona",
-        "Applied Mathematics (United States)",
-        "Massachusetts Institute of Technology",
-        "University of Cagliari",
-        "Universidade de São Paulo",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Cagliari",
-        "Osservatorio Astronomico di Cagliari",
-        "University of Hawaiʻi at Mānoa",
-        "Universidad de Oviedo",
-        "National Institute of Astrophysics, Optics and Electronics",
-        "Secretaría de Ciencia, Humanidades, Tecnología e Innovación",
-        "Benemérita Universidad Autónoma de Puebla",
-        "Canadian Institute for Advanced Research",
-        "Institute of Astronomy and Astrophysics, Academia Sinica",
-        "Perimeter Institute",
-        "University of Toronto",
-        "Canadian Institute for Theoretical Astrophysics",
-        "Peking University",
-        "Kavli Institute for Theoretical Sciences",
-        "Institut de Radioastronomie Millimétrique",
-        "Istituto di Radioastronomia di Bologna",
-        "National Astronomical Observatory of Japan",
-        "Instituto de Astrofísica de Andalucía",
-        "University of Malaya",
-        "The University of Texas at San Antonio",
-        "Universitat de València",
-        "Parc Científic de la Universitat de València",
-        "Chalmers University of Technology",
-        "Yale University",
-        "University of Illinois Urbana-Champaign",
-        "Fermi National Accelerator Laboratory",
-        "University of Chicago",
-        "East Asian Observatory",
-        "California Institute of Technology",
-        "McGill University",
-        "Radboud University Nijmegen",
-        "University of Waterloo",
-        "University of Massachusetts Amherst",
-        "Korea Astronomy and Space Science Institute",
-        "Korea University of Science and Technology",
-        "Princeton University",
-        "Princeton Plasma Physics Laboratory",
-        "Fairfield University",
-        "Flatiron Health (United States)",
-        "Flatiron Institute",
-        "Columbia University",
-        "University of the Witwatersrand",
-        "Rhodes University",
-        "University of Pretoria",
-        "AstroTec Holding (Netherlands)",
-        "Netherlands Institute for Radio Astronomy",
-        "Joint Institute for Laboratory Astrophysics",
-        "University of Colorado Boulder",
-        "Las Cumbres Observatory Global Telescope Network",
-        "University of California, Santa Barbara",
-        "Université Bourgogne Franche-Comté"
-      ],
-      "countries": [
-        "ES",
-        "DE",
-        "CN",
-        "US",
-        "FR",
-        "IT",
-        "GB",
-        "BR",
-        "MX",
-        "CA",
-        "TW",
-        "JP",
-        "MY",
-        "SE",
-        "NL",
-        "KR",
-        "ZA"
-      ],
-      "dateAdded": "2026-03-29",
-      "evidence": "keyword",
-      "relatedDois": [
-        "10.48550/arxiv.2308.15381"
-      ],
-      "publicationDate": "2023-11-29"
-    },
-    {
       "doi": "10.1038/s41467-026-69566-y",
       "title": "Impact of authigenic clay formation on marine trace element cycling.",
       "authors": "Stefan C. Löhr; April N. Abbott; Andre Baldermann; Juraj Farkaš",
@@ -51041,8 +49905,12 @@
         "US"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "keyword",
-      "publicationDate": "2025-02-15"
+      "evidence": "text-infrastructure",
+      "publicationDate": "2025-02-15",
+      "evidenceDetail": "manual override: Geoscience Australia technical report on the October 2024 local tie survey at the Katherine Geodetic Observatory, NT, measuring terrestrial connections between co-located systems: ",
+      "curatedPrograms": [
+        "Geodesy & VLBI"
+      ]
     },
     {
       "doi": "10.1029/2024gl108433",
@@ -52512,126 +51380,6 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "publicationDate": "2026-04-01"
-    },
-    {
-      "doi": "10.3847/1538-4357/ae34af",
-      "title": "Ring Asymmetry and Spin in M87*",
-      "authors": "Vadim Y. Bernshteyn; Nicholas S. Conroy; Michi Bauböck; Paul Tiede; Abhishek V. Joshi; Ben S. Prather; Charles F. Gammie; Kazunori Akiyama; Ezequiel Albentosa-Ruíz; Antxon Alberdi; Walter Alef; Juan Carlos Algaba; Richard Anantua; Keiichi Asada; Rebecca Azulay; Anne-Kathrin Baczko; David Ball; Bidisha Bandyopadhyay; John Barrett; B. A. Benson; Dan Bintley; Lindy Blackburn; R. Blundell; Katherine L. Bouman; Geoffrey C. Bower; Michael Bremer; Roger Brissenden; S. Britzen; Avery E. Broderick; Dominique Broguière; Thomas Bronzwaer; Sandra Bustamante; Douglas F. Carlos; J. E. Carlstrom; Andrew Chael; Chi-kwan Chan; Dominic O. Chang; Koushik Chatterjee; Ming-Tang Chen; Yongjun 永军 Chen 陈; Xiaopeng Cheng; P. M. Chichura; I.-S. Cho; John E. Conway; T. M. Crawford; Geoffrey B. Crew; Alejandro Cruz-Osorio; Yuzhu 玉竹 Cui 崔; Brandon Curd; Rohan Dahale; Jordy Davelaar; M. De Laurentis; Roger Deane; J. Dexter; Vedant Dhruv; Indu K. Dihingia; Sheperd S. Doeleman; Sergio A. Dzib; Razieh Emami; H. Falcke; Joseph Farah; Vincent L. Fish; Edward Fomalont; H. Alyson Ford; Marianna Foschi; Raquel Fraga-Encinas; William T. Freeman; Per Friberg; C. M. Fromm; Antonio Fuentes; Peter Galison; Roberto García; Olivier Gentaz; Boris Georgiev; C. Goddi; Roman Gold; Arturo I. Gómez-Ruiz; José L. Gómez; Minfeng 敏峰 Gu 顾; Mark Gurwell; Kazuhiro Hada; Daryl Haggard; Ronald Hesper; Dirk Heumann; Luis C. 子山 Ho 何; Ptp Ho; Mareki Honma; Chih-Wei L. Huang; Lei 磊 Huang 黄; David H. Hughes; Shiro Ikeda; C. M. Violette Impellizzeri; Makoto Inoue; Sara Issaoun; David J. James; Buell T. Jannuzi; Michael Janssen; Britton Jeter; Wu 悟 Jiang 江; Alejandra Jiménez-Rosales",
-      "journal": "The Astrophysical Journal",
-      "publisher": "IOP Publishing",
-      "year": 2026,
-      "cited": 1,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Astrophysical Phenomena and Observations; Astrophysics and Cosmic Phenomena; Pulsars and Gravitational Waves Research",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "authorCount": 100,
-      "institutions": [
-        "University of Arizona",
-        "University of Illinois Urbana-Champaign",
-        "Urbana University",
-        "Woodwell Climate Research Center",
-        "Harvard University",
-        "Center for Astrophysics Harvard & Smithsonian",
-        "Los Alamos National Laboratory",
-        "National Center for Supercomputing Applications",
-        "National Astronomical Observatory of Japan",
-        "Massachusetts Institute of Technology",
-        "Universitat de València",
-        "Instituto de Astrofísica de Andalucía",
-        "Max Planck Institute for Radio Astronomy",
-        "University of Malaya",
-        "The University of Texas at San Antonio",
-        "Rice University",
-        "Institute of Astronomy and Astrophysics, Academia Sinica",
-        "Parc Científic de la Universitat de València",
-        "Chalmers University of Technology",
-        "University of Concepción",
-        "Fermi National Accelerator Laboratory",
-        "University of Chicago",
-        "East Asian Observatory",
-        "California Institute of Technology",
-        "University of Hawaiʻi at Mānoa",
-        "Institut de Radioastronomie Millimétrique",
-        "University of Waterloo",
-        "Perimeter Institute",
-        "Radboud University Nijmegen",
-        "University of Massachusetts Amherst",
-        "Universidade de São Paulo",
-        "Princeton University",
-        "Princeton Plasma Physics Laboratory",
-        "Applied Mathematics (United States)",
-        "University of Maryland, College Park",
-        "Korea Astronomy and Space Science Institute",
-        "Yonsei University",
-        "Goethe University Frankfurt",
-        "Universidad Nacional Autónoma de México",
-        "Albert Einstein College of Medicine",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Napoli",
-        "University of Naples Federico II",
-        "University of the Witwatersrand",
-        "Rhodes University",
-        "University of Pretoria",
-        "Joint Institute for Laboratory Astrophysics",
-        "University of Colorado Boulder",
-        "Shanghai Jiao Tong University",
-        "Las Cumbres Observatory Global Telescope Network",
-        "University of California, Santa Barbara",
-        "Université Bourgogne Franche-Comté",
-        "National Radio Astronomy Observatory",
-        "Google (United States)",
-        "University of Würzburg",
-        "University of Cagliari",
-        "Istituto Nazionale di Fisica Nucleare, Sezione di Cagliari",
-        "Osservatorio Astronomico di Cagliari",
-        "University of Southern Denmark",
-        "Heidelberg University",
-        "National Institute of Astrophysics, Optics and Electronics",
-        "Secretaría de Ciencia, Humanidades, Tecnología e Innovación",
-        "Nagoya City University",
-        "Mizuho (Japan)",
-        "McGill University",
-        "University of Groningen",
-        "The Graduate University for Advanced Studies, SOKENDAI",
-        "The University of Tokyo",
-        "Kavli Institute for the Physics and Mathematics of the Universe",
-        "The Institute of Statistical Mathematics",
-        "Leiden University",
-        "Applied Materials (United States)",
-        "Whale Center of New England",
-        "Atmospheric and Space Technology Research Associates (United States)",
-        "Turku Centre for Computer Science",
-        "Aalto University"
-      ],
-      "countries": [
-        "US",
-        "JP",
-        "ES",
-        "DE",
-        "MY",
-        "TW",
-        "SE",
-        "CL",
-        "FR",
-        "CA",
-        "NL",
-        "BR",
-        "KR",
-        "MX",
-        "IT",
-        "ZA",
-        "CN",
-        "DK",
-        "FI"
-      ],
-      "dateAdded": "2026-04-12",
-      "evidence": "keyword",
-      "publicationDate": "2026-03-25"
     },
     {
       "doi": "10.1016/j.asr.2021.02.023",
@@ -73454,35 +72202,6 @@
       "publicationDate": "2024-11-01"
     },
     {
-      "doi": "10.1177/02783649241234367",
-      "title": "AstroSLAM: Autonomous monocular navigation in the vicinity of a celestial small body—Theory and experiments",
-      "authors": "Mehregan Dor; Travis Driver; Kenneth M. Getzandanner; Panagiotis Tsiotras",
-      "journal": "The International Journal of Robotics Research",
-      "publisher": "SAGE Publishing",
-      "year": 2024,
-      "cited": 4,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Robotics and Sensor-Based Localization; Inertial Sensor and Navigation; Space Satellite Systems and Control",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "Georgia Institute of Technology",
-        "Goddard Space Flight Center"
-      ],
-      "countries": [
-        "US"
-      ],
-      "dateAdded": "2026-06-21",
-      "evidence": "keyword",
-      "publicationDate": "2024-06-21"
-    },
-    {
       "doi": "10.1080/14432471.2024.2412324",
       "title": "Vale: Francois Chamalaun (1937 – 2024)",
       "authors": "Liejun Wang; Stewart Greenhalgh; Charlie Barton; Graham Heinson; Adrian Hitchman",
@@ -77685,30 +76404,6 @@
       "publicationDate": "2017-04-03"
     },
     {
-      "doi": "10.1038/s41586-026-10988-5",
-      "title": "Video reconstruction of variable VLBI observations with neural fields.",
-      "authors": "Marianna Foschi; Brandon Zhao; Antonio Fuentes; Katherine L Bouman; José L Gómez; Aviad Levis",
-      "journal": "Nature",
-      "publisher": "Springer Science and Business Media LLC",
-      "year": 2026,
-      "cited": 1,
-      "type": "journal article",
-      "isOA": "No",
-      "subject": "Astrophysics and Cosmic Phenomena; Astrophysical Phenomena and Observations; Pulsars and Gravitational Waves Research",
-      "sources": [
-        "Europe PMC"
-      ],
-      "searchTerms": [
-        "Katherine VLBI"
-      ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
-      "dateAdded": "2026-08-30",
-      "evidence": "keyword",
-      "publicationDate": "2026-08-26"
-    },
-    {
       "doi": "10.1042/0264-6021:3570457",
       "title": "Platelet-activating factor acetylhydrolase and transacetylase activities in human plasma low-density lipoprotein.",
       "authors": "D C Tsoukatos; T A Liapikos; A D Tselepis; M J Chapman; E Ninio",
@@ -78382,6 +77077,33 @@
       "countries": [],
       "publicationDate": "2023-05-17",
       "dateAdded": "2026-09-14"
+    },
+    {
+      "doi": "10.1038/s41550-023-02105-7",
+      "title": "Filamentary structures as the origin of blazar jet radio variability",
+      "authors": "Antonio Fuentes; José L. Gómez; José M. Martí; Manel Perucho; Guang-Yao Zhao; Rocco Lico; Andrei P. Lobanov; Gabriele Bruni; Yuri Y. Kovalev; Andrew Chael; Kazunori Akiyama; Katherine L. Bouman; He Sun; Ilje Cho; Efthalia Traianou; Teresa Toscano; Rohan Dahale; Marianna Foschi; Leonid I. Gurvits; Svetlana Jorstad; Jae-Young Kim; Alan P. Marscher; Yosuke Mizuno; Eduardo Ros; Tuomas Savolainen",
+      "journal": "Nature Astronomy",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2023,
+      "cited": 51,
+      "type": "journal article",
+      "isOA": "Yes",
+      "subject": "Astrophysics and Cosmic Phenomena; Radio Astronomy Observations and Technology; Neutrino Physics Research",
+      "sources": [
+        "Crossref",
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Manual submission"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2023-10-26",
+      "dateAdded": "2026-09-14",
+      "curatedPrograms": [
+        "Geodesy & VLBI"
+      ]
     }
   ]
 }
