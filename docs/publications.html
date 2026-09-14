@@ -598,10 +598,23 @@ function renderRow(r) {
         + '</div>';
 }
 
+var MANUAL_TERMS = ['Manual entry', 'Manual submission'];
+
 function renderDetail(r) {
     var meta = EVIDENCE_META[r.evidence];
+    var terms = r.terms || [];
+    var manualOnly = terms.length > 0 && terms.every(function(t) { return MANUAL_TERMS.indexOf(t) !== -1; });
+    // "Found through a search term" would be untrue for records that were
+    // added by hand and never surfaced by any query
+    var explain = (r.evidence === 'keyword' && manualOnly)
+        ? 'Added manually (curated list or staff submission) — no confirmed link yet; under review.'
+        : (meta ? meta.explain : 'Evidence grade: ' + (r.evidence || 'unknown'));
     var evidenceHtml = evidenceBadge(r)
-        + '<span class="ev-explain">' + escapeHtml(meta ? meta.explain : 'Evidence grade: ' + (r.evidence || 'unknown')) + '</span>';
+        + '<span class="ev-explain">' + escapeHtml(explain) + '</span>';
+
+    var termsHtml = terms.length > 0
+        ? terms.map(function(t) { return escapeHtml(t); }).join(' · ')
+        : '<span class="empty">not recorded</span>';
 
     var doiHref = 'https://doi.org/' + r.doi;
     var doiHtml = '<span class="mono">' + escapeHtml(r.doi) + '</span> · '
@@ -632,6 +645,7 @@ function renderDetail(r) {
         + '<dt>DOI</dt><dd>' + doiHtml + '</dd>'
         + '<dt>Citations</dt><dd>' + (r.cited || 0).toLocaleString() + ' · times other papers have cited this one</dd>'
         + '<dt>Evidence</dt><dd>' + evidenceHtml + '</dd>'
+        + '<dt>Found by</dt><dd>' + termsHtml + '</dd>'
         + '<dt>AuScope programs</dt><dd>' + programsHtml + '</dd>'
         + '<dt>Access</dt><dd>' + accessHtml + '</dd>'
         + '</dl>'

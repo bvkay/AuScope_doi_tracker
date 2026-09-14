@@ -176,6 +176,7 @@ function run() {
       cited: parseInt(p.cited) || 0,
       evidence: p.evidence || 'keyword',
       programs: recordPrograms(p),
+      terms: p.searchTerms || [],
       oa: /^yes$/i.test(String(p.isOA || ''))
     };
   });
