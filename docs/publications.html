@@ -194,8 +194,7 @@
             </select>
             <div class="spacer"></div>
             <span class="meta" id="result-count"></span>
-            <button class="btn" id="export-report-csv" title="Download the filtered list as a simple Title / Year / DOI report">Report CSV</button>
-            <button class="btn primary" id="export-csv" title="Download the filtered list as CSV (all columns)">Export CSV</button>
+            <button class="btn primary" id="export-csv" title="Download the filtered list as CSV (Title, Year, DOI)">Export CSV</button>
         </div>
 
         <!-- ========== PUBLICATION LIST ========== -->
@@ -291,7 +290,6 @@ function bindControls() {
         renderList();
     });
     document.getElementById('export-csv').addEventListener('click', exportPublicationsCsv);
-    document.getElementById('export-report-csv').addEventListener('click', exportReportCsv);
     document.getElementById('show-more-btn').addEventListener('click', showMore);
 }
 
@@ -686,27 +684,10 @@ function toggleRow(row) {
 // ============================================================
 // CSV EXPORT
 // ============================================================
+// Three columns — Title, Year, DOI — of whatever is filtered: the format
+// AuScope's reporting asks for (Ben, 15 Sep 2026: other fields not
+// required). Filename names the period when a year or FY filter is active.
 function exportPublicationsCsv() {
-    exportCsv({
-        columns: [
-            { header: 'DOI', value: function(r) { return r.doi; } },
-            { header: 'Title', value: function(r) { return r.title; } },
-            { header: 'Authors', value: function(r) { return r.authors; } },
-            { header: 'Year', value: function(r) { return r.year; } },
-            { header: 'Journal', value: function(r) { return r.journal; } },
-            { header: 'Citations', value: function(r) { return r.cited || 0; } },
-            { header: 'Evidence', value: function(r) { return r.evidence; } },
-            { header: 'Programs', value: function(r) { return (r.programs || []).join('; '); } }
-        ],
-        rows: visiblePublications(),
-        filenamePrefix: 'auscope-publications'
-    });
-}
-
-// Simple three-column report (Title / Year / DOI) of whatever is filtered —
-// the format AuScope's reporting asks for. Filename names the period when
-// a year or financial-year filter is active.
-function exportReportCsv() {
     var f = state.filter.year;
     var suffix = '';
     if (f && f.substring(0, 2) === 'fy') {
@@ -722,7 +703,7 @@ function exportReportCsv() {
             { header: 'DOI', value: function(r) { return r.doi; } }
         ],
         rows: visiblePublications(),
-        filenamePrefix: 'auscope-publications-report' + suffix
+        filenamePrefix: 'auscope-publications' + suffix
     });
 }
 
