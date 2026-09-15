@@ -1,10 +1,10 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-09-14T23:22:15.469Z",
+    "last_updated": "2026-09-15T00:12:11.094Z",
     "total_count": 2768,
-    "evidence_updated": "2026-09-14T23:39:02.207Z",
-    "consolidated": "2026-09-14T23:39:02.335Z",
+    "evidence_updated": "2026-09-15T00:12:46.256Z",
+    "consolidated": "2026-09-15T00:12:46.383Z",
     "dates_enriched": "2026-09-14T23:14:35.729Z"
   },
   "records": [
@@ -75429,6 +75429,7 @@
       "evidenceDetail": "cites AuScope dataset DOI: 10.7914/sn/2p_2020, 10.7914/sn/5g_2018, 10.7914/sn/s1",
       "relatedDois": [
         "10.59350/h4nph-she37",
+        "10.59350/h4nph-she37",
         "10.59350/h4nph-she37"
       ]
     },
@@ -75730,6 +75731,7 @@
       "evidence": "text-infrastructure",
       "evidenceDetail": "cites AuScope dataset DOI: 10.25914/5eaa30cc934d0",
       "relatedDois": [
+        "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591"
       ]

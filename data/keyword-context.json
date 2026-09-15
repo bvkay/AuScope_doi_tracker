@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-14T23:39:02.094Z",
+ "updated": "2026-09-15T00:12:46.147Z",
  "results": {
   "10.1029/2025gc012679": {
    "status": "no-oa-text",
@@ -1138,8 +1138,8 @@
    }
   },
   "10.5194/egusphere-2026-2528": {
-   "status": "error",
-   "attempts": 1
+   "status": "no-oa-text",
+   "checkedAt": "2026-09-15"
   },
   "10.1093/mam/ozag037": {
    "status": "no-oa-text",
@@ -1227,8 +1227,19 @@
    "checkedAt": "2026-09-14"
   },
   "10.1126/sciadv.aec6950": {
-   "status": "error",
-   "attempts": 1
+   "status": "checked",
+   "pmcid": "PMC13232567",
+   "flags": [
+    "notFound"
+   ],
+   "terms": {
+    "EarthByte": {
+     "ack": 0,
+     "body": 0,
+     "refs": 0,
+     "snippet": ""
+    }
+   }
   },
   "10.1130/b38939.1": {
    "status": "no-oa-text",
