@@ -1,7 +1,7 @@
 {
   "metadata": {
     "type": "fair-scores",
-    "last_updated": "2026-09-01T08:46:29.328Z",
+    "last_updated": "2026-10-01T10:14:38.444Z",
     "fuji_version": "3.5.0 (docker)",
     "metric_version": "0.8",
     "metric_names": {
@@ -23,21 +23,21 @@
       "FsF-R1.3-01M": "Metadata follows a standard recommended by the target research community of the data.",
       "FsF-R1.3-02D": "Data is available in a file format recommended by the target research community."
     },
-    "assessed": 178,
+    "assessed": 192,
     "errors": 0
   },
   "scores": {
     "10.58024/agum23e4d588": {
       "doi": "10.58024/agum23e4d588",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
-      "score": 44.2,
+      "assessed": "2026-10-01",
+      "score": 48.1,
       "f": 50,
       "a": 42.9,
       "i": 33.3,
-      "r": 50,
+      "r": 66.7,
       "maturity": 1.25,
-      "passed": 9,
+      "passed": 10,
       "total": 17,
       "fuji_version": "3.5.0 (docker)",
       "metric_version": "metrics_v0.8",
@@ -135,10 +135,10 @@
         ],
         [
           "FsF-R1.1-01M",
-          0,
           1,
-          "fail",
-          0
+          1,
+          "pass",
+          3
         ],
         [
           "FsF-R1.2-01M",
@@ -168,7 +168,7 @@
     "10.58024/agag3126b4ca": {
       "doi": "10.58024/agag3126b4ca",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -306,14 +306,14 @@
     "10.58024/agcu9d1e3166": {
       "doi": "10.58024/agcu9d1e3166",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
-      "score": 51.9,
+      "assessed": "2026-10-01",
+      "score": 48.1,
       "f": 50,
-      "a": 57.1,
+      "a": 42.9,
       "i": 33.3,
       "r": 66.7,
-      "maturity": 1.5,
-      "passed": 11,
+      "maturity": 1.25,
+      "passed": 10,
       "total": 17,
       "fuji_version": "3.5.0 (docker)",
       "metric_version": "metrics_v0.8",
@@ -355,10 +355,10 @@
         ],
         [
           "FsF-A1-01M",
+          0,
           1,
-          1,
-          "pass",
-          3
+          "fail",
+          0
         ],
         [
           "FsF-A1-02MD",
@@ -444,7 +444,7 @@
     "10.58024/agwa9353beb7": {
       "doi": "10.58024/agwa9353beb7",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -582,7 +582,7 @@
     "10.58024/aguq3f7313ab": {
       "doi": "10.58024/aguq3f7313ab",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 50,
       "a": 42.9,
@@ -720,7 +720,7 @@
     "10.58024/aguq6128dfbc": {
       "doi": "10.58024/aguq6128dfbc",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -858,7 +858,7 @@
     "10.58024/agcu65f8f1a9": {
       "doi": "10.58024/agcu65f8f1a9",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 50,
       "a": 42.9,
@@ -996,7 +996,7 @@
     "10.58024/agcuc86cdd4e": {
       "doi": "10.58024/agcuc86cdd4e",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 50,
       "a": 42.9,
@@ -1134,7 +1134,7 @@
     "10.58024/aguaa72a888a": {
       "doi": "10.58024/aguaa72a888a",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 50,
       "a": 42.9,
@@ -1272,7 +1272,7 @@
     "10.58024/aguab822541d": {
       "doi": "10.58024/aguab822541d",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -1410,7 +1410,7 @@
     "10.58024/agag5448cdd9": {
       "doi": "10.58024/agag5448cdd9",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 35.7,
       "a": 57.1,
@@ -1548,7 +1548,7 @@
     "10.58024/agmm4f8ff9d2": {
       "doi": "10.58024/agmm4f8ff9d2",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -1686,7 +1686,7 @@
     "10.58024/agmm8c14b9a8": {
       "doi": "10.58024/agmm8c14b9a8",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -1824,7 +1824,7 @@
     "10.58024/agcue7c379c2": {
       "doi": "10.58024/agcue7c379c2",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 59.6,
       "f": 50,
       "a": 57.1,
@@ -1962,7 +1962,7 @@
     "10.58024/agua531ecf21": {
       "doi": "10.58024/agua531ecf21",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 55.8,
       "f": 50,
       "a": 42.9,
@@ -2100,7 +2100,7 @@
     "10.58024/agcua1bf69ca": {
       "doi": "10.58024/agcua1bf69ca",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -2238,7 +2238,7 @@
     "10.58024/aguqcb42e9bf": {
       "doi": "10.58024/aguqcb42e9bf",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -2376,7 +2376,7 @@
     "10.58024/aguq43489aac": {
       "doi": "10.58024/aguq43489aac",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 35.7,
       "a": 57.1,
@@ -2514,7 +2514,7 @@
     "10.58024/aguma5dc78b8": {
       "doi": "10.58024/aguma5dc78b8",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 35.7,
       "a": 57.1,
@@ -2652,7 +2652,7 @@
     "10.58024/aguqd44783c4": {
       "doi": "10.58024/aguqd44783c4",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 55.8,
       "f": 50,
       "a": 42.9,
@@ -2790,7 +2790,7 @@
     "10.58024/agum9ddde7d6": {
       "doi": "10.58024/agum9ddde7d6",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 35.7,
       "a": 57.1,
@@ -2928,7 +2928,7 @@
     "10.58024/agum75d6f5c7": {
       "doi": "10.58024/agum75d6f5c7",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 35.7,
       "a": 57.1,
@@ -3066,7 +3066,7 @@
     "10.58024/agum4f7e1d42": {
       "doi": "10.58024/agum4f7e1d42",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -3204,7 +3204,7 @@
     "10.58024/agum4d16ecac": {
       "doi": "10.58024/agum4d16ecac",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -3342,7 +3342,7 @@
     "10.58024/agumcad7b7cb": {
       "doi": "10.58024/agumcad7b7cb",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -3480,7 +3480,7 @@
     "10.58024/agum46bd292f": {
       "doi": "10.58024/agum46bd292f",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -3618,7 +3618,7 @@
     "10.58024/agag55665fd9": {
       "doi": "10.58024/agag55665fd9",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -3756,7 +3756,7 @@
     "10.58024/agcu92cfc45c": {
       "doi": "10.58024/agcu92cfc45c",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -3894,7 +3894,7 @@
     "10.58024/agum879ac77a": {
       "doi": "10.58024/agum879ac77a",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -4032,7 +4032,7 @@
     "10.58024/agcu84cb899f": {
       "doi": "10.58024/agcu84cb899f",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -4170,7 +4170,7 @@
     "10.58024/agum3f1fb3b5": {
       "doi": "10.58024/agum3f1fb3b5",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -4308,14 +4308,14 @@
     "10.58024/agua9bc2394d": {
       "doi": "10.58024/agua9bc2394d",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
-      "score": 40.4,
-      "f": 35.7,
+      "assessed": "2026-10-01",
+      "score": 51.9,
+      "f": 50,
       "a": 42.9,
-      "i": 33.3,
+      "i": 66.7,
       "r": 50,
-      "maturity": 1.25,
-      "passed": 9,
+      "maturity": 1.5,
+      "passed": 10,
       "total": 17,
       "fuji_version": "3.5.0 (docker)",
       "metric_version": "metrics_v0.8",
@@ -4336,10 +4336,10 @@
         ],
         [
           "FsF-F2-01M",
-          1,
+          2,
           2,
           "pass",
-          2
+          3
         ],
         [
           "FsF-F3-01M",
@@ -4399,10 +4399,10 @@
         ],
         [
           "FsF-I3-01M",
-          0,
           2,
-          "fail",
-          0
+          2,
+          "pass",
+          3
         ],
         [
           "FsF-R1-01M",
@@ -4446,7 +4446,7 @@
     "10.58024/agumfbaafbe4": {
       "doi": "10.58024/agumfbaafbe4",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -4584,14 +4584,14 @@
     "10.58024/agua6e7b32b9": {
       "doi": "10.58024/agua6e7b32b9",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
-      "a": 57.1,
-      "i": 33.3,
-      "r": 66.7,
+      "a": 42.9,
+      "i": 66.7,
+      "r": 50,
       "maturity": 1.5,
-      "passed": 11,
+      "passed": 10,
       "total": 17,
       "fuji_version": "3.5.0 (docker)",
       "metric_version": "metrics_v0.8",
@@ -4633,10 +4633,10 @@
         ],
         [
           "FsF-A1-01M",
+          0,
           1,
-          1,
-          "pass",
-          3
+          "fail",
+          0
         ],
         [
           "FsF-A1-02MD",
@@ -4675,10 +4675,10 @@
         ],
         [
           "FsF-I3-01M",
-          0,
           2,
-          "fail",
-          0
+          2,
+          "pass",
+          3
         ],
         [
           "FsF-R1-01M",
@@ -4689,10 +4689,10 @@
         ],
         [
           "FsF-R1.1-01M",
+          0,
           1,
-          1,
-          "pass",
-          3
+          "fail",
+          0
         ],
         [
           "FsF-R1.2-01M",
@@ -4722,7 +4722,7 @@
     "10.58024/agcu9cb45313": {
       "doi": "10.58024/agcu9cb45313",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 55.8,
       "f": 50,
       "a": 42.9,
@@ -4860,7 +4860,7 @@
     "10.58024/agumdce695a7": {
       "doi": "10.58024/agumdce695a7",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 51.9,
       "f": 50,
       "a": 57.1,
@@ -4998,7 +4998,7 @@
     "10.58024/agum5b34174d": {
       "doi": "10.58024/agum5b34174d",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -5136,7 +5136,7 @@
     "10.58024/agum97fc4439": {
       "doi": "10.58024/agum97fc4439",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -5274,7 +5274,7 @@
     "10.58024/agum799f93c9": {
       "doi": "10.58024/agum799f93c9",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -5412,14 +5412,14 @@
     "10.58024/aguaebe2cbb4": {
       "doi": "10.58024/aguaebe2cbb4",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
-      "score": 40.4,
-      "f": 35.7,
+      "assessed": "2026-10-01",
+      "score": 51.9,
+      "f": 50,
       "a": 42.9,
-      "i": 33.3,
+      "i": 66.7,
       "r": 50,
-      "maturity": 1.25,
-      "passed": 9,
+      "maturity": 1.5,
+      "passed": 10,
       "total": 17,
       "fuji_version": "3.5.0 (docker)",
       "metric_version": "metrics_v0.8",
@@ -5440,10 +5440,10 @@
         ],
         [
           "FsF-F2-01M",
-          1,
+          2,
           2,
           "pass",
-          2
+          3
         ],
         [
           "FsF-F3-01M",
@@ -5503,10 +5503,10 @@
         ],
         [
           "FsF-I3-01M",
-          0,
           2,
-          "fail",
-          0
+          2,
+          "pass",
+          3
         ],
         [
           "FsF-R1-01M",
@@ -5550,7 +5550,7 @@
     "10.58024/agcud93d7eb1": {
       "doi": "10.58024/agcud93d7eb1",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 55.8,
       "f": 50,
       "a": 42.9,
@@ -5688,7 +5688,7 @@
     "10.58024/agagc3f5af22": {
       "doi": "10.58024/agagc3f5af22",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -5826,7 +5826,7 @@
     "10.58024/agum6a344358": {
       "doi": "10.58024/agum6a344358",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -5964,7 +5964,7 @@
     "10.58024/agag7ca582a8": {
       "doi": "10.58024/agag7ca582a8",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -6102,7 +6102,7 @@
     "10.58024/agum_tog2024": {
       "doi": "10.58024/agum_tog2024",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -6240,7 +6240,7 @@
     "10.58024/agcucf41dce5": {
       "doi": "10.58024/agcucf41dce5",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -6378,14 +6378,14 @@
     "10.58024/aguaddd6d6b2": {
       "doi": "10.58024/aguaddd6d6b2",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
-      "score": 40.4,
-      "f": 35.7,
+      "assessed": "2026-10-01",
+      "score": 51.9,
+      "f": 50,
       "a": 42.9,
-      "i": 33.3,
+      "i": 66.7,
       "r": 50,
-      "maturity": 1.25,
-      "passed": 9,
+      "maturity": 1.5,
+      "passed": 10,
       "total": 17,
       "fuji_version": "3.5.0 (docker)",
       "metric_version": "metrics_v0.8",
@@ -6406,10 +6406,10 @@
         ],
         [
           "FsF-F2-01M",
-          1,
+          2,
           2,
           "pass",
-          2
+          3
         ],
         [
           "FsF-F3-01M",
@@ -6469,10 +6469,10 @@
         ],
         [
           "FsF-I3-01M",
-          0,
           2,
-          "fail",
-          0
+          2,
+          "pass",
+          3
         ],
         [
           "FsF-R1-01M",
@@ -6516,7 +6516,7 @@
     "10.58024/agag2b7833fb": {
       "doi": "10.58024/agag2b7833fb",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -6654,7 +6654,7 @@
     "10.58024/agcue17519f2": {
       "doi": "10.58024/agcue17519f2",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -6792,7 +6792,7 @@
     "10.58024/agag3b8addad": {
       "doi": "10.58024/agag3b8addad",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -6930,7 +6930,7 @@
     "10.58024/agwo10.5194/essd-14-4271-2022": {
       "doi": "10.58024/agwo10.5194/essd-14-4271-2022",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -7068,7 +7068,7 @@
     "10.58024/agwo10.5194/essd-2022-446": {
       "doi": "10.58024/agwo10.5194/essd-2022-446",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -7206,7 +7206,7 @@
     "10.58024/agcu96eeed1d": {
       "doi": "10.58024/agcu96eeed1d",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -7344,7 +7344,7 @@
     "10.58024/agag1b6e58d7": {
       "doi": "10.58024/agag1b6e58d7",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -7482,7 +7482,7 @@
     "10.58024/agag4f685555": {
       "doi": "10.58024/agag4f685555",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -7620,7 +7620,7 @@
     "10.58024/agcu3b1e8746": {
       "doi": "10.58024/agcu3b1e8746",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 48.1,
       "f": 50,
       "a": 42.9,
@@ -7758,7 +7758,7 @@
     "10.58024/agcu1c8a8587": {
       "doi": "10.58024/agcu1c8a8587",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -7896,7 +7896,7 @@
     "10.58024/agum98746938": {
       "doi": "10.58024/agum98746938",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -8034,7 +8034,7 @@
     "10.58024/agcu1bda3dcf": {
       "doi": "10.58024/agcu1bda3dcf",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 40.4,
       "f": 35.7,
       "a": 42.9,
@@ -8172,7 +8172,7 @@
     "10.7914/1wr3-b906": {
       "doi": "10.7914/1wr3-b906",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -8310,7 +8310,7 @@
     "10.7914/sn/1e_2013": {
       "doi": "10.7914/sn/1e_2013",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -8448,7 +8448,7 @@
     "10.7914/sn/1f_2009": {
       "doi": "10.7914/sn/1f_2009",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -8586,7 +8586,7 @@
     "10.7914/sn/1g_2008": {
       "doi": "10.7914/sn/1g_2008",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -8724,7 +8724,7 @@
     "10.7914/sn/ys_2014": {
       "doi": "10.7914/sn/ys_2014",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -8862,7 +8862,7 @@
     "10.7914/t2z3-2m87": {
       "doi": "10.7914/t2z3-2m87",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -9000,7 +9000,7 @@
     "10.7914/sn/1h_2010": {
       "doi": "10.7914/sn/1h_2010",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -9138,7 +9138,7 @@
     "10.7914/psbw-7z20": {
       "doi": "10.7914/psbw-7z20",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -9276,7 +9276,7 @@
     "10.7914/sn/1k_2013": {
       "doi": "10.7914/sn/1k_2013",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -9414,7 +9414,7 @@
     "10.7914/63mk-n625": {
       "doi": "10.7914/63mk-n625",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -9552,7 +9552,7 @@
     "10.7914/sn/1p_2011": {
       "doi": "10.7914/sn/1p_2011",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -9690,7 +9690,7 @@
     "10.7914/k268-9v05": {
       "doi": "10.7914/k268-9v05",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -9828,7 +9828,7 @@
     "10.7914/bfp8-xv25": {
       "doi": "10.7914/bfp8-xv25",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -9966,7 +9966,7 @@
     "10.7914/hwmy-0n24": {
       "doi": "10.7914/hwmy-0n24",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -10104,7 +10104,7 @@
     "10.7914/37v8-hv88": {
       "doi": "10.7914/37v8-hv88",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -10242,7 +10242,7 @@
     "10.7914/64n9-ft63": {
       "doi": "10.7914/64n9-ft63",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -10380,7 +10380,7 @@
     "10.7914/sn/2p_2020": {
       "doi": "10.7914/sn/2p_2020",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -10518,7 +10518,7 @@
     "10.7914/xnz7-th21": {
       "doi": "10.7914/xnz7-th21",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 61.5,
       "f": 71.4,
       "a": 42.9,
@@ -10656,7 +10656,7 @@
     "10.7914/xy0z-bx66": {
       "doi": "10.7914/xy0z-bx66",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -10794,7 +10794,7 @@
     "10.7914/efr0-yc38": {
       "doi": "10.7914/efr0-yc38",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -10932,7 +10932,7 @@
     "10.7914/sn/3f_2020": {
       "doi": "10.7914/sn/3f_2020",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -11070,7 +11070,7 @@
     "10.7914/sn/3g_2018": {
       "doi": "10.7914/sn/3g_2018",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -11208,7 +11208,7 @@
     "10.7914/sn/3m_2013": {
       "doi": "10.7914/sn/3m_2013",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -11346,7 +11346,7 @@
     "10.7914/sn/3o_2019": {
       "doi": "10.7914/sn/3o_2019",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -11484,7 +11484,7 @@
     "10.7914/6q5b-va48": {
       "doi": "10.7914/6q5b-va48",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 61.5,
       "f": 71.4,
       "a": 42.9,
@@ -11622,7 +11622,7 @@
     "10.7914/9j20-yq91": {
       "doi": "10.7914/9j20-yq91",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -11760,7 +11760,7 @@
     "10.7914/sn/4h_2009": {
       "doi": "10.7914/sn/4h_2009",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -11898,7 +11898,7 @@
     "10.7914/sn/4j_2014": {
       "doi": "10.7914/sn/4j_2014",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -12036,7 +12036,7 @@
     "10.7914/7b9m-1d60": {
       "doi": "10.7914/7b9m-1d60",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -12174,7 +12174,7 @@
     "10.7914/sn/4n_2017": {
       "doi": "10.7914/sn/4n_2017",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -12312,7 +12312,7 @@
     "10.7914/pgt8-x273": {
       "doi": "10.7914/pgt8-x273",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -12450,7 +12450,7 @@
     "10.7914/nx28-a367": {
       "doi": "10.7914/nx28-a367",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -12588,7 +12588,7 @@
     "10.7914/sn/5g_2018": {
       "doi": "10.7914/sn/5g_2018",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -12726,7 +12726,7 @@
     "10.7914/sn/5j_2017": {
       "doi": "10.7914/sn/5j_2017",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -12864,7 +12864,7 @@
     "10.7914/hf8d-4s28": {
       "doi": "10.7914/hf8d-4s28",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 61.5,
       "f": 71.4,
       "a": 42.9,
@@ -13002,7 +13002,7 @@
     "10.7914/sn/6c_2015": {
       "doi": "10.7914/sn/6c_2015",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -13140,7 +13140,7 @@
     "10.7914/6j8j-9f06": {
       "doi": "10.7914/6j8j-9f06",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -13278,7 +13278,7 @@
     "10.7914/sn/6f_2008": {
       "doi": "10.7914/sn/6f_2008",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -13416,7 +13416,7 @@
     "10.7914/gbnj-wt07": {
       "doi": "10.7914/gbnj-wt07",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -13554,7 +13554,7 @@
     "10.7914/sn/6k_2020": {
       "doi": "10.7914/sn/6k_2020",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -13692,7 +13692,7 @@
     "10.7914/4e87-j738": {
       "doi": "10.7914/4e87-j738",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -13830,7 +13830,7 @@
     "10.7914/jr68-qq17": {
       "doi": "10.7914/jr68-qq17",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -13968,7 +13968,7 @@
     "10.7914/3v05-sw22": {
       "doi": "10.7914/3v05-sw22",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -14106,7 +14106,7 @@
     "10.7914/sn/7b_1993": {
       "doi": "10.7914/sn/7b_1993",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -14244,7 +14244,7 @@
     "10.7914/sn/7d_1997": {
       "doi": "10.7914/sn/7d_1997",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -14382,7 +14382,7 @@
     "10.7914/sn/7e_1998": {
       "doi": "10.7914/sn/7e_1998",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -14520,7 +14520,7 @@
     "10.7914/sn/7f_1999": {
       "doi": "10.7914/sn/7f_1999",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -14658,7 +14658,7 @@
     "10.7914/sn/7g_2000": {
       "doi": "10.7914/sn/7g_2000",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -14796,7 +14796,7 @@
     "10.7914/sn/7h_2001": {
       "doi": "10.7914/sn/7h_2001",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -14934,7 +14934,7 @@
     "10.7914/sn/7i_2003": {
       "doi": "10.7914/sn/7i_2003",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -15072,7 +15072,7 @@
     "10.7914/sn/7j_2005": {
       "doi": "10.7914/sn/7j_2005",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -15210,7 +15210,7 @@
     "10.7914/sn/7k_2007": {
       "doi": "10.7914/sn/7k_2007",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -15348,7 +15348,7 @@
     "10.7914/sn/7l_2011": {
       "doi": "10.7914/sn/7l_2011",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -15486,7 +15486,7 @@
     "10.7914/sn/7m_1998": {
       "doi": "10.7914/sn/7m_1998",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -15624,7 +15624,7 @@
     "10.7914/sn/7m_2014": {
       "doi": "10.7914/sn/7m_2014",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -15762,7 +15762,7 @@
     "10.7914/sn/7n_1999": {
       "doi": "10.7914/sn/7n_1999",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -15900,7 +15900,7 @@
     "10.7914/sn/7o_2000": {
       "doi": "10.7914/sn/7o_2000",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -16038,7 +16038,7 @@
     "10.7914/sn/7p_2002": {
       "doi": "10.7914/sn/7p_2002",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -16176,7 +16176,7 @@
     "10.7914/sn/7q_2004": {
       "doi": "10.7914/sn/7q_2004",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -16314,7 +16314,7 @@
     "10.7914/sn/7r_2005": {
       "doi": "10.7914/sn/7r_2005",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 57.7,
       "f": 71.4,
       "a": 42.9,
@@ -16452,7 +16452,7 @@
     "10.7914/sn/7s_2006": {
       "doi": "10.7914/sn/7s_2006",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 57.7,
       "f": 71.4,
       "a": 42.9,
@@ -16590,7 +16590,7 @@
     "10.7914/sn/7t_2007": {
       "doi": "10.7914/sn/7t_2007",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -16728,7 +16728,7 @@
     "10.7914/sn/7u_2007": {
       "doi": "10.7914/sn/7u_2007",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -16866,7 +16866,7 @@
     "10.7914/ps89-gf83": {
       "doi": "10.7914/ps89-gf83",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -17004,7 +17004,7 @@
     "10.7914/sn/8j_2012": {
       "doi": "10.7914/sn/8j_2012",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -17142,7 +17142,7 @@
     "10.7914/sn/8k_2014": {
       "doi": "10.7914/sn/8k_2014",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -17280,7 +17280,7 @@
     "10.7914/sn/8m_2016": {
       "doi": "10.7914/sn/8m_2016",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -17418,7 +17418,7 @@
     "10.7914/z6kv-sg06": {
       "doi": "10.7914/z6kv-sg06",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -17556,7 +17556,7 @@
     "10.7914/ac1p-7y35": {
       "doi": "10.7914/ac1p-7y35",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -17694,7 +17694,7 @@
     "10.7914/nrw9-9825": {
       "doi": "10.7914/nrw9-9825",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -17832,7 +17832,7 @@
     "10.7914/b1k3-3c71": {
       "doi": "10.7914/b1k3-3c71",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -18108,7 +18108,7 @@
     "10.7914/6e8t-6g37": {
       "doi": "10.7914/6e8t-6g37",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -18384,14 +18384,14 @@
     "10.7914/sn/s1": {
       "doi": "10.7914/sn/s1",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
-      "score": 61.5,
-      "f": 71.4,
+      "assessed": "2026-10-01",
+      "score": 30.8,
+      "f": 57.1,
       "a": 42.9,
-      "i": 66.7,
-      "r": 66.7,
-      "maturity": 1.75,
-      "passed": 12,
+      "i": 0,
+      "r": 16.7,
+      "maturity": 1.25,
+      "passed": 6,
       "total": 17,
       "fuji_version": "3.5.0 (docker)",
       "metric_version": "metrics_v0.8",
@@ -18412,10 +18412,10 @@
         ],
         [
           "FsF-F2-01M",
-          1,
+          0,
           2,
-          "pass",
-          2
+          "fail",
+          0
         ],
         [
           "FsF-F3-01M",
@@ -18461,10 +18461,10 @@
         ],
         [
           "FsF-I1-01M",
+          0,
           2,
-          2,
-          "pass",
-          3
+          "fail",
+          0
         ],
         [
           "FsF-I2-01M",
@@ -18475,31 +18475,31 @@
         ],
         [
           "FsF-I3-01M",
+          0,
           2,
-          2,
-          "pass",
-          3
+          "fail",
+          0
         ],
         [
           "FsF-R1-01M",
-          1,
+          0,
           2,
-          "pass",
-          1
+          "fail",
+          0
         ],
         [
           "FsF-R1.1-01M",
+          0,
           1,
-          1,
-          "pass",
-          3
+          "fail",
+          0
         ],
         [
           "FsF-R1.2-01M",
+          0,
           1,
-          1,
-          "pass",
-          2
+          "fail",
+          0
         ],
         [
           "FsF-R1.3-01M",
@@ -18522,7 +18522,7 @@
     "10.7914/xagc-se62": {
       "doi": "10.7914/xagc-se62",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -18660,7 +18660,7 @@
     "10.7914/8jxr-7029": {
       "doi": "10.7914/8jxr-7029",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -18798,7 +18798,7 @@
     "10.7914/xhzt-cq87": {
       "doi": "10.7914/xhzt-cq87",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 57.7,
       "f": 71.4,
       "a": 42.9,
@@ -19074,7 +19074,7 @@
     "10.7914/r4x6-3573": {
       "doi": "10.7914/r4x6-3573",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -19212,7 +19212,7 @@
     "10.7914/g75f-4a16": {
       "doi": "10.7914/g75f-4a16",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -19350,7 +19350,7 @@
     "10.7914/sn/yw_2021": {
       "doi": "10.7914/sn/yw_2021",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -19488,7 +19488,7 @@
     "10.7914/fa5t-3w59": {
       "doi": "10.7914/fa5t-3w59",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -19626,7 +19626,7 @@
     "10.7914/0zmj-7e94": {
       "doi": "10.7914/0zmj-7e94",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 50,
       "f": 71.4,
       "a": 42.9,
@@ -19764,7 +19764,7 @@
     "10.7914/sn/zr_2009": {
       "doi": "10.7914/sn/zr_2009",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -19902,7 +19902,7 @@
     "10.25914/f01x-b211": {
       "doi": "10.25914/f01x-b211",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -20040,7 +20040,7 @@
     "10.25914/31br-q319": {
       "doi": "10.25914/31br-q319",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -20178,7 +20178,7 @@
     "10.25914/5eaa30cc934d0": {
       "doi": "10.25914/5eaa30cc934d0",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -20316,7 +20316,7 @@
     "10.25914/bzd5-n780": {
       "doi": "10.25914/bzd5-n780",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -20454,7 +20454,7 @@
     "10.25914/r1yv-qe70": {
       "doi": "10.25914/r1yv-qe70",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -20592,7 +20592,7 @@
     "10.25914/rrm2-b189": {
       "doi": "10.25914/rrm2-b189",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -20730,7 +20730,7 @@
     "10.25914/nxxw-wd19": {
       "doi": "10.25914/nxxw-wd19",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -20868,7 +20868,7 @@
     "10.25914/rr0p-yb26": {
       "doi": "10.25914/rr0p-yb26",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -21006,7 +21006,7 @@
     "10.25914/fyrh-v157": {
       "doi": "10.25914/fyrh-v157",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -21144,7 +21144,7 @@
     "10.4225/41/5a618c3ae30ab": {
       "doi": "10.4225/41/5a618c3ae30ab",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 57.7,
       "f": 57.1,
       "a": 42.9,
@@ -21282,7 +21282,7 @@
     "10.4225/41/5a79326ea898d": {
       "doi": "10.4225/41/5a79326ea898d",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -21420,7 +21420,7 @@
     "10.4225/41/5a7933c881dbc": {
       "doi": "10.4225/41/5a7933c881dbc",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -21558,7 +21558,7 @@
     "10.4225/41/5a7a2b9f1f3dc": {
       "doi": "10.4225/41/5a7a2b9f1f3dc",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -21696,7 +21696,7 @@
     "10.4225/41/5a7a2c8449efc": {
       "doi": "10.4225/41/5a7a2c8449efc",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -21834,7 +21834,7 @@
     "10.25914/5b98b2782538c": {
       "doi": "10.25914/5b98b2782538c",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -21972,7 +21972,7 @@
     "10.25914/aty6-xs98": {
       "doi": "10.25914/aty6-xs98",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -22110,7 +22110,7 @@
     "10.25914/kf96-nb26": {
       "doi": "10.25914/kf96-nb26",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -22248,7 +22248,7 @@
     "10.25914/1phc-8r73": {
       "doi": "10.25914/1phc-8r73",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -22386,7 +22386,7 @@
     "10.25914/trnf-c381": {
       "doi": "10.25914/trnf-c381",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -22524,7 +22524,7 @@
     "10.25914/098k-vy40": {
       "doi": "10.25914/098k-vy40",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -22662,7 +22662,7 @@
     "10.25914/nr0d-nv51": {
       "doi": "10.25914/nr0d-nv51",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -22800,7 +22800,7 @@
     "10.25914/tzyp-dy03": {
       "doi": "10.25914/tzyp-dy03",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -22938,7 +22938,7 @@
     "10.25914/nn3w-d141": {
       "doi": "10.25914/nn3w-d141",
       "platform": "NCI",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -23076,7 +23076,7 @@
     "10.58024/agumaec47aff": {
       "doi": "10.58024/agumaec47aff",
       "platform": "EarthBank",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 44.2,
       "f": 50,
       "a": 42.9,
@@ -23214,7 +23214,7 @@
     "10.7914/kd1t-kt29": {
       "doi": "10.7914/kd1t-kt29",
       "platform": "AusPass",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 53.9,
       "f": 71.4,
       "a": 42.9,
@@ -23352,7 +23352,7 @@
     "10.25914/bztg-rg43": {
       "doi": "10.25914/bztg-rg43",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -23490,7 +23490,7 @@
     "10.25914/2dy2-2592": {
       "doi": "10.25914/2dy2-2592",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -23628,7 +23628,7 @@
     "10.25914/jgye-d059": {
       "doi": "10.25914/jgye-d059",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -23766,7 +23766,7 @@
     "10.25914/8q6h-q623": {
       "doi": "10.25914/8q6h-q623",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -23904,7 +23904,7 @@
     "10.25914/7dz2-8t22": {
       "doi": "10.25914/7dz2-8t22",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -24042,7 +24042,7 @@
     "10.25914/c4zg-za54": {
       "doi": "10.25914/c4zg-za54",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -24180,7 +24180,7 @@
     "10.25914/vh88-5s87": {
       "doi": "10.25914/vh88-5s87",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -24318,7 +24318,7 @@
     "10.25914/ctaf-6c13": {
       "doi": "10.25914/ctaf-6c13",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
@@ -24456,7 +24456,1939 @@
     "10.25914/3cw7-a967": {
       "doi": "10.25914/3cw7-a967",
       "platform": "NVCL",
-      "assessed": "2026-09-01",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/c7cn-cc79": {
+      "doi": "10.25914/c7cn-cc79",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/rgpm-7528": {
+      "doi": "10.25914/rgpm-7528",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/msrb-9j13": {
+      "doi": "10.25914/msrb-9j13",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/t2mn-bk81": {
+      "doi": "10.25914/t2mn-bk81",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/4m82-y773": {
+      "doi": "10.25914/4m82-y773",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/fhew-h678": {
+      "doi": "10.25914/fhew-h678",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/r3ya-bg54": {
+      "doi": "10.25914/r3ya-bg54",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/3jz9-mv44": {
+      "doi": "10.25914/3jz9-mv44",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/t13d-0r63": {
+      "doi": "10.25914/t13d-0r63",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/0a2t-by03": {
+      "doi": "10.25914/0a2t-by03",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/tm6d-t466": {
+      "doi": "10.25914/tm6d-t466",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/vw5k-q269": {
+      "doi": "10.25914/vw5k-q269",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/xy60-b940": {
+      "doi": "10.25914/xy60-b940",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
+      "score": 42.3,
+      "f": 42.9,
+      "a": 42.9,
+      "i": 33.3,
+      "r": 50,
+      "maturity": 1.5,
+      "passed": 9,
+      "total": 17,
+      "fuji_version": "3.5.0 (docker)",
+      "metric_version": "metrics_v0.8",
+      "checks": [
+        [
+          "FsF-F1-01MD",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-F1-02MD",
+          1,
+          1,
+          "fail",
+          3
+        ],
+        [
+          "FsF-F2-01M",
+          1,
+          2,
+          "pass",
+          2
+        ],
+        [
+          "FsF-F3-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-F4-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-A1-02MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.1-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-A1.2-01MD",
+          1,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I1-01M",
+          2,
+          2,
+          "pass",
+          3
+        ],
+        [
+          "FsF-I2-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-I3-01M",
+          0,
+          2,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1-01M",
+          1,
+          2,
+          "pass",
+          1
+        ],
+        [
+          "FsF-R1.1-01M",
+          0,
+          1,
+          "fail",
+          0
+        ],
+        [
+          "FsF-R1.2-01M",
+          1,
+          1,
+          "pass",
+          2
+        ],
+        [
+          "FsF-R1.3-01M",
+          1,
+          1,
+          "pass",
+          3
+        ],
+        [
+          "FsF-R1.3-02D",
+          0,
+          1,
+          "fail",
+          0
+        ]
+      ],
+      "attempts": 1,
+      "last_error": null
+    },
+    "10.25914/aaen-nc33": {
+      "doi": "10.25914/aaen-nc33",
+      "platform": "NCI",
+      "assessed": "2026-10-01",
       "score": 42.3,
       "f": 42.9,
       "a": 42.9,
