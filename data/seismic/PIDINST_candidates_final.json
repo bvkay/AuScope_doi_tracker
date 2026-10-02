@@ -2912,10 +2912,11 @@
   "integrated_node": false,
   "roles": "datalogger",
   "instrument_class": "datalogger",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "3G",
    "4J",
+   "5E",
    "6K",
    "8J"
   ],
@@ -2938,21 +2939,24 @@
   "funding_names_auscope": false,
   "networks_other": [
    "4J",
+   "5E",
    "8J"
   ],
-  "n_networks_other": 2,
+  "n_networks_other": 3,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2012-11-22",
-  "coverage_end": "2021-12-15",
-  "coverage_pidinst": "2012-11-22/2021-12-15",
+  "coverage_end": "2026-09-17",
+  "coverage_pidinst": "2012-11-22/2026-09-17",
   "still_deployed": false,
   "countries": [
+   "AU",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/SN/4J_2014",
    "10.7914/SN/6K_2020",
    "10.7914/SN/8J_2012"
@@ -5438,8 +5442,9 @@
   "integrated_node": false,
   "roles": "datalogger",
   "instrument_class": "datalogger",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
+   "5E",
    "6K",
    "8J"
   ],
@@ -5460,21 +5465,24 @@
   ],
   "funding_names_auscope": false,
   "networks_other": [
+   "5E",
    "8J"
   ],
-  "n_networks_other": 1,
+  "n_networks_other": 2,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2012-11-21",
-  "coverage_end": "2022-02-21",
-  "coverage_pidinst": "2012-11-21/2022-02-21",
+  "coverage_end": "2026-09-17",
+  "coverage_pidinst": "2012-11-21/2026-09-17",
   "still_deployed": false,
   "countries": [
+   "AU",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/SN/6K_2020",
    "10.7914/SN/8J_2012"
   ],
@@ -25528,9 +25536,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "1G",
+   "4E",
    "9B",
    "9M"
   ],
@@ -25542,21 +25551,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2020-08-31",
-  "coverage_end": "2024-03-28",
-  "coverage_pidinst": "2020-08-31/2024-03-28",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2020-08-31/2026-07-14",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/t2z3-2m87",
    "10.7914/z6kv-sg06"
@@ -25576,10 +25588,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1G",
    "1H",
+   "4E",
    "9B",
    "9M"
   ],
@@ -25592,21 +25605,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2020-08-31",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2020-08-31/2024-11-04",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2020-08-31/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
    "10.7914/t2z3-2m87",
@@ -25930,9 +25946,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "1G",
+   "4E",
    "8A",
    "9M"
   ],
@@ -25944,15 +25961,17 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2020-12-21",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2020-12-21/2024-09-24",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2020-12-21/2026-07-11",
   "still_deployed": false,
   "countries": [
    "AU",
@@ -25960,6 +25979,7 @@
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/ps89-gf83",
    "10.7914/t2z3-2m87"
@@ -25978,9 +25998,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "1G",
+   "4E",
    "9B",
    "9M"
   ],
@@ -25992,21 +26013,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2020-08-31",
-  "coverage_end": "2024-03-29",
-  "coverage_pidinst": "2020-08-31/2024-03-29",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2020-08-31/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/t2z3-2m87",
    "10.7914/z6kv-sg06"
@@ -26074,10 +26098,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "1G",
    "2B",
+   "4E",
    "9B"
   ],
   "networks_auscope": [
@@ -26088,21 +26113,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2020-08-31",
-  "coverage_end": "2023-11-06",
-  "coverage_pidinst": "2020-08-31/2023-11-06",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2020-08-31/2026-07-14",
   "still_deployed": false,
   "countries": [
    "Australia",
    "NZ"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/bfp8-xv25",
    "10.7914/t2z3-2m87",
    "10.7914/z6kv-sg06"
@@ -26170,10 +26198,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1G",
    "1H",
+   "4E",
    "9B",
    "9M"
   ],
@@ -26186,21 +26215,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2020-08-31",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2020-08-31/2024-11-04",
+  "coverage_end": "2026-07-17",
+  "coverage_pidinst": "2020-08-31/2026-07-17",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
    "10.7914/t2z3-2m87",
@@ -26274,10 +26306,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1G",
    "1H",
+   "4E",
    "9B",
    "9M"
   ],
@@ -26290,21 +26323,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2020-08-31",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2020-08-31/2024-11-05",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2020-08-31/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
    "10.7914/t2z3-2m87",
@@ -27826,10 +27862,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1G",
    "1H",
+   "4E",
    "9B",
    "9M"
   ],
@@ -27842,21 +27879,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2020-09-02",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2020-09-02/2024-11-05",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2020-09-02/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
    "10.7914/t2z3-2m87",
@@ -28137,10 +28177,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "1G",
    "2B",
+   "4E",
    "9B"
   ],
   "networks_auscope": [
@@ -28151,21 +28192,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2020-09-07",
-  "coverage_end": "2023-11-05",
-  "coverage_pidinst": "2020-09-07/2023-11-05",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2020-09-07/2026-07-14",
   "still_deployed": false,
   "countries": [
    "Australia",
    "NZ"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/bfp8-xv25",
    "10.7914/t2z3-2m87",
    "10.7914/z6kv-sg06"
@@ -29591,10 +29635,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1G",
    "1H",
+   "4E",
    "9B",
    "9M"
   ],
@@ -29607,21 +29652,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2020-08-31",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2020-08-31/2024-11-05",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2020-08-31/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
    "10.7914/t2z3-2m87",
@@ -30712,11 +30760,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -30730,21 +30779,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-10/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-10/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -30763,11 +30815,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -30781,21 +30834,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-09/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-09/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -30961,10 +31017,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -30975,20 +31032,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-27",
-  "coverage_pidinst": "2022-02-10/2022-07-27",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2022-02-10/2026-07-15",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -31374,7 +31434,7 @@
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 3,
   "coverage_start": "2022-02-10",
   "coverage_end": "2022-07-23",
   "coverage_pidinst": "2022-02-10/2022-07-23",
@@ -31399,11 +31459,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -31417,21 +31478,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-11",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-11/2024-11-04",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2022-02-11/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -31494,10 +31558,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -31508,20 +31573,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-11",
-  "coverage_end": "2022-07-21",
-  "coverage_pidinst": "2022-02-11/2022-07-21",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2022-02-11/2026-07-14",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -31538,11 +31606,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -31556,21 +31625,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-09/2024-11-04",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2022-02-09/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -31784,11 +31856,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -31800,21 +31873,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2022-02-10/2024-11-03",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2022-02-10/2026-07-13",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -32024,10 +32100,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -32038,20 +32115,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-20",
-  "coverage_pidinst": "2022-02-10/2022-07-20",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2022-02-10/2026-07-13",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -32120,10 +32200,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -32134,21 +32215,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-03-29",
-  "coverage_pidinst": "2022-02-10/2024-03-29",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2022-02-10/2026-07-11",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/xnz7-th21"
@@ -32166,11 +32250,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -32182,21 +32267,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-09/2024-11-04",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2022-02-09/2026-07-11",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -32303,10 +32391,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -32317,20 +32406,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2022-07-23",
-  "coverage_pidinst": "2022-02-09/2022-07-23",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2022-02-09/2026-07-11",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -32398,10 +32490,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -32412,20 +32505,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-22",
-  "coverage_pidinst": "2022-02-10/2022-07-22",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2022-02-10/2026-07-16",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -32536,10 +32632,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "2X",
-   "3X"
+   "3X",
+   "4E"
   ],
   "networks_auscope": [
    "2X",
@@ -32548,20 +32645,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-23",
-  "coverage_pidinst": "2022-02-10/2022-07-23",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-10/2026-07-10",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -32578,10 +32678,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -32592,20 +32693,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-11",
-  "coverage_end": "2022-07-22",
-  "coverage_pidinst": "2022-02-11/2022-07-22",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2022-02-11/2026-07-14",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -32726,11 +32830,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -32744,21 +32849,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-10/2024-11-04",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2022-02-10/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -33034,10 +33142,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -33048,20 +33157,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-21",
-  "coverage_pidinst": "2022-02-10/2022-07-21",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-10/2026-07-10",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -33336,11 +33448,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -33354,21 +33467,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-10/2024-11-04",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2022-02-10/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -33489,10 +33605,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "2X",
-   "3X"
+   "3X",
+   "4E"
   ],
   "networks_auscope": [
    "2X",
@@ -33501,20 +33618,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-19",
-  "coverage_pidinst": "2022-02-10/2022-07-19",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2022-02-10/2026-07-15",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -33531,10 +33651,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -33545,20 +33666,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-23",
-  "coverage_pidinst": "2022-02-10/2022-07-23",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-10/2026-07-10",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -33575,11 +33699,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -33593,21 +33718,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2022-02-10/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2022-02-10/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -33626,11 +33754,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -33642,21 +33771,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-09/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-09/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -33675,10 +33807,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -33689,20 +33822,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-20",
-  "coverage_pidinst": "2022-02-10/2022-07-20",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2022-02-10/2026-07-15",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -33719,11 +33855,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -33737,21 +33874,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2022-02-10/2024-11-05",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2022-02-10/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -33821,9 +33961,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "2X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -33833,20 +33974,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-04-12",
-  "coverage_pidinst": "2022-02-10/2022-04-12",
+  "coverage_end": "2026-07-08",
+  "coverage_pidinst": "2022-02-10/2026-07-08",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/xnz7-th21"
   ],
   "raw_model_variants": [
@@ -34010,11 +34154,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -34026,21 +34171,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-09/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-09/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -34109,10 +34257,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D",
    "8A",
    "9M"
@@ -34127,15 +34276,17 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2022-02-09/2024-09-24",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2022-02-09/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AU",
@@ -34143,6 +34294,7 @@
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/ps89-gf83",
@@ -34203,11 +34355,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -34221,21 +34374,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2022-02-10/2024-11-05",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-10/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -34254,11 +34410,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -34270,21 +34427,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 5,
+  "n_deployments": 6,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2022-02-10/2024-11-03",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2022-02-10/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -34303,10 +34463,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -34317,20 +34478,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-11",
-  "coverage_end": "2022-07-22",
-  "coverage_pidinst": "2022-02-11/2022-07-22",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2022-02-11/2026-07-11",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -34391,10 +34555,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -34405,20 +34570,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-22",
-  "coverage_pidinst": "2022-02-10/2022-07-22",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2022-02-10/2026-07-15",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -34577,10 +34745,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -34591,20 +34760,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-21",
-  "coverage_pidinst": "2022-02-10/2022-07-21",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-10/2026-07-10",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -34621,10 +34793,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -34637,21 +34810,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2024-03-28",
-  "coverage_pidinst": "2022-02-10/2024-03-28",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-10/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/xnz7-th21"
@@ -34669,10 +34845,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -34683,20 +34860,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-20",
-  "coverage_pidinst": "2022-02-10/2022-07-20",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2022-02-10/2026-07-11",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -34856,11 +35036,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -34874,21 +35055,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2022-02-09/2024-11-04",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2022-02-09/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -34907,11 +35091,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -34925,21 +35110,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2022-02-09/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2022-02-09/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -34958,10 +35146,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -34972,20 +35161,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2022-07-21",
-  "coverage_pidinst": "2022-02-09/2022-07-21",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2022-02-09/2026-07-11",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -35052,10 +35244,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -35066,20 +35259,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-19",
-  "coverage_pidinst": "2022-02-10/2022-07-19",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2022-02-10/2026-07-10",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -35096,11 +35292,12 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 5,
+  "n_networks": 6,
   "networks": [
    "1H",
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -35114,21 +35311,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 6,
+  "n_deployments": 7,
   "coverage_start": "2022-02-09",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2022-02-09/2024-11-05",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2022-02-09/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20",
@@ -35186,10 +35386,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 3,
+  "n_networks": 4,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D"
   ],
   "networks_auscope": [
@@ -35200,20 +35401,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2022-02-10",
-  "coverage_end": "2022-07-20",
-  "coverage_pidinst": "2022-02-10/2022-07-20",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2022-02-10/2026-07-16",
   "still_deployed": false,
   "countries": [
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/xnz7-th21"
   ],
@@ -35326,10 +35530,11 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 4,
+  "n_networks": 5,
   "networks": [
    "2X",
    "3X",
+   "4E",
    "6D",
    "9M"
   ],
@@ -35342,21 +35547,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2022-02-11",
-  "coverage_end": "2024-03-28",
-  "coverage_pidinst": "2022-02-11/2024-03-28",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2022-02-11/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/6q5b-va48",
    "10.7914/ac1p-7y35",
    "10.7914/xnz7-th21"
@@ -35517,9 +35725,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35529,21 +35738,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-29/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-02-29/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -35560,9 +35772,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35572,21 +35785,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-28/2024-11-05",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-02-28/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -35603,8 +35819,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
+   "4E",
    "8A",
    "9M"
   ],
@@ -35615,21 +35832,25 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2024-02-29/2024-09-24",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-02-29/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AU",
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/ps89-gf83"
   ],
@@ -35646,9 +35867,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35658,21 +35880,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-03",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-03/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-03-03/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -35689,8 +35914,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35699,20 +35925,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-03-28",
-  "coverage_pidinst": "2024-03-01/2024-03-28",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-03-01/2026-07-10",
   "still_deployed": false,
   "countries": [
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -35728,9 +35958,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35740,21 +35971,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-03-01/2024-11-04",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2024-03-01/2026-07-14",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -35810,9 +36044,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35822,21 +36057,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-03-01/2024-11-04",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-03-01/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -35853,9 +36091,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35865,21 +36104,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-22",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2023-11-22/2024-11-04",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2023-11-22/2026-07-13",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -35896,8 +36138,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35906,20 +36149,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2023-11-22",
-  "coverage_end": "2023-12-18",
-  "coverage_pidinst": "2023-11-22/2023-12-18",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2023-11-22/2026-07-16",
   "still_deployed": false,
   "countries": [
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -35935,9 +36182,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35947,21 +36195,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2023-11-21/2024-11-05",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2023-11-21/2026-07-11",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -35978,9 +36229,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -35990,21 +36242,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-28/2024-11-05",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-02-28/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36021,8 +36276,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
+   "4E",
    "8A",
    "9M"
   ],
@@ -36033,21 +36289,25 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2024-03-01/2024-09-24",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-03-01/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AU",
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/ps89-gf83"
   ],
@@ -36064,9 +36324,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36076,21 +36337,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-02-29/2024-11-04",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-02-29/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36107,9 +36371,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36119,21 +36384,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-27",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-27/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-02-27/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36150,9 +36418,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36162,21 +36431,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-28/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-02-28/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36193,8 +36465,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "8A"
   ],
   "networks_auscope": [
@@ -36203,20 +36476,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-08-30",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2024-08-30/2024-09-24",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-08-30/2026-07-15",
   "still_deployed": false,
   "countries": [
-   "AU"
+   "AU",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ps89-gf83"
   ],
   "raw_model_variants": [
@@ -36232,9 +36509,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36244,21 +36522,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2023-11-21/2024-11-03",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2023-11-21/2026-07-13",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36275,8 +36556,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36285,20 +36567,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2023-12-18",
-  "coverage_pidinst": "2023-11-21/2023-12-18",
+  "coverage_end": "2026-07-17",
+  "coverage_pidinst": "2023-11-21/2026-07-17",
   "still_deployed": false,
   "countries": [
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -36314,8 +36600,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36324,20 +36611,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-03-27",
-  "coverage_pidinst": "2024-03-01/2024-03-27",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2024-03-01/2026-07-11",
   "still_deployed": false,
   "countries": [
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -36396,8 +36687,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "YB"
   ],
   "networks_auscope": [
@@ -36406,20 +36698,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2026-03-12",
-  "coverage_end": "2026-04-10",
-  "coverage_pidinst": "2026-03-12/2026-04-10",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2026-03-12/2026-09-05",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/g75f-4a16"
   ],
   "raw_model_variants": [
@@ -36478,8 +36774,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "YB"
   ],
   "networks_auscope": [
@@ -36488,20 +36785,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2026-03-12",
-  "coverage_end": "2026-04-10",
-  "coverage_pidinst": "2026-03-12/2026-04-10",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2026-03-12/2026-09-05",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/g75f-4a16"
   ],
   "raw_model_variants": [
@@ -36517,8 +36818,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "4K"
   ],
   "networks_auscope": [
@@ -36527,20 +36829,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-09-24",
-  "coverage_end": "2024-10-24",
-  "coverage_pidinst": "2024-09-24/2024-10-24",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2024-09-24/2026-07-11",
   "still_deployed": false,
   "countries": [
+   "Australia",
    "NZ"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/7b9m-1d60"
   ],
   "raw_model_variants": [
@@ -36595,8 +36901,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36605,20 +36912,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-03-31",
-  "coverage_pidinst": "2024-03-01/2024-03-31",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-03-01/2026-07-15",
   "still_deployed": false,
   "countries": [
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -36677,9 +36988,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36689,21 +37001,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2024-02-28/2024-11-03",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-02-28/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36720,9 +37035,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36732,21 +37048,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-02/2024-11-05",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2024-03-02/2026-07-14",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36763,9 +37082,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36775,21 +37095,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-02-28/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-02-28/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36806,8 +37129,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "9M"
   ],
   "networks_auscope": [
@@ -36816,20 +37140,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-04-02",
-  "coverage_pidinst": "2023-11-21/2024-04-02",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2023-11-21/2026-09-05",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -36845,8 +37173,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "8A"
   ],
   "networks_auscope": [
@@ -36855,20 +37184,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-08-30",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2024-08-30/2024-09-24",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-08-30/2026-07-12",
   "still_deployed": false,
   "countries": [
-   "AU"
+   "AU",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ps89-gf83"
   ],
   "raw_model_variants": [
@@ -36884,9 +37217,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36896,21 +37230,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-29/2024-11-05",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-02-29/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -36966,9 +37303,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -36978,21 +37316,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-03-02/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-03-02/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37052,9 +37393,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37064,21 +37406,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-01/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-03-01/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37095,8 +37440,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "8A"
   ],
   "networks_auscope": [
@@ -37105,20 +37451,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-08-30",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2024-08-30/2024-09-24",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-08-30/2026-07-15",
   "still_deployed": false,
   "countries": [
-   "AU"
+   "AU",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ps89-gf83"
   ],
   "raw_model_variants": [
@@ -37134,9 +37484,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37146,21 +37497,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-29/2024-11-05",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-02-29/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37216,9 +37570,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37228,21 +37583,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-22",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2023-11-22/2024-11-05",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2023-11-22/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37259,9 +37617,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37271,21 +37630,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2023-11-21/2024-11-04",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2023-11-21/2026-07-13",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37345,9 +37707,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37357,21 +37720,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2023-11-21/2024-11-03",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2023-11-21/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37431,9 +37797,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37443,21 +37810,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-02-29/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-02-29/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37513,9 +37883,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37525,21 +37896,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-03-02/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-03-02/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37556,9 +37930,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37568,21 +37943,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2023-11-21/2024-11-03",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2023-11-21/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37599,9 +37977,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37611,21 +37990,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-03-01/2024-11-04",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-03-01/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37642,8 +38024,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "9M"
   ],
   "networks_auscope": [
@@ -37652,20 +38035,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-04-01",
-  "coverage_pidinst": "2023-11-21/2024-04-01",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2023-11-21/2026-09-05",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -37681,8 +38068,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "8A"
   ],
   "networks_auscope": [
@@ -37691,20 +38079,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-08-30",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2024-08-30/2024-09-24",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2024-08-30/2026-07-11",
   "still_deployed": false,
   "countries": [
-   "AU"
+   "AU",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ps89-gf83"
   ],
   "raw_model_variants": [
@@ -37720,9 +38112,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37732,21 +38125,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-01/2024-11-05",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-03-01/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37763,9 +38159,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37775,21 +38172,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-02/2024-11-05",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2024-03-02/2026-07-14",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37806,9 +38206,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37818,21 +38219,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2023-11-21/2024-11-04",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2023-11-21/2026-07-11",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37849,9 +38253,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37861,21 +38266,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2024-02-28/2024-11-03",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-02-28/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37892,9 +38300,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37904,21 +38313,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2024-02-29/2024-11-03",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-02-29/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -37935,9 +38347,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -37947,21 +38360,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-27",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-27/2024-11-05",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2024-02-27/2026-07-11",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38017,8 +38433,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "9M"
   ],
   "networks_auscope": [
@@ -38027,20 +38444,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2023-11-22",
-  "coverage_end": "2024-04-02",
-  "coverage_pidinst": "2023-11-22/2024-04-02",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2023-11-22/2026-09-05",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -38095,8 +38516,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "YB"
   ],
   "networks_auscope": [
@@ -38105,20 +38527,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2026-03-12",
-  "coverage_end": "2026-04-10",
-  "coverage_pidinst": "2026-03-12/2026-04-10",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2026-03-12/2026-09-05",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/g75f-4a16"
   ],
   "raw_model_variants": [
@@ -38134,9 +38560,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -38146,21 +38573,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-02/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-03-02/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38177,8 +38607,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "8A"
   ],
   "networks_auscope": [
@@ -38187,20 +38618,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-08-30",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2024-08-30/2024-09-24",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2024-08-30/2026-07-14",
   "still_deployed": false,
   "countries": [
-   "AU"
+   "AU",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ps89-gf83"
   ],
   "raw_model_variants": [
@@ -38259,9 +38694,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "5E",
    "9M"
   ],
   "networks_auscope": [
@@ -38271,21 +38707,25 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-28/2024-11-05",
+  "coverage_end": "2026-09-04",
+  "coverage_pidinst": "2024-02-28/2026-09-04",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38302,8 +38742,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "4K"
   ],
   "networks_auscope": [
@@ -38312,20 +38753,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-09-24",
-  "coverage_end": "2024-10-23",
-  "coverage_pidinst": "2024-09-24/2024-10-23",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-09-24/2026-07-12",
   "still_deployed": false,
   "countries": [
+   "Australia",
    "NZ"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/7b9m-1d60"
   ],
   "raw_model_variants": [
@@ -38501,9 +38946,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -38513,21 +38959,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-03",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-03/2024-11-05",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-03-03/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38544,8 +38993,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "4K"
   ],
   "networks_auscope": [
@@ -38554,20 +39004,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-09-24",
-  "coverage_end": "2024-10-25",
-  "coverage_pidinst": "2024-09-24/2024-10-25",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-09-24/2026-07-12",
   "still_deployed": false,
   "countries": [
+   "Australia",
    "NZ"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/7b9m-1d60"
   ],
   "raw_model_variants": [
@@ -38661,8 +39115,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "8A"
   ],
   "networks_auscope": [
@@ -38671,20 +39126,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-08-30",
-  "coverage_end": "2024-09-24",
-  "coverage_pidinst": "2024-08-30/2024-09-24",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-08-30/2026-07-12",
   "still_deployed": false,
   "countries": [
-   "AU"
+   "AU",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ps89-gf83"
   ],
   "raw_model_variants": [
@@ -38700,9 +39159,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -38712,21 +39172,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-02/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-03-02/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38743,9 +39206,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -38755,21 +39219,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-02/2024-11-05",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2024-03-02/2026-07-14",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38786,8 +39253,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "YB"
   ],
   "networks_auscope": [
@@ -38796,20 +39264,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2026-03-12",
-  "coverage_end": "2026-04-10",
-  "coverage_pidinst": "2026-03-12/2026-04-10",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2026-03-12/2026-09-05",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/g75f-4a16"
   ],
   "raw_model_variants": [
@@ -38825,9 +39297,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -38837,21 +39310,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-02-28/2024-11-04",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-02-28/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38868,9 +39344,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -38880,21 +39357,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-29/2024-11-05",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2024-02-29/2026-07-11",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38911,9 +39391,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -38923,21 +39404,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2024-02-28/2024-11-03",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-02-28/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38954,9 +39438,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -38966,21 +39451,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-28/2024-11-05",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2024-02-28/2026-07-11",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -38997,8 +39485,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "YB"
   ],
   "networks_auscope": [
@@ -39007,20 +39496,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2026-03-12",
-  "coverage_end": "2026-04-10",
-  "coverage_pidinst": "2026-03-12/2026-04-10",
+  "coverage_end": "2026-09-04",
+  "coverage_pidinst": "2026-03-12/2026-09-04",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/g75f-4a16"
   ],
   "raw_model_variants": [
@@ -39036,9 +39529,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39048,21 +39542,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-03",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2024-03-03/2024-11-03",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-03-03/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39161,9 +39658,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39173,21 +39671,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2023-11-21/2024-11-05",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2023-11-21/2026-07-13",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39204,8 +39705,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39214,20 +39716,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-02-28",
-  "coverage_end": "2024-03-27",
-  "coverage_pidinst": "2024-02-28/2024-03-27",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2024-02-28/2026-07-14",
   "still_deployed": false,
   "countries": [
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -39243,9 +39749,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39255,21 +39762,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-03",
-  "coverage_end": "2024-11-03",
-  "coverage_pidinst": "2024-03-03/2024-11-03",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-03-03/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39286,9 +39796,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39298,21 +39809,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-02/2024-11-05",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-03-02/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39329,8 +39843,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39339,20 +39854,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2023-12-18",
-  "coverage_pidinst": "2023-11-21/2023-12-18",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2023-11-21/2026-07-12",
   "still_deployed": false,
   "countries": [
-   "AUS"
+   "AUS",
+   "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -39368,9 +39887,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39380,21 +39900,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2023-11-21/2024-11-04",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2023-11-21/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39411,9 +39934,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39423,21 +39947,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2023-11-21/2024-11-05",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2023-11-21/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39454,9 +39981,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39466,21 +39994,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-22",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2023-11-22/2024-11-05",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2023-11-22/2026-07-14",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39497,8 +40028,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "5E",
    "9M"
   ],
   "networks_auscope": [
@@ -39507,20 +40039,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-03-03",
-  "coverage_end": "2024-03-31",
-  "coverage_pidinst": "2024-03-03/2024-03-31",
+  "coverage_end": "2026-09-04",
+  "coverage_pidinst": "2024-03-03/2026-09-04",
   "still_deployed": false,
   "countries": [
+   "AU",
    "AUS"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/ac1p-7y35"
   ],
   "raw_model_variants": [
@@ -39575,9 +40111,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39587,21 +40124,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-01/2024-11-05",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2024-03-01/2026-07-10",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39618,9 +40158,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39630,21 +40171,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-03-02/2024-11-04",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2024-03-02/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39661,9 +40205,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39673,21 +40218,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-03-01/2024-11-04",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2024-03-01/2026-07-14",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39704,9 +40252,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39716,21 +40265,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2023-11-21/2024-11-05",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2023-11-21/2026-07-13",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39747,9 +40299,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39759,21 +40312,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-22",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2023-11-22/2024-11-04",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2023-11-22/2026-07-16",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39790,9 +40346,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39802,21 +40359,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-01/2024-11-05",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-03-01/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39833,9 +40393,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39845,21 +40406,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-02-29",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-02-29/2024-11-05",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2024-02-29/2026-07-13",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39876,9 +40440,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39888,21 +40453,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 4,
+  "n_deployments": 5,
   "coverage_start": "2023-11-21",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2023-11-21/2024-11-05",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2023-11-21/2026-07-13",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39919,9 +40487,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39931,21 +40500,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-01",
-  "coverage_end": "2024-11-04",
-  "coverage_pidinst": "2024-03-01/2024-11-04",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2024-03-01/2026-07-15",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -39962,9 +40534,10 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "1H",
+   "4E",
    "9M"
   ],
   "networks_auscope": [
@@ -39974,21 +40547,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 3,
+  "n_deployments": 4,
   "coverage_start": "2024-03-02",
-  "coverage_end": "2024-11-05",
-  "coverage_pidinst": "2024-03-02/2024-11-05",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-03-02/2026-07-12",
   "still_deployed": false,
   "countries": [
    "AUS",
    "Australia"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/ac1p-7y35",
    "10.7914/psbw-7z20"
   ],
@@ -40091,8 +40667,9 @@
   "integrated_node": true,
   "roles": "sensor",
   "instrument_class": "nodal-short-period",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
+   "4E",
    "4K"
   ],
   "networks_auscope": [
@@ -40101,20 +40678,24 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2024-09-24",
-  "coverage_end": "2024-10-23",
-  "coverage_pidinst": "2024-09-24/2024-10-23",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2024-09-24/2026-07-12",
   "still_deployed": false,
   "countries": [
+   "Australia",
    "NZ"
   ],
   "network_dois": [
+   "10.7914/4a57-3b18",
    "10.7914/7b9m-1d60"
   ],
   "raw_model_variants": [
@@ -43905,6 +44486,55 @@
   "basis": "AuScope experiment: MATE",
   "manufacturer": "Guralp Systems",
   "model": "Guralp MINIMUS",
+  "serial": "1A57",
+  "integrated_node": false,
+  "roles": "datalogger",
+  "instrument_class": "datalogger",
+  "n_networks": 1,
+  "networks": [
+   "M8"
+  ],
+  "networks_auscope": [
+   "M8"
+  ],
+  "auscope_sites": [],
+  "network_funding": [
+   {
+    "net": "M8",
+    "epoch": "2024-01-09",
+    "funders": [
+     "AuScope"
+    ],
+    "source": "fdsn-metadata",
+    "experiment": "Australian Semi-Permanent Support Network (MATE)"
+   }
+  ],
+  "funding_names_auscope": true,
+  "networks_other": [],
+  "n_networks_other": 0,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-09-29",
+  "coverage_end": null,
+  "coverage_pidinst": "2026-09-29/",
+  "still_deployed": true,
+  "countries": [
+   "AUS"
+  ],
+  "network_dois": [
+   "10.7914/6e8t-6g37"
+  ],
+  "raw_model_variants": [
+   "Guralp Minimus"
+  ]
+ },
+ {
+  "attribution": "confirmed-AuScope",
+  "basis": "AuScope experiment: MATE",
+  "manufacturer": "Guralp Systems",
+  "model": "Guralp MINIMUS",
   "serial": "2B56",
   "integrated_node": false,
   "roles": "datalogger",
@@ -44131,9 +44761,9 @@
   "serial_merged": [],
   "serial_variant_conflict": false,
   "n_deployments": 1,
-  "coverage_start": "2025-10-08",
+  "coverage_start": "2026-10-01",
   "coverage_end": null,
-  "coverage_pidinst": "2025-10-08/",
+  "coverage_pidinst": "2026-10-01/",
   "still_deployed": true,
   "countries": [
    "AU"
@@ -52405,10 +53035,11 @@
   "integrated_node": false,
   "roles": "sensor",
   "instrument_class": "broadband",
-  "n_networks": 2,
+  "n_networks": 3,
   "networks": [
    "2P",
-   "4B"
+   "4B",
+   "5E"
   ],
   "networks_auscope": [
    "4B"
@@ -52417,21 +53048,23 @@
   "network_funding": [],
   "funding_names_auscope": false,
   "networks_other": [
-   "2P"
+   "2P",
+   "5E"
   ],
-  "n_networks_other": 1,
+  "n_networks_other": 2,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 3,
   "coverage_start": "2020-09-23",
-  "coverage_end": "2025-05-26",
-  "coverage_pidinst": "2020-09-23/2025-05-26",
+  "coverage_end": "2026-09-17",
+  "coverage_pidinst": "2020-09-23/2026-09-17",
   "still_deployed": false,
   "countries": [
    "AU"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/9j20-yq91",
    "10.7914/SN/2P_2020"
   ],
@@ -52448,9 +53081,10 @@
   "integrated_node": false,
   "roles": "sensor",
   "instrument_class": "broadband",
-  "n_networks": 1,
+  "n_networks": 2,
   "networks": [
-   "4B"
+   "4B",
+   "5E"
   ],
   "networks_auscope": [
    "4B"
@@ -52458,20 +53092,23 @@
   "auscope_sites": [],
   "network_funding": [],
   "funding_names_auscope": false,
-  "networks_other": [],
-  "n_networks_other": 0,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2023-03-30",
-  "coverage_end": "2024-09-29",
-  "coverage_pidinst": "2023-03-30/2024-09-29",
+  "coverage_end": "2026-09-17",
+  "coverage_pidinst": "2023-03-30/2026-09-17",
   "still_deployed": false,
   "countries": [
    "AU"
   ],
   "network_dois": [
+   "10.7914/94f1-7h05",
    "10.7914/9j20-yq91"
   ],
   "raw_model_variants": [
@@ -74024,6 +74661,1488 @@
  {
   "attribution": "unattributed",
   "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021601",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "5E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-08-07",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2026-08-07/2026-09-05",
+  "still_deployed": false,
+  "countries": [
+   "AU"
+  ],
+  "network_dois": [
+   "10.7914/94f1-7h05"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021609",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-13/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021625",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-14",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2026-06-14/2026-07-13",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021660",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2026-06-13/2026-07-11",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021814",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2026-06-13/2026-07-11",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021826",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2026-06-13/2026-07-10",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021828",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-13/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021829",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-16",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-16/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021834",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2026-06-13/2026-07-10",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021841",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-14",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-14/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021847",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-16",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-16/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021850",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-19",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2026-06-19/2026-07-16",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021854",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-16",
+  "coverage_end": "2026-07-14",
+  "coverage_pidinst": "2026-06-16/2026-07-14",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021855",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2026-06-13/2026-07-11",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021857",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-19",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2026-06-19/2026-07-15",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021862",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "5E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "5E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-08-07",
+  "coverage_end": "2026-09-05",
+  "coverage_pidinst": "2026-08-07/2026-09-05",
+  "still_deployed": false,
+  "countries": [
+   "AU"
+  ],
+  "network_dois": [
+   "10.7914/94f1-7h05"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021876",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-16",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-16/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021889",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-14",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2026-06-14/2026-07-11",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021908",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-20",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-20/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021909",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2026-06-13/2026-07-11",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021910",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-15",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2026-06-15/2026-07-10",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021915",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-13/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021919",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-15",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2026-06-15/2026-07-10",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021928",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-14",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2026-06-14/2026-07-11",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021934",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-20",
+  "coverage_end": "2026-07-16",
+  "coverage_pidinst": "2026-06-20/2026-07-16",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021941",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-16",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2026-06-16/2026-07-15",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021943",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-17",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2026-06-17/2026-07-15",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021948",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-14",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2026-06-14/2026-07-13",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021952",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2026-06-13/2026-07-13",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021959",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-20",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2026-06-20/2026-07-15",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021971",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-20",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2026-06-20/2026-07-11",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021976",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-16",
+  "coverage_end": "2026-07-12",
+  "coverage_pidinst": "2026-06-16/2026-07-12",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021991",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-16",
+  "coverage_end": "2026-07-13",
+  "coverage_pidinst": "2026-06-16/2026-07-13",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021992",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-15",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2026-06-15/2026-07-10",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453021993",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2026-06-13/2026-07-10",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453022003",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-13",
+  "coverage_end": "2026-07-10",
+  "coverage_pidinst": "2026-06-13/2026-07-10",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453022010",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-19",
+  "coverage_end": "2026-07-15",
+  "coverage_pidinst": "2026-06-19/2026-07-15",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "DTCC (SmartSolo)",
+  "model": "DTCC SmartSolo 16HR-3C",
+  "serial": "453022017",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "nodal-short-period",
+  "n_networks": 1,
+  "networks": [
+   "4E"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "4E"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2026-06-14",
+  "coverage_end": "2026-07-11",
+  "coverage_pidinst": "2026-06-14/2026-07-11",
+  "still_deployed": false,
+  "countries": [
+   "Australia"
+  ],
+  "network_dois": [
+   "10.7914/4a57-3b18"
+  ],
+  "raw_model_variants": [
+   "DTCC SmartSolo 16HR-3C 5 Hz 76.6 V/m/s"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
   "manufacturer": "Earth Data",
   "model": "EarthData PR6-24 (Blue Face)",
   "serial": "4261",
@@ -86262,7 +88381,7 @@
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2013-08-26",
   "coverage_end": null,
   "coverage_pidinst": "2013-08-26/",
@@ -90525,7 +92644,7 @@
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2013-08-26",
   "coverage_end": null,
   "coverage_pidinst": "2013-08-26/",
@@ -98575,6 +100694,55 @@
   "coverage_start": "2015-08-19",
   "coverage_end": null,
   "coverage_pidinst": "2015-08-19/",
+  "still_deployed": true,
+  "countries": [
+   "AUS"
+  ],
+  "network_dois": [
+   "10.7914/SN/S1'"
+  ],
+  "raw_model_variants": [
+   "Nanometrics Meridian Compact Posthole 120s (754 V/m/s)"
+  ]
+ },
+ {
+  "attribution": "unattributed",
+  "basis": "no ANSIR/AuScope record, not ANU-built",
+  "manufacturer": "Nanometrics",
+  "model": "Nanometrics Meridian Compact Posthole 120s",
+  "serial": "0813",
+  "integrated_node": true,
+  "roles": "sensor",
+  "instrument_class": "broadband",
+  "n_networks": 1,
+  "networks": [
+   "S1"
+  ],
+  "networks_auscope": [],
+  "auscope_sites": [],
+  "network_funding": [
+   {
+    "net": "S1",
+    "epoch": "2011-09-01",
+    "funders": [
+     "ANU"
+    ],
+    "source": "fdsn-metadata",
+    "experiment": "Australian Seismometers in Schools (AUSiS)"
+   }
+  ],
+  "funding_names_auscope": false,
+  "networks_other": [
+   "S1"
+  ],
+  "n_networks_other": 1,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2013-08-28",
+  "coverage_end": null,
+  "coverage_pidinst": "2013-08-28/",
   "still_deployed": true,
   "countries": [
    "AUS"
