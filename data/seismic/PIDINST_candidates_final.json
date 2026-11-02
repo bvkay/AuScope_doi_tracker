@@ -44388,6 +44388,55 @@
   "basis": "AuScope experiment: MATE",
   "manufacturer": "Guralp Systems",
   "model": "Guralp MINIMUS",
+  "serial": "0F57",
+  "integrated_node": false,
+  "roles": "datalogger",
+  "instrument_class": "datalogger",
+  "n_networks": 1,
+  "networks": [
+   "M8"
+  ],
+  "networks_auscope": [
+   "M8"
+  ],
+  "auscope_sites": [],
+  "network_funding": [
+   {
+    "net": "M8",
+    "epoch": "2024-01-09",
+    "funders": [
+     "AuScope"
+    ],
+    "source": "fdsn-metadata",
+    "experiment": "Australian Semi-Permanent Support Network (MATE)"
+   }
+  ],
+  "funding_names_auscope": true,
+  "networks_other": [],
+  "n_networks_other": 0,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2024-12-28",
+  "coverage_end": null,
+  "coverage_pidinst": "2024-12-28/",
+  "still_deployed": true,
+  "countries": [
+   "AU"
+  ],
+  "network_dois": [
+   "10.7914/6e8t-6g37"
+  ],
+  "raw_model_variants": [
+   "Guralp Minimus"
+  ]
+ },
+ {
+  "attribution": "confirmed-AuScope",
+  "basis": "AuScope experiment: MATE",
+  "manufacturer": "Guralp Systems",
+  "model": "Guralp MINIMUS",
   "serial": "1361",
   "integrated_node": false,
   "roles": "datalogger",
@@ -44516,9 +44565,9 @@
   "serial_merged": [],
   "serial_variant_conflict": false,
   "n_deployments": 1,
-  "coverage_start": "2026-09-29",
+  "coverage_start": "2025-08-02",
   "coverage_end": null,
-  "coverage_pidinst": "2026-09-29/",
+  "coverage_pidinst": "2025-08-02/",
   "still_deployed": true,
   "countries": [
    "AUS"
@@ -44565,10 +44614,10 @@
   "serial_merged": [],
   "serial_variant_conflict": false,
   "n_deployments": 1,
-  "coverage_start": "2026-05-13",
-  "coverage_end": null,
-  "coverage_pidinst": "2026-05-13/",
-  "still_deployed": true,
+  "coverage_start": "2024-06-24",
+  "coverage_end": "2026-10-09",
+  "coverage_pidinst": "2024-06-24/2026-10-09",
+  "still_deployed": false,
   "countries": [
    "AU"
   ],
@@ -44663,9 +44712,9 @@
   "serial_merged": [],
   "serial_variant_conflict": false,
   "n_deployments": 1,
-  "coverage_start": "2026-07-01",
+  "coverage_start": "2026-07-21",
   "coverage_end": null,
-  "coverage_pidinst": "2026-07-01/",
+  "coverage_pidinst": "2026-07-21/",
   "still_deployed": true,
   "countries": [
    "AU"
@@ -44761,9 +44810,9 @@
   "serial_merged": [],
   "serial_variant_conflict": false,
   "n_deployments": 1,
-  "coverage_start": "2026-10-01",
+  "coverage_start": "2025-10-08",
   "coverage_end": null,
-  "coverage_pidinst": "2026-10-01/",
+  "coverage_pidinst": "2025-10-08/",
   "still_deployed": true,
   "countries": [
    "AU"
@@ -44810,12 +44859,61 @@
   "serial_merged": [],
   "serial_variant_conflict": false,
   "n_deployments": 1,
-  "coverage_start": "2026-05-12",
+  "coverage_start": "2025-05-13",
   "coverage_end": null,
-  "coverage_pidinst": "2026-05-12/",
+  "coverage_pidinst": "2025-05-13/",
   "still_deployed": true,
   "countries": [
    "AU"
+  ],
+  "network_dois": [
+   "10.7914/6e8t-6g37"
+  ],
+  "raw_model_variants": [
+   "Guralp Minimus"
+  ]
+ },
+ {
+  "attribution": "confirmed-AuScope",
+  "basis": "AuScope experiment: MATE",
+  "manufacturer": "Guralp Systems",
+  "model": "Guralp MINIMUS",
+  "serial": "7259",
+  "integrated_node": false,
+  "roles": "datalogger",
+  "instrument_class": "datalogger",
+  "n_networks": 1,
+  "networks": [
+   "M8"
+  ],
+  "networks_auscope": [
+   "M8"
+  ],
+  "auscope_sites": [],
+  "network_funding": [
+   {
+    "net": "M8",
+    "epoch": "2024-01-09",
+    "funders": [
+     "AuScope"
+    ],
+    "source": "fdsn-metadata",
+    "experiment": "Australian Semi-Permanent Support Network (MATE)"
+   }
+  ],
+  "funding_names_auscope": true,
+  "networks_other": [],
+  "n_networks_other": 0,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2025-08-06",
+  "coverage_end": null,
+  "coverage_pidinst": "2025-08-06/",
+  "still_deployed": true,
+  "countries": [
+   "AUS"
   ],
   "network_dois": [
    "10.7914/6e8t-6g37"
@@ -44957,9 +45055,9 @@
   "serial_merged": [],
   "serial_variant_conflict": false,
   "n_deployments": 1,
-  "coverage_start": "2025-01-01",
+  "coverage_start": "2024-12-25",
   "coverage_end": null,
-  "coverage_pidinst": "2025-01-01/",
+  "coverage_pidinst": "2024-12-25/",
   "still_deployed": true,
   "countries": [
    "AU"
@@ -52958,9 +53056,9 @@
   "serial_merged": [],
   "serial_variant_conflict": false,
   "n_deployments": 1,
-  "coverage_start": "2026-05-12",
+  "coverage_start": "2025-05-13",
   "coverage_end": null,
-  "coverage_pidinst": "2026-05-12/",
+  "coverage_pidinst": "2025-05-13/",
   "still_deployed": true,
   "countries": [
    "AU"
@@ -53577,6 +53675,55 @@
   "coverage_start": "2024-01-09",
   "coverage_end": null,
   "coverage_pidinst": "2024-01-09/",
+  "still_deployed": true,
+  "countries": [
+   "AU"
+  ],
+  "network_dois": [
+   "10.7914/6e8t-6g37"
+  ],
+  "raw_model_variants": [
+   "Nanometrics Trillium Compact 120s PostHole (754 V/m/s)"
+  ]
+ },
+ {
+  "attribution": "confirmed-AuScope",
+  "basis": "AuScope experiment: MATE",
+  "manufacturer": "Nanometrics",
+  "model": "Nanometrics Trillium Compact PostHole 120s",
+  "serial": "9889",
+  "integrated_node": false,
+  "roles": "sensor",
+  "instrument_class": "broadband",
+  "n_networks": 1,
+  "networks": [
+   "M8"
+  ],
+  "networks_auscope": [
+   "M8"
+  ],
+  "auscope_sites": [],
+  "network_funding": [
+   {
+    "net": "M8",
+    "epoch": "2024-01-09",
+    "funders": [
+     "AuScope"
+    ],
+    "source": "fdsn-metadata",
+    "experiment": "Australian Semi-Permanent Support Network (MATE)"
+   }
+  ],
+  "funding_names_auscope": true,
+  "networks_other": [],
+  "n_networks_other": 0,
+  "serial_reconstructed": false,
+  "serial_merged": [],
+  "serial_variant_conflict": false,
+  "n_deployments": 1,
+  "coverage_start": "2024-12-28",
+  "coverage_end": null,
+  "coverage_pidinst": "2024-12-28/",
   "still_deployed": true,
   "countries": [
    "AU"
@@ -67574,7 +67721,7 @@
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 19,
+  "n_deployments": 26,
   "coverage_start": "2000-10-24",
   "coverage_end": "2004-02-05",
   "coverage_pidinst": "2000-10-24/2004-02-05",
@@ -87695,7 +87842,7 @@
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 1,
   "coverage_start": "2013-05-28",
   "coverage_end": null,
   "coverage_pidinst": "2013-05-28/",
@@ -90292,7 +90439,7 @@
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2013-06-24",
   "coverage_end": null,
   "coverage_pidinst": "2013-06-24/",
@@ -91174,7 +91321,7 @@
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 2,
+  "n_deployments": 1,
   "coverage_start": "2013-05-28",
   "coverage_end": null,
   "coverage_pidinst": "2013-05-28/",
@@ -93771,7 +93918,7 @@
   "serial_reconstructed": false,
   "serial_merged": [],
   "serial_variant_conflict": false,
-  "n_deployments": 1,
+  "n_deployments": 2,
   "coverage_start": "2013-06-24",
   "coverage_end": null,
   "coverage_pidinst": "2013-06-24/",
