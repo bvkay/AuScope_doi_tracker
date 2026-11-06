@@ -1,0 +1,84 @@
+name: AusMT run harvest
+
+on:
+  # Weekly (Tuesdays, 03:00 UTC), clear of the Sunday/Wednesday citation
+  # slots and the Monday NVCL harvest. Split out of the weekly citation job
+  # so an OpenAlex-throttled search can no longer starve it of time. The
+  # harvest is build_id-gated: a 300-byte request when the AusMT portal has
+  # not rebuilt since the last run.
+  schedule:
+    - cron: '0 3 * * 2'
+
+  # Manual trigger via GitHub UI
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Re-walk every survey even if the portal build_id is unchanged'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+# Same group as the weekly citation pipeline (and every other workflow that
+# pushes to main), so they never overlap.
+concurrency:
+  group: citation-pipeline
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # AusMT run-level deployment harvest. Sole source for the MT deployment
+      # register — never the instrument registry's survey records. Fail-soft
+      # when the portal is unreachable (keeps the existing file, exits 0).
+      # --force (manual runs only) bypasses the build_id gate.
+      - name: AusMT run harvest
+        run: node src/ausmt-inventory.js ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+
+      # PID demonstrator feed, built from the fresh runs file. Best-effort:
+      # a failure here must not block the stats, dashboard or commit.
+      - name: PID demonstrator feed
+        continue-on-error: true
+        run: node src/pid-demonstrator-data.js
+
+      # Must run before the dashboard so explorer cards pick up fresh numbers.
+      # !cancelled(): regenerate docs from whatever data exists even when the
+      # harvest hard-failed — keeps data/ and docs/ consistent.
+      - name: Aggregate cross-pillar stats
+        if: ${{ !cancelled() }}
+        run: node src/stats.js
+
+      # Regenerate dashboard
+      - name: Generate dashboard
+        if: ${{ !cancelled() }}
+        run: node src/dashboard.js
+
+      # Commit and push all changes. !cancelled() (NOT always(), which would
+      # also run after a cancellation that may have SIGKILLed node mid-write)
+      # keeps the successful stages' output even when a later stage failed.
+      # Staged JSON is parse-checked first so a truncated file can never be
+      # committed. The rebase-before-push survives a race with another
+      # workflow pushing to main mid-run.
+      - name: Commit and push
+        if: ${{ !cancelled() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ docs/
+          for f in $(git diff --cached --name-only --diff-filter=d -- '*.json'); do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" \
+              || { echo "::error::$f is not valid JSON — aborting commit"; exit 1; }
+          done
+          git diff --cached --quiet || git commit -m "AusMT harvest $(date +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push

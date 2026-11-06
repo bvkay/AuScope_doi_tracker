@@ -78,6 +78,14 @@ function runInstruments(run) {
   return found;
 }
 
+// "['CC12']" -> "CC12". Only the exact single-item Python list repr is
+// unwrapped; a genuine id that merely contains brackets is left alone.
+function runId(id) {
+  if (id == null) return null;
+  const m = /^\['([^'\]]+)'\]$/.exec(String(id));
+  return m ? m[1] : id;
+}
+
 async function run() {
   console.log('AusMT Run-Level Deployment Harvest');
   console.log('==================================\n');
@@ -111,6 +119,15 @@ async function run() {
       year_start: s.year_start || null,
       year_end: s.year_end || null,
       n_stations: s.n_stations || null,
+      // Dataset DOIs the portal links the survey to (NCI collection, packed
+      // raw time series, level-2 products...) and its collection membership,
+      // so downstream feeds carry them without re-reading mtcat.json.
+      collection_id: s.collection_id || null,
+      related_dois: (s.related_identifiers || []).filter(function (r) {
+        return r.identifier_type === 'DOI';
+      }).map(function (r) {
+        return { doi: r.identifier, relation: r.relation || null, custodian: r.custodian || null };
+      }),
     };
   });
   // Station coordinates ("<survey_id>/<station>" -> [lat, lon]) — feeds the
@@ -167,7 +184,10 @@ async function run() {
             ? Math.round((Date.parse(tp.end) - Date.parse(tp.start)) / 36000) / 100 : null;
           runInstruments(r).forEach(function (inst) {
             occupations.push({
-              survey: survey, station: stn, run: r.id || null,
+              // Some surveys (ccmt-2017) publish the run id as a Python list
+              // repr, "['CC12']" — a single-item list serialised upstream.
+              // Unwrap that one exact form; anything else passes through.
+              survey: survey, station: stn, run: runId(r.id),
               start: tp.start || null, end: tp.end || null, hours: hours,
               role: inst.role, component: inst.component,
               model: inst.model, serial: inst.serial, doi: inst.doi,
@@ -210,6 +230,8 @@ async function run() {
       id: id, title: m.title || id, organisation: m.organisation,
       year_start: m.year_start, year_end: m.year_end, n_stations: m.n_stations,
       runs: surveyStatus[id],
+      collection_id: m.collection_id || null,
+      related_dois: m.related_dois || [],
     };
   });
 

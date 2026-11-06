@@ -79,8 +79,13 @@ jobs:
         run: node src/maintain.js
 
       # Month-level publication dates for financial-year reporting
-      # (best-effort: exits 0 even when the APIs are unreachable)
+      # (best-effort: exits 0 even when the APIs are unreachable). Bounded by
+      # its own ENRICH_BUDGET_MS wall-clock budget (default 10 min); the step
+      # timeout is the backstop, and continue-on-error keeps a slow or failed
+      # pass from skipping the stages and the commit that follow.
       - name: Publication dates
+        timeout-minutes: 15
+        continue-on-error: true
         run: node src/enrich-dates.js
 
       # Apply human accept/reject decisions from the Google Sheet review queue
@@ -120,11 +125,7 @@ jobs:
       - name: Same-work consolidation
         run: node src/consolidate.js
 
-      # AusMT run-level deployment harvest (build_id-gated: a 300-byte
-      # request when the portal has not rebuilt). Sole source for the MT
-      # deployment register — never the instrument registry's survey records.
-      - name: AusMT run harvest
-        run: node src/ausmt-inventory.js
+      # (The AusMT run harvest has its own workflow, ausmt-harvest.yml.)
 
       # Cross-pillar stats (instruments, surveys, datasets, repo counts)
       # GitHub org snapshot for the software registry + DataCite licence and
