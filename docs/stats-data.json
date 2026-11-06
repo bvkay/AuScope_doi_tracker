@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-15T00:13:09.907Z",
+  "generated": "2026-10-12T08:25:57.199Z",
   "pillars": {
     "publications": {
       "total": 2763,
@@ -42,13 +42,13 @@
       }
     },
     "samples": {
-      "declared": 53812,
+      "declared": 54362,
       "sampleDois": 47,
-      "dataPoints": 5401,
+      "dataPoints": 6388,
       "source": "EarthBank DataCite records"
     },
     "stations": {
-      "total": 3981,
+      "total": 4167,
       "source": "AusPass FDSN station service"
     },
     "instruments": {
@@ -102,27 +102,27 @@
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 47,
+      "streaming": 49,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },
     "ausmt": {
-      "surveys": 68,
-      "stations": 5313,
+      "surveys": 161,
+      "stations": 15265,
       "auslamp": {
         "surveys": 14,
         "stations": 1354
       },
-      "generated": "2026-09-13",
-      "instrumentsDeployed": 122,
-      "occupations": 2165,
-      "recordingDays": 4176.8,
-      "surveysPopulated": 11,
+      "generated": "2026-09-28",
+      "instrumentsDeployed": 146,
+      "occupations": 3496,
+      "recordingDays": 9107.5,
+      "surveysPopulated": 27,
       "scopeFiltered": true,
-      "runsFetched": "2026-09-14"
+      "runsFetched": "2026-10-12"
     },
     "dataRepository": {
-      "total": 5
+      "total": 6
     }
   }
 }
