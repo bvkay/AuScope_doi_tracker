@@ -43,7 +43,9 @@ jobs:
 
       # Assesses the datasets.json roster (skips PhysicalObject records),
       # keeps previous scores on per-DOI failures, writes
-      # data/fair-scores.json + docs/fair-scores.json
+      # data/fair-scores.json + docs/fair-scores.json and appends the run to
+      # data/fair-history.jsonl + docs/fair-history.json (the trends feed —
+      # all four must be committed below or the history is lost with the runner)
       - name: FAIR assessment
         env:
           FUJI_VERSION: '3.5.0 (docker)'
@@ -53,6 +55,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/fair-scores.json docs/fair-scores.json
+          git add data/fair-scores.json docs/fair-scores.json \
+                  data/fair-history.jsonl docs/fair-history.json
           git diff --cached --quiet || git commit -m "FAIR assessment $(date +%Y-%m-%d)"
           git push
