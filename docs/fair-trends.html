@@ -69,27 +69,32 @@
         .metric-delta.down { color: var(--bad); }
 
         .plat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .plat-table th { text-align: left; padding: 7px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-soft); border-bottom: 1px solid var(--border); }
+        .plat-table th { white-space: nowrap; text-align: left; padding: 7px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-soft); border-bottom: 1px solid var(--border); }
         .plat-table td { padding: 7px 10px; border-bottom: 1px solid var(--bg-muted); font-variant-numeric: tabular-nums; }
+        .plat-table a { color: var(--accent); text-decoration: none; }
+        .plat-table a:hover { text-decoration: underline; }
+        .chg.up { color: var(--good); }
+        .chg.down { color: var(--bad); }
+        .cohort { color: var(--text-muted); font-size: 11px; white-space: nowrap; }
 
-        /* Band context, adjacent to the number it qualifies (finding 4). */
-        .band-callout {
-            margin: 0 0 22px;
-            padding: 12px 14px;
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent);
-            border-radius: 0 8px 8px 0;
-            background: var(--bg-soft);
-            font-size: 13px;
-            line-height: 1.6;
-            color: var(--text-soft);
+        .run-meta { font-size: 12px; color: var(--text-muted); margin: 0 0 12px; }
+        .section { margin-top: 28px; }
+        .section h2 { margin-bottom: 8px; }
+        .section .section-note { margin-bottom: 10px; font-size: 12.5px; color: var(--text-soft); line-height: 1.55; }
+
+        /* The band context shares the tile row with the average it
+           qualifies: 48.5% reads as a bare pass without it. */
+        #tiles .band-callout { grid-column: span 3; font-size: 12.5px; line-height: 1.55; color: var(--text-soft); }
+        @media (max-width: 900px) {
+            #tiles .band-callout { grid-column: 1 / -1; }
         }
         .band-callout strong { color: var(--text); }
+        .band-scale { position: relative; margin: 8px 0 16px; }
+        .band-marker { position: absolute; top: 100%; transform: translateX(-50%); font-size: 10px; line-height: 1.2; color: var(--text); }
         .band-callout .scale {
             display: flex;
             align-items: center;
             gap: 0;
-            margin-top: 10px;
             height: 22px;
             border-radius: 4px;
             overflow: hidden;
@@ -106,7 +111,12 @@
         .band-callout .scale .lo { background: var(--bg-muted); }
         .band-callout .scale .mid { background: var(--good-bg); color: var(--good-text); font-weight: 600; }
         .band-callout .scale .hi { background: var(--bg-muted); }
-        .band-callout .marker { font-weight: 700; color: var(--text); }
+        @media (max-width: 700px) {
+            .band-callout .scale .wide { display: none; }
+        }
+
+        .fold-body { padding: 2px 14px 14px; }
+        .fold-body .metric-row:last-child { border-bottom: 0; }
 
         .how-body { font-size: 13px; color: var(--text-soft); line-height: 1.7; }
         .how-body strong { color: var(--text); }
@@ -133,48 +143,56 @@
              alert the moment the history feed does not. -->
         <div id="source-banner"></div>
 
-        <!-- Tiles are rendered by renderStat() so every figure carries its
-             grade, its assessment date and its caveat. -->
-        <div class="stats" id="tiles"></div>
+        <div class="run-meta" id="run-meta"></div>
 
-        <!-- Finding 4: the band sentence used to live at the very bottom of
-             the page, so "Average score 50.1%" read as a bare pass on the
-             way past. It now sits directly under the number it qualifies. -->
-        <div class="band-callout" id="band-callout"></div>
+        <!-- Two headline tiles plus the band context, rendered together by
+             paintTiles(). Tiles go through renderStat() so each figure
+             carries its grade, its assessment date and its caveat. -->
+        <div class="stats" id="tiles"></div>
 
         <div class="section">
             <h2>Average score by assessment run</h2>
             <div class="trend-panel">
-                <div class="trend-note" id="trend-note"></div>
+                <div class="trend-note" id="trend-note" hidden></div>
                 <div id="run-rows"><span class="spinner"></span></div>
             </div>
         </div>
 
         <div class="section">
-            <h2>Per-platform averages</h2>
-            <div class="section-note">Each column is one assessment run; the join is by assessment date, so movement is measured, not inferred.</div>
-            <div style="overflow-x:auto"><table class="plat-table" id="plat-table"></table></div>
+            <h2>By platform</h2>
+            <div class="section-note">Average score and number of DOIs at each run. Platform names link to that platform&rsquo;s dataset pages.</div>
+            <div style="overflow-x:auto" tabindex="0" role="region" aria-label="Per-platform average scores by assessment run"><table class="plat-table" id="plat-table"></table></div>
         </div>
 
         <div class="section">
-            <h2>Where the points are lost &mdash; per-metric pass rates</h2>
-            <div class="section-note" id="metric-note">Latest run, worst first. This list is the to-do list: a metric moving from red to green is attributable to a specific fix on a specific date.</div>
+            <h2>Metrics that need work</h2>
+            <div class="section-note" id="metric-note">Share of DOIs passing each metric in the latest run, worst first. Select a code to see what it checks.</div>
             <div id="metric-rows"><span class="spinner"></span></div>
+            <details class="fleet-panel" id="metrics-passing" style="margin-top:14px" hidden>
+                <summary id="metrics-passing-summary"></summary>
+                <div class="fold-body" id="metric-rows-passing"></div>
+            </details>
         </div>
 
         <div class="section">
-            <h2>How this page measures</h2>
-            <div class="how-body">
-                <p><strong>One point per assessment run.</strong> Every monthly run of the self-hosted F-UJI server appends a dated snapshot to <code>fair-history.jsonl</code> &mdash; per DOI: the total, the F/A/I/R split, and each metric&rsquo;s earned score <em>and</em> verdict. This page reads the per-run aggregates. Trends here are <strong>by assessment date</strong>: the same DOIs, re-measured &mdash; so a moving average means the metadata changed, not the cohort.</p>
-                <p><strong>Comparability.</strong> Scores are comparable only within one metric version (pinned v0.8, 17 metrics). v0.8 runs structurally low &mdash; several metrics fail on almost every real-world repository &mdash; so 35&ndash;60% is the normal band, and the interesting signal is movement, not level.</p>
-                <p><strong>Averages</strong> weight each assessed DOI equally.</p>
-                <p><strong>When a source fails.</strong> The history feed is the only thing this page reads. If it does not
-                answer, a red banner says so and every figure renders as &ldquo;&mdash;&rdquo; with the reason attached.
-                No number on this page is ever produced by a failed request &mdash; a missing measurement and a measured
-                zero are different facts, and they are drawn differently.</p>
-            </div>
-            <h3 style="font-size:14px;margin:22px 0 8px">Every term on this page</h3>
-            <div id="glossary-list"></div>
+            <h2>Method and definitions</h2>
+            <details class="fleet-panel">
+                <summary>How this is measured</summary>
+                <div class="fold-body how-body">
+                    <p><strong>One point per assessment run.</strong> Every monthly run of the self-hosted F-UJI server appends a dated snapshot to <code>fair-history.jsonl</code> &mdash; per DOI: the total, the F/A/I/R split, and each metric&rsquo;s earned score <em>and</em> verdict. This page reads the per-run aggregates. Each point is a measurement on a known date, and each change shown is movement since the previous run. The same DOIs are re-measured every run, so movement reflects changed metadata; where the number of DOIs differs between two runs, part of the movement comes from records joining or leaving, and that change is shown without colour beside the counts.</p>
+                    <p><strong>What is assessed.</strong> Every dataset DOI in the registry. PhysicalObject sample records are excluded &mdash; F-UJI&rsquo;s metrics target data resources.</p>
+                    <p><strong>Comparability.</strong> Scores are comparable only within one metric version (pinned v0.8: 17 metrics, 26 points). The signal is movement, not level.</p>
+                    <p><strong>Averages</strong> weight each assessed DOI equally.</p>
+                    <p><strong>When a source fails.</strong> The history feed is the only thing this page reads. If it does not
+                    answer, a red banner says so and every figure renders as &ldquo;&mdash;&rdquo; with the reason attached.
+                    No number on this page is ever produced by a failed request &mdash; a missing measurement and a measured
+                    zero are different facts, and they are drawn differently.</p>
+                </div>
+            </details>
+            <details class="fleet-panel">
+                <summary>Every term and metric code on this page</summary>
+                <div class="fold-body" id="glossary-list"></div>
+            </details>
         </div>
 
         <div class="foot">
@@ -197,6 +215,16 @@
         sources.declare('history', 'FAIR assessment history feed', { critical: true });
 
         var progress = null;
+
+        // Where each platform's datasets are listed with their scores.
+        // NVCL's own page carries no F-UJI column, so it goes to the
+        // registry filtered to NVCL.
+        var PLATFORM_PAGES = {
+            'AusPass': 'auspass.html',
+            'EarthBank': 'earthbank.html',
+            'NCI': 'nci.html',
+            'NVCL': 'dataset-registry.html?platform=NVCL'
+        };
 
         load();
 
@@ -228,26 +256,45 @@
         function failed(reason) {
             sources.fail('history', reason);
             progress.fail(reason, load);
+            currentRuns = null;
             paintTiles(null);
-            document.getElementById('trend-note').textContent = '';
+            document.getElementById('run-meta').textContent = '';
+            document.getElementById('trend-note').hidden = true;
             document.getElementById('plat-table').innerHTML =
                 '<tr><td class="empty-state">No assessment history to show &mdash; the feed did not load.</td></tr>';
             document.getElementById('metric-rows').innerHTML =
                 '<div class="empty-state">Per-metric pass rates are unavailable: ' + escapeHtml(reason)
                 + '. These are missing measurements, not zero pass rates.</div>';
-            document.getElementById('band-callout').innerHTML = '';
+            document.getElementById('metrics-passing').hidden = true;
         }
 
         // ------------------------------------------------------------
         // Tiles. Every figure goes through renderStat, so it carries a
         // grade chip, the assessment date it was true on, and a
-        // copy-with-caveat button for the board pack.
+        // copy-with-caveat button for the board pack. The visible notes
+        // are short; `caveat` is what travels when the figure is copied.
         // ------------------------------------------------------------
         function paintTiles(runs) {
             var latest = runs && runs.length ? runs[runs.length - 1] : null;
             var prev = runs && runs.length > 1 ? runs[runs.length - 2] : null;
+            var movement = prev && finite(latest.avg) && finite(prev.avg)
+                ? delta(latest.avg - prev.avg) + ' since ' + prev.date : '';
 
             var specs = [
+                {
+                    value: latest ? latest.avg : null,
+                    label: 'Average F-UJI score',
+                    grade: 'measured',
+                    asOf: latest ? latest.date : null,
+                    term: 'fuji-score',
+                    format: pct,
+                    source: sources, sourceKey: 'history',
+                    missingReason: 'the assessment history feed has not loaded',
+                    note: movement,
+                    caveat: 'Metric set v0.8 runs structurally low: 35–60% is the normal band for real-world repositories, so read this as relative, not as a mark out of 100.'
+                        + (movement ? ' Movement: ' + movement + '.' : ''),
+                    cite: true
+                },
                 {
                     value: latest ? latest.assessed : null,
                     label: 'DOIs assessed',
@@ -257,45 +304,48 @@
                     term: 'fuji',
                     source: sources, sourceKey: 'history',
                     missingReason: 'the assessment history feed has not loaded',
-                    note: "Dataset DOIs scored in the most recent monthly run. PhysicalObject sample records are excluded — F-UJI's metrics target data resources.",
+                    caveat: "Dataset DOIs scored in the most recent monthly run. PhysicalObject sample records are excluded — F-UJI's metrics target data resources.",
                     cite: true
-                },
-                {
-                    value: latest ? latest.avg : null,
-                    label: 'Average F-UJI score',
-                    grade: 'measured',
-                    asOf: latest ? latest.date : null,
-                    term: 'fuji-band',
-                    format: function(v) { return v + '%'; },
-                    source: sources, sourceKey: 'history',
-                    missingReason: 'the assessment history feed has not loaded',
-                    // The caveat that has to travel with this number.
-                    note: 'Metric set v0.8 runs structurally low: 35–60% is the normal band for real-world repositories, so this is above the middle of the band, not a bare pass.'
-                        + (prev ? ' Movement since ' + prev.date + ': ' + delta(latest.avg - prev.avg) + '.' : ''),
-                    cite: true
-                },
-                {
-                    value: runs ? runs.length : null,
-                    label: 'Measurement runs',
-                    grade: 'measured',
-                    asOf: latest ? latest.date : null,
-                    source: sources, sourceKey: 'history',
-                    missingReason: 'the assessment history feed has not loaded',
-                    note: 'One point per monthly assessment. Each point is a real measurement on a known date — the trend is short by design, not by omission.'
                 }
             ];
 
-            // The metric set is a version string, not a measurement, so it
-            // gets a plain tile — but still a glossed one.
-            var mv = latest ? 'v' + (latest.metric_version || '?') : '—';
-            var fv = latest ? 'F-UJI ' + (latest.fuji_version || '?') : 'not loaded';
-            var metricTile = '<div class="stat">'
-                + '<div class="label">Metric set ' + glossaryIcon('metric-version') + '</div>'
-                + '<div class="value">' + escapeHtml(mv) + '</div>'
-                + '<div class="sub">' + escapeHtml(fv) + '</div></div>';
-
             document.getElementById('tiles').innerHTML =
-                specs.map(function(s) { return renderStat(s); }).join('') + metricTile;
+                specs.map(function(s) { return renderStat(s); }).join('') + bandHtml(latest);
+        }
+
+        // The band context: a scale with the current average marked on it
+        // and the one sentence on how to read the number. Empty until
+        // there is an average to qualify.
+        function bandHtml(latest) {
+            if (!latest || !finite(latest.avg)) return '';
+            var avg = Number(latest.avg);
+            var pos = Math.max(0, Math.min(100, avg));
+            var where = avg >= 60 ? 'above the normal band'
+                : avg >= 35 ? 'inside the normal band, ' + (avg >= 47.5 ? 'upper' : 'lower') + ' half'
+                : 'below the normal band';
+            return '<div class="stat band-callout">'
+                + '<div class="label">Reading the score' + glossaryIcon('fuji-band') + '</div>'
+                + '<div class="band-scale" role="img" aria-label="Score scale: 0 to 35 percent below the normal band, 35 to 60 percent the normal band for metric set v0.8, 60 to 100 percent above it. The current average is '
+                    + escapeAttr(pct(avg)) + ', ' + escapeAttr(where) + '.">'
+                + '<div class="scale">'
+                + '<span class="lo" style="width:35%">below</span>'
+                + '<span class="mid" style="width:25%">35–60%<span class="wide"> normal</span></span>'
+                + '<span class="hi" style="width:40%">above</span>'
+                + '</div>'
+                + '<div class="band-marker" style="left:' + pos + '%" aria-hidden="true">▲</div>'
+                + '</div>'
+                + '<div><strong>' + escapeHtml(pct(avg)) + '</strong> is ' + escapeHtml(where)
+                + '. Compare scores between platforms and over time, never as a mark out of 100.</div>'
+                + '</div>';
+        }
+
+        function paintMeta(runs) {
+            var latest = runs[runs.length - 1];
+            document.getElementById('run-meta').innerHTML =
+                runs.length + ' assessment run' + (runs.length === 1 ? '' : 's')
+                + ' &middot; metric set v' + escapeHtml(String(latest.metric_version || '?'))
+                + glossaryIcon('metric-version')
+                + ' &middot; F-UJI ' + escapeHtml(String(latest.fuji_version || '?'));
         }
 
         // Repaint the tiles if the ledger verdict changes after they were
@@ -305,77 +355,86 @@
         });
         var currentRuns = null;
 
-        // ------------------------------------------------------------
-        // Band callout — the sentence that makes 50.1% readable, placed
-        // directly beneath the number rather than 2,000px below it.
-        // ------------------------------------------------------------
-        function paintBandCallout(latest) {
-            var e = trackerTerm('fuji-band');
-            var avg = Number(latest.avg);
-            var pos = Math.max(0, Math.min(100, avg));
-            document.getElementById('band-callout').innerHTML =
-                '<strong>Reading a score of ' + escapeHtml(String(latest.avg)) + '%.</strong> '
-                + escapeHtml(e ? e.long : '')
-                + '<div class="scale" role="img" aria-label="Score scale: 0 to 35 percent below the normal band, 35 to 60 percent the normal band for metric set v0.8, 60 to 100 percent above it. The current average is '
-                    + escapeAttr(String(latest.avg)) + ' percent.">'
-                + '<span class="lo" style="width:35%">0–35% below band</span>'
-                + '<span class="mid" style="width:25%">35–60% normal band</span>'
-                + '<span class="hi" style="width:40%">60–100% above band</span>'
-                + '</div>'
-                + '<div style="margin-top:6px;font-size:12px">'
-                + '<span class="marker">▲ ' + escapeHtml(String(latest.avg)) + '%</span> '
-                + escapeHtml(avg >= 60 ? 'above the normal band'
-                    : avg >= 35 ? 'inside the normal band, ' + (pos >= 47.5 ? 'upper' : 'lower') + ' half'
-                    : 'below the normal band')
-                + ' · measured ' + escapeHtml(latest.date) + '.'
-                + '</div>';
-        }
-
         function render(runs) {
             currentRuns = runs;
             var latest = runs[runs.length - 1];
             var prev = runs.length > 1 ? runs[runs.length - 2] : null;
 
             paintTiles(runs);
-            paintBandCallout(latest);
+            paintMeta(runs);
 
-            document.getElementById('trend-note').textContent = runs.length === 1
-                ? 'One measurement so far — the baseline. The trend gains a point with every monthly run; movement from here is attributable to metadata changes, because the same DOIs are re-measured.'
-                : runs.length + ' measurements. Bars are the corpus average per run; the delta column is movement since the previous run.';
+            var trendNote = document.getElementById('trend-note');
+            trendNote.hidden = runs.length > 1;
+            trendNote.textContent = runs.length === 1
+                ? 'One measurement so far — the baseline. The trend gains a point with every monthly run.'
+                : '';
 
             document.getElementById('run-rows').innerHTML = runs.map(function(r, i) {
-                var d = i > 0 ? r.avg - runs[i - 1].avg : null;
+                var before = i > 0 ? runs[i - 1] : null;
+                var d = before && finite(r.avg) && finite(before.avg) ? r.avg - before.avg : null;
+                // A delta is coloured only when both runs assessed the same
+                // number of DOIs; otherwise part of it is cohort change.
+                var sameCohort = before && r.assessed === before.assessed;
                 return '<div class="run-row">'
                     + '<div class="run-date">' + escapeHtml(r.date) + '</div>'
-                    + '<div class="run-track"><div class="run-fill" style="width:' + Math.min(100, r.avg) + '%"></div></div>'
-                    + '<div class="run-val">' + r.avg + '%</div>'
-                    + '<div class="run-delta ' + (d > 0 ? 'up' : d < 0 ? 'down' : '') + '">' + (d == null ? '' : delta(d)) + '</div>'
+                    + '<div class="run-track"><div class="run-fill" style="width:' + (finite(r.avg) ? Math.max(0, Math.min(100, r.avg)) : 0) + '%"></div></div>'
+                    + '<div class="run-val">' + pct(r.avg) + '</div>'
+                    + '<div class="run-delta ' + (d != null && sameCohort ? deltaClass(d) : '') + '"'
+                        + (d != null && !sameCohort ? ' title="' + escapeAttr(COHORT_NOTE) + '"' : '') + '>'
+                        + (d == null ? '' : delta(d)) + '</div>'
                     + '<div class="run-n">' + r.assessed + ' DOIs</div>'
                     + '</div>';
             }).join('');
 
-            // Per-platform table: one row per platform, one column per run.
+            // Per-platform table: one row per platform, one column per run,
+            // then the movement between the two most recent runs.
             var platNames = {};
             runs.forEach(function(r) { Object.keys(r.platforms || {}).forEach(function(p) { platNames[p] = true; }); });
-            var head = '<tr><th>Platform</th>' + runs.map(function(r) { return '<th>' + escapeHtml(r.date) + '</th>'; }).join('') + '</tr>';
+            var head = '<tr><th>Platform</th>' + runs.map(function(r) { return '<th>' + escapeHtml(r.date) + '</th>'; }).join('')
+                + (prev ? '<th>Since ' + escapeHtml(prev.date) + '</th>' : '') + '</tr>';
             var rows = Object.keys(platNames).sort().map(function(p) {
-                return '<tr><td>' + escapeHtml(p) + '</td>' + runs.map(function(r) {
-                    var v = (r.platforms || {})[p];
-                    return '<td>' + (v ? v.avg + '% <span style="color:var(--text-muted);font-size:11px">(' + v.n + ')</span>' : '&mdash;') + '</td>';
-                }).join('') + '</tr>';
+                var page = Object.prototype.hasOwnProperty.call(PLATFORM_PAGES, p) ? PLATFORM_PAGES[p] : null;
+                var now = (latest.platforms || {})[p];
+                var before = prev ? (prev.platforms || {})[p] : null;
+                var d = now && before && finite(now.avg) && finite(before.avg) ? now.avg - before.avg : null;
+                var cohortChanged = d != null && now.n !== before.n;
+                return '<tr><td>' + (page ? '<a href="' + escapeAttr(page) + '">' + escapeHtml(p) + '</a>' : escapeHtml(p)) + '</td>'
+                    + runs.map(function(r) {
+                        var v = (r.platforms || {})[p];
+                        return '<td>' + (v ? pct(v.avg) + ' <span style="color:var(--text-muted);font-size:11px">(' + v.n + ')</span>' : '&mdash;') + '</td>';
+                    }).join('')
+                    + (prev ? '<td class="chg ' + (d != null && !cohortChanged ? deltaClass(d) : '') + '"'
+                        + (cohortChanged ? ' title="' + escapeAttr(COHORT_NOTE) + '"' : '') + '>'
+                        + (d == null ? '&mdash;' : delta(d))
+                        + (cohortChanged ? ' <span class="cohort">(' + escapeHtml(String(before.n)) + '→' + escapeHtml(String(now.n)) + ' DOIs)</span>' : '')
+                        + '</td>' : '')
+                    + '</tr>';
             }).join('');
             document.getElementById('plat-table').innerHTML = head + rows;
 
-            // Metric pass rates, latest run, worst first; delta vs previous run.
+            // Metric pass rates, latest run, worst first; delta vs previous
+            // run. Metrics every DOI passes are folded away below the list:
+            // they are not work to do. Every code is a glossed control and
+            // carries its plain-English name beside it.
             var mp = latest.metric_pass_pct || {};
             var pm = prev ? (prev.metric_pass_pct || {}) : {};
+            var sameCohortRuns = prev && latest.assessed === prev.assessed;
             var ids = Object.keys(mp).sort(function(a, b) { return mp[a] - mp[b]; });
-            // Finding 3: these 17 codes were displayed bare — no tooltip, no
-            // title, no aria-label — and the .metric-name slot beside each
-            // one was rendered empty. Every code is now a glossed control
-            // (mouse, keyboard and screen reader) and carries its plain
-            // English name in the slot that was always meant to hold it.
-            document.getElementById('metric-rows').innerHTML = ids.map(function(id) {
+            var open = ids.filter(function(id) { return mp[id] < 100; });
+            var passing = ids.filter(function(id) { return mp[id] >= 100; });
+
+            document.getElementById('metric-rows').innerHTML = !ids.length
+                ? '<div class="empty-state">Per-metric pass rates were not recorded for this run. These are missing measurements, not passes.</div>'
+                : open.length
+                    ? open.map(metricRow).join('')
+                    : '<div class="empty-state">Every metric is at 100% in this run.</div>';
+            var fold = document.getElementById('metrics-passing');
+            fold.hidden = !passing.length;
+            document.getElementById('metrics-passing-summary').textContent =
+                passing.length + (passing.length === 1 ? ' metric is' : ' metrics are') + ' at 100% in this run';
+            document.getElementById('metric-rows-passing').innerHTML = passing.map(metricRow).join('');
+
+            function metricRow(id) {
                 var v = mp[id];
                 var d = (id in pm) ? v - pm[id] : null;
                 var cls = v >= 60 ? 'good' : v >= 25 ? 'warn' : 'bad';
@@ -388,14 +447,23 @@
                         + escapeAttr(v + '% of assessed DOIs pass this metric — ' + verdict) + '">'
                         + '<div class="metric-fill ' + cls + '" style="width:' + v + '%"></div></div>'
                     + '<div class="metric-pct">' + v + '%</div>'
-                    + '<div class="metric-delta ' + (d > 0 ? 'up' : d < 0 ? 'down' : '') + '">' + (d == null || d === 0 ? '' : delta(d)) + '</div>'
+                    + '<div class="metric-delta ' + (d != null && sameCohortRuns ? deltaClass(d) : '') + '"'
+                        + (d != null && !sameCohortRuns && round1(d) !== 0 ? ' title="' + escapeAttr(COHORT_NOTE) + '"' : '') + '>'
+                        + (d == null || round1(d) === 0 ? '' : delta(d)) + '</div>'
                     + '<div class="metric-name" title="' + escapeAttr(plainName) + '">'
                         + escapeHtml(plainName || 'no plain-English name registered for this code') + '</div>'
                     + '</div>';
-            }).join('');
+            }
         }
 
-        function delta(d) { return (d > 0 ? '+' : '') + (Math.round(d * 10) / 10) + ' pts'; }
+        var COHORT_NOTE = 'The number of DOIs assessed changed between these runs, so part of this movement comes from records joining or leaving.';
+
+        function finite(v) { return v != null && v !== '' && isFinite(Number(v)); }
+        function round1(d) { return Math.round(d * 10) / 10; }
+        function delta(d) { var r = round1(d); return (r > 0 ? '+' : '') + r + ' pts'; }
+        function deltaClass(d) { var r = round1(d); return r > 0 ? 'up' : r < 0 ? 'down' : ''; }
+        // A missing average is drawn as a dash, never as 0.0%.
+        function pct(v) { return finite(v) ? Number(v).toFixed(1) + '%' : '—'; }
 
         // A definition list of everything this page displays — including all
         // 17 metric codes, so the vocabulary is readable in one place as well
