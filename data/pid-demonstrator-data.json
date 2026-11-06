@@ -1,15 +1,15 @@
 {
  "metadata": {
   "type": "pid-demonstrator",
-  "build_id": "e208b15fb70740d8c44de51c532e6debd59c4e24-7a1d756c-2026-09-28T03:46:37.540904+00:00",
-  "generated": "2026-09-28T03:46:37.540904+00:00",
-  "fetched": "2026-10-12T08:36:08.751Z",
+  "build_id": "95826273c10874406febea509a3c68139bb8b9eb-7b25b4e6-2026-10-15T08:15:55.773575+00:00",
+  "generated": "2026-10-15T08:15:55.773575+00:00",
+  "fetched": "2026-11-06T06:06:36.282Z",
   "surveys_total": 161,
-  "surveys_populated": 27,
-  "registry_fetched": "2026-10-12T08:36:08.702Z",
-  "runs_fetched": "2026-10-12T08:24:45.070Z",
-  "live_build_id": "e208b15fb70740d8c44de51c532e6debd59c4e24-7a1d756c-2026-09-28T03:46:37.540904+00:00",
-  "live_generated": "2026-09-28T03:46:37.540904+00:00",
+  "surveys_populated": 31,
+  "registry_fetched": "2026-11-06T06:06:36.231Z",
+  "runs_fetched": "2026-11-06T06:06:22.077Z",
+  "live_build_id": "95826273c10874406febea509a3c68139bb8b9eb-7b25b4e6-2026-10-15T08:15:55.773575+00:00",
+  "live_generated": "2026-10-15T08:15:55.773575+00:00",
   "sources": {
    "mtcat": "https://ausmt.auscope.org.au/data/mtcat.json",
    "station_json": "https://ausmt.auscope.org.au/data/products/<survey>/<station>/station.json",
@@ -17,6 +17,248 @@
   }
  },
  "instruments": [
+  {
+   "doi": "10.82388/pqespgbo",
+   "model": "PR6-24",
+   "serial": "61002",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-14",
+   "last": "2019-04-11",
+   "hours": 8373.14,
+   "n_undated": 0,
+   "n_stations": 48,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "capricorn-2010",
+    "hillside-2012",
+    "paralana-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "western-tasmania-transect-2016",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/8hjqyq4t",
+   "model": "PR6-24",
+   "serial": "60965",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-12",
+   "last": "2019-06-05",
+   "hours": 7954.3,
+   "n_undated": 0,
+   "n_stations": 30,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "paralana-2010",
+    "link-east-transect-2010",
+    "capricorn-2010",
+    "auslamp-tas",
+    "north-western-tasmania-transect-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/ikfwp4qj",
+   "model": "PR6-24",
+   "serial": "60963",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-05-21",
+   "last": "2019-06-06",
+   "hours": 7751.96,
+   "n_undated": 1,
+   "n_stations": 32,
+   "surveys": [
+    "renmark-2009",
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "capricorn-2010",
+    "olympic-dam-2013",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/1rxfmy67",
+   "model": "PR6-24",
+   "serial": "62221",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-05-20",
+   "last": "2019-06-06",
+   "hours": 7689.78,
+   "n_undated": 1,
+   "n_stations": 48,
+   "surveys": [
+    "renmark-2009",
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "link-east-transect-2010",
+    "capricorn-2010",
+    "paralana-2012",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/c8gf4j5z",
+   "model": "PR6-24",
+   "serial": "60969",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-06-23",
+   "last": "2019-02-22",
+   "hours": 6620.12,
+   "n_undated": 0,
+   "n_stations": 34,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "capricorn-2010",
+    "western-tasmania-transect-2016",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/kep0frad",
+   "model": "PR6-24",
+   "serial": "62217",
+   "role": "recorder",
+   "af": true,
+   "first": "2012-04-30",
+   "last": "2019-06-06",
+   "hours": 6171.02,
+   "n_undated": 3,
+   "n_stations": 16,
+   "surveys": [
+    "paralana-2012",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/2q8fbpjg",
+   "model": "PR6-24",
+   "serial": "61001",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-13",
+   "last": "2019-02-15",
+   "hours": 5938.68,
+   "n_undated": 2,
+   "n_stations": 53,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "link-east-transect-2010",
+    "capricorn-2010",
+    "hillside-2012",
+    "paralana-2012",
+    "southern-delamerian-infill-2012",
+    "olympic-dam-2013",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/wxmy79ze",
+   "model": "PR6-24",
+   "serial": "60992",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-17",
+   "last": "2019-02-13",
+   "hours": 5684.09,
+   "n_undated": 2,
+   "n_stations": 51,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "capricorn-2010",
+    "paralana-2012",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "western-tasmania-transect-2016",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
   {
    "doi": "10.82388/fjtpxbs4",
    "model": "LEMI-424",
@@ -80,6 +322,32 @@
    "owner": "Adelaide University"
   },
   {
+   "doi": "10.82388/ibnrh5rj",
+   "model": "PR6-24",
+   "serial": "62135",
+   "role": "recorder",
+   "af": true,
+   "first": "2010-03-05",
+   "last": "2019-04-10",
+   "hours": 5218.87,
+   "n_undated": 1,
+   "n_stations": 28,
+   "surveys": [
+    "paralana-2010",
+    "link-east-transect-2010",
+    "capricorn-2010",
+    "olympic-dam-2013",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
    "doi": "10.82388/1d6i09sh",
    "model": "LEMI-424",
    "serial": "#0049",
@@ -120,6 +388,121 @@
    "owner": "Adelaide University"
   },
   {
+   "doi": "10.82388/e294x5mk",
+   "model": "PR6-24",
+   "serial": "60966",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-05-20",
+   "last": "2019-06-06",
+   "hours": 4817.92,
+   "n_undated": 0,
+   "n_stations": 38,
+   "surveys": [
+    "renmark-2009",
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "capricorn-2010",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/ygxhw2p5",
+   "model": "PR6-24",
+   "serial": "60993",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-05-20",
+   "last": "2019-02-16",
+   "hours": 4793.53,
+   "n_undated": 1,
+   "n_stations": 36,
+   "surveys": [
+    "renmark-2009",
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "capricorn-2010",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/51qz0g08",
+   "model": "PR6-24",
+   "serial": "62218",
+   "role": "recorder",
+   "af": true,
+   "first": "2012-04-29",
+   "last": "2019-06-05",
+   "hours": 4752.83,
+   "n_undated": 1,
+   "n_stations": 23,
+   "surveys": [
+    "paralana-2012",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "western-tasmania-transect-2016",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/fjac53j6",
+   "model": "PR6-24",
+   "serial": "61000",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-15",
+   "last": "2019-06-05",
+   "hours": 4690.07,
+   "n_undated": 0,
+   "n_stations": 32,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "capricorn-2010",
+    "hillside-2012",
+    "southern-delamerian-infill-2012",
+    "olympic-dam-2013",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
    "doi": "10.82388/4mvk618p",
    "model": "LEMI-424",
    "serial": "#0026",
@@ -139,6 +522,62 @@
     "10.82388/co3vcklz"
    ],
    "registry_title": "LEMI-424 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/vboc9r8p",
+   "model": "PR6-24",
+   "serial": "60968",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-13",
+   "last": "2019-05-12",
+   "hours": 4625.64,
+   "n_undated": 0,
+   "n_stations": 31,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "hillside-2012",
+    "paralana-2012",
+    "delamerian-lachlan-2014",
+    "western-tasmania-transect-2016",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/05hyhja8",
+   "model": "PR6-24",
+   "serial": "62136",
+   "role": "recorder",
+   "af": true,
+   "first": "2010-10-22",
+   "last": "2019-06-01",
+   "hours": 4607.32,
+   "n_undated": 0,
+   "n_stations": 25,
+   "surveys": [
+    "capricorn-2010",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "western-tasmania-transect-2016",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -163,6 +602,81 @@
    "owner": "Adelaide University"
   },
   {
+   "doi": "10.82388/yj8w25ci",
+   "model": "PR6-24",
+   "serial": "62220",
+   "role": "recorder",
+   "af": true,
+   "first": "2012-05-02",
+   "last": "2019-06-07",
+   "hours": 4564.52,
+   "n_undated": 0,
+   "n_stations": 14,
+   "surveys": [
+    "paralana-2012",
+    "olympic-dam-2013",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/gtayqn61",
+   "model": "PR6-24",
+   "serial": "60848",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-14",
+   "last": "2019-05-11",
+   "hours": 4550.27,
+   "n_undated": 2,
+   "n_stations": 16,
+   "surveys": [
+    "stuart-shelf-2009",
+    "delamerian-lachlan-2014",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/w0tttqt9",
+   "model": "PR6-24",
+   "serial": "62138",
+   "role": "recorder",
+   "af": true,
+   "first": "2010-10-22",
+   "last": "2019-06-05",
+   "hours": 4374.22,
+   "n_undated": 1,
+   "n_stations": 25,
+   "surveys": [
+    "capricorn-2010",
+    "paralana-2012",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
    "doi": "10.82388/8z7gg4uv",
    "model": "LEMI-424",
    "serial": "#0032",
@@ -181,6 +695,31 @@
     "10.82388/co3vcklz"
    ],
    "registry_title": "LEMI-424 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/2nyr7j3t",
+   "model": "PR6-24",
+   "serial": "62219",
+   "role": "recorder",
+   "af": true,
+   "first": "2012-03-22",
+   "last": "2019-05-07",
+   "hours": 3921.81,
+   "n_undated": 0,
+   "n_stations": 22,
+   "surveys": [
+    "hillside-2012",
+    "paralana-2012",
+    "olympic-dam-2013",
+    "western-tasmania-transect-2016",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [],
+   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -227,6 +766,32 @@
    "owner": "Adelaide University"
   },
   {
+   "doi": "10.82388/54bgwbw9",
+   "model": "PR6-24",
+   "serial": "62222",
+   "role": "recorder",
+   "af": true,
+   "first": "2010-10-28",
+   "last": "2019-06-04",
+   "hours": 3469.83,
+   "n_undated": 0,
+   "n_stations": 28,
+   "surveys": [
+    "capricorn-2010",
+    "hillside-2012",
+    "paralana-2012",
+    "southern-delamerian-infill-2012",
+    "olympic-dam-2013",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
    "doi": "10.82388/ry697vky",
    "model": "LEMI-424",
    "serial": "#0055",
@@ -265,6 +830,38 @@
     "10.82388/co3vcklz"
    ],
    "registry_title": "LEMI-424 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/sp7hw1av",
+   "model": "PR6-24",
+   "serial": "60771",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-12",
+   "last": "2016-06-21",
+   "hours": 3145.11,
+   "n_undated": 0,
+   "n_stations": 57,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "paralana-2010",
+    "capricorn-2010",
+    "hillside-2012",
+    "paralana-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "western-tasmania-transect-2016",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "grampians-2016"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -365,37 +962,6 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/sp7hw1av",
-   "model": "PR6-24",
-   "serial": "60771",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-02-12",
-   "last": "2016-06-21",
-   "hours": 2669.66,
-   "n_undated": 0,
-   "n_stations": 56,
-   "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "paralana-2010",
-    "capricorn-2010",
-    "hillside-2012",
-    "paralana-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/1qpaj1lw",
    "model": "LEMI-424",
    "serial": "#0052",
@@ -437,6 +1003,44 @@
    "owner": "Adelaide University"
   },
   {
+   "doi": "10.82388/y31xic5u",
+   "model": "LEMI-120",
+   "serial": "265",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-09-23",
+   "last": "2022-04-17",
+   "hours": 2543.27,
+   "n_undated": 0,
+   "n_stations": 60,
+   "surveys": [
+    "curnamona-2009",
+    "paralana-2010",
+    "link-east-transect-2010",
+    "capricorn-2010",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "grampians-2016",
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
    "doi": "10.82388/ux3jfmep",
    "model": "LEMI-424",
    "serial": "#0009",
@@ -458,74 +1062,6 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/wxmy79ze",
-   "model": "PR6-24",
-   "serial": "60992",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-02-17",
-   "last": "2016-06-20",
-   "hours": 2513.41,
-   "n_undated": 2,
-   "n_stations": 48,
-   "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "paralana-2010",
-    "capricorn-2010",
-    "paralana-2012",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/y31xic5u",
-   "model": "LEMI-120",
-   "serial": "265",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-23",
-   "last": "2022-04-17",
-   "hours": 2453.5,
-   "n_undated": 0,
-   "n_stations": 58,
-   "surveys": [
-    "curnamona-2009",
-    "paralana-2010",
-    "link-east-transect-2010",
-    "capricorn-2010",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "grampians-2016",
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/1cs8w0b7",
    "model": "LEMI-120",
    "serial": "260",
@@ -533,9 +1069,9 @@
    "af": true,
    "first": "2009-09-23",
    "last": "2022-04-17",
-   "hours": 2410,
+   "hours": 2499.77,
    "n_undated": 1,
-   "n_stations": 57,
+   "n_stations": 59,
    "surveys": [
     "curnamona-2009",
     "paralana-2010",
@@ -548,6 +1084,7 @@
     "ccmt-2017",
     "burra-2017-18",
     "tumby-bay-2018-19",
+    "central-delamerian-2020",
     "vulcan-2022",
     "western-gawler"
    ],
@@ -563,28 +1100,23 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/2q8fbpjg",
+   "doi": "10.82388/doj4kua9",
    "model": "PR6-24",
-   "serial": "61001",
+   "serial": "62137",
    "role": "recorder",
    "af": true,
-   "first": "2009-02-13",
-   "last": "2016-06-19",
-   "hours": 2321.67,
-   "n_undated": 2,
-   "n_stations": 50,
+   "first": "2010-10-22",
+   "last": "2016-08-26",
+   "hours": 2484.96,
+   "n_undated": 1,
+   "n_stations": 17,
    "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "paralana-2010",
-    "link-east-transect-2010",
     "capricorn-2010",
     "hillside-2012",
-    "paralana-2012",
     "southern-delamerian-infill-2012",
     "olympic-dam-2013",
-    "grampians-2016"
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas"
    ],
    "is_part_of": [
     "10.82388/jnvdwgei"
@@ -600,9 +1132,9 @@
    "af": true,
    "first": "2009-09-23",
    "last": "2022-04-17",
-   "hours": 2217.6,
+   "hours": 2305.55,
    "n_undated": 0,
-   "n_stations": 51,
+   "n_stations": 53,
    "surveys": [
     "curnamona-2009",
     "capricorn-2010",
@@ -613,6 +1145,7 @@
     "burra-2017-18",
     "tumby-bay-2018-19",
     "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "kalkaroo-2022",
     "vulcan-2022",
     "western-gawler"
@@ -637,9 +1170,9 @@
    "af": true,
    "first": "2009-09-23",
    "last": "2022-04-17",
-   "hours": 2211.6,
+   "hours": 2299.55,
    "n_undated": 0,
-   "n_stations": 51,
+   "n_stations": 53,
    "surveys": [
     "curnamona-2009",
     "capricorn-2010",
@@ -650,6 +1183,7 @@
     "burra-2017-18",
     "tumby-bay-2018-19",
     "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "kalkaroo-2022",
     "vulcan-2022",
     "western-gawler"
@@ -664,67 +1198,6 @@
     "10.82388/bt6orvhn"
    ],
    "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/pqespgbo",
-   "model": "PR6-24",
-   "serial": "61002",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-02-14",
-   "last": "2016-02-10",
-   "hours": 2153.03,
-   "n_undated": 0,
-   "n_stations": 42,
-   "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "paralana-2010",
-    "capricorn-2010",
-    "hillside-2012",
-    "paralana-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/1rxfmy67",
-   "model": "PR6-24",
-   "serial": "62221",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-05-20",
-   "last": "2014-06-21",
-   "hours": 2107.04,
-   "n_undated": 1,
-   "n_stations": 44,
-   "surveys": [
-    "renmark-2009",
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "paralana-2010",
-    "link-east-transect-2010",
-    "capricorn-2010",
-    "paralana-2012",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -735,11 +1208,12 @@
    "af": true,
    "first": "2009-09-22",
    "last": "2022-04-17",
-   "hours": 2079.3,
-   "n_undated": 3,
-   "n_stations": 46,
+   "hours": 2235.28,
+   "n_undated": 1,
+   "n_stations": 50,
    "surveys": [
     "curnamona-2009",
+    "paralana-2010",
     "capricorn-2010",
     "southern-delamerian-infill-2012",
     "hillside-2012",
@@ -749,6 +1223,7 @@
     "burra-2017-18",
     "tumby-bay-2018-19",
     "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "kalkaroo-2022",
     "vulcan-2022",
     "western-gawler"
@@ -766,6 +1241,176 @@
    "owner": "Adelaide University"
   },
   {
+   "doi": "10.82388/v87pd2ab",
+   "model": "PR6-24",
+   "serial": "60967",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-02-13",
+   "last": "2016-08-31",
+   "hours": 2228.45,
+   "n_undated": 0,
+   "n_stations": 18,
+   "surveys": [
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "southern-delamerian-2010",
+    "north-western-tasmania-transect-2016",
+    "auslamp-tas",
+    "grampians-2016"
+   ],
+   "is_part_of": [],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/qhu71syp",
+   "model": "LEMI-120",
+   "serial": "128",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-09-22",
+   "last": "2022-04-17",
+   "hours": 2165.21,
+   "n_undated": 0,
+   "n_stations": 49,
+   "surveys": [
+    "curnamona-2009",
+    "paralana-2010",
+    "capricorn-2010",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "grampians-2016",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "kalkaroo-2022",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/k682rsrf",
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/3wrjhk6v",
+   "model": "LEMI-120",
+   "serial": "261",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-05-21",
+   "last": "2022-04-17",
+   "hours": 2123.17,
+   "n_undated": 0,
+   "n_stations": 52,
+   "surveys": [
+    "renmark-2009",
+    "paralana-2010",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "kalkaroo-2022",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/k682rsrf",
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/d88byqa6",
+   "model": "LEMI-120",
+   "serial": "262",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-05-21",
+   "last": "2022-04-17",
+   "hours": 2123.17,
+   "n_undated": 0,
+   "n_stations": 52,
+   "surveys": [
+    "renmark-2009",
+    "paralana-2010",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "kalkaroo-2022",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/k682rsrf",
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/ko3rieyt",
+   "model": "PR6-24",
+   "serial": "60964",
+   "role": "recorder",
+   "af": true,
+   "first": "2009-05-21",
+   "last": "2019-06-05",
+   "hours": 2109.38,
+   "n_undated": 1,
+   "n_stations": 33,
+   "surveys": [
+    "renmark-2009",
+    "stuart-shelf-2009",
+    "curnamona-2009",
+    "paralana-2010",
+    "capricorn-2010",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "grampians-2016",
+    "eastern-goldfields-2018-19"
+   ],
+   "is_part_of": [
+    "10.82388/jnvdwgei"
+   ],
+   "registry_title": "Earth Data PR6-24 Logger",
+   "owner": "Adelaide University"
+  },
+  {
    "doi": "10.82388/8mjsxxkg",
    "model": "LEMI-120",
    "serial": "254",
@@ -773,9 +1418,9 @@
    "af": true,
    "first": "2009-09-23",
    "last": "2022-04-16",
-   "hours": 2056.74,
+   "hours": 2085.14,
    "n_undated": 0,
-   "n_stations": 50,
+   "n_stations": 51,
    "surveys": [
     "curnamona-2009",
     "paralana-2010",
@@ -787,6 +1432,124 @@
     "burra-2017-18",
     "tumby-bay-2018-19",
     "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "kalkaroo-2022",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/k682rsrf",
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/8owf1wis",
+   "model": "LEMI-120",
+   "serial": "266",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-09-24",
+   "last": "2022-04-17",
+   "hours": 2067.72,
+   "n_undated": 0,
+   "n_stations": 46,
+   "surveys": [
+    "curnamona-2009",
+    "hillside-2012",
+    "southern-delamerian-infill-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/exnq4adi",
+   "model": "LEMI-120",
+   "serial": "269",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-09-24",
+   "last": "2022-04-17",
+   "hours": 2066.31,
+   "n_undated": 1,
+   "n_stations": 46,
+   "surveys": [
+    "curnamona-2009",
+    "hillside-2012",
+    "southern-delamerian-infill-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/sdwh4xau",
+   "model": "LEMI-120",
+   "serial": "255",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-09-23",
+   "last": "2022-04-16",
+   "hours": 2059.79,
+   "n_undated": 0,
+   "n_stations": 51,
+   "surveys": [
+    "curnamona-2009",
+    "paralana-2010",
+    "hillside-2012",
+    "delamerian-lachlan-2014",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "kalkaroo-2022",
     "vulcan-2022",
     "western-gawler"
@@ -822,261 +1585,6 @@
     "10.82388/dh5zd4ve"
    ],
    "registry_title": "LEMI-424 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/qhu71syp",
-   "model": "LEMI-120",
-   "serial": "128",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-22",
-   "last": "2022-04-17",
-   "hours": 2034.58,
-   "n_undated": 4,
-   "n_stations": 45,
-   "surveys": [
-    "curnamona-2009",
-    "capricorn-2010",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "grampians-2016",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "newer-volcanic-province-2019",
-    "kalkaroo-2022",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/k682rsrf",
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/3wrjhk6v",
-   "model": "LEMI-120",
-   "serial": "261",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-05-21",
-   "last": "2022-04-17",
-   "hours": 2033.6,
-   "n_undated": 0,
-   "n_stations": 50,
-   "surveys": [
-    "renmark-2009",
-    "paralana-2010",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "newer-volcanic-province-2019",
-    "kalkaroo-2022",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/k682rsrf",
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/d88byqa6",
-   "model": "LEMI-120",
-   "serial": "262",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-05-21",
-   "last": "2022-04-17",
-   "hours": 2033.6,
-   "n_undated": 0,
-   "n_stations": 50,
-   "surveys": [
-    "renmark-2009",
-    "paralana-2010",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "newer-volcanic-province-2019",
-    "kalkaroo-2022",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/k682rsrf",
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/sdwh4xau",
-   "model": "LEMI-120",
-   "serial": "255",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-23",
-   "last": "2022-04-16",
-   "hours": 2031.39,
-   "n_undated": 0,
-   "n_stations": 50,
-   "surveys": [
-    "curnamona-2009",
-    "paralana-2010",
-    "hillside-2012",
-    "delamerian-lachlan-2014",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "newer-volcanic-province-2019",
-    "kalkaroo-2022",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/k682rsrf",
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/e294x5mk",
-   "model": "PR6-24",
-   "serial": "60966",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-05-20",
-   "last": "2014-06-21",
-   "hours": 2004.66,
-   "n_undated": 0,
-   "n_stations": 35,
-   "surveys": [
-    "renmark-2009",
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "paralana-2010",
-    "capricorn-2010",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/8owf1wis",
-   "model": "LEMI-120",
-   "serial": "266",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-24",
-   "last": "2022-04-17",
-   "hours": 1976.66,
-   "n_undated": 0,
-   "n_stations": 44,
-   "surveys": [
-    "curnamona-2009",
-    "hillside-2012",
-    "southern-delamerian-infill-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/exnq4adi",
-   "model": "LEMI-120",
-   "serial": "269",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-24",
-   "last": "2022-04-17",
-   "hours": 1975.25,
-   "n_undated": 1,
-   "n_stations": 44,
-   "surveys": [
-    "curnamona-2009",
-    "hillside-2012",
-    "southern-delamerian-infill-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
    "owner": "Adelaide University"
   },
   {
@@ -1152,31 +1660,39 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/ygxhw2p5",
-   "model": "PR6-24",
-   "serial": "60993",
-   "role": "recorder",
+   "doi": "10.82388/huwxlqgi",
+   "model": "LEMI-120",
+   "serial": "123",
+   "role": "sensor",
    "af": true,
-   "first": "2009-05-20",
-   "last": "2016-02-20",
-   "hours": 1789.16,
+   "first": "2009-09-22",
+   "last": "2022-04-17",
+   "hours": 1796.32,
    "n_undated": 0,
-   "n_stations": 34,
+   "n_stations": 37,
    "surveys": [
-    "renmark-2009",
-    "stuart-shelf-2009",
     "curnamona-2009",
-    "southern-delamerian-2010",
     "paralana-2010",
-    "capricorn-2010",
     "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "north-western-tasmania-transect-2016"
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
    ],
    "is_part_of": [
-    "10.82388/jnvdwgei"
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn"
    ],
-   "registry_title": "Earth Data PR6-24 Logger",
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
    "owner": "Adelaide University"
   },
   {
@@ -1198,6 +1714,72 @@
     "10.82388/co3vcklz"
    ],
    "registry_title": "LEMI-424 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/sxoo8ztz",
+   "model": "LEMI-120",
+   "serial": "242",
+   "role": "sensor",
+   "af": true,
+   "first": "2010-03-05",
+   "last": "2020-09-24",
+   "hours": 1749.28,
+   "n_undated": 0,
+   "n_stations": 41,
+   "surveys": [
+    "paralana-2010",
+    "capricorn-2010",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "central-delamerian-2020"
+   ],
+   "is_part_of": [
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/demqei8m",
+   "model": "LEMI-120",
+   "serial": "124",
+   "role": "sensor",
+   "af": true,
+   "first": "2010-03-06",
+   "last": "2022-04-17",
+   "hours": 1746.79,
+   "n_undated": 0,
+   "n_stations": 36,
+   "surveys": [
+    "paralana-2010",
+    "olympic-dam-2013",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/rgourskg",
+    "10.82388/f90v7ksa",
+    "10.82388/pz3p45bk",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
    "owner": "Adelaide University"
   },
   {
@@ -1265,124 +1847,27 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/sxoo8ztz",
-   "model": "LEMI-120",
-   "serial": "242",
-   "role": "sensor",
-   "af": true,
-   "first": "2010-03-05",
-   "last": "2019-11-05",
-   "hours": 1707.15,
-   "n_undated": 0,
-   "n_stations": 40,
-   "surveys": [
-    "paralana-2010",
-    "capricorn-2010",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "burra-2017-18",
-    "tumby-bay-2018-19"
-   ],
-   "is_part_of": [
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/huwxlqgi",
-   "model": "LEMI-120",
-   "serial": "123",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-22",
-   "last": "2022-04-17",
-   "hours": 1701.88,
-   "n_undated": 0,
-   "n_stations": 35,
-   "surveys": [
-    "curnamona-2009",
-    "paralana-2010",
-    "olympic-dam-2013",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/demqei8m",
-   "model": "LEMI-120",
-   "serial": "124",
-   "role": "sensor",
-   "af": true,
-   "first": "2010-03-06",
-   "last": "2022-04-17",
-   "hours": 1700.75,
-   "n_undated": 0,
-   "n_stations": 35,
-   "surveys": [
-    "paralana-2010",
-    "olympic-dam-2013",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/rgourskg",
-    "10.82388/f90v7ksa",
-    "10.82388/pz3p45bk",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/fjac53j6",
+   "doi": "10.82388/2uztc2j6",
    "model": "PR6-24",
-   "serial": "61000",
+   "serial": "60962",
    "role": "recorder",
    "af": true,
-   "first": "2009-02-15",
-   "last": "2016-06-18",
-   "hours": 1676.76,
-   "n_undated": 0,
-   "n_stations": 29,
+   "first": "2012-03-22",
+   "last": "2019-03-09",
+   "hours": 1704.25,
+   "n_undated": 2,
+   "n_stations": 35,
    "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "capricorn-2010",
     "hillside-2012",
+    "paralana-2012",
     "southern-delamerian-infill-2012",
     "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "western-tasmania-transect-2016",
     "north-western-tasmania-transect-2016",
-    "grampians-2016"
+    "grampians-2016",
+    "auslamp-tas",
+    "eastern-goldfields-2018-19"
    ],
    "is_part_of": [
     "10.82388/jnvdwgei"
@@ -1397,10 +1882,10 @@
    "role": "sensor",
    "af": true,
    "first": "2010-03-05",
-   "last": "2019-11-05",
-   "hours": 1656.1,
+   "last": "2020-09-24",
+   "hours": 1698.23,
    "n_undated": 0,
-   "n_stations": 39,
+   "n_stations": 40,
    "surveys": [
     "paralana-2010",
     "capricorn-2010",
@@ -1410,7 +1895,8 @@
     "north-western-tasmania-transect-2016",
     "ccmt-2017",
     "burra-2017-18",
-    "tumby-bay-2018-19"
+    "tumby-bay-2018-19",
+    "central-delamerian-2020"
    ],
    "is_part_of": [
     "10.82388/rgourskg",
@@ -1438,6 +1924,38 @@
     "10.82388/dh5zd4ve"
    ],
    "registry_title": "LEMI-424 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/cvpf8iny",
+   "model": "LEMI-120",
+   "serial": "134",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-09-23",
+   "last": "2022-04-17",
+   "hours": 1643.46,
+   "n_undated": 0,
+   "n_stations": 33,
+   "surveys": [
+    "curnamona-2009",
+    "capricorn-2010",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "north-western-tasmania-transect-2016",
+    "newer-volcanic-province-2019",
+    "tumby-bay-2018-19",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/f90v7ksa",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
    "owner": "Adelaide University"
   },
   {
@@ -1473,33 +1991,6 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/ikfwp4qj",
-   "model": "PR6-24",
-   "serial": "60963",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-05-21",
-   "last": "2016-06-21",
-   "hours": 1639.61,
-   "n_undated": 0,
-   "n_stations": 28,
-   "surveys": [
-    "renmark-2009",
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "paralana-2010",
-    "capricorn-2010",
-    "olympic-dam-2013",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/gplc264e",
    "model": "LEMI-424",
    "serial": "#0004",
@@ -1521,30 +2012,34 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/c8gf4j5z",
-   "model": "PR6-24",
-   "serial": "60969",
+   "doi": "10.82388/gqxhddn2",
+   "model": "LEMI-423",
+   "serial": "#0012",
    "role": "recorder",
    "af": true,
-   "first": "2009-06-23",
-   "last": "2016-06-20",
-   "hours": 1599.28,
+   "first": "2017-07-07",
+   "last": "2022-04-16",
+   "hours": 1619.33,
    "n_undated": 0,
-   "n_stations": 29,
+   "n_stations": 32,
    "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "paralana-2010",
-    "capricorn-2010",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016"
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "central-delamerian-2020",
+    "kalkaroo-2022",
+    "vulcan-2022",
+    "western-gawler"
    ],
    "is_part_of": [
-    "10.82388/jnvdwgei"
+    "10.82388/ssw0j868",
+    "10.82388/k682rsrf",
+    "10.82388/f90v7ksa",
+    "10.82388/rgourskg",
+    "10.82388/pz3p45bk",
+    "10.82388/bt6orvhn"
    ],
-   "registry_title": "Earth Data PR6-24 Logger",
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
    "owner": "Adelaide University"
   },
   {
@@ -1614,37 +2109,6 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/cvpf8iny",
-   "model": "LEMI-120",
-   "serial": "134",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-23",
-   "last": "2022-04-17",
-   "hours": 1554.93,
-   "n_undated": 0,
-   "n_stations": 31,
-   "surveys": [
-    "curnamona-2009",
-    "capricorn-2010",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "north-western-tasmania-transect-2016",
-    "newer-volcanic-province-2019",
-    "tumby-bay-2018-19",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/f90v7ksa",
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/1rnc9lva",
    "model": "LEMI-120",
    "serial": "257",
@@ -1680,33 +2144,64 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/gqxhddn2",
-   "model": "LEMI-423",
-   "serial": "#0012",
-   "role": "recorder",
+   "doi": "10.82388/hy7tibrx",
+   "model": "LEMI-120",
+   "serial": "136",
+   "role": "sensor",
    "af": true,
-   "first": "2017-07-07",
-   "last": "2022-04-16",
-   "hours": 1483.45,
+   "first": "2009-09-23",
+   "last": "2022-04-17",
+   "hours": 1498.4,
    "n_undated": 0,
-   "n_stations": 29,
+   "n_stations": 30,
    "surveys": [
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
+    "curnamona-2009",
+    "capricorn-2010",
+    "olympic-dam-2013",
+    "delamerian-lachlan-2014",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/f90v7ksa",
+    "10.82388/nu632xx4",
+    "10.82388/ssw0j868",
+    "10.82388/bt6orvhn"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/usyego4o",
+   "model": "LEMI-120",
+   "serial": "121",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-09-23",
+   "last": "2022-04-16",
+   "hours": 1467.82,
+   "n_undated": 0,
+   "n_stations": 36,
+   "surveys": [
+    "curnamona-2009",
+    "capricorn-2010",
+    "hillside-2012",
+    "southern-delamerian-infill-2012",
+    "olympic-dam-2013",
+    "grampians-2016",
+    "central-delamerian-2020",
     "kalkaroo-2022",
     "vulcan-2022",
     "western-gawler"
    ],
    "is_part_of": [
-    "10.82388/ssw0j868",
     "10.82388/k682rsrf",
-    "10.82388/f90v7ksa",
-    "10.82388/rgourskg",
-    "10.82388/pz3p45bk",
+    "10.82388/ssw0j868",
     "10.82388/bt6orvhn"
    ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
    "owner": "Adelaide University"
   },
   {
@@ -1742,64 +2237,6 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/ko3rieyt",
-   "model": "PR6-24",
-   "serial": "60964",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-05-21",
-   "last": "2016-06-20",
-   "hours": 1439.24,
-   "n_undated": 0,
-   "n_stations": 32,
-   "surveys": [
-    "renmark-2009",
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "paralana-2010",
-    "capricorn-2010",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/usyego4o",
-   "model": "LEMI-120",
-   "serial": "121",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-23",
-   "last": "2022-04-16",
-   "hours": 1419.42,
-   "n_undated": 0,
-   "n_stations": 35,
-   "surveys": [
-    "curnamona-2009",
-    "capricorn-2010",
-    "hillside-2012",
-    "southern-delamerian-infill-2012",
-    "olympic-dam-2013",
-    "grampians-2016",
-    "kalkaroo-2022",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/k682rsrf",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/vhu94jex",
    "model": "LEMI-120",
    "serial": "119",
@@ -1830,27 +2267,29 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/hy7tibrx",
+   "doi": "10.82388/5rezalvk",
    "model": "LEMI-120",
-   "serial": "136",
+   "serial": "117",
    "role": "sensor",
    "af": true,
-   "first": "2009-09-23",
+   "first": "2010-03-06",
    "last": "2022-04-17",
-   "hours": 1409.87,
+   "hours": 1388.37,
    "n_undated": 0,
-   "n_stations": 28,
+   "n_stations": 34,
    "surveys": [
-    "curnamona-2009",
-    "capricorn-2010",
+    "paralana-2010",
+    "hillside-2012",
+    "southern-delamerian-infill-2012",
     "olympic-dam-2013",
     "delamerian-lachlan-2014",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
     "newer-volcanic-province-2019",
     "vulcan-2022",
     "western-gawler"
    ],
    "is_part_of": [
-    "10.82388/f90v7ksa",
     "10.82388/nu632xx4",
     "10.82388/ssw0j868",
     "10.82388/bt6orvhn"
@@ -1936,31 +2375,6 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/8hjqyq4t",
-   "model": "PR6-24",
-   "serial": "60965",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-02-12",
-   "last": "2016-02-20",
-   "hours": 1316.56,
-   "n_undated": 0,
-   "n_stations": 24,
-   "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "paralana-2010",
-    "link-east-transect-2010",
-    "capricorn-2010",
-    "north-western-tasmania-transect-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/1t9n3057",
    "model": "LEMI-423",
    "serial": "#0010",
@@ -1988,88 +2402,6 @@
     "10.82388/bt6orvhn"
    ],
    "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/vboc9r8p",
-   "model": "PR6-24",
-   "serial": "60968",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-02-13",
-   "last": "2016-06-19",
-   "hours": 1310.89,
-   "n_undated": 0,
-   "n_stations": 28,
-   "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "hillside-2012",
-    "paralana-2012",
-    "delamerian-lachlan-2014",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/5rezalvk",
-   "model": "LEMI-120",
-   "serial": "117",
-   "role": "sensor",
-   "af": true,
-   "first": "2012-03-22",
-   "last": "2022-04-17",
-   "hours": 1306.99,
-   "n_undated": 0,
-   "n_stations": 30,
-   "surveys": [
-    "hillside-2012",
-    "southern-delamerian-infill-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/nu632xx4",
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/05hyhja8",
-   "model": "PR6-24",
-   "serial": "62136",
-   "role": "recorder",
-   "af": true,
-   "first": "2010-10-22",
-   "last": "2016-02-10",
-   "hours": 1270.59,
-   "n_undated": 0,
-   "n_stations": 21,
-   "surveys": [
-    "capricorn-2010",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -2222,16 +2554,78 @@
    "owner": "Adelaide University"
   },
   {
+   "doi": "10.82388/ejgot790",
+   "model": "LEMI-423",
+   "serial": "#0009",
+   "role": "recorder",
+   "af": true,
+   "first": "2017-07-09",
+   "last": "2022-04-16",
+   "hours": 1254.44,
+   "n_undated": 0,
+   "n_stations": 28,
+   "surveys": [
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "central-delamerian-2020",
+    "kalkaroo-2022",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/k682rsrf",
+    "10.82388/f90v7ksa",
+    "10.82388/rgourskg",
+    "10.82388/pz3p45bk",
+    "10.82388/bt6orvhn"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/fg44uzz4",
+   "model": "LEMI-423",
+   "serial": "#0008",
+   "role": "recorder",
+   "af": true,
+   "first": "2017-07-07",
+   "last": "2022-04-17",
+   "hours": 1232.08,
+   "n_undated": 0,
+   "n_stations": 28,
+   "surveys": [
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "central-delamerian-2020",
+    "kalkaroo-2022",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/k682rsrf",
+    "10.82388/f90v7ksa",
+    "10.82388/rgourskg",
+    "10.82388/pz3p45bk",
+    "10.82388/bt6orvhn"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
    "doi": "10.82388/9vw7kz97",
    "model": "LEMI-120",
    "serial": "137",
    "role": "sensor",
    "af": true,
    "first": "2009-09-22",
-   "last": "2021-05-08",
-   "hours": 1253.58,
+   "last": "2021-05-06",
+   "hours": 1207.88,
    "n_undated": 0,
-   "n_stations": 33,
+   "n_stations": 32,
    "surveys": [
     "curnamona-2009",
     "hillside-2012",
@@ -2241,6 +2635,7 @@
     "burra-2017-18",
     "tumby-bay-2018-19",
     "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "kalkaroo-2022"
    ],
    "is_part_of": [
@@ -2254,40 +2649,16 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/ibnrh5rj",
-   "model": "PR6-24",
-   "serial": "62135",
-   "role": "recorder",
-   "af": true,
-   "first": "2010-03-05",
-   "last": "2016-06-20",
-   "hours": 1237.98,
-   "n_undated": 0,
-   "n_stations": 26,
-   "surveys": [
-    "paralana-2010",
-    "link-east-transect-2010",
-    "capricorn-2010",
-    "olympic-dam-2013",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/gs3epzvw",
    "model": "LEMI-120",
    "serial": "138",
    "role": "sensor",
    "af": true,
    "first": "2009-09-22",
-   "last": "2021-05-08",
-   "hours": 1229.35,
+   "last": "2021-05-06",
+   "hours": 1183.65,
    "n_undated": 0,
-   "n_stations": 33,
+   "n_stations": 32,
    "surveys": [
     "curnamona-2009",
     "hillside-2012",
@@ -2296,6 +2667,7 @@
     "ccmt-2017",
     "burra-2017-18",
     "tumby-bay-2018-19",
+    "central-delamerian-2020",
     "kalkaroo-2022"
    ],
    "is_part_of": [
@@ -2305,32 +2677,6 @@
     "10.82388/pz3p45bk"
    ],
    "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/w0tttqt9",
-   "model": "PR6-24",
-   "serial": "62138",
-   "role": "recorder",
-   "af": true,
-   "first": "2010-10-22",
-   "last": "2016-02-13",
-   "hours": 1188.84,
-   "n_undated": 1,
-   "n_stations": 22,
-   "surveys": [
-    "capricorn-2010",
-    "paralana-2012",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "north-western-tasmania-transect-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -2363,33 +2709,6 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/2uztc2j6",
-   "model": "PR6-24",
-   "serial": "60962",
-   "role": "recorder",
-   "af": true,
-   "first": "2012-03-22",
-   "last": "2016-06-21",
-   "hours": 1155.75,
-   "n_undated": 2,
-   "n_stations": 33,
-   "surveys": [
-    "hillside-2012",
-    "paralana-2012",
-    "southern-delamerian-infill-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/1nhybg3w",
    "model": "LEMI-120",
    "serial": "126",
@@ -2418,87 +2737,47 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/ejgot790",
-   "model": "LEMI-423",
-   "serial": "#0009",
+   "doi": "10.82388/a092l1jc",
+   "model": "Orange Box (PAR24B)",
+   "serial": "51374",
    "role": "recorder",
-   "af": true,
-   "first": "2017-07-09",
-   "last": "2022-04-16",
-   "hours": 1117.91,
+   "af": false,
+   "first": "2005-11-12",
+   "last": "2009-06-28",
+   "hours": 1118.53,
    "n_undated": 0,
-   "n_stations": 25,
+   "n_stations": 18,
    "surveys": [
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "kalkaroo-2022",
-    "vulcan-2022",
-    "western-gawler"
+    "fowler-2005",
+    "kalgoorlie-2006",
+    "mundi-mundi",
+    "renmark-2009",
+    "stuart-shelf-2009"
    ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/k682rsrf",
-    "10.82388/f90v7ksa",
-    "10.82388/rgourskg",
-    "10.82388/pz3p45bk",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "is_part_of": [],
+   "registry_title": "Adelaide-Flinders MT Logger (Orange Box / HFM) [2026-08-13]",
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/54bgwbw9",
-   "model": "PR6-24",
-   "serial": "62222",
+   "doi": "10.82388/25jrcc6q",
+   "model": "Orange Box (PAR24B)",
+   "serial": "10307",
    "role": "recorder",
-   "af": true,
-   "first": "2010-10-28",
-   "last": "2013-07-07",
-   "hours": 1104.98,
+   "af": false,
+   "first": "2005-11-12",
+   "last": "2009-06-25",
+   "hours": 1097,
    "n_undated": 0,
-   "n_stations": 25,
+   "n_stations": 18,
    "surveys": [
-    "capricorn-2010",
-    "hillside-2012",
-    "paralana-2012",
-    "southern-delamerian-infill-2012",
-    "olympic-dam-2013"
+    "fowler-2005",
+    "kalgoorlie-2006",
+    "mundi-mundi",
+    "renmark-2009",
+    "stuart-shelf-2009"
    ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/fg44uzz4",
-   "model": "LEMI-423",
-   "serial": "#0008",
-   "role": "recorder",
-   "af": true,
-   "first": "2017-07-07",
-   "last": "2022-04-17",
-   "hours": 1099.82,
-   "n_undated": 0,
-   "n_stations": 25,
-   "surveys": [
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "kalkaroo-2022",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/k682rsrf",
-    "10.82388/f90v7ksa",
-    "10.82388/rgourskg",
-    "10.82388/pz3p45bk",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "is_part_of": [],
+   "registry_title": "Adelaide-Flinders MT Logger (Orange Box / HFM)",
    "owner": "Adelaide University"
   },
   {
@@ -2526,24 +2805,35 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/a092l1jc",
-   "model": "Orange Box (PAR24B)",
-   "serial": "51374",
-   "role": "recorder",
-   "af": false,
-   "first": "2005-11-12",
-   "last": "2009-06-28",
-   "hours": 1044.93,
-   "n_undated": 0,
-   "n_stations": 17,
+   "doi": "10.82388/4ysryjun",
+   "model": "LEMI-120",
+   "serial": "247",
+   "role": "sensor",
+   "af": true,
+   "first": "2009-09-23",
+   "last": "2021-05-09",
+   "hours": 1067.32,
+   "n_undated": 2,
+   "n_stations": 30,
    "surveys": [
-    "fowler-2005",
-    "kalgoorlie-2006",
-    "renmark-2009",
-    "stuart-shelf-2009"
+    "curnamona-2009",
+    "paralana-2010",
+    "link-east-transect-2010",
+    "southern-delamerian-infill-2012",
+    "hillside-2012",
+    "olympic-dam-2013",
+    "north-western-tasmania-transect-2016",
+    "grampians-2016",
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "kalkaroo-2022"
    ],
-   "is_part_of": [],
-   "registry_title": "Adelaide-Flinders MT Logger (Orange Box / HFM) [2026-08-13]",
+   "is_part_of": [
+    "10.82388/k682rsrf",
+    "10.82388/nu632xx4",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-120 magnetic induction coil sensor",
    "owner": "Adelaide University"
   },
   {
@@ -2575,59 +2865,6 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/4ysryjun",
-   "model": "LEMI-120",
-   "serial": "247",
-   "role": "sensor",
-   "af": true,
-   "first": "2009-09-23",
-   "last": "2021-05-09",
-   "hours": 1022.48,
-   "n_undated": 2,
-   "n_stations": 29,
-   "surveys": [
-    "curnamona-2009",
-    "paralana-2010",
-    "link-east-transect-2010",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016",
-    "newer-volcanic-province-2019",
-    "kalkaroo-2022"
-   ],
-   "is_part_of": [
-    "10.82388/k682rsrf",
-    "10.82388/nu632xx4",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/v87pd2ab",
-   "model": "PR6-24",
-   "serial": "60967",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-02-13",
-   "last": "2016-06-21",
-   "hours": 1013.22,
-   "n_undated": 0,
-   "n_stations": 16,
-   "surveys": [
-    "stuart-shelf-2009",
-    "curnamona-2009",
-    "southern-delamerian-2010",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016"
-   ],
-   "is_part_of": [],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
    "doi": "10.82388/ahbao8tk",
    "model": "LEMI-120",
    "serial": "125",
@@ -2652,30 +2889,6 @@
     "10.82388/bt6orvhn"
    ],
    "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/doj4kua9",
-   "model": "PR6-24",
-   "serial": "62137",
-   "role": "recorder",
-   "af": true,
-   "first": "2010-10-22",
-   "last": "2016-02-20",
-   "hours": 982.38,
-   "n_undated": 0,
-   "n_stations": 15,
-   "surveys": [
-    "capricorn-2010",
-    "hillside-2012",
-    "southern-delamerian-infill-2012",
-    "olympic-dam-2013",
-    "north-western-tasmania-transect-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -2712,9 +2925,9 @@
    "af": true,
    "first": "2009-09-23",
    "last": "2021-05-07",
-   "hours": 959.11,
+   "hours": 936.78,
    "n_undated": 0,
-   "n_stations": 28,
+   "n_stations": 27,
    "surveys": [
     "curnamona-2009",
     "paralana-2010",
@@ -2724,6 +2937,7 @@
     "olympic-dam-2013",
     "grampians-2016",
     "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "kalkaroo-2022"
    ],
    "is_part_of": [
@@ -2735,20 +2949,20 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/25jrcc6q",
+   "doi": "10.82388/qfogy5gj",
    "model": "Orange Box (PAR24B)",
-   "serial": "10307",
+   "serial": "51087",
    "role": "recorder",
    "af": false,
-   "first": "2005-11-12",
-   "last": "2009-06-25",
-   "hours": 878.22,
+   "first": "2005-11-22",
+   "last": "2009-06-27",
+   "hours": 878.2,
    "n_undated": 0,
    "n_stations": 15,
    "surveys": [
     "fowler-2005",
     "kalgoorlie-2006",
-    "renmark-2009",
+    "mundi-mundi",
     "stuart-shelf-2009"
    ],
    "is_part_of": [],
@@ -2813,28 +3027,56 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/51qz0g08",
-   "model": "PR6-24",
-   "serial": "62218",
+   "doi": "10.82388/hdbtejtf",
+   "model": "LEMI-423",
+   "serial": "#0004",
    "role": "recorder",
    "af": true,
-   "first": "2012-04-29",
-   "last": "2016-02-13",
-   "hours": 797.7,
-   "n_undated": 1,
-   "n_stations": 19,
+   "first": "2017-07-07",
+   "last": "2021-05-24",
+   "hours": 805.91,
+   "n_undated": 0,
+   "n_stations": 18,
    "surveys": [
-    "paralana-2012",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016"
+    "ccmt-2017",
+    "burra-2017-18",
+    "tumby-bay-2018-19",
+    "central-delamerian-2020",
+    "kalkaroo-2022"
    ],
    "is_part_of": [
-    "10.82388/jnvdwgei"
+    "10.82388/k682rsrf",
+    "10.82388/f90v7ksa",
+    "10.82388/rgourskg",
+    "10.82388/pz3p45bk"
    ],
-   "registry_title": "Earth Data PR6-24 Logger",
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/7c19zxb9",
+   "model": "LEMI-423",
+   "serial": "#0043",
+   "role": "recorder",
+   "af": true,
+   "first": "2019-08-20",
+   "last": "2022-04-17",
+   "hours": 803.35,
+   "n_undated": 0,
+   "n_stations": 17,
+   "surveys": [
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
    "owner": "Adelaide University"
   },
   {
@@ -2859,6 +3101,158 @@
     "10.82388/f90v7ksa",
     "10.82388/rgourskg",
     "10.82388/pz3p45bk"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/qfpmtz0m",
+   "model": "Orange Box (PAR24B)",
+   "serial": "10311",
+   "role": "recorder",
+   "af": false,
+   "first": "2005-11-12",
+   "last": "2009-06-25",
+   "hours": 788.35,
+   "n_undated": 0,
+   "n_stations": 12,
+   "surveys": [
+    "fowler-2005",
+    "kalgoorlie-2006",
+    "mundi-mundi",
+    "renmark-2009",
+    "stuart-shelf-2009"
+   ],
+   "is_part_of": [],
+   "registry_title": "Adelaide-Flinders MT Logger (Orange Box / HFM)",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/gulw6ans",
+   "model": "LEMI-423",
+   "serial": "#0039",
+   "role": "recorder",
+   "af": true,
+   "first": "2019-08-21",
+   "last": "2022-04-17",
+   "hours": 778.33,
+   "n_undated": 0,
+   "n_stations": 16,
+   "surveys": [
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/c7ea5dpq",
+   "model": "LEMI-423",
+   "serial": "#0040",
+   "role": "recorder",
+   "af": true,
+   "first": "2019-08-22",
+   "last": "2022-04-17",
+   "hours": 766,
+   "n_undated": 0,
+   "n_stations": 16,
+   "surveys": [
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/k0bs7vqk",
+   "model": "LEMI-423",
+   "serial": "#0035",
+   "role": "recorder",
+   "af": true,
+   "first": "2019-08-22",
+   "last": "2022-04-17",
+   "hours": 758.82,
+   "n_undated": 0,
+   "n_stations": 17,
+   "surveys": [
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/kit2jlmv",
+   "model": "LEMI-423",
+   "serial": "#0032",
+   "role": "recorder",
+   "af": true,
+   "first": "2019-08-21",
+   "last": "2022-04-16",
+   "hours": 745.75,
+   "n_undated": 0,
+   "n_stations": 16,
+   "surveys": [
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/f5myu87y",
+   "model": "LEMI-423",
+   "serial": "#0044",
+   "role": "recorder",
+   "af": true,
+   "first": "2019-08-21",
+   "last": "2022-04-16",
+   "hours": 743.25,
+   "n_undated": 0,
+   "n_stations": 17,
+   "surveys": [
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
    ],
    "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
    "owner": "Adelaide University"
@@ -3019,70 +3413,29 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/qfpmtz0m",
-   "model": "Orange Box (PAR24B)",
-   "serial": "10311",
-   "role": "recorder",
-   "af": false,
-   "first": "2005-11-12",
-   "last": "2009-06-25",
-   "hours": 716.68,
-   "n_undated": 0,
-   "n_stations": 11,
-   "surveys": [
-    "fowler-2005",
-    "kalgoorlie-2006",
-    "renmark-2009",
-    "stuart-shelf-2009"
-   ],
-   "is_part_of": [],
-   "registry_title": "Adelaide-Flinders MT Logger (Orange Box / HFM)",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/hdbtejtf",
+   "doi": "10.82388/kjret6zg",
    "model": "LEMI-423",
-   "serial": "#0004",
+   "serial": "#0045",
    "role": "recorder",
    "af": true,
-   "first": "2017-07-07",
-   "last": "2021-05-24",
-   "hours": 714.78,
+   "first": "2019-08-21",
+   "last": "2022-04-17",
+   "hours": 708.77,
    "n_undated": 0,
-   "n_stations": 16,
+   "n_stations": 15,
    "surveys": [
-    "ccmt-2017",
-    "burra-2017-18",
-    "tumby-bay-2018-19",
-    "kalkaroo-2022"
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
    ],
    "is_part_of": [
-    "10.82388/k682rsrf",
-    "10.82388/f90v7ksa",
-    "10.82388/rgourskg",
-    "10.82388/pz3p45bk"
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
    ],
    "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/qfogy5gj",
-   "model": "Orange Box (PAR24B)",
-   "serial": "51087",
-   "role": "recorder",
-   "af": false,
-   "first": "2005-11-22",
-   "last": "2009-06-27",
-   "hours": 713.78,
-   "n_undated": 0,
-   "n_stations": 13,
-   "surveys": [
-    "fowler-2005",
-    "kalgoorlie-2006",
-    "stuart-shelf-2009"
-   ],
-   "is_part_of": [],
-   "registry_title": "Adelaide-Flinders MT Logger (Orange Box / HFM)",
    "owner": "Adelaide University"
   },
   {
@@ -3131,26 +3484,55 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/2nyr7j3t",
-   "model": "PR6-24",
-   "serial": "62219",
+   "doi": "10.82388/ugeoljny",
+   "model": "LEMI-423",
+   "serial": "#0036",
    "role": "recorder",
    "af": true,
-   "first": "2012-03-22",
-   "last": "2016-06-20",
-   "hours": 704.48,
+   "first": "2019-08-25",
+   "last": "2022-04-16",
+   "hours": 694.71,
    "n_undated": 0,
-   "n_stations": 19,
+   "n_stations": 15,
    "surveys": [
-    "hillside-2012",
-    "paralana-2012",
-    "olympic-dam-2013",
-    "western-tasmania-transect-2016",
-    "north-western-tasmania-transect-2016",
-    "grampians-2016"
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
    ],
-   "is_part_of": [],
-   "registry_title": "Earth Data PR6-24 Logger",
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "owner": "Adelaide University"
+  },
+  {
+   "doi": "10.82388/qk8rz3qf",
+   "model": "LEMI-423",
+   "serial": "#0041",
+   "role": "recorder",
+   "af": true,
+   "first": "2019-08-21",
+   "last": "2022-04-17",
+   "hours": 688.06,
+   "n_undated": 0,
+   "n_stations": 15,
+   "surveys": [
+    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
+    "vulcan-2022",
+    "western-gawler"
+   ],
+   "is_part_of": [
+    "10.82388/ssw0j868",
+    "10.82388/nu632xx4",
+    "10.82388/bt6orvhn",
+    "10.82388/mwwkvyeq"
+   ],
+   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
    "owner": "Adelaide University"
   },
   {
@@ -3176,18 +3558,19 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/7c19zxb9",
+   "doi": "10.82388/fn5k05i1",
    "model": "LEMI-423",
-   "serial": "#0043",
+   "serial": "#0031",
    "role": "recorder",
    "af": true,
    "first": "2019-08-20",
-   "last": "2022-04-17",
-   "hours": 667.03,
+   "last": "2022-04-16",
+   "hours": 686.2,
    "n_undated": 0,
-   "n_stations": 14,
+   "n_stations": 15,
    "surveys": [
     "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "vulcan-2022",
     "western-gawler"
    ],
@@ -3274,18 +3657,19 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/gulw6ans",
+   "doi": "10.82388/bqys907u",
    "model": "LEMI-423",
-   "serial": "#0039",
+   "serial": "#0038",
    "role": "recorder",
    "af": true,
    "first": "2019-08-21",
    "last": "2022-04-17",
-   "hours": 647.99,
+   "hours": 646.88,
    "n_undated": 0,
-   "n_stations": 13,
+   "n_stations": 14,
    "surveys": [
     "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "vulcan-2022",
     "western-gawler"
    ],
@@ -3296,27 +3680,6 @@
     "10.82388/mwwkvyeq"
    ],
    "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/gtayqn61",
-   "model": "PR6-24",
-   "serial": "60848",
-   "role": "recorder",
-   "af": true,
-   "first": "2009-02-14",
-   "last": "2014-06-20",
-   "hours": 640.64,
-   "n_undated": 2,
-   "n_stations": 12,
-   "surveys": [
-    "stuart-shelf-2009",
-    "delamerian-lachlan-2014"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -3343,101 +3706,24 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/qk8rz3qf",
+   "doi": "10.82388/vqpyolz7",
    "model": "LEMI-423",
-   "serial": "#0041",
+   "serial": "#0033",
    "role": "recorder",
    "af": true,
-   "first": "2019-08-21",
-   "last": "2022-04-17",
-   "hours": 594.34,
-   "n_undated": 0,
-   "n_stations": 13,
-   "surveys": [
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/fn5k05i1",
-   "model": "LEMI-423",
-   "serial": "#0031",
-   "role": "recorder",
-   "af": true,
-   "first": "2019-08-20",
+   "first": "2020-09-23",
    "last": "2022-04-16",
-   "hours": 591.3,
-   "n_undated": 0,
-   "n_stations": 13,
-   "surveys": [
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/c7ea5dpq",
-   "model": "LEMI-423",
-   "serial": "#0040",
-   "role": "recorder",
-   "af": true,
-   "first": "2019-08-22",
-   "last": "2022-04-17",
-   "hours": 587.93,
+   "hours": 588.96,
    "n_undated": 0,
    "n_stations": 12,
    "surveys": [
-    "newer-volcanic-province-2019",
+    "central-delamerian-2020",
     "vulcan-2022",
     "western-gawler"
    ],
    "is_part_of": [
     "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/k0bs7vqk",
-   "model": "LEMI-423",
-   "serial": "#0035",
-   "role": "recorder",
-   "af": true,
-   "first": "2019-08-22",
-   "last": "2022-04-17",
-   "hours": 583.5,
-   "n_undated": 0,
-   "n_stations": 13,
-   "surveys": [
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
+    "10.82388/bt6orvhn"
    ],
    "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
    "owner": "Adelaide University"
@@ -3491,128 +3777,24 @@
    "owner": "Adelaide University"
   },
   {
-   "doi": "10.82388/kjret6zg",
-   "model": "LEMI-423",
-   "serial": "#0045",
+   "doi": "10.82388/onmejw47",
+   "model": "Orange Box (PAR24B)",
+   "serial": "51373",
    "role": "recorder",
-   "af": true,
-   "first": "2019-08-21",
-   "last": "2022-04-17",
-   "hours": 573.02,
+   "af": false,
+   "first": "2005-11-12",
+   "last": "2009-06-26",
+   "hours": 520.07,
    "n_undated": 0,
-   "n_stations": 12,
+   "n_stations": 8,
    "surveys": [
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
+    "fowler-2005",
+    "mundi-mundi",
+    "renmark-2009",
+    "stuart-shelf-2009"
    ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/kit2jlmv",
-   "model": "LEMI-423",
-   "serial": "#0032",
-   "role": "recorder",
-   "af": true,
-   "first": "2019-08-21",
-   "last": "2022-04-16",
-   "hours": 569.84,
-   "n_undated": 0,
-   "n_stations": 12,
-   "surveys": [
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/f5myu87y",
-   "model": "LEMI-423",
-   "serial": "#0044",
-   "role": "recorder",
-   "af": true,
-   "first": "2019-08-21",
-   "last": "2022-04-16",
-   "hours": 567.99,
-   "n_undated": 0,
-   "n_stations": 13,
-   "surveys": [
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/bqys907u",
-   "model": "LEMI-423",
-   "serial": "#0038",
-   "role": "recorder",
-   "af": true,
-   "first": "2019-08-21",
-   "last": "2022-04-17",
-   "hours": 559.83,
-   "n_undated": 0,
-   "n_stations": 12,
-   "surveys": [
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/ugeoljny",
-   "model": "LEMI-423",
-   "serial": "#0036",
-   "role": "recorder",
-   "af": true,
-   "first": "2019-08-25",
-   "last": "2022-04-16",
-   "hours": 520.62,
-   "n_undated": 0,
-   "n_stations": 11,
-   "surveys": [
-    "newer-volcanic-province-2019",
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/nu632xx4",
-    "10.82388/bt6orvhn",
-    "10.82388/mwwkvyeq"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
+   "is_part_of": [],
+   "registry_title": "Adelaide-Flinders MT Logger (Orange Box / HFM)",
    "owner": "Adelaide University"
   },
   {
@@ -3669,73 +3851,6 @@
     "10.82388/mwwkvyeq"
    ],
    "registry_title": "LEMI-120 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/kep0frad",
-   "model": "PR6-24",
-   "serial": "62217",
-   "role": "recorder",
-   "af": true,
-   "first": "2012-04-30",
-   "last": "2016-06-18",
-   "hours": 476.77,
-   "n_undated": 2,
-   "n_stations": 12,
-   "surveys": [
-    "paralana-2012",
-    "southern-delamerian-infill-2012",
-    "hillside-2012",
-    "olympic-dam-2013",
-    "delamerian-lachlan-2014",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/vqpyolz7",
-   "model": "LEMI-423",
-   "serial": "#0033",
-   "role": "recorder",
-   "af": true,
-   "first": "2022-02-11",
-   "last": "2022-04-16",
-   "hours": 469.94,
-   "n_undated": 0,
-   "n_stations": 9,
-   "surveys": [
-    "vulcan-2022",
-    "western-gawler"
-   ],
-   "is_part_of": [
-    "10.82388/ssw0j868",
-    "10.82388/bt6orvhn"
-   ],
-   "registry_title": "LEMI-423 Magnetotelluric Data Acquisition System",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/onmejw47",
-   "model": "Orange Box (PAR24B)",
-   "serial": "51373",
-   "role": "recorder",
-   "af": false,
-   "first": "2005-11-12",
-   "last": "2009-06-26",
-   "hours": 409.4,
-   "n_undated": 0,
-   "n_stations": 6,
-   "surveys": [
-    "fowler-2005",
-    "renmark-2009",
-    "stuart-shelf-2009"
-   ],
-   "is_part_of": [],
-   "registry_title": "Adelaide-Flinders MT Logger (Orange Box / HFM)",
    "owner": "Adelaide University"
   },
   {
@@ -3909,28 +4024,6 @@
     "10.82388/e15apc8f"
    ],
    "registry_title": "Phoenix Geophysics MTC-150 magnetic induction coil sensor",
-   "owner": "Adelaide University"
-  },
-  {
-   "doi": "10.82388/yj8w25ci",
-   "model": "PR6-24",
-   "serial": "62220",
-   "role": "recorder",
-   "af": true,
-   "first": "2012-05-02",
-   "last": "2016-06-20",
-   "hours": 356.92,
-   "n_undated": 0,
-   "n_stations": 8,
-   "surveys": [
-    "paralana-2012",
-    "olympic-dam-2013",
-    "grampians-2016"
-   ],
-   "is_part_of": [
-    "10.82388/jnvdwgei"
-   ],
-   "registry_title": "Earth Data PR6-24 Logger",
    "owner": "Adelaide University"
   },
   {
@@ -4110,6 +4203,17 @@
   }
  ],
  "surveys": {
+  "auslamp-tas": {
+   "title": "AusLAMP Tasmania",
+   "organisation": "University of Tasmania",
+   "year_start": null,
+   "year_end": null,
+   "n_stations": 57,
+   "runs": "populated",
+   "registry_doi": null,
+   "dataset_dois": [],
+   "papers": []
+  },
   "burra-2017-18": {
    "title": "Burra 2017-18",
    "organisation": "Adelaide University",
@@ -4217,6 +4321,17 @@
     }
    ]
   },
+  "central-delamerian-2020": {
+   "title": "Central Delamerian 2020",
+   "organisation": "Geological Survey of South Australia",
+   "year_start": 2020,
+   "year_end": 2020,
+   "n_stations": 53,
+   "runs": "populated",
+   "registry_doi": null,
+   "dataset_dois": [],
+   "papers": []
+  },
   "curnamona-2009": {
    "title": "Curnamona Gawler Link 2009",
    "organisation": "Adelaide University",
@@ -4245,8 +4360,19 @@
    "dataset_dois": [],
    "papers": []
   },
+  "eastern-goldfields-2018-19": {
+   "title": "Eastern Goldfields 2018-19",
+   "organisation": "Geological Survey of Western Australia",
+   "year_start": 2018,
+   "year_end": 2019,
+   "n_stations": 38,
+   "runs": "populated",
+   "registry_doi": null,
+   "dataset_dois": [],
+   "papers": []
+  },
   "fowler-2005": {
-   "title": "Fowler Belt Crustal Transect 2005 (Adelaide University)",
+   "title": "Fowler Belt 2005",
    "organisation": "Adelaide University",
    "year_start": 2005,
    "year_end": 2005,
@@ -4324,7 +4450,7 @@
    "papers": []
   },
   "kalgoorlie-2006": {
-   "title": "Kalgoorlie Long-Period MT Transect 2006 (Adelaide University)",
+   "title": "Kalgoorlie 2006",
    "organisation": "Adelaide University",
    "year_start": 2006,
    "year_end": 2006,
@@ -4350,6 +4476,17 @@
    "organisation": "Adelaide University",
    "year_start": 2010,
    "year_end": 2010,
+   "n_stations": 18,
+   "runs": "populated",
+   "registry_doi": null,
+   "dataset_dois": [],
+   "papers": []
+  },
+  "mundi-mundi": {
+   "title": "Mundi Mundi Plain profile",
+   "organisation": "Adelaide University",
+   "year_start": null,
+   "year_end": null,
    "n_stations": 18,
    "runs": "populated",
    "registry_doi": null,
@@ -4450,7 +4587,7 @@
    "papers": []
   },
   "paralana-2010": {
-   "title": "Paralana Geothermal Broadband MT Survey 2010 (Adelaide University)",
+   "title": "Paralana 2010",
    "organisation": "Adelaide University",
    "year_start": 2010,
    "year_end": 2010,
@@ -4472,7 +4609,7 @@
    "papers": []
   },
   "paralana-2012": {
-   "title": "Paralana Broadband and Long Period MT Survey 2012 (Adelaide University)",
+   "title": "Paralana 2012",
    "organisation": "Adelaide University",
    "year_start": 2012,
    "year_end": 2012,
@@ -4522,7 +4659,7 @@
    "papers": []
   },
   "stuart-shelf-2009": {
-   "title": "Stuart Shelf Long-Period MT Survey 2009 (Adelaide University)",
+   "title": "Stuart Shelf 2009",
    "organisation": "Adelaide University",
    "year_start": 2009,
    "year_end": 2009,
@@ -4671,6 +4808,230 @@
   }
  },
  "stations": {
+  "auslamp-tas/TAS100": [
+   -40.94615,
+   144.9185
+  ],
+  "auslamp-tas/TAS101": [
+   -40.958,
+   145.32605
+  ],
+  "auslamp-tas/TAS102": [
+   -41.1858,
+   145.44791
+  ],
+  "auslamp-tas/TAS103": [
+   -41.2184,
+   144.87219
+  ],
+  "auslamp-tas/TAS104": [
+   -41.53992,
+   145.10207
+  ],
+  "auslamp-tas/TAS106": [
+   -41.10375,
+   145.78953
+  ],
+  "auslamp-tas/TAS107": [
+   -41.58047,
+   145.66676
+  ],
+  "auslamp-tas/TAS108": [
+   -42.11917,
+   145.32211
+  ],
+  "auslamp-tas/TAS109": [
+   -41.90829,
+   145.59559
+  ],
+  "auslamp-tas/TAS110": [
+   -41.83524,
+   146.18901
+  ],
+  "auslamp-tas/TAS111": [
+   -41.57079,
+   146.24164
+  ],
+  "auslamp-tas/TAS112": [
+   -41.24547,
+   146.61409
+  ],
+  "auslamp-tas/TAS113": [
+   -41.20235,
+   147.2107
+  ],
+  "auslamp-tas/TAS114b": [
+   -41.60607,
+   146.76237
+  ],
+  "auslamp-tas/TAS115": [
+   -41.12681,
+   147.66819
+  ],
+  "auslamp-tas/TAS116": [
+   -40.98745,
+   148.03079
+  ],
+  "auslamp-tas/TAS117": [
+   -41.28006,
+   148.05714
+  ],
+  "auslamp-tas/TAS118": [
+   -41.53511,
+   148.07766
+  ],
+  "auslamp-tas/TAS119": [
+   -41.53584,
+   147.17205
+  ],
+  "auslamp-tas/TAS120": [
+   -41.5269,
+   147.66329
+  ],
+  "auslamp-tas/TAS121": [
+   -41.87168,
+   148.0128
+  ],
+  "auslamp-tas/TAS122": [
+   -41.87097,
+   147.6115
+  ],
+  "auslamp-tas/TAS123": [
+   -41.9,
+   147.21714
+  ],
+  "auslamp-tas/TAS124": [
+   -41.8975,
+   146.66496
+  ],
+  "auslamp-tas/TAS125": [
+   -42.36927,
+   145.7288
+  ],
+  "auslamp-tas/TAS126": [
+   -42.21775,
+   146.19873
+  ],
+  "auslamp-tas/TAS127": [
+   -42.25656,
+   146.69214
+  ],
+  "auslamp-tas/TAS128": [
+   -42.2189,
+   147.22953
+  ],
+  "auslamp-tas/TAS129": [
+   -42.1659,
+   147.86718
+  ],
+  "auslamp-tas/TAS130": [
+   -42.78924,
+   147.71516
+  ],
+  "auslamp-tas/TAS131": [
+   -42.48085,
+   147.63461
+  ],
+  "auslamp-tas/TAS132": [
+   -42.61834,
+   147.13818
+  ],
+  "auslamp-tas/TAS133": [
+   -42.58558,
+   146.68762
+  ],
+  "auslamp-tas/TAS134": [
+   -42.78251,
+   146.08539
+  ],
+  "auslamp-tas/TAS135": [
+   -42.77815,
+   145.56916
+  ],
+  "auslamp-tas/TAS136": [
+   -42.9072,
+   147.04325
+  ],
+  "auslamp-tas/TAS137": [
+   -42.93393,
+   146.71722
+  ],
+  "auslamp-tas/TAS138": [
+   -43.03546,
+   146.31617
+  ],
+  "auslamp-tas/TAS139": [
+   -43.42016,
+   146.1619
+  ],
+  "auslamp-tas/TAS140": [
+   -43.23071,
+   146.69524
+  ],
+  "auslamp-tas/TAS141": [
+   -43.44493,
+   146.86403
+  ],
+  "auslamp-tas/TAS142": [
+   -39.81158,
+   147.89067
+  ],
+  "auslamp-tas/TAS143": [
+   -40.14047,
+   148.16627
+  ],
+  "auslamp-tas/TAS144": [
+   -41.30145,
+   145.85171
+  ],
+  "auslamp-tas/TAS145": [
+   -43.10819,
+   145.97043
+  ],
+  "auslamp-tas/TAS146": [
+   -41.44055,
+   147.36638
+  ],
+  "auslamp-tas/TAS147": [
+   -41.18641,
+   146.68788
+  ],
+  "auslamp-tas/TAS148": [
+   -41.36722,
+   146.92976
+  ],
+  "auslamp-tas/TAS149": [
+   -42.70345,
+   146.45206
+  ],
+  "auslamp-tas/TAS201": [
+   -41.21098,
+   146.24005
+  ],
+  "auslamp-tas/TAS213": [
+   -41.42454,
+   146.14317
+  ],
+  "auslamp-tas/TAS221": [
+   -41.55743,
+   146.05876
+  ],
+  "auslamp-tas/TAS227": [
+   -41.58397,
+   145.93677
+  ],
+  "auslamp-tas/TAS315": [
+   -41.89127,
+   145.39395
+  ],
+  "auslamp-tas/TAS332": [
+   -42.10066,
+   145.6354
+  ],
+  "auslamp-tas/TAS342": [
+   -42.12465,
+   145.8537
+  ],
   "burra-2017-18/Burra01": [
    -33.33493,
    138.55224
@@ -5879,6 +6240,202 @@
    -30.90592,
    141.28971
   ],
+  "central-delamerian-2020/CD07": [
+   -32.49462,
+   140.054
+  ],
+  "central-delamerian-2020/CD08": [
+   -32.51091,
+   140.05658
+  ],
+  "central-delamerian-2020/CD09": [
+   -32.52317,
+   140.06268
+  ],
+  "central-delamerian-2020/CD10": [
+   -32.53437,
+   140.07589
+  ],
+  "central-delamerian-2020/CD11": [
+   -32.54497,
+   140.08813
+  ],
+  "central-delamerian-2020/CD12": [
+   -32.55351,
+   140.09621
+  ],
+  "central-delamerian-2020/CD13": [
+   -32.56294,
+   140.10714
+  ],
+  "central-delamerian-2020/CD14": [
+   -32.57864,
+   140.11867
+  ],
+  "central-delamerian-2020/CD15": [
+   -32.59414,
+   140.11917
+  ],
+  "central-delamerian-2020/CD16": [
+   -32.60806,
+   140.12764
+  ],
+  "central-delamerian-2020/CD17": [
+   -32.61988,
+   140.13701
+  ],
+  "central-delamerian-2020/CD18": [
+   -32.6322,
+   140.14793
+  ],
+  "central-delamerian-2020/CD19": [
+   -32.64372,
+   140.15863
+  ],
+  "central-delamerian-2020/CD20": [
+   -32.65756,
+   140.16956
+  ],
+  "central-delamerian-2020/CD21": [
+   -32.67022,
+   140.17344
+  ],
+  "central-delamerian-2020/CD22": [
+   -32.68718,
+   140.18037
+  ],
+  "central-delamerian-2020/CD23": [
+   -32.69974,
+   140.18524
+  ],
+  "central-delamerian-2020/CD24": [
+   -32.71769,
+   140.19077
+  ],
+  "central-delamerian-2020/CD25": [
+   -32.72779,
+   140.19831
+  ],
+  "central-delamerian-2020/CD26": [
+   -32.73686,
+   140.2228
+  ],
+  "central-delamerian-2020/CD27": [
+   -32.74619,
+   140.22575
+  ],
+  "central-delamerian-2020/CD28": [
+   -32.76149,
+   140.23003
+  ],
+  "central-delamerian-2020/CD29": [
+   -32.77458,
+   140.23239
+  ],
+  "central-delamerian-2020/CD30": [
+   -32.78538,
+   140.24952
+  ],
+  "central-delamerian-2020/CD31": [
+   -32.78826,
+   140.26478
+  ],
+  "central-delamerian-2020/CD32": [
+   -32.79125,
+   140.27972
+  ],
+  "central-delamerian-2020/CD33": [
+   -32.79284,
+   140.2932
+  ],
+  "central-delamerian-2020/CD34": [
+   -32.79303,
+   140.30935
+  ],
+  "central-delamerian-2020/CD35": [
+   -32.79398,
+   140.32262
+  ],
+  "central-delamerian-2020/CD36": [
+   -32.79693,
+   140.33934
+  ],
+  "central-delamerian-2020/CD37": [
+   -32.80272,
+   140.35473
+  ],
+  "central-delamerian-2020/CD38": [
+   -32.81047,
+   140.36986
+  ],
+  "central-delamerian-2020/CD39": [
+   -32.81687,
+   140.3782
+  ],
+  "central-delamerian-2020/CD40": [
+   -32.82489,
+   140.3945
+  ],
+  "central-delamerian-2020/CD41": [
+   -32.83372,
+   140.40701
+  ],
+  "central-delamerian-2020/CD42": [
+   -32.8407,
+   140.42366
+  ],
+  "central-delamerian-2020/CD43": [
+   -32.84503,
+   140.43674
+  ],
+  "central-delamerian-2020/CD44": [
+   -32.85454,
+   140.45407
+  ],
+  "central-delamerian-2020/CD45": [
+   -32.87321,
+   140.43139
+  ],
+  "central-delamerian-2020/CD47": [
+   -32.89695,
+   140.43053
+  ],
+  "central-delamerian-2020/CD48": [
+   -32.90973,
+   140.42989
+  ],
+  "central-delamerian-2020/CD49": [
+   -32.92612,
+   140.43933
+  ],
+  "central-delamerian-2020/CD54": [
+   -32.97947,
+   140.50347
+  ],
+  "central-delamerian-2020/CD55": [
+   -32.9875,
+   140.5119
+  ],
+  "central-delamerian-2020/CD56": [
+   -32.99697,
+   140.52366
+  ],
+  "central-delamerian-2020/CD57": [
+   -33.00731,
+   140.53436
+  ],
+  "central-delamerian-2020/CD58": [
+   -33.0185,
+   140.54909
+  ],
+  "central-delamerian-2020/CD59": [
+   -33.02514,
+   140.5587
+  ],
+  "central-delamerian-2020/CD60": [
+   -33.03782,
+   140.56647
+  ],
   "curnamona-2009/BB1000": [
    -31.8202,
    137.91673
@@ -6170,6 +6727,142 @@
   "delamerian-lachlan-2014/DLT36a": [
    -36.88266,
    142.10261
+  ],
+  "eastern-goldfields-2018-19/EG01": [
+   -30.562,
+   120.641
+  ],
+  "eastern-goldfields-2018-19/EG02": [
+   -30.554,
+   120.965
+  ],
+  "eastern-goldfields-2018-19/EG03": [
+   -30.501,
+   121.569
+  ],
+  "eastern-goldfields-2018-19/EG08": [
+   -30.913,
+   122.01
+  ],
+  "eastern-goldfields-2018-19/EG09": [
+   -31.768,
+   120.336
+  ],
+  "eastern-goldfields-2018-19/EG12": [
+   -31.581,
+   122.012
+  ],
+  "eastern-goldfields-2018-19/EG13": [
+   -31.502,
+   120.01
+  ],
+  "eastern-goldfields-2018-19/EG14": [
+   -31.998,
+   120.008
+  ],
+  "eastern-goldfields-2018-19/EG15": [
+   -31.393,
+   120.893
+  ],
+  "eastern-goldfields-2018-19/EG16": [
+   -32.346,
+   119.985
+  ],
+  "eastern-goldfields-2018-19/EG17": [
+   -32.192,
+   120.533
+  ],
+  "eastern-goldfields-2018-19/EG18": [
+   -31.979,
+   120.996
+  ],
+  "eastern-goldfields-2018-19/EG19": [
+   -32.017,
+   121.497
+  ],
+  "eastern-goldfields-2018-19/EG21": [
+   -32.07,
+   122.489
+  ],
+  "eastern-goldfields-2018-19/EG23": [
+   -31.633,
+   120.994
+  ],
+  "eastern-goldfields-2018-19/EG25": [
+   -30.959,
+   122.498
+  ],
+  "eastern-goldfields-2018-19/EG26": [
+   -31.42,
+   122.472
+  ],
+  "eastern-goldfields-2018-19/EG27": [
+   -30.527,
+   121.221
+  ],
+  "eastern-goldfields-2018-19/EG29": [
+   -32.185,
+   121.308
+  ],
+  "eastern-goldfields-2018-19/EG30": [
+   -30.609,
+   120.045
+  ],
+  "eastern-goldfields-2018-19/EG31": [
+   -30.573,
+   120.335
+  ],
+  "eastern-goldfields-2018-19/EG32": [
+   -30.825,
+   120.312
+  ],
+  "eastern-goldfields-2018-19/EG33": [
+   -30.538,
+   121.776
+  ],
+  "eastern-goldfields-2018-19/EG34": [
+   -30.667,
+   121.205
+  ],
+  "eastern-goldfields-2018-19/EG35": [
+   -30.753,
+   120.958
+  ],
+  "eastern-goldfields-2018-19/EG36": [
+   -31.199,
+   121.348
+  ],
+  "eastern-goldfields-2018-19/EG37": [
+   -30.875,
+   121.77
+  ],
+  "eastern-goldfields-2018-19/EG39": [
+   -30.537,
+   122.227
+  ],
+  "eastern-goldfields-2018-19/EG40": [
+   -30.692,
+   121.575
+  ],
+  "eastern-goldfields-2018-19/EG41": [
+   -30.691,
+   121.413
+  ],
+  "eastern-goldfields-2018-19/EG42": [
+   -31.615,
+   121.266
+  ],
+  "eastern-goldfields-2018-19/EG44": [
+   -30.837,
+   121.34
+  ],
+  "eastern-goldfields-2018-19/EG45": [
+   -31.532,
+   120.207
+  ],
+  "eastern-goldfields-2018-19/EG46": [
+   -31.192,
+   119.892
   ],
   "fowler-2005/FOW01": [
    -32.28456,
@@ -7650,6 +8343,42 @@
   "link-east-transect-2010/LE18": [
    -31.73279,
    140.94482
+  ],
+  "mundi-mundi/mun01": [
+   -30.83758,
+   141.08381
+  ],
+  "mundi-mundi/mun02": [
+   -30.919,
+   141.10153
+  ],
+  "mundi-mundi/mun03": [
+   -30.93825,
+   141.20033
+  ],
+  "mundi-mundi/mun04": [
+   -30.90311,
+   141.29636
+  ],
+  "mundi-mundi/mun05": [
+   -30.93025,
+   141.39439
+  ],
+  "mundi-mundi/mun06": [
+   -30.97897,
+   141.4775
+  ],
+  "mundi-mundi/mun07": [
+   -31.04817,
+   141.53886
+  ],
+  "mundi-mundi/mun08": [
+   -31.12006,
+   141.59661
+  ],
+  "mundi-mundi/mun17": [
+   -31.87425,
+   141.50808
   ],
   "newer-volcanic-province-2019/A1": [
    -36.28065,
@@ -10709,6 +11438,790 @@
   ]
  },
  "occupations": [
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS100",
+   "run": "TAS100-r01",
+   "start": "2016-01-22T04:00:00+00:00",
+   "end": "2016-02-20T23:00:00+00:00",
+   "hours": 715,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60963",
+   "doi": "10.82388/ikfwp4qj",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS101",
+   "run": "TAS101-r01",
+   "start": "2016-02-21T03:57:50+00:00",
+   "end": "2016-03-13T00:00:00+00:00",
+   "hours": 500.04,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60965",
+   "doi": "10.82388/8hjqyq4t",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS102",
+   "run": "TAS102-r01",
+   "start": "2016-01-24T07:00:00+00:00",
+   "end": "2016-02-16T23:00:00+00:00",
+   "hours": 568,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62222",
+   "doi": "10.82388/54bgwbw9",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS103",
+   "run": "TAS103-r01",
+   "start": "2016-09-19T08:14:13+00:00",
+   "end": "2016-10-17T19:00:00+00:00",
+   "hours": 682.76,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62136",
+   "doi": "10.82388/05hyhja8",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS104",
+   "run": "TAS104-r01",
+   "start": "2016-07-17T03:41:20+00:00",
+   "end": "2016-08-28T04:00:00+00:00",
+   "hours": 1008.31,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60965",
+   "doi": "10.82388/8hjqyq4t",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS106",
+   "run": "TAS106-r01",
+   "start": "2016-02-20T23:25:00+00:00",
+   "end": "2016-03-12T22:00:00+00:00",
+   "hours": 502.58,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62137",
+   "doi": "10.82388/doj4kua9",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS107",
+   "run": "TAS107-r01",
+   "start": null,
+   "end": null,
+   "hours": null,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62137",
+   "doi": "10.82388/doj4kua9",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS108",
+   "run": "TAS108-r01",
+   "start": "2016-01-23T01:00:00+00:00",
+   "end": "2016-02-19T21:00:00+00:00",
+   "hours": 668,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61001",
+   "doi": "10.82388/2q8fbpjg",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS109",
+   "run": "TAS109-r01",
+   "start": "2016-07-16T23:00:00+00:00",
+   "end": "2016-08-28T00:00:00+00:00",
+   "hours": 1009,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61001",
+   "doi": "10.82388/2q8fbpjg",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS110",
+   "run": "TAS110-r01",
+   "start": "2016-07-18T01:39:47+00:00",
+   "end": "2016-08-29T02:00:00+00:00",
+   "hours": 1008.34,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62221",
+   "doi": "10.82388/1rxfmy67",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS111",
+   "run": "TAS111-r01",
+   "start": "2016-02-15T03:47:39+00:00",
+   "end": "2016-03-07T16:00:00+00:00",
+   "hours": 516.21,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62219",
+   "doi": "10.82388/2nyr7j3t",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS112",
+   "run": "TAS112-r01",
+   "start": "2016-01-25T03:28:11+00:00",
+   "end": "2016-02-18T22:00:00+00:00",
+   "hours": 594.53,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62220",
+   "doi": "10.82388/yj8w25ci",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS113",
+   "run": "TAS113-r01",
+   "start": null,
+   "end": null,
+   "hours": null,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60963",
+   "doi": "10.82388/ikfwp4qj",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS114b",
+   "run": "TAS114b-r01",
+   "start": "2016-02-07T05:00:00+00:00",
+   "end": "2016-03-12T02:00:00+00:00",
+   "hours": 813,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62135",
+   "doi": "10.82388/ibnrh5rj",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS115",
+   "run": "TAS115-r01",
+   "start": "2016-02-22T06:10:22+00:00",
+   "end": "2016-03-14T08:00:00+00:00",
+   "hours": 505.83,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60992",
+   "doi": "10.82388/wxmy79ze",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS116",
+   "run": "TAS116-r01",
+   "start": null,
+   "end": null,
+   "hours": null,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60993",
+   "doi": "10.82388/ygxhw2p5",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS117",
+   "run": "TAS117-r01",
+   "start": "2016-02-23T02:42:54+00:00",
+   "end": "2016-03-14T06:00:00+00:00",
+   "hours": 483.29,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62217",
+   "doi": "10.82388/kep0frad",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS118",
+   "run": "TAS118-r01",
+   "start": "2016-02-24T02:50:44+00:00",
+   "end": "2016-03-15T00:00:00+00:00",
+   "hours": 477.15,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62220",
+   "doi": "10.82388/yj8w25ci",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS119",
+   "run": "TAS119-r01",
+   "start": "2016-07-19T02:00:00+00:00",
+   "end": "2016-08-29T06:00:00+00:00",
+   "hours": 988,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60993",
+   "doi": "10.82388/ygxhw2p5",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS120",
+   "run": "TAS120-r01",
+   "start": null,
+   "end": null,
+   "hours": null,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60964",
+   "doi": "10.82388/ko3rieyt",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS121",
+   "run": "TAS121-r01",
+   "start": "2016-02-24T05:33:02+00:00",
+   "end": "2016-03-15T01:00:00+00:00",
+   "hours": 475.45,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60771",
+   "doi": "10.82388/sp7hw1av",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS122",
+   "run": "TAS122-r01",
+   "start": "2016-02-24T06:00:00+00:00",
+   "end": "2016-03-15T03:00:00+00:00",
+   "hours": 477,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60968",
+   "doi": "10.82388/vboc9r8p",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS123",
+   "run": "TAS123-r01",
+   "start": "2016-02-24T02:00:00+00:00",
+   "end": "2016-03-15T04:00:00+00:00",
+   "hours": 482,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60848",
+   "doi": "10.82388/gtayqn61",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS124",
+   "run": "TAS124-r01",
+   "start": null,
+   "end": null,
+   "hours": null,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62217",
+   "doi": "10.82388/kep0frad",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS125",
+   "run": "TAS125-r01",
+   "start": "2016-02-19T04:00:00+00:00",
+   "end": "2016-03-10T23:00:00+00:00",
+   "hours": 499,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60967",
+   "doi": "10.82388/v87pd2ab",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS126",
+   "run": "TAS126-r01",
+   "start": "2016-01-26T01:00:00+00:00",
+   "end": "2016-02-21T01:00:00+00:00",
+   "hours": 624,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60966",
+   "doi": "10.82388/e294x5mk",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS127",
+   "run": "TAS127-r01",
+   "start": "2016-01-26T01:02:35+00:00",
+   "end": "2016-02-20T21:00:00+00:00",
+   "hours": 619.96,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60848",
+   "doi": "10.82388/gtayqn61",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS128",
+   "run": "TAS128-r01",
+   "start": "2016-07-19T06:01:12+00:00",
+   "end": "2016-08-29T11:00:00+00:00",
+   "hours": 988.98,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60968",
+   "doi": "10.82388/vboc9r8p",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS129",
+   "run": "TAS129-r01",
+   "start": null,
+   "end": null,
+   "hours": null,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62135",
+   "doi": "10.82388/ibnrh5rj",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS130",
+   "run": "TAS130-r01",
+   "start": "2016-07-20T05:28:00+00:00",
+   "end": "2016-08-30T04:00:00+00:00",
+   "hours": 982.53,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62218",
+   "doi": "10.82388/51qz0g08",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS131",
+   "run": "TAS131-r01",
+   "start": "2016-07-20T02:52:19+00:00",
+   "end": "2016-08-30T02:00:00+00:00",
+   "hours": 983.13,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60848",
+   "doi": "10.82388/gtayqn61",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS132",
+   "run": "TAS132-r01",
+   "start": "2016-08-02T07:00:00+00:00",
+   "end": "2016-09-03T06:00:00+00:00",
+   "hours": 767,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62217",
+   "doi": "10.82388/kep0frad",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS133",
+   "run": "TAS133-r01",
+   "start": "2016-07-16T02:00:00+00:00",
+   "end": "2016-08-26T18:00:00+00:00",
+   "hours": 1000,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62137",
+   "doi": "10.82388/doj4kua9",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS134",
+   "run": "TAS134-r01",
+   "start": "2016-07-22T01:00:00+00:00",
+   "end": "2016-09-03T04:00:00+00:00",
+   "hours": 1035,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60969",
+   "doi": "10.82388/c8gf4j5z",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS135",
+   "run": "TAS135-r01",
+   "start": "2016-07-30T01:00:00+00:00",
+   "end": "2016-09-01T03:00:00+00:00",
+   "hours": 794,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62136",
+   "doi": "10.82388/05hyhja8",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS136",
+   "run": "TAS136-r01",
+   "start": "2016-08-02T02:00:00+00:00",
+   "end": "2016-08-31T04:00:00+00:00",
+   "hours": 698,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60963",
+   "doi": "10.82388/ikfwp4qj",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS137",
+   "run": "TAS137-r01",
+   "start": "2016-08-01T06:46:15+00:00",
+   "end": "2016-08-31T03:00:00+00:00",
+   "hours": 716.23,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60967",
+   "doi": "10.82388/v87pd2ab",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS138",
+   "run": "TAS138-r01",
+   "start": "2016-10-19T00:04:28+00:00",
+   "end": "2016-11-09T01:00:00+00:00",
+   "hours": 504.93,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61002",
+   "doi": "10.82388/pqespgbo",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS139",
+   "run": "TAS139-r01",
+   "start": "2016-07-30T03:13:44+00:00",
+   "end": "2016-09-01T04:00:00+00:00",
+   "hours": 792.77,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60966",
+   "doi": "10.82388/e294x5mk",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS140",
+   "run": "TAS140-r01",
+   "start": "2016-08-01T03:13:45+00:00",
+   "end": "2016-08-09T09:00:00+00:00",
+   "hours": 197.77,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60962",
+   "doi": "10.82388/2uztc2j6",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS141",
+   "run": "TAS141-r01",
+   "start": "2016-07-21T06:00:00+00:00",
+   "end": "2016-08-30T22:00:00+00:00",
+   "hours": 976,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62219",
+   "doi": "10.82388/2nyr7j3t",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS142",
+   "run": "TAS142-r01",
+   "start": "2016-07-28T03:45:00+00:00",
+   "end": "2016-09-11T23:00:00+00:00",
+   "hours": 1099.25,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61002",
+   "doi": "10.82388/pqespgbo",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS143",
+   "run": "TAS143-r01",
+   "start": "2016-07-28T00:46:14+00:00",
+   "end": null,
+   "hours": null,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62220",
+   "doi": "10.82388/yj8w25ci",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS144",
+   "run": "TAS144-r01",
+   "start": "2016-01-24T02:00:00+00:00",
+   "end": "2016-02-16T21:00:00+00:00",
+   "hours": 571,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60965",
+   "doi": "10.82388/8hjqyq4t",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS145",
+   "run": "TAS145-r01",
+   "start": "2016-07-30T02:00:00+00:00",
+   "end": "2016-09-01T03:00:00+00:00",
+   "hours": 793,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60992",
+   "doi": "10.82388/wxmy79ze",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS146",
+   "run": "TAS146-r01",
+   "start": "2016-09-21T02:58:31+00:00",
+   "end": "2016-10-17T03:00:00+00:00",
+   "hours": 624.02,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60969",
+   "doi": "10.82388/c8gf4j5z",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS147",
+   "run": "TAS147-r01",
+   "start": "2016-09-20T02:59:48+00:00",
+   "end": "2016-10-17T06:00:00+00:00",
+   "hours": 651,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61002",
+   "doi": "10.82388/pqespgbo",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS148",
+   "run": "TAS148-r01",
+   "start": "2016-09-20T05:46:53+00:00",
+   "end": "2016-10-17T04:00:00+00:00",
+   "hours": 646.22,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62220",
+   "doi": "10.82388/yj8w25ci",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS149",
+   "run": "TAS149-r01",
+   "start": "2016-10-19T02:30:25+00:00",
+   "end": "2016-11-09T02:00:00+00:00",
+   "hours": 503.49,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60969",
+   "doi": "10.82388/c8gf4j5z",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS201",
+   "run": "TAS201-r01",
+   "start": "2016-02-12T23:43:11+00:00",
+   "end": "2016-03-12T04:00:00+00:00",
+   "hours": 676.28,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60969",
+   "doi": "10.82388/c8gf4j5z",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS213",
+   "run": "TAS213-r01",
+   "start": "2016-02-12T01:00:00+00:00",
+   "end": "2016-03-12T05:00:00+00:00",
+   "hours": 700,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61002",
+   "doi": "10.82388/pqespgbo",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS221",
+   "run": "TAS221-r01",
+   "start": "2016-02-14T00:01:00+00:00",
+   "end": "2016-03-12T00:00:00+00:00",
+   "hours": 647.98,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62136",
+   "doi": "10.82388/05hyhja8",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS227",
+   "run": "TAS227-r01",
+   "start": "2016-02-13T04:38:13+00:00",
+   "end": "2016-03-11T23:00:00+00:00",
+   "hours": 666.36,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62138",
+   "doi": "10.82388/w0tttqt9",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS315",
+   "run": "TAS315-r01",
+   "start": "2016-02-20T02:20:00+00:00",
+   "end": "2016-03-10T04:00:00+00:00",
+   "hours": 457.67,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62222",
+   "doi": "10.82388/54bgwbw9",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS332",
+   "run": "TAS332-r01",
+   "start": "2016-02-20T05:00:00+00:00",
+   "end": "2016-03-10T02:00:00+00:00",
+   "hours": 453,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62218",
+   "doi": "10.82388/51qz0g08",
+   "af": true
+  },
+  {
+   "survey": "auslamp-tas",
+   "station": "TAS342",
+   "run": "TAS342-r01",
+   "start": "2016-02-20T06:22:42+00:00",
+   "end": "2016-03-10T01:00:00+00:00",
+   "hours": 450.62,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61000",
+   "doi": "10.82388/fjac53j6",
+   "af": true
+  },
   {
    "survey": "burra-2017-18",
    "station": "Burra01",
@@ -19391,20 +20904,6 @@
   },
   {
    "survey": "cariewerloo-2012",
-   "station": "CB02",
-   "run": "CB02-r01",
-   "start": null,
-   "end": null,
-   "hours": null,
-   "role": "sensor",
-   "component": "hy",
-   "model": "LEMI-120",
-   "serial": "128",
-   "doi": "10.82388/qhu71syp",
-   "af": true
-  },
-  {
-   "survey": "cariewerloo-2012",
    "station": "CB03",
    "run": "CB03-r01",
    "start": null,
@@ -19513,34 +21012,6 @@
    "model": "PR6-24",
    "serial": "62138",
    "doi": "10.82388/w0tttqt9",
-   "af": true
-  },
-  {
-   "survey": "cariewerloo-2012",
-   "station": "CB06",
-   "run": "CB06-r01",
-   "start": null,
-   "end": null,
-   "hours": null,
-   "role": "sensor",
-   "component": "hx",
-   "model": "LEMI-120",
-   "serial": "127",
-   "doi": "10.82388/yp7c8fq7",
-   "af": true
-  },
-  {
-   "survey": "cariewerloo-2012",
-   "station": "CB06",
-   "run": "CB06-r01",
-   "start": null,
-   "end": null,
-   "hours": null,
-   "role": "sensor",
-   "component": "hy",
-   "model": "LEMI-120",
-   "serial": "128",
-   "doi": "10.82388/qhu71syp",
    "af": true
   },
   {
@@ -19691,20 +21162,6 @@
    "end": null,
    "hours": null,
    "role": "sensor",
-   "component": "hx",
-   "model": "LEMI-120",
-   "serial": "128",
-   "doi": "10.82388/qhu71syp",
-   "af": true
-  },
-  {
-   "survey": "cariewerloo-2012",
-   "station": "CB19",
-   "run": "CB19-r01",
-   "start": null,
-   "end": null,
-   "hours": null,
-   "role": "sensor",
    "component": "hy",
    "model": "LEMI-120",
    "serial": "133",
@@ -19723,34 +21180,6 @@
    "model": "PR6-24",
    "serial": "61001",
    "doi": "10.82388/2q8fbpjg",
-   "af": true
-  },
-  {
-   "survey": "cariewerloo-2012",
-   "station": "CB20",
-   "run": "CB20-r01",
-   "start": null,
-   "end": null,
-   "hours": null,
-   "role": "sensor",
-   "component": "hx",
-   "model": "LEMI-120",
-   "serial": "128",
-   "doi": "10.82388/qhu71syp",
-   "af": true
-  },
-  {
-   "survey": "cariewerloo-2012",
-   "station": "CB20",
-   "run": "CB20-r01",
-   "start": null,
-   "end": null,
-   "hours": null,
-   "role": "sensor",
-   "component": "hy",
-   "model": "LEMI-120",
-   "serial": "127",
-   "doi": "10.82388/yp7c8fq7",
    "af": true
   },
   {
@@ -22148,6 +23577,1196 @@
    "af": true
   },
   {
+   "survey": "central-delamerian-2020",
+   "station": "CD07",
+   "run": "CD07-r01",
+   "start": "2020-09-22T06:14:17+00:00",
+   "end": "2020-09-24T00:21:48+00:00",
+   "hours": 42.13,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0045",
+   "doi": "10.82388/kjret6zg",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD07",
+   "run": "CD07-r01",
+   "start": "2020-09-22T06:14:17+00:00",
+   "end": "2020-09-24T00:21:48+00:00",
+   "hours": 42.13,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "242",
+   "doi": "10.82388/sxoo8ztz",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD07",
+   "run": "CD07-r01",
+   "start": "2020-09-22T06:14:17+00:00",
+   "end": "2020-09-24T00:21:48+00:00",
+   "hours": 42.13,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "240",
+   "doi": "10.82388/5wbvrzu0",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD08",
+   "run": "CD08-r01",
+   "start": "2020-09-22T05:21:54+00:00",
+   "end": "2020-09-23T23:56:47+00:00",
+   "hours": 42.58,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0043",
+   "doi": "10.82388/7c19zxb9",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD08",
+   "run": "CD08-r01",
+   "start": "2020-09-22T05:21:54+00:00",
+   "end": "2020-09-23T23:56:47+00:00",
+   "hours": 42.58,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "138",
+   "doi": "10.82388/gs3epzvw",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD08",
+   "run": "CD08-r01",
+   "start": "2020-09-22T05:21:54+00:00",
+   "end": "2020-09-23T23:56:47+00:00",
+   "hours": 42.58,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "137",
+   "doi": "10.82388/9vw7kz97",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD09",
+   "run": "CD09-r01",
+   "start": "2020-09-23T00:13:26+00:00",
+   "end": "2020-09-24T04:37:24+00:00",
+   "hours": 28.4,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0033",
+   "doi": "10.82388/vqpyolz7",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD09",
+   "run": "CD09-r01",
+   "start": "2020-09-23T00:13:26+00:00",
+   "end": "2020-09-24T04:37:24+00:00",
+   "hours": 28.4,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "255",
+   "doi": "10.82388/sdwh4xau",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD09",
+   "run": "CD09-r01",
+   "start": "2020-09-23T00:13:26+00:00",
+   "end": "2020-09-24T04:37:24+00:00",
+   "hours": 28.4,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "254",
+   "doi": "10.82388/8mjsxxkg",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD10",
+   "run": "CD10-r01",
+   "start": "2020-09-23T00:26:16+00:00",
+   "end": "2020-09-24T22:56:15+00:00",
+   "hours": 46.5,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0031",
+   "doi": "10.82388/fn5k05i1",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD10",
+   "run": "CD10-r01",
+   "start": "2020-09-23T00:26:16+00:00",
+   "end": "2020-09-24T22:56:15+00:00",
+   "hours": 46.5,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "269",
+   "doi": "10.82388/exnq4adi",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD10",
+   "run": "CD10-r01",
+   "start": "2020-09-23T00:26:16+00:00",
+   "end": "2020-09-24T22:56:15+00:00",
+   "hours": 46.5,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "266",
+   "doi": "10.82388/8owf1wis",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD11",
+   "run": "CD11-r01",
+   "start": "2020-09-23T01:42:50+00:00",
+   "end": "2020-09-24T23:09:51+00:00",
+   "hours": 45.45,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0004",
+   "doi": "10.82388/hdbtejtf",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD11",
+   "run": "CD11-r01",
+   "start": "2020-09-23T01:42:50+00:00",
+   "end": "2020-09-24T23:09:51+00:00",
+   "hours": 45.45,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "127",
+   "doi": "10.82388/yp7c8fq7",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD11",
+   "run": "CD11-r01",
+   "start": "2020-09-23T01:42:50+00:00",
+   "end": "2020-09-24T23:09:51+00:00",
+   "hours": 45.45,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "128",
+   "doi": "10.82388/qhu71syp",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD12",
+   "run": "CD12-r01",
+   "start": "2020-09-23T01:22:47+00:00",
+   "end": "2020-09-24T23:25:23+00:00",
+   "hours": 46.04,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0040",
+   "doi": "10.82388/c7ea5dpq",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD12",
+   "run": "CD12-r01",
+   "start": "2020-09-23T01:22:47+00:00",
+   "end": "2020-09-24T23:25:23+00:00",
+   "hours": 46.04,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "123",
+   "doi": "10.82388/huwxlqgi",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD12",
+   "run": "CD12-r01",
+   "start": "2020-09-23T01:22:47+00:00",
+   "end": "2020-09-24T23:25:23+00:00",
+   "hours": 46.04,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "124",
+   "doi": "10.82388/demqei8m",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD13",
+   "run": "CD13-r01",
+   "start": "2020-09-23T02:51:08+00:00",
+   "end": "2020-09-24T23:41:33+00:00",
+   "hours": 44.84,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0038",
+   "doi": "10.82388/bqys907u",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD13",
+   "run": "CD13-r01",
+   "start": "2020-09-23T02:51:08+00:00",
+   "end": "2020-09-24T23:41:33+00:00",
+   "hours": 44.84,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "247",
+   "doi": "10.82388/4ysryjun",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD13",
+   "run": "CD13-r01",
+   "start": "2020-09-23T02:51:08+00:00",
+   "end": "2020-09-24T23:41:33+00:00",
+   "hours": 44.84,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "248",
+   "doi": "10.82388/gv0qac49",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD14",
+   "run": "CD14-r01",
+   "start": "2020-09-23T04:00:41+00:00",
+   "end": "2020-09-25T00:06:08+00:00",
+   "hours": 44.09,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0032",
+   "doi": "10.82388/kit2jlmv",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD14",
+   "run": "CD14-r01",
+   "start": "2020-09-23T04:00:41+00:00",
+   "end": "2020-09-25T00:06:08+00:00",
+   "hours": 44.09,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "260",
+   "doi": "10.82388/1cs8w0b7",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD14",
+   "run": "CD14-r01",
+   "start": "2020-09-23T04:00:41+00:00",
+   "end": "2020-09-25T00:06:08+00:00",
+   "hours": 44.09,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "265",
+   "doi": "10.82388/y31xic5u",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD15",
+   "run": "CD15-r01",
+   "start": "2020-09-23T04:44:49+00:00",
+   "end": "2020-09-24T23:51:36+00:00",
+   "hours": 43.11,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0044",
+   "doi": "10.82388/f5myu87y",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD15",
+   "run": "CD15-r01",
+   "start": "2020-09-23T04:44:49+00:00",
+   "end": "2020-09-24T23:51:36+00:00",
+   "hours": 43.11,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "261",
+   "doi": "10.82388/3wrjhk6v",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD15",
+   "run": "CD15-r01",
+   "start": "2020-09-23T04:44:49+00:00",
+   "end": "2020-09-24T23:51:36+00:00",
+   "hours": 43.11,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "262",
+   "doi": "10.82388/d88byqa6",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD16",
+   "run": "CD16-r01",
+   "start": "2020-09-23T05:03:26+00:00",
+   "end": "2020-09-25T00:31:48+00:00",
+   "hours": 43.47,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0035",
+   "doi": "10.82388/k0bs7vqk",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD16",
+   "run": "CD16-r01",
+   "start": "2020-09-23T05:03:26+00:00",
+   "end": "2020-09-25T00:31:48+00:00",
+   "hours": 43.47,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "136",
+   "doi": "10.82388/hy7tibrx",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD16",
+   "run": "CD16-r01",
+   "start": "2020-09-23T05:03:26+00:00",
+   "end": "2020-09-25T00:31:48+00:00",
+   "hours": 43.47,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "134",
+   "doi": "10.82388/cvpf8iny",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD17",
+   "run": "CD17-r01",
+   "start": "2020-09-23T05:37:13+00:00",
+   "end": "2020-09-25T00:15:59+00:00",
+   "hours": 42.65,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0036",
+   "doi": "10.82388/ugeoljny",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD17",
+   "run": "CD17-r01",
+   "start": "2020-09-23T05:37:13+00:00",
+   "end": "2020-09-25T00:15:59+00:00",
+   "hours": 42.65,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "131",
+   "doi": "10.82388/mef0oerm",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD17",
+   "run": "CD17-r01",
+   "start": "2020-09-23T05:37:13+00:00",
+   "end": "2020-09-25T00:15:59+00:00",
+   "hours": 42.65,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "129",
+   "doi": "10.82388/o3t7dcdi",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD18",
+   "run": "CD18-r01",
+   "start": "2020-09-24T01:57:29+00:00",
+   "end": "2020-09-25T22:53:20+00:00",
+   "hours": 44.93,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0012",
+   "doi": "10.82388/gqxhddn2",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD19",
+   "run": "CD19-r01",
+   "start": "2020-09-24T01:27:54+00:00",
+   "end": "2020-09-25T23:09:14+00:00",
+   "hours": 45.69,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0043",
+   "doi": "10.82388/7c19zxb9",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD20",
+   "run": "CD20-r01",
+   "start": "2020-09-24T02:57:16+00:00",
+   "end": "2020-09-25T23:20:04+00:00",
+   "hours": 44.38,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0045",
+   "doi": "10.82388/kjret6zg",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD21",
+   "run": "CD21-r01",
+   "start": "2020-09-24T02:29:10+00:00",
+   "end": "2020-09-25T23:31:53+00:00",
+   "hours": 45.05,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0008",
+   "doi": "10.82388/fg44uzz4",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD22",
+   "run": "CD22-r01",
+   "start": "2020-09-24T03:54:06+00:00",
+   "end": "2020-09-25T23:41:52+00:00",
+   "hours": 43.8,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0039",
+   "doi": "10.82388/gulw6ans",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD23",
+   "run": "CD23-r01",
+   "start": "2020-09-24T04:00:49+00:00",
+   "end": "2020-09-25T23:59:22+00:00",
+   "hours": 43.98,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0041",
+   "doi": "10.82388/qk8rz3qf",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD24",
+   "run": "CD24-r01",
+   "start": "2020-09-24T04:55:33+00:00",
+   "end": "2020-09-26T00:05:28+00:00",
+   "hours": 43.17,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0009",
+   "doi": "10.82388/ejgot790",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD25",
+   "run": "CD25-r01",
+   "start": "2020-09-25T01:37:51+00:00",
+   "end": "2020-09-27T00:05:36+00:00",
+   "hours": 46.46,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0036",
+   "doi": "10.82388/ugeoljny",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD25",
+   "run": "CD25-r01",
+   "start": "2020-09-25T01:37:51+00:00",
+   "end": "2020-09-27T00:05:36+00:00",
+   "hours": 46.46,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "261",
+   "doi": "10.82388/3wrjhk6v",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD25",
+   "run": "CD25-r01",
+   "start": "2020-09-25T01:37:51+00:00",
+   "end": "2020-09-27T00:05:36+00:00",
+   "hours": 46.46,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "262",
+   "doi": "10.82388/d88byqa6",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD26",
+   "run": "CD26-r01",
+   "start": "2020-09-25T02:33:46+00:00",
+   "end": "2020-09-27T00:14:28+00:00",
+   "hours": 45.68,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0004",
+   "doi": "10.82388/hdbtejtf",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD26",
+   "run": "CD26-r01",
+   "start": "2020-09-25T02:33:46+00:00",
+   "end": "2020-09-27T00:14:28+00:00",
+   "hours": 45.68,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "265",
+   "doi": "10.82388/y31xic5u",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD26",
+   "run": "CD26-r01",
+   "start": "2020-09-25T02:33:46+00:00",
+   "end": "2020-09-27T00:14:28+00:00",
+   "hours": 45.68,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "260",
+   "doi": "10.82388/1cs8w0b7",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD27",
+   "run": "CD27-r01",
+   "start": "2020-09-25T03:27:53+00:00",
+   "end": "2020-09-27T00:46:01+00:00",
+   "hours": 45.3,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0044",
+   "doi": "10.82388/f5myu87y",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD27",
+   "run": "CD27-r01",
+   "start": "2020-09-25T03:27:53+00:00",
+   "end": "2020-09-27T00:46:01+00:00",
+   "hours": 45.3,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "131",
+   "doi": "10.82388/mef0oerm",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD27",
+   "run": "CD27-r01",
+   "start": "2020-09-25T03:27:53+00:00",
+   "end": "2020-09-27T00:46:01+00:00",
+   "hours": 45.3,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "129",
+   "doi": "10.82388/o3t7dcdi",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD28",
+   "run": "CD28-r01",
+   "start": "2020-09-25T03:46:03+00:00",
+   "end": "2020-09-27T00:49:45+00:00",
+   "hours": 45.06,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0035",
+   "doi": "10.82388/k0bs7vqk",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD28",
+   "run": "CD28-r01",
+   "start": "2020-09-25T03:46:03+00:00",
+   "end": "2020-09-27T00:49:45+00:00",
+   "hours": 45.06,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "136",
+   "doi": "10.82388/hy7tibrx",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD28",
+   "run": "CD28-r01",
+   "start": "2020-09-25T03:46:03+00:00",
+   "end": "2020-09-27T00:49:45+00:00",
+   "hours": 45.06,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "134",
+   "doi": "10.82388/cvpf8iny",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD29",
+   "run": "CD29-r01",
+   "start": "2020-09-25T04:48:20+00:00",
+   "end": "2020-09-27T01:22:11+00:00",
+   "hours": 44.56,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0040",
+   "doi": "10.82388/c7ea5dpq",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD29",
+   "run": "CD29-r01",
+   "start": "2020-09-25T04:48:20+00:00",
+   "end": "2020-09-27T01:22:11+00:00",
+   "hours": 44.56,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "269",
+   "doi": "10.82388/exnq4adi",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD29",
+   "run": "CD29-r01",
+   "start": "2020-09-25T04:48:20+00:00",
+   "end": "2020-09-27T01:22:11+00:00",
+   "hours": 44.56,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "266",
+   "doi": "10.82388/8owf1wis",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD30",
+   "run": "CD30-r01",
+   "start": "2020-09-25T05:51:11+00:00",
+   "end": "2020-09-27T01:26:44+00:00",
+   "hours": 43.59,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0032",
+   "doi": "10.82388/kit2jlmv",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD30",
+   "run": "CD30-r01",
+   "start": "2020-09-25T05:51:11+00:00",
+   "end": "2020-09-27T01:26:44+00:00",
+   "hours": 43.59,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "127",
+   "doi": "10.82388/yp7c8fq7",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD30",
+   "run": "CD30-r01",
+   "start": "2020-09-25T05:51:11+00:00",
+   "end": "2020-09-27T01:26:44+00:00",
+   "hours": 43.59,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "128",
+   "doi": "10.82388/qhu71syp",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD31",
+   "run": "CD31-r01",
+   "start": "2020-09-25T05:53:44+00:00",
+   "end": "2020-09-27T06:17:53+00:00",
+   "hours": 48.4,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0031",
+   "doi": "10.82388/fn5k05i1",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD31",
+   "run": "CD31-r01",
+   "start": "2020-09-25T05:53:44+00:00",
+   "end": "2020-09-27T06:17:53+00:00",
+   "hours": 48.4,
+   "role": "sensor",
+   "component": "hx",
+   "model": "LEMI-120",
+   "serial": "123",
+   "doi": "10.82388/huwxlqgi",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD31",
+   "run": "CD31-r01",
+   "start": "2020-09-25T05:53:44+00:00",
+   "end": "2020-09-27T06:17:53+00:00",
+   "hours": 48.4,
+   "role": "sensor",
+   "component": "hy",
+   "model": "LEMI-120",
+   "serial": "121",
+   "doi": "10.82388/usyego4o",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD32",
+   "run": "CD32-r01",
+   "start": "2020-09-26T01:31:48+00:00",
+   "end": "2020-09-28T02:46:23+00:00",
+   "hours": 49.24,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0045",
+   "doi": "10.82388/kjret6zg",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD33",
+   "run": "CD33-r01",
+   "start": "2020-09-26T01:34:56+00:00",
+   "end": "2020-09-28T03:19:14+00:00",
+   "hours": 49.74,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0041",
+   "doi": "10.82388/qk8rz3qf",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD34",
+   "run": "CD34-r01",
+   "start": "2020-09-26T02:24:09+00:00",
+   "end": "2020-09-28T02:18:02+00:00",
+   "hours": 47.9,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0009",
+   "doi": "10.82388/ejgot790",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD35",
+   "run": "CD35-r01",
+   "start": "2020-09-26T02:30:26+00:00",
+   "end": "2020-09-28T02:33:38+00:00",
+   "hours": 48.05,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0043",
+   "doi": "10.82388/7c19zxb9",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD36",
+   "run": "CD36-r01",
+   "start": "2020-09-27T02:58:09+00:00",
+   "end": "2020-09-29T00:30:21+00:00",
+   "hours": 45.54,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0040",
+   "doi": "10.82388/c7ea5dpq",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD37",
+   "run": "CD37-r01",
+   "start": "2020-09-27T04:21:06+00:00",
+   "end": "2020-09-29T00:12:49+00:00",
+   "hours": 43.86,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0032",
+   "doi": "10.82388/kit2jlmv",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD38",
+   "run": "CD38-r01",
+   "start": "2020-09-27T04:22:39+00:00",
+   "end": "2020-09-28T23:58:58+00:00",
+   "hours": 43.61,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0044",
+   "doi": "10.82388/f5myu87y",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD39",
+   "run": "CD39-r01",
+   "start": "2020-09-27T05:17:56+00:00",
+   "end": "2020-09-28T23:49:42+00:00",
+   "hours": 42.53,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0035",
+   "doi": "10.82388/k0bs7vqk",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD40",
+   "run": "CD40-r01",
+   "start": "2020-09-27T05:38:00+00:00",
+   "end": "2020-09-28T23:27:20+00:00",
+   "hours": 41.82,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0036",
+   "doi": "10.82388/ugeoljny",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD41",
+   "run": "CD41-r01",
+   "start": "2020-09-26T05:47:35+00:00",
+   "end": "2020-09-28T01:33:53+00:00",
+   "hours": 43.77,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0039",
+   "doi": "10.82388/gulw6ans",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD42",
+   "run": "CD42-r01",
+   "start": "2020-09-26T05:36:34+00:00",
+   "end": "2020-09-28T01:43:43+00:00",
+   "hours": 44.12,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0033",
+   "doi": "10.82388/vqpyolz7",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD43",
+   "run": "CD43-r01",
+   "start": "2020-09-26T05:03:51+00:00",
+   "end": "2020-09-28T01:03:43+00:00",
+   "hours": 44,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0012",
+   "doi": "10.82388/gqxhddn2",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD44",
+   "run": "CD44-r01",
+   "start": "2020-09-26T04:57:29+00:00",
+   "end": "2020-09-28T00:27:28+00:00",
+   "hours": 43.5,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0008",
+   "doi": "10.82388/fg44uzz4",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD45",
+   "run": "CD45-r01",
+   "start": "2020-10-13T00:38:28+00:00",
+   "end": "2020-10-14T23:08:17+00:00",
+   "hours": 46.5,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0033",
+   "doi": "10.82388/vqpyolz7",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD47",
+   "run": "CD47-r01",
+   "start": "2020-10-13T03:45:07+00:00",
+   "end": "2020-10-15T00:00:39+00:00",
+   "hours": 44.26,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0035",
+   "doi": "10.82388/k0bs7vqk",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD48",
+   "run": "CD48-r01",
+   "start": "2020-10-13T05:00:53+00:00",
+   "end": "2020-10-14T23:13:30+00:00",
+   "hours": 42.21,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0038",
+   "doi": "10.82388/bqys907u",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD49",
+   "run": "CD49-r01",
+   "start": "2020-10-13T06:09:42+00:00",
+   "end": "2020-10-15T00:05:32+00:00",
+   "hours": 41.93,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0040",
+   "doi": "10.82388/c7ea5dpq",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD54",
+   "run": "CD54-r01",
+   "start": "2020-10-14T04:01:08+00:00",
+   "end": "2020-10-16T01:28:34+00:00",
+   "hours": 45.46,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0009",
+   "doi": "10.82388/ejgot790",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD55",
+   "run": "CD55-r01",
+   "start": "2020-10-14T04:42:32+00:00",
+   "end": "2020-10-16T01:04:29+00:00",
+   "hours": 44.37,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0032",
+   "doi": "10.82388/kit2jlmv",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD56",
+   "run": "CD56-r01",
+   "start": "2020-10-14T04:59:42+00:00",
+   "end": "2020-10-16T00:42:08+00:00",
+   "hours": 43.71,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0008",
+   "doi": "10.82388/fg44uzz4",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD57",
+   "run": "CD57-r01",
+   "start": "2020-10-14T05:33:13+00:00",
+   "end": "2020-10-16T00:19:18+00:00",
+   "hours": 42.77,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0039",
+   "doi": "10.82388/gulw6ans",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD58",
+   "run": "CD58-r01",
+   "start": "2020-10-14T05:53:10+00:00",
+   "end": "2020-10-16T04:50:16+00:00",
+   "hours": 46.95,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0012",
+   "doi": "10.82388/gqxhddn2",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD59",
+   "run": "CD59-r01",
+   "start": "2020-10-15T05:48:48+00:00",
+   "end": "2020-10-17T01:03:22+00:00",
+   "hours": 43.24,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0044",
+   "doi": "10.82388/f5myu87y",
+   "af": true
+  },
+  {
+   "survey": "central-delamerian-2020",
+   "station": "CD60",
+   "run": "CD60-r01",
+   "start": "2020-10-15T05:35:35+00:00",
+   "end": "2020-10-17T00:45:13+00:00",
+   "hours": 43.16,
+   "role": "recorder",
+   "component": null,
+   "model": "LEMI-423",
+   "serial": "#0036",
+   "doi": "10.82388/ugeoljny",
+   "af": true
+  },
+  {
    "survey": "curnamona-2009",
    "station": "BB1000",
    "run": "BB1000_001",
@@ -23974,20 +26593,6 @@
    "start": "2014-06-15T05:51:01.000000+00:00",
    "end": "2014-06-17T00:45:00.000000+00:00",
    "hours": 42.9,
-   "role": "recorder",
-   "component": null,
-   "model": "PR6-24",
-   "serial": "62217",
-   "doi": "10.82388/kep0frad",
-   "af": true
-  },
-  {
-   "survey": "delamerian-lachlan-2014",
-   "station": "DLT26",
-   "run": "DLT26_001",
-   "start": "2014-06-15T05:51:01.000000+00:00",
-   "end": "2014-06-17T00:45:00.000000+00:00",
-   "hours": 42.9,
    "role": "sensor",
    "component": "hx",
    "model": "LEMI-120",
@@ -24735,6 +27340,482 @@
    "model": "LEMI-120",
    "serial": "265",
    "doi": "10.82388/y31xic5u",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG01",
+   "run": "EG01-r01",
+   "start": "2018-11-25T06:01:50+00:00",
+   "end": "2019-02-22T03:38:00+00:00",
+   "hours": 2133.6,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61002",
+   "doi": "10.82388/pqespgbo",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG02",
+   "run": "EG02-r01",
+   "start": "2018-11-23T02:59:07+00:00",
+   "end": "2019-02-22T01:02:00+00:00",
+   "hours": 2182.05,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60969",
+   "doi": "10.82388/c8gf4j5z",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG03",
+   "run": "EG03-r01",
+   "start": "2018-11-24T06:29:38+00:00",
+   "end": "2019-02-16T06:52:00+00:00",
+   "hours": 2016.37,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60993",
+   "doi": "10.82388/ygxhw2p5",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG08",
+   "run": "EG08-r01",
+   "start": "2019-02-19T07:56:23+00:00",
+   "end": "2019-04-11T08:01:00+00:00",
+   "hours": 1224.08,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62217",
+   "doi": "10.82388/kep0frad",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG09",
+   "run": "EG09-r01",
+   "start": "2019-02-14T03:53:44+00:00",
+   "end": "2019-05-13T04:38:00+00:00",
+   "hours": 2112.74,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62221",
+   "doi": "10.82388/1rxfmy67",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG12",
+   "run": "EG12-r01",
+   "start": "2019-02-16T00:48:28+00:00",
+   "end": "2019-04-10T03:51:00+00:00",
+   "hours": 1275.04,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60965",
+   "doi": "10.82388/8hjqyq4t",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG13",
+   "run": "EG13-r01",
+   "start": "2019-02-23T02:02:22+00:00",
+   "end": "2019-05-13T00:53:00+00:00",
+   "hours": 1894.84,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62220",
+   "doi": "10.82388/yj8w25ci",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG14",
+   "run": "EG14-r01",
+   "start": "2019-02-23T04:18:06+00:00",
+   "end": "2019-03-09T19:02:00+00:00",
+   "hours": 350.73,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60962",
+   "doi": "10.82388/2uztc2j6",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG15",
+   "run": "EG15-r01",
+   "start": "2019-02-23T09:17:14+00:00",
+   "end": "2019-04-11T12:37:00+00:00",
+   "hours": 1131.33,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61002",
+   "doi": "10.82388/pqespgbo",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG16",
+   "run": "EG16-r01",
+   "start": "2018-11-27T07:59:17+00:00",
+   "end": "2019-02-13T07:50:00+00:00",
+   "hours": 1871.85,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60992",
+   "doi": "10.82388/wxmy79ze",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG17",
+   "run": "EG17-r01",
+   "start": "2018-11-27T06:11:06+00:00",
+   "end": "2019-02-13T09:08:00+00:00",
+   "hours": 1874.95,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62221",
+   "doi": "10.82388/1rxfmy67",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG18",
+   "run": "EG18-r01",
+   "start": "2018-11-27T03:54:06+00:00",
+   "end": "2019-02-15T08:18:00+00:00",
+   "hours": 1924.4,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62217",
+   "doi": "10.82388/kep0frad",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG19",
+   "run": "EG19-r01",
+   "start": "2018-11-26T09:09:18+00:00",
+   "end": "2019-02-15T05:10:00+00:00",
+   "hours": 1940.01,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61001",
+   "doi": "10.82388/2q8fbpjg",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG21",
+   "run": "EG21-r01",
+   "start": "2018-11-28T02:29:41+00:00",
+   "end": "2019-02-15T01:46:00+00:00",
+   "hours": 1895.27,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61000",
+   "doi": "10.82388/fjac53j6",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG23",
+   "run": "EG23-r01",
+   "start": "2018-11-29T07:20:00+00:00",
+   "end": "2019-02-14T07:25:00+00:00",
+   "hours": 1848.08,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62138",
+   "doi": "10.82388/w0tttqt9",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG25",
+   "run": "EG25-r01",
+   "start": "2019-02-19T06:24:41+00:00",
+   "end": "2019-05-09T03:31:00+00:00",
+   "hours": 1893.11,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62218",
+   "doi": "10.82388/51qz0g08",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG26",
+   "run": "EG26-r01",
+   "start": "2018-11-29T02:13:43+00:00",
+   "end": "2019-04-10T02:07:00+00:00",
+   "hours": 3167.89,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62135",
+   "doi": "10.82388/ibnrh5rj",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG27",
+   "run": "EG27-r01",
+   "start": "2018-11-22T03:45:12+00:00",
+   "end": "2019-04-11T03:10:00+00:00",
+   "hours": 3359.41,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60963",
+   "doi": "10.82388/ikfwp4qj",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG29",
+   "run": "EG29-r01",
+   "start": "2018-11-27T01:38:18+00:00",
+   "end": "2019-02-16T00:46:00+00:00",
+   "hours": 1943.13,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60965",
+   "doi": "10.82388/8hjqyq4t",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG30",
+   "run": "EG30-r01",
+   "start": "2019-02-24T01:49:44+00:00",
+   "end": "2019-05-12T02:36:00+00:00",
+   "hours": 1848.77,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60968",
+   "doi": "10.82388/vboc9r8p",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG31",
+   "run": "EG31-r01",
+   "start": "2019-02-24T03:51:29+00:00",
+   "end": "2019-05-11T04:24:00+00:00",
+   "hours": 1824.54,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60848",
+   "doi": "10.82388/gtayqn61",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG32",
+   "run": "EG32-r01",
+   "start": "2019-02-24T07:25:31+00:00",
+   "end": "2019-05-07T04:33:00+00:00",
+   "hours": 1725.12,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62219",
+   "doi": "10.82388/2nyr7j3t",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG33",
+   "run": "EG33-r01",
+   "start": "2019-04-12T02:09:25+00:00",
+   "end": "2019-06-01T14:09:00+00:00",
+   "hours": 1211.99,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62136",
+   "doi": "10.82388/05hyhja8",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG34",
+   "run": "EG34-r01",
+   "start": "2019-04-11T04:12:20+00:00",
+   "end": "2019-06-06T00:09:00+00:00",
+   "hours": 1339.94,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60963",
+   "doi": "10.82388/ikfwp4qj",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG35",
+   "run": "EG35-r01",
+   "start": "2019-05-08T05:01:19+00:00",
+   "end": "2019-06-05T03:58:00+00:00",
+   "hours": 670.94,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62138",
+   "doi": "10.82388/w0tttqt9",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG36",
+   "run": "EG36-r01",
+   "start": "2019-05-08T07:06:06+00:00",
+   "end": "2019-06-05T02:31:00+00:00",
+   "hours": 667.42,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "61000",
+   "doi": "10.82388/fjac53j6",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG37",
+   "run": "EG37-r01",
+   "start": "2019-04-11T09:19:06+00:00",
+   "end": "2019-06-06T03:42:00+00:00",
+   "hours": 1338.38,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62217",
+   "doi": "10.82388/kep0frad",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG39",
+   "run": "EG39-r01",
+   "start": "2019-04-09T01:05:24+00:00",
+   "end": "2019-06-06T05:35:00+00:00",
+   "hours": 1396.49,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60966",
+   "doi": "10.82388/e294x5mk",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG40",
+   "run": "EG40-r01",
+   "start": "2019-04-09T08:37:17+00:00",
+   "end": "2019-06-04T03:48:00+00:00",
+   "hours": 1339.18,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62222",
+   "doi": "10.82388/54bgwbw9",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG41",
+   "run": "EG41-r01",
+   "start": "2019-05-08T09:06:39+00:00",
+   "end": "2019-06-05T07:15:00+00:00",
+   "hours": 670.14,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60964",
+   "doi": "10.82388/ko3rieyt",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG42",
+   "run": "EG42-r01",
+   "start": "2019-04-10T04:52:58+00:00",
+   "end": "2019-06-05T01:06:00+00:00",
+   "hours": 1340.22,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "60965",
+   "doi": "10.82388/8hjqyq4t",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG44",
+   "run": "EG44-r01",
+   "start": "2019-05-10T03:09:35+00:00",
+   "end": "2019-06-05T05:39:00+00:00",
+   "hours": 626.49,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62218",
+   "doi": "10.82388/51qz0g08",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG45",
+   "run": "EG45-r01",
+   "start": "2019-05-13T06:47:17+00:00",
+   "end": "2019-06-06T17:30:00+00:00",
+   "hours": 586.71,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62221",
+   "doi": "10.82388/1rxfmy67",
+   "af": true
+  },
+  {
+   "survey": "eastern-goldfields-2018-19",
+   "station": "EG46",
+   "run": "EG46-r01",
+   "start": "2019-05-13T08:58:07+00:00",
+   "end": "2019-06-07T03:50:00+00:00",
+   "hours": 594.86,
+   "role": "recorder",
+   "component": null,
+   "model": "PR6-24",
+   "serial": "62220",
+   "doi": "10.82388/yj8w25ci",
    "af": true
   },
   {
@@ -34021,34 +37102,6 @@
   },
   {
    "survey": "kalkaroo-2022",
-   "station": "KD-P10",
-   "run": "KD-P10_001",
-   "start": "2021-05-06T10:11:31.000000+00:00",
-   "end": "2021-05-08T06:26:32.532000+00:00",
-   "hours": 44.25,
-   "role": "sensor",
-   "component": "hx",
-   "model": "LEMI-120",
-   "serial": "137",
-   "doi": "10.82388/9vw7kz97",
-   "af": true
-  },
-  {
-   "survey": "kalkaroo-2022",
-   "station": "KD-P10",
-   "run": "KD-P10_001",
-   "start": "2021-05-06T10:11:31.000000+00:00",
-   "end": "2021-05-08T06:26:32.532000+00:00",
-   "hours": 44.25,
-   "role": "sensor",
-   "component": "hy",
-   "model": "LEMI-120",
-   "serial": "138",
-   "doi": "10.82388/gs3epzvw",
-   "af": true
-  },
-  {
-   "survey": "kalkaroo-2022",
    "station": "KD-P2",
    "run": "KD-P2_001",
    "start": "2021-05-25T13:25:25.000000+00:00",
@@ -34465,34 +37518,6 @@
    "model": "LEMI-423",
    "serial": "#0012",
    "doi": "10.82388/gqxhddn2",
-   "af": true
-  },
-  {
-   "survey": "kalkaroo-2022",
-   "station": "KD-Q8",
-   "run": "KD-Q8_001",
-   "start": "2021-05-06T11:36:48.000000+00:00",
-   "end": "2021-05-08T07:38:25.629000+00:00",
-   "hours": 44.03,
-   "role": "sensor",
-   "component": "hx",
-   "model": "LEMI-120",
-   "serial": "137",
-   "doi": "10.82388/9vw7kz97",
-   "af": true
-  },
-  {
-   "survey": "kalkaroo-2022",
-   "station": "KD-Q8",
-   "run": "KD-Q8_001",
-   "start": "2021-05-06T11:36:48.000000+00:00",
-   "end": "2021-05-08T07:38:25.629000+00:00",
-   "hours": 44.03,
-   "role": "sensor",
-   "component": "hy",
-   "model": "LEMI-120",
-   "serial": "138",
-   "doi": "10.82388/gs3epzvw",
    "af": true
   },
   {
@@ -37392,6 +40417,132 @@
    "serial": "265",
    "doi": "10.82388/y31xic5u",
    "af": true
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun01",
+   "run": "mun01-r01",
+   "start": "2007-07-09T05:03:30+00:00",
+   "end": "2007-07-10T18:03:25+00:00",
+   "hours": 37,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "51373",
+   "doi": "10.82388/onmejw47",
+   "af": false
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun02",
+   "run": "mun02-r01",
+   "start": "2007-07-09T06:07:00+00:00",
+   "end": "2007-07-13T01:22:12+00:00",
+   "hours": 91.25,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "51087",
+   "doi": "10.82388/qfogy5gj",
+   "af": false
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun03",
+   "run": "mun03-r01",
+   "start": "2007-07-10T00:02:00+00:00",
+   "end": "2007-07-13T01:38:07+00:00",
+   "hours": 73.6,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "51374",
+   "doi": "10.82388/a092l1jc",
+   "af": false
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun04",
+   "run": "mun04-r01",
+   "start": "2007-07-10T00:55:00+00:00",
+   "end": "2007-07-13T01:12:21+00:00",
+   "hours": 72.29,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "10307",
+   "doi": "10.82388/25jrcc6q",
+   "af": false
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun05",
+   "run": "mun05-r01",
+   "start": "2007-07-10T01:52:00+00:00",
+   "end": "2007-07-13T01:32:01+00:00",
+   "hours": 71.67,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "10311",
+   "doi": "10.82388/qfpmtz0m",
+   "af": false
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun06",
+   "run": "mun06-r01",
+   "start": "2007-07-14T02:43:04+00:00",
+   "end": "2007-07-17T01:43:03+00:00",
+   "hours": 71,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "10307",
+   "doi": "10.82388/25jrcc6q",
+   "af": false
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun07",
+   "run": "mun07-r01",
+   "start": "2007-07-14T03:27:04+00:00",
+   "end": "2007-07-17T05:07:10+00:00",
+   "hours": 73.67,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "51373",
+   "doi": "10.82388/onmejw47",
+   "af": false
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun08",
+   "run": "mun08-r01",
+   "start": "2007-07-22T02:25:04+00:00",
+   "end": "2007-07-25T05:54:20+00:00",
+   "hours": 75.49,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "10307",
+   "doi": "10.82388/25jrcc6q",
+   "af": false
+  },
+  {
+   "survey": "mundi-mundi",
+   "station": "mun17",
+   "run": "mun17-r01",
+   "start": "2007-07-22T05:04:04+00:00",
+   "end": "2007-07-25T06:14:11+00:00",
+   "hours": 73.17,
+   "role": "recorder",
+   "component": null,
+   "model": "Orange Box",
+   "serial": "51087",
+   "doi": "10.82388/qfogy5gj",
+   "af": false
   },
   {
    "survey": "newer-volcanic-province-2019",
@@ -44045,6 +47196,20 @@
   },
   {
    "survey": "paralana-2010",
+   "station": "pb12",
+   "run": "pb12_001",
+   "start": "2010-03-06T03:00:00.000000+00:00",
+   "end": "2010-03-08T01:19:00.000000+00:00",
+   "hours": 46.32,
+   "role": "sensor",
+   "component": "hz",
+   "model": "LEMI-120",
+   "serial": "127",
+   "doi": "10.82388/yp7c8fq7",
+   "af": true
+  },
+  {
+   "survey": "paralana-2010",
    "station": "pb13",
    "run": "pb13_001",
    "start": "2010-03-06T03:50:00.000000+00:00",
@@ -44167,6 +47332,20 @@
    "model": "LEMI-120",
    "serial": "247",
    "doi": "10.82388/4ysryjun",
+   "af": true
+  },
+  {
+   "survey": "paralana-2010",
+   "station": "pb15",
+   "run": "pb15_001",
+   "start": "2010-03-08T01:50:00.000000+00:00",
+   "end": "2010-03-08T21:24:00.000000+00:00",
+   "hours": 19.57,
+   "role": "sensor",
+   "component": "hz",
+   "model": "LEMI-120",
+   "serial": "128",
+   "doi": "10.82388/qhu71syp",
    "af": true
   },
   {
@@ -44335,6 +47514,20 @@
    "model": "LEMI-120",
    "serial": "258",
    "doi": "10.82388/dop3lg6a",
+   "af": true
+  },
+  {
+   "survey": "paralana-2010",
+   "station": "pb19",
+   "run": "pb19_001",
+   "start": "2010-03-08T23:50:00.000000+00:00",
+   "end": "2010-03-09T21:51:00.000000+00:00",
+   "hours": 22.02,
+   "role": "sensor",
+   "component": "hz",
+   "model": "LEMI-120",
+   "serial": "128",
+   "doi": "10.82388/qhu71syp",
    "af": true
   },
   {
@@ -44545,6 +47738,20 @@
    "model": "LEMI-120",
    "serial": "139",
    "doi": "10.82388/eejs8g0x",
+   "af": true
+  },
+  {
+   "survey": "paralana-2010",
+   "station": "pb25",
+   "run": "pb25_001",
+   "start": "2010-03-06T01:50:00.000000+00:00",
+   "end": "2010-03-06T21:43:00.000000+00:00",
+   "hours": 19.88,
+   "role": "sensor",
+   "component": "hz",
+   "model": "LEMI-120",
+   "serial": "117",
+   "doi": "10.82388/5rezalvk",
    "af": true
   },
   {
@@ -44825,6 +48032,20 @@
    "model": "LEMI-120",
    "serial": "255",
    "doi": "10.82388/sdwh4xau",
+   "af": true
+  },
+  {
+   "survey": "paralana-2010",
+   "station": "pb33",
+   "run": "pb33_001",
+   "start": "2010-03-07T01:50:00.000000+00:00",
+   "end": "2010-03-07T23:32:00.000000+00:00",
+   "hours": 21.7,
+   "role": "sensor",
+   "component": "hz",
+   "model": "LEMI-120",
+   "serial": "117",
+   "doi": "10.82388/5rezalvk",
    "af": true
   },
   {
@@ -45193,6 +48414,20 @@
   },
   {
    "survey": "paralana-2010",
+   "station": "pb45",
+   "run": "pb45_001",
+   "start": "2010-03-08T02:30:00.000000+00:00",
+   "end": "2010-03-08T23:07:00.000000+00:00",
+   "hours": 20.62,
+   "role": "sensor",
+   "component": "hz",
+   "model": "LEMI-120",
+   "serial": "127",
+   "doi": "10.82388/yp7c8fq7",
+   "af": true
+  },
+  {
+   "survey": "paralana-2010",
    "station": "pb46",
    "run": "pb46_001",
    "start": "2010-03-09T01:00:00.000000+00:00",
@@ -45231,6 +48466,20 @@
    "model": "LEMI-120",
    "serial": "242",
    "doi": "10.82388/sxoo8ztz",
+   "af": true
+  },
+  {
+   "survey": "paralana-2010",
+   "station": "pb46",
+   "run": "pb46_001",
+   "start": "2010-03-09T01:00:00.000000+00:00",
+   "end": "2010-03-09T21:42:00.000000+00:00",
+   "hours": 20.7,
+   "role": "sensor",
+   "component": "hz",
+   "model": "LEMI-120",
+   "serial": "117",
+   "doi": "10.82388/5rezalvk",
    "af": true
   },
   {
@@ -45399,6 +48648,20 @@
    "model": "LEMI-120",
    "serial": "139",
    "doi": "10.82388/eejs8g0x",
+   "af": true
+  },
+  {
+   "survey": "paralana-2010",
+   "station": "pb50",
+   "run": "pb50_001",
+   "start": "2010-03-08T02:20:00.000000+00:00",
+   "end": "2010-03-08T21:26:00.000000+00:00",
+   "hours": 19.1,
+   "role": "sensor",
+   "component": "hz",
+   "model": "LEMI-120",
+   "serial": "117",
+   "doi": "10.82388/5rezalvk",
    "af": true
   },
   {
@@ -48847,20 +52110,6 @@
   },
   {
    "survey": "southern-delamerian-infill-2012",
-   "station": "DB36B",
-   "run": "DB36B_001",
-   "start": "2012-06-19T02:45:00.000000+00:00",
-   "end": "2012-06-20T22:40:00.000000+00:00",
-   "hours": 43.92,
-   "role": "sensor",
-   "component": "hy",
-   "model": "LEMI-120",
-   "serial": "248",
-   "doi": "10.82388/gv0qac49",
-   "af": true
-  },
-  {
-   "survey": "southern-delamerian-infill-2012",
    "station": "DB36C",
    "run": "DB36C_001",
    "start": "2012-06-19T04:15:00.000000+00:00",
@@ -49123,20 +52372,6 @@
    "model": "PR6-24",
    "serial": "62137",
    "doi": "10.82388/doj4kua9",
-   "af": true
-  },
-  {
-   "survey": "southern-delamerian-infill-2012",
-   "station": "DB38C",
-   "run": "DB38C_001",
-   "start": "2012-06-20T01:30:00.000000+00:00",
-   "end": "2012-06-21T00:45:00.000000+00:00",
-   "hours": 23.25,
-   "role": "sensor",
-   "component": "hx",
-   "model": "LEMI-120",
-   "serial": "248",
-   "doi": "10.82388/gv0qac49",
    "af": true
   },
   {

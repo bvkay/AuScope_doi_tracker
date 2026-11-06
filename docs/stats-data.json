@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T08:25:57.199Z",
+  "generated": "2026-11-06T06:06:45.513Z",
   "pillars": {
     "publications": {
       "total": 2763,
@@ -30,25 +30,26 @@
         "NVCL": 9
       },
       "fairAvg": {
-        "EarthBank": 46,
+        "EarthBank": 49,
         "AusPass": 52,
         "NCI MT": 43,
         "NCI DAS": 42,
+        "NCI MATE": 42,
         "NVCL": 42
       },
       "fairMeta": {
         "metric_version": "0.8",
-        "last_updated": "2026-09-01T08:46:29.328Z"
+        "last_updated": "2026-11-01T10:52:09.655Z"
       }
     },
     "samples": {
-      "declared": 54362,
+      "declared": 54717,
       "sampleDois": 47,
-      "dataPoints": 6388,
+      "dataPoints": 7276,
       "source": "EarthBank DataCite records"
     },
     "stations": {
-      "total": 4167,
+      "total": 4171,
       "source": "AusPass FDSN station service"
     },
     "instruments": {
@@ -102,7 +103,7 @@
     "ausis": {
       "stations": 53,
       "active": 51,
-      "streaming": 49,
+      "streaming": 50,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },
@@ -110,16 +111,16 @@
       "surveys": 161,
       "stations": 15265,
       "auslamp": {
-        "surveys": 14,
-        "stations": 1354
+        "surveys": 15,
+        "stations": 1386
       },
-      "generated": "2026-09-28",
+      "generated": "2026-10-15",
       "instrumentsDeployed": 146,
-      "occupations": 3496,
-      "recordingDays": 9107.5,
-      "surveysPopulated": 27,
+      "occupations": 3666,
+      "recordingDays": 12876.9,
+      "surveysPopulated": 31,
       "scopeFiltered": true,
-      "runsFetched": "2026-10-12"
+      "runsFetched": "2026-11-06"
     },
     "dataRepository": {
       "total": 6
