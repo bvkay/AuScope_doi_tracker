@@ -1096,7 +1096,7 @@ var TRACKER_GLOSSARY = {
     'fuji-band': {
         term: 'Reading an F-UJI score',
         short: '35-60% is the normal band for metric set v0.8.',
-        long: 'Under v0.8, well-run repositories typically land between 35% and 60%; scores run structurally low because several metrics are near-unreachable for collection-level DOIs. An average of 50% is above the middle of that band, not a bare pass. Read these as relative, between platforms and over time, never as a mark out of 100.',
+        long: 'Under v0.8, well-run repositories land between 35% and 60%; several metrics are near-unreachable for collection-level DOIs. Compare platforms and trends, not a pass mark.',
         aliases: ['fuji-normal-band']
     },
     'metric-version': {

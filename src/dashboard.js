@@ -1138,10 +1138,9 @@ function buildPidinstCheck() {
   return '        <p class="ext-check">' + gradeChip('snapshot')
     + '<span class="as-of">' + escapeHtml(stamp) + '</span> &middot; '
     + '<a href="' + c.url + '" target="_blank" rel="noopener">search.pidinst.org &#8599;</a>: '
-    + 'the AuScope Instrument Registry holds ' + c.records + ' of the ' + c.indexed.toLocaleString()
-    + ' instrument records indexed across DataCite and B2INST, the ' + c.rank + ' (next ' + c.next + ').'
-    + ' Every mandatory field is complete (' + c.mandatory + ': 100%); related identifiers ' + c.related
-    + '%, manufacturer identifier ' + c.manufacturerId + '%; ' + c.zero + ' 0%, registry metadata to fix at source.'
+    + c.records + ' of ' + c.indexed.toLocaleString() + ' indexed instrument records (DataCite and B2INST), '
+    + c.rank + ' (' + c.next + '). Mandatory fields 100%; related identifiers ' + c.related
+    + '%, manufacturer identifier ' + c.manufacturerId + '%; ' + c.zero + ' 0%, fixable at source.'
     + '</p>\n';
 }
 
