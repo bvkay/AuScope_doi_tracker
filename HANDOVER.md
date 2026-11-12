@@ -76,8 +76,10 @@ fork. Pages are plain ES5 (`var`/`function`), no build step, no frameworks.
 
 ## 3. The pipelines
 
-### Weekly — `.github/workflows/monthly-search.yml`
-Sundays 02:00 UTC, plus on push to `data/pending.json`,
+### Hourly batches, weekly processing: `.github/workflows/monthly-search.yml`
+A search batch every hour (a few units of the weekly cycle, see `search.js --batch`;
+keyless OpenAlex, so a batch stops when the runner's shared daily budget is spent),
+the processing stages when a cycle completes and on Mondays 03:00 UTC, plus on push to `data/pending.json`,
 `data/publications.json`, `data/review-decisions.json`,
 `data/evidence-overrides.json` (i.e. the Google Sheet's send buttons).
 

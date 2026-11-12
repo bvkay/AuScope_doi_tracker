@@ -131,7 +131,8 @@ node src/compare.js
 ## GitHub Actions
 
 The workflow runs automatically:
-- **Weekly** (Sundays 2am UTC): full keyword search + dataset inventory + maintenance + dashboard rebuild
+- **Hourly**: one small batch of the weekly keyword search (OpenAlex is keyless, so each batch stops when the shared daily budget is spent and the next hour carries on; progress in `data/search-state.json`)
+- **When a search cycle completes, and Mondays 3am UTC**: dataset inventory + maintenance + evidence + stats + dashboard rebuild
 - **On push** to `data/pending.json` or `data/publications.json`: process pending DOIs + dashboard rebuild
 - **Manual**: trigger via Actions tab with optional full search
 

@@ -1,14 +1,21 @@
 name: Citation Search & DOI Processing
 
 on:
-  # Weekly full keyword search (Sundays 2am UTC), with a Wednesday backup
-  # slot: OpenAlex rate-limits shared GitHub runner IPs in whole-run storms
-  # (every request 429s — see the 6 and 13 Sep 2026 failures), so a second
-  # weekly attempt gives the same idempotent run another draw from the IP
-  # pool rather than losing the whole week.
+  # The keyword search runs as small hourly batches, not one weekly run.
+  # OpenAlex bills keyless requests against a daily budget shared by every
+  # client on the runner's IP address, so a full 39-term search from a
+  # shared GitHub runner was answered with 429 for most terms and the
+  # two-minute waits ate the whole 90-minute job: every scheduled run from
+  # 16 Sep to 11 Nov 2026 was cancelled with nothing committed. No API key
+  # is used, by decision. Each batch now does a few units of work, commits
+  # what it found and stops the moment the budget is gone; the weekly
+  # cycle resumes on the next hour and normally completes within a day or
+  # two. The processing stages run once when a cycle completes, on every
+  # push to the data files, and on a Monday fallback slot so a slow cycle
+  # still refreshes the inventory, stats and dashboard every week.
   schedule:
-    - cron: '0 2 * * 0'
-    - cron: '0 2 * * 3'
+    - cron: '23 * * * *'    # search batch, every hour
+    - cron: '0 3 * * 1'     # processing fallback, Mondays 03:00 UTC
 
   # Process pending DOIs, sheet decisions/overrides, or regenerate dashboard
   push:
@@ -22,19 +29,24 @@ on:
   workflow_dispatch:
     inputs:
       run_search:
-        description: 'Run full keyword search (not just pending DOIs)'
+        description: 'Run a search batch before processing (false = process only)'
         required: false
         default: 'false'
         type: choice
         options:
           - 'false'
           - 'true'
+      units:
+        description: 'Units of search work in that batch'
+        required: false
+        default: '4'
+        type: string
 
 permissions:
   contents: write
 
-# Never let the Sunday and Wednesday slots (or a push-triggered run) overlap:
-# they read and write the same data files and both push to main.
+# Never let two runs overlap (hourly batches, the Monday slot, a push): they
+# read and write the same data files and all push to main.
 concurrency:
   group: citation-pipeline
   cancel-in-progress: false
@@ -50,32 +62,71 @@ jobs:
         with:
           node-version: '22'
 
-      # Always process pending DOIs if any exist
-      - name: Process pending DOIs
-        env:
-          S2_API_KEY: ${{ secrets.S2_API_KEY }}
-        run: node src/process-pending.js
-
-      # Run full search on schedule, or if manually requested.
-      # continue-on-error: an OpenAlex 429 storm must not stop the later
-      # stages (they degrade gracefully on stale inputs) or the commit of
-      # whatever this run DID gather. The final step re-surfaces the failure.
-      - name: Run full keyword search
+      # A few units of the weekly search cycle. Fails fast on a spent
+      # OpenAlex budget and never runs longer than its own timeout, so the
+      # stages below can never be starved by it again. continue-on-error:
+      # a bad batch must not stop the processing of whatever is already
+      # in the store.
+      - name: Search batch
         id: search
+        if: github.event.schedule == '23 * * * *' || (github.event_name == 'workflow_dispatch' && github.event.inputs.run_search == 'true')
+        timeout-minutes: 20
         continue-on-error: true
-        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.run_search == 'true')
         env:
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
           CORE_API_KEY: ${{ secrets.CORE_API_KEY }}
           DIMENSIONS_API_KEY: ${{ secrets.DIMENSIONS_API_KEY }}
-        run: node src/search.js
+          SEARCH_UNITS: ${{ github.event.inputs.units || '4' }}
+        run: node src/search.js --batch
+
+      # Commit the batch straight away, so a later cancellation cannot lose
+      # it. Pushes made with GITHUB_TOKEN do not trigger the push event
+      # above, so this cannot start another run.
+      - name: Commit search batch
+        if: steps.search.outputs.did_work == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/publications.json data/search-state.json
+          for f in $(git diff --cached --name-only --diff-filter=d -- '*.json'); do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" \
+              || { echo "::error::$f is not valid JSON, aborting commit"; exit 1; }
+          done
+          git diff --cached --quiet || git commit -m "Search batch $(date -u +%Y-%m-%dT%H:%M) ($(cat data/search-state.json | node -e "const s=JSON.parse(require('fs').readFileSync(0,'utf8'));process.stdout.write(s.cycle+': '+s.units.filter(u=>u.status==='done').length+'/'+s.units.length+' units')"))"
+          git pull --rebase origin main
+          git push
+
+      # The processing stages run when a search cycle has just completed,
+      # on a push to the data files, on a manual run, and on the Monday
+      # fallback slot. An hourly batch that did not finish the cycle ends
+      # here, in about a minute.
+      - name: Decide whether to process
+        id: decide
+        run: |
+          if [ "${{ steps.search.outputs.completed_now }}" = "true" ] \
+             || [ "${{ github.event_name }}" = "push" ] \
+             || [ "${{ github.event_name }}" = "workflow_dispatch" ] \
+             || [ "${{ github.event.schedule }}" = "0 3 * * 1" ]; then
+            echo "process=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "process=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Process pending DOIs if any exist
+      - name: Process pending DOIs
+        if: steps.decide.outputs.process == 'true'
+        env:
+          S2_API_KEY: ${{ secrets.S2_API_KEY }}
+        run: node src/process-pending.js
 
       # Update dataset inventory
       - name: Dataset inventory
+        if: steps.decide.outputs.process == 'true'
         run: node src/dataset-inventory.js
 
       # Dedup and fill missing metadata
       - name: Maintenance (dedup + metadata fill)
+        if: steps.decide.outputs.process == 'true'
         run: node src/maintain.js
 
       # Month-level publication dates for financial-year reporting
@@ -84,12 +135,14 @@ jobs:
       # timeout is the backstop, and continue-on-error keeps a slow or failed
       # pass from skipping the stages and the commit that follow.
       - name: Publication dates
+        if: steps.decide.outputs.process == 'true'
         timeout-minutes: 15
         continue-on-error: true
         run: node src/enrich-dates.js
 
       # Apply human accept/reject decisions from the Google Sheet review queue
       - name: Review queue decisions
+        if: steps.decide.outputs.process == 'true'
         run: node src/process-review-decisions.js
 
       # Identifier-based verification (AuScope ROR / watchlist ORCIDs via
@@ -98,14 +151,16 @@ jobs:
       # pipeline (and the commit) alive when that guard trips.
       - name: Verified discovery
         id: verified
+        if: steps.decide.outputs.process == 'true'
         continue-on-error: true
         run: node src/verified.js
 
       # Papers citing AuScope dataset DOIs (EarthBank, AusPass networks,
-      # NCI, NVCL) via DataCite — merged into the corpus and read by the
+      # NCI, NVCL) via DataCite, merged into the corpus and read by the
       # evidence ladder. Internally best-effort (failed lookups keep
       # previous values); continue-on-error belt-and-braces.
       - name: Data citations
+        if: steps.decide.outputs.process == 'true'
         continue-on-error: true
         run: node src/data-citations.js
 
@@ -114,28 +169,32 @@ jobs:
       # Flags cite-only suspects and acknowledgment upgrade candidates for
       # review; capped per run, drains the backlog over successive weeks.
       - name: Verify keywords in context
+        if: steps.decide.outputs.process == 'true'
         continue-on-error: true
         run: node src/verify-keywords.js
 
       # Merge identifier + text evidence into the evidence ladder on publications.json
       - name: Evidence ladder
+        if: steps.decide.outputs.process == 'true'
         run: node src/evidence.js
 
       # Fold same-work duplicate DOIs (preprints, Zenodo versions, re-registrations)
       - name: Same-work consolidation
+        if: steps.decide.outputs.process == 'true'
         run: node src/consolidate.js
 
       # (The AusMT run harvest has its own workflow, ausmt-harvest.yml.)
 
-      # Cross-pillar stats (instruments, surveys, datasets, repo counts)
       # GitHub org snapshot for the software registry + DataCite licence and
       # ORCID-creator enrichment for the dataset registry. Both keep previous
       # values on a failed lookup.
       - name: GitHub software snapshot
+        if: steps.decide.outputs.process == 'true'
         run: node src/update-github-software.js
         continue-on-error: true
 
       - name: Registry licence enrichment
+        if: steps.decide.outputs.process == 'true'
         run: node src/update-registry-licenses.js
         continue-on-error: true
 
@@ -143,18 +202,19 @@ jobs:
       # feed; appends to the history jsonl only when the taxonomy changed.
       # Degrades to a no-op when the sheet is unreachable.
       - name: Project mapping ingest
+        if: steps.decide.outputs.process == 'true'
         run: node src/update-project-mapping.js
 
       # Must run before the dashboard so explorer cards pick up fresh numbers.
       # !cancelled(): regenerate docs from whatever data exists even when an
-      # upstream network stage hard-failed — keeps data/ and docs/ consistent.
+      # upstream network stage hard-failed, to keep data/ and docs/ consistent.
       - name: Aggregate cross-pillar stats
-        if: ${{ !cancelled() }}
+        if: ${{ steps.decide.outputs.process == 'true' && !cancelled() }}
         run: node src/stats.js
 
       # Regenerate dashboard
       - name: Generate dashboard
-        if: ${{ !cancelled() }}
+        if: ${{ steps.decide.outputs.process == 'true' && !cancelled() }}
         run: node src/dashboard.js
 
       # Commit and push all changes. !cancelled() (NOT always(), which would
@@ -164,14 +224,14 @@ jobs:
       # committed. The rebase-before-push survives a race with the NVCL and
       # seismic harvest workflows pushing to main mid-run.
       - name: Commit and push
-        if: ${{ !cancelled() }}
+        if: ${{ steps.decide.outputs.process == 'true' && !cancelled() }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ docs/
           for f in $(git diff --cached --name-only --diff-filter=d -- '*.json'); do
             node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" \
-              || { echo "::error::$f is not valid JSON — aborting commit"; exit 1; }
+              || { echo "::error::$f is not valid JSON, aborting commit"; exit 1; }
           done
           git diff --cached --quiet || git commit -m "Update citations $(date +%Y-%m-%d)"
           git pull --rebase origin main

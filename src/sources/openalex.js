@@ -1,41 +1,61 @@
 const { fetchJSON, sleep, stripHtml } = require('../utils');
 
+// The largest page OpenAlex serves. A list request costs the same budget
+// credit whatever its size, so 100 a page costs a quarter of 25 a page.
+const PER_PAGE = 100;
+
+/**
+ * Five-year windows from minYear to the current year. The primary term
+ * has more results than one query can page through, so each window is
+ * paged on its own.
+ */
+function yearWindows(minYear) {
+  const currentYear = new Date().getFullYear();
+  const out = [];
+  for (let start = minYear || 1997; start <= currentYear; start += 5) {
+    out.push({ start: start, end: Math.min(start + 4, currentYear) });
+  }
+  return out;
+}
+
+/**
+ * One unit of OpenAlex work: a term, one filter type, optionally one year
+ * window, capped at maxResults. The batched search schedules these,
+ * because a unit costs at most ceil(maxResults / 100) requests and can be
+ * retried on its own when the shared keyless budget runs out mid-run.
+ * @param {string} query
+ * @param {object} opts - { filterType, window, maxResults, email }
+ * @returns {Promise<Array>} Normalised citation records
+ */
+async function searchOpenAlexUnit(query, opts = {}) {
+  const yearFilter = opts.window
+    ? ',publication_year:' + opts.window.start + '-' + opts.window.end : '';
+  return searchOpenAlexFilter_(query, opts.filterType || 'default.search',
+    opts.email || '', opts.maxResults || 500, yearFilter);
+}
+
 /**
  * Search OpenAlex for works matching a query.
  * Runs two passes: fulltext.search (deep, covers full paper text) and
  * default.search (broader, catches papers not fulltext-indexed).
  * Results are combined and deduped by DOI.
  * @param {string} query - Search query (supports quoted phrases)
- * @param {object} opts - { email, maxPages }
+ * @param {object} opts - { email, maxResults, maxPages (pages of 25, the
+ *   older unit of account), yearWindows, minYear }
  * @returns {Promise<Array>} Normalised citation records
  */
 async function searchOpenAlex(query, opts = {}) {
   const email = opts.email || '';
-  const maxPages = opts.maxPages || 2;
-  const yearWindows = opts.yearWindows || false;
+  const maxResults = opts.maxResults || ((opts.maxPages || 2) * 25);
+  const windows = opts.yearWindows ? yearWindows(opts.minYear) : [null];
 
-  let fulltextItems, defaultItems;
-
-  if (yearWindows) {
-    // Split by year windows to bypass per-query pagination caps.
-    // Each window gets full pagination independently.
-    const currentYear = new Date().getFullYear();
-    const minYear = opts.minYear || 1997;
-    const windowSize = 5;
-    fulltextItems = [];
-    defaultItems = [];
-
-    for (let startYear = minYear; startYear <= currentYear; startYear += windowSize) {
-      const endYear = Math.min(startYear + windowSize - 1, currentYear);
-      const yearFilter = ',publication_year:' + startYear + '-' + endYear;
-      const windowFt = await searchOpenAlexFilter_(query, 'fulltext.search', email, maxPages, yearFilter);
-      const windowDf = await searchOpenAlexFilter_(query, 'default.search', email, maxPages, yearFilter);
-      fulltextItems.push(...windowFt);
-      defaultItems.push(...windowDf);
-    }
-  } else {
-    fulltextItems = await searchOpenAlexFilter_(query, 'fulltext.search', email, maxPages);
-    defaultItems = await searchOpenAlexFilter_(query, 'default.search', email, maxPages);
+  const fulltextItems = [];
+  const defaultItems = [];
+  for (const window of windows) {
+    fulltextItems.push(...await searchOpenAlexUnit(query,
+      { filterType: 'fulltext.search', window, maxResults, email }));
+    defaultItems.push(...await searchOpenAlexUnit(query,
+      { filterType: 'default.search', window, maxResults, email }));
   }
 
   // Dedup by DOI (fulltext results take priority)
@@ -55,11 +75,12 @@ async function searchOpenAlex(query, opts = {}) {
   return items;
 }
 
-async function searchOpenAlexFilter_(query, filterType, email, maxPages, extraFilter) {
+async function searchOpenAlexFilter_(query, filterType, email, maxResults, extraFilter) {
   const items = [];
+  const pages = Math.max(1, Math.ceil(maxResults / PER_PAGE));
 
-  for (let page = 1; page <= maxPages; page++) {
-    const url = 'https://api.openalex.org/works?per_page=25&page=' + page
+  for (let page = 1; page <= pages; page++) {
+    const url = 'https://api.openalex.org/works?per_page=' + PER_PAGE + '&page=' + page
       + '&filter=' + filterType + ':' + encodeURIComponent(query) + (extraFilter || '')
       + '&select=id,doi,title,publication_year,publication_date,authorships,primary_location,cited_by_count,type,open_access,topics'
       + '&sort=publication_year:desc'
@@ -106,8 +127,8 @@ async function searchOpenAlexFilter_(query, filterType, email, maxPages, extraFi
       });
     }
 
-    if (data.results.length < 25) break;
-    await sleep(100);
+    if (data.results.length < PER_PAGE) break;
+    await sleep(100);   // keyless limit is 10 requests a second
   }
 
   return items;
@@ -164,4 +185,4 @@ async function lookupMetadata(doi, email) {
   }
 }
 
-module.exports = { searchOpenAlex, getCitationCount, lookupMetadata };
+module.exports = { searchOpenAlex, searchOpenAlexUnit, yearWindows, getCitationCount, lookupMetadata };

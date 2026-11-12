@@ -10,16 +10,41 @@
 const STORM_THRESHOLD = 8;
 const hostFailures = {};
 
+// Hosts whose daily budget is spent for this process. OpenAlex answers a
+// keyless client that is over budget with 429 "Insufficient budget" and a
+// two-minute Retry-After that never helps: the budget is shared by every
+// client on the runner's IP address and resets at midnight UTC. Sleeping on
+// it cost the weekly pipeline its whole 90 minutes on every run from 16 Sep
+// to 11 Nov 2026. One such reply marks the host out for the rest of the run;
+// later calls fail at once and callers can read err.budgetExhausted.
+const hostBudgetOut = {};
+// A Retry-After longer than this is a budget wall, not a burst: wait no longer.
+const RETRY_AFTER_CAP_MS = 30000;
+
+function budgetError(host, url, body) {
+  const err = new Error('HTTP 429 from ' + url.split('?')[0] + ': daily budget exhausted'
+    + (body ? ' (' + body.slice(0, 120) + ')' : ''));
+  err.budgetExhausted = true;
+  err.host = host;
+  return err;
+}
+
+function isBudgetOut(host) {
+  return !!hostBudgetOut[host];
+}
+
 /**
  * Fetch JSON from a URL with retries and rate-limit handling.
- * Honors Retry-After on 429/5xx, backs off exponentially with jitter,
- * and fails fast once a host is in a sustained 429 storm.
+ * Honors Retry-After on 429/5xx (capped), backs off exponentially with
+ * jitter, fails fast once a host is in a sustained 429 storm, and stops
+ * at once when a host reports its daily budget exhausted.
  * @param {string} url
  * @param {object} opts - { headers, retries, retryDelay }
  * @returns {Promise<object>}
  */
 async function fetchJSON(url, opts = {}) {
   const host = url.split('/')[2] || '';
+  if (hostBudgetOut[host]) throw budgetError(host, url, '');
   const storming = (hostFailures[host] || 0) >= STORM_THRESHOLD;
   const retries = storming ? 0 : (opts.retries !== undefined ? opts.retries : 5);
   const baseDelay = opts.retryDelay || 2000;
@@ -34,23 +59,30 @@ async function fetchJSON(url, opts = {}) {
     if (resp.ok) { hostFailures[host] = 0; return resp.json(); }
 
     throttled = resp.status === 429 || resp.status >= 500;
+    let body = '';
+    try { body = (await resp.text()).replace(/\s+/g, ' ').slice(0, 200); } catch (_) {}
+
+    if (resp.status === 429 && /insufficient budget/i.test(body)) {
+      hostBudgetOut[host] = true;
+      console.warn(host + ': daily budget exhausted, no further requests this run');
+      throw budgetError(host, url, body);
+    }
+
     if (throttled && attempt < retries) {
-      // Retry-After (seconds) wins when the server sends one; otherwise
-      // exponential backoff with jitter: 2s, 4s, 8s, 16s, 32s (+0-1s).
+      // Retry-After (seconds) wins when the server sends one, capped;
+      // otherwise exponential backoff with jitter: 2s, 4s, 8s, 16s, 32s (+0-1s).
       const retryAfter = parseInt(resp.headers.get('retry-after'), 10);
       const wait = retryAfter > 0
-        ? Math.min(retryAfter * 1000, 120000)
+        ? Math.min(retryAfter * 1000, RETRY_AFTER_CAP_MS)
         : Math.min(baseDelay * Math.pow(2, attempt), 90000) + Math.floor(Math.random() * 1000);
       console.warn('HTTP ' + resp.status + ' from ' + url.split('?')[0]
-        + ' — retry ' + (attempt + 1) + ' in ' + Math.round(wait / 1000) + 's');
+        + ': retry ' + (attempt + 1) + ' in ' + Math.round(wait / 1000) + 's');
       await sleep(wait);
       continue;
     }
 
-    let body = '';
-    try { body = (await resp.text()).replace(/\s+/g, ' ').slice(0, 200); } catch (_) {}
     lastError = new Error('HTTP ' + resp.status + ' from ' + url.split('?')[0]
-      + (body ? ' — ' + body : ''));
+      + (body ? ': ' + body : ''));
     break;
   }
 
@@ -58,7 +90,7 @@ async function fetchJSON(url, opts = {}) {
     hostFailures[host] = (hostFailures[host] || 0) + 1;
     if (hostFailures[host] === STORM_THRESHOLD) {
       console.warn(host + ': ' + STORM_THRESHOLD
-        + ' consecutive rate-limited requests — failing fast for the rest of this run');
+        + ' consecutive rate-limited requests, failing fast for the rest of this run');
     }
   }
   throw lastError || new Error('retries exhausted for ' + url.split('?')[0]);
@@ -120,4 +152,4 @@ function isComponentTitle(title) {
     .test((title || '').trim());
 }
 
-module.exports = { fetchJSON, sleep, stripHtml, normaliseDoi, queryLabel, isComponentTitle };
+module.exports = { fetchJSON, isBudgetOut, sleep, stripHtml, normaliseDoi, queryLabel, isComponentTitle };
