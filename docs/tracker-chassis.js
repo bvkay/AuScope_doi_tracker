@@ -994,7 +994,7 @@ var TRACKER_GLOSSARY = {
     'verified': {
         term: 'Verified',
         short: 'Identifier evidence.',
-        long: "This paper carries AuScope's organisational identifier — the strongest machine-verifiable link, checkable by anyone from the paper's own metadata."
+        long: "This paper carries AuScope's organisational identifier: the strongest machine-verifiable link, checkable by anyone from the paper's own metadata."
     },
     'candidate': {
         term: 'Candidate',
@@ -1079,24 +1079,24 @@ var TRACKER_GLOSSARY = {
     'fair': {
         term: 'FAIR',
         short: 'Findable, Accessible, Interoperable, Reusable.',
-        long: 'Four principles for research data that a machine, not just a person, can find and use. FAIR is about how well a dataset is described and published — not about how good the science is.'
+        long: 'Four principles for research data that a machine, not just a person, can find and use. FAIR is about how well a dataset is described and published, not about how good the science is.'
     },
     'fuji': {
         term: 'F-UJI',
         short: 'An automated FAIR-assessment tool.',
-        long: "F-UJI reads a dataset's public metadata and scores it against a fixed metric set. It measures the record, not the data: a superb dataset with a thin DataCite record scores poorly, and that is the point — the record is what a machine sees.",
+        long: "F-UJI reads a dataset's public metadata and scores it against a fixed metric set. It measures the record, not the data: a superb dataset with a thin DataCite record scores poorly, and that is the point: the record is what a machine sees.",
         aliases: ['f-uji'],
         href: 'https://www.f-uji.net/'
     },
     'fuji-score': {
         term: 'F-UJI score',
         short: 'Percentage of the metric set passed.',
-        long: 'The share of F-UJI metric points a record earns. AuScope scores against metric set v0.8 — 17 metrics, 26 points. Scores from different metric versions are not comparable.'
+        long: 'The share of F-UJI metric points a record earns. AuScope scores against metric set v0.8 (17 metrics, 26 points). Scores from different metric versions are not comparable.'
     },
     'fuji-band': {
         term: 'Reading an F-UJI score',
         short: '35-60% is the normal band for metric set v0.8.',
-        long: 'Under v0.8, well-run repositories typically land between 35% and 60%; scores run structurally low because several metrics are near-unreachable for collection-level DOIs. An average of 50% is above the middle of that band, not a bare pass. Read these as relative — between platforms and over time — never as a mark out of 100.',
+        long: 'Under v0.8, well-run repositories typically land between 35% and 60%; scores run structurally low because several metrics are near-unreachable for collection-level DOIs. An average of 50% is above the middle of that band, not a bare pass. Read these as relative, between platforms and over time, never as a mark out of 100.',
         aliases: ['fuji-normal-band']
     },
     'metric-version': {
@@ -1109,7 +1109,7 @@ var TRACKER_GLOSSARY = {
     'FsF-F1-01MD': {
         term: 'Globally unique identifier',
         short: 'Does the record have an identifier that is unique worldwide?',
-        long: 'The dataset carries an identifier no other thing shares — a DOI, a handle, a URI. Without one, two datasets can be confused for each other.'
+        long: 'The dataset carries an identifier no other thing shares: a DOI, a handle, a URI. Without one, two datasets can be confused for each other.'
     },
     'FsF-F1-02MD': {
         term: 'Persistent identifier',
@@ -1119,12 +1119,12 @@ var TRACKER_GLOSSARY = {
     'FsF-F2-01M': {
         term: 'Core descriptive metadata',
         short: 'Does the record say who, what, when and about what?',
-        long: 'Creator, title, identifier, publisher, publication date, summary and keywords — the minimum needed for anyone to find the dataset by searching for its subject.'
+        long: 'Creator, title, identifier, publisher, publication date, summary and keywords: the minimum needed for anyone to find the dataset by searching for its subject.'
     },
     'FsF-F3-01M': {
         term: 'Data identifier inside the metadata',
         short: 'Does the record name the identifier of the data it describes?',
-        long: 'A machine reading the record should be able to jump straight to the data file. Nearly every AuScope record fails this metric because our DOIs describe collections and services, not single downloadable files — which is why it is the most common failure on these pages and not, on its own, a sign of a bad record.'
+        long: 'A machine reading the record should be able to jump straight to the data file. Nearly every AuScope record fails this metric because our DOIs describe collections and services, not single downloadable files, which is why it is the most common failure on these pages and not, on its own, a sign of a bad record.'
     },
     'FsF-F4-01M': {
         term: 'Harvestable by search engines',
@@ -1144,7 +1144,7 @@ var TRACKER_GLOSSARY = {
     'FsF-A1.1-01MD': {
         term: 'Standard access protocol',
         short: 'Is the data reachable by ordinary web standards?',
-        long: 'Retrieval uses an open, free, universally implemented protocol such as HTTPS — not a bespoke channel or a bilateral arrangement.'
+        long: 'Retrieval uses an open, free, universally implemented protocol such as HTTPS, not a bespoke channel or a bilateral arrangement.'
     },
     'FsF-A1.2-01MD': {
         term: 'Authenticated access supported',
@@ -1154,7 +1154,7 @@ var TRACKER_GLOSSARY = {
     'FsF-I1-01M': {
         term: 'Machine-readable metadata format',
         short: 'Is the record in a language a machine can parse?',
-        long: 'The metadata is expressed formally — JSON-LD, RDF, structured XML — rather than as prose a human has to read.'
+        long: 'The metadata is expressed formally (JSON-LD, RDF, structured XML) rather than as prose a human has to read.'
     },
     'FsF-I2-01M': {
         term: 'Registered vocabularies',
@@ -1169,7 +1169,7 @@ var TRACKER_GLOSSARY = {
     'FsF-R1-01M': {
         term: 'Content described',
         short: 'Does the record describe what is actually in the data?',
-        long: 'Variables, coverage, resolution, units — enough for someone to judge whether the data suits their purpose before downloading it.'
+        long: 'Variables, coverage, resolution, units: enough for someone to judge whether the data suits their purpose before downloading it.'
     },
     'FsF-R1.1-01M': {
         term: 'Licence stated',
@@ -1189,7 +1189,7 @@ var TRACKER_GLOSSARY = {
     'FsF-R1.3-02D': {
         term: 'Community file format',
         short: 'Are the files in a format the field actually uses?',
-        long: 'Data in formats the community works with — miniSEED, netCDF, GeoTIFF — rather than a proprietary or one-off format that needs specific software.'
+        long: 'Data in formats the community works with (miniSEED, netCDF, GeoTIFF) rather than a proprietary or one-off format that needs specific software.'
     },
 
     // ---------- Instruments and deployments ----------
@@ -1308,27 +1308,27 @@ var TRACKER_GLOSSARY = {
     'lens-observational': {
         term: 'Observational Lens',
         short: 'Seeing the continent as it is now.',
-        long: 'Programs that image and sound the Earth in the present — seismic, magnetotelluric and geodetic observation.'
+        long: 'Programs that image and sound the Earth in the present: seismic, magnetotelluric and geodetic observation.'
     },
     'lens-temporal': {
         term: 'Temporal Lens',
         short: 'Reading the continent through time.',
-        long: 'Programs concerned with age, composition and evolution — geochronology, geochemistry and the sample archives behind them.'
+        long: 'Programs concerned with age, composition and evolution: geochronology, geochemistry and the sample archives behind them.'
     },
     'lens-characterisation': {
         term: 'Characterisation Lens',
         short: 'Measuring what the rock actually is.',
-        long: 'Programs that characterise material directly — drill-core scanning, mineralogy, spectral and physical property measurement.'
+        long: 'Programs that characterise material directly: drill-core scanning, mineralogy, spectral and physical property measurement.'
     },
     'lens-analysis': {
         term: 'Analysis Framework',
         short: 'Turning observation into model.',
-        long: 'Simulation, analysis and modelling capability — the computational side of the telescope.'
+        long: 'Simulation, analysis and modelling capability, the computational side of the telescope.'
     },
     'lens-fair': {
         term: 'FAIR Data Framework',
         short: 'The plumbing that makes the rest findable.',
-        long: 'Research data systems and the virtual research environment — the infrastructure that publishes and connects everything else.'
+        long: 'Research data systems and the virtual research environment, the infrastructure that publishes and connects everything else.'
     },
     'lens-community': {
         term: 'Community, Culture & Collaboration',
@@ -1341,7 +1341,7 @@ var TRACKER_GLOSSARY = {
     'doi': {
         term: 'DOI',
         short: 'Digital Object Identifier.',
-        long: 'A permanent identifier for a published thing — a paper, a dataset, an instrument. Resolving it through doi.org should always reach the current home of that thing, even if the website behind it changes.'
+        long: 'A permanent identifier for a published thing: a paper, a dataset, an instrument. Resolving it through doi.org should always reach the current home of that thing, even if the website behind it changes.'
     },
     'datacite': {
         term: 'DataCite',
@@ -1442,9 +1442,7 @@ function fujiMetricName(id) {
 function termTip(key) {
     var e = trackerTerm(key);
     if (!e) return '';
-    var parts = [e.term];
-    if (e.short) parts.push('— ' + e.short);
-    var head = parts.join(' ');
+    var head = e.term + (e.short ? ': ' + e.short : '');
     return e.long ? head + ' ' + e.long : head;
 }
 
@@ -1690,7 +1688,7 @@ function renderStat(spec) {
     var valueHtml = trackerFigureHtml(spec.value, spec);
     var inner = spec.href
         ? '<a class="stat-link" href="' + escapeAttr(spec.href) + '">' + valueHtml
-          + '<span class="sr-only"> — see the records behind this number</span></a>'
+          + '<span class="sr-only">: see the records behind this number</span></a>'
         : valueHtml;
 
     var stamp;
@@ -1779,8 +1777,8 @@ function statCitation(spec, g, stamp) {
     if (carried) line += ' ' + carried;
     line += ' Source: AuScope Impact Tracker';
     if (spec.href) {
-        try { line += ' — ' + new URL(spec.href, window.location.href).href; }
-        catch (e) { line += ' — ' + spec.href; }
+        try { line += ', ' + new URL(spec.href, window.location.href).href; }
+        catch (e) { line += ', ' + spec.href; }
     }
     return line;
 }

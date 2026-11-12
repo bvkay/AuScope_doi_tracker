@@ -304,7 +304,7 @@
                     term: 'fuji',
                     source: sources, sourceKey: 'history',
                     missingReason: 'the assessment history feed has not loaded',
-                    caveat: "Dataset DOIs scored in the most recent monthly run. PhysicalObject sample records are excluded — F-UJI's metrics target data resources.",
+                    caveat: "Dataset DOIs scored in the most recent monthly run. PhysicalObject sample records are excluded: F-UJI's metrics target data resources.",
                     cite: true
                 }
             ];
@@ -366,7 +366,7 @@
             var trendNote = document.getElementById('trend-note');
             trendNote.hidden = runs.length > 1;
             trendNote.textContent = runs.length === 1
-                ? 'One measurement so far — the baseline. The trend gains a point with every monthly run.'
+                ? 'One measurement so far, the baseline. The trend gains a point with every monthly run.'
                 : '';
 
             document.getElementById('run-rows').innerHTML = runs.map(function(r, i) {
