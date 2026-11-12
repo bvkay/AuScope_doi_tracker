@@ -1269,11 +1269,11 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
   ].filter(Boolean).map(statTile).join('\n');
 
   const answer = documented ? (
+    // One sentence. The candidates tile beside it carries the 116; the
+    // definition of "documented" is on the tile's caveat and in How we count.
     '            <p class="answer-lead"><strong>' + documented.pubs.toLocaleString()
-      + ' publications</strong> carry documented AuScope attribution, an AuScope identifier or a written'
-      + ' acknowledgement, and have been cited <strong>' + documented.citations.toLocaleString()
-      + ' times</strong>. A further <strong>' + candidates.pubs.toLocaleString()
-      + ' candidates</strong> are under review.</p>\n'
+      + ' publications</strong> carry documented AuScope attribution, cited <strong>'
+      + documented.citations.toLocaleString() + ' times</strong>.</p>\n'
     + (unverified
       ? '            <p class="answer-caveat">Excludes <a href="#evidence">'
         + unverified.pubs.toLocaleString() + ' unverified keyword matches</a>.</p>\n'
