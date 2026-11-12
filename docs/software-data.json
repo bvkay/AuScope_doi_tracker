@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-10T10:45:34.033Z",
+  "generated": "2026-11-12T23:49:54.271Z",
   "records": [
     {
       "name": "GPlates",
@@ -2639,9 +2639,9 @@
         "G-ADOPT",
         "Geodynamic ADjOint Optimisation PlaTform"
       ],
-      "publications": 6,
-      "citations": 6,
-      "earliestYear": 2009,
+      "publications": 4,
+      "citations": 5,
+      "earliestYear": 2021,
       "latestYear": 2026,
       "records": [
         {
@@ -2678,24 +2678,6 @@
           "year": 2021,
           "journal": "",
           "cited": 5,
-          "oa": true
-        },
-        {
-          "doi": "10.1515/jogs-2019-0015",
-          "title": "Evaluation of ocean circulation models in the computation of the mean dynamic topography for geodetic applications. Case study in the Greek seas",
-          "authors": "I. Mintourakis; Γεώργιος Πάνου; Demitris Paradissis",
-          "year": 2019,
-          "journal": "Journal of Geodetic Science",
-          "cited": 1,
-          "oa": true
-        },
-        {
-          "doi": "10.23939/jgd2009.01.024",
-          "title": "GEODYNAMICS",
-          "authors": "А. Н. Марченко; N.P. Yarema",
-          "year": 2009,
-          "journal": "GEODYNAMICS",
-          "cited": 0,
           "oa": true
         }
       ]

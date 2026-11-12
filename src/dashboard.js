@@ -48,6 +48,7 @@ function decodeEntities(s) {
 // of aria wiring — used by the runtime pages AND by this generator.
 // If the chassis ever fails to load, the build keeps going with plain
 // markup rather than shipping a blank hero.
+const NOT_PUBLICATIONS = ['software', 'peer review'];
 const CHASSIS_FILE = path.join(DOCS_DIR, 'tracker-chassis.js');
 const SITE_BASE = 'https://bvkay.github.io/AuScope_doi_tracker/';
 
@@ -142,10 +143,11 @@ function run() {
     : { metadata: {}, records: [] };
 
   // Software version releases (Zenodo/GitHub archive DOIs, type 'software')
+  // and referee or editor comments on a preprint (type 'peer review')
   // are outputs of the software pillar, not publications — counting a
   // v2.0.0 tag as a paper would not survive an audit. They stay in
   // publications.json (typed) but out of every publication count and page.
-  const pubs = (pubData.records || []).filter(p => (p.type || '') !== 'software');
+  const pubs = (pubData.records || []).filter(p => NOT_PUBLICATIONS.indexOf(p.type || '') === -1);
   const datasets = dsData.records || [];
 
   // ── Compute stats ──
@@ -891,8 +893,12 @@ function buildSoftwareRegistry(pubs, facilityData) {
   return Object.keys(facilities).map(function(name) {
     const patterns = facilities[name].patterns || [];
     const needles = patterns.map(function(pt) { return String(pt).toLowerCase(); });
+    // A tool cannot have been used before it existed: facility-names.json
+    // may give a "since" year, and earlier papers are search-term noise.
+    const since = Number(facilities[name].since) || 0;
     const matches = pubs.filter(function(p) {
       if (p.evidence !== 'text-software') return false;
+      if (since && Number(p.year) && Number(p.year) < since) return false;
       const text = [p.title, p.subject].concat(p.searchTerms || []).filter(Boolean).join(' ').toLowerCase();
       return needles.some(function(n) { return text.indexOf(n) !== -1; });
     }).map(function(p) {

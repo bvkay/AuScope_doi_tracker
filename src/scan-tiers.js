@@ -106,7 +106,8 @@ function compilePatterns(facCfg) {
 
   for (const [fname, def] of Object.entries(facCfg.tier3_software_use.facilities || {})) {
     for (const p of (def.patterns || [])) {
-      out.push({ tier: 'tier3', facility: fname, pattern: p, regex: new RegExp(escapeRegex(p), 'i') });
+      // "since": the year the tool first existed; earlier papers cannot have used it.
+      out.push({ tier: 'tier3', facility: fname, pattern: p, regex: new RegExp(escapeRegex(p), 'i'), since: Number(def.since) || 0 });
     }
   }
 
@@ -183,7 +184,7 @@ async function buildEuropePmcMap(patterns) {
     if (!QUIET) console.log(`${hits.length}/${totalHits} DOIs`);
     for (const doi of hits) {
       if (!map[doi]) map[doi] = [];
-      map[doi].push({ tier: p.tier, facility: p.facility, pattern: p.pattern, section: 'ack_fund' });
+      map[doi].push({ tier: p.tier, facility: p.facility, pattern: p.pattern, section: 'ack_fund', since: p.since || 0 });
     }
     await sleep(150);
   }
@@ -216,7 +217,8 @@ function scanLocal(rec, patterns) {
         tier: p.tier,
         facility: p.facility,
         pattern: p.pattern,
-        section: 'local_text'
+        section: 'local_text',
+        since: p.since || 0
       });
     }
   }
@@ -233,6 +235,10 @@ const TIER_RANK = { tier1: 4, tier2: 3, tier3: 2, drop: 1 };
  * the rule: drop only takes effect if no tier1/tier2/tier3 also matched.
  */
 function assignTier(hits, paper, dropCues) {
+  // A tool cannot have been used before it existed: drop hits for a
+  // facility whose "since" year is later than the paper.
+  const year = Number(paper.year) || 0;
+  hits = hits.filter(h => !(h.since && year && year < h.since));
   if (hits.length === 0) return { tier: 'unmatched', evidence: [] };
 
   const realTiers = hits.filter(h => h.tier !== 'drop');

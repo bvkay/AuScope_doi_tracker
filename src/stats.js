@@ -34,8 +34,11 @@ async function run() {
 
   // ── Publications (local) ──
   const pubData = readJson(path.join(DATA_DIR, 'publications.json'), { records: [] });
-  // Same rule as dashboard.js: software version releases are not publications
-  const pubs = (pubData.records || []).filter(p => (p.type || '') !== 'software');
+  // Same rule as dashboard.js: record types that are outputs of something
+  // else are not publications, that is software version releases and
+  // referee or editor comments on a preprint.
+  const NOT_PUBLICATIONS = ['software', 'peer review'];
+  const pubs = (pubData.records || []).filter(p => NOT_PUBLICATIONS.indexOf(p.type || '') === -1);
   // Evidence-graded totals. The unfiltered corpus sum is NOT a publishable
   // impact figure: 62% of it comes from keyword-only records carrying no
   // confirmed AuScope link (a Scripps satellite-altimetry paper in Science

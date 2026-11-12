@@ -3,7 +3,7 @@
     "type": "publications",
     "last_updated": "2026-09-15T00:12:11.094Z",
     "total_count": 2768,
-    "evidence_updated": "2026-09-15T00:12:46.256Z",
+    "evidence_updated": "2026-11-12T23:48:55.486Z",
     "consolidated": "2026-09-15T00:12:46.383Z",
     "dates_enriched": "2026-09-14T23:14:35.729Z"
   },
@@ -31263,8 +31263,7 @@
         "GR"
       ],
       "authorCount": 3,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
+      "evidence": "keyword",
       "publicationDate": "2019-01-01"
     },
     {
@@ -31286,8 +31285,7 @@
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 2,
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
+      "evidence": "keyword",
       "publicationDate": "2009-12-01"
     },
     {

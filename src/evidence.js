@@ -58,10 +58,28 @@ function run() {
     const k = normDoi(r.doi);
     if (k) idMap[k] = { attribution: r.attribution, verifiedBy: r.verifiedBy };
   });
+  // Tier3 (software use) respects each tool's "since" year from
+  // facility-names.json: the tagged file is scanned only now and then, and
+  // a search term such as "G-Adopt geodynamic" matched papers from before
+  // the platform existed. Such a hit is noise, and the record falls back
+  // to a keyword match.
+  const facSince = {};
+  const facCfg = readJson(path.join(DATA_DIR, 'facility-names.json'), {});
+  Object.entries(((facCfg.tier3_software_use || {}).facilities) || {}).forEach(function(pair) {
+    if (Number(pair[1].since)) facSince[pair[0]] = Number(pair[1].since);
+  });
   const tierMap = {}; // doi -> tier1/tier2/tier3/dropped/unmatched
   tagged.forEach(function(r) {
     const k = normDoi(r.doi);
-    if (k && r.tier) tierMap[k] = r.tier;
+    if (!k || !r.tier) return;
+    let tier = r.tier;
+    if (tier === 'tier3' && Number(r.year)) {
+      const live = (r.tierEvidence || []).filter(function(h) {
+        return h.tier === 'tier3' && !(facSince[h.facility] && Number(r.year) < facSince[h.facility]);
+      });
+      if (!live.length) tier = 'unmatched';
+    }
+    tierMap[k] = tier;
   });
 
   const TIER_EVIDENCE = {
@@ -171,6 +189,10 @@ function run() {
     if (!k || inCorpus[k] || foldedSet[k]) return;
     // Infrastructure DOIs (datasets/instruments) never join the corpus.
     if (excludedPrefixes.some(function(p) { return k.indexOf(p.toLowerCase() + '/') === 0; })) return;
+    // Referee and editor comments on a preprint (OpenAlex type "peer
+    // review", e.g. egusphere-2023-53-rc1) carry the author's ROR but are
+    // not publications; the preprint itself is the record.
+    if (/^peer[ -]review$/i.test(String(r.type || ''))) return;
     if (r.attribution === 'verified') {
       const rec = Object.assign({}, r);
       delete rec.attribution;

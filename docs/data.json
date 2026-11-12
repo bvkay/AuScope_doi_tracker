@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T23:03:42.964Z",
+  "generated": "2026-11-12T23:49:54.257Z",
   "stats": {
     "totalPublications": 2763,
     "totalDatasets": 470,
@@ -29,12 +29,12 @@
         "citations": 4714
       },
       "software": {
-        "pubs": 296,
-        "citations": 7145
+        "pubs": 294,
+        "citations": 7144
       },
       "unverified": {
-        "pubs": 1679,
-        "citations": 39263
+        "pubs": 1681,
+        "citations": 39264
       }
     }
   },
@@ -84,8 +84,8 @@
       "documented": 6,
       "candidate": 1,
       "attributed": 7,
-      "software": 1,
-      "unverified": 1,
+      "software": 0,
+      "unverified": 2,
       "docCitations": 441,
       "attrCitations": 467,
       "cumulativeDocumented": 13,
@@ -264,8 +264,8 @@
       "documented": 44,
       "candidate": 6,
       "attributed": 50,
-      "software": 10,
-      "unverified": 24,
+      "software": 9,
+      "unverified": 25,
       "docCitations": 822,
       "attrCitations": 897,
       "cumulativeDocumented": 225,
@@ -492,8 +492,8 @@
     "candidate": 116,
     "text-attributed": 548,
     "verified": 42,
-    "keyword": 1679,
+    "keyword": 1681,
     "text-infrastructure": 82,
-    "text-software": 296
+    "text-software": 294
   }
 }
