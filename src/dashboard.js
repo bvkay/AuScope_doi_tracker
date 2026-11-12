@@ -313,6 +313,11 @@ function computeStats(pubs, datasets) {
   const attInstitutions = {};
   const attCountries = {};
   const attAuthors = {};
+  // And over DOCUMENTED papers only, for the widget, which must count the
+  // same population as the hub headline.
+  const docInstitutions = {};
+  const docCountries = {};
+  const docAuthors = {};
   // The headline split, counted from the records themselves so the hero
   // cannot drift from the tiers chart beneath it.
   const split = {
@@ -324,6 +329,7 @@ function computeStats(pubs, datasets) {
     const cited = parseInt(p.cited) || 0;
     const cls = evidenceClass(p);
     const attributed = isAttributed(p);
+    const documented = cls === 'documented';
     split[cls].pubs++;
     split[cls].citations += cited;
     totalCitations += cited;
@@ -332,18 +338,27 @@ function computeStats(pubs, datasets) {
 
     // Collect unique institutions and countries
     for (const inst of (p.institutions || [])) {
-      if (inst) { allInstitutions[inst] = true; if (attributed) attInstitutions[inst] = true; }
+      if (inst) {
+        allInstitutions[inst] = true;
+        if (attributed) attInstitutions[inst] = true;
+        if (documented) docInstitutions[inst] = true;
+      }
     }
     for (const cc of (p.countries || [])) {
-      if (cc) { allCountries[cc] = true; if (attributed) attCountries[cc] = true; }
+      if (cc) {
+        allCountries[cc] = true;
+        if (attributed) attCountries[cc] = true;
+        if (documented) docCountries[cc] = true;
+      }
     }
-    // Collect unique author names (approximate — name-based dedup)
+    // Collect unique author names (approximate: name-based dedup)
     if (p.authors) {
       p.authors.split(';').forEach(a => {
         a = a.trim();
         if (a) {
           allAuthors[a.toLowerCase()] = a; // lowercase key for dedup, preserve display
           if (attributed) attAuthors[a.toLowerCase()] = a;
+          if (documented) docAuthors[a.toLowerCase()] = a;
         }
       });
     }
@@ -474,6 +489,9 @@ function computeStats(pubs, datasets) {
       attributedAuthors: Object.keys(attAuthors).length,
       attributedInstitutions: Object.keys(attInstitutions).length,
       attributedCountries: Object.keys(attCountries).length,
+      documentedAuthors: Object.keys(docAuthors).length,
+      documentedInstitutions: Object.keys(docInstitutions).length,
+      documentedCountries: Object.keys(docCountries).length,
       yearRange: minYear && maxYear ? minYear + '–' + maxYear : 'N/A',
       noSubjectCount,
       evidenceSplit: split
@@ -1969,20 +1987,23 @@ function buildWidget(stats, lastUpdated, pillarData) {
   // The widget is the most public artefact on the site (iframe-embedded), so
   // it carries the GRADED numbers, the count of what is excluded, the date,
   // and a link back to the evidence. An unqualified corpus total here is how
-  // a board member ends up quoting 2,926/67,576 in a meeting.
-  const pubPillar = (pillarData && pillarData.pillars && pillarData.pillars.publications) || null;
-  const graded = !!(pubPillar && pubPillar.attributed);
-  const w = (pubPillar && pubPillar.attributed) || { pubs: s.totalPublications, citations: s.totalCitations };
-  const unverified = (pubPillar && pubPillar.unverified) ? pubPillar.unverified.pubs : 0;
+  // a board member ends up quoting 2,926/67,576 in a meeting. Same split
+  // as the hub headline: documented only, with candidates and unverified
+  // matches named as excluded, so the widget cannot contradict the page.
+  const split = s.evidenceSplit || null;
+  const graded = !!(split && split.documented.pubs);
+  const w = graded ? split.documented : { pubs: s.totalPublications, citations: s.totalCitations };
+  const candidates = graded ? split.candidate.pubs : 0;
+  const unverified = graded ? split.unverified.pubs : 0;
   const updated = lastUpdated ? new Date(lastUpdated).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }) : 'N/A';
   // Row two used to publish researcher/institution/country counts taken
-  // over the WHOLE corpus — 1,432 institutions, inflated by the same
-  // 1,896 keyword-only records the row above it excludes. The widget is
-  // the most public artefact on the site, so it was the worst place on
-  // the site for an ungraded number. Same three figures, counted over
-  // the attributed papers only: 827 institutions, not 1,432.
+  // over the WHOLE corpus (1,432 institutions, inflated by the same
+  // keyword-only records the row above it excludes). The widget is the
+  // most public artefact on the site, so it was the worst place on the
+  // site for an ungraded number. Same three figures, counted over the
+  // documented papers only.
   const people = graded
-    ? { authors: s.attributedAuthors, institutions: s.attributedInstitutions, countries: s.attributedCountries }
+    ? { authors: s.documentedAuthors, institutions: s.documentedInstitutions, countries: s.documentedCountries }
     : { authors: s.uniqueAuthors, institutions: s.uniqueInstitutions, countries: s.uniqueCountries };
   // The pillar total (excludes physical samples, which are not datasets)
   // rather than the raw record count — the widget said 226 while the hub
@@ -2095,11 +2116,11 @@ function buildWidget(stats, lastUpdated, pillarData) {
 <body>
     <div class="widget">
         <div class="heading">AuScope Impact at a Glance</div>
-        <div class="wsub">Every figure counts only publications carrying an AuScope identifier or a written acknowledgement${unverified ? ', and excludes ' + unverified.toLocaleString() + ' unverified keyword matches still under review' : ''} &middot; as at ${updated} &middot; <a href="https://bvkay.github.io/AuScope_doi_tracker/index.html#evidence" target="_blank" rel="noopener">see how this is graded</a></div>
+        <div class="wsub">Every figure counts only publications with documented attribution: an AuScope identifier or a written acknowledgement on the paper${graded ? '. Not counted: ' + candidates.toLocaleString() + ' candidates under review and ' + unverified.toLocaleString() + ' unverified keyword matches' : ''} &middot; as at ${updated} &middot; <a href="https://bvkay.github.io/AuScope_doi_tracker/index.html#evidence" target="_blank" rel="noopener">see how this is graded</a></div>
         <div class="stat-table">
             <div class="stat-row">
                 <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></div>
-                <div class="stat-cell-text stat-card"><div class="number">${w.pubs.toLocaleString()}</div><div class="label">Attributed publications</div></div>
+                <div class="stat-cell-text stat-card"><div class="number">${w.pubs.toLocaleString()}</div><div class="label">Documented publications</div></div>
                 <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
                 <div class="stat-cell-text stat-card"><div class="number">${w.citations.toLocaleString()}</div><div class="label">Their citations</div></div>
                 <div class="stat-cell-icon"><svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
