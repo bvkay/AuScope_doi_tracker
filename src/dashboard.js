@@ -223,15 +223,22 @@ function run() {
     ? JSON.parse(fs.readFileSync(PILLAR_FILE, 'utf8'))
     : null;
   const lensData = computeLensData(datasets);
+  const pp = (pillarData && pillarData.pillars) || {};
   // Each figure carries the date of ITS OWN source, not the date this
   // script happened to run. A dataset count stamped with the build time
-  // claims a freshness the underlying file does not have.
+  // claims a freshness the underlying file does not have. The instrument
+  // registry is read live by src/stats.js, so its date is the build date.
   const asOf = {
     publications: pubData.metadata && pubData.metadata.last_updated || null,
     datasets: dsData.metadata && dsData.metadata.last_updated || null,
+    ausmt: (pp.ausmt && pp.ausmt.generated) || null,
+    runs: (pp.ausmt && pp.ausmt.runsFetched) || null,
+    fair: (pp.datasets && pp.datasets.fairMeta && pp.datasets.fairMeta.last_updated) || null,
     built: (pillarData && pillarData.generated) || null
   };
-  const html = buildHTML(stats, pubData.metadata.last_updated, pillarData, lensData, datasets.length, asOf);
+  const connects = loadConnectsChain();
+  if (!connects) console.warn('pid-demonstrator-data.json lacks the default chain; "How it connects" omitted.');
+  const html = buildHTML(stats, pubData.metadata.last_updated, pillarData, lensData, datasets.length, asOf, connects);
   fs.writeFileSync(path.join(DOCS_DIR, 'index.html'), html);
 
   // ── Write docs/widget.html (embeddable stats-only widget) ──
@@ -243,6 +250,10 @@ function run() {
   console.log('Data exported: docs/data.json');
   console.log('Stats: ' + stats.summary.totalPublications + ' publications, '
     + stats.summary.totalCitations + ' citations');
+  const sp = stats.summary.evidenceSplit;
+  console.log('Headline: ' + sp.documented.pubs + ' documented (' + sp.documented.citations + ' citations), '
+    + sp.candidate.pubs + ' candidates (' + sp.candidate.citations + '), '
+    + sp.software.pubs + ' software, ' + sp.unverified.pubs + ' unverified');
 }
 
 // Generic/overly broad subject terms to exclude from the topic chart.
@@ -260,17 +271,27 @@ const GENERIC_SUBJECTS = new Set([
   'time factors', 'reproducibility of results'
 ]);
 
-// The evidence partition, in one place. These four sets are mutually
-// exclusive and exhaust the corpus: attributed + software + unverified
-// = every record. src/stats.js computes the same split for the pillar
-// feed; keeping the definition here too means the charts, the widget and
-// the hero cannot silently disagree about what "attributed" means.
-const ATTRIBUTED_TIERS = ['verified', 'candidate', 'text-attributed', 'text-infrastructure'];
+// The evidence partition, in one place. Five sets, mutually exclusive and
+// exhaustive: documented + candidate + software + unverified = every
+// record. "Documented" is the headline: an AuScope identifier or a written
+// acknowledgement on the paper itself. Candidates (a watchlist author at a
+// partner institution, not yet confirmed) are counted beside the headline,
+// never inside it, and the combined figure is never called verified.
+// src/stats.js still publishes attributed = documented + candidate for the
+// pillar feed and the widget; isAttributed() keeps that aggregate where it
+// is still wanted, so the charts, the widget and the hero cannot silently
+// disagree about what either word means.
+const DOCUMENTED_TIERS = ['verified', 'text-attributed', 'text-infrastructure'];
 function evidenceClass(p) {
   const e = p && p.evidence;
-  if (ATTRIBUTED_TIERS.indexOf(e) !== -1) return 'attributed';
+  if (DOCUMENTED_TIERS.indexOf(e) !== -1) return 'documented';
+  if (e === 'candidate') return 'candidate';
   if (e === 'text-software') return 'software';
   return 'unverified';
+}
+function isAttributed(p) {
+  const c = evidenceClass(p);
+  return c === 'documented' || c === 'candidate';
 }
 
 function computeStats(pubs, datasets) {
@@ -292,10 +313,19 @@ function computeStats(pubs, datasets) {
   const attInstitutions = {};
   const attCountries = {};
   const attAuthors = {};
+  // The headline split, counted from the records themselves so the hero
+  // cannot drift from the tiers chart beneath it.
+  const split = {
+    documented: { pubs: 0, citations: 0 }, candidate: { pubs: 0, citations: 0 },
+    software: { pubs: 0, citations: 0 }, unverified: { pubs: 0, citations: 0 }
+  };
 
   for (const p of pubs) {
     const cited = parseInt(p.cited) || 0;
-    const attributed = evidenceClass(p) === 'attributed';
+    const cls = evidenceClass(p);
+    const attributed = isAttributed(p);
+    split[cls].pubs++;
+    split[cls].citations += cited;
     totalCitations += cited;
     if (cited > 0) citedPubs++;
     if (p.journal) journals[p.journal] = true;
@@ -353,10 +383,10 @@ function computeStats(pubs, datasets) {
   // curve ran to 67,576 while the headline said 18,423. Carrying the
   // split through to the chart data is what lets the charts agree with
   // the number they sit beneath.
-  const tierYear = {};   // year -> { attributed, software, unverified, attrCites, allCites }
+  const tierYear = {};   // year -> { documented, candidate, software, unverified, docCites, attrCites, allCites }
   function bucket(y) {
     if (!tierYear[y]) {
-      tierYear[y] = { attributed: 0, software: 0, unverified: 0, attrCites: 0, allCites: 0 };
+      tierYear[y] = { documented: 0, candidate: 0, software: 0, unverified: 0, docCites: 0, attrCites: 0, allCites: 0 };
     }
     return tierYear[y];
   }
@@ -368,27 +398,39 @@ function computeStats(pubs, datasets) {
     const b = bucket(year);
     b[cls]++;
     b.allCites += cited;
-    if (cls === 'attributed') b.attrCites += cited;
+    if (cls === 'documented') b.docCites += cited;
+    if (cls === 'documented' || cls === 'candidate') b.attrCites += cited;
   }
 
-  // Publications by year (continuous range) with cumulative pubs and citations
+  // Publications by year (continuous range) with cumulative pubs and
+  // citations. data.json consumers keep `attributed` (documented plus
+  // candidate) with its old meaning; `documented` and `candidate` sit
+  // beside it.
   const byYear = [];
   let cumPubs = 0;
   let cumCitations = 0;
   let cumAttrCitations = 0;
   let cumAttr = 0;
+  let cumDoc = 0;
+  let cumDocCitations = 0;
   for (let y = minYear; y <= maxYear; y++) {
     const count = yearCounts[y] || 0;
     const citations = citationsByYear[y] || 0;
-    const t = tierYear[y] || { attributed: 0, software: 0, unverified: 0, attrCites: 0 };
+    const t = tierYear[y] || { documented: 0, candidate: 0, software: 0, unverified: 0, docCites: 0, attrCites: 0 };
     cumPubs += count;
     cumCitations += citations;
-    cumAttr += t.attributed;
+    cumAttr += t.documented + t.candidate;
     cumAttrCitations += t.attrCites;
+    cumDoc += t.documented;
+    cumDocCitations += t.docCites;
     byYear.push({
       year: y, count, cumulative: cumPubs, citations, cumulativeCitations: cumCitations,
-      attributed: t.attributed, software: t.software, unverified: t.unverified,
+      documented: t.documented, candidate: t.candidate,
+      attributed: t.documented + t.candidate, software: t.software, unverified: t.unverified,
+      docCitations: t.docCites,
       attrCitations: t.attrCites,
+      cumulativeDocumented: cumDoc,
+      cumulativeDocCitations: cumDocCitations,
       cumulativeAttributed: cumAttr,
       cumulativeAttrCitations: cumAttrCitations
     });
@@ -433,7 +475,8 @@ function computeStats(pubs, datasets) {
       attributedInstitutions: Object.keys(attInstitutions).length,
       attributedCountries: Object.keys(attCountries).length,
       yearRange: minYear && maxYear ? minYear + '–' + maxYear : 'N/A',
-      noSubjectCount
+      noSubjectCount,
+      evidenceSplit: split
     },
     byYear,
     topSubjects,
@@ -481,17 +524,17 @@ function recordPrograms(p) {
 // program's apparent output is actually evidence-linked.
 function computePrograms(pubs) {
   const counts = {};
-  const attributed = {};
+  const documented = {};
   for (const p of pubs) {
-    const isAtt = evidenceClass(p) === 'attributed';
+    const isDoc = evidenceClass(p) === 'documented';
     recordPrograms(p).forEach(function(g) {
       counts[g] = (counts[g] || 0) + 1;
-      if (isAtt) attributed[g] = (attributed[g] || 0) + 1;
+      if (isDoc) documented[g] = (documented[g] || 0) + 1;
     });
   }
   return PROGRAM_GROUPS
     .map(function(g) {
-      return { name: g.name, count: counts[g.name] || 0, attributed: attributed[g.name] || 0 };
+      return { name: g.name, count: counts[g.name] || 0, documented: documented[g.name] || 0 };
     })
     .filter(function(g) { return g.count > 0; })
     .sort(function(a, b) { return b.count - a.count; });
@@ -518,7 +561,7 @@ const EVIDENCE_LADDER = [
   { key: 'text-attributed', label: 'Acknowledged in text', desc: 'AuScope/facility acknowledgement found', fill: '#6c66d6' },
   { key: 'text-infrastructure', label: 'Infrastructure-enabled', desc: 'infrastructure-use wording found', fill: '#8f8ae0' },
   { key: 'text-software', label: 'AuScope software used', desc: 'GPlates, Underworld, and other tools', fill: '#b3afe9' },
-  { key: 'keyword', label: 'Keyword match only', desc: 'no confirmed signal yet — under review', fill: '#cbd5e1' }
+  { key: 'keyword', label: 'Keyword match only', desc: 'no confirmed signal yet', fill: '#cbd5e1' }
 ];
 
 // The evidence section. It sits DIRECTLY under the hero, not two and a
@@ -526,91 +569,48 @@ const EVIDENCE_LADDER = [
 // number and the grading that qualifies it, which meant every reader who
 // stopped scrolling took the number ungraded. The grading is the product.
 //
-// Three parts, in this order:
-//   1. the partition — attributed + software + unverified = the corpus,
-//      as three cards, each linking to the rows;
-//   2. the ladder — the six tiers the partition is built from;
-//   3. nothing else. Everything below this point is detail.
-function buildEvidenceSection(evidence, pillarData, asOf) {
+// Two parts: the partition as one line of arithmetic the reader can
+// check, and the six tiers it is built from, each flagged in headline /
+// under review / excluded. Tier definitions live in "How we count".
+function buildEvidenceSection(evidence, split) {
   if (!evidence) return '';
-  const pubs = (pillarData && pillarData.pillars && pillarData.pillars.publications) || {};
-  const att = pubs.attributed, sw = pubs.software, un = pubs.unverified;
-
   const max = Math.max.apply(null, EVIDENCE_LADDER.map(function(e) { return evidence[e.key] || 0; }));
+  const FLAG = {
+    in: { cls: 'in', text: '<span aria-hidden="true">✓</span> in headline', aria: 'Counted in the headline figure.' },
+    review: { cls: 'review', text: '<span aria-hidden="true">◐</span> under review', aria: 'Counted beside the headline as a candidate under review.' },
+    out: { cls: 'out', text: '<span aria-hidden="true">✕</span> excluded', aria: 'Not counted in the headline figure.' }
+  };
   const rows = EVIDENCE_LADDER.map(function(e) {
     const n = evidence[e.key] || 0;
     const w = max ? Math.max(2, Math.round(n / max * 100)) : 2;
-    const counted = e.key === 'keyword' || e.key === 'text-software' ? 'no' : 'yes';
+    const f = DOCUMENTED_TIERS.indexOf(e.key) !== -1 ? FLAG.in : e.key === 'candidate' ? FLAG.review : FLAG.out;
     return '            <a class="bar-row evidence-row" href="publications.html?evidence=' + e.key + '"\n'
-      + '               aria-label="' + escapeHtml(e.label + ' — ' + n.toLocaleString() + ' publications. ' + e.desc
-        + '. ' + (counted === 'yes' ? 'Counted in the headline figure.' : 'Not counted in the headline figure.')) + '">\n'
+      + '               aria-label="' + escapeHtml(e.label + ': ' + n.toLocaleString() + ' publications. ' + e.desc
+        + '. ' + f.aria) + '">\n'
       + '                <div class="bar-label">' + escapeHtml(e.label) + '</div>\n'
       + '                <div class="bar-track"><div class="bar-fill" style="width:' + w + '%;background:' + e.fill + '"></div></div>\n'
       + '                <div class="bar-value">' + n.toLocaleString() + '</div>\n'
-      + '                <div class="bar-counted ' + (counted === 'yes' ? 'in' : 'out') + '">'
-      + (counted === 'yes' ? '<span aria-hidden="true">✓</span> in headline'
-                           : '<span aria-hidden="true">✕</span> excluded') + '</div>\n'
+      + '                <div class="bar-counted ' + f.cls + '">' + f.text + '</div>\n'
       + '            </a>';
   }).join('\n');
 
-  // The partition, spelled out as arithmetic the reader can check.
+  // The partition, spelled out as arithmetic the reader can check, from
+  // the same records the hero counts.
   let partition = '';
-  if (att && sw && un) {
-    const total = att.pubs + sw.pubs + un.pubs;
-    const cards = [
-      // Deliberately unlinked. publications.html filters one tier at a
-      // time and has no "attributed" aggregate, so a link here would
-      // land the reader on all 2,926 records under a 711 heading — the
-      // exact confusion this section exists to prevent. The four tiers
-      // that make up the 711 are immediately below, each linked.
-      statTile({
-        value: att.pubs, label: 'Attributed publications', grade: 'measured', asOf: asOf,
-        term: 'attributed', cite: true,
-        note: 'AuScope identifier or written acknowledgement. ' + att.citations.toLocaleString()
-          + ' citations. The sum of the top four tiers below — click any tier to read them.'
-      }),
-      statTile({
-        // The chassis lowercases the label when building the copy-with-
-        // caveat line, so the label is phrased to survive it: "319
-        // publications using auscope software" still reads as a sentence.
-        value: sw.pubs, label: 'Publications using AuScope software', grade: 'measured', asOf: asOf,
-        href: 'publications.html?evidence=text-software', term: 'text-software', cite: true,
-        note: 'GPlates, Underworld and kin. ' + sw.citations.toLocaleString()
-          + ' citations. Counted separately — the software is used far beyond AuScope.'
-      }),
-      statTile({
-        value: un.pubs, label: 'Unverified keyword matches', grade: 'unverified', asOf: asOf,
-        href: 'publications.html?evidence=keyword', term: 'unverified-matches', cite: true,
-        note: 'No confirmed AuScope link yet. ' + un.citations.toLocaleString()
-          + ' citations, none of them claimed anywhere on this site.'
-      })
-    ].join('\n');
-    // The tier chart below already shows this partition, tier by tier, with
-    // "in headline" / "excluded" against each. Repeating it as three big
-    // cards said every number twice on one screen. One line of arithmetic
-    // is enough to make the sets add up.
-    partition = '        <p class="partition-sum">' + att.pubs.toLocaleString() + ' attributed &plus; '
-      + sw.pubs.toLocaleString() + ' software &plus; ' + un.pubs.toLocaleString()
+  if (split) {
+    const total = split.documented.pubs + split.candidate.pubs + split.software.pubs + split.unverified.pubs;
+    partition = '        <p class="partition-sum">' + split.documented.pubs.toLocaleString() + ' documented &plus; '
+      + split.candidate.pubs.toLocaleString() + ' candidates &plus; '
+      + split.software.pubs.toLocaleString() + ' software &plus; ' + split.unverified.pubs.toLocaleString()
       + ' unverified &equals; ' + total.toLocaleString()
-      + ' records searched &mdash; the sets do not overlap, and only the first is claimed as impact.</p>\n';
+      + ' records searched. The sets do not overlap; only the first is claimed as impact.</p>\n';
   }
 
-  const tierGloss = glossList(EVIDENCE_LADDER.map(function(e) { return e.key; }));
-
-  return '\n    <!-- ═══ Evidence grading — kept adjacent to the hero it qualifies ═══ -->\n'
+  return '\n    <!-- ═══ Evidence tiers, kept adjacent to the hero they qualify ═══ -->\n'
     + '    <div class="explorers evidence-section" id="evidence">\n'
-    + '        <h2>How the headline number is arrived at</h2>\n'
+    + '        <h2>Evidence tiers</h2>\n'
     + partition
-    + '        <h3 class="ladder-head" id="evidence-ladder">The six evidence tiers</h3>\n'
     + '        <div class="bar-chart evidence-ladder">\n' + rows + '\n        </div>\n'
-    // The tier definitions live here rather than as [i] buttons inside
-    // the rows: a row is a link, and a button inside a link is invalid
-    // markup that keyboard users cannot escape. A disclosure reaches
-    // mouse, keyboard and screen-reader users identically.
-    + (tierGloss ? '        <details class="disclosure">\n'
-        + '            <summary>What each evidence tier means</summary>\n'
-        + '            ' + tierGloss + '\n'
-        + '        </details>\n' : '')
     + '    </div>\n';
 }
 
@@ -623,25 +623,24 @@ function buildProgramSection(programs) {
     // Solid segment = evidence-attributed; the pale remainder is the
     // ungraded corpus. Same bar, two shades, so the graded share is
     // legible without hiding what the deep link will actually show.
-    const wa = g.count ? Math.round(g.attributed / max * 100) : 0;
+    const wa = g.count ? Math.round(g.documented / max * 100) : 0;
     return '            <a class="bar-row" href="publications.html?program=' + encodeURIComponent(g.name) + '"\n'
-      + '               aria-label="' + escapeHtml(g.name + ' — ' + g.count.toLocaleString()
-        + ' publications found, of which ' + g.attributed.toLocaleString() + ' are evidence-attributed') + '">\n'
+      + '               aria-label="' + escapeHtml(g.name + ': ' + g.count.toLocaleString()
+        + ' publications found, of which ' + g.documented.toLocaleString() + ' have documented attribution') + '">\n'
       + '                <div class="bar-label">' + escapeHtml(g.name) + '</div>\n'
       + '                <div class="bar-track"><div class="bar-fill pale" style="width:' + w + '%">'
       + '<div class="bar-fill solid" style="width:' + (w ? Math.round(wa / w * 100) : 0) + '%"></div></div></div>\n'
-      + '                <div class="bar-value"><strong>' + g.attributed.toLocaleString() + '</strong>'
+      + '                <div class="bar-value"><strong>' + g.documented.toLocaleString() + '</strong>'
       + '<span class="of">/' + g.count.toLocaleString() + '</span></div>\n'
       + '            </a>';
   }).join('\n');
+  // The "never add a program figure to a lens figure" caveat lives in
+  // "How we count"; the one-line reading key stays with the chart.
   return '\n    <!-- ═══ Publications by program ═══ -->\n'
     + '    <div class="explorers">\n'
     + '        <h2>Publications by AuScope program</h2>\n'
-    + '        <div class="note">From the search terms that found each paper; a paper can count in several.</div>\n'
+    + '        <div class="note">Solid = documented; pale = found by the search term, unconfirmed. A paper can count in several.</div>\n'
     + '        <div class="bar-chart program-chart">\n' + rows + '\n        </div>\n'
-    + '        <p class="caveat">These groupings come from this tracker’s search terms, <em>not</em> the'
-    + ' Project Mapping sheet the lenses use. The two have never been reconciled &mdash; never add a figure'
-    + ' from one to a figure from the other.</p>\n'
     + '    </div>\n';
 }
 
@@ -752,7 +751,7 @@ function buildExplorerCards(pillarData, asOf) {
   }
   if (p.instruments) {
     infraCards.push({ href: 'instruments.html', num: p.instruments.units.toLocaleString(),
-      name: 'Registered instruments', sub: 'PIDInst DOIs · metadata health',
+      name: 'Registered instruments', sub: 'PIDINST DOIs · metadata health',
       grade: 'measured', asOf: built });
   }
   if (p.ausmt) {
@@ -764,10 +763,13 @@ function buildExplorerCards(pillarData, asOf) {
     // metadata (station.json) — the instrument registry's survey records
     // are deliberately not used for deployment accounting.
     if (p.ausmt.instrumentsDeployed) {
+      // Rounded to the nearest hundred: 12,876.9 claimed a precision the
+      // run records do not have, and the coverage travels with the figure.
+      const days = Math.round((p.ausmt.recordingDays || 0) / 100) * 100;
       infraCards.push({ href: 'mt-deployments.html', num: p.ausmt.instrumentsDeployed.toLocaleString(),
         name: 'Instruments deployed in MT surveys',
-        sub: p.ausmt.recordingDays.toLocaleString() + ' recording-days · run-level AusMT records · '
-          + p.ausmt.surveysPopulated + ' of ' + p.ausmt.surveys + ' surveys populated',
+        sub: 'about ' + days.toLocaleString() + ' recording-days in the '
+          + p.ausmt.surveysPopulated + ' of ' + p.ausmt.surveys + ' linked surveys',
         grade: 'partial', asOf: p.ausmt.runsFetched || p.ausmt.generated || built });
     }
   }
@@ -813,30 +815,26 @@ function buildExplorerCards(pillarData, asOf) {
 
   if (!datasetCards.length && !infraCards.length) return '';
 
-  const fairMeta = (p.datasets && p.datasets.fairMeta) || {};
+  // The F-UJI metric version and assessment date, and the "every number
+  // links to its records" sentence, moved into "How we count".
   let out = '\n    <!-- ═══ Explorer cards (from src/stats.js) ═══ -->\n'
     + '    <div class="explorers" id="explore">\n'
-    + '        <h2>Explore the evidence</h2>\n'
-    + '        <div class="note">Every number links to the records behind it, with its grade and date.</div>\n';
+    + '        <h2>Explore the evidence</h2>\n';
 
   if (datasetCards.length) {
     out += '        <h3 class="group-head">Registered datasets, by platform</h3>\n'
-      + '        <div class="note group-note">'
-      + (fairMeta.metric_version ? gloss('fuji') + ' ' : '')
-      + 'F-UJI FAIR scores'
-      + (fairMeta.last_updated ? ', assessed ' + fmtDate(fairMeta.last_updated) : '')
-      + (fairMeta.metric_version ? ' on metric set v' + fairMeta.metric_version : '')
-      + '.</div>\n'
       + '        <div class="explorer-grid">\n'
       + datasetCards.map(explorerCardHtml).join('\n') + '\n        </div>\n';
   }
 
   if (infraCards.length) {
     out += '        <h3 class="group-head">Infrastructure in the field</h3>\n'
-      + '        <div class="note group-note">What AuScope runs, as distinct from what has been published'
-      + ' about it. Inventory is not impact, so none of these numbers feed the headline.</div>\n'
+      + '        <div class="note group-note">Inventory, not impact: none of these feed the headline.</div>\n'
       + '        <div class="explorer-grid">\n'
-      + infraCards.map(explorerCardHtml).join('\n') + '\n        </div>\n';
+      + infraCards.map(explorerCardHtml).join('\n') + '\n        </div>\n'
+      // External validation of the registry figure, beside the grid it
+      // sits in (a link cannot nest inside the card, which is itself a link).
+      + (p.instruments ? buildPidinstCheck() : '');
   }
 
   // Most-deployed instrument models (survey memberships per model).
@@ -854,7 +852,7 @@ function buildExplorerCards(pillarData, asOf) {
     }).join('\n');
     out += '        <details class="disclosure">\n'
       + '            <summary>Most deployed instrument models (' + tm.length + ')</summary>\n'
-      + '            <div class="note">Survey deployments per instrument model, from the PIDInst registry’s'
+      + '            <div class="note">Survey deployments per instrument model, from the PIDINST registry’s'
       + ' survey&rarr;component links. A model counts once per survey it appears in.</div>\n'
       + '            <div class="bar-chart">\n' + rows + '\n            </div>\n'
       + '        </details>\n';
@@ -975,137 +973,221 @@ function computeLensData(datasets) {
   };
 }
 
-// Which glossary entry describes each lens. The sheet's labels are
-// preserved verbatim (including the "Cuture" typo, which is fixed at
-// source, not patched here) and the chassis glossary aliases them.
-const LENS_TERMS = {
-  'Observational Lens': 'lens-observational',
-  'Temporal Lens': 'lens-temporal',
-  'Characterisation Lens': 'lens-characterisation',
-  'Analysis Framework': 'lens-analysis',
-  'FAIR Data Framework': 'lens-fair',
-  'Community, Cuture & Collaboration': 'lens-community'
-};
+// The sheet's labels are used verbatim for URLs and lookups (the chassis
+// glossary aliases them), so the sheet stays the single source of truth.
+// LENS_DISPLAY corrects the sheet's "Cuture" typo in display text only.
+const LENS_DISPLAY = { 'Community, Cuture & Collaboration': 'Community, Culture & Collaboration' };
+function lensName(name) { return LENS_DISPLAY[name] || name; }
 
-// The Downward-Looking Telescope, sized to what it can actually carry.
-//
-// The lenses are AuScope's own framing and they belong on this page, but
-// the measured coverage does not support making them the site's spine:
-// every dataset inherits its lens through five hand-written platform
-// links, three of the six lenses have no registered evidence at all, and
-// none of the 2,926 publications carries a lens. Presented as a spine
-// that would read as "Temporal Lens: 107 datasets" \u2014 a relabelled
-// EarthBank, which loses credibility the moment anyone clicks through.
-//
-// So: a compact framing band with the coverage stated on its face, the
-// three evidenced lenses linking into the registry filter, and the three
-// empty ones named honestly in one line instead of 795px of empty cards.
+// The Downward-Looking Telescope as framing only. Lens is inherited from a
+// dataset's platform through a handful of hand-written links, so a lens
+// dataset total is a relabelled platform count, and the lens join also
+// swept in EarthBank sample records that the platform cards exclude (237
+// against 190 on 12 Nov 2026). No totals until lens is recorded on the
+// records themselves: six named lenses, one coverage line, one link.
 function buildLensSection(lensData) {
   if (!lensData || !lensData.bands || !lensData.bands.length) return '';
-  const bands = lensData.bands.slice().sort(function(a, b) { return b.datasets - a.datasets; });
   const cov = lensData.coverage || {};
-  const filled = bands.filter(function(l) { return l.datasets > 0; });
-  const empty = bands.filter(function(l) { return !l.datasets; });
-
-  const filledHtml = filled.map(function(l) {
-    const chips = l.programs.slice(0, 4).map(function(pn) {
-      return '<span class="lens-chip">' + escapeHtml(pn) + '</span>';
-    }).join('') + (l.programs.length > 4
-      ? '<span class="lens-chip more">+' + (l.programs.length - 4) + ' more</span>' : '');
-    // A div, not a wrapping <a>: the gloss control is a real <button>,
-    // and interactive content cannot live inside a link. The card gets
-    // one explicit link instead of a click-anywhere target that hides a
-    // button from keyboard users.
-    return '            <div class="lens-band">\n'
-      + '                <div class="lens-head"><h3>' + escapeHtml(l.name) + '</h3>'
-      + gloss(LENS_TERMS[l.name] || 'lens') + '</div>\n'
-      + '                <div class="lens-stats"><span class="lens-num">' + l.datasets + '</span> registered dataset'
-      + (l.datasets === 1 ? '' : 's')
-      + (l.fairAvg != null ? ' &middot; avg F-UJI ' + l.fairAvg + '%' : '')
-      + ' &middot; ' + l.projects + ' mapped project' + (l.projects === 1 ? '' : 's') + '</div>\n'
-      + '                <div class="lens-src">via ' + escapeHtml(l.platforms.join(', ')) + '</div>\n'
-      + '                <div class="lens-chips">' + chips + '</div>\n'
-      + '                <a class="lens-link" href="dataset-registry.html?lens=' + encodeURIComponent(l.name) + '">'
-      + 'Browse ' + l.datasets + ' datasets in the ' + escapeHtml(l.name) + ' &rarr;</a>\n'
-      + '            </div>';
-  }).join('\n');
-
-  // One line, not two paragraphs. The full "why lenses are a filter" argument
-  // is in the collapsed methodology section; repeating it here made three
-  // stacked caveat blocks visible in a single screen.
-  const emptyHtml = empty.length
-    ? '            <p class="lens-gap"><strong>' + empty.length + ' of ' + bands.length
-      + ' lenses have no evidence attributed yet:</strong> '
-      + empty.map(function(l) {
-          return glossTerm(LENS_TERMS[l.name] || 'lens', l.name);
-        }).join(', ') + '.</p>\n'
-    : '';
-
-  const coverage = '            <p class="lens-honesty">Lens is inherited from a dataset\u2019s platform, not recorded on the record '
-    + '\u2014 so these are groupings, not counts of lens-tagged evidence. '
-    + '<a href="#method">How the numbers are graded</a></p>\n';
-
-  return '\n    <!-- \u2550\u2550\u2550 Downward-Looking Telescope \u2014 framing + filter, not the spine \u2550\u2550\u2550 -->\n'
+  const chips = lensData.bands.map(function(l) {
+    // URLs keep the sheet's label (the registry filters on it); only the
+    // display text is corrected.
+    const href = l.datasets > 0
+      ? 'dataset-registry.html?lens=' + encodeURIComponent(l.name)
+      : 'project-mapping.html';
+    return '<a class="lens-chip" href="' + href + '">' + escapeHtml(lensName(l.name)) + '</a>';
+  }).join('');
+  return '\n    <!-- ═══ Downward-Looking Telescope: framing, no totals ═══ -->\n'
     + '    <div class="explorers lens-section" id="lenses">\n'
     + '        <h2>Through the Downward-Looking Telescope</h2>\n'
-    + '        <div class="note">' + gloss('lens') + ' AuScope\u2019s six lenses onto the continent, from the shared Project Mapping sheet'
-    + ' &mdash; labels exactly as supplied' + (cov.fetched ? ' (' + fmtDate(cov.fetched) + ')' : '') + '.</div>\n'
-    + '        <div class="lens-grid">\n' + filledHtml + '\n        </div>\n'
-    + emptyHtml
-    + coverage
-    + '            <p class="lens-more"><a href="project-mapping.html">See all '
-    + (cov.projects || 0) + ' mapped projects across the six lenses &rarr;</a></p>\n'
+    + '        <div class="lens-chips">' + chips + '</div>\n'
+    + '        <p class="lens-gap">Coverage still being mapped: lens is inherited from a dataset’s platform, not recorded on it. '
+    + '<a href="project-mapping.html">All ' + (cov.projects || 0) + ' mapped projects &rarr;</a></p>\n'
     + '    </div>\n';
 }
 
-// "How these numbers are counted" — the section publications.html has
-// never had and the hub needed. Definitions come from the chassis
-// glossary, so the words here are the same words the [i] buttons show.
-function buildMethodSection(lensData, asOfPubs, built) {
+// "How we count": every definition, grade and metric note in one closed
+// panel. One short caveat may stay beside a metric where it changes the
+// reading; everything else lives here. Definitions come from the chassis
+// glossary, so the words here are the words the [i] buttons show elsewhere.
+function gradeChip(key) {
+  const g = (CHASSIS && CHASSIS.TRACKER_GRADES && CHASSIS.TRACKER_GRADES[key]) || { label: key, glyph: '' };
+  return '<span class="grade-chip g-' + key + '"><span class="grade-glyph" aria-hidden="true">' + g.glyph + '</span>'
+    + escapeHtml(g.label) + '</span>';
+}
+function buildHowWeCount(lensData, pillarData, built) {
   const cov = (lensData && lensData.coverage) || {};
+  const p = (pillarData && pillarData.pillars) || {};
+  const fairMeta = (p.datasets && p.datasets.fairMeta) || {};
+  const ausmt = p.ausmt || null;
+  const tiers = glossList(['documented'].concat(EVIDENCE_LADDER.map(function(e) { return e.key; })));
   const terms = glossList([
-    'attributed', 'keyword', 'text-software', 'citations', 'evidence',
+    'attributed', 'unverified-matches', 'citations', 'evidence',
     'grade-measured', 'grade-snapshot', 'grade-estimate', 'grade-partial', 'grade-unavailable',
-    'lens', 'fair', 'fuji', 'doi'
+    'lens', 'fair', 'fuji', 'doi', 'pidinst'
   ]);
-  // Kept deliberately short. The honesty is load-bearing but it was being
-  // said four times in four cards plus two lens paragraphs — ~950 words of
-  // prose on a dashboard. Detail now lives in the per-number tooltips and the
-  // glossary; this section is the one-place summary, collapsed by default.
-  return '\n    <!-- ═══ Methodology ═══ -->\n'
-    + '    <div class="explorers method" id="method">\n'
-    + '        <h2>How to read these numbers</h2>\n'
-    + '        <div class="note">Every figure carries a grade and a date. Hover any '
-    + '<span class="info-i" aria-hidden="true">i</span> for its definition.</div>\n'
-
-    + '        <p class="method-body"><span class="grade-chip g-measured"><span class="grade-glyph" aria-hidden="true">●</span>Measured</span> from our own records &middot; '
-    + '<span class="grade-chip g-snapshot"><span class="grade-glyph" aria-hidden="true">◷</span>Snapshot</span> from an external service at build time &middot; '
-    + '<span class="grade-chip g-estimate"><span class="grade-glyph" aria-hidden="true">≈</span>Estimate</span> derived &middot; '
-    + '<span class="grade-chip g-partial"><span class="grade-glyph" aria-hidden="true">◐</span>Partial</span> incomplete source, read as a floor &middot; '
-    + '<span class="grade-chip g-unavailable"><span class="grade-glyph" aria-hidden="true">—</span>Unavailable</span> &mdash; a dash is never a zero.</p>\n'
-
-    + '        <p class="method-body">These are dated snapshots'
-    + (built ? ' (' + fmtDate(built) + ')' : '') + '; the platform pages read live, so they can differ.'
-    + ' <strong>Copy with caveat</strong> copies a figure with its grade, date and exclusion.</p>\n'
-
-    + '        <details class="disclosure">\n'
-    + '            <summary>Why lenses are a filter here, not the navigation</summary>\n'
-    + '            <p class="method-body">The taxonomy is real &mdash; ' + (cov.projects || 0)
-    + ' projects across all six lenses &mdash; but lens is not a field on any dataset, publication or'
-    + ' instrument record. It is inherited through ' + (cov.platformLinks || 0) + ' hand-written'
-    + ' platform&rarr;project links, so dataset counts resolve to only ' + (cov.lensesWithDatasets || 0)
-    + ' of ' + (cov.lensesTotal || 6) + ' lenses. Lenses become the spine once a lens is recorded on the'
-    + ' records themselves and publications carry a project tag.</p>\n'
+  return '\n    <!-- ═══ How we count ═══ -->\n'
+    + '    <div class="explorers method">\n'
+    + '        <details class="disclosure how-we-count" id="method">\n'
+    + '            <summary>How we count</summary>\n'
+    + '            <p class="method-body">' + gradeChip('measured') + ' from our own records &middot; '
+    + gradeChip('snapshot') + ' from an external service at build time &middot; '
+    + gradeChip('estimate') + ' derived &middot; '
+    + gradeChip('partial') + ' incomplete source, read as a floor &middot; '
+    + gradeChip('unavailable') + ' a dash is never a zero.</p>\n'
+    + '            <p class="method-body">Figures are dated snapshots' + (built ? ' (' + fmtDate(built) + ')' : '')
+    + '; the platform pages read live and can differ. Copy with caveat copies a figure with its grade, date and exclusion.</p>\n'
+    + '            <h3>Evidence tiers</h3>\n'
+    + '            <p class="method-body">The headline counts documented attribution: an AuScope identifier or a written'
+    + ' acknowledgement on the paper. Candidates are counted beside it until confirmed. Keyword matches and software use'
+    + ' are listed, never claimed.</p>\n'
+    + (tiers ? '            ' + tiers + '\n' : '')
+    + '            <h3>Lenses and programs</h3>\n'
+    + '            <p class="method-body">The lens taxonomy is real (' + (cov.projects || 0)
+    + ' projects across six lenses) but lens is not a field on any dataset, publication or instrument record. It is'
+    + ' inherited through ' + (cov.platformLinks || 0) + ' hand-written platform-to-project links, which reach '
+    + (cov.lensesWithDatasets || 0) + ' of ' + (cov.lensesTotal || 6) + ' lenses, so lens totals are not published.'
+    + ' Program groups come from this tracker’s search terms, not the Project Mapping sheet; never add a figure'
+    + ' from one to a figure from the other.</p>\n'
+    + '            <h3>Datasets, FAIR and infrastructure</h3>\n'
+    + '            <p class="method-body">Dataset counts are DOI-registered records per platform; EarthBank sample records'
+    + ' are not datasets and are counted separately.'
+    + (fairMeta.metric_version ? ' F-UJI scores use metric set v' + fairMeta.metric_version
+      + (fairMeta.last_updated ? ', assessed ' + dateOnly(fairMeta.last_updated) : '')
+      + '; a card shows the platform average.' : '')
+    + (ausmt && ausmt.surveysPopulated ? ' MT deployment figures come from AusMT run-level records, present for '
+      + ausmt.surveysPopulated + ' of ' + ausmt.surveys + ' surveys, so they are floors.' : '')
+    + ' Inventory figures (stations, instruments, boreholes) never feed the headline.</p>\n'
+    + (terms ? '            <details class="disclosure">\n'
+      + '                <summary>Glossary</summary>\n'
+      + '                ' + terms + '\n'
+      + '            </details>\n' : '')
     + '        </details>\n'
-
-    + (terms ? '        <details class="disclosure">\n'
-      + '            <summary>Glossary</summary>\n'
-      + '            ' + terms + '\n'
-      + '        </details>\n' : '')
     + '    </div>\n';
 }
 
-function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf) {
+// Date without the "as of" prefix, for strips and sentences that supply
+// their own verb.
+function dateOnly(v) { return v ? fmtDate(v).replace(/^as of /, '') : ''; }
+
+// ── Freshness strip ──
+// One visible line of source dates. The page used to imply one build date.
+// The publication store has been frozen since 15 Sep 2026: the monthly
+// search workflow is cancelled at its 90-minute timeout on every run, and
+// that fix is tracked separately.
+const CITATIONS_FROZEN_NOTE = 'citations frozen: the monthly search run times out';
+function buildFreshnessStrip(asOf) {
+  asOf = asOf || {};
+  const items = [];
+  function item(k, dates, flag) {
+    const ds = [].concat(dates).filter(Boolean);
+    if (!ds.length) return;
+    items.push('        <span class="fresh-item"><span class="fresh-k">' + k + '</span>' + ds.join(', ')
+      + (flag ? ' <span class="fresh-flag">(' + flag + ')</span>' : '') + '</span>');
+  }
+  const pubDate = dateOnly(asOf.publications), dsDate = dateOnly(asOf.datasets);
+  item('Publications, citations and datasets',
+    pubDate === dsDate ? pubDate : [pubDate, dsDate].filter(Boolean).join(' and '), CITATIONS_FROZEN_NOTE);
+  item('AusMT', [dateOnly(asOf.ausmt),
+    asOf.runs && dateOnly(asOf.runs) !== dateOnly(asOf.ausmt) ? 'runs ' + dateOnly(asOf.runs) : null]);
+  item('Instruments', dateOnly(asOf.built));
+  item('FAIR', dateOnly(asOf.fair));
+  if (!items.length) return '';
+  return '    <div class="freshness" aria-label="Source dates">\n'
+    + '        <span class="fresh-item fresh-title">Source dates</span>\n'
+    + items.join('\n') + '\n'
+    + '        <a class="fresh-how" href="#method">How we count</a>\n'
+    + '    </div>\n';
+}
+
+// ── External check on the instrument registry ──
+// Read once by hand from the PIDINST search index (DataCite + B2INST). A
+// snapshot with its read date, never fetched live: one sentence is not
+// worth a third-party dependency at build time. Update the constants
+// when it is read again.
+const PIDINST_CHECK = {
+  url: 'https://search.pidinst.org/all?owner=Adelaide+University#coverage',
+  read: '2026-11-12',
+  records: 182, indexed: 6047,
+  rank: 'seventh-largest owner worldwide and the largest in Australia',
+  next: 'UWA 126, UQ 70, JCU 15',
+  mandatory: 'identifier, title, manufacturer, publisher, publication year, resource type',
+  related: 87.4, manufacturerId: 85.7,
+  zero: 'geolocation, rights and subject'
+};
+function buildPidinstCheck() {
+  const c = PIDINST_CHECK;
+  const stamp = CHASSIS ? CHASSIS.formatAsOf(c.read, { prefix: 'read ' }) : 'read ' + c.read;
+  return '        <p class="ext-check">' + gradeChip('snapshot')
+    + '<span class="as-of">' + escapeHtml(stamp) + '</span> &middot; '
+    + '<a href="' + c.url + '" target="_blank" rel="noopener">search.pidinst.org &#8599;</a>: '
+    + 'the AuScope Instrument Registry holds ' + c.records + ' of the ' + c.indexed.toLocaleString()
+    + ' instrument records indexed across DataCite and B2INST, the ' + c.rank + ' (next ' + c.next + ').'
+    + ' Every mandatory field is complete (' + c.mandatory + ': 100%); related identifiers ' + c.related
+    + '%, manufacturer identifier ' + c.manufacturerId + '%; ' + c.zero + ' 0%, registry metadata to fix at source.'
+    + '</p>\n';
+}
+
+// ── How it connects ──
+// The PID demonstrator's own default chain, read from its feed (built in
+// this repo by src/pid-demonstrator-data.js): instrument DOI, survey
+// record, dataset DOIs, paper. Pinned to the instrument and survey the
+// live page opens on, so the row and the demonstrator agree; the titles
+// and DOIs are read from the feed, never typed in. If the feed lacks the
+// chain, the row is dropped rather than drawn from memory.
+const PID_FEED_FILE = path.join(DOCS_DIR, 'pid-demonstrator-data.json');
+const DEMO_URL = 'https://auscope.github.io/AuScope_Outreach/widgets/pid-demonstrator.html';
+const DEMO_INSTRUMENT = '10.82388/ir7azuq1';   // LEMI-423 #0006
+const DEMO_SURVEY = 'ccmt-2017';               // Curnamona 2017
+function loadConnectsChain() {
+  if (!fs.existsSync(PID_FEED_FILE)) return null;
+  let feed;
+  try { feed = JSON.parse(fs.readFileSync(PID_FEED_FILE, 'utf8')); } catch (e) { return null; }
+  const inst = (feed.instruments || []).filter(function(i) { return i && i.doi === DEMO_INSTRUMENT; })[0];
+  const sv = feed.surveys && feed.surveys[DEMO_SURVEY];
+  if (!inst || !sv || !sv.registry_doi) return null;
+  const ds = (sv.dataset_dois || []).filter(function(d) { return d && d.doi; });
+  // Same choice the demonstrator makes: a collection DOI first, else the
+  // first dataset DOI.
+  const collections = ds.filter(function(d) { return d.identifies === 'collection'; });
+  const primary = (collections.length ? collections : ds)[0] || null;
+  const paper = (sv.papers || []).filter(function(p) { return p && p.doi; })[0] || null;
+  if (!primary || !paper) return null;
+  return {
+    instrument: { name: (inst.model || 'Instrument') + (inst.serial ? ' ' + inst.serial : ''), doi: inst.doi },
+    survey: { name: sv.title || DEMO_SURVEY, doi: sv.registry_doi },
+    dataset: {
+      name: ds.length + ' dataset DOI' + (ds.length === 1 ? '' : 's') + (primary.custodian ? ' at ' + primary.custodian : ''),
+      doi: primary.doi
+    },
+    paper: { name: [paper.journal, paper.year].filter(Boolean).join(' ') || 'Paper', doi: paper.doi, title: paper.title || '' },
+    asOf: (feed.metadata && (feed.metadata.fetched || feed.metadata.generated)) || null
+  };
+}
+function buildConnectsSection(c) {
+  if (!c) return '';
+  function box(k, name, doi, title) {
+    return '            <li><div class="k">' + escapeHtml(k) + '</div><div class="n"'
+      + (title ? ' title="' + escapeHtml(title) + '"' : '') + '>' + escapeHtml(name) + '</div>'
+      + '<div class="d"><a href="https://doi.org/' + escapeHtml(doi) + '" target="_blank" rel="noopener">'
+      + escapeHtml(doi) + '</a></div></li>';
+  }
+  return '\n    <!-- ═══ How it connects: one real chain from the PID demonstrator ═══ -->\n'
+    + '    <div class="explorers connects" id="connects">\n'
+    + '        <h2>How it connects</h2>\n'
+    + '        <ol class="chain">\n'
+    + box('Instrument', c.instrument.name, c.instrument.doi) + '\n'
+    + box('Deployment', c.survey.name, c.survey.doi) + '\n'
+    + box('Dataset', c.dataset.name, c.dataset.doi) + '\n'
+    + box('Paper', c.paper.name, c.paper.doi, c.paper.title) + '\n'
+    + '        </ol>\n'
+    + '        <div class="chain-foot">'
+    + '<a class="live" href="' + DEMO_URL + '" target="_blank" rel="noopener">Watch this DOI resolve live &#8599;</a>'
+    + cardStamp('snapshot', c.asOf)
+    + '</div>\n'
+    + '    </div>\n';
+}
+
+function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf, connects) {
   asOf = asOf || {};
   const s = stats.summary;
   const updated = lastUpdated ? new Date(lastUpdated).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }) : 'N/A';
@@ -1113,60 +1195,68 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
   const explorerCards = buildExplorerCards(pillarData, asOf);
 
   const pp = (pillarData && pillarData.pillars) || {};
-  // Headline publication numbers are EVIDENCE-GRADED. The corpus sum
-  // (2,926 / 67,576) is not publishable: 62% of those citations come from
-  // keyword-only records with no confirmed AuScope link. `attributed` =
-  // identifier or acknowledgement evidence; the unverified remainder is
-  // named in the sentence below the tiles and broken out in the evidence
-  // section immediately under the hero — never folded into a headline.
-  const attributed = (pp.publications && pp.publications.attributed) || null;
-  const unverified = (pp.publications && pp.publications.unverified) || null;
+  // Headline publication numbers are EVIDENCE-GRADED and SPLIT. The corpus
+  // sum (2,763 / 66,163) is not publishable: most of those citations come
+  // from keyword-only records with no confirmed AuScope link. The headline
+  // is the DOCUMENTED subset (an identifier or a written acknowledgement
+  // on the paper); candidates are counted beside it, never inside it, and
+  // the combined figure is never called verified. Both come from the
+  // records, and must agree with src/stats.js's attributed aggregate
+  // (documented + candidate) or the build says so.
+  const split = s.evidenceSplit || null;
+  const documented = split && split.documented.pubs ? split.documented : null;
+  const candidates = split ? split.candidate : null;
+  const unverified = split ? split.unverified : null;
+  const pillarAtt = pp.publications && pp.publications.attributed;
+  if (documented && pillarAtt && pillarAtt.pubs !== documented.pubs + candidates.pubs) {
+    console.warn('stats-data.json attributed (' + pillarAtt.pubs + ') != documented + candidates ('
+      + (documented.pubs + candidates.pubs) + '); rerun src/stats.js');
+  }
   const dsTotal = (pp.datasets && pp.datasets.total) || datasetCount || null;
 
-  // THREE tiles, not five. Seismic stations and instrument counts were in
-  // this row until this rebuild; they are infrastructure inventory, and in
-  // a hero beside "publications" they read as research output. They keep
-  // their cards further down. Dropping them is also what buys the vertical
-  // space for the evidence grading to sit directly beneath the number it
-  // qualifies instead of 2,000px below it.
+  // FOUR tiles, one action each. Seismic stations and instrument counts
+  // are infrastructure inventory and keep their cards further down. The
+  // [i] definitions and the grade tooltips moved into "How we count"
+  // (plainGrade), the number links to its records, and Copy with caveat is
+  // the card's single button. Copy-only `caveat` text travels with a
+  // number pasted into a deck, since the page around it does not.
   const heroTiles = [
-    attributed ? {
-      value: attributed.pubs, label: 'Attributed publications',
-      grade: 'measured', asOf: lastUpdated, href: '#evidence', term: 'attributed', cite: true,
-      note: unverified
-        ? ''   // the caveat line above already says this; saying it twice is noise
-        : 'Identifier or acknowledgement evidence only.',
-      // Copy-only: the tile is silent, but a number pasted into a deck must
-      // still carry what it excludes, since the page around it does not travel.
-      caveat: unverified
-        ? 'Excludes ' + unverified.pubs.toLocaleString() + ' unverified keyword matches.'
-        : 'Identifier or acknowledgement evidence only.'
+    documented ? {
+      value: documented.pubs, label: 'Documented publications',
+      grade: 'measured', asOf: lastUpdated, href: '#evidence', cite: true, plainGrade: true,
+      caveat: 'An AuScope identifier or a written acknowledgement on the paper. Excludes '
+        + candidates.pubs.toLocaleString() + ' candidates under review and '
+        + unverified.pubs.toLocaleString() + ' unverified keyword matches.'
     } : {
       value: s.totalPublications, label: 'Publications', grade: 'unverified',
-      asOf: lastUpdated, href: 'publications.html',
-      note: 'Evidence grading unavailable for this build — treat as a search count, not an impact figure.'
+      asOf: lastUpdated, href: 'publications.html', plainGrade: true,
+      note: 'Evidence grading unavailable for this build: a search count, not an impact figure.'
     },
-    attributed ? {
-      value: attributed.citations, label: 'Citations to them',
-      grade: 'measured', asOf: lastUpdated, href: '#evidence', term: 'citations', cite: true,
-      note: '',  // the label ("Citations to them") and the lead sentence cover it
-      caveat: 'Citations to the attributed papers only, per OpenAlex.'
+    documented ? {
+      value: documented.citations, label: 'Citations to them',
+      grade: 'measured', asOf: lastUpdated, href: '#evidence', cite: true, plainGrade: true,
+      caveat: 'Citations to the ' + documented.pubs.toLocaleString() + ' documented papers only, per OpenAlex.'
+    } : null,
+    documented ? {
+      value: candidates.pubs, label: 'Candidates under review',
+      grade: 'measured', asOf: lastUpdated, href: 'publications.html?evidence=candidate', cite: true, plainGrade: true,
+      note: 'Not counted in the documented figure.',
+      caveat: 'A watchlist author at a partner institution, awaiting confirmation. Not counted in the documented figure.'
     } : null,
     dsTotal ? {
       value: dsTotal, label: 'Registered datasets',
       grade: 'measured', asOf: asOf.datasets || built,
-      href: 'dataset-registry.html', term: 'doi', cite: true,
-      note: 'DOI-registered datasets across five AuScope platforms.'
+      href: 'dataset-registry.html', cite: true, plainGrade: true,
+      note: 'DOI-registered, across five AuScope platforms.'
     } : null
   ].filter(Boolean).map(statTile).join('\n');
 
-  const answer = attributed ? (
-    '            <p class="answer-lead"><strong>' + attributed.pubs.toLocaleString()
-      + ' publications</strong> carry verifiable evidence of AuScope infrastructure &mdash; an AuScope'
-      + ' identifier or a written acknowledgement &mdash; and they have been cited <strong>'
-      + attributed.citations.toLocaleString() + ' times</strong>.</p>\n'
-    // The exclusion used to be restated here in full; it is already on the
-    // first tile's sub-line and explained where it links to. One clause.
+  const answer = documented ? (
+    '            <p class="answer-lead"><strong>' + documented.pubs.toLocaleString()
+      + ' publications</strong> carry documented AuScope attribution, an AuScope identifier or a written'
+      + ' acknowledgement, and have been cited <strong>' + documented.citations.toLocaleString()
+      + ' times</strong>. A further <strong>' + candidates.pubs.toLocaleString()
+      + ' candidates</strong> are under review.</p>\n'
     + (unverified
       ? '            <p class="answer-caveat">Excludes <a href="#evidence">'
         + unverified.pubs.toLocaleString() + ' unverified keyword matches</a>.</p>\n'
@@ -1220,7 +1310,7 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
            same classes, same aria — only the palette changes. */
         .stat-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 12px;
             margin-top: 22px;
         }
@@ -1272,12 +1362,44 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
             background: rgba(255,255,255,0.12);
         }
         .hero .info-i:hover, .hero .info-i.tip-open { background: #ffffff; color: #282572; }
-        .hero-jump {
-            margin-top: 18px;
-            font-size: 12.5px;
-            color: #cfcdea;
+        /* ── Freshness strip: one date per source, never one build date ── */
+        .freshness {
+            max-width: 960px; margin: 0 auto; padding: 10px 24px 0;
+            display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline;
+            font-size: 12px; color: #475569; font-variant-numeric: tabular-nums;
         }
-        .hero-jump a { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
+        .freshness .fresh-title { font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.6px; font-size: 11px; }
+        .freshness .fresh-k { font-weight: 600; color: #0f172a; margin-right: 5px; }
+        .freshness .fresh-flag { color: #92400e; }
+        .freshness .fresh-how { margin-left: auto; color: #282572; font-weight: 600; text-decoration: none; }
+        .freshness .fresh-how:hover { text-decoration: underline; }
+
+        /* ── How it connects: one real chain, read from the demonstrator feed ── */
+        .connects { padding-top: 30px; }
+        .chain { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; list-style: none; margin-top: 10px; }
+        .chain li { border: 1px solid #e5e7eb; border-radius: 8px; padding: 11px 13px; position: relative; background: #ffffff; }
+        .chain li + li::before {
+            content: '→'; position: absolute; left: -13px; top: 50%; transform: translateY(-50%);
+            color: #94a3b8; font-size: 14px; line-height: 1; background: #ffffff;
+        }
+        .chain .k { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; color: #475569; }
+        .chain .n { font-size: 13px; font-weight: 600; color: #0f172a; margin-top: 2px; }
+        .chain .d { font-size: 11.5px; margin-top: 3px; font-variant-numeric: tabular-nums; word-break: break-all; }
+        .chain .d a { color: #282572; text-decoration: none; }
+        .chain .d a:hover { text-decoration: underline; }
+        .chain-foot { font-size: 12.5px; color: #475569; margin-top: 11px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
+        .chain-foot a.live { color: #282572; font-weight: 600; text-decoration: none; }
+        .chain-foot a.live:hover { text-decoration: underline; }
+        .chain-foot .card-stamp { margin: 0; padding: 0; border: 0; }
+
+        /* ── External check line, under the infrastructure grid ── */
+        .ext-check {
+            font-size: 12px; color: #334155; line-height: 1.6; margin-top: 12px; max-width: 92ch;
+            padding: 9px 12px; border-left: 3px solid #cbd5e1; background: #f8fafc;
+        }
+        .ext-check .grade-chip { margin-right: 6px; vertical-align: middle; }
+        .ext-check .as-of { color: #5e6a7a; }
+        .ext-check a { color: #282572; }
 
         /* ── Shared section chrome ── */
         .explorers {
@@ -1374,6 +1496,7 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
         .bar-value .of { color: #5e6a7a; font-weight: 500; }
         .bar-counted { width: 108px; font-size: 11px; font-weight: 600; flex-shrink: 0; }
         .bar-counted.in { color: #15803d; }
+        .bar-counted.review { color: #5b21b6; }
         .bar-counted.out { color: #92400e; }
         .evidence-ladder .bar-label { width: 170px; }
         .evidence-ladder .bar-value { width: 52px; text-align: right; }
@@ -1392,9 +1515,12 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
         .lens-stats { font-size: 12.5px; color: #475569; }
         .lens-num { font-weight: 700; color: #0f172a; font-size: 15px; }
         .lens-src { font-size: 11px; color: #5e6a7a; }
-        .lens-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
-        .lens-chip { font-size: 10.5px; padding: 2px 8px; border-radius: 11px; background: #f3f3fa; color: #45418f; border: 1px solid #dcdbf0; }
-        .lens-chip.more { background: #ffffff; color: #5e6a7a; border-color: #e5e7eb; }
+        .lens-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .lens-chip {
+            font-size: 12.5px; padding: 5px 13px; border-radius: 16px; background: #f3f3fa; color: #45418f;
+            border: 1px solid #dcdbf0; text-decoration: none; font-weight: 600;
+        }
+        .lens-chip:hover { background: #282572; border-color: #282572; color: #ffffff; }
         .lens-gap {
             font-size: 12.5px; color: #475569; margin-top: 13px;
             padding: 10px 13px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 7px;
@@ -1482,6 +1608,8 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
         .method-card h3 { font-size: 12.5px; font-weight: 700; color: #282572; margin-bottom: 5px; }
         .method-card p, .method-body { font-size: 12px; color: #334155; line-height: 1.55; }
         .method-body { margin-bottom: 9px; max-width: 88ch; }
+        .how-we-count h3 { font-size: 12.5px; font-weight: 700; color: #282572; margin: 14px 0 5px; }
+        .how-we-count > .method-body:first-of-type { margin-top: 4px; }
         .method-card .grade-chip { margin-right: 2px; }
 
         /* ── Charts ── */
@@ -1523,7 +1651,9 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
             .hero .stat-note { font-size: 11px; line-height: 1.4; }
             .hero .stat-cite { font-size: 10.5px; padding: 3px 8px; }
             .explorers, .charts { padding-left: 16px; padding-right: 16px; }
-            .explorer-grid, .partition-grid, .lens-grid, .method-grid { grid-template-columns: 1fr; }
+            .explorer-grid, .partition-grid, .lens-grid, .method-grid, .chain { grid-template-columns: 1fr; }
+            .chain li + li::before { content: '↓'; left: 50%; top: -13px; transform: translateX(-50%); }
+            .freshness .fresh-how { margin-left: 0; }
             .bar-label { width: 100%; text-align: left; font-weight: 600; }
             .evidence-ladder .bar-label { width: 100%; }
             .bar-value, .evidence-ladder .bar-value { width: auto; min-width: 56px; text-align: left; }
@@ -1541,7 +1671,7 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
             <div class="brand">
                 <h1><img src="assets/auscope-logo.png" class="auscope-logo" alt="AuScope"
                          onerror="this.outerHTML='<span class=&quot;auscope-fallback&quot;>AuScope</span>'"><span class="accent">AuScope</span> Research Impact</h1>
-                <p>Publications, datasets and infrastructure service across AuScope research infrastructure &mdash; every number links to its evidence.</p>
+                <p>Publications, datasets and infrastructure service across AuScope research infrastructure.</p>
             </div>
             <div class="links">
                 <a href="https://www.auscope.org.au" target="_blank" rel="noopener">auscope.org.au &#8599;</a>
@@ -1557,14 +1687,11 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf)
 ${answer}            <div class="stat-grid">
 ${heroTiles}
             </div>
-            <p class="hero-jump">Next: <a href="#evidence">how that number is graded</a> &middot;
-               <a href="#lenses">the six lenses</a> &middot;
-               <a href="#explore">datasets and infrastructure</a> &middot;
-               <a href="#method">how to read every number here</a></p>
         </div>
     </div>
-
-${buildEvidenceSection(stats.evidence, pillarData, lastUpdated)}
+${buildFreshnessStrip(asOf)}
+${buildEvidenceSection(stats.evidence, split)}
+${buildConnectsSection(connects)}
 ${buildLensSection(lensData)}
 ${explorerCards}
 ${buildProgramSection(stats.programs)}
@@ -1573,24 +1700,25 @@ ${buildProgramSection(stats.programs)}
         <!-- Publications by year, split by evidence class -->
         <div class="chart-section">
             <h2>Publications found by year</h2>
-            <div class="note">Dark band = counted. Pale band = found but unconfirmed.</div>
+            <div class="note">Darkest band = documented and counted. The paler bands are not counted.</div>
             <div class="chart-scroll">${buildYearChart(stats.byYear)}</div>
             <div class="chart-legend" role="list">
-                <span role="listitem"><i class="swatch" style="background:#282572"></i> Attributed &mdash; counted</span>
-                <span role="listitem"><i class="swatch" style="background:#b3afe9"></i> AuScope software &mdash; counted separately</span>
-                <span role="listitem"><i class="swatch" style="background:#cbd5e1"></i> Unverified keyword match &mdash; excluded</span>
+                <span role="listitem"><i class="swatch" style="background:#282572"></i> Documented, counted</span>
+                <span role="listitem"><i class="swatch" style="background:#7c76d9"></i> Candidate, under review</span>
+                <span role="listitem"><i class="swatch" style="background:#b3afe9"></i> AuScope software, counted separately</span>
+                <span role="listitem"><i class="swatch" style="background:#cbd5e1"></i> Unverified keyword match, excluded</span>
             </div>
         </div>
 
-        <!-- Cumulative citations — attributed only, matching the hero -->
+        <!-- Cumulative citations: documented only, matching the hero -->
         <div class="chart-section">
-            <h2>Cumulative citations to attributed publications</h2>
-            <div class="note">Attributed papers only &mdash; the unverified pool is not plotted.</div>
+            <h2>Cumulative citations to documented publications</h2>
+            <div class="note">Documented papers only; candidates and the unverified pool are not plotted.</div>
             <div class="chart-scroll">${buildCumulativeChart(stats.byYear)}</div>
         </div>
     </div>
 
-${buildMethodSection(lensData, lastUpdated, built)}
+${buildHowWeCount(lensData, pillarData, built)}
 
     <!-- ═══ Footer ═══ -->
     <div class="footer">
@@ -1606,7 +1734,6 @@ ${buildMethodSection(lensData, lastUpdated, built)}
         <a href="nvcl.html">NVCL</a>
         <div class="built">
             Publication records last updated ${updated}${built ? ' &middot; page built ' + fmtDate(built).replace('as of ', '') : ''}.
-            Figures here are snapshots; linked platform pages read from source live and may differ.
         </div>
         <div class="built">
             Powered by <a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a>,
@@ -1664,7 +1791,8 @@ function buildYearChart(byYear) {
 
   const yTicks = niceAxisTicks(maxCount, 5);
   const SEGMENTS = [
-    { key: 'attributed', fill: '#282572', name: 'attributed' },
+    { key: 'documented', fill: '#282572', name: 'documented' },
+    { key: 'candidate',  fill: '#7c76d9', name: 'candidate under review' },
     { key: 'software',   fill: '#b3afe9', name: 'AuScope software' },
     { key: 'unverified', fill: '#cbd5e1', name: 'unverified keyword match' }
   ];
@@ -1672,7 +1800,7 @@ function buildYearChart(byYear) {
   let svg = '<svg viewBox="0 0 ' + svgW + ' ' + svgH + '" style="width:100%;min-width:520px;max-width:'
     + svgW + 'px;height:auto;" role="img" aria-label="Publications found per year from '
     + byYear[0].year + ' to ' + byYear[byYear.length - 1].year
-    + ', stacked by evidence class: attributed, AuScope software, and unverified keyword matches.">';
+    + ', stacked by evidence class: documented, candidate, AuScope software, and unverified keyword matches.">';
 
   // Grid lines
   for (const val of yTicks) {
@@ -1700,11 +1828,11 @@ function buildYearChart(byYear) {
     svg += '<rect x="' + x.toFixed(1) + '" y="' + padT + '" width="' + barW.toFixed(1)
       + '" height="' + plotH.toFixed(1) + '" fill="transparent"><title>' + escapeHtml(title) + '</title></rect>';
 
-    // Attributed count above the bar (only where there is room)
-    if (y.attributed > 0 && barW > 12) {
+    // Documented count above the bar (only where there is room)
+    if (y.documented > 0 && barW > 12) {
       const top = padT + plotH - (y.count / maxCount) * plotH;
       svg += '<text x="' + (x + barW / 2).toFixed(1) + '" y="' + (top - 4).toFixed(1)
-        + '" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">' + y.attributed + '</text>';
+        + '" text-anchor="middle" font-size="9" fill="#282572" font-weight="600">' + y.documented + '</text>';
     }
   }
 
@@ -1728,11 +1856,11 @@ function buildYearChart(byYear) {
 function buildCumulativeChart(byYear) {
   if (!byYear.length) return '<p>No data</p>';
 
-  // ATTRIBUTED citations only. The previous version ran this axis to
-  // 60,000 — the ungraded corpus total — directly beneath a hero saying
+  // DOCUMENTED citations only. The previous version ran this axis to
+  // 60,000 (the ungraded corpus total) directly beneath a hero saying
   // 18,423, so the page's most prominent chart contradicted its most
   // prominent number. The curve now ends exactly where the hero does.
-  const maxCum = byYear[byYear.length - 1].cumulativeAttrCitations;
+  const maxCum = byYear[byYear.length - 1].cumulativeDocCitations;
   if (!maxCum) return '<p>No citation data</p>';
 
   const svgW = 800;
@@ -1746,7 +1874,7 @@ function buildCumulativeChart(byYear) {
 
   const points = byYear.map(function(y, i) {
     const x = padL + (i / (byYear.length - 1)) * plotW;
-    const yPos = padT + plotH - (y.cumulativeAttrCitations / maxCum) * plotH;
+    const yPos = padT + plotH - (y.cumulativeDocCitations / maxCum) * plotH;
     return x.toFixed(1) + ',' + yPos.toFixed(1);
   });
 
@@ -1761,7 +1889,7 @@ function buildCumulativeChart(byYear) {
   const xLabels = byYear.filter(function(y, i) { return y.year % 5 === 0 || i === byYear.length - 1; });
 
   let svg = '<svg viewBox="0 0 ' + svgW + ' ' + svgH + '" style="width:100%;min-width:520px;max-width:'
-    + svgW + 'px;height:auto;" role="img" aria-label="Cumulative citations to attributed publications, '
+    + svgW + 'px;height:auto;" role="img" aria-label="Cumulative citations to documented publications, '
     + byYear[0].year + ' to ' + byYear[byYear.length - 1].year + ', ending at '
     + maxCum.toLocaleString() + ' citations.">';
 
