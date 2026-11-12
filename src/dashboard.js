@@ -622,7 +622,7 @@ function buildEvidenceSection(evidence, split) {
       + split.candidate.pubs.toLocaleString() + ' candidates &plus; '
       + split.software.pubs.toLocaleString() + ' software &plus; ' + split.unverified.pubs.toLocaleString()
       + ' unverified &equals; ' + total.toLocaleString()
-      + ' records searched. The sets do not overlap; only the first is claimed as impact.</p>\n';
+      + ' records searched.</p>\n';
   }
 
   return '\n    <!-- ═══ Evidence tiers, kept adjacent to the hero they qualify ═══ -->\n'
@@ -855,7 +855,6 @@ function buildExplorerCards(pillarData, asOf) {
 
   if (infraCards.length) {
     out += '        <h3 class="group-head">Infrastructure in the field</h3>\n'
-      + '        <div class="note group-note">Inventory, not impact: none of these feed the headline.</div>\n'
       + '        <div class="explorer-grid">\n'
       + infraCards.map(explorerCardHtml).join('\n') + '\n        </div>\n';
   }
@@ -1110,8 +1109,17 @@ function buildFreshnessStrip(asOf) {
       + (flag ? ' <span class="fresh-flag">(' + flag + ')</span>' : '') + '</span>');
   }
   const pubDate = dateOnly(asOf.publications), dsDate = dateOnly(asOf.datasets);
-  item('Publications, citations and datasets',
-    pubDate === dsDate ? pubDate : [pubDate, dsDate].filter(Boolean).join(' and '), CITATIONS_FROZEN_NOTE);
+  // The frozen note shows only while the publication store is more than a
+  // month old; the hourly search batches lift it once a cycle lands.
+  const pubAge = asOf.publications && asOf.built
+    ? (new Date(asOf.built) - new Date(asOf.publications)) / 86400000 : 0;
+  const frozen = pubAge > 30 ? CITATIONS_FROZEN_NOTE : '';
+  if (pubDate === dsDate) {
+    item('Publications, citations and datasets', pubDate, frozen);
+  } else {
+    item('Publications and citations', pubDate, frozen);
+    item('Datasets', dsDate);
+  }
   item('AusMT', [dateOnly(asOf.ausmt),
     asOf.runs && dateOnly(asOf.runs) !== dateOnly(asOf.ausmt) ? 'runs ' + dateOnly(asOf.runs) : null]);
   item('Instruments', dateOnly(asOf.built));
@@ -1233,8 +1241,7 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
     dsTotal ? {
       value: dsTotal, label: 'Registered datasets',
       grade: 'measured', asOf: asOf.datasets || built,
-      href: 'dataset-registry.html', plainGrade: true,
-      note: 'DOI-registered, across five AuScope platforms.'
+      href: 'dataset-registry.html', plainGrade: true
     } : null
   ].filter(Boolean).map(statTile).join('\n');
 
@@ -1310,8 +1317,8 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
             gap: 5px;
         }
         .hero .stat.honest .value { font-size: 38px; font-weight: 800; line-height: 1.05; color: #fff; }
-        .hero .stat.honest .value a.stat-link { color: #ffffff; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.42); }
-        .hero .stat.honest .value a.stat-link:hover { border-bottom-color: #EF7256; background: none; }
+        .hero .stat.honest .value a.stat-link { color: #ffffff; text-decoration: none; }
+        .hero .stat.honest .value a.stat-link:hover { color: #ffd9cf; background: none; }
         .hero .stat.honest .fig-value { font-variant-numeric: tabular-nums; }
         .hero .grade-row { margin-top: 3px; }
         .hero .grade-chip {

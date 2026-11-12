@@ -60,8 +60,8 @@
             gap: 5px;
         }
         .hero .stat.honest .value { font-size: 38px; font-weight: 800; line-height: 1.05; color: #fff; }
-        .hero .stat.honest .value a.stat-link { color: #ffffff; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.42); }
-        .hero .stat.honest .value a.stat-link:hover { border-bottom-color: #EF7256; background: none; }
+        .hero .stat.honest .value a.stat-link { color: #ffffff; text-decoration: none; }
+        .hero .stat.honest .value a.stat-link:hover { color: #ffd9cf; background: none; }
         .hero .stat.honest .fig-value { font-variant-numeric: tabular-nums; }
         .hero .grade-row { margin-top: 3px; }
         .hero .grade-chip {
@@ -396,13 +396,14 @@
             <div class="stat-grid">
 <div class="stat honest grade-measured"><div class="label">Documented publications</div><div class="value"><a class="stat-link" href="#evidence"><span class="fig-value">672</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-1">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 15 Sep 2026</span></div></div>
 <div class="stat honest grade-measured"><div class="label">Citations to them</div><div class="value"><a class="stat-link" href="#evidence"><span class="fig-value">15,041</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-2">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 15 Sep 2026</span></div></div>
-<div class="stat honest grade-measured"><div class="label">Registered datasets</div><div class="value"><a class="stat-link" href="dataset-registry.html"><span class="fig-value">319</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-3">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 13 Nov 2026</span></div><div class="stat-note">DOI-registered, across five AuScope platforms.</div></div>
+<div class="stat honest grade-measured"><div class="label">Registered datasets</div><div class="value"><a class="stat-link" href="dataset-registry.html"><span class="fig-value">319</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-3">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 13 Nov 2026</span></div></div>
             </div>
         </div>
     </div>
     <div class="freshness" aria-label="Source dates">
         <span class="fresh-item fresh-title">Source dates</span>
-        <span class="fresh-item"><span class="fresh-k">Publications, citations and datasets</span>15 Sep 2026 and 13 Nov 2026 <span class="fresh-flag">(citations frozen: the monthly search run times out)</span></span>
+        <span class="fresh-item"><span class="fresh-k">Publications and citations</span>15 Sep 2026 <span class="fresh-flag">(citations frozen: the monthly search run times out)</span></span>
+        <span class="fresh-item"><span class="fresh-k">Datasets</span>13 Nov 2026</span>
         <span class="fresh-item"><span class="fresh-k">AusMT</span>15 Oct 2026, runs 6 Nov 2026</span>
         <span class="fresh-item"><span class="fresh-k">Instruments</span>13 Nov 2026</span>
         <span class="fresh-item"><span class="fresh-k">FAIR</span>1 Nov 2026</span>
@@ -413,7 +414,7 @@
     <!-- ═══ Evidence tiers, kept adjacent to the hero they qualify ═══ -->
     <div class="explorers evidence-section" id="evidence">
         <h2>Evidence tiers</h2>
-        <p class="partition-sum">672 documented &plus; 116 candidates &plus; 296 software &plus; 1,679 unverified &equals; 2,763 records searched. The sets do not overlap; only the first is claimed as impact.</p>
+        <p class="partition-sum">672 documented &plus; 116 candidates &plus; 296 software &plus; 1,679 unverified &equals; 2,763 records searched.</p>
         <div class="bar-chart evidence-ladder">
             <a class="bar-row evidence-row" href="publications.html?evidence=verified"
                aria-label="Verified: 42 publications. AuScope ROR or funder ID on the paper. Counted in the headline figure.">
@@ -525,7 +526,6 @@
             </a>
         </div>
         <h3 class="group-head">Infrastructure in the field</h3>
-        <div class="note group-note">Inventory, not impact: none of these feed the headline.</div>
         <div class="explorer-grid">
             <a class="explorer-card" href="auspass.html">
                 <div class="num">4,171</div>
