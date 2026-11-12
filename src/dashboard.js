@@ -857,10 +857,7 @@ function buildExplorerCards(pillarData, asOf) {
     out += '        <h3 class="group-head">Infrastructure in the field</h3>\n'
       + '        <div class="note group-note">Inventory, not impact: none of these feed the headline.</div>\n'
       + '        <div class="explorer-grid">\n'
-      + infraCards.map(explorerCardHtml).join('\n') + '\n        </div>\n'
-      // External validation of the registry figure, beside the grid it
-      // sits in (a link cannot nest inside the card, which is itself a link).
-      + (p.instruments ? buildPidinstCheck() : '');
+      + infraCards.map(explorerCardHtml).join('\n') + '\n        </div>\n';
   }
 
   // Most-deployed instrument models (survey memberships per model).
@@ -1127,33 +1124,6 @@ function buildFreshnessStrip(asOf) {
     + '    </div>\n';
 }
 
-// ── External check on the instrument registry ──
-// Read once by hand from the PIDINST search index (DataCite + B2INST). A
-// snapshot with its read date, never fetched live: one sentence is not
-// worth a third-party dependency at build time. Update the constants
-// when it is read again.
-const PIDINST_CHECK = {
-  url: 'https://search.pidinst.org/all?owner=Adelaide+University#coverage',
-  read: '2026-11-12',
-  records: 182, indexed: 6047,
-  rank: 'seventh-largest owner worldwide and the largest in Australia',
-  next: 'UWA 126, UQ 70, JCU 15',
-  mandatory: 'identifier, title, manufacturer, publisher, publication year, resource type',
-  related: 87.4, manufacturerId: 85.7,
-  zero: 'geolocation, rights and subject'
-};
-function buildPidinstCheck() {
-  const c = PIDINST_CHECK;
-  const stamp = CHASSIS ? CHASSIS.formatAsOf(c.read, { prefix: 'read ' }) : 'read ' + c.read;
-  return '        <p class="ext-check">' + gradeChip('snapshot')
-    + '<span class="as-of">' + escapeHtml(stamp) + '</span> &middot; '
-    + '<a href="' + c.url + '" target="_blank" rel="noopener">search.pidinst.org &#8599;</a>: '
-    + c.records + ' of ' + c.indexed.toLocaleString() + ' indexed instrument records (DataCite and B2INST), '
-    + c.rank + ' (' + c.next + '). Mandatory fields 100%; related identifiers ' + c.related
-    + '%, manufacturer identifier ' + c.manufacturerId + '%; ' + c.zero + ' 0%, fixable at source.'
-    + '</p>\n';
-}
-
 // ── How it connects ──
 // The PID demonstrator's own default chain, read from its feed (built in
 // this repo by src/pid-demonstrator-data.js): instrument DOI, survey
@@ -1389,14 +1359,6 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
         .chain-foot a.live:hover { text-decoration: underline; }
         .chain-foot .card-stamp { margin: 0; padding: 0; border: 0; }
 
-        /* ── External check line, under the infrastructure grid ── */
-        .ext-check {
-            font-size: 12px; color: #334155; line-height: 1.6; margin-top: 12px; max-width: 92ch;
-            padding: 9px 12px; border-left: 3px solid #cbd5e1; background: #f8fafc;
-        }
-        .ext-check .grade-chip { margin-right: 6px; vertical-align: middle; }
-        .ext-check .as-of { color: #5e6a7a; }
-        .ext-check a { color: #282572; }
 
         /* ── Shared section chrome ── */
         .explorers {
