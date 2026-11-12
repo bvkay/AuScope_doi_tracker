@@ -1022,10 +1022,15 @@ var TRACKER_GLOSSARY = {
         long: 'Found through an AuScope-related search term, with no identifier and no acknowledgement found. Under review, and excluded from every headline figure on this site.',
         aliases: ['keyword-only', 'unverified']
     },
+    'documented': {
+        term: 'Documented attribution',
+        short: 'The headline count.',
+        long: 'Verified, acknowledged-in-text and infrastructure-enabled combined: an AuScope identifier or a written acknowledgement on the paper itself. Candidates are counted beside this figure until confirmed, never inside it.'
+    },
     'attributed': {
         term: 'Attributed publications',
-        short: 'The headline count.',
-        long: 'Papers carrying either an AuScope identifier or an explicit written acknowledgement — verified, candidate, acknowledged-in-text and infrastructure-enabled combined. Every headline figure on this site counts only these.'
+        short: 'Documented attribution plus candidates.',
+        long: 'Papers carrying either an AuScope identifier or an explicit written acknowledgement, candidates included: verified, candidate, acknowledged-in-text and infrastructure-enabled combined. The hub headline counts only the documented three and shows candidates separately.'
     },
     'unverified-matches': {
         term: 'Unverified keyword matches',
@@ -1189,16 +1194,16 @@ var TRACKER_GLOSSARY = {
 
     // ---------- Instruments and deployments ----------
     'pidinst': {
-        term: 'PIDInst',
+        term: 'PIDINST',
         short: 'Persistent Identifier for Instruments.',
         long: 'A metadata standard and DOI type for physical instruments, so a magnetometer or a seismometer can be identified and cited as precisely as a paper. AuScope mints instrument DOIs under the 10.82388 prefix.',
         aliases: ['pid-inst', 'instrument-doi'],
         href: 'https://www.pidinst.org/'
     },
     'pidinst-score': {
-        term: 'PIDInst score',
+        term: 'PIDINST score',
         short: 'Metadata completeness for an instrument record.',
-        long: 'How much of the PIDInst schema an instrument record actually fills in — model, serial number, owner, manufacturer, dates — weighted by how load-bearing each field is. It measures the record, not the instrument.'
+        long: 'How much of the PIDINST schema an instrument record actually fills in (model, serial number, owner, manufacturer, dates), weighted by how load-bearing each field is. It measures the record, not the instrument.'
     },
     'recording-days': {
         term: 'Recording-days',
@@ -1242,7 +1247,7 @@ var TRACKER_GLOSSARY = {
     'mintable-unit': {
         term: 'Mintable unit',
         short: 'A physical device identifiable enough to receive a DOI.',
-        long: 'A (model, serial) pair distinct enough to identify one physical device, so it could carry a PIDInst DOI once one is minted. Mintable is a statement about identity, not about ownership.',
+        long: 'A (model, serial) pair distinct enough to identify one physical device, so it could carry a PIDINST DOI once one is minted. Mintable is a statement about identity, not about ownership.',
         aliases: ['mintable', 'mintable units']
     },
 
@@ -1328,7 +1333,7 @@ var TRACKER_GLOSSARY = {
     'lens-community': {
         term: 'Community, Culture & Collaboration',
         short: 'People, outreach and partnership.',
-        long: 'Outreach, engagement and international collaboration. (The mapping sheet spells this "Cuture"; the pages follow the sheet.)',
+        long: 'Outreach, engagement and international collaboration. (The mapping sheet spells this "Cuture".)',
         aliases: ['Community, Cuture & Collaboration', 'lens-culture']
     },
 
@@ -1671,6 +1676,8 @@ function bindLedgerRepaint(el, opts, repaint) {
 //   source/sourceKey   ledger wiring, so an outage cannot become a 0
 //   unit, format, decimals, zeroIsReal   passed to formatNumber
 //   cite       true adds a "Copy with caveat" button
+//   plainGrade true renders the grade chip as text with a title, not a
+//              tooltip button, so Copy with caveat is the card's one button
 // }
 function renderStat(spec) {
     spec = spec || {};
@@ -1700,16 +1707,21 @@ function renderStat(spec) {
     var gradeTip = termTip(g.key);
     var gradeId = 'gloss-' + (++trackerGlossSeq);
 
+    var chip = spec.plainGrade
+        ? '<span class="grade-chip g-' + grade + '" title="' + escapeAttr(gradeTip) + '">'
+          + '<span class="grade-glyph" aria-hidden="true">' + g.glyph + '</span>'
+          + escapeHtml(g.label) + '</span>'
+        : '<button type="button" class="grade-chip g-' + grade + '"'
+          + ' data-tip="' + escapeAttr(gradeTip) + '" aria-describedby="' + gradeId + '" aria-expanded="false">'
+          + '<span class="grade-glyph" aria-hidden="true">' + g.glyph + '</span>'
+          + escapeHtml(g.label) + '</button>';
     var html = '<div class="stat honest grade-' + grade + '">'
         + '<div class="label">' + escapeHtml(spec.label || '')
         + (spec.term ? glossaryIcon(spec.term) : '')
         + '</div>'
         + '<div class="value">' + inner + '</div>'
         + '<div class="grade-row">'
-        + '<button type="button" class="grade-chip g-' + grade + '"'
-        + ' data-tip="' + escapeAttr(gradeTip) + '" aria-describedby="' + gradeId + '" aria-expanded="false">'
-        + '<span class="grade-glyph" aria-hidden="true">' + g.glyph + '</span>'
-        + escapeHtml(g.label) + '</button>'
+        + chip
         + '<span class="sr-only" id="' + gradeId + '">' + escapeHtml(gradeTip) + '</span>'
         + '<span class="grade-sep" aria-hidden="true">·</span>'
         + '<span class="as-of' + (spec.asOf || grade === 'unavailable' ? '' : ' undated') + '">'
