@@ -1,10 +1,42 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-09-15T00:03:43.696Z",
-    "total_count": 237
+    "last_updated": "2026-11-12T22:46:06.132Z",
+    "total_count": 470
   },
   "records": [
+    {
+      "doi": "10.58024/agagb8a11ca7",
+      "name": "SE Kalimantan (Borneo) Cenozoic alkaline magmatism",
+      "authors": "Ominigbo, E.",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agta38c38115",
+      "name": "Geochronology of Late Jurassic–Cenozoic alkaline magmatism in central and southeastern Brazil",
+      "authors": "Silva Gomes, A.",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agagbb5fb8db",
+      "name": "Whole-Rock Major and Trace Element Geochemistry of Paleoproterozoic Granitoids from the Dajarra Region, Mount Isa Inlier, Queensland, Australia",
+      "authors": "Shahrestani, S., Noptalung, S., Sanislav, I.",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.58024/agag38425f47",
+      "name": "Zircon U–Pb Geochronology and Lu–Hf Isotope Data from the Georgetown Region, Queensland, Australia",
+      "authors": "Shahrestani, S., Lee, J., Sanislav, I.",
+      "year": 2026,
+      "platform": "EarthBank",
+      "type": "Dataset"
+    },
     {
       "doi": "10.58024/agumaec47aff",
       "name": "Resolving closely spaced eruptions in the early Pleistocene Okote Tuff Complex, Turkana Basin ",
@@ -15,7 +47,7 @@
     },
     {
       "doi": "10.58024/agum23e4d588",
-      "name": "Large Igneous Provinces: CAMP",
+      "name": "Geochemical Evolution of Large Igneous Province (LIPs): Central Atlantic Magmatic Province (CAMP)",
       "authors": "Savelkouls, A.",
       "year": 2026,
       "platform": "EarthBank",
@@ -31,7 +63,7 @@
     },
     {
       "doi": "10.58024/agcu9d1e3166",
-      "name": "Pb isotope data",
+      "name": "K-feldspar Pb isotope data of 2.5-1.8 Ga Granitoids",
       "authors": "Liebmann, J., Kirkland, C., Hartnady, M., Spencer, C.",
       "year": 2026,
       "platform": "EarthBank",
@@ -40,7 +72,7 @@
     {
       "doi": "10.58024/agwa9353beb7",
       "name": "The OSNACA Project: Samples",
-      "authors": "Fisher, C.",
+      "authors": "Brauhart, C., Hagemann, S., Large, R., Dube, B., Hooper, B., Pirajno, F., Brigden, J., Standing, J., Allen, M., Reynolds, N., Martin, N., Muhling, P., Dorling, S., Turner, S., Groves, D.",
       "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -208,7 +240,7 @@
     {
       "doi": "10.58024/agumcad7b7cb",
       "name": "Australian Thermochronology - 2002 to 2022",
-      "authors": "Dr Samuel C Boone (0000-0003-2274-7933), Malcolm McMillan (0000-0002-5375-5680), Dr Angus Nixon (0000-0003-3638-1864), Dr Ling Chung (0000-0002-2046-1184), Dr Christian Seiler, A. Prof Stijn Glorie (0000-0002-3107-9028), Prof Barry P Kohn (0000-0001-5064-5454), Prof Andrew JW Gleadow (0000-0003-0496-0028)",
+      "authors": "Boone, S., Kohn, B., McMillan, M., Glorie, S., Chung, L., Gleadow, A., Seiler, C., Nixon, A.",
       "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -264,7 +296,7 @@
     {
       "doi": "10.58024/agua9bc2394d",
       "name": "North Australian Craton Low-Temperature Thermochronology - Nixon PhD",
-      "authors": "Nixon, Angus",
+      "authors": "Nixon, A.",
       "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -280,7 +312,7 @@
     {
       "doi": "10.58024/agua6e7b32b9",
       "name": "Central Asia thermochronology compilation",
-      "authors": "Nixon, A., Glorie, A., Boone, S., Kohlmann, F., Meeuws, F.",
+      "authors": "Nixon, A., Glorie, S., Boone, S., Kohlmann, F., Meeuws, F.",
       "year": 2025,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -328,7 +360,7 @@
     {
       "doi": "10.58024/aguaebe2cbb4",
       "name": "Foden Sunda-Banda Arc Collection",
-      "authors": "Nixon, Angus",
+      "authors": "Nixon, A.",
       "year": 2024,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -352,7 +384,7 @@
     {
       "doi": "10.58024/agum6a344358",
       "name": "Malawi Rift: Usisya Border Fault Footwall Thermochronology",
-      "authors": "McMillan, Malcolm",
+      "authors": "McMillan, M., Boone, S., Chindandali, P., Kohn, B., Gleadow, A.",
       "year": 2024,
       "platform": "EarthBank",
       "type": "Dataset"
@@ -384,8 +416,8 @@
     {
       "doi": "10.58024/aguaddd6d6b2",
       "name": "Cooper-Eromanga Basin detrital apatite",
-      "authors": "Nixon, Angus",
-      "year": 2023,
+      "authors": "Nixon, A.",
+      "year": 2024,
       "platform": "EarthBank",
       "type": "Dataset"
     },
@@ -1070,6 +1102,14 @@
       "type": "Seismic Network"
     },
     {
+      "code": "4E",
+      "name": "Paralana Fault Nodal Network (PFNN)",
+      "year": 2026,
+      "doi": "10.7914/4a57-3b18",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
       "code": "4H",
       "name": "EAL1",
       "year": 2009,
@@ -1114,6 +1154,14 @@
       "name": "PERTHBASIN",
       "year": 2017,
       "doi": "10.7914/nx28-a367",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
+      "code": "5E",
+      "name": "Mt. Stromolo DAS Sensors",
+      "year": 2026,
+      "doi": "10.7914/94f1-7h05",
       "platform": "AusPass",
       "type": "Seismic Network"
     },
@@ -1430,6 +1478,14 @@
       "type": "Seismic Network"
     },
     {
+      "code": "DU",
+      "name": "Seismological Association of Australia (SAA)",
+      "year": 1995,
+      "doi": "10.7914/SN/DU",
+      "platform": "AusPass",
+      "type": "Seismic Network"
+    },
+    {
       "code": "M8",
       "name": "Australian Semi-Permanent Support Network (MATE)",
       "year": 2024,
@@ -1541,7 +1597,9 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f2104_7817_6176_4235"
+      "nciUuid": "f2104_7817_6176_4235",
+      "childCount": 4,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/c7cn-cc79",
@@ -1551,7 +1609,57 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f6136_7206_2954_0663"
+      "nciUuid": "f6136_7206_2954_0663",
+      "childCount": 1,
+      "parentDoi": "10.25914/f01x-b211"
+    },
+    {
+      "doi": "10.25914/7y87-be31",
+      "name": "Magnetotelluric survey of the Curnamona Province, New South Wales, 2017",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8259_2187_9575_5100",
+      "childCount": 2,
+      "parentDoi": "10.25914/c7cn-cc79"
+    },
+    {
+      "doi": "10.25914/1j7n-4x68",
+      "name": "Magnetotelluric survey of the Curnamona Province, New South Wales, 2017 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8426_7820_0624_9397",
+      "childCount": 1,
+      "parentDoi": "10.25914/7y87-be31"
+    },
+    {
+      "doi": "10.25914/bxyq-6355",
+      "name": "Magnetotelluric survey of the Curnamona Province,  New South Wales, 2017 (Level-2 EDI products)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0178_7734_5012_1688",
+      "childCount": 0,
+      "parentDoi": "10.25914/1j7n-4x68"
+    },
+    {
+      "doi": "10.25914/gzb5-nw36",
+      "name": "Magnetotelluric survey of the Curnamona Province, New South Wales, 2017 (Packed raw LEMI-423 time-series archive)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4475_6360_4088_0326",
+      "childCount": 0,
+      "parentDoi": "10.25914/7y87-be31"
     },
     {
       "doi": "10.25914/rgpm-7528",
@@ -1561,7 +1669,441 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f8997_0863_2025_2932"
+      "nciUuid": "f8997_0863_2025_2932",
+      "childCount": 9,
+      "parentDoi": "10.25914/f01x-b211"
+    },
+    {
+      "doi": "10.25914/9tsg-0w07",
+      "name": "Magnetotelluric survey of Jupiter Prospect, South Australia, 2021",
+      "authors": "Graham Heinson, Lewis, Emily, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7702_6161_1692_5845",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/mjv0-9391",
+      "name": "Magnetotelluric survey of Jupiter Prospect, South Australia, 2021 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9209_3956_4647_6475",
+      "childCount": 1,
+      "parentDoi": "10.25914/9tsg-0w07"
+    },
+    {
+      "doi": "10.25914/hp5k-e502",
+      "name": "Magnetotelluric survey of Jupiter Prospect, South Australia, 2021 (Level-2 EDI products)",
+      "authors": "Graham Heinson, Lewis, Emily, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0255_3709_5971_2200",
+      "childCount": 0,
+      "parentDoi": "10.25914/mjv0-9391"
+    },
+    {
+      "doi": "10.25914/drc8-h859",
+      "name": "Magnetotelluric survey of Jupiter Prospect, South Australia, 2021 (Packed raw MTU-8A, MTU-5C time-series archive)",
+      "authors": "Graham Heinson, Lewis, Emily, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1350_4730_0615_0899",
+      "childCount": 0,
+      "parentDoi": "10.25914/9tsg-0w07"
+    },
+    {
+      "doi": "10.25914/ewrk-3s55",
+      "name": "Magnetotelluric survey of Kapunda, South Australia, 2019–2020",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran, Hatch, Michael",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3900_1245_6750_1272",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/7nat-bw91",
+      "name": "Magnetotelluric survey of Kapunda, South Australia, 2019–2020 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1686_2401_4043_5760",
+      "childCount": 1,
+      "parentDoi": "10.25914/ewrk-3s55"
+    },
+    {
+      "doi": "10.25914/dw4t-tp98",
+      "name": "Magnetotelluric survey of Kapunda, South Australia, 2019–2020 (Level-2 EDI products)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran, Hatch, Michael",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1238_3611_9197_3925",
+      "childCount": 0,
+      "parentDoi": "10.25914/7nat-bw91"
+    },
+    {
+      "doi": "10.25914/cbnk-0v81",
+      "name": "Magnetotelluric survey of Kapunda, South Australia, 2019–2020 (Packed raw MTU-8A, MTU-5C time-series archive)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran, Hatch, Michael",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8881_7671_0818_9496",
+      "childCount": 0,
+      "parentDoi": "10.25914/ewrk-3s55"
+    },
+    {
+      "doi": "10.25914/zhb7-3e78",
+      "name": "Magnetotelluric survey of the Burra region, Northern Mount Lofty Ranges, South Australia, 2017-2018",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5391_6096_0482_3870",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/b06g-7328",
+      "name": "Magnetotelluric survey of the Burra region, Northern Mount Lofty Ranges, South Australia, 2017-2018 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4266_2458_7073_3788",
+      "childCount": 1,
+      "parentDoi": "10.25914/zhb7-3e78"
+    },
+    {
+      "doi": "10.25914/w3t0-wx05",
+      "name": "Magnetotelluric survey of the Burra region, Northern Mount Lofty Ranges, South Australia, 2017-2018 (Level-2 EDI products)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5145_0302_7113_6353",
+      "childCount": 0,
+      "parentDoi": "10.25914/b06g-7328"
+    },
+    {
+      "doi": "10.25914/83vd-5h77",
+      "name": "Magnetotelluric survey of the Burra region, Northern Mount Lofty Ranges, South Australia, 2017-2018 (Packed raw LEMI-423 time-series archive)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0764_7583_5292_0594",
+      "childCount": 0,
+      "parentDoi": "10.25914/zhb7-3e78"
+    },
+    {
+      "doi": "10.25914/je9d-5q16",
+      "name": "Magnetotelluric survey of the Curnamona Province, South Australia, 2017",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5756_9484_8247_3989",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/5sjj-w769",
+      "name": "Magnetotelluric survey of the Curnamona Province, South Australia, 2017 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1093_7126_7392_4764",
+      "childCount": 1,
+      "parentDoi": "10.25914/je9d-5q16"
+    },
+    {
+      "doi": "10.25914/hjx6-9b58",
+      "name": "Magnetotelluric survey of the Curnamona Province, South Australia, 2017 (Level-2 EDI products)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6580_1765_4746_2229",
+      "childCount": 0,
+      "parentDoi": "10.25914/5sjj-w769"
+    },
+    {
+      "doi": "10.25914/t0an-6308",
+      "name": "Magnetotelluric survey of the Curnamona Province, South Australia, 2017 (Packed raw LEMI-423 time-series archive)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8877_5992_1849_9393",
+      "childCount": 0,
+      "parentDoi": "10.25914/je9d-5q16"
+    },
+    {
+      "doi": "10.25914/thq3-r534",
+      "name": "Magnetotelluric survey of the Kalkaroo Cu-Au Deposit, South Australia, 2020-2021",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6348_9051_1854_3940",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/n01p-4r41",
+      "name": "Magnetotelluric survey of the Kalkaroo Cu-Au Deposit, South Australia, 2020-2021 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6878_0737_7752_8417",
+      "childCount": 1,
+      "parentDoi": "10.25914/thq3-r534"
+    },
+    {
+      "doi": "10.25914/fenn-he68",
+      "name": "Magnetotelluric survey of the Kalkaroo Cu-Au Deposit, South Australia, 2020-2021 (Level-2 EDI products)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3858_5562_2233_2138",
+      "childCount": 0,
+      "parentDoi": "10.25914/n01p-4r41"
+    },
+    {
+      "doi": "10.25914/8cwh-7t72",
+      "name": "Magnetotelluric survey of the Kalkaroo Cu-Au Deposit, South Australia, 2020-2021 (Packed raw MTU-8A, MTU-5C, LEMI-423 time-series archive)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1097_2159_0843_1834",
+      "childCount": 0,
+      "parentDoi": "10.25914/thq3-r534"
+    },
+    {
+      "doi": "10.25914/xswv-5069",
+      "name": "Magnetotelluric survey of the Newer Volcanic Province, South Australia, 2019",
+      "authors": "Graham Heinson, Jennings, Samuel, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5114_9711_5874_8378",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/eq0e-5a94",
+      "name": "Magnetotelluric survey of the Newer Volcanic Province, South Australia, 2019 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6549_5120_5431_5543",
+      "childCount": 1,
+      "parentDoi": "10.25914/xswv-5069"
+    },
+    {
+      "doi": "10.25914/wxkq-hj14",
+      "name": "Magnetotelluric survey of the Newer Volcanic Province, South Australia, 2019 (Level-2 EDI products)",
+      "authors": "Graham Heinson, Jennings, Samuel, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3606_1793_3207_5956",
+      "childCount": 0,
+      "parentDoi": "10.25914/eq0e-5a94"
+    },
+    {
+      "doi": "10.25914/7vwr-da74",
+      "name": "Magnetotelluric survey of the Newer Volcanic Province, South Australia, 2019 (Packed raw LEMI-423 time-series archive)",
+      "authors": "Graham Heinson, Jennings, Samuel, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1967_4766_1945_0591",
+      "childCount": 0,
+      "parentDoi": "10.25914/xswv-5069"
+    },
+    {
+      "doi": "10.25914/sv5r-zw68",
+      "name": "Magnetotelluric survey of the Vulcan IOCG Prospect, South Australia, 2022",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6927_1326_1825_9168",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/zgt4-y006",
+      "name": "Magnetotelluric survey of the Vulcan IOCG Prospect, South Australia, 2022 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0628_1416_8345_2855",
+      "childCount": 1,
+      "parentDoi": "10.25914/sv5r-zw68"
+    },
+    {
+      "doi": "10.25914/jsdc-pn25",
+      "name": "Magnetotelluric survey of the Vulcan IOCG Prospect, South Australia, 2022 (Level-2 EDI products)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9616_0593_8337_0214",
+      "childCount": 0,
+      "parentDoi": "10.25914/zgt4-y006"
+    },
+    {
+      "doi": "10.25914/2q8x-4575",
+      "name": "Magnetotelluric survey of the Vulcan IOCG Prospect, South Australia, 2022 (Packed raw LEMI-423 time-series archive)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4091_8709_6088_7936",
+      "childCount": 0,
+      "parentDoi": "10.25914/sv5r-zw68"
+    },
+    {
+      "doi": "10.25914/zt3m-vv79",
+      "name": "Magnetotelluric survey of the Western Gawler Craton, South Australia, 2022",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5670_4021_6538_9859",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/4053-hk60",
+      "name": "Magnetotelluric survey of the Western Gawler Craton, South Australia, 2022 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2519_7337_5671_5300",
+      "childCount": 1,
+      "parentDoi": "10.25914/zt3m-vv79"
+    },
+    {
+      "doi": "10.25914/zmtf-3n02",
+      "name": "Magnetotelluric survey of the Western Gawler Craton, South Australia, 2022 (Level-2 EDI products)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6401_3239_3385_1569",
+      "childCount": 0,
+      "parentDoi": "10.25914/4053-hk60"
+    },
+    {
+      "doi": "10.25914/5wk6-4x80",
+      "name": "Magnetotelluric survey of the Western Gawler Craton, South Australia, 2022 (Packed raw LEMI-423 time-series archive)",
+      "authors": "Kay, Ben, Graham Heinson, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6849_4314_8581_6255",
+      "childCount": 0,
+      "parentDoi": "10.25914/zt3m-vv79"
+    },
+    {
+      "doi": "10.25914/jktf-7p40",
+      "name": "Magnetotelluric survey of Tumby Bay, Eyre Peninsula, South Australia, 2018-2019",
+      "authors": "Graham Heinson, Loader, Lachlan, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7737_7021_7770_5510",
+      "childCount": 2,
+      "parentDoi": "10.25914/rgpm-7528"
+    },
+    {
+      "doi": "10.25914/hgvk-zy76",
+      "name": "Magnetotelluric survey of Tumby Bay, Eyre Peninsula, South Australia, 2018-2019 (Level 2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9805_2458_3265_1244",
+      "childCount": 1,
+      "parentDoi": "10.25914/jktf-7p40"
+    },
+    {
+      "doi": "10.25914/zetb-0430",
+      "name": "Magnetotelluric survey of Tumby Bay, Eyre Peninsula, South Australia, 2018-2019 (Level 2 products EDI products)",
+      "authors": "Graham Heinson, Loader, Lachlan, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6315_9723_0058_8176",
+      "childCount": 0,
+      "parentDoi": "10.25914/hgvk-zy76"
+    },
+    {
+      "doi": "10.25914/m68g-qx20",
+      "name": "Magnetotelluric survey of Tumby Bay, Eyre Peninsula, South Australia, 2018-2019 (packed raw LEMI-423 time series archive)",
+      "authors": "Graham Heinson, Loader, Lachlan, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0100_9090_7342_7896",
+      "childCount": 0,
+      "parentDoi": "10.25914/jktf-7p40"
     },
     {
       "doi": "10.25914/31br-q319",
@@ -1571,7 +2113,69 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f2726_4254_7999_8141"
+      "nciUuid": "f2726_4254_7999_8141",
+      "childCount": 1,
+      "parentDoi": "10.25914/f01x-b211"
+    },
+    {
+      "doi": "10.25914/3erf-dn38",
+      "name": "Magnetotelluric Broadband Surveys of Western and North-Western Tasmania, 2016",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7076_0484_4068_7591",
+      "childCount": 2,
+      "parentDoi": "10.25914/31br-q319"
+    },
+    {
+      "doi": "10.25914/mrx9-r791",
+      "name": "Magnetotelluric Broadband Survey of North-Western Tasmania, 2016",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4910_1230_7472_0662",
+      "childCount": 1,
+      "parentDoi": "10.25914/3erf-dn38"
+    },
+    {
+      "doi": "10.25914/ekv8-my29",
+      "name": "Magnetotelluric Broadband Survey of North-Western Tasmania, 2016 (packed raw time series archive)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3370_5503_2337_7162",
+      "childCount": 0,
+      "parentDoi": "10.25914/mrx9-r791"
+    },
+    {
+      "doi": "10.25914/be5s-at41",
+      "name": "Magnetotelluric Broadband Survey of Western Tasmania, 2016",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1309_3215_4686_4241",
+      "childCount": 1,
+      "parentDoi": "10.25914/3erf-dn38"
+    },
+    {
+      "doi": "10.25914/080v-2z48",
+      "name": "Magnetotelluric Broadband Survey of Western Tasmania, 2016 (packed raw time series archive)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6250_8192_9215_7386",
+      "childCount": 0,
+      "parentDoi": "10.25914/be5s-at41"
     },
     {
       "doi": "10.25914/msrb-9j13",
@@ -1581,7 +2185,57 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f3786_5174_5899_5301"
+      "nciUuid": "f3786_5174_5899_5301",
+      "childCount": 1,
+      "parentDoi": "10.25914/f01x-b211"
+    },
+    {
+      "doi": "10.25914/pa35-es20",
+      "name": "Magnetotelluric survey of the Newer Volcanic Province, Victoria, 2019",
+      "authors": "Graham Heinson, Jennings, Samuel, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1442_7711_2829_5456",
+      "childCount": 2,
+      "parentDoi": "10.25914/msrb-9j13"
+    },
+    {
+      "doi": "10.25914/jaa2-0048",
+      "name": "Magnetotelluric survey of the Newer Volcanic Province, Victoria, 2019 (Level-2 products)",
+      "authors": "AuScope",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7079_9504_4205_4686",
+      "childCount": 1,
+      "parentDoi": "10.25914/pa35-es20"
+    },
+    {
+      "doi": "10.25914/z3bz-dm23",
+      "name": "Magnetotelluric survey of the Newer Volcanic Province, Victoria, 2019 (Level-2 EDI products)",
+      "authors": "Graham Heinson, Jennings, Samuel, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6852_4210_2954_1793",
+      "childCount": 0,
+      "parentDoi": "10.25914/jaa2-0048"
+    },
+    {
+      "doi": "10.25914/kyst-xw53",
+      "name": "Magnetotelluric survey of the Newer Volcanic Province, Victoria, 2019 (Packed raw LEMI-423 time-series archive)",
+      "authors": "Graham Heinson, Jennings, Samuel, Kay, Ben, Boren, Goran",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1637_5738_0623_7407",
+      "childCount": 0,
+      "parentDoi": "10.25914/pa35-es20"
     },
     {
       "doi": "10.25914/5eaa30cc934d0",
@@ -1591,7 +2245,9 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f6307_9112_1484_3827"
+      "nciUuid": "f6307_9112_1484_3827",
+      "childCount": 3,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/bzd5-n780",
@@ -1601,7 +2257,849 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f3484_7156_3078_9567"
+      "nciUuid": "f3484_7156_3078_9567",
+      "childCount": 7,
+      "parentDoi": "10.25914/5eaa30cc934d0"
+    },
+    {
+      "doi": "10.25914/cv81-ys06",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6040_4773_6930_9062",
+      "childCount": 4,
+      "parentDoi": "10.25914/bzd5-n780"
+    },
+    {
+      "doi": "10.25914/vde8-cj26",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 products)",
+      "authors": "",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4540_0344_5355_4366",
+      "childCount": 3,
+      "parentDoi": "10.25914/cv81-ys06"
+    },
+    {
+      "doi": "10.25914/0hgk-x808",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per day)",
+      "authors": "Hollmann, Hannes, Rees, Nigel, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0016_4251_5372_2430",
+      "childCount": 0,
+      "parentDoi": "10.25914/vde8-cj26"
+    },
+    {
+      "doi": "10.25914/14b1-9570",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8597_3154_8560_6687",
+      "childCount": 0,
+      "parentDoi": "10.25914/vde8-cj26"
+    },
+    {
+      "doi": "10.25914/22k4-kj29",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3234_7518_4937_3600",
+      "childCount": 0,
+      "parentDoi": "10.25914/vde8-cj26"
+    },
+    {
+      "doi": "10.25914/71f6-a552",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 1 products)",
+      "authors": "",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7477_9082_1878_8064",
+      "childCount": 1,
+      "parentDoi": "10.25914/cv81-ys06"
+    },
+    {
+      "doi": "10.25914/ynwg-gw13",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level-1 MTH5 - concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel, Goleby, Bruce",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1774_6796_2254_8494",
+      "childCount": 0,
+      "parentDoi": "10.25914/71f6-a552"
+    },
+    {
+      "doi": "10.25914/9wfq-0g79",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 2 products)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3519_6897_9419_7250",
+      "childCount": 1,
+      "parentDoi": "10.25914/cv81-ys06"
+    },
+    {
+      "doi": "10.25914/s0v4-0n25",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1749_9299_1239_3954",
+      "childCount": 0,
+      "parentDoi": "10.25914/9wfq-0g79"
+    },
+    {
+      "doi": "10.25914/4d3e-4696",
+      "name": "Magnetotelluric surveys of Maralinga and the Far West Coast, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (packed raw time series archive)",
+      "authors": "Graham Heinson, Goleby, Bruce, Brand, Kate E., Thiel, Stephan, Boren, Goran, Mawby, Philippa, Axford, Geoffrey",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0731_6865_2805_1785",
+      "childCount": 0,
+      "parentDoi": "10.25914/cv81-ys06"
+    },
+    {
+      "doi": "10.25914/ta8c-ys69",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8492_3483_1375_5538",
+      "childCount": 4,
+      "parentDoi": "10.25914/bzd5-n780"
+    },
+    {
+      "doi": "10.25914/ayp9-2g78",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 products)",
+      "authors": "",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5202_0879_3652_0691",
+      "childCount": 3,
+      "parentDoi": "10.25914/ta8c-ys69"
+    },
+    {
+      "doi": "10.25914/ezmw-n360",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)  (Level 0 concatenated ASCII time series per day)",
+      "authors": "Hollmann, Hannes, Rees, Nigel, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6817_9506_7646_7717",
+      "childCount": 0,
+      "parentDoi": "10.25914/ayp9-2g78"
+    },
+    {
+      "doi": "10.25914/3j4v-mf71",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)  (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8703_1507_3259_8542",
+      "childCount": 0,
+      "parentDoi": "10.25914/ayp9-2g78"
+    },
+    {
+      "doi": "10.25914/7fsk-ds20",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)  (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5765_5265_9032_1155",
+      "childCount": 0,
+      "parentDoi": "10.25914/ayp9-2g78"
+    },
+    {
+      "doi": "10.25914/kds7-f306",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 1 products)",
+      "authors": "",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8841_4729_0931_4423",
+      "childCount": 1,
+      "parentDoi": "10.25914/ta8c-ys69"
+    },
+    {
+      "doi": "10.25914/rr54-6m57",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level-1 MTH5 - concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel, Goleby, Bruce",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1692_0751_5711_1061",
+      "childCount": 0,
+      "parentDoi": "10.25914/kds7-f306"
+    },
+    {
+      "doi": "10.25914/fp4w-8h85",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 2 products)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3405_9047_4546_1348",
+      "childCount": 1,
+      "parentDoi": "10.25914/ta8c-ys69"
+    },
+    {
+      "doi": "10.25914/wr23-q934",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6100_9932_6444_2640",
+      "childCount": 0,
+      "parentDoi": "10.25914/fp4w-8h85"
+    },
+    {
+      "doi": "10.25914/sc51-cr80",
+      "name": "Magnetotelluric surveys of North-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (packed raw time series archive)",
+      "authors": "Graham Heinson, Goleby, Bruce, Brand, Kate E., Thiel, Stephan, Boren, Goran, Mawby, Philippa, Axford, Geoffrey",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4135_4952_8301_8949",
+      "childCount": 0,
+      "parentDoi": "10.25914/ta8c-ys69"
+    },
+    {
+      "doi": "10.25914/377k-q805",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1023_0229_0568_1027",
+      "childCount": 4,
+      "parentDoi": "10.25914/bzd5-n780"
+    },
+    {
+      "doi": "10.25914/es2n-x250",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 products)",
+      "authors": "",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3055_7994_0293_1312",
+      "childCount": 3,
+      "parentDoi": "10.25914/377k-q805"
+    },
+    {
+      "doi": "10.25914/120w-5096",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per day)",
+      "authors": "Hollmann, Hannes, Rees, Nigel, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8526_5762_9178_3790",
+      "childCount": 0,
+      "parentDoi": "10.25914/es2n-x250"
+    },
+    {
+      "doi": "10.25914/mswj-bb88",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel, Kay, Ben, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3147_1647_8974_2513",
+      "childCount": 0,
+      "parentDoi": "10.25914/es2n-x250"
+    },
+    {
+      "doi": "10.25914/pej3-vq34",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4711_6465_8412_6853",
+      "childCount": 0,
+      "parentDoi": "10.25914/es2n-x250"
+    },
+    {
+      "doi": "10.25914/qmy4-j090",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 1 products)",
+      "authors": "",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8110_9959_0059_7617",
+      "childCount": 1,
+      "parentDoi": "10.25914/377k-q805"
+    },
+    {
+      "doi": "10.25914/1axv-we12",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level-1 MTH5 - concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel, Goleby, Bruce",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4733_8474_5965_9332",
+      "childCount": 0,
+      "parentDoi": "10.25914/qmy4-j090"
+    },
+    {
+      "doi": "10.25914/s59x-0h66",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 2 products)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5642_1679_2727_4702",
+      "childCount": 1,
+      "parentDoi": "10.25914/377k-q805"
+    },
+    {
+      "doi": "10.25914/9bvs-qx14",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7224_7519_5213_6875",
+      "childCount": 0,
+      "parentDoi": "10.25914/s59x-0h66"
+    },
+    {
+      "doi": "10.25914/xx67-cd77",
+      "name": "Magnetotelluric surveys of South-East South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (packed raw time series archive)",
+      "authors": "Graham Heinson, Goleby, Bruce, Brand, Kate E., Thiel, Stephan, Boren, Goran, Mawby, Philippa, Axford, Geoffrey",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6521_2320_5524_1640",
+      "childCount": 0,
+      "parentDoi": "10.25914/377k-q805"
+    },
+    {
+      "doi": "10.25914/1ncb-xp10",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7438_2523_9267_3510",
+      "childCount": 4,
+      "parentDoi": "10.25914/bzd5-n780"
+    },
+    {
+      "doi": "10.25914/x24a-4f52",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (Level 0 products)",
+      "authors": "",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7211_0059_9506_4109",
+      "childCount": 3,
+      "parentDoi": "10.25914/1ncb-xp10"
+    },
+    {
+      "doi": "10.25914/q0fw-qm62",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (Level 0 concatenated ASCII time series per day)",
+      "authors": "Hollmann, Hannes, Rees, Nigel, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9610_7293_9440_0719",
+      "childCount": 0,
+      "parentDoi": "10.25914/x24a-4f52"
+    },
+    {
+      "doi": "10.25914/sdda-3d30",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel, Kay, Ben, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9165_8380_0765_3062",
+      "childCount": 0,
+      "parentDoi": "10.25914/x24a-4f52"
+    },
+    {
+      "doi": "10.25914/0w9a-jw43",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2154_6324_3325_2732",
+      "childCount": 0,
+      "parentDoi": "10.25914/x24a-4f52"
+    },
+    {
+      "doi": "10.25914/d2mf-h553",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (Level 1 products)",
+      "authors": "",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2812_3719_2093_6443",
+      "childCount": 1,
+      "parentDoi": "10.25914/1ncb-xp10"
+    },
+    {
+      "doi": "10.25914/r9sd-cd73",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (Level-1 MTH5 - concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel, Goleby, Bruce",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4367_2621_6400_3232",
+      "childCount": 0,
+      "parentDoi": "10.25914/d2mf-h553"
+    },
+    {
+      "doi": "10.25914/gf0y-9d78",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (Level 2 products)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5258_2467_2574_8500",
+      "childCount": 1,
+      "parentDoi": "10.25914/1ncb-xp10"
+    },
+    {
+      "doi": "10.25914/zpzd-f829",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1709_8225_4489_2948",
+      "childCount": 0,
+      "parentDoi": "10.25914/gf0y-9d78"
+    },
+    {
+      "doi": "10.25914/zshj-dx90",
+      "name": "Magnetotelluric surveys of the Eyre Peninsula and Kangaroo Island, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) Extension (packed raw time series archive)",
+      "authors": "Graham Heinson, Goleby, Bruce, Brand, Kate E., Thiel, Stephan, Boren, Goran, Mawby, Philippa, Axford, Geoffrey",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8507_0030_4408_4692",
+      "childCount": 0,
+      "parentDoi": "10.25914/1ncb-xp10"
+    },
+    {
+      "doi": "10.25914/0pt0-qw75",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5970_9039_7239_3000",
+      "childCount": 4,
+      "parentDoi": "10.25914/bzd5-n780"
+    },
+    {
+      "doi": "10.25914/t2jj-xb16",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 products)",
+      "authors": "",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9440_7606_2940_0132",
+      "childCount": 3,
+      "parentDoi": "10.25914/0pt0-qw75"
+    },
+    {
+      "doi": "10.25914/skz8-pq43",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per day)",
+      "authors": "Hollmann, Hannes, Rees, Nigel, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7862_3221_3087_1197",
+      "childCount": 0,
+      "parentDoi": "10.25914/t2jj-xb16"
+    },
+    {
+      "doi": "10.25914/9tva-fv38",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3425_3884_3135_1762",
+      "childCount": 0,
+      "parentDoi": "10.25914/t2jj-xb16"
+    },
+    {
+      "doi": "10.25914/jm8p-yn76",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4140_6441_2482_3926",
+      "childCount": 0,
+      "parentDoi": "10.25914/t2jj-xb16"
+    },
+    {
+      "doi": "10.25914/barh-5z87",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 1 products)",
+      "authors": "",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5449_6749_4837_5542",
+      "childCount": 1,
+      "parentDoi": "10.25914/0pt0-qw75"
+    },
+    {
+      "doi": "10.25914/rx6n-bt67",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level-1 MTH5 - concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel, Goleby, Bruce",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7541_2487_3788_6843",
+      "childCount": 0,
+      "parentDoi": "10.25914/barh-5z87"
+    },
+    {
+      "doi": "10.25914/bhhe-dx83",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 2 products)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5822_7387_8925_0269",
+      "childCount": 1,
+      "parentDoi": "10.25914/0pt0-qw75"
+    },
+    {
+      "doi": "10.25914/wv1k-e553",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1259_0839_7304_9045",
+      "childCount": 0,
+      "parentDoi": "10.25914/bhhe-dx83"
+    },
+    {
+      "doi": "10.25914/k3jh-df90",
+      "name": "Magnetotelluric surveys of the Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (packed raw time series archive)",
+      "authors": "Graham Heinson, Goleby, Bruce, Brand, Kate E., Thiel, Stephan, Boren, Goran, Mawby, Philippa, Axford, Geoffrey",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8197_8147_2555_7324",
+      "childCount": 0,
+      "parentDoi": "10.25914/0pt0-qw75"
+    },
+    {
+      "doi": "10.25914/bnhe-3w04",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9325_7942_5105_9040",
+      "childCount": 4,
+      "parentDoi": "10.25914/bzd5-n780"
+    },
+    {
+      "doi": "10.25914/qkw4-me57",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 products)",
+      "authors": "",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9129_2243_8716_0696",
+      "childCount": 3,
+      "parentDoi": "10.25914/bnhe-3w04"
+    },
+    {
+      "doi": "10.25914/0cdv-c490",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per day)",
+      "authors": "Hollmann, Hannes, Rees, Nigel, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7815_9842_6214_0706",
+      "childCount": 0,
+      "parentDoi": "10.25914/qkw4-me57"
+    },
+    {
+      "doi": "10.25914/2wxz-xj05",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel, Kay, Ben, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8248_4913_5948_6800",
+      "childCount": 0,
+      "parentDoi": "10.25914/qkw4-me57"
+    },
+    {
+      "doi": "10.25914/z8xw-2t04",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2604_9627_9709_5228",
+      "childCount": 0,
+      "parentDoi": "10.25914/qkw4-me57"
+    },
+    {
+      "doi": "10.25914/a2vr-2w35",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 1 products)",
+      "authors": "",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8258_1558_3863_4592",
+      "childCount": 1,
+      "parentDoi": "10.25914/bnhe-3w04"
+    },
+    {
+      "doi": "10.25914/6w28-ym61",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level-1 MTH5 - concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel, Goleby, Bruce",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3644_5402_7003_4398",
+      "childCount": 0,
+      "parentDoi": "10.25914/a2vr-2w35"
+    },
+    {
+      "doi": "10.25914/tmwb-b993",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 2 products)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9900_3930_4258_6564",
+      "childCount": 1,
+      "parentDoi": "10.25914/bnhe-3w04"
+    },
+    {
+      "doi": "10.25914/edtd-r822",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2375_0871_2570_5353",
+      "childCount": 0,
+      "parentDoi": "10.25914/tmwb-b993"
+    },
+    {
+      "doi": "10.25914/6pbq-sc87",
+      "name": "Magnetotelluric surveys of the Gawler Craton, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (packed raw time series archive)",
+      "authors": "Graham Heinson, Goleby, Bruce, Brand, Kate E., Thiel, Stephan, Boren, Goran, Mawby, Philippa, Axford, Geoffrey",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6173_3797_6447_2133",
+      "childCount": 0,
+      "parentDoi": "10.25914/bnhe-3w04"
+    },
+    {
+      "doi": "10.25914/8ytm-bn46",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4455_3218_2627_3437",
+      "childCount": 4,
+      "parentDoi": "10.25914/bzd5-n780"
+    },
+    {
+      "doi": "10.25914/xtgw-bn57",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 products)",
+      "authors": "",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0499_9780_4390_8903",
+      "childCount": 3,
+      "parentDoi": "10.25914/8ytm-bn46"
+    },
+    {
+      "doi": "10.25914/cb2w-m511",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per day)",
+      "authors": "Hollmann, Hannes, Rees, Nigel, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9935_3828_8089_9929",
+      "childCount": 0,
+      "parentDoi": "10.25914/xtgw-bn57"
+    },
+    {
+      "doi": "10.25914/67az-vb79",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2689_9280_8946_0006",
+      "childCount": 0,
+      "parentDoi": "10.25914/xtgw-bn57"
+    },
+    {
+      "doi": "10.25914/tqzp-6187",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel, Hollmann, Hannes, Goleby, Bruce",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6430_8577_8883_1930",
+      "childCount": 0,
+      "parentDoi": "10.25914/xtgw-bn57"
+    },
+    {
+      "doi": "10.25914/mqfy-fn71",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 1 products)",
+      "authors": "",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8367_4642_9167_1313",
+      "childCount": 1,
+      "parentDoi": "10.25914/8ytm-bn46"
+    },
+    {
+      "doi": "10.25914/4t68-3916",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level-1 MTH5 - concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel, Goleby, Bruce",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9002_3588_9927_2753",
+      "childCount": 0,
+      "parentDoi": "10.25914/mqfy-fn71"
+    },
+    {
+      "doi": "10.25914/bxag-e029",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (Level 2 products)",
+      "authors": "",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8809_5466_3134_8421",
+      "childCount": 1,
+      "parentDoi": "10.25914/8ytm-bn46"
+    },
+    {
+      "doi": "10.25914/07yq-1486",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8110_6199_1765_7516",
+      "childCount": 0,
+      "parentDoi": "10.25914/bxag-e029"
+    },
+    {
+      "doi": "10.25914/pj9d-0w45",
+      "name": "Magnetotelluric surveys of the Northern Flinders Ranges, South Australia as part of the Australian Lithospheric Architecture Magnetotelluric Project (AusLAMP) (packed raw time series archive)",
+      "authors": "Graham Heinson, Goleby, Bruce, Brand, Kate E., Thiel, Stephan, Boren, Goran, Mawby, Philippa, Axford, Geoffrey",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8135_7526_6092_0337",
+      "childCount": 0,
+      "parentDoi": "10.25914/8ytm-bn46"
     },
     {
       "doi": "10.25914/r1yv-qe70",
@@ -1611,7 +3109,117 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f6598_1359_7455_7246"
+      "nciUuid": "f6598_1359_7455_7246",
+      "childCount": 1,
+      "parentDoi": "10.25914/5eaa30cc934d0"
+    },
+    {
+      "doi": "10.25914/e4dz-q275",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP project, 2016",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7632_1283_1398_7089",
+      "childCount": 3,
+      "parentDoi": "10.25914/r1yv-qe70"
+    },
+    {
+      "doi": "10.25914/c97s-td09",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP project, 2016 (Level 0 products)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1560_3153_6070_5523",
+      "childCount": 3,
+      "parentDoi": "10.25914/e4dz-q275"
+    },
+    {
+      "doi": "10.25914/8eek-a104",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP project, 2016 (Level 0 concatenated ASCII time series per day)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8079_1941_1125_9943",
+      "childCount": 0,
+      "parentDoi": "10.25914/c97s-td09"
+    },
+    {
+      "doi": "10.25914/v2fp-yp53",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP project, 2016 (Level 0 concatenated ASCII time series per run)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4608_1577_8391_6760",
+      "childCount": 0,
+      "parentDoi": "10.25914/c97s-td09"
+    },
+    {
+      "doi": "10.25914/2tn0-5h51",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP project, 2016 (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel, Ostersen, Thomas",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3691_1986_8018_8182",
+      "childCount": 0,
+      "parentDoi": "10.25914/c97s-td09"
+    },
+    {
+      "doi": "10.25914/wg8s-ph17",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP project, 2016 (Level 2 products)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3562_4394_8137_6513",
+      "childCount": 2,
+      "parentDoi": "10.25914/e4dz-q275"
+    },
+    {
+      "doi": "10.25914/3jcq-7310",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP project, 2016 (MRT Level 2 inversion-ready EDI transfer functions)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8770_3815_6380_3910",
+      "childCount": 0,
+      "parentDoi": "10.25914/wg8s-ph17"
+    },
+    {
+      "doi": "10.25914/pa4a-vb95",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP project, 2016 (MRT Level 2 raw EDI transfer functions)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4399_4717_5515_3430",
+      "childCount": 0,
+      "parentDoi": "10.25914/wg8s-ph17"
+    },
+    {
+      "doi": "10.25914/m8bb-xx89",
+      "name": "Magnetotelluric surveys of mainland Tasmania and Flinders Island as part of the AusLAMP Tasmania project, 2016 (packed raw time series archive)",
+      "authors": "Ostersen, Thomas, Reading, Anya, Duffett, Mark, Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9469_0137_4142_8742",
+      "childCount": 0,
+      "parentDoi": "10.25914/e4dz-q275"
     },
     {
       "doi": "10.25914/rrm2-b189",
@@ -1621,7 +3229,441 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f6277_7362_8380_4100"
+      "nciUuid": "f6277_7362_8380_4100",
+      "childCount": 3,
+      "parentDoi": "10.25914/5eaa30cc934d0"
+    },
+    {
+      "doi": "10.25914/d69t-wr81",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5399_9730_6761_9967",
+      "childCount": 4,
+      "parentDoi": "10.25914/rrm2-b189"
+    },
+    {
+      "doi": "10.25914/d2zj-6r93",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 0 products)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5585_8848_9950_0882",
+      "childCount": 4,
+      "parentDoi": "10.25914/d69t-wr81"
+    },
+    {
+      "doi": "10.25914/58gr-1550",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 0 concatenated ASCII time series per day)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4109_0974_3727_1528",
+      "childCount": 0,
+      "parentDoi": "10.25914/d2zj-6r93"
+    },
+    {
+      "doi": "10.25914/y380-ds12",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8371_2549_0175_7363",
+      "childCount": 0,
+      "parentDoi": "10.25914/d2zj-6r93"
+    },
+    {
+      "doi": "10.25914/4e1h-dy03",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8040_6355_0436_6355",
+      "childCount": 0,
+      "parentDoi": "10.25914/d2zj-6r93"
+    },
+    {
+      "doi": "10.25914/yyg7-e549",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 0 concatenated NetCDF time series)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4331_0738_2123_1806",
+      "childCount": 0,
+      "parentDoi": "10.25914/d2zj-6r93"
+    },
+    {
+      "doi": "10.25914/3hrt-a687",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 1 products)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9304_9497_7360_1660",
+      "childCount": 2,
+      "parentDoi": "10.25914/d69t-wr81"
+    },
+    {
+      "doi": "10.25914/tzp3-td94",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 1 concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3027_3907_5073_6487",
+      "childCount": 0,
+      "parentDoi": "10.25914/3hrt-a687"
+    },
+    {
+      "doi": "10.25914/bdhm-dn80",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 1 concatenated, resampled, rotated NetCDF time series)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2825_1914_2324_9740",
+      "childCount": 0,
+      "parentDoi": "10.25914/3hrt-a687"
+    },
+    {
+      "doi": "10.25914/dm81-gt24",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (Level 2 products)",
+      "authors": "Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1809_2956_5129_1185",
+      "childCount": 1,
+      "parentDoi": "10.25914/d69t-wr81"
+    },
+    {
+      "doi": "10.25914/my58-7x27",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Goleby, Bruce, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9560_4635_5915_3904",
+      "childCount": 0,
+      "parentDoi": "10.25914/dm81-gt24"
+    },
+    {
+      "doi": "10.25914/2jz4-cz52",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within South Australia, 2016 to 2018 (packed raw time series archive)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1677_1866_9244_4758",
+      "childCount": 0,
+      "parentDoi": "10.25914/d69t-wr81"
+    },
+    {
+      "doi": "10.25914/4ks0-v478",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6653_9431_4854_9791",
+      "childCount": 4,
+      "parentDoi": "10.25914/rrm2-b189"
+    },
+    {
+      "doi": "10.25914/nkv1-p133",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 0 products)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3340_4735_9355_4087",
+      "childCount": 4,
+      "parentDoi": "10.25914/4ks0-v478"
+    },
+    {
+      "doi": "10.25914/hjpr-6j38",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 0 concatenated ASCII time series per day)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2355_0234_7769_5503",
+      "childCount": 0,
+      "parentDoi": "10.25914/nkv1-p133"
+    },
+    {
+      "doi": "10.25914/4bqa-8n73",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1071_2622_2768_2063",
+      "childCount": 0,
+      "parentDoi": "10.25914/nkv1-p133"
+    },
+    {
+      "doi": "10.25914/5jat-s522",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2493_2290_4933_9015",
+      "childCount": 0,
+      "parentDoi": "10.25914/nkv1-p133"
+    },
+    {
+      "doi": "10.25914/c7ev-4p50",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 0 concatenated NetCDF time series)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3281_3741_7414_0517",
+      "childCount": 0,
+      "parentDoi": "10.25914/nkv1-p133"
+    },
+    {
+      "doi": "10.25914/5e7032d6ad272",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 1 products)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4130_5014_8727_3817",
+      "childCount": 2,
+      "parentDoi": "10.25914/4ks0-v478"
+    },
+    {
+      "doi": "10.25914/akcy-n669",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 1 concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4882_2930_5054_6400",
+      "childCount": 0,
+      "parentDoi": "10.25914/5e7032d6ad272"
+    },
+    {
+      "doi": "10.25914/ckdx-n897",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 1 concatenated, resampled, rotated NetCDF time series)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5726_9935_1984_7471",
+      "childCount": 0,
+      "parentDoi": "10.25914/5e7032d6ad272"
+    },
+    {
+      "doi": "10.25914/59qj-9h93",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (Level 2 products)",
+      "authors": "Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8687_7299_4136_0506",
+      "childCount": 1,
+      "parentDoi": "10.25914/4ks0-v478"
+    },
+    {
+      "doi": "10.25914/yr92-ck60",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Goleby, Bruce, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1418_8730_7103_7118",
+      "childCount": 0,
+      "parentDoi": "10.25914/59qj-9h93"
+    },
+    {
+      "doi": "10.25914/5hy9-fc60",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within the Northern Territory, 2016 to 2018 (packed raw time series archive)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1076_6048_6256_5233",
+      "childCount": 0,
+      "parentDoi": "10.25914/4ks0-v478"
+    },
+    {
+      "doi": "10.25914/9c6r-vt07",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5590_2453_9020_4995",
+      "childCount": 4,
+      "parentDoi": "10.25914/rrm2-b189"
+    },
+    {
+      "doi": "10.25914/hsg2-xr53",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 0 products)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2209_1399_1623_3753",
+      "childCount": 4,
+      "parentDoi": "10.25914/9c6r-vt07"
+    },
+    {
+      "doi": "10.25914/fs74-4g06",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 0 concatenated ASCII time series per day)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0076_5078_8760_9705",
+      "childCount": 0,
+      "parentDoi": "10.25914/hsg2-xr53"
+    },
+    {
+      "doi": "10.25914/4gx2-as41",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 0 concatenated ASCII time series per run)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8344_8300_7574_9188",
+      "childCount": 0,
+      "parentDoi": "10.25914/hsg2-xr53"
+    },
+    {
+      "doi": "10.25914/9y8g-9x90",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 0 concatenated MTH5 time series per run)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6810_0073_5770_9956",
+      "childCount": 0,
+      "parentDoi": "10.25914/hsg2-xr53"
+    },
+    {
+      "doi": "10.25914/45ya-yg14",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 0 concatenated NetCDF time series)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6893_0987_4296_2909",
+      "childCount": 0,
+      "parentDoi": "10.25914/hsg2-xr53"
+    },
+    {
+      "doi": "10.25914/b6mr-9555",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 1 products)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3503_7146_1266_9140",
+      "childCount": 2,
+      "parentDoi": "10.25914/9c6r-vt07"
+    },
+    {
+      "doi": "10.25914/tnez-h962",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 1 concatenated, resampled, rotated MTH5 time series)",
+      "authors": "Rees, Nigel",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4607_6765_4634_2401",
+      "childCount": 0,
+      "parentDoi": "10.25914/b6mr-9555"
+    },
+    {
+      "doi": "10.25914/xx26-b740",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 1 concatenated, resampled, rotated NetCDF time series)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3201_8657_2688_0026",
+      "childCount": 0,
+      "parentDoi": "10.25914/b6mr-9555"
+    },
+    {
+      "doi": "10.25914/p8rw-4633",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (Level 2 products)",
+      "authors": "Graham Heinson",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3623_5385_8972_0749",
+      "childCount": 1,
+      "parentDoi": "10.25914/9c6r-vt07"
+    },
+    {
+      "doi": "10.25914/krzf-yn58",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (GSSA Level 2 EDI transfer functions)",
+      "authors": "Thiel, Stephan, Goleby, Bruce, Brand, Kate E.",
+      "year": 2023,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1653_0666_0191_1310",
+      "childCount": 0,
+      "parentDoi": "10.25914/p8rw-4633"
+    },
+    {
+      "doi": "10.25914/aj1k-fj69",
+      "name": "Magnetotelluric surveys of the AusLAMP Musgraves Province within Western Australia, 2016 to 2018 (packed raw time series archive)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0054_7163_4885_8239",
+      "childCount": 0,
+      "parentDoi": "10.25914/9c6r-vt07"
     },
     {
       "doi": "10.25914/nxxw-wd19",
@@ -1631,7 +3673,9 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f8303_6396_4487_5442"
+      "nciUuid": "f8303_6396_4487_5442",
+      "childCount": 2,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/rr0p-yb26",
@@ -1641,7 +3685,69 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f0072_8725_3150_9321"
+      "nciUuid": "f0072_8725_3150_9321",
+      "childCount": 3,
+      "parentDoi": "10.25914/nxxw-wd19"
+    },
+    {
+      "doi": "10.25914/n51k-9611",
+      "name": "Magnetotelluric surveys for deep Earth investigations in East Antarctica (Level 2 products)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Askey-Doran, Niam, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8119_3025_1115_7479",
+      "childCount": 1,
+      "parentDoi": "10.25914/rr0p-yb26"
+    },
+    {
+      "doi": "10.25914/p8jg-2796",
+      "name": "Magnetotelluric surveys for deep Earth investigations in East Antarctica  (Level 2 EDI transfer functions)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Askey-Doran, Niam, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2920_9789_8468_3123",
+      "childCount": 0,
+      "parentDoi": "10.25914/n51k-9611"
+    },
+    {
+      "doi": "10.25914/gayp-2r37",
+      "name": "Magnetotelluric surveys for deep Earth investigations in East Antarctica  (Level 3 products)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, Reading, Anya, Askey-Doran, Niam, St�l, Tobias",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8648_1889_9520_3266",
+      "childCount": 1,
+      "parentDoi": "10.25914/rr0p-yb26"
+    },
+    {
+      "doi": "10.25914/cnna-0p16",
+      "name": "Magnetotelluric surveys for deep Earth investigations in East Antarctica  (Level 3 ModEM)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, Reading, Anya, Askey-Doran, Niam, St�l, Tobias",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f0744_1835_5194_8507",
+      "childCount": 0,
+      "parentDoi": "10.25914/gayp-2r37"
+    },
+    {
+      "doi": "10.25914/awxj-t464",
+      "name": "Magnetotelluric surveys for deep Earth investigations in East Antarctica (packed raw Phoenix MTU-5C time series archive)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Askey-Doran, Niam, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3646_5951_0148_3036",
+      "childCount": 0,
+      "parentDoi": "10.25914/rr0p-yb26"
     },
     {
       "doi": "10.25914/fyrh-v157",
@@ -1651,7 +3757,81 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f6732_1581_4488_6269"
+      "nciUuid": "f6732_1581_4488_6269",
+      "childCount": 1,
+      "parentDoi": "10.25914/nxxw-wd19"
+    },
+    {
+      "doi": "10.25914/cqzm-gv65",
+      "name": "Magnetotelluric surveys for glacier process investigations in East Antarctica - Denman Transect",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8135_5517_7256_0166",
+      "childCount": 3,
+      "parentDoi": "10.25914/fyrh-v157"
+    },
+    {
+      "doi": "10.25914/5cpp-dh20",
+      "name": "Magnetotelluric surveys for glacier process investigations in East Antarctica - Denman Transect (Level 2 products)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5135_5798_0106_1418",
+      "childCount": 1,
+      "parentDoi": "10.25914/cqzm-gv65"
+    },
+    {
+      "doi": "10.25914/xj0m-9h61",
+      "name": "Magnetotelluric surveys for glacier process investigations in East Antarctica - Denman Transect (Level 2 EDI transfer functions)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9014_5233_4092_1749",
+      "childCount": 0,
+      "parentDoi": "10.25914/5cpp-dh20"
+    },
+    {
+      "doi": "10.25914/8r85-2t36",
+      "name": "Magnetotelluric surveys for glacier process investigations in East Antarctica - Denman Transect (Level 3 products)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6177_6913_9058_1127",
+      "childCount": 1,
+      "parentDoi": "10.25914/cqzm-gv65"
+    },
+    {
+      "doi": "10.25914/qgea-rc42",
+      "name": "Magnetotelluric surveys for glacier process investigations in East Antarctica - Denman Transect (Level 3 ModEM)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4651_1572_7924_1877",
+      "childCount": 0,
+      "parentDoi": "10.25914/8r85-2t36"
+    },
+    {
+      "doi": "10.25914/1346-tj42",
+      "name": "Magnetotelluric surveys for glacier process investigations in East Antarctica - Denman Transect (packed raw Phoenix MTU-5C time series archive)",
+      "authors": "Manassero,  Maria Constanza, Selway, Kate, St�l, Tobias, Reading, Anya",
+      "year": 2025,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8596_6705_7123_2348",
+      "childCount": 0,
+      "parentDoi": "10.25914/cqzm-gv65"
     },
     {
       "doi": "10.4225/41/5a618c3ae30ab",
@@ -1661,7 +3841,9 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Collection",
-      "nciUuid": "f4237_9555_3315_5547"
+      "nciUuid": "f4237_9555_3315_5547",
+      "childCount": 6,
+      "parentDoi": ""
     },
     {
       "doi": "10.4225/41/5a79326ea898d",
@@ -1671,7 +3853,45 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f2066_9902_2549_5960"
+      "nciUuid": "f2066_9902_2549_5960",
+      "childCount": 1,
+      "parentDoi": "10.4225/41/5a618c3ae30ab"
+    },
+    {
+      "doi": "10.25914/q9p9-q215",
+      "name": "Magnetotelluric surveys of New South Wales (long period)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6299_3635_3057_7464",
+      "childCount": 2,
+      "parentDoi": "10.4225/41/5a79326ea898d"
+    },
+    {
+      "doi": "10.25914/5bea4dc975b29",
+      "name": "Magnetotelluric survey (time series) of the Olary and Broken Hill domains (Mundi Mundi fault), 2007",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3255_8631_1527_1222",
+      "childCount": 0,
+      "parentDoi": "10.25914/q9p9-q215"
+    },
+    {
+      "doi": "10.4225/41/5a79331620a5c",
+      "name": "Magnetotelluric survey of the Barrier Ranges, NSW, conducted in 2007",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4854_7468_8156_1783",
+      "childCount": 0,
+      "parentDoi": "10.25914/q9p9-q215"
     },
     {
       "doi": "10.4225/41/5a7933c881dbc",
@@ -1681,7 +3901,381 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f6440_7394_2965_2331"
+      "nciUuid": "f6440_7394_2965_2331",
+      "childCount": 2,
+      "parentDoi": "10.4225/41/5a618c3ae30ab"
+    },
+    {
+      "doi": "10.25914/hmcw-yx66",
+      "name": "Magnetotelluric surveys of South Australia (broadband)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7813_7828_5094_7153",
+      "childCount": 13,
+      "parentDoi": "10.4225/41/5a7933c881dbc"
+    },
+    {
+      "doi": "10.25914/5bea5867bb322",
+      "name": "Magnetotelluric survey (time series) across tenement GEL 241, Renmark, 2009",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5739_8337_7838_3996",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea5119b2fa6",
+      "name": "Magnetotelluric survey (time series) of an enhanced geothermal system fluid injection at 3.6-km depth near Paralana, South Australia, July 2011",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9330_8026_1951_1272",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea579d41e8f",
+      "name": "Magnetotelluric survey (time series) of an enhanced geothermal system fluid injection at 3.6-km depth near Paralana, South Australia, March 2010",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2842_6350_6112_7088",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea57d9a06a5",
+      "name": "Magnetotelluric survey (time series) of an enhanced geothermal system fluid injection at 3.6-km depth near Paralana, South Australia, March 2011",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9687_7091_3862_6566",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea581ee16db",
+      "name": "Magnetotelluric survey (time series) of an enhanced geothermal system fluid injection at 3.6-km depth near Paralana, South Australia, May 2010",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5462_2924_2070_7897",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea5a4790abf",
+      "name": "Magnetotelluric survey (time series) of the Beresford Spring, 2010",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3087_4145_7621_3784",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea5a8bc0a86",
+      "name": "Magnetotelluric survey (time series) of the Beresford Spring, 2012",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5651_5973_4313_7185",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea4e9e9e2bb",
+      "name": "Magnetotelluric survey (time series) of the Carrapateena, Woomera and Olympid Dam Region, 2008",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3784_3388_9646_7920",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea4ff3c3aaf",
+      "name": "Magnetotelluric survey (time series) of the Freeling Springs, 2012",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8278_9969_1205_8274",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea58bf0b317",
+      "name": "Magnetotelluric survey (time series) of the Wabma Kadarbu Mound Springs, 2011",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5328_4668_1089_5609",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea5adb27959",
+      "name": "Magnetotelluric survey (time series) of the Warburton Spring, 2012",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5223_6651_4095_7242",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea503aaf48a",
+      "name": "Phase 1 of a magnetotelluric survey (time series) conducted at Hillside, Yorke Peninsula, South Australia, 2012",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7519_9143_7073_9260",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/5bea50b6e636a",
+      "name": "Phase 2 of a magnetotelluric survey (time series) conducted at Hillside, Yorke Peninsula, South Australia, 2012",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7942_2777_1585_7573",
+      "childCount": 0,
+      "parentDoi": "10.25914/hmcw-yx66"
+    },
+    {
+      "doi": "10.25914/0s9d-8d34",
+      "name": "Magnetotelluric surveys of South Australia (long period)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9978_0735_1246_8489",
+      "childCount": 16,
+      "parentDoi": "10.4225/41/5a7933c881dbc"
+    },
+    {
+      "doi": "10.4225/41/5a79381f05e33",
+      "name": "Crustal imaging of a mobile belt using magnetotellurics: An example of the Fowler Domain in South Australia",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5690_3853_5111_1376",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a7936e8be23e",
+      "name": "Crustal scale magnetotelluric data survey along the 08GA-C1 seismic line in the Curnamona Province in South Australia, collected in 2008",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2758_1893_6142_7998",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a793a9be546a",
+      "name": "Decompression melting driving intraplate volcanism in Australia: Evidence from magnetotelluric sounding",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7411_9337_5144_6782",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a7a2a4aa5ac6",
+      "name": "Imaging the electrical lithosphere of South Australia - 2D profiles and preliminary results of AusLAMP SA",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8604_4628_7876_3622",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a7a2b38afd16",
+      "name": "Insights into the formation of the Stuart Shelf iron-oxide-copper-gold (uranium) system from magnetotellurics",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2947_2974_5355_4724",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a793d8ce7b9f",
+      "name": "Long-period MT survey in the Renmark Trough, collected in 2009",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2667_6129_8835_8241",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a7a2aaf9f179",
+      "name": "Magnetotelluric data acquired in the Southern Flinders Ranges, 2009",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6255_3737_4382_1461",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a79352235280",
+      "name": "Magnetotelluric data for AWAGS survey, SA, conducted in 2002",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3211_3544_3604_8321",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a793fd9965e1",
+      "name": "Magnetotellurics survey of SAMAS region, SE Australia, conducted in 1995",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3803_8989_5135_6300",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a793e3a2a432",
+      "name": "Magnetotelluric survey in Roxby Downs, SA, conducted in 2009",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3943_6259_3739_8934",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a79359851799",
+      "name": "Magnetotelluric survey in the Mt. Painter Domain extending from the Northern Flinders Ranges to the Lake Frome embayment, South Australia, collected in May 2012",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7716_2136_7221_1329",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a793cf3914b0",
+      "name": "Magnetotelluric survey of Parachilna, South Australia, conducted by The University of Adelaide in 2003",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2251_1833_1157_9991",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a7937a1c0670",
+      "name": "Magnetotelluric survey of the northern Eyre Peninsula, South Australia (transect 08GA-G1), conducted in 2008",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3110_9371_7634_9145",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a793c89a815d",
+      "name": "Magnetotelluric survey of the Olary Domain, conducted in 1994",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4104_1257_3566_3912",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a79366bbdf90",
+      "name": "Magnetotelluric surveys acquired along the southern part of the GOMA (Gawler Craton, Officer Basin, Musgrave Province, Amadeus Basin) deep seismic reflection transect (GA08-OM1) from Tarcoola to near Coober Pedy in South Australia (beside the Adelaide-Darwin railway line), collected in December 2008",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5652_7712_4276_8823",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
+    },
+    {
+      "doi": "10.4225/41/5a79388f6a728",
+      "name": "Various magnetotelluric surveys of the Gawler Craton, SA, conducted in 2005",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4053_7392_1661_3697",
+      "childCount": 0,
+      "parentDoi": "10.25914/0s9d-8d34"
     },
     {
       "doi": "10.4225/41/5a7a2b9f1f3dc",
@@ -1691,7 +4285,33 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f4430_5784_1652_3308"
+      "nciUuid": "f4430_5784_1652_3308",
+      "childCount": 1,
+      "parentDoi": "10.4225/41/5a618c3ae30ab"
+    },
+    {
+      "doi": "10.25914/0ped-yh77",
+      "name": "Magnetotelluric surveys of Tasmania (long period)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f4360_7102_0330_6870",
+      "childCount": 1,
+      "parentDoi": "10.4225/41/5a7a2b9f1f3dc"
+    },
+    {
+      "doi": "10.4225/41/5a7a2c1b7e0b9",
+      "name": "Magnetotelluric experiments carried out in the Tamar Valley area of northern and central Tasmania, conducted in 1994",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7674_3368_2986_4846",
+      "childCount": 0,
+      "parentDoi": "10.25914/0ped-yh77"
     },
     {
       "doi": "10.4225/41/5a7a2c8449efc",
@@ -1701,7 +4321,69 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f1746_7402_6625_3811"
+      "nciUuid": "f1746_7402_6625_3811",
+      "childCount": 2,
+      "parentDoi": "10.4225/41/5a618c3ae30ab"
+    },
+    {
+      "doi": "10.25914/f7qf-g927",
+      "name": "Magnetotelluric surveys of Victoria (broadband)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f6650_9768_0798_3422",
+      "childCount": 1,
+      "parentDoi": "10.4225/41/5a7a2c8449efc"
+    },
+    {
+      "doi": "10.25914/5cc294e09b204",
+      "name": "2D Lithospheric Imaging of the Delamerian and Lachlan Orogens, Southwestern Victoria, Australia from Broadband Magnetotellurics (time series)",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3979_8661_5745_4685",
+      "childCount": 0,
+      "parentDoi": "10.25914/f7qf-g927"
+    },
+    {
+      "doi": "10.25914/3g2k-dx82",
+      "name": "Magnetotelluric surveys of Victoria (long period)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f9948_1265_3879_3673",
+      "childCount": 2,
+      "parentDoi": "10.4225/41/5a7a2c8449efc"
+    },
+    {
+      "doi": "10.4225/41/5a7a2e3e3a0a5",
+      "name": "Magnetotelluric survey in Ballarat, Vic, conducted in 1992",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f5857_4788_9088_7647",
+      "childCount": 0,
+      "parentDoi": "10.25914/3g2k-dx82"
+    },
+    {
+      "doi": "10.4225/41/5a7a2e8eb2a7f",
+      "name": "Resistivity structures of western Victoria, Australia from 2D and 3D modelling of magnetotelluric data collected in 2010",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f3660_1965_5383_9900",
+      "childCount": 0,
+      "parentDoi": "10.25914/3g2k-dx82"
     },
     {
       "doi": "10.25914/5b98b2782538c",
@@ -1711,7 +4393,57 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f1819_6386_8013_2641"
+      "nciUuid": "f1819_6386_8013_2641",
+      "childCount": 2,
+      "parentDoi": "10.4225/41/5a618c3ae30ab"
+    },
+    {
+      "doi": "10.25914/ksmz-6s19",
+      "name": "Magnetotelluric surveys of Western Australia (broadband)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8412_8024_0345_9487",
+      "childCount": 1,
+      "parentDoi": "10.25914/5b98b2782538c"
+    },
+    {
+      "doi": "10.25914/5b98b3e3cbbe0",
+      "name": "The Capricorn Orogen broadband magnetotelluric (MT) transect (time series)",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8073_5065_8603_6034",
+      "childCount": 0,
+      "parentDoi": "10.25914/ksmz-6s19"
+    },
+    {
+      "doi": "10.25914/pf7c-bx64",
+      "name": "Magnetotelluric surveys of Western Australia (long period)",
+      "authors": "Graham Heinson",
+      "year": 2022,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f8923_9942_3410_3217",
+      "childCount": 1,
+      "parentDoi": "10.25914/5b98b2782538c"
+    },
+    {
+      "doi": "10.25914/5bea5b1b825d7",
+      "name": "The Capricorn Orogen long-period magnetotelluric (MT) transect (time series)",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f1495_4946_1328_3112",
+      "childCount": 0,
+      "parentDoi": "10.25914/pf7c-bx64"
     },
     {
       "doi": "10.25914/aty6-xs98",
@@ -1721,7 +4453,33 @@
       "platform": "NCI",
       "subset": "MT",
       "type": "Dataset",
-      "nciUuid": "f3493_5419_2278_8379"
+      "nciUuid": "f3493_5419_2278_8379",
+      "childCount": 2,
+      "parentDoi": "10.4225/41/5a618c3ae30ab"
+    },
+    {
+      "doi": "10.25914/5f8581a50eb3e",
+      "name": "Location of electromagnetic surveys conducted in Australia",
+      "authors": "Graham Heinson",
+      "year": 2020,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f7228_443_9506_3012",
+      "childCount": 0,
+      "parentDoi": "10.25914/aty6-xs98"
+    },
+    {
+      "doi": "10.25914/5cc28d3b5a808",
+      "name": "Magnetotelluric investigation of the Vestfold Hills and Rauer Group, East Antarctica (time series)",
+      "authors": "Graham Heinson",
+      "year": 2019,
+      "platform": "NCI",
+      "subset": "MT",
+      "type": "Dataset",
+      "nciUuid": "f2638_6708_6611_7301",
+      "childCount": 0,
+      "parentDoi": "10.25914/aty6-xs98"
     },
     {
       "doi": "10.25914/kf96-nb26",
@@ -1731,7 +4489,9 @@
       "platform": "NCI",
       "subset": "DAS",
       "type": "Dataset",
-      "nciUuid": "f0103_2437_2513_4912"
+      "nciUuid": "f0103_2437_2513_4912",
+      "childCount": 1,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/1phc-8r73",
@@ -1741,7 +4501,9 @@
       "platform": "NCI",
       "subset": "DAS",
       "type": "Dataset",
-      "nciUuid": "f7951_4499_3694_3652"
+      "nciUuid": "f7951_4499_3694_3652",
+      "childCount": 0,
+      "parentDoi": "10.25914/kf96-nb26"
     },
     {
       "doi": "10.25914/trnf-c381",
@@ -1751,7 +4513,9 @@
       "platform": "NCI",
       "subset": "DAS",
       "type": "Dataset",
-      "nciUuid": "f7028_7996_9657_0446"
+      "nciUuid": "f7028_7996_9657_0446",
+      "childCount": 2,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/098k-vy40",
@@ -1761,7 +4525,9 @@
       "platform": "NCI",
       "subset": "DAS",
       "type": "Dataset",
-      "nciUuid": "f6919_6315_6758_0339"
+      "nciUuid": "f6919_6315_6758_0339",
+      "childCount": 0,
+      "parentDoi": "10.25914/trnf-c381"
     },
     {
       "doi": "10.25914/nr0d-nv51",
@@ -1771,7 +4537,9 @@
       "platform": "NCI",
       "subset": "DAS",
       "type": "Dataset",
-      "nciUuid": "f4225_7281_3553_5114"
+      "nciUuid": "f4225_7281_3553_5114",
+      "childCount": 0,
+      "parentDoi": "10.25914/trnf-c381"
     },
     {
       "doi": "10.25914/tzyp-dy03",
@@ -1781,7 +4549,9 @@
       "platform": "NCI",
       "subset": "DAS",
       "type": "Dataset",
-      "nciUuid": "f1569_5260_6502_2433"
+      "nciUuid": "f1569_5260_6502_2433",
+      "childCount": 1,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/nn3w-d141",
@@ -1791,7 +4561,45 @@
       "platform": "NCI",
       "subset": "DAS",
       "type": "Dataset",
-      "nciUuid": "f2381_8931_8909_7373"
+      "nciUuid": "f2381_8931_8909_7373",
+      "childCount": 0,
+      "parentDoi": "10.25914/tzyp-dy03"
+    },
+    {
+      "doi": "10.25914/x7h8-4a33",
+      "name": "A novel ALE scheme with the internal boundary for coupling tectonic and surface processes in geodynamic models",
+      "authors": "Lu, Neng",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MATE",
+      "type": "Model",
+      "nciUuid": "f4456_4246_5869_7256",
+      "childCount": 0,
+      "parentDoi": ""
+    },
+    {
+      "doi": "10.25914/qz3n-p243",
+      "name": "A novel ALE scheme with the internal boundary for true free surface simulation in geodynamic models",
+      "authors": "Lu, Neng",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MATE",
+      "type": "Model",
+      "nciUuid": "f9116_7174_1118_2193",
+      "childCount": 0,
+      "parentDoi": ""
+    },
+    {
+      "doi": "10.25914/an8s-6g97",
+      "name": "Bridging the gap between subduction dynamics and the long-term strength of the Sunda megathrust",
+      "authors": "Gollapalli, Thyagarajulu",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MATE",
+      "type": "Model",
+      "nciUuid": "f8310_6806_7579_7781",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/t2mn-bk81",
@@ -1801,7 +4609,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f1047_5682_4107_0773"
+      "nciUuid": "f1047_5682_4107_0773",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/4m82-y773",
@@ -1811,7 +4621,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f7744_0555_1713_0130"
+      "nciUuid": "f7744_0555_1713_0130",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/fhew-h678",
@@ -1821,7 +4633,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f7734_6673_8749_5403"
+      "nciUuid": "f7734_6673_8749_5403",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/r3ya-bg54",
@@ -1831,7 +4645,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f7014_1526_6105_9257"
+      "nciUuid": "f7014_1526_6105_9257",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/3jz9-mv44",
@@ -1841,7 +4657,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f8957_0071_0158_2530"
+      "nciUuid": "f8957_0071_0158_2530",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/t13d-0r63",
@@ -1851,7 +4669,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f5655_2235_9099_8507"
+      "nciUuid": "f5655_2235_9099_8507",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/0a2t-by03",
@@ -1861,7 +4681,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f6917_0236_7305_1919"
+      "nciUuid": "f6917_0236_7305_1919",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/tm6d-t466",
@@ -1871,7 +4693,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f3567_2350_4697_2118"
+      "nciUuid": "f3567_2350_4697_2118",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/vw5k-q269",
@@ -1881,7 +4705,21 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f9335_3362_0230_6114"
+      "nciUuid": "f9335_3362_0230_6114",
+      "childCount": 0,
+      "parentDoi": ""
+    },
+    {
+      "doi": "10.25914/tk35-h930",
+      "name": "Subduction System Response to Ribbon Collision: Implications on the Intra-Plate Force Balance and the Style of Slab Deformation",
+      "authors": "Rodr�guez Corcho, Andr�s Felipe, Polanco, Sara, Sandiford, Dan, Farrington, Rebecca, Moresi, Louis",
+      "year": 2026,
+      "platform": "NCI",
+      "subset": "MATE",
+      "type": "Model",
+      "nciUuid": "f5087_0391_1959_7744",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/xy60-b940",
@@ -1891,7 +4729,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f4170_6094_0453_9657"
+      "nciUuid": "f4170_6094_0453_9657",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/aaen-nc33",
@@ -1901,7 +4741,9 @@
       "platform": "NCI",
       "subset": "MATE",
       "type": "Model",
-      "nciUuid": "f4131_4383_5223_1765"
+      "nciUuid": "f4131_4383_5223_1765",
+      "childCount": 0,
+      "parentDoi": ""
     },
     {
       "doi": "10.25914/bztg-rg43",
@@ -1909,7 +4751,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "",
+      "childCount": 8
     },
     {
       "doi": "10.25914/2dy2-2592",
@@ -1917,7 +4761,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "10.25914/bztg-rg43",
+      "childCount": 0
     },
     {
       "doi": "10.25914/jgye-d059",
@@ -1925,7 +4771,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "10.25914/bztg-rg43",
+      "childCount": 0
     },
     {
       "doi": "10.25914/8q6h-q623",
@@ -1933,7 +4781,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "10.25914/bztg-rg43",
+      "childCount": 0
     },
     {
       "doi": "10.25914/7dz2-8t22",
@@ -1941,7 +4791,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "10.25914/bztg-rg43",
+      "childCount": 0
     },
     {
       "doi": "10.25914/c4zg-za54",
@@ -1949,7 +4801,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "10.25914/bztg-rg43",
+      "childCount": 0
     },
     {
       "doi": "10.25914/vh88-5s87",
@@ -1957,7 +4811,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "10.25914/bztg-rg43",
+      "childCount": 0
     },
     {
       "doi": "10.25914/ctaf-6c13",
@@ -1965,7 +4821,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "10.25914/bztg-rg43",
+      "childCount": 0
     },
     {
       "doi": "10.25914/3cw7-a967",
@@ -1973,7 +4831,9 @@
       "authors": "AuScope; CSIRO",
       "year": 2023,
       "platform": "NVCL",
-      "type": "Collection"
+      "type": "Collection",
+      "parentDoi": "10.25914/bztg-rg43",
+      "childCount": 0
     }
   ]
 }

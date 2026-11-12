@@ -92,11 +92,15 @@ async function run() {
     ['10.25914/vh88-5s87', 'NVCL Collection - Victoria'],
     ['10.25914/ctaf-6c13', 'NVCL Collection - Western Australia'],
     ['10.25914/3cw7-a967', 'NVCL - CSIRO'],
-  ].forEach(function(row) {
+  ].forEach(function(row, i) {
+    // Same hierarchy fields as the NCI walk: the national record is the
+    // parent of the eight node collections.
     allDatasets.push({
       doi: row[0], name: row[1],
       authors: 'AuScope; CSIRO',
       year: 2023, platform: 'NVCL', type: 'Collection',
+      parentDoi: i === 0 ? '' : '10.25914/bztg-rg43',
+      childCount: i === 0 ? 8 : 0,
     });
   });
 
@@ -230,23 +234,42 @@ async function fetchAusPass() {
 
 // ─── NCI GeoNetwork Collections ─────────────────────────────────────────────
 
+// Walk every level of the tree. The MT tree is five levels deep (national
+// and state collections, then survey, package and product records); the
+// two-level walk this replaced returned only the 19 state and program
+// parents and not one of the data products beneath them (13 Nov 2026).
+// Every record keeps its parent's DOI and its child count, so a record
+// with DOI-registered children can be told apart from a data product.
+const NCI_MAX_DEPTH = 8;
 async function fetchNCICollection(rootUuid, label, subset) {
-  const children = await fetchNCIChildren(rootUuid, subset);
-  // Recursively fetch one level deep
-  const datasets = [];
-  for (const child of children) {
-    datasets.push(child);
-    if (child.nciUuid) {
-      try {
-        const grandchildren = await fetchNCIChildren(child.nciUuid, subset);
-        datasets.push(...grandchildren);
-      } catch (e) {
-        // Some nodes are leaves
-      }
-      await sleep(200);
+  const nodes = [];
+  const seen = new Set([rootUuid]);
+  async function walk(parentUuid, parentNode, depth) {
+    if (depth > NCI_MAX_DEPTH) return;
+    let kids = [];
+    try { kids = await fetchNCIChildren(parentUuid, subset); } catch (e) { kids = []; }
+    await sleep(200);
+    for (const kid of kids) {
+      if (!kid.nciUuid || seen.has(kid.nciUuid)) continue;
+      seen.add(kid.nciUuid);
+      kid.parentUuid = parentNode ? parentNode.nciUuid : '';
+      kid.childCount = 0;
+      if (parentNode) parentNode.childCount++;
+      nodes.push(kid);
+      await walk(kid.nciUuid, kid, depth + 1);
     }
   }
-  return datasets;
+  await walk(rootUuid, null, 1);
+  await resolveNCIMeta(nodes);
+  const byUuid = {};
+  nodes.forEach(function(n) { byUuid[n.nciUuid] = n; });
+  nodes.forEach(function(n) {
+    n.parentDoi = (byUuid[n.parentUuid] || {}).doi || '';
+    delete n.parentUuid;
+  });
+  console.log('  ' + label + ': ' + nodes.length + ' records, '
+    + nodes.filter(function(n) { return n.childCount > 0; }).length + ' with children');
+  return nodes;
 }
 
 async function fetchNCIChildren(parentUuid, subset) {
@@ -278,7 +301,11 @@ async function fetchNCIChildren(parentUuid, subset) {
     });
   }
 
-  // Resolve DOIs and metadata for each child
+  return kids;
+}
+
+// DOI, authors and year from each GeoNetwork record; type from DataCite.
+async function resolveNCIMeta(kids) {
   for (const kid of kids) {
     if (!kid.nciUuid) continue;
     try {
@@ -302,8 +329,6 @@ async function fetchNCIChildren(parentUuid, subset) {
       console.warn('  type unresolved, defaulted to Dataset: ' + (kid.doi || kid.nciUuid));
     }
   }
-
-  return kids;
 }
 
 // The authoritative answer to "what kind of thing is this DOI" is the DataCite
