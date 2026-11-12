@@ -196,6 +196,7 @@ function run() {
         authors: r.authors || '', year: r.year || null,
         platform: r.platform || '', subset: r.subset || '',
         type: r.type || '',
+        parentDoi: r.parentDoi || '', childCount: r.childCount || 0,
       };
     })
   }));
@@ -724,24 +725,31 @@ function buildExplorerCards(pillarData, asOf) {
     const fairSub = function(key) {
       return fair[key] != null ? ' · avg F-UJI ' + fair[key] + '%' : '';
     };
+    // Collection records (DOI-registered children) sit above the counted
+    // datasets; the card says how many so the number is not read as all.
+    const coll = p.datasets.collections || {};
+    const tail = function(key) {
+      const n = coll[key] || 0;
+      return (n ? ' · ' + n + ' collection record' + (n === 1 ? '' : 's') : '') + fairSub(key);
+    };
     if (bp.EarthBank) {
       datasetCards.push({ href: 'earthbank.html', num: bp.EarthBank.toLocaleString(),
-        name: 'EarthBank datasets', sub: 'DataCite metadata health' + fairSub('EarthBank'),
+        name: 'EarthBank datasets', sub: 'DataCite metadata health' + tail('EarthBank'),
         grade: 'measured', asOf: dsAsOf });
     }
     if (bp.AusPass) {
       datasetCards.push({ href: 'auspass.html', num: bp.AusPass.toLocaleString(),
-        name: 'AusPass networks', sub: 'FDSN network DOIs' + fairSub('AusPass'),
+        name: 'AusPass networks', sub: 'FDSN network DOIs' + tail('AusPass'),
         grade: 'measured', asOf: dsAsOf });
     }
     if (bp['NCI MT']) {
       datasetCards.push({ href: 'nci-mt.html', num: bp['NCI MT'].toLocaleString(),
-        name: 'NCI MT collections', sub: 'AusLAMP + legacy surveys' + fairSub('NCI MT'),
+        name: 'NCI MT datasets', sub: 'AusLAMP + legacy surveys' + tail('NCI MT'),
         grade: 'measured', asOf: dsAsOf });
     }
     if (bp['NCI DAS']) {
       datasetCards.push({ href: 'nci-das.html', num: bp['NCI DAS'].toLocaleString(),
-        name: 'NCI DAS collections', sub: 'ALIRT · FISSLE · SISSLE' + fairSub('NCI DAS'),
+        name: 'NCI DAS datasets', sub: 'ALIRT · FISSLE · SISSLE' + tail('NCI DAS'),
         grade: 'measured', asOf: dsAsOf });
     }
     if (bp['NCI MATE']) {
@@ -749,12 +757,12 @@ function buildExplorerCards(pillarData, asOf) {
       // DataCite registers all 11 as resourceTypeGeneral `Model`, not `Dataset`.
       datasetCards.push({ href: 'dataset-registry.html?platform=NCI%20MATE',
         num: bp['NCI MATE'].toLocaleString(),
-        name: 'M@TE models', sub: 'Model Atlas of the Earth' + fairSub('NCI MATE'),
+        name: 'M@TE models', sub: 'Model Atlas of the Earth' + tail('NCI MATE'),
         grade: 'measured', asOf: dsAsOf });
     }
     if (bp.NVCL) {
       datasetCards.push({ href: 'nvcl.html', num: bp.NVCL.toLocaleString(),
-        name: 'NVCL collection DOIs', sub: 'state drill-core archives' + fairSub('NVCL'),
+        name: 'NVCL collection DOIs', sub: 'state drill-core archives' + tail('NVCL'),
         grade: 'measured', asOf: dsAsOf });
     }
   }
@@ -947,6 +955,8 @@ function computeLensData(datasets) {
     if (l) l.projects++;
   });
   (datasets || []).forEach(function(r) {
+    // Same population as the platform cards: no collection records, no samples.
+    if (r.childCount > 0 || (r.platform === 'EarthBank' && r.type === 'PhysicalObject')) return;
     const key = r.platform === 'NCI' ? 'NCI:' + (r.subset || '') : r.platform;
     const pid = (mapping.platform_projects || {})[key];
     const proj = pid && mapping.projects[pid];
@@ -1067,8 +1077,8 @@ function buildHowWeCount(lensData, pillarData, built) {
     + ' Program groups come from this tracker’s search terms, not the Project Mapping sheet; never add a figure'
     + ' from one to a figure from the other.</p>\n'
     + '            <h3>Datasets, FAIR and infrastructure</h3>\n'
-    + '            <p class="method-body">Dataset counts are DOI-registered records per platform; EarthBank sample records'
-    + ' are not datasets and are counted separately.'
+    + '            <p class="method-body">Dataset counts are DOI-registered data products per platform. A record with'
+    + ' DOI-registered children is a collection, listed but not counted; EarthBank sample records are counted separately.'
     + (fairMeta.metric_version ? ' F-UJI scores use metric set v' + fairMeta.metric_version
       + (fairMeta.last_updated ? ', assessed ' + dateOnly(fairMeta.last_updated) : '')
       + '; a card shows the platform average.' : '')
@@ -1231,12 +1241,14 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
   }
   const dsTotal = (pp.datasets && pp.datasets.total) || datasetCount || null;
 
-  // FOUR tiles, one action each. Seismic stations and instrument counts
-  // are infrastructure inventory and keep their cards further down. The
-  // [i] definitions and the grade tooltips moved into "How we count"
-  // (plainGrade), the number links to its records, and Copy with caveat is
-  // the card's single button. Copy-only `caveat` text travels with a
-  // number pasted into a deck, since the page around it does not.
+  // THREE tiles, one action each. Candidates are not a headline number:
+  // they appear in the caveat line and the tiers chart, never as a tile.
+  // Seismic stations and instrument counts are infrastructure inventory
+  // and keep their cards further down. The [i] definitions and the grade
+  // tooltips moved into "How we count" (plainGrade), the number links to
+  // its records, and Copy with caveat is the card's single button.
+  // Copy-only `caveat` text travels with a number pasted into a deck,
+  // since the page around it does not.
   const heroTiles = [
     documented ? {
       value: documented.pubs, label: 'Documented publications',
@@ -1254,17 +1266,13 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
       grade: 'measured', asOf: lastUpdated, href: '#evidence', cite: true, plainGrade: true,
       caveat: 'Citations to the ' + documented.pubs.toLocaleString() + ' documented papers only, per OpenAlex.'
     } : null,
-    documented ? {
-      value: candidates.pubs, label: 'Candidates under review',
-      grade: 'measured', asOf: lastUpdated, href: 'publications.html?evidence=candidate', cite: true, plainGrade: true,
-      note: 'Not counted in the documented figure.',
-      caveat: 'A watchlist author at a partner institution, awaiting confirmation. Not counted in the documented figure.'
-    } : null,
     dsTotal ? {
       value: dsTotal, label: 'Registered datasets',
       grade: 'measured', asOf: asOf.datasets || built,
       href: 'dataset-registry.html', cite: true, plainGrade: true,
-      note: 'DOI-registered, across five AuScope platforms.'
+      note: 'DOI-registered, across five AuScope platforms.',
+      caveat: 'DOI-registered data products across five AuScope platforms; collection records with'
+        + ' DOI-registered children are listed, not counted.'
     } : null
   ].filter(Boolean).map(statTile).join('\n');
 
@@ -1275,8 +1283,8 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
       + ' publications</strong> carry documented AuScope attribution, cited <strong>'
       + documented.citations.toLocaleString() + ' times</strong>.</p>\n'
     + (unverified
-      ? '            <p class="answer-caveat">Excludes <a href="#evidence">'
-        + unverified.pubs.toLocaleString() + ' unverified keyword matches</a>.</p>\n'
+      ? '            <p class="answer-caveat">Excludes <a href="#evidence">' + candidates.pubs.toLocaleString()
+        + ' candidates under review and ' + unverified.pubs.toLocaleString() + ' unverified keyword matches</a>.</p>\n'
       : '')
   ) : '            <p class="answer-lead">Evidence grading is unavailable for this build.</p>\n';
 

@@ -100,7 +100,7 @@
     </header>
 
     <section class="stats" aria-label="Registry summary">
-        <div class="stat"><div class="label">Registry records</div><div class="value" id="stat-total">&mdash;</div><div class="sub">citable resources</div></div>
+        <div class="stat"><div class="label">Datasets</div><div class="value" id="stat-total">&mdash;</div><div class="sub" id="stat-total-sub">DOI-registered data products</div></div>
         <div class="stat"><div class="label">EarthBank avg F-UJI</div><div class="value" id="stat-fair-earthbank">&mdash;</div><div class="sub" id="stat-fair-earthbank-sub">assessment coverage</div></div>
         <div class="stat"><div class="label">AusPass avg F-UJI</div><div class="value" id="stat-fair-auspass">&mdash;</div><div class="sub" id="stat-fair-auspass-sub">assessment coverage</div></div>
         <div class="stat"><div class="label">NCI MT avg F-UJI</div><div class="value" id="stat-fair-nci-mt">&mdash;</div><div class="sub" id="stat-fair-nci-mt-sub">assessment coverage</div></div>
@@ -265,7 +265,17 @@
     }
 
     function renderStats() {
-        setText('stat-total', records.length);
+        // Same rule as the hub: a record with DOI-registered children is a
+        // collection and sample records are not datasets; both stay listed.
+        var collections = 0, samples = 0, datasets = 0;
+        records.forEach(function(r) {
+            if (r.childCount > 0) collections++;
+            else if (r.type === 'PhysicalObject') samples++;
+            else datasets++;
+        });
+        setText('stat-total', datasets);
+        document.getElementById('stat-total-sub').textContent =
+            'plus ' + collections + ' collection and ' + samples + ' sample records, listed below';
         platformFairStat('earthbank', 'EarthBank');
         platformFairStat('auspass', 'AusPass');
         platformFairStat('nci-mt', 'NCI', 'MT');

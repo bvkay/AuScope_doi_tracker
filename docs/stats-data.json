@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-10T10:45:33.943Z",
+  "generated": "2026-11-12T23:03:06.611Z",
   "pillars": {
     "publications": {
       "total": 2763,
@@ -20,19 +20,23 @@
       }
     },
     "datasets": {
-      "total": 190,
+      "total": 319,
       "byPlatform": {
-        "EarthBank": 60,
-        "AusPass": 84,
-        "NCI MT": 19,
-        "NCI DAS": 7,
-        "NCI MATE": 11,
-        "NVCL": 9
+        "EarthBank": 64,
+        "AusPass": 87,
+        "NCI MT": 141,
+        "NCI DAS": 4,
+        "NCI MATE": 15,
+        "NVCL": 8
+      },
+      "collections": {
+        "NCI MT": 100,
+        "NCI DAS": 3,
+        "NVCL": 1
       },
       "fairAvg": {
         "EarthBank": 49,
         "AusPass": 52,
-        "NCI MT": 43,
         "NCI DAS": 42,
         "NCI MATE": 42,
         "NVCL": 42
@@ -101,9 +105,9 @@
       "source": "GA CORS metadata API"
     },
     "ausis": {
-      "stations": 53,
+      "stations": 54,
       "active": 51,
-      "streaming": 49,
+      "streaming": 50,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },

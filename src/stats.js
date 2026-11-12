@@ -86,14 +86,22 @@ async function run() {
     if (d.platform === 'NCI' && d.subset) return 'NCI ' + d.subset;
     return d.platform || 'Other';
   };
+  // A record with DOI-registered children is a collection: a grouping of
+  // data already counted beneath it (NCI MT is five levels deep and 100 of
+  // its 241 DOIs are parents). Collections are listed, never counted as
+  // datasets, and they stay out of the F-UJI averages for the same reason.
+  const isCollection = function(d) { return d.childCount > 0; };
   const byPlatform = {};
+  const collections = {};
   let samples = 0;
+  let collectionTotal = 0;
   datasets.forEach(function(d) {
     if (d.platform === 'EarthBank' && d.type === 'PhysicalObject') { samples++; return; }
     const key = subsetKey(d);
+    if (isCollection(d)) { collections[key] = (collections[key] || 0) + 1; collectionTotal++; return; }
     byPlatform[key] = (byPlatform[key] || 0) + 1;
   });
-  const dsTotal = datasets.length - samples;
+  const dsTotal = datasets.length - samples - collectionTotal;
 
   // Per-subset F-UJI averages, joined by DOI from data/fair-scores.json
   // (written by fair-assess.js; absent file degrades to no averages).
@@ -102,7 +110,7 @@ async function run() {
   if (fairStore.scores && Object.keys(fairStore.scores).length) {
     const sums = {};
     datasets.forEach(function(d) {
-      if (!d.doi || (d.platform === 'EarthBank' && d.type === 'PhysicalObject')) return;
+      if (!d.doi || isCollection(d) || (d.platform === 'EarthBank' && d.type === 'PhysicalObject')) return;
       const entry = fairStore.scores[normaliseDoi(d.doi)];
       if (!entry || entry.score == null) return;
       const key = subsetKey(d);
@@ -114,7 +122,7 @@ async function run() {
     });
   }
   pillars.datasets = {
-    total: dsTotal, byPlatform: byPlatform, fairAvg: fairAvg,
+    total: dsTotal, byPlatform: byPlatform, collections: collections, fairAvg: fairAvg,
     fairMeta: fairStore.metadata
       ? { metric_version: fairStore.metadata.metric_version, last_updated: fairStore.metadata.last_updated }
       : null
