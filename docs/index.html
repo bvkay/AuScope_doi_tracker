@@ -32,14 +32,6 @@
             letter-spacing: -0.2px;
         }
         .answer-lead strong { font-weight: 800; }
-        .answer-caveat {
-            font-size: 14px;
-            line-height: 1.5;
-            margin-top: 10px;
-            max-width: 46em;
-            color: #d7d5ee;
-        }
-        .answer-caveat a { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
 
         /* The chassis stat block, restyled for a dark ground. Same markup,
            same classes, same aria — only the palette changes. */
@@ -81,16 +73,6 @@
         .hero .grade-sep, .hero .as-of { color: #cfcdea; }
         .hero .as-of.undated { color: #ffd9cf; background: rgba(239,114,86,0.25); }
         .hero .stat-note { color: #cfcdea; font-size: 11.5px; }
-        /* Not every tile carries a note, so without this the Copy buttons
-           sit at three different heights across the row. Push them to the
-           bottom of the tile instead of letting the note above set it. */
-        .hero .stat.honest .stat-cite { margin-top: auto; }
-        .hero .stat-cite {
-            color: #ffffff;
-            border-color: rgba(255,255,255,0.45);
-            background: rgba(255,255,255,0.08);
-        }
-        .hero .stat-cite:hover { background: rgba(255,255,255,0.2); color: #ffffff; }
         .hero .info-i {
             color: #ffffff;
             border-color: rgba(255,255,255,0.55);
@@ -384,7 +366,6 @@
             .hero .stat.honest { padding: 11px 13px 12px; }
             .hero .stat.honest .value { font-size: 28px; }
             .hero .stat-note { font-size: 11px; line-height: 1.4; }
-            .hero .stat-cite { font-size: 10.5px; padding: 3px 8px; }
             .explorers, .charts { padding-left: 16px; padding-right: 16px; }
             .explorer-grid, .partition-grid, .lens-grid, .method-grid, .chain { grid-template-columns: 1fr; }
             .chain li + li::before { content: '↓'; left: 50%; top: -13px; transform: translateX(-50%); }
@@ -420,11 +401,10 @@
     <div class="hero" id="main">
         <div class="hero-inner">
             <p class="answer-lead"><strong>672 publications</strong> carry documented AuScope attribution, cited <strong>15,041 times</strong>.</p>
-            <p class="answer-caveat">Excludes <a href="#evidence">116 candidates under review and 1,679 unverified keyword matches</a>.</p>
             <div class="stat-grid">
-<div class="stat honest grade-measured"><div class="label">Documented publications</div><div class="value"><a class="stat-link" href="#evidence"><span class="fig-value">672</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-1">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 15 Sep 2026</span></div><button type="button" class="stat-cite" data-stat-cite="672 documented publications (measured, as of 15 Sep 2026). An AuScope identifier or a written acknowledgement on the paper. Excludes 116 candidates under review and 1,679 unverified keyword matches. Source: AuScope Impact Tracker, https://bvkay.github.io/AuScope_doi_tracker/index.html#evidence">Copy with caveat</button></div>
-<div class="stat honest grade-measured"><div class="label">Citations to them</div><div class="value"><a class="stat-link" href="#evidence"><span class="fig-value">15,041</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-2">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 15 Sep 2026</span></div><button type="button" class="stat-cite" data-stat-cite="15,041 citations to them (measured, as of 15 Sep 2026). Citations to the 672 documented papers only, per OpenAlex. Source: AuScope Impact Tracker, https://bvkay.github.io/AuScope_doi_tracker/index.html#evidence">Copy with caveat</button></div>
-<div class="stat honest grade-measured"><div class="label">Registered datasets</div><div class="value"><a class="stat-link" href="dataset-registry.html"><span class="fig-value">319</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-3">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 13 Nov 2026</span></div><div class="stat-note">DOI-registered, across five AuScope platforms.</div><button type="button" class="stat-cite" data-stat-cite="319 registered datasets (measured, as of 13 Nov 2026). DOI-registered data products across five AuScope platforms; collection records with DOI-registered children are listed, not counted. Source: AuScope Impact Tracker, https://bvkay.github.io/AuScope_doi_tracker/dataset-registry.html">Copy with caveat</button></div>
+<div class="stat honest grade-measured"><div class="label">Documented publications</div><div class="value"><a class="stat-link" href="#evidence"><span class="fig-value">672</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-1">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 15 Sep 2026</span></div></div>
+<div class="stat honest grade-measured"><div class="label">Citations to them</div><div class="value"><a class="stat-link" href="#evidence"><span class="fig-value">15,041</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-2">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 15 Sep 2026</span></div></div>
+<div class="stat honest grade-measured"><div class="label">Registered datasets</div><div class="value"><a class="stat-link" href="dataset-registry.html"><span class="fig-value">319</span><span class="sr-only">: see the records behind this number</span></a></div><div class="grade-row"><span class="grade-chip g-measured" title="Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts."><span class="grade-glyph" aria-hidden="true">●</span>Measured</span><span class="sr-only" id="gloss-3">Measured: Counted from records the tracker holds. A direct count of records in the tracker at the stated date. Click the number to see the rows it counts.</span><span class="grade-sep" aria-hidden="true">·</span><span class="as-of">as of 13 Nov 2026</span></div><div class="stat-note">DOI-registered, across five AuScope platforms.</div></div>
             </div>
         </div>
     </div>
@@ -723,7 +703,7 @@
         <details class="disclosure how-we-count" id="method">
             <summary>How we count</summary>
             <p class="method-body"><span class="grade-chip g-measured"><span class="grade-glyph" aria-hidden="true">●</span>Measured</span> from our own records &middot; <span class="grade-chip g-snapshot"><span class="grade-glyph" aria-hidden="true">◷</span>Snapshot</span> from an external service at build time &middot; <span class="grade-chip g-estimate"><span class="grade-glyph" aria-hidden="true">≈</span>Estimate</span> derived &middot; <span class="grade-chip g-partial"><span class="grade-glyph" aria-hidden="true">◐</span>Partial</span> incomplete source, read as a floor &middot; <span class="grade-chip g-unavailable"><span class="grade-glyph" aria-hidden="true">—</span>Unavailable</span> a dash is never a zero.</p>
-            <p class="method-body">Figures are dated snapshots (as of 13 Nov 2026); the platform pages read live and can differ. Copy with caveat copies a figure with its grade, date and exclusion.</p>
+            <p class="method-body">Figures are dated snapshots (as of 13 Nov 2026); the platform pages read live and can differ.</p>
             <h3>Evidence tiers</h3>
             <p class="method-body">The headline counts documented attribution: an AuScope identifier or a written acknowledgement on the paper. Candidates are counted beside it until confirmed. Keyword matches and software use are listed, never claimed.</p>
             <dl class="gloss-list"><div class="gloss-item"><dt>Documented attribution</dt><dd><strong>The headline count.</strong> Verified, acknowledged-in-text and infrastructure-enabled combined: an AuScope identifier or a written acknowledgement on the paper itself. Candidates are counted beside this figure until confirmed, never inside it.</dd></div><div class="gloss-item"><dt>Verified</dt><dd><strong>Identifier evidence.</strong> This paper carries AuScope&#39;s organisational identifier: the strongest machine-verifiable link, checkable by anyone from the paper&#39;s own metadata.</dd></div><div class="gloss-item"><dt>Candidate</dt><dd><strong>Strong identifier evidence, awaiting confirmation.</strong> An author on this paper is a known AuScope-affiliated researcher at a partner institution. Strong evidence, but the organisational identifier is not yet on the record.</dd></div><div class="gloss-item"><dt>Acknowledged in text</dt><dd><strong>Written acknowledgement.</strong> The paper&#39;s text explicitly acknowledges AuScope or one of its facilities.</dd></div><div class="gloss-item"><dt>Infrastructure-enabled</dt><dd><strong>Used AuScope-supported infrastructure.</strong> The paper&#39;s text shows the research used AuScope-supported infrastructure, without naming AuScope in the acknowledgements.</dd></div><div class="gloss-item"><dt>AuScope software</dt><dd><strong>Used AuScope-supported software.</strong> The paper reports using AuScope-supported software such as GPlates or Underworld. Counted separately from attributed publications, because the software is used far beyond AuScope.</dd></div><div class="gloss-item"><dt>Keyword only</dt><dd><strong>No confirmed link yet.</strong> Found through an AuScope-related search term, with no identifier and no acknowledgement found. Under review, and excluded from every headline figure on this site.</dd></div></dl>

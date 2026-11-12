@@ -1063,7 +1063,7 @@ function buildHowWeCount(lensData, pillarData, built) {
     + gradeChip('partial') + ' incomplete source, read as a floor &middot; '
     + gradeChip('unavailable') + ' a dash is never a zero.</p>\n'
     + '            <p class="method-body">Figures are dated snapshots' + (built ? ' (' + fmtDate(built) + ')' : '')
-    + '; the platform pages read live and can differ. Copy with caveat copies a figure with its grade, date and exclusion.</p>\n'
+    + '; the platform pages read live and can differ.</p>\n'
     + '            <h3>Evidence tiers</h3>\n'
     + '            <p class="method-body">The headline counts documented attribution: an AuScope identifier or a written'
     + ' acknowledgement on the paper. Candidates are counted beside it until confirmed. Keyword matches and software use'
@@ -1233,7 +1233,6 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
   const split = s.evidenceSplit || null;
   const documented = split && split.documented.pubs ? split.documented : null;
   const candidates = split ? split.candidate : null;
-  const unverified = split ? split.unverified : null;
   const pillarAtt = pp.publications && pp.publications.attributed;
   if (documented && pillarAtt && pillarAtt.pubs !== documented.pubs + candidates.pubs) {
     console.warn('stats-data.json attributed (' + pillarAtt.pubs + ') != documented + candidates ('
@@ -1241,21 +1240,17 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
   }
   const dsTotal = (pp.datasets && pp.datasets.total) || datasetCount || null;
 
-  // THREE tiles, one action each. Candidates are not a headline number:
-  // they appear in the caveat line and the tiers chart, never as a tile.
+  // THREE tiles, no buttons. Candidates are not a headline number: they
+  // appear in the caveat line and the tiers chart, never as a tile.
   // Seismic stations and instrument counts are infrastructure inventory
   // and keep their cards further down. The [i] definitions and the grade
-  // tooltips moved into "How we count" (plainGrade), the number links to
-  // its records, and Copy with caveat is the card's single button.
-  // Copy-only `caveat` text travels with a number pasted into a deck,
-  // since the page around it does not.
+  // tooltips moved into "How we count" (plainGrade), and the number links
+  // to its records. Ben dropped Copy with caveat from the hero on 13 Nov
+  // 2026; the chassis still offers it to the other pages.
   const heroTiles = [
     documented ? {
       value: documented.pubs, label: 'Documented publications',
-      grade: 'measured', asOf: lastUpdated, href: '#evidence', cite: true, plainGrade: true,
-      caveat: 'An AuScope identifier or a written acknowledgement on the paper. Excludes '
-        + candidates.pubs.toLocaleString() + ' candidates under review and '
-        + unverified.pubs.toLocaleString() + ' unverified keyword matches.'
+      grade: 'measured', asOf: lastUpdated, href: '#evidence', plainGrade: true
     } : {
       value: s.totalPublications, label: 'Publications', grade: 'unverified',
       asOf: lastUpdated, href: 'publications.html', plainGrade: true,
@@ -1263,16 +1258,13 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
     },
     documented ? {
       value: documented.citations, label: 'Citations to them',
-      grade: 'measured', asOf: lastUpdated, href: '#evidence', cite: true, plainGrade: true,
-      caveat: 'Citations to the ' + documented.pubs.toLocaleString() + ' documented papers only, per OpenAlex.'
+      grade: 'measured', asOf: lastUpdated, href: '#evidence', plainGrade: true
     } : null,
     dsTotal ? {
       value: dsTotal, label: 'Registered datasets',
       grade: 'measured', asOf: asOf.datasets || built,
-      href: 'dataset-registry.html', cite: true, plainGrade: true,
-      note: 'DOI-registered, across five AuScope platforms.',
-      caveat: 'DOI-registered data products across five AuScope platforms; collection records with'
-        + ' DOI-registered children are listed, not counted.'
+      href: 'dataset-registry.html', plainGrade: true,
+      note: 'DOI-registered, across five AuScope platforms.'
     } : null
   ].filter(Boolean).map(statTile).join('\n');
 
@@ -1282,10 +1274,8 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
     '            <p class="answer-lead"><strong>' + documented.pubs.toLocaleString()
       + ' publications</strong> carry documented AuScope attribution, cited <strong>'
       + documented.citations.toLocaleString() + ' times</strong>.</p>\n'
-    + (unverified
-      ? '            <p class="answer-caveat">Excludes <a href="#evidence">' + candidates.pubs.toLocaleString()
-        + ' candidates under review and ' + unverified.pubs.toLocaleString() + ' unverified keyword matches</a>.</p>\n'
-      : '')
+    // No exclusion line: the tiers chart directly below lists the
+    // candidates and the unverified matches with their counts.
   ) : '            <p class="answer-lead">Evidence grading is unavailable for this build.</p>\n';
 
   return `<!DOCTYPE html>
@@ -1322,14 +1312,6 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
             letter-spacing: -0.2px;
         }
         .answer-lead strong { font-weight: 800; }
-        .answer-caveat {
-            font-size: 14px;
-            line-height: 1.5;
-            margin-top: 10px;
-            max-width: 46em;
-            color: #d7d5ee;
-        }
-        .answer-caveat a { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
 
         /* The chassis stat block, restyled for a dark ground. Same markup,
            same classes, same aria — only the palette changes. */
@@ -1371,16 +1353,6 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
         .hero .grade-sep, .hero .as-of { color: #cfcdea; }
         .hero .as-of.undated { color: #ffd9cf; background: rgba(239,114,86,0.25); }
         .hero .stat-note { color: #cfcdea; font-size: 11.5px; }
-        /* Not every tile carries a note, so without this the Copy buttons
-           sit at three different heights across the row. Push them to the
-           bottom of the tile instead of letting the note above set it. */
-        .hero .stat.honest .stat-cite { margin-top: auto; }
-        .hero .stat-cite {
-            color: #ffffff;
-            border-color: rgba(255,255,255,0.45);
-            background: rgba(255,255,255,0.08);
-        }
-        .hero .stat-cite:hover { background: rgba(255,255,255,0.2); color: #ffffff; }
         .hero .info-i {
             color: #ffffff;
             border-color: rgba(255,255,255,0.55);
@@ -1674,7 +1646,6 @@ function buildHTML(stats, lastUpdated, pillarData, lensData, datasetCount, asOf,
             .hero .stat.honest { padding: 11px 13px 12px; }
             .hero .stat.honest .value { font-size: 28px; }
             .hero .stat-note { font-size: 11px; line-height: 1.4; }
-            .hero .stat-cite { font-size: 10.5px; padding: 3px 8px; }
             .explorers, .charts { padding-left: 16px; padding-right: 16px; }
             .explorer-grid, .partition-grid, .lens-grid, .method-grid, .chain { grid-template-columns: 1fr; }
             .chain li + li::before { content: '↓'; left: 50%; top: -13px; transform: translateX(-50%); }
