@@ -41,16 +41,19 @@ async function fetchAllWorks(field, value, opts) {
   const yearRange = minYear ? `,publication_year:${minYear}-${currentYear}` : '';
   const filterExpr = `${field}:${encodeURIComponent(value)}${yearRange}`;
 
+  // Basic page numbers, not a cursor: since Nov 2026 OpenAlex answers
+  // cursor paging without an API key with 401 ("API key required for
+  // cursor paging"), and no key is used by decision. Basic paging reaches
+  // the first 10,000 results, far beyond any one ROR or ORCID here.
   const works = [];
-  let cursor = '*';
   let page = 0;
   let firstUrl = null;
 
-  while (cursor && page < maxPages) {
+  while (page < maxPages) {
     const url = 'https://api.openalex.org/works'
       + '?filter=' + filterExpr
       + '&per_page=' + perPage
-      + '&cursor=' + encodeURIComponent(cursor)
+      + '&page=' + (page + 1)
       + '&select=id,doi,title,publication_year,authorships,primary_location,cited_by_count,type,open_access,topics'
       + '&mailto=' + encodeURIComponent(email);
 
@@ -75,8 +78,8 @@ async function fetchAllWorks(field, value, opts) {
     if (results.length === 0) break;
     works.push(...results);
 
-    cursor = data.meta && data.meta.next_cursor ? data.meta.next_cursor : null;
     page++;
+    if (results.length < perPage) break;
     await sleep(120);
   }
 
