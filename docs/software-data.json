@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T00:08:48.339Z",
+  "generated": "2026-11-13T00:12:06.437Z",
   "records": [
     {
       "name": "GPlates",
@@ -10,9 +10,9 @@
         "GPlately",
         "gplates-python"
       ],
-      "publications": 243,
-      "citations": 6838,
-      "earliestYear": 2013,
+      "publications": 258,
+      "citations": 7897,
+      "earliestYear": 2012,
       "latestYear": 2026,
       "records": [
         {
@@ -22,7 +22,8 @@
           "year": 2026,
           "journal": "Zenodo (CERN European Organization for Nuclear Research)",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1051/978-2-7598-3934-6",
@@ -31,7 +32,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-026-35714-z",
@@ -40,7 +42,8 @@
           "year": 2026,
           "journal": "Scientific Reports",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1002/ece3.73246",
@@ -49,7 +52,8 @@
           "year": 2026,
           "journal": "Ecology and Evolution",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1007/s13137-025-00280-5",
@@ -58,7 +62,8 @@
           "year": 2026,
           "journal": "GEM - International Journal on Geomathematics",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-026-46309-z",
@@ -67,7 +72,8 @@
           "year": 2026,
           "journal": "Scientific Reports",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.3389/fevo.2026.1774062",
@@ -76,7 +82,8 @@
           "year": 2026,
           "journal": "Frontiers in Ecology and Evolution",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5510/ogp20260101150",
@@ -85,7 +92,8 @@
           "year": 2026,
           "journal": "Proceedings of OilGasScientificResearchProjects Institute SOCAR",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.adx4095",
@@ -94,7 +102,18 @@
           "year": 2026,
           "journal": "Science Advances",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s43247-025-03097-0",
+          "title": "Carbon emissions along divergent plate boundaries modulate icehouse-greenhouse climates",
+          "authors": "Ben R. Mather; R. Dietmar Müller; Adriana Dutkiewicz; Sabin Zahirovic",
+          "year": 2026,
+          "journal": "Communications Earth & Environment",
+          "cited": 1,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.5194/jm-45-147-2026",
@@ -103,7 +122,8 @@
           "year": 2026,
           "journal": "Journal of Micropalaeontology",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1002/brv.70145",
@@ -112,7 +132,8 @@
           "year": 2026,
           "journal": "Biological reviews/Biological reviews of the Cambridge Philosophical Society",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/jm-45-159-2026",
@@ -121,7 +142,8 @@
           "year": 2026,
           "journal": "Journal of Micropalaeontology",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu26-15528",
@@ -130,7 +152,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1002/ece3.73280",
@@ -139,7 +162,8 @@
           "year": 2026,
           "journal": "Ecology and Evolution",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.aee0530",
@@ -148,7 +172,8 @@
           "year": 2026,
           "journal": "Science Advances",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2025gc012556",
@@ -157,7 +182,8 @@
           "year": 2026,
           "journal": "Geochemistry Geophysics Geosystems",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1002/jgo2.70023",
@@ -166,7 +192,8 @@
           "year": 2026,
           "journal": "New Zealand Journal of Geology and Geophysics",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu26-11861",
@@ -175,7 +202,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1093/nsr/nwag230",
@@ -184,7 +212,8 @@
           "year": 2026,
           "journal": "National Science Review",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.7717/peerj.21192",
@@ -193,7 +222,8 @@
           "year": 2026,
           "journal": "PeerJ",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu26-3101",
@@ -202,7 +232,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.aeb2942",
@@ -211,7 +242,8 @@
           "year": 2026,
           "journal": "Science Advances",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2025gl119743",
@@ -220,7 +252,8 @@
           "year": 2026,
           "journal": "Geophysical Research Letters",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.22541/essoar.177177488.83909117/v1",
@@ -229,7 +262,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.3390/d18020083",
@@ -238,7 +272,8 @@
           "year": 2026,
           "journal": "Diversity",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1186/s12915-026-02617-4",
@@ -247,7 +282,8 @@
           "year": 2026,
           "journal": "BMC Biology",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.7717/peerj.21007",
@@ -256,7 +292,8 @@
           "year": 2026,
           "journal": "PeerJ",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.31223/x57b4j",
@@ -265,7 +302,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1093/gji/ggag157",
@@ -274,7 +312,8 @@
           "year": 2026,
           "journal": "Geophysical Journal International",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.31223/x59t9w",
@@ -283,7 +322,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1371/journal.pone.0346817",
@@ -292,7 +332,8 @@
           "year": 2026,
           "journal": "PLOS One",
           "cited": 1,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5281/zenodo.18992412",
@@ -301,7 +342,8 @@
           "year": 2026,
           "journal": "Zenodo (CERN European Organization for Nuclear Research)",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.31223/x5n760",
@@ -310,7 +352,8 @@
           "year": 2026,
           "journal": "",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.aea8374",
@@ -319,7 +362,8 @@
           "year": 2026,
           "journal": "Science Advances",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.aec8978",
@@ -328,7 +372,8 @@
           "year": 2026,
           "journal": "Science Advances",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.26879/1632",
@@ -337,7 +382,8 @@
           "year": 2026,
           "journal": "Palaeontologia Electronica",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu26-1558",
@@ -346,7 +392,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1007/s10712-025-09926-3",
@@ -355,7 +402,8 @@
           "year": 2026,
           "journal": "Surveys in Geophysics",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.jafrearsci.2026.106071",
@@ -364,7 +412,8 @@
           "year": 2026,
           "journal": "Journal of African Earth Sciences",
           "cited": 0,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-026-73363-y",
@@ -373,7 +422,8 @@
           "year": 2026,
           "journal": "Nature Communications",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu26-12622",
@@ -382,7 +432,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.21203/rs.3.rs-9282628/v1",
@@ -391,7 +442,8 @@
           "year": 2026,
           "journal": "Research Square",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1051/978-2-7598-3934-6.c002",
@@ -400,7 +452,8 @@
           "year": 2026,
           "journal": "A new concept of karst development based on hydrogeology and geophysics",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu26-6876",
@@ -409,7 +462,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.21105/joss.08812",
@@ -418,7 +472,8 @@
           "year": 2026,
           "journal": "The Journal of Open Source Software",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rsos.241512",
@@ -427,7 +482,8 @@
           "year": 2025,
           "journal": "Royal Society Open Science",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.3390/app16010039",
@@ -436,7 +492,8 @@
           "year": 2025,
           "journal": "Applied Sciences",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.3897/fr.28.173497",
@@ -445,7 +502,8 @@
           "year": 2025,
           "journal": "Fossil record",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2413569122",
@@ -454,7 +512,8 @@
           "year": 2025,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 4,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s43247-025-02828-7",
@@ -463,7 +522,8 @@
           "year": 2025,
           "journal": "Communications Earth & Environment",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-024-55804-8",
@@ -472,7 +532,8 @@
           "year": 2025,
           "journal": "Nature Communications",
           "cited": 11,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.3389/fmars.2025.1703935",
@@ -481,7 +542,8 @@
           "year": 2025,
           "journal": "Frontiers in Marine Science",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1130/2025.2565(03)",
@@ -490,7 +552,8 @@
           "year": 2025,
           "journal": "Geological Society of America eBooks",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.64388/irev9i6-1712983",
@@ -499,7 +562,18 @@
           "year": 2025,
           "journal": "Iconic Research and Engineering Journals",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s43247-025-03005-6",
+          "title": "Deciphering mantle, tectonic and climatic drivers of exhumation",
+          "authors": "Samuel Boone; Stijn Glorie; Sabin Zahirovic; Angus Nixon; Fun Meeuws; Fabian Kohlmann",
+          "year": 2025,
+          "journal": "Communications Earth & Environment",
+          "cited": 2,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1038/s41559-025-02794-5",
@@ -508,7 +582,8 @@
           "year": 2025,
           "journal": "Nature Ecology & Evolution",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2510972122",
@@ -517,7 +592,8 @@
           "year": 2025,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2414752122",
@@ -526,7 +602,8 @@
           "year": 2025,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 7,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1186/s12862-025-02411-w",
@@ -535,7 +612,8 @@
           "year": 2025,
           "journal": "BMC Ecology and Evolution",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/bg-22-6119-2025",
@@ -544,7 +622,8 @@
           "year": 2025,
           "journal": "Biogeosciences",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1111/maps.70081",
@@ -553,7 +632,8 @@
           "year": 2025,
           "journal": "Meteoritics and Planetary Science",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41561-025-01843-9",
@@ -562,7 +642,8 @@
           "year": 2025,
           "journal": "Nature Geoscience",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2025tc008883",
@@ -571,7 +652,8 @@
           "year": 2025,
           "journal": "Tectonics",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41561-025-01734-z",
@@ -580,7 +662,8 @@
           "year": 2025,
           "journal": "Nature Geoscience",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1101/2025.11.21.689757",
@@ -589,7 +672,8 @@
           "year": 2025,
           "journal": "bioRxiv (Cold Spring Harbor Laboratory)",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1144/jgs2025-144",
@@ -598,7 +682,8 @@
           "year": 2025,
           "journal": "Journal of the Geological Society",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1371/journal.pone.0333211",
@@ -607,7 +692,8 @@
           "year": 2025,
           "journal": "PLoS ONE",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1360/csb-2025-0232",
@@ -616,7 +702,8 @@
           "year": 2025,
           "journal": "Chinese Science Bulletin (Chinese Version)",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2318622122",
@@ -625,7 +712,8 @@
           "year": 2025,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 9,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/cp-21-2283-2025",
@@ -634,7 +722,8 @@
           "year": 2025,
           "journal": "Climate of the past",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2419902122",
@@ -643,7 +732,8 @@
           "year": 2025,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.ady3258",
@@ -652,7 +742,8 @@
           "year": 2025,
           "journal": "Science Advances",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-025-56589-0",
@@ -661,7 +752,8 @@
           "year": 2025,
           "journal": "Nature Communications",
           "cited": 4,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s43247-025-02559-9",
@@ -670,7 +762,8 @@
           "year": 2025,
           "journal": "Communications Earth & Environment",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s43247-025-02910-0",
@@ -679,7 +772,8 @@
           "year": 2025,
           "journal": "Communications Earth & Environment",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rsos.250435",
@@ -688,7 +782,8 @@
           "year": 2025,
           "journal": "Royal Society Open Science",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-025-30138-7",
@@ -697,7 +792,8 @@
           "year": 2025,
           "journal": "Scientific Reports",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.palaeo.2025.113412",
@@ -706,7 +802,8 @@
           "year": 2025,
           "journal": "Palaeogeography Palaeoclimatology Palaeoecology",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.3390/min15111224",
@@ -715,7 +812,8 @@
           "year": 2025,
           "journal": "Minerals",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.adm9798",
@@ -724,7 +822,8 @@
           "year": 2025,
           "journal": "Science Advances",
           "cited": 6,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1101/2025.11.08.687401",
@@ -733,7 +832,8 @@
           "year": 2025,
           "journal": "bioRxiv (Cold Spring Harbor Laboratory)",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.adr4199",
@@ -742,7 +842,8 @@
           "year": 2025,
           "journal": "Science Advances",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-025-01366-8",
@@ -751,7 +852,8 @@
           "year": 2025,
           "journal": "Scientific Reports",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.69649/pachyderm.v66i.1352",
@@ -760,7 +862,8 @@
           "year": 2025,
           "journal": "Pachyderm",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1130/g53790.1",
@@ -769,7 +872,8 @@
           "year": 2025,
           "journal": "Geology",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.21203/rs.3.rs-8017726/v1",
@@ -778,7 +882,8 @@
           "year": 2025,
           "journal": "Research Square",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-025-63896-z",
@@ -787,7 +892,18 @@
           "year": 2025,
           "journal": "Nature Communications",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.7185/gold2025.28625",
+          "title": "The AuScope EarthBank & GPlates Projects: Translational Research Infrastructure Supporting Industry-Academia Partnerships in Resource Geoscience",
+          "authors": "Brent McInnes; Bryant Ware; Fabian Kohlmann; Angus Nixon; Yoann Gréau; Ehsan Farahbakhsh; Samuel Boone; Malcolm McMillan; Hayden Dalton; Halimulati Ananuer; Andrew Gleadow; Barry P. Kohn; Moritz Theile; Wayne Noble; R. Dietmar Müller; Sara Polanco; Sabin Zahirovic; Maria Seton; Oskar Lindenmayer; Stijn Glorie; Tim Rawling; Lesley Wyborn; Geoffrey Fraser",
+          "year": 2025,
+          "journal": "Goldschmidt2025 abstracts",
+          "cited": 0,
+          "oa": false,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1098/rsos.241200",
@@ -796,7 +912,8 @@
           "year": 2025,
           "journal": "Royal Society Open Science",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-025-65176-2",
@@ -805,7 +922,8 @@
           "year": 2025,
           "journal": "Nature Communications",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.48550/arxiv.2512.09870",
@@ -814,7 +932,8 @@
           "year": 2025,
           "journal": "ArXiv.org",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s43247-025-02821-0",
@@ -823,7 +942,8 @@
           "year": 2025,
           "journal": "Communications Earth & Environment",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.52058/2786-5274-2025-12(52)-1583-1596",
@@ -832,7 +952,18 @@
           "year": 2025,
           "journal": "Наукові інновації та передові технології",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41597-024-03468-w",
+          "title": "A Phanerozoic gridded dataset for palaeogeographic reconstructions.",
+          "authors": "Lewis A. Jones; Mathew Domeier",
+          "year": 2024,
+          "journal": "Scientific Data",
+          "cited": 6,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1126/sciadv.adm7773",
@@ -841,7 +972,8 @@
           "year": 2024,
           "journal": "Science Advances",
           "cited": 35,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-024-51107-0",
@@ -850,7 +982,8 @@
           "year": 2024,
           "journal": "Nature Communications",
           "cited": 16,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-024-53860-8",
@@ -859,7 +992,8 @@
           "year": 2024,
           "journal": "Nature Communications",
           "cited": 10,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41586-024-07717-1",
@@ -868,7 +1002,8 @@
           "year": 2024,
           "journal": "Nature",
           "cited": 20,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41586-024-08101-9",
@@ -877,7 +1012,8 @@
           "year": 2024,
           "journal": "Nature",
           "cited": 13,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1101/2024.06.23.600266",
@@ -886,7 +1022,8 @@
           "year": 2024,
           "journal": "",
           "cited": 13,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-024-77399-2",
@@ -895,7 +1032,8 @@
           "year": 2024,
           "journal": "Scientific Reports",
           "cited": 6,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1093/femsec/fiae042",
@@ -904,7 +1042,8 @@
           "year": 2024,
           "journal": "FEMS Microbiology Ecology",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-024-46843-2",
@@ -913,7 +1052,8 @@
           "year": 2024,
           "journal": "Nature Communications",
           "cited": 10,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-024-46390-w",
@@ -922,7 +1062,8 @@
           "year": 2024,
           "journal": "Nature Communications",
           "cited": 12,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-024-58377-0",
@@ -931,7 +1072,8 @@
           "year": 2024,
           "journal": "Scientific Reports",
           "cited": 10,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.21203/rs.3.rs-5102982/v1",
@@ -940,7 +1082,8 @@
           "year": 2024,
           "journal": "",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.pld.2023.03.007",
@@ -949,7 +1092,8 @@
           "year": 2024,
           "journal": "Plant Diversity",
           "cited": 7,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.ado1219",
@@ -958,7 +1102,8 @@
           "year": 2024,
           "journal": "Science Advances",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1002/ece3.70265",
@@ -967,7 +1112,8 @@
           "year": 2024,
           "journal": "Ecology and Evolution",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-024-49032-3",
@@ -976,7 +1122,8 @@
           "year": 2024,
           "journal": "Nature Communications",
           "cited": 17,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2024pa004907",
@@ -985,7 +1132,8 @@
           "year": 2024,
           "journal": "Paleoceanography and Paleoclimatology",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1186/s13358-024-00307-8",
@@ -994,7 +1142,8 @@
           "year": 2024,
           "journal": "Swiss Journal of Palaeontology",
           "cited": 8,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-024-55117-w",
@@ -1003,7 +1152,8 @@
           "year": 2024,
           "journal": "Nature Communications",
           "cited": 7,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.7717/peerj.17003",
@@ -1012,7 +1162,8 @@
           "year": 2024,
           "journal": "PeerJ",
           "cited": 7,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.heliyon.2024.e29227",
@@ -1021,7 +1172,28 @@
           "year": 2024,
           "journal": "Heliyon",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41467-024-53397-w",
+          "title": "Spreading ridge migration enabled by plume-ridge de-anchoring.",
+          "authors": "Ben Mather; Maria Seton; Simon Williams; Joanne M. Whittaker; Rebecca Carey; Maëlis Arnould; Nicolas Coltice; Bob Duncan",
+          "year": 2024,
+          "journal": "Nature Communications",
+          "cited": 6,
+          "oa": true,
+          "evidence": "text-attributed"
+        },
+        {
+          "doi": "10.1371/journal.pone.0308756",
+          "title": "Subsurface microbial community structure shifts along the geological features of the Central American Volcanic Arc.",
+          "authors": "Marco Basili; Timothy J. Rogers; Mayuko Nakagawa; Mustafa Yücel; J. Maarten de Moor; Peter H. Barry; Matthew O. Schrenk; Gerdhard L Jessen; Ricardo Sánchez‐Murillo; Sabin Zahirovic; David V. Bekaert; C. J. Ramírez; Deborah Bastoni; Angelina Cordone; Karen G. Lloyd; Donato Giovannelli",
+          "year": 2024,
+          "journal": "PLoS ONE",
+          "cited": 7,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1126/sciadv.adl3452",
@@ -1030,7 +1202,8 @@
           "year": 2024,
           "journal": "Science Advances",
           "cited": 16,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-024-67370-6",
@@ -1039,7 +1212,8 @@
           "year": 2024,
           "journal": "Scientific Reports",
           "cited": 23,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.12688/openreseurope.16791.2",
@@ -1048,7 +1222,8 @@
           "year": 2024,
           "journal": "Open Research Europe",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-024-51055-9",
@@ -1057,7 +1232,8 @@
           "year": 2024,
           "journal": "Nature Communications",
           "cited": 5,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.adl2643",
@@ -1066,7 +1242,8 @@
           "year": 2024,
           "journal": "Science Advances",
           "cited": 17,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1002/ajb2.16426",
@@ -1075,7 +1252,18 @@
           "year": 2024,
           "journal": "American Journal of Botany",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41598-023-35776-3",
+          "title": "A geospatial platform for the tectonic interpretation of low-temperature thermochronology Big Data.",
+          "authors": "Samuel Boone; Fabian Kohlmann; Wayne Noble; Moritz Theile; Romain Beucher; Barry P. Kohn; Stijn Glorie; Martin Danišík; Renjie Zhou; Malcolm McMillan; Angus Nixon; Andrew Gleadow; Xiaodong Qin; R. Dietmar Müller; Brent McInnes",
+          "year": 2023,
+          "journal": "Scientific Reports",
+          "cited": 14,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1093/nsr/nwad117",
@@ -1084,7 +1272,8 @@
           "year": 2023,
           "journal": "National Science Review",
           "cited": 54,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1186/s12862-023-02136-8",
@@ -1093,7 +1282,8 @@
           "year": 2023,
           "journal": "BMC Ecology and Evolution",
           "cited": 6,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rspb.2023.2284",
@@ -1102,7 +1292,8 @@
           "year": 2023,
           "journal": "Proceedings of the Royal Society B: Biological Sciences",
           "cited": 15,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-023-37117-w",
@@ -1111,7 +1302,8 @@
           "year": 2023,
           "journal": "Scientific Reports",
           "cited": 10,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-023-41358-8",
@@ -1120,7 +1312,8 @@
           "year": 2023,
           "journal": "Nature Communications",
           "cited": 17,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-023-48639-8",
@@ -1129,7 +1322,18 @@
           "year": 2023,
           "journal": "Scientific Reports",
           "cited": 10,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41467-023-40904-8",
+          "title": "Emplacement of the Argyle diamond deposit into an ancient rift zone triggered by supercontinent breakup.",
+          "authors": "Hugo K H Olierook; Denis Fougerouse; Luc S Doucet; Yebo Liu; Murray J Rayner; Martin Danišík; Daniel J Condon; Brent I A McInnes; A Lynton Jaques; Noreen J Evans; Bradley J McDonald; Zheng-Xiang Li; Christopher L Kirkland; Celia Mayers; Michael T D Wingate",
+          "year": 2023,
+          "journal": "Nature Communications",
+          "cited": 14,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1038/s41467-023-39585-0",
@@ -1138,7 +1342,8 @@
           "year": 2023,
           "journal": "Nature Communications",
           "cited": 15,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2306220120",
@@ -1147,7 +1352,8 @@
           "year": 2023,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 24,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-023-42571-7",
@@ -1156,7 +1362,8 @@
           "year": 2023,
           "journal": "Scientific Reports",
           "cited": 16,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-023-39759-2",
@@ -1165,7 +1372,8 @@
           "year": 2023,
           "journal": "Scientific Reports",
           "cited": 13,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-023-37799-w",
@@ -1174,7 +1382,8 @@
           "year": 2023,
           "journal": "Nature Communications",
           "cited": 18,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41586-023-06024-5",
@@ -1183,7 +1392,18 @@
           "year": 2023,
           "journal": "Nature",
           "cited": 51,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41598-023-36250-w",
+          "title": "Kimberlite eruptions driven by slab flux and subduction angle.",
+          "authors": "Ben R Mather; R Dietmar Müller; Christopher P Alfonso; Maria Seton; Nicky M Wright",
+          "year": 2023,
+          "journal": "Scientific Reports",
+          "cited": 12,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1038/s41559-023-02128-3",
@@ -1192,7 +1412,8 @@
           "year": 2023,
           "journal": "Nature Ecology & Evolution",
           "cited": 9,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.isci.2023.107684",
@@ -1201,7 +1422,8 @@
           "year": 2023,
           "journal": "iScience",
           "cited": 13,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-023-32534-3",
@@ -1210,7 +1432,8 @@
           "year": 2023,
           "journal": "Scientific Reports",
           "cited": 15,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abq0110",
@@ -1219,7 +1442,8 @@
           "year": 2023,
           "journal": "Science Advances",
           "cited": 22,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1093/nsr/nwad051",
@@ -1228,7 +1452,18 @@
           "year": 2023,
           "journal": "National Science Review",
           "cited": 25,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41586-023-06193-3",
+          "title": "Rift-induced disruption of cratonic keels drives kimberlite volcanism.",
+          "authors": "Thomas M Gernon; Stephen M Jones; Sascha Brune; Thea K Hincks; Martin R Palmer; John C Schumacher; Rebecca M Primiceri; Matthew Field; William L Griffin; Suzanne Y O'Reilly; Derek Keir; Christopher J Spencer; Andrew S Merdith; Anne Glerum",
+          "year": 2023,
+          "journal": "Nature",
+          "cited": 59,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1073/pnas.2305928120",
@@ -1237,7 +1472,8 @@
           "year": 2023,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 28,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41586-023-06662-9",
@@ -1246,7 +1482,8 @@
           "year": 2023,
           "journal": "Nature",
           "cited": 38,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rsos.230725",
@@ -1255,7 +1492,8 @@
           "year": 2023,
           "journal": "Royal Society Open Science",
           "cited": 8,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abm1406",
@@ -1264,7 +1502,8 @@
           "year": 2022,
           "journal": "Science Advances",
           "cited": 30,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41597-022-01486-0",
@@ -1273,7 +1512,8 @@
           "year": 2022,
           "journal": "Scientific Data",
           "cited": 8,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2123193119",
@@ -1282,7 +1522,8 @@
           "year": 2022,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 53,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-022-28290-z",
@@ -1291,7 +1532,8 @@
           "year": 2022,
           "journal": "Nature Communications",
           "cited": 46,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.dib.2022.108424",
@@ -1300,7 +1542,8 @@
           "year": 2022,
           "journal": "Data in Brief",
           "cited": 9,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2022je007492",
@@ -1309,7 +1552,8 @@
           "year": 2022,
           "journal": "Journal of Geophysical Research: Planets",
           "cited": 22,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abm8191",
@@ -1318,7 +1562,8 @@
           "year": 2022,
           "journal": "Science Advances",
           "cited": 66,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.isci.2022.104757",
@@ -1327,7 +1572,8 @@
           "year": 2022,
           "journal": "iScience",
           "cited": 4,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-022-35085-9",
@@ -1336,7 +1582,8 @@
           "year": 2022,
           "journal": "Nature Communications",
           "cited": 14,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2115231119",
@@ -1345,7 +1592,8 @@
           "year": 2022,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 49,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-022-31128-3",
@@ -1354,7 +1602,8 @@
           "year": 2022,
           "journal": "Nature Communications",
           "cited": 27,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-022-19372-5",
@@ -1363,7 +1612,8 @@
           "year": 2022,
           "journal": "Scientific Reports",
           "cited": 17,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-022-11493-1",
@@ -1372,7 +1622,8 @@
           "year": 2022,
           "journal": "Scientific Reports",
           "cited": 95,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-022-05257-0",
@@ -1381,7 +1632,8 @@
           "year": 2022,
           "journal": "Scientific Reports",
           "cited": 31,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.55730/1300-0985.1758",
@@ -1390,7 +1642,8 @@
           "year": 2022,
           "journal": "Turkish Journal of Earth Sciences",
           "cited": 4,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-022-35011-z",
@@ -1399,7 +1652,8 @@
           "year": 2022,
           "journal": "Nature Communications",
           "cited": 27,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-022-16981-y",
@@ -1408,7 +1662,8 @@
           "year": 2022,
           "journal": "Scientific Reports",
           "cited": 6,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41586-022-04932-6",
@@ -1417,7 +1672,8 @@
           "year": 2022,
           "journal": "Nature",
           "cited": 31,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abj5687",
@@ -1426,7 +1682,8 @@
           "year": 2022,
           "journal": "Science Advances",
           "cited": 29,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abo0866",
@@ -1435,7 +1692,8 @@
           "year": 2022,
           "journal": "Science Advances",
           "cited": 31,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-022-19759-4",
@@ -1444,7 +1702,8 @@
           "year": 2022,
           "journal": "Scientific Reports",
           "cited": 4,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-022-34623-9",
@@ -1453,7 +1712,8 @@
           "year": 2022,
           "journal": "Nature Communications",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1371/journal.pone.0262824",
@@ -1462,7 +1722,8 @@
           "year": 2022,
           "journal": "PLOS ONE",
           "cited": 14,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2111332119",
@@ -1471,7 +1732,8 @@
           "year": 2022,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 64,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abn3096",
@@ -1480,7 +1742,8 @@
           "year": 2022,
           "journal": "Science Advances",
           "cited": 23,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-021-23803-8",
@@ -1489,7 +1752,8 @@
           "year": 2021,
           "journal": "Nature Communications",
           "cited": 26,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.7717/peerj.11310",
@@ -1498,7 +1762,8 @@
           "year": 2021,
           "journal": "PeerJ",
           "cited": 17,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2021gl093831",
@@ -1507,7 +1772,8 @@
           "year": 2021,
           "journal": "Geophysical Research Letters",
           "cited": 15,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-021-84834-1",
@@ -1516,7 +1782,8 @@
           "year": 2021,
           "journal": "Scientific Reports",
           "cited": 38,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.pld.2020.12.006",
@@ -1525,7 +1792,8 @@
           "year": 2021,
           "journal": "Plant Diversity",
           "cited": 9,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abc7741",
@@ -1534,7 +1802,8 @@
           "year": 2021,
           "journal": "Science Advances",
           "cited": 163,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1002/ece3.7419",
@@ -1543,7 +1812,8 @@
           "year": 2021,
           "journal": "Ecology and Evolution",
           "cited": 9,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-021-24141-5",
@@ -1552,7 +1822,8 @@
           "year": 2021,
           "journal": "Nature Communications",
           "cited": 35,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2015211118",
@@ -1561,7 +1832,8 @@
           "year": 2021,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 69,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rspb.2020.2762",
@@ -1570,7 +1842,8 @@
           "year": 2021,
           "journal": "Proceedings of the Royal Society B: Biological Sciences",
           "cited": 32,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-021-02236-9",
@@ -1579,7 +1852,8 @@
           "year": 2021,
           "journal": "Scientific Reports",
           "cited": 8,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-021-24413-0",
@@ -1588,7 +1862,8 @@
           "year": 2021,
           "journal": "Nature Communications",
           "cited": 54,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abe6530",
@@ -1597,7 +1872,8 @@
           "year": 2021,
           "journal": "Science Advances",
           "cited": 13,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1093/nsr/nwab027",
@@ -1606,7 +1882,8 @@
           "year": 2021,
           "journal": "National Science Review",
           "cited": 106,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41597-021-00942-7",
@@ -1615,7 +1892,8 @@
           "year": 2021,
           "journal": "Scientific Data",
           "cited": 39,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abd6709",
@@ -1624,7 +1902,8 @@
           "year": 2021,
           "journal": "Science Advances",
           "cited": 30,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2024451118",
@@ -1633,7 +1912,8 @@
           "year": 2021,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 36,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rsos.200459",
@@ -1642,7 +1922,8 @@
           "year": 2020,
           "journal": "Royal Society Open Science",
           "cited": 17,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-020-17522-9",
@@ -1651,7 +1932,8 @@
           "year": 2020,
           "journal": "Nature Communications",
           "cited": 143,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2020pa003932",
@@ -1660,7 +1942,8 @@
           "year": 2020,
           "journal": "Paleoceanography and Paleoclimatology",
           "cited": 26,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2012246117",
@@ -1669,7 +1952,8 @@
           "year": 2020,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 30,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.abb8227",
@@ -1678,7 +1962,8 @@
           "year": 2020,
           "journal": "Science Advances",
           "cited": 163,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-020-60379-7",
@@ -1687,7 +1972,8 @@
           "year": 2020,
           "journal": "Scientific Reports",
           "cited": 12,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1111/mec.15590",
@@ -1696,7 +1982,8 @@
           "year": 2020,
           "journal": "Molecular Ecology",
           "cited": 73,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2007324117",
@@ -1705,7 +1992,18 @@
           "year": 2020,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 82,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1126/sciadv.abd0953",
+          "title": "Intraplate volcanism triggered by bursts in slab flux.",
+          "authors": "Ben R Mather; R Dietmar Müller; Maria Seton; Saskia Ruttor; Oliver Nebel; Nick Mortimer",
+          "year": 2020,
+          "journal": "Science Advances",
+          "cited": 73,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1038/s41598-020-70020-2",
@@ -1714,7 +2012,8 @@
           "year": 2020,
           "journal": "Scientific Reports",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.aaz8670",
@@ -1723,7 +2022,8 @@
           "year": 2020,
           "journal": "Science Advances",
           "cited": 67,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rsbl.2020.0735",
@@ -1732,7 +2032,8 @@
           "year": 2020,
           "journal": "Biology Letters",
           "cited": 32,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2015117117",
@@ -1741,7 +2042,8 @@
           "year": 2020,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 28,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.aaz8681",
@@ -1750,7 +2052,8 @@
           "year": 2020,
           "journal": "Science Advances",
           "cited": 116,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2003914117",
@@ -1759,7 +2062,8 @@
           "year": 2020,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 100,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-020-64333-5",
@@ -1768,7 +2072,8 @@
           "year": 2020,
           "journal": "Scientific Reports",
           "cited": 40,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-020-20008-3",
@@ -1777,7 +2082,8 @@
           "year": 2020,
           "journal": "Nature Communications",
           "cited": 14,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41561-019-0443-2",
@@ -1786,7 +2092,8 @@
           "year": 2019,
           "journal": "Nature Geoscience",
           "cited": 284,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-019-08837-3",
@@ -1795,7 +2102,8 @@
           "year": 2019,
           "journal": "Nature Communications",
           "cited": 96,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rspb.2019.1863",
@@ -1804,7 +2112,8 @@
           "year": 2019,
           "journal": "Proceedings of the Royal Society B: Biological Sciences",
           "cited": 10,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.dib.2019.104398",
@@ -1813,7 +2122,8 @@
           "year": 2019,
           "journal": "Data in Brief",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-019-56069-8",
@@ -1822,7 +2132,8 @@
           "year": 2019,
           "journal": "Scientific Reports",
           "cited": 19,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.7717/peerj.7166",
@@ -1831,7 +2142,8 @@
           "year": 2019,
           "journal": "PeerJ",
           "cited": 13,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-019-40673-9",
@@ -1840,7 +2152,8 @@
           "year": 2019,
           "journal": "Scientific Reports",
           "cited": 24,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.aau8067",
@@ -1849,7 +2162,8 @@
           "year": 2019,
           "journal": "Science Advances",
           "cited": 26,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-019-56335-9",
@@ -1858,7 +2172,8 @@
           "year": 2019,
           "journal": "Scientific Reports",
           "cited": 52,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rsos.180482",
@@ -1867,7 +2182,8 @@
           "year": 2018,
           "journal": "Royal Society Open Science",
           "cited": 64,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.7717/peerj.4113",
@@ -1876,7 +2192,8 @@
           "year": 2018,
           "journal": "PeerJ",
           "cited": 36,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1371/journal.pone.0194696",
@@ -1885,7 +2202,8 @@
           "year": 2018,
           "journal": "PLOS ONE",
           "cited": 24,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1186/s12862-018-1212-3",
@@ -1894,7 +2212,8 @@
           "year": 2018,
           "journal": "BMC Evolutionary Biology",
           "cited": 30,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-018-28267-3",
@@ -1903,7 +2222,8 @@
           "year": 2018,
           "journal": "Scientific Reports",
           "cited": 27,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.aao2994",
@@ -1912,7 +2232,8 @@
           "year": 2018,
           "journal": "Science Advances",
           "cited": 18,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2018tc005010",
@@ -1921,7 +2242,8 @@
           "year": 2018,
           "journal": "Tectonics",
           "cited": 54,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-018-34733-9",
@@ -1930,7 +2252,8 @@
           "year": 2018,
           "journal": "Scientific Reports",
           "cited": 82,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-018-34748-2",
@@ -1939,7 +2262,18 @@
           "year": 2018,
           "journal": "Scientific Reports",
           "cited": 12,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1029/2018gc007584",
+          "title": "GPlates: Building a Virtual Earth Through Deep Time",
+          "authors": "R. Dietmar Müller; John Cannon; Xiaodong Qin; Robin J. Watson; Michael Gurnis; Simon Williams; Tobias Pfaffelmoser; Maria Seton; Samuel H. J. Russell; Sabin Zahirovic",
+          "year": 2018,
+          "journal": "Geochemistry Geophysics Geosystems",
+          "cited": 757,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1029/2018tc005036",
@@ -1948,7 +2282,8 @@
           "year": 2018,
           "journal": "Tectonics",
           "cited": 95,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2017tc004944",
@@ -1957,7 +2292,8 @@
           "year": 2018,
           "journal": "Tectonics",
           "cited": 11,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-017-02609-7",
@@ -1966,7 +2302,8 @@
           "year": 2018,
           "journal": "Nature Communications",
           "cited": 151,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2017tc004901",
@@ -1975,7 +2312,8 @@
           "year": 2018,
           "journal": "Tectonics",
           "cited": 49,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2018gc007431",
@@ -1984,7 +2322,8 @@
           "year": 2018,
           "journal": "Geochemistry, Geophysics, Geosystems",
           "cited": 175,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1098/rspb.2018.0232",
@@ -1993,7 +2332,8 @@
           "year": 2018,
           "journal": "Proceedings of the Royal Society B: Biological Sciences",
           "cited": 24,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-018-34769-x",
@@ -2002,7 +2342,8 @@
           "year": 2018,
           "journal": "Scientific Reports",
           "cited": 28,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/sdata.2017.68",
@@ -2011,7 +2352,8 @@
           "year": 2017,
           "journal": "Scientific Data",
           "cited": 25,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1093/sysbio/syw040",
@@ -2020,7 +2362,8 @@
           "year": 2017,
           "journal": "Systematic Biology",
           "cited": 51,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-017-00130-5",
@@ -2029,7 +2372,8 @@
           "year": 2017,
           "journal": "Nature Communications",
           "cited": 4,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-017-11470-z",
@@ -2038,7 +2382,8 @@
           "year": 2017,
           "journal": "Scientific Reports",
           "cited": 17,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.1601693",
@@ -2047,7 +2392,8 @@
           "year": 2017,
           "journal": "Science Advances",
           "cited": 154,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/ncomms15660",
@@ -2056,7 +2402,8 @@
           "year": 2017,
           "journal": "Nature Communications",
           "cited": 99,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.1702297114",
@@ -2065,7 +2412,8 @@
           "year": 2017,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 177,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/ncomms15249",
@@ -2074,7 +2422,8 @@
           "year": 2017,
           "journal": "Nature Communications",
           "cited": 103,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-017-00248-y",
@@ -2083,7 +2432,8 @@
           "year": 2017,
           "journal": "Scientific Reports",
           "cited": 28,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.1608824114",
@@ -2092,7 +2442,8 @@
           "year": 2017,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 476,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/srep38876",
@@ -2101,7 +2452,8 @@
           "year": 2016,
           "journal": "Scientific Reports",
           "cited": 19,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1111/jbi.12754",
@@ -2110,7 +2462,8 @@
           "year": 2016,
           "journal": "Journal of Biogeography",
           "cited": 81,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.1523667113",
@@ -2119,7 +2472,8 @@
           "year": 2016,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 101,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/srep19742",
@@ -2128,7 +2482,8 @@
           "year": 2016,
           "journal": "Scientific Reports",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.1600022",
@@ -2137,7 +2492,18 @@
           "year": 2016,
           "journal": "Science Advances",
           "cited": 58,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1371/journal.pone.0150883",
+          "title": "The GPlates Portal: Cloud-Based Interactive 3D Visualization of Global Geophysical and Geological Data in a Web Browser.",
+          "authors": "R Dietmar Müller; Xiaodong Qin; David T Sandwell; Adriana Dutkiewicz; Simon E Williams; Nicolas Flament; Stefan Maus; Maria Seton",
+          "year": 2016,
+          "journal": "PLoS ONE",
+          "cited": 70,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1038/srep31442",
@@ -2146,7 +2512,8 @@
           "year": 2016,
           "journal": "Scientific Reports",
           "cited": 45,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/srep29603",
@@ -2155,7 +2522,8 @@
           "year": 2016,
           "journal": "Scientific Reports",
           "cited": 91,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1371/journal.pone.0126946",
@@ -2164,7 +2532,8 @@
           "year": 2015,
           "journal": "PLOS ONE",
           "cited": 457,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/srep08407",
@@ -2173,7 +2542,8 @@
           "year": 2015,
           "journal": "Scientific Reports",
           "cited": 48,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.1318135111",
@@ -2182,7 +2552,18 @@
           "year": 2014,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 233,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.5194/se-5-741-2014",
+          "title": "Plate tectonic raster reconstruction in GPlates",
+          "authors": "John Cannon; Edward C Y Lau; R. Dietmar Müller",
+          "year": 2014,
+          "journal": "Solid Earth",
+          "cited": 15,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.4161/hv.27753",
@@ -2191,7 +2572,8 @@
           "year": 2014,
           "journal": "Human Vaccines & Immunotherapeutics",
           "cited": 9,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/srep02752",
@@ -2200,7 +2582,18 @@
           "year": 2013,
           "journal": "Scientific Reports",
           "cited": 40,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.5194/gi-1-111-2012",
+          "title": "The GPlates Geological Information Model and Markup Language",
+          "authors": "Xiaodong Qin; R. Dietmar Müller; John Cannon; Thomas C.W. Landgrebe; Christian Heine; Robin J. Watson; M. Turner",
+          "year": 2012,
+          "journal": "Geoscientific instrumentation, methods and data systems",
+          "cited": 23,
+          "oa": true,
+          "evidence": "text-attributed"
         }
       ]
     },
@@ -2211,9 +2604,9 @@
         "Underworld 2",
         "Underworld geodynamics"
       ],
-      "publications": 46,
-      "citations": 179,
-      "earliestYear": 2022,
+      "publications": 53,
+      "citations": 272,
+      "earliestYear": 2020,
       "latestYear": 2026,
       "records": [
         {
@@ -2223,7 +2616,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-026-69987-9",
@@ -2232,7 +2626,8 @@
           "year": 2026,
           "journal": "Nature Communications",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-026-39647-5",
@@ -2241,7 +2636,8 @@
           "year": 2026,
           "journal": "Scientific Reports",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.59350/6mxqs-3p708",
@@ -2250,7 +2646,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu26-13041",
@@ -2259,7 +2656,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.59350/brqdq-9yq62",
@@ -2268,7 +2666,18 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1029/2025gc012769",
+          "title": "Subduction System Response to Ribbon Collision: Implications on the Intra‐Plate Force Balance and the Style of Slab Deformation",
+          "authors": "Andres Rodriguez‐Corcho; Sara Polanco; Daniel Sandiford; Rebecca Farrington; Louis Moresi",
+          "year": 2026,
+          "journal": "Geochemistry Geophysics Geosystems",
+          "cited": 0,
+          "oa": true,
+          "evidence": "verified"
         },
         {
           "doi": "10.21203/rs.3.rs-6356359/v1",
@@ -2277,7 +2686,18 @@
           "year": 2026,
           "journal": "Research Square",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41467-025-65824-7",
+          "title": "Bridging the gap between subduction dynamics and the long-term strength of the Sunda megathrust.",
+          "authors": "Fabio A Capitanio; Thyagarajulu Gollapalli; Radhakrishna Munukutla; Juan Carlos Graciosa; Zuhair Mohd; Adam Beall; Luca Dal Zilio",
+          "year": 2025,
+          "journal": "Nature Communications",
+          "cited": 1,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.5194/egusphere-2025-5480",
@@ -2286,7 +2706,8 @@
           "year": 2025,
           "journal": "",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s43247-025-02269-2",
@@ -2295,7 +2716,8 @@
           "year": 2025,
           "journal": "Communications Earth & Environment",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1109/bigdia68682.2025.11383232",
@@ -2304,7 +2726,8 @@
           "year": 2025,
           "journal": "2025 11th International Conference on Big Data and Information Analytics (BigDIA)",
           "cited": 0,
-          "oa": false
+          "oa": false,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.ady6244",
@@ -2313,7 +2736,8 @@
           "year": 2025,
           "journal": "Science Advances",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-2025-5403",
@@ -2322,7 +2746,8 @@
           "year": 2025,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1126/sciadv.adv8872",
@@ -2331,7 +2756,8 @@
           "year": 2025,
           "journal": "Science Advances",
           "cited": 4,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2024gl112369",
@@ -2340,7 +2766,8 @@
           "year": 2025,
           "journal": "Geophysical Research Letters",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.21105/joss.07831",
@@ -2349,7 +2776,8 @@
           "year": 2025,
           "journal": "The Journal of Open Source Software",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu24-16119",
@@ -2358,7 +2786,8 @@
           "year": 2024,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2024gl109552",
@@ -2367,7 +2796,8 @@
           "year": 2024,
           "journal": "Geophysical Research Letters",
           "cited": 4,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1130/g51874.1",
@@ -2376,7 +2806,8 @@
           "year": 2024,
           "journal": "Geology",
           "cited": 17,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2024gl110821",
@@ -2385,7 +2816,8 @@
           "year": 2024,
           "journal": "Geophysical Research Letters",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1016/j.epsl.2024.119032",
@@ -2394,7 +2826,18 @@
           "year": 2024,
           "journal": "Earth and Planetary Science Letters",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.2138/gselements.20.3.187",
+          "title": "Embracing Craton Complexity at Depth",
+          "authors": "C. M. Cooper; Meghan S. Miller",
+          "year": 2024,
+          "journal": "Elements",
+          "cited": 5,
+          "oa": true,
+          "evidence": "candidate"
         },
         {
           "doi": "10.1029/2024gl109492",
@@ -2403,7 +2846,8 @@
           "year": 2024,
           "journal": "Geophysical Research Letters",
           "cited": 7,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2320054121",
@@ -2412,7 +2856,8 @@
           "year": 2024,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 11,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu24-5872",
@@ -2421,7 +2866,8 @@
           "year": 2024,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-024-59520-7",
@@ -2430,7 +2876,8 @@
           "year": 2024,
           "journal": "Scientific Reports",
           "cited": 11,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2024gc011807",
@@ -2439,7 +2886,8 @@
           "year": 2024,
           "journal": "Geochemistry Geophysics Geosystems",
           "cited": 7,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.2113/2024/lithosphere_2023_344",
@@ -2448,7 +2896,8 @@
           "year": 2024,
           "journal": "Lithosphere",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2404939121",
@@ -2457,7 +2906,8 @@
           "year": 2024,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 9,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2024gl110202",
@@ -2466,7 +2916,8 @@
           "year": 2024,
           "journal": "Geophysical Research Letters",
           "cited": 6,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu24-20850",
@@ -2475,7 +2926,8 @@
           "year": 2024,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s43247-024-01833-6",
@@ -2484,7 +2936,8 @@
           "year": 2024,
           "journal": "Communications Earth & Environment",
           "cited": 3,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2023jb027245",
@@ -2493,7 +2946,8 @@
           "year": 2023,
           "journal": "Journal of Geophysical Research Solid Earth",
           "cited": 10,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1093/gji/ggad414",
@@ -2502,7 +2956,8 @@
           "year": 2023,
           "journal": "Geophysical Journal International",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu23-13153",
@@ -2511,7 +2966,8 @@
           "year": 2023,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41467-023-37799-w",
@@ -2520,7 +2976,8 @@
           "year": 2023,
           "journal": "Nature Communications",
           "cited": 18,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.21203/rs.3.rs-2923832/v1",
@@ -2529,7 +2986,8 @@
           "year": 2023,
           "journal": "Research Square",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.22541/essoar.170224480.07642827/v1",
@@ -2538,7 +2996,18 @@
           "year": 2023,
           "journal": "",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.22541/essoar.170000347.73900494/v1",
+          "title": "India-Asia slowing convergence rate controls on the Cenozoic Himalaya-Tibetan tectonics",
+          "authors": "Ben Knight; Fabio A. Capitanio; Roberto F. Weinberg; Luca Dal Zilio",
+          "year": 2023,
+          "journal": "",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1029/2022jb026169",
@@ -2547,7 +3016,8 @@
           "year": 2023,
           "journal": "Journal of Geophysical Research Solid Earth",
           "cited": 1,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.22541/essoar.167591079.95480514/v1",
@@ -2556,7 +3026,8 @@
           "year": 2023,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1145/3624062.3624587",
@@ -2565,7 +3036,8 @@
           "year": 2023,
           "journal": "Proceedings of the SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
           "cited": 6,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.48550/arxiv.2305.01701",
@@ -2574,7 +3046,8 @@
           "year": 2023,
           "journal": "arXiv (Cornell University)",
           "cited": 2,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.22541/essoar.169444235.56582698/v1",
@@ -2583,7 +3056,8 @@
           "year": 2023,
           "journal": "",
           "cited": 5,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1029/2022jb026202",
@@ -2592,7 +3066,8 @@
           "year": 2023,
           "journal": "Journal of Geophysical Research Solid Earth",
           "cited": 12,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.1073/pnas.2201226119",
@@ -2601,7 +3076,8 @@
           "year": 2022,
           "journal": "Proceedings of the National Academy of Sciences",
           "cited": 12,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.46690/ager.2022.03.04",
@@ -2610,7 +3086,18 @@
           "year": 2022,
           "journal": "ADVANCES IN GEO-ENERGY RESEARCH",
           "cited": 9,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41598-022-08384-w",
+          "title": "Constraining the response of continental-scale groundwater flow to climate change.",
+          "authors": "Ben Mather; R Dietmar Müller; Craig O'Neill; Adam Beall; R Willem Vervoort; Louis Moresi",
+          "year": 2022,
+          "journal": "Scientific Reports",
+          "cited": 13,
+          "oa": true,
+          "evidence": "text-attributed"
         },
         {
           "doi": "10.1029/2021jb023911",
@@ -2619,7 +3106,18 @@
           "year": 2022,
           "journal": "Journal of Geophysical Research Solid Earth",
           "cited": 9,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1029/2022gc010386",
+          "title": "The Role of Lithospheric‐Deep Mantle Interactions on the Style and Stress Evolution of Arc‐Continent Collision",
+          "authors": "Andres Felipe Rodriguez-Corcho; Sara Polanco; Rebecca Farrington; Romain Beucher; Camilo Montes; Louis Moresi",
+          "year": 2022,
+          "journal": "Geochemistry Geophysics Geosystems",
+          "cited": 2,
+          "oa": true,
+          "evidence": "candidate"
         },
         {
           "doi": "10.33774/coe-2021-znrtz-v2",
@@ -2628,7 +3126,18 @@
           "year": 2022,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.21105/joss.01797",
+          "title": "Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud",
+          "authors": "John Mansour; Julian Giordani; Louis Moresi; Romain Beucher; Owen Kaluza; Mirko Velić; Rebecca Farrington; Steve Quenette; Adam Beall",
+          "year": 2020,
+          "journal": "The Journal of Open Source Software",
+          "cited": 72,
+          "oa": true,
+          "evidence": "candidate"
         }
       ]
     },
@@ -2639,8 +3148,8 @@
         "G-ADOPT",
         "Geodynamic ADjOint Optimisation PlaTform"
       ],
-      "publications": 4,
-      "citations": 5,
+      "publications": 11,
+      "citations": 54,
       "earliestYear": 2021,
       "latestYear": 2026,
       "records": [
@@ -2651,7 +3160,18 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.5194/gmd-19-2717-2026",
+          "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth",
+          "authors": "William Scott; Mark Hoggard; Thomas Duvernay; Siavash Ghelichkhan; A. H. Gibson; Dale S. Roberts; Stephan C. Kramer; D. Rhodri Davies",
+          "year": 2026,
+          "journal": "Geoscientific model development",
+          "cited": 1,
+          "oa": true,
+          "evidence": "candidate"
         },
         {
           "doi": "10.5194/egusphere-egu26-7704",
@@ -2660,7 +3180,8 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/egusphere-egu26-17242",
@@ -2669,7 +3190,68 @@
           "year": 2026,
           "journal": "",
           "cited": 0,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-8681",
+          "title": "Enhancing Adjoint Reconstructions of Earth’s Mantle with Geochemical Data from Intra-Plate Lavas",
+          "authors": "D. Rhodri Davies; Siavash Ghelichkhan; Rebecca Turner",
+          "year": 2025,
+          "journal": "",
+          "cited": 0,
+          "oa": true,
+          "evidence": "candidate"
+        },
+        {
+          "doi": "10.1093/gji/ggaf026",
+          "title": "PyDRex: predicting crystallographic preferred orientation in peridotites under steady-state and time-dependent strain",
+          "authors": "Leon Bilton; Thomas Duvernay; D. Rhodri Davies; C. M. Eakin",
+          "year": 2025,
+          "journal": "Geophysical Journal International",
+          "cited": 3,
+          "oa": true,
+          "evidence": "candidate"
+        },
+        {
+          "doi": "10.5194/egusphere-egu25-13762",
+          "title": "Unveiling Late Cenozoic Dynamic Topography Evolution Using Non-Linear Adjoint Models",
+          "authors": "Siavash Ghelichkhan; D. Rhodri Davies; A. H. Gibson; David C. S. Roberts",
+          "year": 2025,
+          "journal": "",
+          "cited": 0,
+          "oa": true,
+          "evidence": "candidate"
+        },
+        {
+          "doi": "10.5194/gmd-17-5057-2024",
+          "title": "Automatic adjoint-based inversion schemes for geodynamics: reconstructing the evolution of Earth's mantle in space and time",
+          "authors": "Siavash Ghelichkhan; A. H. Gibson; D. Rhodri Davies; Stephan C. Kramer; David A. Ham",
+          "year": 2024,
+          "journal": "Geoscientific model development",
+          "cited": 9,
+          "oa": true,
+          "evidence": "candidate"
+        },
+        {
+          "doi": "10.1016/b978-0-323-85733-8.00017-2",
+          "title": "Observations and Models of Dynamic Topography: Current Status and Future Directions",
+          "authors": "D.R. Davies; S. Ghelichkhan; M.J. Hoggard; A.P. Valentine; F.D. Richards",
+          "year": 2023,
+          "journal": "Dynamics of Plate Tectonics and Mantle Convection",
+          "cited": 31,
+          "oa": true,
+          "evidence": "candidate"
+        },
+        {
+          "doi": "10.1002/essoar.10510305.1",
+          "title": "Continental Magmatism: The Surface Manifestation of Dynamic Interactions Between Cratonic Lithosphere, Mantle Plumes and Edge-Driven Convection",
+          "authors": "Thomas Duvernay; D. Rhodri Davies; Christopher Mathews; A. H. Gibson; Stephan C. Kramer",
+          "year": 2022,
+          "journal": "",
+          "cited": 5,
+          "oa": true,
+          "evidence": "candidate"
         },
         {
           "doi": "10.31223/x55601",
@@ -2678,7 +3260,8 @@
           "year": 2021,
           "journal": "",
           "cited": 5,
-          "oa": true
+          "oa": true,
+          "evidence": "text-software"
         }
       ]
     }

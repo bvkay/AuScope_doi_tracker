@@ -896,8 +896,12 @@ function buildSoftwareRegistry(pubs, facilityData) {
     // A tool cannot have been used before it existed: facility-names.json
     // may give a "since" year, and earlier papers are search-term noise.
     const since = Number(facilities[name].since) || 0;
+    // Every graded paper that matches the tool, whatever its grade: a paper
+    // with an AuScope identifier or acknowledgement still reports using the
+    // software (the G-ADOPT platform paper itself is graded candidate), and
+    // the grade travels with the row. Keyword-only records stay out.
     const matches = pubs.filter(function(p) {
-      if (p.evidence !== 'text-software') return false;
+      if (!p.evidence || p.evidence === 'keyword') return false;
       if (since && Number(p.year) && Number(p.year) < since) return false;
       const text = [p.title, p.subject].concat(p.searchTerms || []).filter(Boolean).join(' ').toLowerCase();
       return needles.some(function(n) { return text.indexOf(n) !== -1; });
@@ -907,6 +911,7 @@ function buildSoftwareRegistry(pubs, facilityData) {
         authors: decodeEntities(String(p.authors || '')), year: p.year || '',
         journal: decodeEntities(String(p.journal || '')),
         cited: parseInt(p.cited) || 0, oa: /^yes$/i.test(String(p.isOA || '')),
+        evidence: p.evidence,
       };
     });
     const years = matches.map(function(p) { return Number(p.year); }).filter(Boolean);
