@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-12T23:49:54.257Z",
+  "generated": "2026-11-13T00:08:48.323Z",
   "stats": {
     "totalPublications": 2763,
     "totalDatasets": 470,
-    "totalCitations": 66163,
-    "citedPublications": 2271,
-    "citedPercent": 82.2,
+    "totalCitations": 66166,
+    "citedPublications": 2273,
+    "citedPercent": 82.3,
     "avgCitations": 23.9,
     "uniqueJournals": 564,
     "uniqueAuthors": 10564,
@@ -18,7 +18,7 @@
     "documentedInstitutions": 820,
     "documentedCountries": 71,
     "yearRange": "2007–2026",
-    "noSubjectCount": 6,
+    "noSubjectCount": 0,
     "evidenceSplit": {
       "documented": {
         "pubs": 672,
@@ -30,11 +30,11 @@
       },
       "software": {
         "pubs": 294,
-        "citations": 7144
+        "citations": 7145
       },
       "unverified": {
         "pubs": 1681,
-        "citations": 39264
+        "citations": 39266
       }
     }
   },
@@ -187,8 +187,8 @@
       "year": 2015,
       "count": 40,
       "cumulative": 145,
-      "citations": 1811,
-      "cumulativeCitations": 13788,
+      "citations": 1812,
+      "cumulativeCitations": 13789,
       "documented": 24,
       "candidate": 4,
       "attributed": 28,
@@ -206,7 +206,7 @@
       "count": 54,
       "cumulative": 199,
       "citations": 2283,
-      "cumulativeCitations": 16071,
+      "cumulativeCitations": 16072,
       "documented": 29,
       "candidate": 5,
       "attributed": 34,
@@ -224,7 +224,7 @@
       "count": 46,
       "cumulative": 245,
       "citations": 2278,
-      "cumulativeCitations": 18349,
+      "cumulativeCitations": 18350,
       "documented": 31,
       "candidate": 0,
       "attributed": 31,
@@ -242,7 +242,7 @@
       "count": 66,
       "cumulative": 311,
       "citations": 3227,
-      "cumulativeCitations": 21576,
+      "cumulativeCitations": 21577,
       "documented": 31,
       "candidate": 7,
       "attributed": 38,
@@ -260,7 +260,7 @@
       "count": 84,
       "cumulative": 395,
       "citations": 2450,
-      "cumulativeCitations": 24026,
+      "cumulativeCitations": 24027,
       "documented": 44,
       "candidate": 6,
       "attributed": 50,
@@ -278,7 +278,7 @@
       "count": 524,
       "cumulative": 919,
       "citations": 17463,
-      "cumulativeCitations": 41489,
+      "cumulativeCitations": 41490,
       "documented": 47,
       "candidate": 9,
       "attributed": 56,
@@ -295,8 +295,8 @@
       "year": 2021,
       "count": 480,
       "cumulative": 1399,
-      "citations": 12065,
-      "cumulativeCitations": 53554,
+      "citations": 12066,
+      "cumulativeCitations": 53556,
       "documented": 75,
       "candidate": 9,
       "attributed": 84,
@@ -314,7 +314,7 @@
       "count": 448,
       "cumulative": 1847,
       "citations": 6907,
-      "cumulativeCitations": 60461,
+      "cumulativeCitations": 60463,
       "documented": 68,
       "candidate": 12,
       "attributed": 80,
@@ -332,7 +332,7 @@
       "count": 364,
       "cumulative": 2211,
       "citations": 3915,
-      "cumulativeCitations": 64376,
+      "cumulativeCitations": 64378,
       "documented": 101,
       "candidate": 9,
       "attributed": 110,
@@ -350,7 +350,7 @@
       "count": 197,
       "cumulative": 2408,
       "citations": 1408,
-      "cumulativeCitations": 65784,
+      "cumulativeCitations": 65786,
       "documented": 55,
       "candidate": 19,
       "attributed": 74,
@@ -367,8 +367,8 @@
       "year": 2025,
       "count": 206,
       "cumulative": 2614,
-      "citations": 343,
-      "cumulativeCitations": 66127,
+      "citations": 344,
+      "cumulativeCitations": 66130,
       "documented": 76,
       "candidate": 13,
       "attributed": 89,
@@ -386,7 +386,7 @@
       "count": 149,
       "cumulative": 2763,
       "citations": 36,
-      "cumulativeCitations": 66163,
+      "cumulativeCitations": 66166,
       "documented": 25,
       "candidate": 9,
       "attributed": 34,
@@ -435,7 +435,7 @@
     },
     {
       "topic": "Geophysical and Geoelectrical Methods",
-      "count": 155
+      "count": 158
     },
     {
       "topic": "Hydrocarbon exploration and reservoir analysis",
@@ -465,11 +465,11 @@
   "citationDistribution": [
     {
       "label": "0",
-      "count": 492
+      "count": 490
     },
     {
       "label": "1–5",
-      "count": 650
+      "count": 652
     },
     {
       "label": "6–20",

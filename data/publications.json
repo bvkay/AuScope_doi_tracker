@@ -1,11 +1,11 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-09-15T00:12:11.094Z",
+    "last_updated": "2026-11-13T00:00:56.085Z",
     "total_count": 2768,
-    "evidence_updated": "2026-11-12T23:48:55.486Z",
-    "consolidated": "2026-09-15T00:12:46.383Z",
-    "dates_enriched": "2026-09-14T23:14:35.729Z"
+    "evidence_updated": "2026-11-13T00:08:23.994Z",
+    "consolidated": "2026-11-13T00:08:24.088Z",
+    "dates_enriched": "2026-11-12T23:56:37.519Z"
   },
   "records": [
     {
@@ -1268,7 +1268,7 @@
       "cited": 0,
       "type": "report",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Research, Science, and Academia; History of Science and Natural History; Interdisciplinary Research and Collaboration",
       "sources": [
         "OpenAlex"
       ],
@@ -14234,7 +14234,8 @@
       ],
       "dateAdded": "2026-03-24",
       "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)"
+      "evidenceDetail": "text scan (tier1)",
+      "publicationDate": "2016-11-16"
     },
     {
       "doi": "10.1007/s00190-013-0626-3",
@@ -30113,7 +30114,7 @@
       "journal": "",
       "publisher": "Copernicus GmbH",
       "year": 2025,
-      "cited": 0,
+      "cited": 1,
       "type": "article",
       "isOA": "Yes",
       "subject": "Advanced Numerical Methods in Computational Mathematics; CO2 Sequestration and Geologic Interactions; High-pressure geophysics and materials",
@@ -48779,7 +48780,7 @@
       "cited": 0,
       "type": "software",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Paleontology and Stratigraphy of Fossils; Geology and Paleoclimatology Research; Geomagnetism and Paleomagnetism Studies",
       "sources": [
         "OpenAlex"
       ],
@@ -50131,10 +50132,10 @@
       "journal": "Zenodo (CERN European Organization for Nuclear Research)",
       "publisher": "European Organization for Nuclear Research",
       "year": 2026,
-      "cited": 2,
+      "cited": 7,
       "type": "software",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Meteorological Phenomena and Simulations; Climate variability and models; Oceanographic and Atmospheric Processes",
       "sources": [
         "OpenAlex"
       ],
@@ -67040,7 +67041,7 @@
       "journal": "",
       "publisher": "California Digital Library (CDL)",
       "year": 2021,
-      "cited": 0,
+      "cited": 1,
       "type": "posted content",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geology and Paleoclimatology Research; earthquake and tectonic studies",
@@ -69010,7 +69011,7 @@
       "cited": 0,
       "type": "journal article",
       "isOA": "No",
-      "subject": "",
+      "subject": "Environmental law and policy; Environmental Philosophy and Ethics; International Law and Human Rights",
       "sources": [
         "Crossref",
         "OpenAlex"
@@ -69217,7 +69218,7 @@
       "cited": 0,
       "type": "report",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Geophysical and Geoelectrical Methods",
       "sources": [
         "OpenAlex",
         "OpenAlex (verified)"
@@ -69727,7 +69728,7 @@
       "cited": 0,
       "type": "report",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Mining and Resource Management",
       "sources": [
         "OpenAlex"
       ],
@@ -70323,7 +70324,7 @@
       "cited": 0,
       "type": "software",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Geophysical and Geoelectrical Methods; Geomagnetism and Paleomagnetism Studies; Geophysical Methods and Applications",
       "sources": [
         "OpenAlex"
       ],
@@ -71009,7 +71010,7 @@
       "cited": 0,
       "type": "conference abstract",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Geophysical and Geoelectrical Methods; Research Data Management Practices; Scientific Computing and Data Management",
       "sources": [
         "OpenAlex"
       ],
@@ -73891,7 +73892,7 @@
       "journal": "Preview",
       "publisher": "Taylor & Francis",
       "year": 2015,
-      "cited": 1,
+      "cited": 2,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geochemistry and Geologic Mapping; Geological Modeling and Analysis; Seismology and Earthquake Studies",
@@ -74569,7 +74570,7 @@
       "cited": 0,
       "type": "report",
       "isOA": "Yes",
-      "subject": "",
+      "subject": "Conferences and Exhibitions Management; Academic Publishing and Open Access; Online and Blended Learning",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -75428,6 +75429,7 @@
       "relatedDois": [
         "10.59350/h4nph-she37",
         "10.59350/h4nph-she37",
+        "10.59350/h4nph-she37",
         "10.59350/h4nph-she37"
       ]
     },
@@ -75729,6 +75731,7 @@
       "evidence": "text-infrastructure",
       "evidenceDetail": "cites AuScope dataset DOI: 10.25914/5eaa30cc934d0",
       "relatedDois": [
+        "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591"
