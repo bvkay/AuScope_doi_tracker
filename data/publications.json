@@ -1,11 +1,11 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-11-13T00:30:07.588Z",
+    "last_updated": "2026-11-13T02:16:20.044Z",
     "total_count": 2768,
-    "evidence_updated": "2026-11-13T00:30:36.200Z",
-    "consolidated": "2026-11-13T00:30:36.313Z",
-    "dates_enriched": "2026-11-12T23:56:37.519Z",
+    "evidence_updated": "2026-11-13T02:16:28.826Z",
+    "consolidated": "2026-11-13T02:16:28.963Z",
+    "dates_enriched": "2026-11-13T02:12:13.150Z",
     "search_updated": "2026-09-15T00:12:11.094Z"
   },
   "records": [
@@ -75180,6 +75180,7 @@
         "10.59350/h4nph-she37",
         "10.59350/h4nph-she37",
         "10.59350/h4nph-she37",
+        "10.59350/h4nph-she37",
         "10.59350/h4nph-she37"
       ]
     },
@@ -75485,6 +75486,7 @@
         "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591",
+        "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591"
       ]
     },
@@ -75545,7 +75547,8 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965"
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
+      "publicationDate": "2026-06-27"
     },
     {
       "doi": "10.63929/22020586.2026.1.048",
@@ -75577,7 +75580,8 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564"
+      "evidenceDetail": "ror:04s1m4564",
+      "publicationDate": "2026-10-21"
     },
     {
       "doi": "10.63929/22020586.2026.1.086",
@@ -75616,7 +75620,8 @@
         "ROR-verified"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-8841-4384,orcid:0000-0002-2594-6965"
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965",
+      "publicationDate": "2026-10-21"
     },
     {
       "doi": "10.5281/zenodo.7980191",
@@ -75653,10 +75658,11 @@
         "AuScope"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-8841-4384,orcid:0000-0002-2594-6965",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965",
       "relatedDois": [
         "10.5281/zenodo.7980192"
-      ]
+      ],
+      "publicationDate": "2023-03-15"
     },
     {
       "doi": "10.5281/zenodo.7988966",
@@ -75699,7 +75705,8 @@
       "evidenceDetail": "ror:04s1m4564",
       "relatedDois": [
         "10.5281/zenodo.7988967"
-      ]
+      ],
+      "publicationDate": "2023-03-15"
     },
     {
       "doi": "10.5281/zenodo.7380946",
@@ -75737,7 +75744,8 @@
       "evidenceDetail": "ror:04s1m4564",
       "relatedDois": [
         "10.5281/zenodo.7380947"
-      ]
+      ],
+      "publicationDate": "2022-11-30"
     },
     {
       "doi": "10.5281/zenodo.7690549",
@@ -75777,10 +75785,11 @@
         "AVRE AuScope"
       ],
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-8841-4384",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384",
       "relatedDois": [
         "10.5281/zenodo.7690550"
-      ]
+      ],
+      "publicationDate": "2021-09-15"
     }
   ]
 }

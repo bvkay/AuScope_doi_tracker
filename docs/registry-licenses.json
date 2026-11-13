@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T00:30:49.633Z",
+  "generated": "2026-11-13T02:16:38.358Z",
   "source": "DataCite REST API",
   "records": {
     "10.58024/agag3126b4ca": "Creative Commons",
@@ -473,7 +473,13 @@
     "10.25914/x7h8-4a33": "",
     "10.25914/an8s-6g97": "",
     "10.25914/qz3n-p243": "",
-    "10.25914/tk35-h930": ""
+    "10.25914/tk35-h930": "",
+    "10.60623/0oaylfda": "cc-by-4.0",
+    "10.60623/odna57ut": "cc-by-4.0",
+    "10.60623/3159pc3b": "cc-by-4.0",
+    "10.60623/l8hc57ty": "cc-by-4.0",
+    "10.60623/y1ua83ti": "cc-by-4.0",
+    "10.60623/82trleue": "cc-by-4.0"
   },
   "creators": {
     "10.58024/agag3126b4ca": [
@@ -7813,6 +7819,102 @@
         "given": "Louis-Noel",
         "family": "Moresi",
         "orcid": "0000-0003-3685-174X"
+      }
+    ],
+    "10.60623/0oaylfda": [
+      {
+        "name": "Tom Andrews",
+        "given": "",
+        "family": "",
+        "orcid": ""
+      }
+    ],
+    "10.60623/odna57ut": [
+      {
+        "name": "Schunck, David",
+        "given": "David",
+        "family": "Schunck",
+        "orcid": "0000-0003-2601-1413"
+      },
+      {
+        "name": "McCallum, Lucia",
+        "given": "Lucia",
+        "family": "McCallum",
+        "orcid": "0000-0002-7563-9488"
+      },
+      {
+        "name": "McCallum, Jamie",
+        "given": "Jamie",
+        "family": "McCallum",
+        "orcid": "0000-0002-0233-6937"
+      },
+      {
+        "name": "McCarthy, Tiege",
+        "given": "Tiege",
+        "family": "McCarthy",
+        "orcid": "0000-0001-9525-7981"
+      }
+    ],
+    "10.60623/3159pc3b": [
+      {
+        "name": "Graeme Beardsmore",
+        "given": "",
+        "family": "",
+        "orcid": "0000-0003-4812-1146"
+      },
+      {
+        "name": "Ehdena Khomami",
+        "given": "",
+        "family": "",
+        "orcid": "0009-0000-4544-8528"
+      },
+      {
+        "name": "David B. Baker",
+        "given": "",
+        "family": "",
+        "orcid": "0000-0002-7591-0303"
+      }
+    ],
+    "10.60623/l8hc57ty": [
+      {
+        "name": "Beardsmore, Graeme",
+        "given": "Graeme",
+        "family": "Beardsmore",
+        "orcid": "0000-0003-4812-1146"
+      },
+      {
+        "name": "Hamad, Joe",
+        "given": "Joe",
+        "family": "Hamad",
+        "orcid": "0009-0009-1060-7117"
+      },
+      {
+        "name": "Ricard, Ludovic",
+        "given": "Ludovic",
+        "family": "Ricard",
+        "orcid": "0000-0002-0134-5866"
+      }
+    ],
+    "10.60623/y1ua83ti": [
+      {
+        "name": "Andersen, Martin",
+        "given": "Martin",
+        "family": "Andersen",
+        "orcid": "0000-0001-7632-5491"
+      },
+      {
+        "name": "Jensen, Evan",
+        "given": "Evan",
+        "family": "Jensen",
+        "orcid": "0009-0006-3357-5339"
+      }
+    ],
+    "10.60623/82trleue": [
+      {
+        "name": "Austin, James R.",
+        "given": "James R.",
+        "family": "Austin",
+        "orcid": "0000-0002-9214-8795"
       }
     ]
   }

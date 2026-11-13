@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T00:37:00.981Z",
+  "generated": "2026-11-13T02:16:48.727Z",
   "pillars": {
     "publications": {
       "total": 2763,
@@ -36,15 +36,17 @@
         "NVCL": 1
       },
       "fairAvg": {
-        "EarthBank": 49,
+        "EarthBank": 48,
+        "AuScope Data Repository": 52,
         "AusPass": 52,
+        "NCI MT": 42,
         "NCI DAS": 42,
         "NCI MATE": 42,
         "NVCL": 42
       },
       "fairMeta": {
         "metric_version": "0.8",
-        "last_updated": "2026-11-01T10:52:09.655Z"
+        "last_updated": "2026-11-13T02:04:58.862Z"
       }
     },
     "samples": {
