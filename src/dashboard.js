@@ -231,8 +231,13 @@ function run() {
   // script happened to run. A dataset count stamped with the build time
   // claims a freshness the underlying file does not have. The instrument
   // registry is read live by src/stats.js, so its date is the build date.
+  // Publications are dated by the last SEARCH merge (search_updated, set
+  // only by src/search.js), not by the last write: maintenance and date
+  // enrichment stamp last_updated on every run and made a store whose
+  // search was two months old read as fresh.
+  const pubAsOf = pubData.metadata && (pubData.metadata.search_updated || pubData.metadata.last_updated) || null;
   const asOf = {
-    publications: pubData.metadata && pubData.metadata.last_updated || null,
+    publications: pubAsOf,
     datasets: dsData.metadata && dsData.metadata.last_updated || null,
     ausmt: (pp.ausmt && pp.ausmt.generated) || null,
     runs: (pp.ausmt && pp.ausmt.runsFetched) || null,
@@ -241,11 +246,11 @@ function run() {
   };
   const connects = loadConnectsChain();
   if (!connects) console.warn('pid-demonstrator-data.json lacks the default chain; "How it connects" omitted.');
-  const html = buildHTML(stats, pubData.metadata.last_updated, pillarData, lensData, datasets.length, asOf, connects);
+  const html = buildHTML(stats, pubAsOf, pillarData, lensData, datasets.length, asOf, connects);
   fs.writeFileSync(path.join(DOCS_DIR, 'index.html'), html);
 
   // ── Write docs/widget.html (embeddable stats-only widget) ──
-  const widget = buildWidget(stats, pubData.metadata.last_updated, pillarData);
+  const widget = buildWidget(stats, pubAsOf, pillarData);
   fs.writeFileSync(path.join(DOCS_DIR, 'widget.html'), widget);
 
   console.log('Dashboard generated: docs/index.html');

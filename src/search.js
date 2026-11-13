@@ -200,6 +200,10 @@ function mergeItems(allItems) {
   const { records, added, updated } = mergeIntoExisting(pubData.records, deduped);
   pubData.records = records;
   pubData.metadata.last_updated = new Date().toISOString();
+  // The date the hub shows for publications and citations: only a search
+  // merge moves it. Maintenance and enrichment passes stamp last_updated
+  // too, and that date said "fresh" on a store whose search was months old.
+  pubData.metadata.search_updated = pubData.metadata.last_updated;
   pubData.metadata.total_count = records.length;
   fs.writeFileSync(DATA_FILE, JSON.stringify(pubData, null, 2));
 
