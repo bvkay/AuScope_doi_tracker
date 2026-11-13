@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T00:31:01.683Z",
+  "generated": "2026-11-13T00:37:00.981Z",
   "pillars": {
     "publications": {
       "total": 2763,
@@ -20,9 +20,10 @@
       }
     },
     "datasets": {
-      "total": 319,
+      "total": 325,
       "byPlatform": {
         "EarthBank": 64,
+        "AuScope Data Repository": 6,
         "AusPass": 87,
         "NCI MT": 141,
         "NCI DAS": 4,

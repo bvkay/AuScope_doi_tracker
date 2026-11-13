@@ -1,8 +1,8 @@
 {
   "metadata": {
     "type": "datasets",
-    "last_updated": "2026-11-13T00:25:07.359Z",
-    "total_count": 470
+    "last_updated": "2026-11-13T00:36:10.758Z",
+    "total_count": 476
   },
   "records": [
     {
@@ -891,6 +891,54 @@
       "authors": "moritz.theile (Theile, Moritz)",
       "year": 2022,
       "platform": "EarthBank",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.60623/0oaylfda",
+      "name": "Victorian Multi-element Geochemistry Samples",
+      "authors": "Tom Andrews",
+      "year": 2026,
+      "platform": "AuScope Data Repository",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.60623/odna57ut",
+      "name": "Observing Galileo Satellites with the Australian AuScope VLBI Array - AS304A Correlation Output",
+      "authors": "Schunck, D., McCallum, L., McCallum, J., McCarthy, T.",
+      "year": 2026,
+      "platform": "AuScope Data Repository",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.60623/3159pc3b",
+      "name": "Calperum Critical Zone Observatory (CZO) Heat Needle Monitoring Program Feb 2024-ongoing",
+      "authors": "Graeme Beardsmore, Ehdena Khomami, David B. Baker",
+      "year": 2025,
+      "platform": "AuScope Data Repository",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.60623/l8hc57ty",
+      "name": "Gippsland and Murray Basin Fiber Optic Distributed Temperature Sensing Data",
+      "authors": "Beardsmore, G., Hamad, J., Ricard, L.",
+      "year": 2025,
+      "platform": "AuScope Data Repository",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.60623/y1ua83ti",
+      "name": "University of New South Wales (UNSW) Raw Groundwater Levels Data (2012-2024)",
+      "authors": "Andersen, M., Jensen, E.",
+      "year": 2024,
+      "platform": "AuScope Data Repository",
+      "type": "Dataset"
+    },
+    {
+      "doi": "10.60623/82trleue",
+      "name": "Cloncurry METAL: multimodal integrated mineral system characterisation data",
+      "authors": "Austin, J.",
+      "year": 2024,
+      "platform": "AuScope Data Repository",
       "type": "Dataset"
     },
     {

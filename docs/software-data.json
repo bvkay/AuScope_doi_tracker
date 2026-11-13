@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T00:31:01.794Z",
+  "generated": "2026-11-13T00:37:01.228Z",
   "records": [
     {
       "name": "GPlates",
@@ -10,6 +10,8 @@
         "GPlately",
         "gplates-python"
       ],
+      "status": "active",
+      "note": "",
       "publications": 258,
       "citations": 7897,
       "earliestYear": 2012,
@@ -2604,6 +2606,8 @@
         "Underworld 2",
         "Underworld geodynamics"
       ],
+      "status": "active",
+      "note": "",
       "publications": 53,
       "citations": 272,
       "earliestYear": 2020,
@@ -3148,6 +3152,8 @@
         "G-ADOPT",
         "Geodynamic ADjOint Optimisation PlaTform"
       ],
+      "status": "active",
+      "note": "",
       "publications": 11,
       "citations": 54,
       "earliestYear": 2021,
@@ -3264,6 +3270,25 @@
           "evidence": "text-software"
         }
       ]
+    },
+    {
+      "name": "esys-Escript",
+      "aliases": [
+        "esys-escript",
+        "esys.escript",
+        "escript/finley",
+        "escript finley",
+        "finley/escript",
+        "finley escript",
+        "escript-finley"
+      ],
+      "status": "retired",
+      "note": "Developed at the University of Queensland. AuScope-funded in earlier years; no longer funded or maintained.",
+      "publications": 0,
+      "citations": 0,
+      "earliestYear": null,
+      "latestYear": null,
+      "records": []
     }
   ],
   "github": [
