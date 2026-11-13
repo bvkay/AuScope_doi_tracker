@@ -10,6 +10,16 @@
 const STORM_THRESHOLD = 8;
 const hostFailures = {};
 
+// OpenAlex API key, optional: the OPENALEX_API_KEY secret (a free account
+// key: $1 of credits a day, 30 requests a second, cursor paging allowed).
+// Sent as a bearer header on every api.openalex.org request, so no caller
+// has to build it into a URL and it never appears in a log line. Without
+// it, requests draw on the keyless budget shared by every client on the
+// runner's IP address, which is what the rules below exist for.
+const OPENALEX_HOST = 'api.openalex.org';
+const OPENALEX_API_KEY = (process.env.OPENALEX_API_KEY || '').trim();
+let openalexKeyAnnounced = false;
+
 // Hosts whose daily budget is spent for this process. OpenAlex answers a
 // keyless client that is over budget with 429 "Insufficient budget" and a
 // two-minute Retry-After that never helps: the budget is shared by every
@@ -48,7 +58,11 @@ async function fetchJSON(url, opts = {}) {
   const storming = (hostFailures[host] || 0) >= STORM_THRESHOLD;
   const retries = storming ? 0 : (opts.retries !== undefined ? opts.retries : 5);
   const baseDelay = opts.retryDelay || 2000;
-  const headers = opts.headers || {};
+  const headers = Object.assign({}, opts.headers || {});
+  if (host === OPENALEX_HOST && OPENALEX_API_KEY) {
+    headers.Authorization = 'Bearer ' + OPENALEX_API_KEY;
+    if (!openalexKeyAnnounced) { openalexKeyAnnounced = true; console.log('OpenAlex: using the API key from OPENALEX_API_KEY'); }
+  }
 
   let lastError;
   let throttled = false;

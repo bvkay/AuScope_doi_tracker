@@ -131,7 +131,7 @@ node src/compare.js
 ## GitHub Actions
 
 The workflow runs automatically:
-- **Hourly**: one small batch of the weekly keyword search (OpenAlex is keyless, so each batch stops when the shared daily budget is spent and the next hour carries on; progress in `data/search-state.json`)
+- **Hourly**: one small batch of the weekly keyword search (progress in `data/search-state.json`; each batch stops when the OpenAlex budget is spent and the next hour carries on). Set the `OPENALEX_API_KEY` repository secret (a free OpenAlex account key) so the budget is the tracker's own rather than the runner's shared keyless one.
 - **When a search cycle completes, and Mondays 3am UTC**: dataset inventory + maintenance + evidence + stats + dashboard rebuild
 - **On push** to `data/pending.json` or `data/publications.json`: process pending DOIs + dashboard rebuild
 - **Manual**: trigger via Actions tab with optional full search

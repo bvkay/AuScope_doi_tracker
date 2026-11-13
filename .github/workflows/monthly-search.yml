@@ -6,11 +6,12 @@ on:
   # client on the runner's IP address, so a full 39-term search from a
   # shared GitHub runner was answered with 429 for most terms and the
   # two-minute waits ate the whole 90-minute job: every scheduled run from
-  # 16 Sep to 11 Nov 2026 was cancelled with nothing committed. No API key
-  # is used, by decision. Each batch now does a few units of work, commits
-  # what it found and stops the moment the budget is gone; the weekly
-  # cycle resumes on the next hour and normally completes within a day or
-  # two. The processing stages run once when a cycle completes, on every
+  # 16 Sep to 11 Nov 2026 was cancelled with nothing committed. Each batch
+  # now does a few units of work, commits what it found and stops the
+  # moment the budget is gone; the weekly cycle resumes on the next hour.
+  # With the OPENALEX_API_KEY secret (a free account key, read by
+  # src/utils.js) the budget is ours alone and a cycle completes in a few
+  # hours; without it a cycle takes a day or two. The processing stages run once when a cycle completes, on every
   # push to the data files, and on a Monday fallback slot so a slow cycle
   # still refreshes the inventory, stats and dashboard every week.
   schedule:
@@ -39,11 +40,15 @@ on:
       units:
         description: 'Units of search work in that batch'
         required: false
-        default: '4'
+        default: '12'
         type: string
 
 permissions:
   contents: write
+
+# Every stage that reads OpenAlex picks the key up from here (optional).
+env:
+  OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
 
 # Never let two runs overlap (hourly batches, the Monday slot, a push): they
 # read and write the same data files and all push to main.
@@ -76,7 +81,7 @@ jobs:
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
           CORE_API_KEY: ${{ secrets.CORE_API_KEY }}
           DIMENSIONS_API_KEY: ${{ secrets.DIMENSIONS_API_KEY }}
-          SEARCH_UNITS: ${{ github.event.inputs.units || '4' }}
+          SEARCH_UNITS: ${{ github.event.inputs.units || '12' }}
         run: node src/search.js --batch
 
       # Commit the batch straight away, so a later cancellation cannot lose

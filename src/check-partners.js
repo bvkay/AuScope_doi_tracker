@@ -26,7 +26,7 @@ async function lookupInstitution(rorId) {
     + (configEmail ? `&mailto=${encodeURIComponent(configEmail)}` : '');
 
   try {
-    const resp = await fetch(url);
+    const resp = await fetch(url, { headers: process.env.OPENALEX_API_KEY ? { Authorization: 'Bearer ' + process.env.OPENALEX_API_KEY.trim() } : {} });   // optional OpenAlex key
     if (resp.status === 404) return { name: null, country: null, works: 0, type: '' };
     if (!resp.ok) return { name: null, country: null, works: 0, type: '', error: `HTTP ${resp.status}` };
     const data = await resp.json();

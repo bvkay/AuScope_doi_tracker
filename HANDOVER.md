@@ -78,7 +78,8 @@ fork. Pages are plain ES5 (`var`/`function`), no build step, no frameworks.
 
 ### Hourly batches, weekly processing: `.github/workflows/monthly-search.yml`
 A search batch every hour (a few units of the weekly cycle, see `search.js --batch`;
-keyless OpenAlex, so a batch stops when the runner's shared daily budget is spent),
+a batch stops when the OpenAlex budget is spent; the `OPENALEX_API_KEY` secret, read by
+`utils.fetchJSON` as a bearer header, makes that budget the tracker's own),
 the processing stages when a cycle completes and on Mondays 03:00 UTC, plus on push to `data/pending.json`,
 `data/publications.json`, `data/review-decisions.json`,
 `data/evidence-overrides.json` (i.e. the Google Sheet's send buttons).

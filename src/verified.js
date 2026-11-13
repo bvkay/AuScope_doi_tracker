@@ -43,8 +43,9 @@ async function fetchAllWorks(field, value, opts) {
 
   // Basic page numbers, not a cursor: since Nov 2026 OpenAlex answers
   // cursor paging without an API key with 401 ("API key required for
-  // cursor paging"), and no key is used by decision. Basic paging reaches
-  // the first 10,000 results, far beyond any one ROR or ORCID here.
+  // cursor paging"). Basic paging works with or without the optional
+  // OPENALEX_API_KEY and reaches the first 10,000 results, far beyond any
+  // one ROR or ORCID here.
   const works = [];
   let page = 0;
   let firstUrl = null;

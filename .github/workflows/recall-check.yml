@@ -41,6 +41,7 @@ jobs:
 
       - name: Run recall check (paced)
         env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           RECALL_MAX_REQUESTS: '600'
           RECALL_PACE_MS: '4000'
           RECALL_RESET: ${{ github.event.inputs.reset == 'true' && '1' || '0' }}

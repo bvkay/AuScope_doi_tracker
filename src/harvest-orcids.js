@@ -45,7 +45,7 @@ async function lookupAuthor(orcid, email) {
     + `?select=display_name,last_known_institutions,works_count,cited_by_count`
     + (email ? `&mailto=${encodeURIComponent(email)}` : '');
   try {
-    const resp = await fetch(url);
+    const resp = await fetch(url, { headers: process.env.OPENALEX_API_KEY ? { Authorization: 'Bearer ' + process.env.OPENALEX_API_KEY.trim() } : {} });   // optional OpenAlex key
     if (resp.status === 404) return null;
     if (!resp.ok) return { error: `HTTP ${resp.status}` };
     const data = await resp.json();

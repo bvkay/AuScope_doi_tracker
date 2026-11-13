@@ -17,7 +17,9 @@
  * OpenAlex bills keyless requests against a daily budget shared by every
  * client on the runner's IP address, so a batch does a handful of units,
  * commits what it found and stops the moment that budget is gone; the next
- * hour's batch carries on. No API key is used, by decision (13 Nov 2026).
+ * hour's batch carries on. With the OPENALEX_API_KEY secret set (a free
+ * account key, read by utils.fetchJSON) the budget is ours alone and a
+ * cycle completes in a few hours.
  *
  * Options: --units N (default 4, or SEARCH_UNITS); SEARCH_BUDGET_MS caps a
  * batch's wall clock (default 15 minutes, checked between units).
