@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T00:08:23.915Z",
+ "updated": "2026-11-13T00:30:36.106Z",
  "results": {
   "10.1029/2025gc012679": {
    "status": "no-oa-text",
@@ -1831,8 +1831,19 @@
    "checkedAt": "2026-11-13"
   },
   "10.1002/adma.74662": {
-   "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "status": "checked",
+   "pmcid": "PMC13660816",
+   "flags": [
+    "notFound"
+   ],
+   "terms": {
+    "Geoscience Atom Probe": {
+     "ack": 0,
+     "body": 0,
+     "refs": 0,
+     "snippet": ""
+    }
+   }
   },
   "10.1002/ece3.73246": {
    "status": "checked",
@@ -1849,35 +1860,35 @@
   },
   "10.1002/2016gl068618": {
    "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "checkedAt": "2026-11-13"
   },
   "10.21203/rs.3.rs-55162/v1": {
    "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "checkedAt": "2026-11-13"
   },
   "10.5281/zenodo.6551842": {
    "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "checkedAt": "2026-11-13"
   },
   "10.1111/pala.70084": {
    "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "checkedAt": "2026-11-13"
   },
   "10.5194/gmd-19-5191-2026": {
    "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "checkedAt": "2026-11-13"
   },
   "10.1029/2023jf007351": {
    "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "checkedAt": "2026-11-13"
   },
   "10.1080/14432471.2023.2236752": {
    "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "checkedAt": "2026-11-13"
   },
   "10.2113/econgeo.112.4.799": {
    "status": "no-oa-text",
-   "checkedAt": "2026-09-14"
+   "checkedAt": "2026-11-13"
   },
   "10.1515/jogs-2019-0015": {
    "status": "no-oa-text",

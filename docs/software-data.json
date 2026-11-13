@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T00:12:06.437Z",
+  "generated": "2026-11-13T00:31:01.794Z",
   "records": [
     {
       "name": "GPlates",
@@ -3161,7 +3161,7 @@
           "journal": "",
           "cited": 0,
           "oa": true,
-          "evidence": "text-software"
+          "evidence": "candidate"
         },
         {
           "doi": "10.5194/gmd-19-2717-2026",
@@ -3191,7 +3191,7 @@
           "journal": "",
           "cited": 0,
           "oa": true,
-          "evidence": "text-software"
+          "evidence": "candidate"
         },
         {
           "doi": "10.5194/egusphere-egu25-8681",
@@ -3251,7 +3251,7 @@
           "journal": "",
           "cited": 5,
           "oa": true,
-          "evidence": "candidate"
+          "evidence": "text-software"
         },
         {
           "doi": "10.31223/x55601",
@@ -3395,7 +3395,7 @@
       "openIssues": 4,
       "createdAt": "2026-05-18T10:25:20Z",
       "updatedAt": "2026-11-12T15:58:05Z",
-      "pushedAt": "2026-11-12T22:10:22Z"
+      "pushedAt": "2026-11-13T00:25:53Z"
     },
     {
       "name": "AuScope-Cat",
@@ -4489,7 +4489,7 @@
     }
   ],
   "githubMetadata": {
-    "generated": "2026-11-13T00:08:26.808Z",
+    "generated": "2026-11-13T00:30:37.588Z",
     "organisation": "AuScope",
     "organisationUrl": "https://github.com/AuScope",
     "source": "https://api.github.com/orgs/AuScope/repos",

@@ -1,10 +1,10 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-11-13T00:00:56.085Z",
+    "last_updated": "2026-11-13T00:30:07.588Z",
     "total_count": 2768,
-    "evidence_updated": "2026-11-13T00:08:23.994Z",
-    "consolidated": "2026-11-13T00:08:24.088Z",
+    "evidence_updated": "2026-11-13T00:30:36.200Z",
+    "consolidated": "2026-11-13T00:30:36.313Z",
     "dates_enriched": "2026-11-12T23:56:37.519Z",
     "search_updated": "2026-09-15T00:12:11.094Z"
   },
@@ -3425,42 +3425,6 @@
       "publicationDate": "2023-03-15"
     },
     {
-      "doi": "10.5281/zenodo.7988967",
-      "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration",
-      "authors": "Bryant Ware; Fabian Kohlmann; Samuel Boone; Hayden Dalton; Halimulati Ananuer; Brent McInnes; Yoann Gréau; Alexander Prent; Andrew Gleadow; Barry P. Kohn",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2023,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "Yes",
-      "subject": "Scientific Computing and Data Management; Geological Modeling and Analysis; Distributed and Parallel Computing Systems",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope",
-        "AusGeochem",
-        "AuScope Geochemistry Network",
-        "Characterisation AuScope"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Curtin University",
-        "University of Melbourne",
-        "University of Adelaide",
-        "Macquarie University",
-        "AuScope"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "authorCount": 10,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564",
-      "publicationDate": "2023-03-15"
-    },
-    {
       "doi": "10.5281/zenodo.7988891",
       "title": "Improving predictive modelling of magnetite and gangue mineral content for IOCG and BIF deposits using hyperspectral data and controlled mixtures",
       "authors": "Heta Lampinen; Carsten Laukamp; Bobby Pejcic; Michael Verrall; Ian Lau; J. Stromberg; Neil Francis",
@@ -4631,37 +4595,6 @@
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
       "publicationDate": "2022-12"
-    },
-    {
-      "doi": "10.5281/zenodo.7380947",
-      "title": "WorldFAIR Project (D5.1) Formalisation of OneGeochemistry",
-      "authors": "Alexander Prent; Rawling, Tim",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2022,
-      "cited": 0,
-      "type": "report",
-      "isOA": "Yes",
-      "subject": "Medical Imaging Techniques and Applications",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope",
-        "AusGeochem",
-        "AuScope Geochemistry Network"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "AuScope"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "authorCount": 2,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564",
-      "publicationDate": "2022-11-30"
     },
     {
       "doi": "10.3390/min12111463",
@@ -6365,8 +6298,8 @@
         "AU"
       ],
       "authorCount": 7,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)",
       "publicationDate": "2021-09-15"
     },
     {
@@ -6458,41 +6391,6 @@
       "authorCount": 7,
       "evidence": "text-attributed",
       "evidenceDetail": "text scan (tier1)",
-      "publicationDate": "2021-09-15"
-    },
-    {
-      "doi": "10.5281/zenodo.7690550",
-      "title": "Using the NCI Gadi Supercomputer to revolutionise processing of MT time series data: results from the GeoDeVL experiment",
-      "authors": "Nigel Rees; Sheng Wang; Ben Evans; Lesley Wyborn; Tim Rawling; B. R. Goleby; K. A. Druken; Rui Yang",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2021,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "Yes",
-      "subject": "Distributed and Parallel Computing Systems",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope",
-        "AusLAMP",
-        "AuScope Virtual Research Environment",
-        "AVRE AuScope"
-      ],
-      "dateAdded": "2026-03-24",
-      "institutions": [
-        "Australian National University",
-        "National Computational Infrastructure",
-        "AuScope",
-        "University of Canberra"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "authorCount": 8,
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384",
       "publicationDate": "2021-09-15"
     },
     {
@@ -6713,8 +6611,8 @@
         "AU"
       ],
       "authorCount": 3,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "text-attributed",
+      "evidenceDetail": "text scan (tier1)",
       "publicationDate": "2021-08-26"
     },
     {
@@ -10618,8 +10516,8 @@
         "AU"
       ],
       "authorCount": 6,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564",
       "publicationDate": "2017-02-03"
     },
     {
@@ -12190,8 +12088,8 @@
         "DE"
       ],
       "authorCount": 9,
-      "evidence": "text-attributed",
-      "evidenceDetail": "text scan (tier1)",
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564",
       "publicationDate": "2015-01-01"
     },
     {
@@ -14809,8 +14707,8 @@
         "AU"
       ],
       "authorCount": 1,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384",
       "publicationDate": "2020-03-09"
     },
     {
@@ -31200,8 +31098,8 @@
         "GB"
       ],
       "authorCount": 5,
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "text-software",
+      "evidenceDetail": "text scan (tier3)",
       "publicationDate": "2022-01-27"
     },
     {
@@ -31774,7 +31672,7 @@
       ],
       "authorCount": 17,
       "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965",
       "publicationDate": "2026-03-14"
     },
     {
@@ -47715,37 +47613,6 @@
       "publicationDate": "2023-08-10"
     },
     {
-      "doi": "10.5281/zenodo.7980192",
-      "title": "Building a National High-Resolution Geophysics Reference Collection for 2030 Computation",
-      "authors": "Nigel Rees; Lesley Wyborn; Ben Evans; Rebecca Farrington; Tim Rawling; Rui Yang; Yue Sun",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2023,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "Yes",
-      "subject": "Environmental Monitoring and Data Management; Scientific Computing and Data Management; Geological Modeling and Analysis",
-      "sources": [
-        "OpenAlex"
-      ],
-      "searchTerms": [
-        "AuScope"
-      ],
-      "authorCount": 7,
-      "institutions": [
-        "Australian National University",
-        "AuScope",
-        "University of Melbourne"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "dateAdded": "2026-04-05",
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965",
-      "publicationDate": "2023-03-15"
-    },
-    {
       "doi": "10.5194/egusphere-egu23-10908",
       "title": "Cross disciplinary collaboration for societal benefit across Australian Research Infrastructure Networks",
       "authors": "Tim Rawling; Beryl Morris; André Zerger; Rebecca Farrington",
@@ -49293,8 +49160,8 @@
         "GB"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
+      "evidence": "candidate",
+      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
       "publicationDate": "2026-03-14"
     },
     {
@@ -49322,8 +49189,8 @@
         "AU"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "text-software",
-      "evidenceDetail": "text scan (tier3)",
+      "evidence": "candidate",
+      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
       "publicationDate": "2026-03-14"
     },
     {
@@ -49563,8 +49430,8 @@
         "US"
       ],
       "dateAdded": "2026-04-05",
-      "evidence": "candidate",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation",
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-8841-4384; orcid:0000-0002-2594-6965",
       "publicationDate": "2023-02-26"
     },
     {
@@ -71831,9 +71698,8 @@
         "US"
       ],
       "dateAdded": "2026-08-09",
-      "evidence": "candidate",
-      "publicationDate": "2021-09-15",
-      "evidenceDetail": "watchlist ORCID + partner co-affiliation"
+      "evidence": "keyword",
+      "publicationDate": "2021-09-15"
     },
     {
       "doi": "10.1080/14432471.2021.1986991",
@@ -74601,44 +74467,6 @@
       "publicationDate": "2026-06-09"
     },
     {
-      "doi": "10.22541/essoar.174172253.34402506/v1",
-      "title": "Subduction system response to ribbon collision: implications on the intra-plate force balance and the style of slab deformation",
-      "authors": "Andres Felipe Rodriguez-Corcho; Sara Polanco; Dan Sandiford; Rebecca Farrington; Louis Moresi",
-      "journal": "",
-      "publisher": "Wiley",
-      "year": 2025,
-      "cited": 2,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "earthquake and tectonic studies; Geotechnical and Geomechanical Engineering; Seismic Imaging and Inversion Techniques",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 5,
-      "institutions": [
-        "The University of Sydney",
-        "Newcastle City Council",
-        "The University of Melbourne",
-        "AuScope",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "GB"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-30",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
-      "publicationDate": "2025-03-11"
-    },
-    {
       "doi": "10.5194/egusphere-egu25-21605",
       "title": "Status, issues and challenges with FAIRness of seismological waveform data and beyond",
       "authors": "Florian Haslinger; Lesley Wyborn; Rob Casey; Helle Pederson; E. D’Anastasio; Javier Quinteros; Jonathan K. Hanson; Jerry Carter",
@@ -74765,46 +74593,6 @@
       "publicationDate": "2024-01-01"
     },
     {
-      "doi": "10.5194/egusphere-2023-53",
-      "title": "The flexural isostatic response of climatically driven sea-level changes on continental-scale deltas",
-      "authors": "Sara Polanco; Mike Blum; Tristan Salles; Bruce C. Frederick; Rebecca Farrington; Xuesong Ding; Ben Mather; Claire Mallard; Louis Moresi",
-      "journal": "",
-      "publisher": "Copernicus GmbH",
-      "year": 2023,
-      "cited": 2,
-      "type": "preprint",
-      "isOA": "Yes",
-      "subject": "Geological formations and processes; Geology and Paleoclimatology Research; Coastal wetland ecosystem dynamics",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 9,
-      "institutions": [
-        "The University of Sydney",
-        "University of Kansas",
-        "The University of Melbourne",
-        "AuScope",
-        "Planetary Science Institute",
-        "University of California, Los Angeles",
-        "Australian National University"
-      ],
-      "countries": [
-        "AU",
-        "US"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-30",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
-      "publicationDate": "2023-03-03"
-    },
-    {
       "doi": "10.5194/egusphere-egu23-12864",
       "title": "Who Done It? Reproducibility of Data Products Also Requires Lineage to Determine Impact and Give Credit Where Credit is Due.",
       "authors": "Lesley Wyborn; Nigel Rees; Jens Klump; Ben Evans; Rebecca Farrington; Tim Rawling",
@@ -74877,46 +74665,6 @@
       "evidence": "verified",
       "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
       "publicationDate": "2023-02-26"
-    },
-    {
-      "doi": "10.5281/zenodo.7963470",
-      "title": "WorldFAIR Project (MS6) Geochemistry Scientific Content Component",
-      "authors": "Alexander Prent; Lesley Wyborn; Rebecca Farrington; Kerstin Lehnert; Marthe Klöcking; Kirsten Elger; Dominik C. Hezel; Geertje ter Maat",
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "publisher": "European Organization for Nuclear Research",
-      "year": 2023,
-      "cited": 0,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Geochemistry and Geologic Mapping",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 8,
-      "institutions": [
-        "AuScope",
-        "DIGIBÍS (Spain)",
-        "GFZ Helmholtz Centre for Geosciences"
-      ],
-      "countries": [
-        "AU",
-        "ES",
-        "DE"
-      ],
-      "verifiedBy": [
-        "ror:04s1m4564",
-        "orcid:0000-0002-2594-6965"
-      ],
-      "dateAdded": "2026-08-30",
-      "searchTerms": [
-        "ROR-verified"
-      ],
-      "evidence": "verified",
-      "evidenceDetail": "ror:04s1m4564; orcid:0000-0002-2594-6965",
-      "relatedDois": [
-        "10.5281/zenodo.7977116"
-      ],
-      "publicationDate": "2023-05-24"
     },
     {
       "doi": "10.7185/gold2023.19570",
@@ -75431,6 +75179,7 @@
         "10.59350/h4nph-she37",
         "10.59350/h4nph-she37",
         "10.59350/h4nph-she37",
+        "10.59350/h4nph-she37",
         "10.59350/h4nph-she37"
       ]
     },
@@ -75735,6 +75484,7 @@
         "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591",
+        "10.5281/zenodo.11100591",
         "10.5281/zenodo.11100591"
       ]
     },
@@ -75760,6 +75510,277 @@
       "dateAdded": "2026-09-14",
       "evidence": "text-infrastructure",
       "evidenceDetail": "cites AuScope dataset DOI: 10.25914/kf96-nb26"
+    },
+    {
+      "doi": "10.5281/zenodo.20948617",
+      "title": "EarthBank Data Package Metadata Guide",
+      "authors": "Bryant Ware; Angus Nixon; Lesley Wyborn; Rebecca Farrington",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2026,
+      "cited": 0,
+      "type": "other",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Data Analysis and Archiving; Scientific Computing and Data Management",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Curtin University",
+        "Adelaide University",
+        "The University of Adelaide",
+        "Australian National University",
+        "AuScope"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564",
+        "orcid:0000-0002-2594-6965"
+      ],
+      "dateAdded": "2026-11-13",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-2594-6965"
+    },
+    {
+      "doi": "10.63929/22020586.2026.1.048",
+      "title": "Revisiting legacy MT datasets: reproducibility challenges and opportunities",
+      "authors": "Ben Kay; Nigel Rees; Hannes Hollmann",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2026,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geomagnetism and Paleomagnetism Studies; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "AuScope",
+        "National Computational Infrastructure"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-11-13",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564"
+    },
+    {
+      "doi": "10.63929/22020586.2026.1.086",
+      "title": "Modernising Australian Geophysical Datasets for HPC and Cloud: Progress Towards AI-Readiness",
+      "authors": "Nigel Rees; Lesley Wyborn; Hannes Hollmann; Voon Hui Lai; Ben Kay; Jo Croucher; Robert Pickle; Rebecca Farrington; Rui Yang; Andrew Robinson; Yue Sun; Tim Rawling",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2026,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Environmental Monitoring and Data Management",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 12,
+      "institutions": [
+        "Australian National University",
+        "National Computational Infrastructure",
+        "Nanyang Technological University",
+        "Advanced Semiconductor Engineering (Taiwan)",
+        "AuScope"
+      ],
+      "countries": [
+        "AU",
+        "SG",
+        "TW"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564",
+        "orcid:0000-0002-8841-4384",
+        "orcid:0000-0002-2594-6965"
+      ],
+      "dateAdded": "2026-11-13",
+      "searchTerms": [
+        "ROR-verified"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-8841-4384,orcid:0000-0002-2594-6965"
+    },
+    {
+      "doi": "10.5281/zenodo.7980191",
+      "title": "Building a National High-Resolution Geophysics Reference Collection for 2030 Computation",
+      "authors": "Nigel Rees; Lesley Wyborn; Ben Evans; Rebecca Farrington; Tim Rawling; Rui Liang Yang; Yue Sun",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2023,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Environmental Monitoring and Data Management",
+      "sources": [
+        "OpenAlex (verified)",
+        "OpenAlex"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "Australian National University",
+        "The University of Melbourne",
+        "AuScope"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564",
+        "orcid:0000-0002-8841-4384",
+        "orcid:0000-0002-2594-6965"
+      ],
+      "dateAdded": "2026-11-13",
+      "searchTerms": [
+        "ROR-verified",
+        "AuScope"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-8841-4384,orcid:0000-0002-2594-6965",
+      "relatedDois": [
+        "10.5281/zenodo.7980192"
+      ]
+    },
+    {
+      "doi": "10.5281/zenodo.7988966",
+      "title": "AusGeochem Data Platform: Easily Visualise and Synthesise Public Data for Exploration",
+      "authors": "Bryant Ware; Fabian Kohlmann; Samuel Boone; Hayden B. Dalton; Halimulati Ananuer; Brent McInnes; Yoann Gréau; Alexander Prent; Andrew Gleadow; Barry P. Kohn",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2023,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Geochemistry and Geologic Mapping; Environmental Monitoring and Data Management",
+      "sources": [
+        "OpenAlex (verified)",
+        "OpenAlex"
+      ],
+      "authorCount": 10,
+      "institutions": [
+        "Curtin University",
+        "The University of Melbourne",
+        "The University of Adelaide",
+        "Macquarie University",
+        "AuScope"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-11-13",
+      "searchTerms": [
+        "ROR-verified",
+        "AuScope",
+        "AusGeochem",
+        "AuScope Geochemistry Network",
+        "Characterisation AuScope"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564",
+      "relatedDois": [
+        "10.5281/zenodo.7988967"
+      ]
+    },
+    {
+      "doi": "10.5281/zenodo.7380946",
+      "title": "WorldFAIR Project (D5.1) Formalisation of OneGeochemistry",
+      "authors": "Alexander Prent; Rawling, Tim",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2022,
+      "cited": 0,
+      "type": "report",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Data Analysis and Archiving",
+      "sources": [
+        "OpenAlex (verified)",
+        "OpenAlex"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "AuScope"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564"
+      ],
+      "dateAdded": "2026-11-13",
+      "searchTerms": [
+        "ROR-verified",
+        "AuScope",
+        "AusGeochem",
+        "AuScope Geochemistry Network"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564",
+      "relatedDois": [
+        "10.5281/zenodo.7380947"
+      ]
+    },
+    {
+      "doi": "10.5281/zenodo.7690549",
+      "title": "Using the NCI Gadi Supercomputer to revolutionise processing of MT time series data: results from the GeoDeVL experiment",
+      "authors": "Nigel Rees; Sheng Wang; Ben Evans; Lesley Wyborn; Tim Rawling; B. R. Goleby; K. A. Druken; Rui Liang Yang",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2021,
+      "cited": 0,
+      "type": "conference paper",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Scientific Computing and Data Management",
+      "sources": [
+        "OpenAlex (verified)",
+        "OpenAlex"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "Australian National University",
+        "National Computational Infrastructure",
+        "The University of Melbourne",
+        "AuScope"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "verifiedBy": [
+        "ror:04s1m4564",
+        "orcid:0000-0002-8841-4384"
+      ],
+      "dateAdded": "2026-11-13",
+      "searchTerms": [
+        "ROR-verified",
+        "AuScope",
+        "AusLAMP",
+        "AuScope Virtual Research Environment",
+        "AVRE AuScope"
+      ],
+      "evidence": "verified",
+      "evidenceDetail": "ror:04s1m4564,orcid:0000-0002-8841-4384",
+      "relatedDois": [
+        "10.5281/zenodo.7690550"
+      ]
     }
   ]
 }
