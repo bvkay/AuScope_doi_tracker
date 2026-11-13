@@ -93,7 +93,7 @@ function run() {
   // reference list) is a confirmed software use — the same judgment
   // facility-names.json tier3 encodes, backed by read fulltext. EarthByte
   // is deliberately absent (AuScope funds GPlates, not EarthByte outputs).
-  const SOFTWARE_LABELS = ['GPlates', 'Underworld2', 'G-Adopt geodynamic'];
+  const SOFTWARE_LABELS = ['GPlates', 'Underworld2', 'G-Adopt geodynamic', 'esys-escript', 'escript finley'];
   const softwareInText = {}; // doi -> 'GPlates (body)' etc.
   const kwCtx = (readJson(path.join(DATA_DIR, 'keyword-context.json'), { results: {} }).results) || {};
   Object.entries(kwCtx).forEach(function(pair) {

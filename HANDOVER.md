@@ -87,7 +87,7 @@ the processing stages when a cycle completes and on Mondays 03:00 UTC, plus on p
 Step order matters — each stage consumes the previous one's output:
 
 1. **Process pending DOIs** (`process-pending.js`) — DOIs staff pasted into the sheet. Rejects dataset/instrument DOIs (see `config.excluded_doi_prefixes`).
-2. **Full keyword search** (`search.js`) — 39 queries across OpenAlex, Semantic Scholar, Europe PMC. **Conditional**: runs only on the weekly schedule or a dispatch with `run_search: true` — the sheet-triggered pushes listed above skip it.
+2. **Full keyword search** (`search.js`) — 41 queries across OpenAlex, Semantic Scholar, Europe PMC. **Conditional**: runs only on the weekly schedule or a dispatch with `run_search: true` — the sheet-triggered pushes listed above skip it.
 3. **Dataset inventory** (`dataset-inventory.js`) — EarthBank, AusPass, NCI MT/DAS. NCI records carry `subset: 'MT'|'DAS'` (which GeoNetwork tree they came from) — the per-subset hub cards depend on it.
 4. **Maintenance** (`maintain.js`) — dedup + metadata fill.
 5. **Review queue decisions** (`process-review-decisions.js`) — applies human accept/reject from the sheet.

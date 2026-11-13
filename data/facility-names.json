@@ -143,6 +143,20 @@
         ],
         "since": 2021,
         "_comment": "The platform did not exist before 2021; a match on an earlier paper is a false positive of the search term (a 2009 journal issue titled GEODYNAMICS was one), so the tier and the registry ignore it."
+      },
+      "esys-Escript": {
+        "patterns": [
+          "esys-escript",
+          "esys.escript",
+          "escript/finley",
+          "escript finley",
+          "finley/escript",
+          "finley escript",
+          "escript-finley"
+        ],
+        "status": "retired",
+        "note": "Developed at the University of Queensland. AuScope-funded in earlier years; no longer funded or maintained.",
+        "_comment": "A bare escript pattern would match every description; the patterns need the Finley or esys qualifier. Status and note are shown on the software registry."
       }
     },
     "_comment_agn_not_software": "AGN's data platforms (AusGeochem / EarthBank) are tier 2 (data use), not tier 3 (software use) — they are databases users query, not libraries users build into analysis pipelines."

@@ -517,7 +517,7 @@ function computeStats(pubs, datasets) {
 // programs — deliberately absent. A paper found by terms from several
 // groups counts in each (noted on the chart).
 const PROGRAM_GROUPS = [
-  { name: 'Simulation & modelling software', terms: ['GPlates', 'EarthByte', 'Underworld2', 'G-Adopt geodynamic', 'Simulation Analysis Modelling AuScope'] },
+  { name: 'Simulation & modelling software', terms: ['GPlates', 'EarthByte', 'Underworld2', 'G-Adopt geodynamic', 'esys-escript', 'escript finley', 'Simulation Analysis Modelling AuScope'] },
   { name: 'Geochemistry & characterisation', terms: ['SHRIMP II Curtin', 'AusGeochem', 'Hylogger CSIRO', 'Western Australia Argon Isotope Facility', 'National Virtual Core Library', 'Geoscience Atom Probe', 'AuScope Geochemistry Network', 'Noble Gas Geochronology Laboratory', 'National Argon Map', 'Characterisation AuScope', 'EarthBank data citation', 'NVCL data citation'] },
   { name: 'Geodesy & VLBI', terms: ['Katherine VLBI', 'Yarragadee VLBI', 'AuScope VLBI', 'Mt Pleasant VLBI', 'Geospatial Geodesy AuScope'] },
   { name: 'Earth imaging & sounding', terms: ['AusLAMP', 'AusPass', 'AusPass seismic', 'Australian Geophysical Observing System', 'Earth Imaging Sounding AuScope', 'AusPass data citation', 'NCI data citation'] },
@@ -928,6 +928,10 @@ function buildSoftwareRegistry(pubs, facilityData) {
     const years = matches.map(function(p) { return Number(p.year); }).filter(Boolean);
     return {
       name: name, aliases: patterns,
+      // Retired tools stay listed with their status and note; the hero
+      // tiles on the software page show active tools only.
+      status: facilities[name].status || 'active',
+      note: facilities[name].note || '',
       publications: matches.length,
       citations: matches.reduce(function(n, p) { return n + p.cited; }, 0),
       earliestYear: years.length ? Math.min.apply(Math, years) : null,
