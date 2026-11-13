@@ -4,8 +4,10 @@
  *
  * Fetches all AuScope dataset DOIs from:
  *   1. EarthBank (DataCite API)
- *   2. AusPass (FDSN station + networks API)
- *   3. NCI GeoNetwork (MT + DAS collections)
+ *   2. AuScope Data Repository (DataCite API, client auscope.repo1)
+ *   3. AusPass (FDSN station + networks API)
+ *   4. NCI GeoNetwork (MT, DAS and M@TE collections)
+ *   5. NVCL collection DOIs (static list)
  *
  * Stores in data/datasets.json. Run as part of the weekly GitHub Action.
  *
@@ -31,6 +33,17 @@ async function run() {
     console.log('EarthBank: ' + earthbank.length + ' datasets');
   } catch (err) {
     console.error('EarthBank error: ' + err.message);
+  }
+
+  // ── AuScope Data Repository (DataCite) ──
+  // AuScope's own repository for datasets with no platform of their own
+  // (DataCite client auscope.repo1, prefix 10.60623).
+  try {
+    const repo = await fetchDataRepository();
+    allDatasets.push(...repo);
+    console.log('AuScope Data Repository: ' + repo.length + ' datasets');
+  } catch (err) {
+    console.error('AuScope Data Repository error: ' + err.message);
   }
 
   // ── AusPass (FDSN) ──
@@ -127,12 +140,21 @@ async function run() {
 // ─── EarthBank (DataCite API) ───────────────────────────────────────────────
 
 async function fetchEarthBank() {
+  return fetchDataCiteClient('hypc.gxglvy', 'EarthBank');
+}
+
+async function fetchDataRepository() {
+  return fetchDataCiteClient('auscope.repo1', 'AuScope Data Repository');
+}
+
+// Every DOI a DataCite client has registered, as dataset records.
+async function fetchDataCiteClient(clientId, platform) {
   const datasets = [];
   let page = 1;
   const pageSize = 100;
 
   while (true) {
-    const url = 'https://api.datacite.org/dois?client-id=hypc.gxglvy&page[size]=' + pageSize
+    const url = 'https://api.datacite.org/dois?client-id=' + clientId + '&page[size]=' + pageSize
       + '&page[number]=' + page + '&sort=-created';
     const data = await fetchJSON(url);
     const items = data.data || [];
@@ -151,7 +173,7 @@ async function fetchEarthBank() {
         name: title,
         authors,
         year: attrs.publicationYear || null,
-        platform: 'EarthBank',
+        platform: platform,
         type: attrs.types ? (attrs.types.resourceTypeGeneral || 'Dataset') : 'Dataset'
       });
     }

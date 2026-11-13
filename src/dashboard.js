@@ -767,6 +767,12 @@ function buildExplorerCards(pillarData, asOf) {
         name: 'M@TE models', sub: 'Model Atlas of the Earth' + tail('NCI MATE'),
         grade: 'measured', asOf: dsAsOf });
     }
+    if (bp['AuScope Data Repository']) {
+      datasetCards.push({ href: 'dataset-registry.html?platform=AuScope%20Data%20Repository',
+        num: bp['AuScope Data Repository'].toLocaleString(),
+        name: 'AuScope Data Repository', sub: 'datasets with no platform of their own' + tail('AuScope Data Repository'),
+        grade: 'measured', asOf: dsAsOf });
+    }
     if (bp.NVCL) {
       datasetCards.push({ href: 'nvcl.html', num: bp.NVCL.toLocaleString(),
         name: 'NVCL collection DOIs', sub: 'state drill-core archives' + tail('NVCL'),
