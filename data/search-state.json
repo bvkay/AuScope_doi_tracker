@@ -1,0 +1,276 @@
+{
+  "cycle": "2026-W46",
+  "started": "2026-11-13T06:53:02.725Z",
+  "units": [
+    {
+      "id": "oa:AuScope:fulltext.search:2007",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:03.937Z",
+      "results": 92
+    },
+    {
+      "id": "oa:AuScope:default.search:2007",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:04.781Z",
+      "results": 92
+    },
+    {
+      "id": "oa:AuScope:fulltext.search:2012",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:05.773Z",
+      "results": 140
+    },
+    {
+      "id": "oa:AuScope:default.search:2012",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:06.741Z",
+      "results": 140
+    },
+    {
+      "id": "oa:AuScope:fulltext.search:2017",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:08.744Z",
+      "results": 349
+    },
+    {
+      "id": "oa:AuScope:default.search:2017",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:10.521Z",
+      "results": 349
+    },
+    {
+      "id": "oa:AuScope:fulltext.search:2022",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:12.708Z",
+      "results": 365
+    },
+    {
+      "id": "oa:AuScope:default.search:2022",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:14.908Z",
+      "results": 365
+    },
+    {
+      "id": "others:AuScope",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:32.251Z",
+      "results": 201
+    },
+    {
+      "id": "term:Hylogger CSIRO",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:33.830Z",
+      "results": 84
+    },
+    {
+      "id": "term:SHRIMP II Curtin",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:44.016Z",
+      "results": 104
+    },
+    {
+      "id": "term:Western Australia Argon Isotope Facility",
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-13T06:53:45.380Z",
+      "results": 51
+    },
+    {
+      "id": "term:Noble Gas Geochronology Laboratory",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Geoscience Atom Probe",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:National Argon Map",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AuScope VLBI",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Yarragadee VLBI",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Katherine VLBI",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Mt Pleasant VLBI",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AusPass seismic",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AusLAMP",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Australian Seismometers in Schools",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Australian Geophysical Observing System",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:EarthByte",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:GPlates",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Underworld2",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:G-Adopt geodynamic",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AusGeochem",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:National Virtual Core Library",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AuScope Discovery Portal",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AuScope Virtual Research Environment",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AuScope Virtual Geophysical Laboratory",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AuScope Geochemistry Network",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Australian Scalable Drone Cloud",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Geophysics2030",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Geospatial Geodesy AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Earth Imaging Sounding AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Earth Composition Evolution AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Characterisation AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Autonomous Sensing AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Simulation Analysis Modelling AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:AVRE AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Research Data Systems AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Earth Sampling AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Outreach Engagement AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:International Collaboration AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:Antarctica GRIT AuScope",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:esys-escript",
+      "status": "pending",
+      "attempts": 0
+    },
+    {
+      "id": "term:escript finley",
+      "status": "pending",
+      "attempts": 0
+    }
+  ],
+  "updated": "2026-11-13T06:53:45.418Z"
+}
