@@ -1,12 +1,12 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-11-13T22:00:36.974Z",
-    "total_count": 3323,
+    "last_updated": "2026-11-14T02:29:17.195Z",
+    "total_count": 3338,
     "evidence_updated": "2026-11-13T02:16:28.826Z",
     "consolidated": "2026-11-13T02:16:28.963Z",
     "dates_enriched": "2026-11-13T02:12:13.150Z",
-    "search_updated": "2026-11-13T22:00:36.974Z"
+    "search_updated": "2026-11-14T02:29:17.195Z"
   },
   "records": [
     {
@@ -1286,7 +1286,8 @@
         "AuScope",
         "Outreach Engagement AuScope",
         "International Collaboration AuScope",
-        "AusGeochem"
+        "AusGeochem",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 5,
@@ -1651,7 +1652,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "esys-escript"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -4847,7 +4849,7 @@
       "journal": "Journal of Geodesy",
       "publisher": "Springer Science+Business Media",
       "year": 2022,
-      "cited": 12,
+      "cited": 13,
       "type": "article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Radio Astronomy Observations and Technology; Geophysics and Gravity Measurements",
@@ -5196,7 +5198,8 @@
       "searchTerms": [
         "AuScope",
         "Hylogger CSIRO",
-        "National Virtual Core Library"
+        "National Virtual Core Library",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 1,
@@ -5257,7 +5260,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -5356,7 +5360,8 @@
         "Crossref"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -5531,7 +5536,8 @@
         "AuScope",
         "EarthByte",
         "Underworld2",
-        "Simulation Analysis Modelling AuScope"
+        "Simulation Analysis Modelling AuScope",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -5651,7 +5657,8 @@
       "searchTerms": [
         "AuScope",
         "Hylogger CSIRO",
-        "National Virtual Core Library"
+        "National Virtual Core Library",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -5896,7 +5903,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AuScope VLBI"
+        "AuScope VLBI",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -6037,7 +6045,8 @@
         "AuScope",
         "AusPass",
         "Earth Imaging Sounding AuScope",
-        "AusPass seismic"
+        "AusPass seismic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -6268,7 +6277,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AuScope Discovery Portal"
+        "AuScope Discovery Portal",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -6622,7 +6632,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -6852,7 +6863,8 @@
       "searchTerms": [
         "AuScope",
         "AuScope VLBI",
-        "International Collaboration AuScope"
+        "International Collaboration AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -6956,7 +6968,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -7022,7 +7035,8 @@
       "searchTerms": [
         "AuScope",
         "Yarragadee VLBI",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -7110,7 +7124,8 @@
       "searchTerms": [
         "AuScope",
         "AuScope Virtual Research Environment",
-        "AVRE AuScope"
+        "AVRE AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -7292,7 +7307,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope",
+        "esys-escript"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -7830,7 +7847,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope",
+        "esys-escript"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -7986,7 +8005,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Earth Sampling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -8088,7 +8108,8 @@
         "Europe PMC"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -8119,7 +8140,8 @@
       "searchTerms": [
         "AuScope",
         "AuScope VLBI",
-        "International Collaboration AuScope"
+        "International Collaboration AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -15681,7 +15703,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Characterisation AuScope"
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "evidence": "text-attributed",
@@ -21576,7 +21599,8 @@
         "AusPass",
         "Australian Seismometers in Schools",
         "AuScope",
-        "AusPass seismic"
+        "AusPass seismic",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -30461,7 +30485,8 @@
       ],
       "searchTerms": [
         "Underworld2",
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "dateAdded": "2026-03-24",
       "institutions": [
@@ -38021,7 +38046,8 @@
         "Manual entry",
         "AuScope",
         "SHRIMP II Curtin",
-        "Australian Geophysical Observing System"
+        "Australian Geophysical Observing System",
+        "Characterisation AuScope"
       ],
       "evidence": "keyword",
       "institutions": [
@@ -39287,7 +39313,8 @@
       "searchTerms": [
         "Manual entry",
         "AuScope",
-        "Australian Geophysical Observing System"
+        "Australian Geophysical Observing System",
+        "Characterisation AuScope"
       ],
       "evidence": "keyword",
       "institutions": [
@@ -40097,7 +40124,8 @@
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
         "Manual entry",
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "institutions": [
         "Curtin University",
@@ -40205,19 +40233,29 @@
       "journal": "Composite Structures",
       "publisher": "Elsevier BV",
       "year": 2022,
-      "cited": 9,
+      "cited": 10,
       "type": "journal article",
       "isOA": "Yes",
-      "subject": "High-Velocity Impact and Material Behavior; Rock Mechanics and Modeling; Granular flow and fluidized beds",
+      "subject": "High-Velocity Impact and Material Behavior; Cellular and Composite Structures; Mechanical Behavior of Composites",
       "sources": [
-        "Crossref (metadata fill)"
+        "Crossref (metadata fill)",
+        "OpenAlex"
       ],
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
-        "Manual entry"
+        "Manual entry",
+        "esys-escript"
       ],
       "evidence": "keyword",
-      "publicationDate": "2022-06-22"
+      "publicationDate": "2022-06-22",
+      "institutions": [
+        "Swinburne University of Technology",
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "authorCount": 3
     },
     {
       "doi": "10.1016/j.chemgeo.2022.120760",
@@ -40499,7 +40537,8 @@
       "searchTerms": [
         "Manual entry",
         "AuScope",
-        "Yarragadee VLBI"
+        "Yarragadee VLBI",
+        "International Collaboration AuScope"
       ],
       "evidence": "keyword",
       "publicationDate": "2022-07-07",
@@ -40872,7 +40911,8 @@
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
         "Manual entry",
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "evidence": "keyword",
       "institutions": [
@@ -41015,7 +41055,8 @@
         "Manual entry",
         "AuScope",
         "Yarragadee VLBI",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "institutions": [
         "GFZ Helmholtz Centre for Geosciences",
@@ -41924,7 +41965,8 @@
       "searchTerms": [
         "Manual entry",
         "AuScope",
-        "G-Adopt geodynamic"
+        "G-Adopt geodynamic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "evidence": "candidate",
       "publicationDate": "2022-12-01",
@@ -45154,7 +45196,8 @@
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
         "Manual entry",
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "institutions": [
         "University of British Columbia",
@@ -52266,7 +52309,8 @@
       "searchTerms": [
         "Manual submission",
         "AuScope",
-        "AuScope VLBI"
+        "AuScope VLBI",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -52336,11 +52380,11 @@
     {
       "doi": "10.1016/j.cageo.2021.104938",
       "title": "Boosting memory access locality of the Spectral Element Method with Hilbert space-filling curves",
-      "authors": "Roger R.F. Araújo; Lutz Gross; Samuel Xavier-de-Souza",
+      "authors": "Roger R. F. Araújo; Lutz Gross; Samuel Xavier‐de‐Souza",
       "journal": "Computers & Geosciences",
       "publisher": "Elsevier BV",
       "year": 2021,
-      "cited": 3,
+      "cited": 5,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "Geophysical Methods and Applications; Advanced Numerical Methods in Computational Mathematics; Seismic Imaging and Inversion Techniques",
@@ -52349,11 +52393,16 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Manual submission"
+        "Manual submission",
+        "esys-escript"
       ],
-      "authorCount": 0,
-      "institutions": [],
-      "countries": [],
+      "authorCount": 3,
+      "institutions": [
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
       "dateAdded": "2026-04-29",
       "evidence": "keyword",
       "publicationDate": "2021-04-17"
@@ -60485,7 +60534,8 @@
       ],
       "searchTerms": [
         "Manual submission",
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -60962,7 +61012,8 @@
       "searchTerms": [
         "Manual submission",
         "AuScope",
-        "AusPass seismic"
+        "AusPass seismic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 1,
       "institutions": [
@@ -61017,7 +61068,8 @@
       ],
       "searchTerms": [
         "Manual submission",
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -62888,7 +62940,8 @@
       "searchTerms": [
         "Manual submission",
         "AuScope",
-        "AuScope VLBI"
+        "AuScope VLBI",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 10,
       "institutions": [
@@ -69922,7 +69975,9 @@
       ],
       "searchTerms": [
         "AusLAMP",
-        "AuScope"
+        "AuScope",
+        "Earth Composition Evolution AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 7,
       "institutions": [
@@ -71009,7 +71064,9 @@
       "searchTerms": [
         "EarthByte",
         "AuScope",
-        "GPlates"
+        "GPlates",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -71186,7 +71243,8 @@
         "AuScope",
         "Hylogger CSIRO",
         "National Virtual Core Library",
-        "AuScope Discovery Portal"
+        "AuScope Discovery Portal",
+        "Characterisation AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -71250,7 +71308,8 @@
       "searchTerms": [
         "AuScope",
         "AusPass",
-        "AusPass seismic"
+        "AusPass seismic",
+        "Characterisation AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -71488,7 +71547,8 @@
       "searchTerms": [
         "AuScope",
         "Manual submission",
-        "G-Adopt geodynamic"
+        "G-Adopt geodynamic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 8,
       "institutions": [
@@ -71588,7 +71648,8 @@
         "AuScope",
         "Hylogger CSIRO",
         "National Virtual Core Library",
-        "AuScope Discovery Portal"
+        "AuScope Discovery Portal",
+        "Characterisation AuScope"
       ],
       "authorCount": 16,
       "institutions": [
@@ -71620,7 +71681,8 @@
       "searchTerms": [
         "AuScope",
         "Hylogger CSIRO",
-        "National Virtual Core Library"
+        "National Virtual Core Library",
+        "Characterisation AuScope"
       ],
       "authorCount": 9,
       "institutions": [
@@ -71650,7 +71712,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -71719,7 +71782,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AusGeochem"
+        "AusGeochem",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -71748,7 +71812,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Underworld2"
+        "Underworld2",
+        "Characterisation AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -71811,7 +71876,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 8,
       "institutions": [
@@ -72361,7 +72427,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 20,
       "institutions": [
@@ -72774,7 +72841,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -72871,7 +72939,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "National Virtual Core Library"
+        "National Virtual Core Library",
+        "Outreach Engagement AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -73191,7 +73260,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AuScope Virtual Research Environment"
+        "AuScope Virtual Research Environment",
+        "AVRE AuScope"
       ],
       "authorCount": 12,
       "institutions": [
@@ -73390,7 +73460,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Earth Imaging Sounding AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -73473,7 +73544,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Outreach Engagement AuScope"
       ],
       "authorCount": 1,
       "institutions": [
@@ -73971,7 +74043,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -74106,7 +74179,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 47,
       "institutions": [
@@ -74575,7 +74650,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 7,
       "institutions": [
@@ -74617,7 +74693,8 @@
       "searchTerms": [
         "AuScope",
         "AuScope VLBI",
-        "Yarragadee VLBI"
+        "Yarragadee VLBI",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 10,
       "institutions": [
@@ -74657,7 +74734,9 @@
       "searchTerms": [
         "AuScope",
         "AusGeochem",
-        "AuScope Geochemistry Network"
+        "AuScope Geochemistry Network",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 13,
       "institutions": [
@@ -74924,7 +75003,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Australian Geophysical Observing System"
+        "Australian Geophysical Observing System",
+        "Earth Imaging Sounding AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -74948,7 +75028,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 6,
       "institutions": [
@@ -74979,7 +75060,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AusPass seismic"
+        "AusPass seismic",
+        "Characterisation AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -75394,7 +75476,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 10,
       "institutions": [
@@ -75463,7 +75546,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 1,
       "institutions": [],
@@ -76949,7 +77034,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -77096,7 +77182,9 @@
         "Hylogger CSIRO",
         "Australian Geophysical Observing System",
         "National Virtual Core Library",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Imaging Sounding AuScope",
+        "Earth Composition Evolution AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -77122,7 +77210,8 @@
         "AuScope",
         "Australian Geophysical Observing System",
         "National Virtual Core Library",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Imaging Sounding AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -77250,7 +77339,9 @@
         "Hylogger CSIRO",
         "Mt Pleasant VLBI",
         "National Virtual Core Library",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Imaging Sounding AuScope",
+        "Earth Composition Evolution AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -77296,7 +77387,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -77399,7 +77491,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Earth Imaging Sounding AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -77584,7 +77677,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "National Virtual Core Library"
+        "National Virtual Core Library",
+        "International Collaboration AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -77608,7 +77702,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Imaging Sounding AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -77632,7 +77727,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Sampling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -77655,7 +77751,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Earth Sampling AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -77989,7 +78087,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Outreach Engagement AuScope"
       ],
       "authorCount": 1,
       "institutions": [],
@@ -78221,7 +78320,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -78244,7 +78344,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Outreach Engagement AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -78378,7 +78480,9 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AuScope Virtual Research Environment"
+        "AuScope Virtual Research Environment",
+        "Simulation Analysis Modelling AuScope",
+        "AVRE AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -78616,7 +78720,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Outreach Engagement AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 1,
       "institutions": [],
@@ -78640,7 +78746,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Mt Pleasant VLBI"
+        "Mt Pleasant VLBI",
+        "International Collaboration AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -78700,7 +78807,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Australian Scalable Drone Cloud"
+        "Australian Scalable Drone Cloud",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 7,
       "institutions": [
@@ -78931,7 +79039,10 @@
       "searchTerms": [
         "AuScope",
         "National Virtual Core Library",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Composition Evolution AuScope",
+        "Outreach Engagement AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 25,
       "institutions": [
@@ -78974,7 +79085,8 @@
       "searchTerms": [
         "AuScope",
         "AuScope VLBI",
-        "Yarragadee VLBI"
+        "Yarragadee VLBI",
+        "International Collaboration AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -79027,7 +79139,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Outreach Engagement AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -79341,7 +79454,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Earth Sampling AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -79943,7 +80057,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Antarctica GRIT AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -80026,7 +80141,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 1,
       "institutions": [],
@@ -80050,7 +80166,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Yarragadee VLBI"
+        "Yarragadee VLBI",
+        "Characterisation AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -80086,7 +80203,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "G-Adopt geodynamic"
+        "G-Adopt geodynamic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -80147,7 +80265,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AuScope VLBI"
+        "AuScope VLBI",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -80175,7 +80294,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AusLAMP"
+        "AusLAMP",
+        "Characterisation AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -80239,7 +80359,9 @@
         "AuScope",
         "AuScope VLBI",
         "Yarragadee VLBI",
-        "Mt Pleasant VLBI"
+        "Mt Pleasant VLBI",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -80294,7 +80416,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Underworld2"
+        "Underworld2",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -80377,7 +80500,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AusGeochem"
+        "AusGeochem",
+        "Characterisation AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -80435,7 +80559,9 @@
       "searchTerms": [
         "AuScope",
         "EarthByte",
-        "GPlates"
+        "GPlates",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -80496,7 +80622,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "Australian Geophysical Observing System"
+        "Australian Geophysical Observing System",
+        "Characterisation AuScope"
       ],
       "authorCount": 7,
       "institutions": [
@@ -80531,7 +80658,9 @@
       ],
       "searchTerms": [
         "AuScope",
-        "GPlates"
+        "GPlates",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 11,
       "institutions": [
@@ -80579,7 +80708,9 @@
       "searchTerms": [
         "AuScope",
         "AuScope VLBI",
-        "Yarragadee VLBI"
+        "Yarragadee VLBI",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -80714,7 +80845,10 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Earth Imaging Sounding AuScope",
+        "Simulation Analysis Modelling AuScope",
+        "Antarctica GRIT AuScope"
       ],
       "authorCount": 9,
       "institutions": [
@@ -80748,7 +80882,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Antarctica GRIT AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -80781,7 +80916,8 @@
         "Europe PMC"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 12,
       "institutions": [
@@ -80968,7 +81104,8 @@
       "searchTerms": [
         "AuScope",
         "AuScope VLBI",
-        "Yarragadee VLBI"
+        "Yarragadee VLBI",
+        "Characterisation AuScope"
       ],
       "authorCount": 4,
       "institutions": [
@@ -81048,7 +81185,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AusPass seismic"
+        "AusPass seismic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -81077,7 +81215,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AuScope VLBI"
+        "AuScope VLBI",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -81194,7 +81333,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 7,
       "institutions": [],
@@ -81300,7 +81440,9 @@
       ],
       "searchTerms": [
         "AuScope",
-        "G-Adopt geodynamic"
+        "G-Adopt geodynamic",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -81324,7 +81466,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "National Argon Map"
+        "National Argon Map",
+        "Characterisation AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -81514,7 +81657,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 7,
       "institutions": [
@@ -81570,7 +81714,8 @@
       "searchTerms": [
         "AuScope",
         "Hylogger CSIRO",
-        "National Virtual Core Library"
+        "National Virtual Core Library",
+        "Characterisation AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -81630,7 +81775,8 @@
       "searchTerms": [
         "AuScope",
         "Hylogger CSIRO",
-        "National Virtual Core Library"
+        "National Virtual Core Library",
+        "Characterisation AuScope"
       ],
       "authorCount": 7,
       "institutions": [
@@ -81714,7 +81860,8 @@
       ],
       "searchTerms": [
         "AuScope",
-        "AusGeochem"
+        "AusGeochem",
+        "Characterisation AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -81737,7 +81884,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 1,
       "institutions": [],
@@ -81760,7 +81909,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 1,
       "institutions": [
@@ -81787,7 +81937,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -81839,7 +81990,10 @@
       "searchTerms": [
         "AuScope",
         "AuScope VLBI",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 42,
       "institutions": [
@@ -82048,7 +82202,8 @@
       "searchTerms": [
         "AuScope",
         "Underworld2",
-        "G-Adopt geodynamic"
+        "G-Adopt geodynamic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -82071,7 +82226,10 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope",
+        "Outreach Engagement AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 2,
       "institutions": [
@@ -82100,7 +82258,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -93287,6 +93446,416 @@
       ],
       "publicationDate": "2022-06-17",
       "dateAdded": "2026-11-13"
+    },
+    {
+      "doi": "10.1016/j.gexplo.2026.108284",
+      "title": "Metals exploration in sedimentary basins of Western Australia: insights from detrital rutile trace element geochemistry",
+      "authors": "J.K. Porter; Neal Jesse McNaughton; Noreen Joyce Evans; Bradley J. McDonald",
+      "journal": "Journal of Geochemical Exploration",
+      "publisher": "Elsevier BV",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geochemistry and Elemental Analysis; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Characterisation AuScope"
+      ],
+      "authorCount": 4,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2026-11-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.3390/app16083999",
+      "title": "FEM-DEM Multiscale Numerical Method for Investigating Stress Gradient Effects in Granular Media",
+      "authors": "Jun Chen; Ruilin Li; Zhentao Li; Youliang Chen; Lipeng Huang; Shuo Han; Tiantian Tang",
+      "journal": "Applied Sciences",
+      "publisher": "Multidisciplinary Digital Publishing Institute",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geotechnical Engineering and Soil Mechanics; Rock Mechanics and Modeling; Nonlocal and gradient elasticity in micro/nano structures",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "China Academy of Safety Sciences and Technology",
+        "China University of Mining and Technology"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "publicationDate": "2026-04-20",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.2139/ssrn.7511770",
+      "title": "An Efficient Solution Scheme for the 3D Forward Model for Low-Frequency Spectral Induced Polarisation (SIP)",
+      "authors": "Lutz Gross; Yan Zhou; Wu Cai; Thierry Boré; Jiang Bian",
+      "journal": "SSRN Electronic Journal",
+      "publisher": "RELX Group (Netherlands)",
+      "year": 2026,
+      "cited": 0,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Electrical and Bioimpedance Tomography; Numerical methods in inverse problems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2026-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1016/j.cpc.2024.109293",
+      "title": "YADE - An extensible framework for the interactive simulation of multiscale, multiphase, and multiphysics particulate systems",
+      "authors": "Vasileios Angelidakis; Katia Boschi; Karol Brzeziński; Robert A. Caulk; Bruno Chareyre; Carlos Andrés del Valle; J Duriez; Anton Gladky; Dingeman L.H. van der Haven; J. Kozicki; Gerald Pekmezi; Luc Scholtès; Klaus Thoeni",
+      "journal": "Computer Physics Communications",
+      "publisher": "Elsevier BV",
+      "year": 2024,
+      "cited": 38,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Granular flow and fluidized beds; Computational Physics and Python Applications; Geotechnical Engineering and Soil Mechanics",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 13,
+      "institutions": [
+        "Queen's University Belfast",
+        "Newcastle University",
+        "Politecnico di Milano",
+        "Warsaw University of Technology",
+        "Institut polytechnique de Grenoble",
+        "Centre National de la Recherche Scientifique",
+        "Sols, Solides, Structures, Risques",
+        "Universidad Nacional de Colombia",
+        "Aix-Marseille Université",
+        "Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement",
+        "Risques, écosystèmes, vulnérabilité, environnement, résilience",
+        "Novo Nordisk (Denmark)",
+        "University of Cambridge",
+        "Cambridge University Press",
+        "Gdańsk University of Technology",
+        "University of Alabama at Birmingham",
+        "Université Clermont Auvergne",
+        "Laboratoire Magmas et Volcans",
+        "Institut de Recherche pour le Développement",
+        "University of Newcastle Australia"
+      ],
+      "countries": [
+        "GB",
+        "IT",
+        "PL",
+        "FR",
+        "CO",
+        "DK",
+        "US",
+        "AU"
+      ],
+      "publicationDate": "2024-06-28",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.5194/egusphere-egu23-10364",
+      "title": "Density, temperature and composition of Antarctica’s lithosphere and impact on geothermal heat flux and mantle viscosity",
+      "authors": "Lu Li; Alan Aitken; Lutz Gross; Andrea Codd",
+      "journal": "EGU General Assembly Conference Abstracts",
+      "publisher": "",
+      "year": 2023,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "Geological and Geophysical Studies; High-pressure geophysics and materials; Cryospheric studies and observations",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "The University of Western Australia",
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2023-02-26",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/2ff4c34",
+      "title": "esys-escript 5.7",
+      "authors": "Adam Ellery; Andrea Codd; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2021,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2021-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/84f4666",
+      "title": "esys-escript 5.8",
+      "authors": "Adam Ellery; Andrea Codd; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2021,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2021-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2020.118",
+      "title": "esys-escript 5.5",
+      "authors": "Adam Ellery; Andrea Codd; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2020,
+      "cited": 1,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2020-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2020.966",
+      "title": "esys-escript 5.6",
+      "authors": "Adam Ellery; Andrea Codd; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2020,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2020-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1190/gem2019-041.1",
+      "title": "Magnetotelluric Forward Modelling in General Anisotropic Medium using Esys-Escript",
+      "authors": "Yan Zhou; Lutz Gross; Qi Shao",
+      "journal": "",
+      "publisher": "",
+      "year": 2019,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "No",
+      "subject": "Geophysical and Geoelectrical Methods; Electromagnetic Simulation and Numerical Methods; Electrical and Bioimpedance Tomography",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2019-09-11",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1088/1757-899x/581/1/012003",
+      "title": "Mesostructural origin of the field-induced pseudo-plasticity effect in a soft magnetic elastomer",
+      "authors": "О. В. Столбов; Yu. L. Raĭkher",
+      "journal": "IOP Conference Series Materials Science and Engineering",
+      "publisher": "IOP Publishing",
+      "year": 2019,
+      "cited": 10,
+      "type": "conference paper",
+      "isOA": "Yes",
+      "subject": "Vibration Control and Rheological Fluids; Advanced Materials and Mechanics; Characterization and Applications of Magnetic Nanoparticles",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 2,
+      "institutions": [
+        "Russian Academy of Sciences",
+        "Institute of Continuous Media Mechanics"
+      ],
+      "countries": [
+        "RU"
+      ],
+      "publicationDate": "2019-07-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2019.510",
+      "title": "esys-escript 5.3",
+      "authors": "Adam Ellery; Joel Fenwick; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2019,
+      "cited": 3,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2019-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.3997/2214-4609.201900700",
+      "title": "Magnetotelluric Forward Modelling in General Anisotropic Media Using Open-Source Package Esys-Escript",
+      "authors": "Y. Zhou; Lutz Gross; Qi Shao; Zhengguang Zhao",
+      "journal": "EAGE Annual Conference & Exhibition",
+      "publisher": "",
+      "year": 2019,
+      "cited": 2,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Geophysical and Geoelectrical Methods; Electrical and Bioimpedance Tomography; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2019-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1007/s00466-018-1600-y",
+      "title": "Multi-scale modelling of granular materials: numerical framework and study on micro-structural features",
+      "authors": "J. Liu; E. Bosco; Akke S. J. Suiker",
+      "journal": "Computational Mechanics",
+      "publisher": "Springer Science+Business Media",
+      "year": 2018,
+      "cited": 27,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geotechnical Engineering and Soil Mechanics; Granular flow and fluidized beds; Numerical methods in engineering",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Eindhoven University of Technology"
+      ],
+      "countries": [
+        "NL"
+      ],
+      "publicationDate": "2018-07-10",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.31227/osf.io/k6mqx",
+      "title": "Forward Model Resistivitas DC Dengan Metode Elemen Hingga dan Pendekatan Potensial Sekunder Berbasis Python",
+      "authors": "Agah Drajat Garnadi; Febru mochamad februarianto; mn indro; Mochamad Tito Julianto; Sri Nurdiati",
+      "journal": "INA-Rxiv (OSF Preprints)",
+      "publisher": "Center for Open Science",
+      "year": 2018,
+      "cited": 0,
+      "type": "preprint",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Electrical and Bioimpedance Tomography",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "IPB University"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "publicationDate": "2018-03-05",
+      "dateAdded": "2026-11-14"
     }
   ]
 }
