@@ -1,12 +1,12 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-11-14T02:29:17.195Z",
-    "total_count": 3338,
+    "last_updated": "2026-11-14T10:36:15.240Z",
+    "total_count": 3355,
     "evidence_updated": "2026-11-13T02:16:28.826Z",
     "consolidated": "2026-11-13T02:16:28.963Z",
     "dates_enriched": "2026-11-13T02:12:13.150Z",
-    "search_updated": "2026-11-14T02:29:17.195Z"
+    "search_updated": "2026-11-14T10:36:15.240Z"
   },
   "records": [
     {
@@ -13767,7 +13767,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "escript finley"
       ],
       "dateAdded": "2026-03-24",
       "authorCount": 2,
@@ -40244,7 +40245,8 @@
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
         "Manual entry",
-        "esys-escript"
+        "esys-escript",
+        "escript finley"
       ],
       "evidence": "keyword",
       "publicationDate": "2022-06-22",
@@ -93855,6 +93857,434 @@
         "ID"
       ],
       "publicationDate": "2018-03-05",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1111/ajr.70172",
+      "title": "Implementing the Virtual Integrated Practice ( VIP ) Program to Support Rural General Practice Viability in Australia",
+      "authors": "Jennifer Job; Ruby Strauss; Zena Martin; Claire Louise Jackson",
+      "journal": "Australian Journal of Rural Health",
+      "publisher": "Wiley",
+      "year": 2026,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Global Health Workforce Issues; Telemedicine and Telehealth Implementation; Health Policy Implementation Science",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "The University of Queensland",
+        "Mater Research"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2026-03-20",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1093/biomtc/ujae116",
+      "title": "Bayesian inference for group-level cortical surface image-on-scalar regression with Gaussian process priors",
+      "authors": "Andrew Whiteman; Timothy D. Johnson; Jian Kang",
+      "journal": "Biometrics",
+      "publisher": "Oxford University Press",
+      "year": 2024,
+      "cited": 3,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Gaussian Processes and Bayesian Inference; Spatial and Panel Data Analysis; Functional Brain Connectivity Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "University of Michigan"
+      ],
+      "countries": [
+        "US"
+      ],
+      "publicationDate": "2024-10-03",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.5287/ora-z6vp5ardn",
+      "title": "Toward a Catholic theology of money",
+      "authors": "Jacob Fareed Imam",
+      "journal": "Oxford University Research Archive (ORA) (University of Oxford)",
+      "publisher": "University of Oxford",
+      "year": 2022,
+      "cited": 0,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "Historical Economic and Legal Thought; Catholicism and Religious Studies; Reformed Theology and Governance",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 1,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2022-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2017.102",
+      "title": "escript-finley 4.0",
+      "authors": "Lutz Gross; Joel Fenwick; Cihan Altinay; Jaco Du Plessis; Simon E. Shaw; Vince Boros; Artak Amirbekyan; Louise Olsen‐Kettle; Hans B. Mühlhaus; Azadeh Salehi Gharibi; Leon Graham; Ken Steube",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2015,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 12,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2015-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2015.352",
+      "title": "escript-finley 3.0",
+      "authors": "Lutz Gross; Artak Amirbekyan; Cihan Altinay; Joel Fenwick; Lin Gao",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2015,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2015-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2015.355",
+      "title": "escript-finley 3.3",
+      "authors": "Lutz Gross; Joel Fenwick; Cihan Altinay; Azadeh Salehi Gharibi; Lin Gao",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2015,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2015-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2015.351",
+      "title": "escript-finley 3.1",
+      "authors": "Lutz Gross; Artak Amirbekyan; Lin Gao; Cihan Altinay; Joel Fenwick",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2015,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2015-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2015.354",
+      "title": "escript-finley 3.2.1",
+      "authors": "Lutz Gross; Joel Fenwick; Cihan Altinay; Artak Amirbekyan; Vince Boros; Lin Gao; Azadeh Salehi Gharibi",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2015,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 7,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2015-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2015.353",
+      "title": "escript-finley 3.2",
+      "authors": "Lutz Gross; Joel Fenwick; Cihan Altinay; Artak Amirbekyan",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2015,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 4,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2015-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/uql.2015.357",
+      "title": "escript-finley 3.3.1",
+      "authors": "Lutz Gross; Joel Fenwick; Cihan Altinay; Azadeh Salehi Gharibi; Vince Boros",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2015,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2015-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1071/aseg2013ab200",
+      "title": "Virtual Geophysics Laboratory (VGL) version 1.1: Recent developments to incorporate 3D geological maps and thermal modelling using the Underworld software",
+      "authors": "Alison Kirkby; John Mansour; Ryan Fraser; Josh Vote; Terry Rankine; Richard Goh; Steve Quenette",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Taylor & Francis",
+      "year": 2013,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geological Modeling and Analysis; Scientific Computing and Data Management; Environmental Monitoring and Data Management",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 7,
+      "institutions": [
+        "Geoscience Australia",
+        "Monash University",
+        "Commonwealth Scientific and Industrial Research Organisation"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2013-12-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.14264/352971",
+      "title": "escript-finley 3.4",
+      "authors": "Lutz Gross; Cihan Altinay; Joel Fenwick; Azadeh Salehi; Vince Boros",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2012,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 5,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2012-01-01",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1016/j.tecto.2009.05.019",
+      "title": "Dynamics of slab tear faults: Insights from numerical modelling",
+      "authors": "Alina Jane Hale; Klaus-Dirk Gottschaldt; Gideon Rosenbaum; Laurent Bourgouin; Mathieu Bauchy; Hans B. Mühlhaus",
+      "journal": "Tectonophysics",
+      "publisher": "Elsevier BV",
+      "year": 2009,
+      "cited": 46,
+      "type": "article",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "The University of Sydney",
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2009-05-25",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1111/j.1365-246x.2008.03806.x",
+      "title": "Lava dome growth and evolution with an independently deformable talus",
+      "authors": "Alina Jane Hale",
+      "journal": "Geophysical Journal International",
+      "publisher": "Oxford University Press",
+      "year": 2008,
+      "cited": 40,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Rock Mechanics and Modeling; Geological and Geophysical Studies; Landslides and related hazards",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2008-05-13",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1007/978-3-7643-8131-8_16",
+      "title": "Thermal Effects in the Evolution of Initially Layered Mantle Material",
+      "authors": "M. Davies; H.‐B. Mühlhaus; Lutz Gross",
+      "journal": "Birkhäuser Basel eBooks",
+      "publisher": "",
+      "year": 2007,
+      "cited": 0,
+      "type": "book chapter",
+      "isOA": "No",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "The University of Queensland",
+        "Commonwealth Scientific and Industrial Research Organisation"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2007-10-22",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1007/978-3-540-75755-9_33",
+      "title": "A Python Module for PDE-Based Numerical Modelling",
+      "authors": "Lutz Gross; Benjamin Cumming; Ken Steube; Dion Weatherley",
+      "journal": "Springer eBooks",
+      "publisher": "Springer Nature",
+      "year": 2007,
+      "cited": 10,
+      "type": "conference paper",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Parallel Computing and Optimization Techniques",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2007-09-21",
+      "dateAdded": "2026-11-14"
+    },
+    {
+      "doi": "10.1111/j.1365-246x.2007.03471.x",
+      "title": "Studying the influence of a solid shell on lava dome growth and evolution using the level set method",
+      "authors": "Laurent Bourgouin; H.‐B. Mühlhaus; Alina Jane Hale; Antonin Arsac",
+      "journal": "Geophysical Journal International",
+      "publisher": "Oxford University Press",
+      "year": 2007,
+      "cited": 16,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Fluid Dynamics and Heat Transfer; Advanced Numerical Methods in Computational Mathematics; Solidification and crystal growth phenomena",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "escript finley"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "The University of Queensland"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2007-06-11",
       "dateAdded": "2026-11-14"
     }
   ]
