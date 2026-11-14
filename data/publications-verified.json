@@ -1,7 +1,7 @@
 {
   "metadata": {
     "type": "verified",
-    "last_updated": "2026-11-13T02:12:19.433Z",
+    "last_updated": "2026-11-14T10:42:11.901Z",
     "total_count": 685,
     "by_tier": {
       "verified": 89,
@@ -3409,7 +3409,7 @@
     {
       "doi": "10.5194/gmd-19-2717-2026",
       "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth",
-      "authors": "William Scott; Mark James Hoggard; Thomas Duvernay; Siavash Ghelichkhan; Angus H. Gibson; Dale S. Roberts; Stephan C. Kramer; D. Rhodri Davies",
+      "authors": "William I. Scott; Mark James Hoggard; Thomas Duvernay; Siavash Ghelichkhan; Angus H. Gibson; Dale S. Roberts; Stephan C. Kramer; D. Rhodri Davies",
       "journal": "Geoscientific model development",
       "publisher": "Copernicus Publications",
       "year": 2026,
@@ -3512,7 +3512,7 @@
     {
       "doi": "10.5194/egusphere-egu26-17242",
       "title": "Multi-material forward and inverse modelling in G-ADOPT via the conservative level-set approach",
-      "authors": "Thomas Duvernay; Rhodri Davies; Sia Ghelichkhan; Fanny Garel; William Scott; Stephan C. Kramer; Dale Roberts; Angus H. Gibson",
+      "authors": "Thomas Duvernay; Rhodri Davies; Sia Ghelichkhan; Fanny Garel; William I. Scott; Stephan C. Kramer; Dale Roberts; Angus H. Gibson",
       "journal": "EGU General Assembly Conference Abstracts",
       "publisher": "",
       "year": 2026,
@@ -3958,7 +3958,7 @@
     {
       "doi": "10.1098/rspa.2026.0569",
       "title": "Frontiers and future directions in inverse modelling of mantle convection",
-      "authors": "Siavash Ghelichkhan; D. Rhodri Davies; Angus Gibson; Dale S. Roberts; Stephan C. Kramer; Mark James Hoggard; William Scott; Thomas Duvernay",
+      "authors": "Siavash Ghelichkhan; D. Rhodri Davies; Angus Gibson; Dale S. Roberts; Stephan C. Kramer; Mark James Hoggard; William I. Scott; Thomas Duvernay",
       "journal": "Proceedings of the Royal Society A Mathematical Physical and Engineering Sciences",
       "publisher": "Royal Society",
       "year": 2026,
@@ -8204,7 +8204,7 @@
     {
       "doi": "10.5194/egusphere-egu24-6863",
       "title": "Modelling Glacial Isostatic Adjustment in Firedrake",
-      "authors": "William Scott; Mark James Hoggard; Siavash Ghelichkhan; Angus H. Gibson; Stephan C. Kramer; D. Rhodri Davies",
+      "authors": "William I. Scott; Mark James Hoggard; Siavash Ghelichkhan; Angus H. Gibson; Stephan C. Kramer; D. Rhodri Davies",
       "journal": "EGU General Assembly Conference Abstracts",
       "publisher": "",
       "year": 2024,
@@ -24031,7 +24031,7 @@
       "journal": "Geosciences Journal",
       "publisher": "Springer Science+Business Media",
       "year": 2013,
-      "cited": 1,
+      "cited": 2,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geological Modeling and Analysis",
@@ -27856,15 +27856,13 @@
       ],
       "authorCount": 2,
       "institutions": [
-        "Australian National University",
-        "Geoscience Australia"
+        "Australian National University"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
-        "019wvm592",
-        "04ge02x20"
+        "019wvm592"
       ],
       "authorIds": [
         "https://openalex.org/A5109948327",
@@ -28422,7 +28420,7 @@
       "journal": "Advances in geophysics",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 154,
+      "cited": 155,
       "type": "book chapter",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
@@ -30227,7 +30225,7 @@
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2005,
-      "cited": 340,
+      "cited": 341,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
@@ -31016,44 +31014,6 @@
       ]
     },
     {
-      "doi": "10.1111/j.1365-246x.2003.02137.x",
-      "title": "Three-dimensional empirical traveltimes: construction and applications",
-      "authors": "T. Nicholson; Malcolm Sambridge; Ólafur Guðmundsson",
-      "journal": "Geophysical Journal International",
-      "publisher": "Oxford University Press",
-      "year": 2004,
-      "cited": 12,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; earthquake and tectonic studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [
-        "Australian National University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "019wvm592"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5026543595",
-        "https://openalex.org/A5059638591"
-      ],
-      "authorOrcids": [
-        "0000-0003-2858-3175",
-        "0000-0002-6702-8759"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0003-2858-3175",
-        "partner-ror:019wvm592"
-      ]
-    },
-    {
       "doi": "10.1071/aseg2004ab014",
       "title": "Holistically calibrating, processing and inverting frequency domain AEM surveys",
       "authors": "Ross Brodie; Malcolm Sambridge",
@@ -31085,6 +31045,44 @@
       ],
       "authorOrcids": [
         "0000-0003-2858-3175"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0003-2858-3175",
+        "partner-ror:019wvm592"
+      ]
+    },
+    {
+      "doi": "10.1111/j.1365-246x.2003.02137.x",
+      "title": "Three-dimensional empirical traveltimes: construction and applications",
+      "authors": "T. Nicholson; Malcolm Sambridge; Ólafur Guðmundsson",
+      "journal": "Geophysical Journal International",
+      "publisher": "Oxford University Press",
+      "year": 2004,
+      "cited": 12,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; earthquake and tectonic studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Australian National University"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "019wvm592"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026543595",
+        "https://openalex.org/A5059638591"
+      ],
+      "authorOrcids": [
+        "0000-0003-2858-3175",
+        "0000-0002-6702-8759"
       ],
       "attribution": "candidate-strong",
       "verifiedBy": [
@@ -31470,7 +31468,7 @@
       "journal": "Advances in geophysics",
       "publisher": "Elsevier BV",
       "year": 2003,
-      "cited": 234,
+      "cited": 236,
       "type": "book chapter",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Geological and Geophysical Studies",
@@ -33099,7 +33097,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 1999,
-      "cited": 1599,
+      "cited": 1600,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Geophysical and Geoelectrical Methods; Numerical methods in inverse problems",
@@ -33135,7 +33133,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 1999,
-      "cited": 878,
+      "cited": 879,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques; Numerical methods in inverse problems",

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T02:16:48.854Z",
+  "generated": "2026-11-14T10:46:31.896Z",
   "records": [
     {
       "name": "GPlates",
@@ -13,16 +13,16 @@
       "status": "active",
       "note": "",
       "publications": 258,
-      "citations": 7897,
+      "citations": 7996,
       "earliestYear": 2012,
       "latestYear": 2026,
       "records": [
         {
-          "doi": "10.5281/zenodo.18765312",
+          "doi": "10.5281/zenodo.21809463",
           "title": "A GPlates tectonic reconstruction of the western North American margin since the Devonian",
           "authors": "Andres Felipe Rodriguez Corcho; Sabin Zahirovic",
           "year": 2026,
-          "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+          "journal": "Geological Magazine",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -113,7 +113,7 @@
           "authors": "Ben R. Mather; R. Dietmar Müller; Adriana Dutkiewicz; Sabin Zahirovic",
           "year": 2026,
           "journal": "Communications Earth & Environment",
-          "cited": 1,
+          "cited": 4,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -420,7 +420,7 @@
         {
           "doi": "10.1038/s41467-026-73363-y",
           "title": "Tectonic and climatic implications of the Aleutian Arc initiation ≥56 million years ago.",
-          "authors": "Kaj Hoernle; B. Jicha; Maxim Portnyagin; S. Zahirovic; D. Müller; Folkmar Hauff; Christian Timm; Tobias Höfig; G. Yogodzinski; M. Guillong; Christian Berndt; D. Savelyev; R. Bezard; B. Baranov",
+          "authors": "Kaj Hoernle; Brian R. Jicha; Maxim Portnyagin; Sabin Zahirovic; R. Dietmar Müller; Folkmar Hauff; Christian Timm; Tobias Höfig; Gene M. Yogodzinski; Marcel Guillong; Christian Berndt; D. Savelyev; Rachel Bezard; B. V. Baranov",
           "year": 2026,
           "journal": "Nature Communications",
           "cited": 0,
@@ -570,10 +570,10 @@
         {
           "doi": "10.1038/s43247-025-03005-6",
           "title": "Deciphering mantle, tectonic and climatic drivers of exhumation",
-          "authors": "Samuel Boone; Stijn Glorie; Sabin Zahirovic; Angus Nixon; Fun Meeuws; Fabian Kohlmann",
+          "authors": "Samuel Boone; Samuel Boone; Stijn Glorie; Sabin Zahirovic; Angus Nixon; Fun Meeuws; Fabian Kohlmann",
           "year": 2025,
           "journal": "Communications Earth & Environment",
-          "cited": 2,
+          "cited": 4,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -663,7 +663,7 @@
           "authors": "Guy J G Paxman; Stewart S R Jamieson; Neil Ross; Michael J Bentley; Charlotte M Carter; Tom A Jordan; Xiangbin Cui; Shinan Lang; David E Sugden; Martin J Siegert",
           "year": 2025,
           "journal": "Nature Geoscience",
-          "cited": 1,
+          "cited": 2,
           "oa": true,
           "evidence": "text-software"
         },
@@ -833,7 +833,7 @@
           "authors": "Mark Stukel; Nicholas J. Matzke; Jordan Douglas; Tatiana Petersen Ruschel; Stéphane Puissant; Benjamin Price; Martin H. Villet; Alan R. Lemmon; Emily Moriarty Lemmon; Chris Simon",
           "year": 2025,
           "journal": "bioRxiv (Cold Spring Harbor Laboratory)",
-          "cited": 0,
+          "cited": 1,
           "oa": true,
           "evidence": "text-software"
         },
@@ -900,7 +900,7 @@
         {
           "doi": "10.7185/gold2025.28625",
           "title": "The AuScope EarthBank & GPlates Projects: Translational Research Infrastructure Supporting Industry-Academia Partnerships in Resource Geoscience",
-          "authors": "Brent McInnes; Bryant Ware; Fabian Kohlmann; Angus Nixon; Yoann Gréau; Ehsan Farahbakhsh; Samuel Boone; Malcolm McMillan; Hayden Dalton; Halimulati Ananuer; Andrew Gleadow; Barry P. Kohn; Moritz Theile; Wayne Noble; R. Dietmar Müller; Sara Polanco; Sabin Zahirovic; Maria Seton; Oskar Lindenmayer; Stijn Glorie; Tim Rawling; Lesley Wyborn; Geoffrey Fraser",
+          "authors": "Brent McInnes; Bryant Ware; Fabian Kohlmann; Angus Nixon; Yoann Gréau; Ehsan Farahbakhsh; Samuel Boone; Malcolm McMillan; Hayden B. Dalton; Halimulati Ananuer; Andrew Gleadow; Barry P. Kohn; Moritz Theile; Wayne P. Noble; R. Dietmar Müller; Sara Polanco; Sabin Zahirovic; Maria Seton; Oskar Lindenmayer; Stijn Glorie; Tim Rawling; Lesley Wyborn; Geoffrey Fraser",
           "year": 2025,
           "journal": "Goldschmidt2025 abstracts",
           "cited": 0,
@@ -960,10 +960,10 @@
         {
           "doi": "10.1038/s41597-024-03468-w",
           "title": "A Phanerozoic gridded dataset for palaeogeographic reconstructions.",
-          "authors": "Lewis A. Jones; Mathew Domeier",
+          "authors": "Lewis Alan Jones; Mathew Domeier",
           "year": 2024,
           "journal": "Scientific Data",
-          "cited": 6,
+          "cited": 8,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -983,7 +983,7 @@
           "authors": "Yanchong Li; Lijun Liu; Sanzhong Li; Diandian Peng; Zebin Cao; Xinyu Li",
           "year": 2024,
           "journal": "Nature Communications",
-          "cited": 16,
+          "cited": 26,
           "oa": true,
           "evidence": "text-software"
         },
@@ -1133,7 +1133,7 @@
           "authors": "Chris D Fokkema; Henk Brinkhuis; Francien Peterse; Appy Sluijs",
           "year": 2024,
           "journal": "Paleoceanography and Paleoclimatology",
-          "cited": 0,
+          "cited": 1,
           "oa": true,
           "evidence": "text-software"
         },
@@ -1180,20 +1180,20 @@
         {
           "doi": "10.1038/s41467-024-53397-w",
           "title": "Spreading ridge migration enabled by plume-ridge de-anchoring.",
-          "authors": "Ben Mather; Maria Seton; Simon Williams; Joanne M. Whittaker; Rebecca Carey; Maëlis Arnould; Nicolas Coltice; Bob Duncan",
+          "authors": "Ben Mather; Maria Seton; Simon E. Williams; Joanne M. Whittaker; Rebecca Carey; Maëlis Arnould; Nicolas Coltice; Bob Duncan",
           "year": 2024,
           "journal": "Nature Communications",
-          "cited": 6,
+          "cited": 7,
           "oa": true,
           "evidence": "text-attributed"
         },
         {
           "doi": "10.1371/journal.pone.0308756",
           "title": "Subsurface microbial community structure shifts along the geological features of the Central American Volcanic Arc.",
-          "authors": "Marco Basili; Timothy J. Rogers; Mayuko Nakagawa; Mustafa Yücel; J. Maarten de Moor; Peter H. Barry; Matthew O. Schrenk; Gerdhard L Jessen; Ricardo Sánchez‐Murillo; Sabin Zahirovic; David V. Bekaert; C. J. Ramírez; Deborah Bastoni; Angelina Cordone; Karen G. Lloyd; Donato Giovannelli",
+          "authors": "Marco Basili; Timothy J. Rogers; Mayuko Nakagawa; Mustafa Yücel; J. Maarten de Moor; Peter H. Barry; Matthew O. Schrenk; Gerdhard L Jessen; Ricardo Sánchez‐Murillo; Sabin Zahirovic; David Vincent Bekaert; C. J. Ramírez; Deborah Bastoni; Angelina Cordone; Karen G. Lloyd; Donato Giovannelli",
           "year": 2024,
           "journal": "PLoS ONE",
-          "cited": 7,
+          "cited": 8,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -1230,7 +1230,7 @@
         {
           "doi": "10.1038/s41467-024-51055-9",
           "title": "The role of plume-lithosphere interaction in Hawaii-Emperor chain formation.",
-          "authors": "Shijie Xie; Zebin Cao; Lijun Liu; Dinghui Yang; Mengxue Liu; Yanchong Li; Rui Qi",
+          "authors": "Shijie Xie; Shijie Xie; Zebin Cao; Lijun Liu; Dinghui Yang; Mengxue Liu; Yanchong Li; Rui Qi",
           "year": 2024,
           "journal": "Nature Communications",
           "cited": 5,
@@ -1253,17 +1253,17 @@
           "authors": "Zack J Quirk; Selena Y Smith; R Paul Acosta; Christopher J Poulsen",
           "year": 2024,
           "journal": "American Journal of Botany",
-          "cited": 1,
+          "cited": 2,
           "oa": true,
           "evidence": "text-software"
         },
         {
           "doi": "10.1038/s41598-023-35776-3",
           "title": "A geospatial platform for the tectonic interpretation of low-temperature thermochronology Big Data.",
-          "authors": "Samuel Boone; Fabian Kohlmann; Wayne Noble; Moritz Theile; Romain Beucher; Barry P. Kohn; Stijn Glorie; Martin Danišík; Renjie Zhou; Malcolm McMillan; Angus Nixon; Andrew Gleadow; Xiaodong Qin; R. Dietmar Müller; Brent McInnes",
+          "authors": "Samuel Boone; Fabian Kohlmann; Wayne P. Noble; Moritz Theile; Romain Beucher; Barry P. Kohn; Stijn Glorie; Martin Danišík; Renjie Zhou; Malcolm McMillan; Angus Nixon; Andrew Gleadow; Xiaodong Qin; R. Dietmar Müller; Brent McInnes",
           "year": 2023,
           "journal": "Scientific Reports",
-          "cited": 14,
+          "cited": 20,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -1330,7 +1330,7 @@
         {
           "doi": "10.1038/s41467-023-40904-8",
           "title": "Emplacement of the Argyle diamond deposit into an ancient rift zone triggered by supercontinent breakup.",
-          "authors": "Hugo K H Olierook; Denis Fougerouse; Luc S Doucet; Yebo Liu; Murray J Rayner; Martin Danišík; Daniel J Condon; Brent I A McInnes; A Lynton Jaques; Noreen J Evans; Bradley J McDonald; Zheng-Xiang Li; Christopher L Kirkland; Celia Mayers; Michael T D Wingate",
+          "authors": "Hugo K.H. Olierook; Denis Fougerouse; Luc Serge Doucet; Yebo Liu; Murray J. Rayner; Martin Danišík; Daniel J. Condon; Brent McInnes; A. Lynton Jaques; Noreen Joyce Evans; Bradley J. McDonald; Zheng‐Xiang Li; Christopher L. Kirkland; Celia Mayers; M.T.D. Wingate",
           "year": 2023,
           "journal": "Nature Communications",
           "cited": 14,
@@ -1383,7 +1383,7 @@
           "authors": "Guido M Gianni; Jeremías Likerman; César R Navarrete; Conrado R Gianni; Sergio Zlotnik",
           "year": 2023,
           "journal": "Nature Communications",
-          "cited": 18,
+          "cited": 19,
           "oa": true,
           "evidence": "text-software"
         },
@@ -1460,10 +1460,10 @@
         {
           "doi": "10.1038/s41586-023-06193-3",
           "title": "Rift-induced disruption of cratonic keels drives kimberlite volcanism.",
-          "authors": "Thomas M Gernon; Stephen M Jones; Sascha Brune; Thea K Hincks; Martin R Palmer; John C Schumacher; Rebecca M Primiceri; Matthew Field; William L Griffin; Suzanne Y O'Reilly; Derek Keir; Christopher J Spencer; Andrew S Merdith; Anne Glerum",
+          "authors": "Thomas Gernon; Stephen M. Jones; Sascha Brune; Thea K. Hincks; Martin R. Palmer; John C. Schumacher; Rebecca M. Primiceri; Matthew Field; William L. Griffin; Suzanne Yvette O'Reilly; Derek Boswell Keir; Christopher J. Spencer; Andrew Merdith; Anne Glerum",
           "year": 2023,
           "journal": "Nature",
-          "cited": 59,
+          "cited": 70,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -1480,10 +1480,10 @@
         {
           "doi": "10.1038/s41586-023-06662-9",
           "title": "Sublithospheric diamond ages and the supercontinent cycle.",
-          "authors": "Suzette Timmerman; Thomas Stachel; Janne M Koornneef; Karen V Smit; Rikke Harlou; Geoff M Nowell; Andrew R Thomson; Simon C Kohn; Joshua H F L Davies; Gareth R Davies; Mandy Y Krebs; Qiwei Zhang; Sarah E M Milne; Jeffrey W Harris; Felix Kaminsky; Dmitry Zedgenizov; Galina Bulanova; Chris B Smith; Izaac Cabral Neto; Francisco V Silveira; Antony D Burnham; Fabrizio Nestola; Steven B Shirey; Michael J Walter; Andrew Steele; D Graham Pearson",
+          "authors": "Suzette Timmerman; Thomas Stachel; Janne M. Koornneef; Karen V. Smit; Rikke Harlou; Geoff M. Nowell; Andrew R. Thomson; Simon C. Kohn; Joshua H.F.L. Davies; G.R. Davies; Mandy Y. Krebs; Qiwei Zhang; Sarah E. M. Milne; Jeffrey W. Harris; Felix V. Kaminsky; Dmitry A. Zedgenizov; Galina P. Bulanova; Chris B. Smith; Izaac Cabral Neto; Francisco Valdir Silveira; Antony D. Burnham; Fabrizio Nestola; Steven B. Shirey; Michael J. Walter; Andrew Steele; David Graham Pearson",
           "year": 2023,
           "journal": "Nature",
-          "cited": 38,
+          "cited": 40,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2003,7 +2003,7 @@
           "authors": "Ben R Mather; R Dietmar Müller; Maria Seton; Saskia Ruttor; Oliver Nebel; Nick Mortimer",
           "year": 2020,
           "journal": "Science Advances",
-          "cited": 73,
+          "cited": 83,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -2270,10 +2270,10 @@
         {
           "doi": "10.1029/2018gc007584",
           "title": "GPlates: Building a Virtual Earth Through Deep Time",
-          "authors": "R. Dietmar Müller; John Cannon; Xiaodong Qin; Robin J. Watson; Michael Gurnis; Simon Williams; Tobias Pfaffelmoser; Maria Seton; Samuel H. J. Russell; Sabin Zahirovic",
+          "authors": "R. Dietmar Müller; John Cannon; Xiaodong Qin; Robin J. Watson; Michael Gurnis; Simon E. Williams; Tobias Pfaffelmoser; Maria Seton; Samuel H. J. Russell; Sabin Zahirovic",
           "year": 2018,
           "journal": "Geochemistry Geophysics Geosystems",
-          "cited": 757,
+          "cited": 792,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -2503,7 +2503,7 @@
           "authors": "R Dietmar Müller; Xiaodong Qin; David T Sandwell; Adriana Dutkiewicz; Simon E Williams; Nicolas Flament; Stefan Maus; Maria Seton",
           "year": 2016,
           "journal": "PLoS ONE",
-          "cited": 70,
+          "cited": 77,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -2593,7 +2593,7 @@
           "authors": "Xiaodong Qin; R. Dietmar Müller; John Cannon; Thomas C.W. Landgrebe; Christian Heine; Robin J. Watson; M. Turner",
           "year": 2012,
           "journal": "Geoscientific instrumentation, methods and data systems",
-          "cited": 23,
+          "cited": 27,
           "oa": true,
           "evidence": "text-attributed"
         }
@@ -2608,15 +2608,15 @@
       ],
       "status": "active",
       "note": "",
-      "publications": 53,
-      "citations": 272,
+      "publications": 54,
+      "citations": 402,
       "earliestYear": 2020,
       "latestYear": 2026,
       "records": [
         {
           "doi": "10.59350/5fe9q-8ps48",
           "title": "Constitutive Models in Symbolic Form",
-          "authors": "Louis Moresi",
+          "authors": "Louis N. Moresi",
           "year": 2026,
           "journal": "",
           "cited": 0,
@@ -2634,19 +2634,29 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.5194/se-17-1167-2026",
+          "title": "Efficient Uzawa algorithms with projection strategies for geodynamic Stokes flow",
+          "authors": "Deok-Kyu Jang; Kyeong-Min Lee; Cédric Thieulot; Whan-Hyuk Choi; Byung‐Dal So",
+          "year": 2026,
+          "journal": "Solid Earth",
+          "cited": 1,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.1038/s41598-026-39647-5",
           "title": "Himalayan sub-Moho earthquakes suggest crustal faults trigger eclogitized-drip tectonics.",
           "authors": "Xiaohan Song; Simon L Klemperer",
           "year": 2026,
           "journal": "Scientific Reports",
-          "cited": 1,
+          "cited": 4,
           "oa": true,
           "evidence": "text-software"
         },
         {
           "doi": "10.59350/6mxqs-3p708",
           "title": "Mesh Variables and PETSc Vectors: Keeping Arrays in Sync",
-          "authors": "Louis Moresi",
+          "authors": "Louis N. Moresi",
           "year": 2026,
           "journal": "",
           "cited": 0,
@@ -2658,17 +2668,27 @@
           "title": "Million-year Ice from Antarctica and the “Stagnant” Ice Zone: From Microstructure to Geochemistry (MIA:Mic2Geo) – linking BEOI’s “stagnant” ice, COLDEX’s Allan Hills blue ice, and Million Year Ice Core ice",
           "authors": "Nicolas Stoll",
           "year": 2026,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
         },
         {
-          "doi": "10.59350/brqdq-9yq62",
+          "doi": "10.6084/m9.figshare.33193566",
           "title": "Our Journey from Underworld2 to Underworld3",
-          "authors": "Louis Moresi; John Mansour; Julian Giordani; Romain Beucher",
+          "authors": "Louis N. Moresi; John Mansour; Julian Giordani; Romain Beucher",
           "year": 2026,
-          "journal": "",
+          "journal": "Figshare",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.5194/gchron-8-423-2026",
+          "title": "Simplified modeling of the impact of lithospheric-scale geological processes on thermal histories and low-temperature thermochronometers",
+          "authors": "Dawn A. Kellett; David Michael Whipp",
+          "year": 2026,
+          "journal": "Geochronology",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -2676,20 +2696,20 @@
         {
           "doi": "10.1029/2025gc012769",
           "title": "Subduction System Response to Ribbon Collision: Implications on the Intra‐Plate Force Balance and the Style of Slab Deformation",
-          "authors": "Andres Rodriguez‐Corcho; Sara Polanco; Daniel Sandiford; Rebecca Farrington; Louis Moresi",
+          "authors": "Andres Felipe Rodriguez Corcho; Sara Polanco; Dan Sandiford; Rebecca Farrington; Louis N. Moresi",
           "year": 2026,
           "journal": "Geochemistry Geophysics Geosystems",
-          "cited": 0,
+          "cited": 3,
           "oa": true,
           "evidence": "verified"
         },
         {
           "doi": "10.21203/rs.3.rs-6356359/v1",
           "title": "Tectonic switching in ductile shear zones can explain hydrothermal ore deposits",
-          "authors": "Melanie Finch; Ben Knight; A. G. Tomkins; Enrique Gomez-Rivas; Paul D. Bons; B Ribeiro; Alanis Olesch-Byrne",
+          "authors": "Melanie A. Finch; Ben Steven Knight; Andrew G. Tomkins; Enrique Gómez-Rivas; Paul D. Bons; Bruno Vieira Ribeiro; Alanis Olesch-Byrne",
           "year": 2026,
           "journal": "Research Square",
-          "cited": 0,
+          "cited": 1,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2699,19 +2719,9 @@
           "authors": "Fabio A Capitanio; Thyagarajulu Gollapalli; Radhakrishna Munukutla; Juan Carlos Graciosa; Zuhair Mohd; Adam Beall; Luca Dal Zilio",
           "year": 2025,
           "journal": "Nature Communications",
-          "cited": 1,
+          "cited": 2,
           "oa": true,
           "evidence": "text-attributed"
-        },
-        {
-          "doi": "10.5194/egusphere-2025-5480",
-          "title": "Efficient Uzawa algorithms with projection strategies for geodynamic Stokes flow",
-          "authors": "Deok-Kyu Jang; Kyeong-Min Lee; Cédric Thieulot; Whan-Hyuk Choi; Byung‐Dal So",
-          "year": 2025,
-          "journal": "",
-          "cited": 1,
-          "oa": true,
-          "evidence": "text-software"
         },
         {
           "doi": "10.1038/s43247-025-02269-2",
@@ -2719,7 +2729,7 @@
           "authors": "Peng Guo; Ting Yang; Wenliang Xu; Wei‐Qiang Ji",
           "year": 2025,
           "journal": "Communications Earth & Environment",
-          "cited": 2,
+          "cited": 6,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2739,17 +2749,7 @@
           "authors": "Addison Tu; Sabin Zahirovic; Sara Polanco; Samuel Boone; Matt Boyd; Claire Mallard; P. Alonso Restrepo; Youseph Ibrahim; Luke Mahoney; Tristan Salles; Brent McInnes; Ehsan Farahbakhsh; Fabian Kohlmann; Maria Seton; R. Dietmar Müller",
           "year": 2025,
           "journal": "Science Advances",
-          "cited": 1,
-          "oa": true,
-          "evidence": "text-software"
-        },
-        {
-          "doi": "10.5194/egusphere-2025-5403",
-          "title": "Simplified modeling of the impact of lithospheric-scale geological processes on thermal histories and low-temperature thermochronometers",
-          "authors": "Dawn A. Kellett; David Whipp",
-          "year": 2025,
-          "journal": "",
-          "cited": 0,
+          "cited": 3,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2759,7 +2759,7 @@
           "authors": "Guido M. Gianni; Leandro C. Gallo; Jeremías Likerman; Andrés Echaurren; Conrado R. Gianni; Claudio Faccenna",
           "year": 2025,
           "journal": "Science Advances",
-          "cited": 4,
+          "cited": 5,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2776,10 +2776,10 @@
         {
           "doi": "10.21105/joss.07831",
           "title": "Underworld3: Mathematically Self-Describing Modelling in Python for Desktop, HPC and Cloud",
-          "authors": "Louis Moresi; John Mansour; Julian Giordani; Matthew G. Knepley; Ben Knight; Juan Carlos Graciosa; Thyagarajulu Gollapalli; Neng Lu; Romain Beucher",
+          "authors": "Louis N. Moresi; John Mansour; Julian Giordani; Matthew Gregg Knepley; Ben Steven Knight; Juan Carlos Graciosa; Thyagarajulu Gollapalli; Neng Lu; Romain Beucher",
           "year": 2025,
           "journal": "The Journal of Open Source Software",
-          "cited": 1,
+          "cited": 4,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2788,7 +2788,7 @@
           "title": "Constraining subducting slab viscosity with topography and gravity fields in free-surface mantle convection models",
           "authors": "Lijun Deng; Ting Yang",
           "year": 2024,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -2799,7 +2799,7 @@
           "authors": "Yanan Shi; Jason Phipps Morgan",
           "year": 2024,
           "journal": "Geophysical Research Letters",
-          "cited": 4,
+          "cited": 5,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2809,7 +2809,7 @@
           "authors": "Prasanna Mahesh Gunawardana; Priyadarshi Chowdhury; Gabriele Morra; Peter A. Cawood",
           "year": 2024,
           "journal": "Geology",
-          "cited": 17,
+          "cited": 24,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2829,17 +2829,17 @@
           "authors": "Arnab Roy; Nibir Mandal; Jeroen van Hunen",
           "year": 2024,
           "journal": "Earth and Planetary Science Letters",
-          "cited": 1,
+          "cited": 4,
           "oa": true,
           "evidence": "text-software"
         },
         {
           "doi": "10.2138/gselements.20.3.187",
           "title": "Embracing Craton Complexity at Depth",
-          "authors": "C. M. Cooper; Meghan S. Miller",
+          "authors": "C. M. Cooper; Meghan Samantha Miller",
           "year": 2024,
           "journal": "Elements",
-          "cited": 5,
+          "cited": 6,
           "oa": true,
           "evidence": "candidate"
         },
@@ -2849,7 +2849,7 @@
           "authors": "Yu Zhang; Till Sachau; Steven Franke; Haibin Yang; Dian Li; Ilka Weikusat; Paul D. Bons",
           "year": 2024,
           "journal": "Geophysical Research Letters",
-          "cited": 7,
+          "cited": 15,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2859,7 +2859,7 @@
           "authors": "Yanan Shi; Jason Phipps Morgan",
           "year": 2024,
           "journal": "Proceedings of the National Academy of Sciences",
-          "cited": 11,
+          "cited": 14,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2868,7 +2868,7 @@
           "title": "How ice anisotropy contributes to fold and ice stream in large-scale ice-sheet models",
           "authors": "Yu Zhang; Paul D. Bons; Till Sachau; Steven Franke",
           "year": 2024,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -2876,10 +2876,10 @@
         {
           "doi": "10.1038/s41598-024-59520-7",
           "title": "Imaging the top of the Earth’s inner core: a present-day flow model",
-          "authors": "‪Hrvoje Tkalčić; A. B. Belonoshko; Jack B. Muir; Maurizio Mattesini; Louis Moresi; Lauren Waszek",
+          "authors": "‪Hrvoje Tkalčić; Anatoly B. Belonoshko; Jack B. Muir; Maurizio Mattesini; Louis N. Moresi; Lauren Waszek",
           "year": 2024,
           "journal": "Scientific Reports",
-          "cited": 11,
+          "cited": 13,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2889,7 +2889,7 @@
           "authors": "Yusen Liu; Ting Yang; Kai Wang; Xiong Wang; Yang Li",
           "year": 2024,
           "journal": "Geochemistry Geophysics Geosystems",
-          "cited": 7,
+          "cited": 8,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2899,7 +2899,7 @@
           "authors": "Qian Yuan",
           "year": 2024,
           "journal": "Lithosphere",
-          "cited": 1,
+          "cited": 2,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2909,7 +2909,7 @@
           "authors": "Yida Li; Michael Gurnis",
           "year": 2024,
           "journal": "Proceedings of the National Academy of Sciences",
-          "cited": 9,
+          "cited": 16,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2919,7 +2919,7 @@
           "authors": "Keqing Li; Jiashun Hu; Yida Li; Hao Zhou; Haijiang Zhang",
           "year": 2024,
           "journal": "Geophysical Research Letters",
-          "cited": 6,
+          "cited": 8,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2928,7 +2928,7 @@
           "title": "The Ross Sea formation: enquiring the sensitivity of basin architecture to prior conditions, with numerical models and a parameter search",
           "authors": "Martina Busetti; Alberto Pastorutti; Magdala Tesauro; Carla Braitenberg; Florence Colleoni; Laura De Santis",
           "year": 2024,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -2939,7 +2939,7 @@
           "authors": "Pengfei Ma; Shaofeng Liu; Guillermo Booth‐Rea; Huiping Zhang; Ting Yang",
           "year": 2024,
           "journal": "Communications Earth & Environment",
-          "cited": 3,
+          "cited": 9,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2949,7 +2949,7 @@
           "authors": "Daniel Richards; Samuel S. Pegler; Sandra Piazolo; Nicolas Stoll; Ilka Weikusat",
           "year": 2023,
           "journal": "Journal of Geophysical Research Solid Earth",
-          "cited": 10,
+          "cited": 12,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2959,7 +2959,7 @@
           "authors": "Arnab Roy; Dip Ghosh; Nibir Mandal",
           "year": 2023,
           "journal": "Geophysical Journal International",
-          "cited": 2,
+          "cited": 4,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2968,7 +2968,7 @@
           "title": "Diffuse Cretaceous-Cenozoic rifting in the Southern Ross Sea: the influence of inheritance and kinematics",
           "authors": "Alberto Pastorutti; Magdala Tesauro; Carla Braitenberg; Florence Colleoni; Laura De Santis; Martina Busetti",
           "year": 2023,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -2979,7 +2979,7 @@
           "authors": "Guido M Gianni; Jeremías Likerman; César R Navarrete; Conrado R Gianni; Sergio Zlotnik",
           "year": 2023,
           "journal": "Nature Communications",
-          "cited": 18,
+          "cited": 19,
           "oa": true,
           "evidence": "text-software"
         },
@@ -3019,7 +3019,7 @@
           "authors": "Manaska Mukhopadhyay; Arnab Roy; Nibir Mandal",
           "year": 2023,
           "journal": "Journal of Geophysical Research Solid Earth",
-          "cited": 1,
+          "cited": 3,
           "oa": true,
           "evidence": "text-software"
         },
@@ -3036,10 +3036,10 @@
         {
           "doi": "10.1145/3624062.3624587",
           "title": "Perspectives and Experiences Supporting Containers for Research Computing at the Texas Advanced Computing Center",
-          "authors": "Erik Ferlanti; William J. Allen; Ernesto A. B. F. Lima; Yinzhi Wang; John Fonner",
+          "authors": "Erik S. Ferlanti; William J. Allen; Ernesto A. B. F. Lima; Yinzhi Wang; John M. Fonner",
           "year": 2023,
           "journal": "Proceedings of the SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
-          "cited": 6,
+          "cited": 9,
           "oa": true,
           "evidence": "text-software"
         },
@@ -3069,7 +3069,7 @@
           "authors": "Haibin Yang; Irina Artemieva; Hans Thybo",
           "year": 2023,
           "journal": "Journal of Geophysical Research Solid Earth",
-          "cited": 12,
+          "cited": 14,
           "oa": true,
           "evidence": "text-software"
         },
@@ -3079,7 +3079,7 @@
           "authors": "Zhensheng Wang; Fabio A Capitanio; Zaicong Wang; Timothy M Kusky",
           "year": 2022,
           "journal": "Proceedings of the National Academy of Sciences",
-          "cited": 12,
+          "cited": 24,
           "oa": true,
           "evidence": "text-software"
         },
@@ -3089,7 +3089,7 @@
           "authors": "Hejuan Liu; Shengnan Ban; Karine Bédard; Bernard Giroux",
           "year": 2022,
           "journal": "ADVANCES IN GEO-ENERGY RESEARCH",
-          "cited": 9,
+          "cited": 10,
           "oa": true,
           "evidence": "text-software"
         },
@@ -3099,7 +3099,7 @@
           "authors": "Ben Mather; R Dietmar Müller; Craig O'Neill; Adam Beall; R Willem Vervoort; Louis Moresi",
           "year": 2022,
           "journal": "Scientific Reports",
-          "cited": 13,
+          "cited": 14,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -3109,23 +3109,23 @@
           "authors": "Fabio A. Capitanio; Oliver Nebel; Jean‐François Moyen; Peter A. Cawood",
           "year": 2022,
           "journal": "Journal of Geophysical Research Solid Earth",
-          "cited": 9,
+          "cited": 10,
           "oa": true,
           "evidence": "text-software"
         },
         {
           "doi": "10.1029/2022gc010386",
           "title": "The Role of Lithospheric‐Deep Mantle Interactions on the Style and Stress Evolution of Arc‐Continent Collision",
-          "authors": "Andres Felipe Rodriguez-Corcho; Sara Polanco; Rebecca Farrington; Romain Beucher; Camilo Montes; Louis Moresi",
+          "authors": "Andres Felipe Rodriguez Corcho; Sara Morón; Rebecca Farrington; Romain Beucher; Camilo Montes; Louis N. Moresi",
           "year": 2022,
           "journal": "Geochemistry Geophysics Geosystems",
-          "cited": 2,
+          "cited": 3,
           "oa": true,
           "evidence": "candidate"
         },
         {
           "doi": "10.33774/coe-2021-znrtz-v2",
-          "title": "Vocal Imitation and Linguistic Processing of Super Mario Theme Music by Yoruba Gamers",
+          "title": "Vocal Imitation and Linguistic Processing of Super Mario Theme Music by Yorùbá Gamers",
           "authors": "Samuel Akinbo",
           "year": 2022,
           "journal": "",
@@ -3134,12 +3134,22 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1029/2019tc005894",
+          "title": "The Fingerprints of Flexure in Slab Seismicity",
+          "authors": "Dan Sandiford; Louis N. Moresi; Mike Sandiford; Rebecca Farrington; Ting Yang",
+          "year": 2020,
+          "journal": "Tectonics",
+          "cited": 40,
+          "oa": true,
+          "evidence": "candidate"
+        },
+        {
           "doi": "10.21105/joss.01797",
           "title": "Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud",
-          "authors": "John Mansour; Julian Giordani; Louis Moresi; Romain Beucher; Owen Kaluza; Mirko Velić; Rebecca Farrington; Steve Quenette; Adam Beall",
+          "authors": "John Mansour; Julian Giordani; Louis N. Moresi; Romain Beucher; Owen L. Kaluza; Mirko Velić; Rebecca Farrington; Steve Quenette; Adam Beall",
           "year": 2020,
           "journal": "The Journal of Open Source Software",
-          "cited": 72,
+          "cited": 74,
           "oa": true,
           "evidence": "candidate"
         }
@@ -3154,8 +3164,8 @@
       ],
       "status": "active",
       "note": "",
-      "publications": 11,
-      "citations": 54,
+      "publications": 12,
+      "citations": 119,
       "earliestYear": 2021,
       "latestYear": 2026,
       "records": [
@@ -3164,7 +3174,7 @@
           "title": "Assimilating Intra-Plate Lava Geochemistry into Adjoint Reconstructions of Earth’s Mantle Evolution",
           "authors": "Rhodri Davies; Sia Ghelichkhan",
           "year": 2026,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "candidate"
@@ -3172,19 +3182,19 @@
         {
           "doi": "10.5194/gmd-19-2717-2026",
           "title": "Automated forward and adjoint modelling of viscoelastic deformation of the solid Earth",
-          "authors": "William Scott; Mark Hoggard; Thomas Duvernay; Siavash Ghelichkhan; A. H. Gibson; Dale S. Roberts; Stephan C. Kramer; D. Rhodri Davies",
+          "authors": "William I. Scott; Mark James Hoggard; Thomas Duvernay; Siavash Ghelichkhan; Angus H. Gibson; Dale S. Roberts; Stephan C. Kramer; D. Rhodri Davies",
           "year": 2026,
           "journal": "Geoscientific model development",
-          "cited": 1,
+          "cited": 3,
           "oa": true,
           "evidence": "candidate"
         },
         {
           "doi": "10.5194/egusphere-egu26-7704",
           "title": "Firedrake - automated, differentiable building blocks for geoscientific simulation",
-          "authors": "David A. Ham; Connor Ward; Pablo Brubeck; Joshua Hope-Collins; Leo Collins",
+          "authors": "David A. Ham; Connor Ward; Pablo D. Brubeck; Josh Hope-Collins; Leo Collins",
           "year": 2026,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -3192,9 +3202,9 @@
         {
           "doi": "10.5194/egusphere-egu26-17242",
           "title": "Multi-material forward and inverse modelling in G-ADOPT via the conservative level-set approach",
-          "authors": "Thomas Duvernay; Rhodri Davies; Sia Ghelichkhan; Fanny Garel; W. G. Scott; Stephan Kramer; Dale Roberts; A. H. Gibson",
+          "authors": "Thomas Duvernay; Rhodri Davies; Sia Ghelichkhan; Fanny Garel; William I. Scott; Stephan C. Kramer; Dale Roberts; Angus H. Gibson",
           "year": 2026,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "candidate"
@@ -3204,7 +3214,7 @@
           "title": "Enhancing Adjoint Reconstructions of Earth’s Mantle with Geochemical Data from Intra-Plate Lavas",
           "authors": "D. Rhodri Davies; Siavash Ghelichkhan; Rebecca Turner",
           "year": 2025,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "candidate"
@@ -3215,7 +3225,7 @@
           "authors": "Leon Bilton; Thomas Duvernay; D. Rhodri Davies; C. M. Eakin",
           "year": 2025,
           "journal": "Geophysical Journal International",
-          "cited": 3,
+          "cited": 4,
           "oa": true,
           "evidence": "candidate"
         },
@@ -3224,7 +3234,7 @@
           "title": "Unveiling Late Cenozoic Dynamic Topography Evolution Using Non-Linear Adjoint Models",
           "authors": "Siavash Ghelichkhan; D. Rhodri Davies; A. H. Gibson; David C. S. Roberts",
           "year": 2025,
-          "journal": "",
+          "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,
           "oa": true,
           "evidence": "candidate"
@@ -3232,10 +3242,10 @@
         {
           "doi": "10.5194/gmd-17-5057-2024",
           "title": "Automatic adjoint-based inversion schemes for geodynamics: reconstructing the evolution of Earth's mantle in space and time",
-          "authors": "Siavash Ghelichkhan; A. H. Gibson; D. Rhodri Davies; Stephan C. Kramer; David A. Ham",
+          "authors": "Siavash Ghelichkhan; Angus H. Gibson; D. Rhodri Davies; Stephan C. Kramer; David A. Ham",
           "year": 2024,
           "journal": "Geoscientific model development",
-          "cited": 9,
+          "cited": 17,
           "oa": true,
           "evidence": "candidate"
         },
@@ -3250,6 +3260,16 @@
           "evidence": "candidate"
         },
         {
+          "doi": "10.1029/2022gc010757",
+          "title": "Comparing the Dynamics of Free Subduction in Cartesian and Spherical Domains",
+          "authors": "Fangqin Chen; D. Rhodri Davies; Saskia D. B. Goes; Lior Suchoy; Stephan C. Kramer",
+          "year": 2022,
+          "journal": "Geochemistry, Geophysics, Geosystems",
+          "cited": 4,
+          "oa": true,
+          "evidence": "candidate"
+        },
+        {
           "doi": "10.1002/essoar.10510305.1",
           "title": "Continental Magmatism: The Surface Manifestation of Dynamic Interactions Between Cratonic Lithosphere, Mantle Plumes and Edge-Driven Convection",
           "authors": "Thomas Duvernay; D. Rhodri Davies; Christopher Mathews; A. H. Gibson; Stephan C. Kramer",
@@ -3260,12 +3280,12 @@
           "evidence": "text-software"
         },
         {
-          "doi": "10.31223/x55601",
+          "doi": "10.1016/j.epsl.2022.117964",
           "title": "Geodynamic, geodetic, and seismic constraints favour deflated and dense-cored LLVPs",
-          "authors": "Fred Richards; Mark Hoggard; Siavash Ghelichkhan; Paula Koelemeijer; H. C. P. Lau",
+          "authors": "Fred D. Richards; Mark James Hoggard; Siavash Ghelichkhan; Paula Koelemeijer; Harriet C. P. Lau",
           "year": 2021,
-          "journal": "",
-          "cited": 5,
+          "journal": "Earth and Planetary Science Letters",
+          "cited": 55,
           "oa": true,
           "evidence": "text-software"
         }
@@ -3284,11 +3304,52 @@
       ],
       "status": "retired",
       "note": "Developed at the University of Queensland. AuScope-funded in earlier years; no longer funded or maintained.",
-      "publications": 0,
-      "citations": 0,
-      "earliestYear": null,
-      "latestYear": null,
-      "records": []
+      "publications": 4,
+      "citations": 50,
+      "earliestYear": 2008,
+      "latestYear": 2024,
+      "records": [
+        {
+          "doi": "10.1029/2024ea003680",
+          "title": "2D Magnetotelluric Inversion Using Linear Finite Element Methods and a Discretize‐Last Strategy With First and Second–Order Anisotropic Regularization",
+          "authors": "Andrea Codd; Lutz Gross; Janelle Kerr",
+          "year": 2024,
+          "journal": "Earth and Space Science",
+          "cited": 1,
+          "oa": true,
+          "evidence": "text-attributed"
+        },
+        {
+          "doi": "10.1093/gji/ggab018",
+          "title": "Induced polarization of volcanic rocks. 4. Large-scale induced polarization imaging",
+          "authors": "Lutz Gross; A. Soueid Ahmed; A. Revil",
+          "year": 2021,
+          "journal": "Geophysical Journal International",
+          "cited": 20,
+          "oa": true,
+          "evidence": "text-attributed"
+        },
+        {
+          "doi": "10.1016/j.compgeo.2020.103728",
+          "title": "Sensitivity of the damage response and fracture path to material heterogeneity present in a sandstone specimen containing a pre-existing 3-D surface flaw under uniaxial loading",
+          "authors": "Sanjib Mondal; Louise Olsen‐Kettle; Lutz Gross",
+          "year": 2020,
+          "journal": "Computers and Geotechnics",
+          "cited": 29,
+          "oa": true,
+          "evidence": "text-attributed"
+        },
+        {
+          "doi": "10.21914/anziamj.v50i0.1449",
+          "title": "Efficient solvers for incompressible fluid flows in geosciences",
+          "authors": "Artak Amirbekyan; Lutz Gross",
+          "year": 2008,
+          "journal": "ANZIAM Journal",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-attributed"
+        }
+      ]
     }
   ],
   "github": [
@@ -3420,7 +3481,7 @@
       "openIssues": 4,
       "createdAt": "2026-05-18T10:25:20Z",
       "updatedAt": "2026-11-12T15:58:05Z",
-      "pushedAt": "2026-11-13T00:25:53Z"
+      "pushedAt": "2026-11-14T10:31:41Z"
     },
     {
       "name": "AuScope-Cat",
@@ -4514,7 +4575,7 @@
     }
   ],
   "githubMetadata": {
-    "generated": "2026-11-13T00:30:37.588Z",
+    "generated": "2026-11-14T10:46:13.906Z",
     "organisation": "AuScope",
     "organisationUrl": "https://github.com/AuScope",
     "source": "https://api.github.com/orgs/AuScope/repos",

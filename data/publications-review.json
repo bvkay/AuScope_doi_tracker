@@ -1,7 +1,7 @@
 {
   "metadata": {
     "type": "review",
-    "last_updated": "2026-11-13T02:12:19.440Z",
+    "last_updated": "2026-11-14T10:42:11.908Z",
     "total_count": 275,
     "by_tier": {
       "candidate-review": 275
@@ -1699,54 +1699,6 @@
       ]
     },
     {
-      "doi": "10.1111/ggr.12473",
-      "title": "Sulfur Mass Fractions in Thirty‐Seven Geological Reference Materials by Titration, XRF and Elemental Analyser",
-      "authors": "Olivier Alard; Halimulati Ananuer; Lauren R. Gorojovsky; Peter Wieland",
-      "journal": "Geostandards and Geoanalytical Research",
-      "publisher": "Wiley",
-      "year": 2022,
-      "cited": 7,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Scientific Measurement and Uncertainty Evaluation; Geological and Geochemical Analysis; Analytical chemistry methods development",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "Centre National de la Recherche Scientifique",
-        "Université de Montpellier",
-        "Géosciences Montpellier",
-        "ARC Centre of Excellence for Core to Crust Fluid Systems",
-        "Macquarie University"
-      ],
-      "countries": [
-        "FR",
-        "AU"
-      ],
-      "rors": [
-        "02feahw73",
-        "051escj72",
-        "024gts110",
-        "03nk9pp38",
-        "01sf06y89"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5042029272",
-        "https://openalex.org/A5016148261"
-      ],
-      "authorOrcids": [
-        "0000-0002-0832-6625",
-        "0000-0001-8335-1786",
-        "0000-0002-7569-6909"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
       "doi": "10.1016/j.gca.2022.11.014",
       "title": "Abundances of siderophile elements in H-chondrite metal grains: Implications for the origin of metal in unequilibrated ordinary chondrites",
       "authors": "Guillaume Florin; Olivier Alard; Béatrice Luais; Tracy Rushmer",
@@ -1842,6 +1794,54 @@
         "0000-0002-0832-6625",
         "0000-0001-8335-1786",
         "0000-0001-5023-4655"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-0832-6625"
+      ]
+    },
+    {
+      "doi": "10.1111/ggr.12473",
+      "title": "Sulfur Mass Fractions in Thirty‐Seven Geological Reference Materials by Titration, XRF and Elemental Analyser",
+      "authors": "Olivier Alard; Halimulati Ananuer; Lauren R. Gorojovsky; Peter Wieland",
+      "journal": "Geostandards and Geoanalytical Research",
+      "publisher": "Wiley",
+      "year": 2022,
+      "cited": 7,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Scientific Measurement and Uncertainty Evaluation; Geological and Geochemical Analysis; Analytical chemistry methods development",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Centre National de la Recherche Scientifique",
+        "Université de Montpellier",
+        "Géosciences Montpellier",
+        "ARC Centre of Excellence for Core to Crust Fluid Systems",
+        "Macquarie University"
+      ],
+      "countries": [
+        "FR",
+        "AU"
+      ],
+      "rors": [
+        "02feahw73",
+        "051escj72",
+        "024gts110",
+        "03nk9pp38",
+        "01sf06y89"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5034349319",
+        "https://openalex.org/A5042029272",
+        "https://openalex.org/A5016148261"
+      ],
+      "authorOrcids": [
+        "0000-0002-0832-6625",
+        "0000-0001-8335-1786",
+        "0000-0002-7569-6909"
       ],
       "attribution": "candidate-review",
       "verifiedBy": [
@@ -8296,7 +8296,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2009,
-      "cited": 128,
+      "cited": 129,
       "type": "article",
       "isOA": "No",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Planetary Science and Exploration",
