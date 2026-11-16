@@ -1,10 +1,10 @@
 {
   "metadata": {
     "type": "review",
-    "last_updated": "2026-11-14T10:42:11.908Z",
-    "total_count": 275,
+    "last_updated": "2026-11-16T10:38:29.226Z",
+    "total_count": 267,
     "by_tier": {
-      "candidate-review": 275
+      "candidate-review": 267
     }
   },
   "records": [
@@ -1091,7 +1091,7 @@
       "title": "FAIR Convergence using FAIR Implementation Profiles and the FAIR evolution pathways concept: lessons learned from the WorldFAIR Geochemistry Work Package",
       "authors": "Alexander Prent; Rebecca Farrington",
       "journal": "EGU General Assembly Conference Abstracts",
-      "publisher": "",
+      "publisher": "Copernicus Publications",
       "year": 2024,
       "cited": 0,
       "type": "conference abstract",
@@ -1699,6 +1699,54 @@
       ]
     },
     {
+      "doi": "10.1111/ggr.12473",
+      "title": "Sulfur Mass Fractions in Thirty‐Seven Geological Reference Materials by Titration, XRF and Elemental Analyser",
+      "authors": "Olivier Alard; Halimulati Ananuer; Lauren R. Gorojovsky; Peter Wieland",
+      "journal": "Geostandards and Geoanalytical Research",
+      "publisher": "Wiley",
+      "year": 2022,
+      "cited": 8,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Scientific Measurement and Uncertainty Evaluation; Geological and Geochemical Analysis; Analytical chemistry methods development",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Centre National de la Recherche Scientifique",
+        "Université de Montpellier",
+        "Géosciences Montpellier",
+        "ARC Centre of Excellence for Core to Crust Fluid Systems",
+        "Macquarie University"
+      ],
+      "countries": [
+        "FR",
+        "AU"
+      ],
+      "rors": [
+        "02feahw73",
+        "051escj72",
+        "024gts110",
+        "03nk9pp38",
+        "01sf06y89"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5034349319",
+        "https://openalex.org/A5042029272",
+        "https://openalex.org/A5016148261"
+      ],
+      "authorOrcids": [
+        "0000-0002-0832-6625",
+        "0000-0001-8335-1786",
+        "0000-0002-7569-6909"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-0832-6625"
+      ]
+    },
+    {
       "doi": "10.1016/j.gca.2022.11.014",
       "title": "Abundances of siderophile elements in H-chondrite metal grains: Implications for the origin of metal in unequilibrated ordinary chondrites",
       "authors": "Guillaume Florin; Olivier Alard; Béatrice Luais; Tracy Rushmer",
@@ -1794,54 +1842,6 @@
         "0000-0002-0832-6625",
         "0000-0001-8335-1786",
         "0000-0001-5023-4655"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
-      "doi": "10.1111/ggr.12473",
-      "title": "Sulfur Mass Fractions in Thirty‐Seven Geological Reference Materials by Titration, XRF and Elemental Analyser",
-      "authors": "Olivier Alard; Halimulati Ananuer; Lauren R. Gorojovsky; Peter Wieland",
-      "journal": "Geostandards and Geoanalytical Research",
-      "publisher": "Wiley",
-      "year": 2022,
-      "cited": 7,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Scientific Measurement and Uncertainty Evaluation; Geological and Geochemical Analysis; Analytical chemistry methods development",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "Centre National de la Recherche Scientifique",
-        "Université de Montpellier",
-        "Géosciences Montpellier",
-        "ARC Centre of Excellence for Core to Crust Fluid Systems",
-        "Macquarie University"
-      ],
-      "countries": [
-        "FR",
-        "AU"
-      ],
-      "rors": [
-        "02feahw73",
-        "051escj72",
-        "024gts110",
-        "03nk9pp38",
-        "01sf06y89"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5042029272",
-        "https://openalex.org/A5016148261"
-      ],
-      "authorOrcids": [
-        "0000-0002-0832-6625",
-        "0000-0001-8335-1786",
-        "0000-0002-7569-6909"
       ],
       "attribution": "candidate-review",
       "verifiedBy": [
@@ -3060,7 +3060,7 @@
       "journal": "Journal of Analytical Atomic Spectrometry",
       "publisher": "Royal Society of Chemistry",
       "year": 2020,
-      "cited": 79,
+      "cited": 80,
       "type": "article",
       "isOA": "No",
       "subject": "Analytical chemistry methods development; Geological and Geochemical Analysis; Laser-induced spectroscopy and plasma",
@@ -3097,7 +3097,7 @@
       "journal": "Journal of Archaeological Science",
       "publisher": "Elsevier BV",
       "year": 2020,
-      "cited": 40,
+      "cited": 41,
       "type": "article",
       "isOA": "No",
       "subject": "Metallurgy and Cultural Artifacts; Cultural Heritage Materials Analysis; Archaeology and Historical Studies",
@@ -3590,95 +3590,6 @@
       "attribution": "candidate-review",
       "verifiedBy": [
         "orcid:0000-0002-7662-9468"
-      ]
-    },
-    {
-      "doi": "10.6084/m9.figshare.12308192",
-      "title": "Additional file 1 of Synthetic modelling of downhole resistivity data to improve interpretation of basin morphology from magnetotelluric inversion",
-      "authors": "Janelle Simpson; Graham Heinson",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2020,
-      "cited": 0,
-      "type": "dataset",
-      "isOA": "Yes",
-      "subject": "Geophysical and Geoelectrical Methods; Geological Modeling and Analysis; Geophysical Methods and Applications",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5113158718",
-        "https://openalex.org/A5089578866"
-      ],
-      "authorOrcids": [
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789"
-      ]
-    },
-    {
-      "doi": "10.6084/m9.figshare.12308201",
-      "title": "Additional file 2 of Synthetic modelling of downhole resistivity data to improve interpretation of basin morphology from magnetotelluric inversion",
-      "authors": "Janelle Simpson; Graham Heinson",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2020,
-      "cited": 0,
-      "type": "dataset",
-      "isOA": "Yes",
-      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Geological Modeling and Analysis",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5113158718",
-        "https://openalex.org/A5089578866"
-      ],
-      "authorOrcids": [
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789"
-      ]
-    },
-    {
-      "doi": "10.1525/9780520943728-155",
-      "title": "New Caledonia, Geology",
-      "authors": "Tim Rawling",
-      "journal": "University of California Press eBooks",
-      "publisher": "University of California Press",
-      "year": 2019,
-      "cited": 2,
-      "type": "reference entry",
-      "isOA": "No",
-      "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Geological Studies and Exploration",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5006277227"
-      ],
-      "authorOrcids": [
-        "0000-0002-8841-4384"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-8841-4384"
       ]
     },
     {
@@ -4392,7 +4303,7 @@
       "journal": "Public Health Nutrition",
       "publisher": "Cambridge University Press",
       "year": 2018,
-      "cited": 60,
+      "cited": 61,
       "type": "article",
       "isOA": "Yes",
       "subject": "Food Security and Health in Diverse Populations; Health disparities and outcomes; Employment and Welfare Studies",
@@ -4885,7 +4796,7 @@
       "title": "Establishing earthquake monitoring in Timor–Leste",
       "authors": "Meghan Samantha Miller; Leland J. O'Driscoll; Robert W. Porritt; Cooper W. Harris; Luis Teófilo da Costa; Eugenio Soares; Helio Casimiro Guterres",
       "journal": "Second International Meeting for Applied Geoscience & Energy",
-      "publisher": "",
+      "publisher": "Society of Exploration Geophysicists",
       "year": 2017,
       "cited": 1,
       "type": "conference paper",
@@ -5491,8 +5402,8 @@
       "doi": "10.82308/22127",
       "title": "Food security and social support: Exploring relationships between social resources and access to adequate food",
       "authors": "Meghan Samantha Miller",
-      "journal": "eScholarship@McGill (McGill)",
-      "publisher": "McGill University",
+      "journal": "",
+      "publisher": "",
       "year": 2015,
       "cited": 4,
       "type": "dissertation",
@@ -5739,7 +5650,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2014,
-      "cited": 140,
+      "cited": 142,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -6188,7 +6099,7 @@
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2014,
-      "cited": 78,
+      "cited": 79,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geochemistry and Elemental Analysis",
@@ -6982,7 +6893,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 51,
+      "cited": 52,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -7164,7 +7075,7 @@
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 200,
+      "cited": 201,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -8886,76 +8797,6 @@
       ]
     },
     {
-      "doi": "10.1594/pangaea.707022",
-      "title": "(Table 1, Appendix A2) Bulk rock composition of ODP Hole 209-1274A peridotites",
-      "authors": "Marguerite Godard; Yves Lagabrielle; Olivier Alard; Jason Harvey",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2008,
-      "cited": 0,
-      "type": "dataset",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; High-pressure geophysics and materials",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5134215776",
-        "https://openalex.org/A5072043357",
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5023334086"
-      ],
-      "authorOrcids": [
-        "0000-0003-3097-5135",
-        "0000-0003-0260-1240",
-        "0000-0002-0832-6625",
-        "0000-0002-0390-3438"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
-      "doi": "10.1594/pangaea.707016",
-      "title": "(Table 1, Appendix A2) Bulk rock composition of ODP Hole 209-1272A peridotites",
-      "authors": "Marguerite Godard; Yves Lagabrielle; Olivier Alard; Jason Harvey",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2008,
-      "cited": 0,
-      "type": "dataset",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Geological and Geophysical Studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5134215776",
-        "https://openalex.org/A5072043357",
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5023334086"
-      ],
-      "authorOrcids": [
-        "0000-0003-3097-5135",
-        "0000-0003-0260-1240",
-        "0000-0002-0832-6625",
-        "0000-0002-0390-3438"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
       "doi": "10.1108/09615530810899079",
       "title": "Adaptive finite element methods in geodynamics: Convection dominated mid‐ocean ridge and subduction zone simulations",
       "authors": "D. Rhodri Davies; J. H. Davies; Oubay Hassan; K. Morgan; Perumal Nithiarasu",
@@ -9076,7 +8917,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2007,
-      "cited": 400,
+      "cited": 401,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Astro and Planetary Science",
@@ -9440,42 +9281,13 @@
       ]
     },
     {
-      "doi": "10.1007/978-1-4020-4423-6_89",
-      "title": "EM, Industrial Uses",
-      "authors": "Graham Heinson",
-      "journal": "Springer eBooks",
-      "publisher": "Springer Nature",
-      "year": 2007,
-      "cited": 0,
-      "type": "reference entry",
-      "isOA": "No",
-      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Electrical and Bioimpedance Tomography",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5089578866"
-      ],
-      "authorOrcids": [
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789"
-      ]
-    },
-    {
       "doi": "10.1071/eg06322",
       "title": "Seismic wavefront tracking in 3D heterogeneous media: applications with multiple data classes",
       "authors": "Nicholas J.F. Rawlinson; Marthijn de Kool; Malcolm Sambridge",
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2006,
-      "cited": 54,
+      "cited": 55,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
@@ -9569,7 +9381,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2006,
-      "cited": 299,
+      "cited": 300,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
@@ -9744,84 +9556,6 @@
       "type": "dataset",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 6,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5023334086",
-        "https://openalex.org/A5108767065",
-        "https://openalex.org/A5090504767",
-        "https://openalex.org/A5058060421",
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5027893284"
-      ],
-      "authorOrcids": [
-        "0000-0002-0390-3438",
-        "0000-0003-4059-730X",
-        "0000-0002-3381-7004",
-        "0009-0006-0451-4238",
-        "0000-0002-0832-6625",
-        "0000-0001-6380-7061"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
-      "doi": "10.1594/pangaea.707801",
-      "title": "(Table 3) Re-Os isotope ratios of abyssal peridotites from ODP Hole 209-1274A",
-      "authors": "Jason Harvey; Abdelmouhcine Gannoun; Kevin W. Burton; Nick W. Rogers; Olivier Alard; I. J. Parkinson",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2006,
-      "cited": 0,
-      "type": "dataset",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Paleontology and Stratigraphy of Fossils",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 6,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5023334086",
-        "https://openalex.org/A5108767065",
-        "https://openalex.org/A5090504767",
-        "https://openalex.org/A5058060421",
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5027893284"
-      ],
-      "authorOrcids": [
-        "0000-0002-0390-3438",
-        "0000-0003-4059-730X",
-        "0000-0002-3381-7004",
-        "0009-0006-0451-4238",
-        "0000-0002-0832-6625",
-        "0000-0001-6380-7061"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
-      "doi": "10.1594/pangaea.707799",
-      "title": "(Table 1) Major element concentrations in abyssal peridotites from ODP Hole 209-1274A",
-      "authors": "Jason Harvey; Abdelmouhcine Gannoun; Kevin W. Burton; Nick W. Rogers; Olivier Alard; I. J. Parkinson",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2006,
-      "cited": 0,
-      "type": "dataset",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Geological and Geophysical Studies",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -10215,7 +9949,7 @@
       "title": "Building academic, research, and commercialization programs in micro and nano science and engineering at the University of Utah",
       "authors": "Ian R. Harvey; Meghan Samantha Miller; S. Blair; Tim Ameel; Bruce K. Gale; Terry Arthur Ring",
       "journal": "Biennial University/Government/Industry Microelectronics Symposium",
-      "publisher": "",
+      "publisher": "Institute of Electrical and Electronics Engineers",
       "year": 2004,
       "cited": 0,
       "type": "conference paper",
@@ -10535,7 +10269,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2003,
-      "cited": 126,
+      "cited": 127,
       "type": "article",
       "isOA": "Yes",
       "subject": "Paleontology and Stratigraphy of Fossils; Analytical chemistry methods development; Geochemistry and Elemental Analysis",
@@ -11194,8 +10928,8 @@
       "doi": "10.4454/ofioliti.v24i1b.12",
       "title": "URANIUM ENRICHMENT IN THE LITHOSPHERIC MANTLE: EVIDENCE FROM FRENCH MASSIF CENTRAL",
       "authors": "Olivier Alard; Jean‐Louis Bodinier; Xavier Lenoir; Jean‐Marie Dautria",
-      "journal": "ANU Open Research (Australian National University)",
-      "publisher": "Australian National University",
+      "journal": "Ofioliti",
+      "publisher": "",
       "year": 1999,
       "cited": 4,
       "type": "article",
@@ -11240,8 +10974,8 @@
       "doi": "10.4454/ofioliti.v24i1b.11",
       "title": "SULFUR ENRICHMENT VIA VOLATILE-RICH METASOMATISM IN MONTFERRIER XENOLITHS (SOUTHERN FRANCE): CONSEQUENCES FOR HIGHLY SIDEROPHILE ELEMENTS IN THE SUB-CONTINENTAL MANTLE",
       "authors": "Olivier Alard; Jean-Pierre Lorand; Laurie C. Reisberg; Jean‐Louis Bodinier; Suzanne Yvette O'Reilly; William L. Griffin; Jean‐Marie Dautria",
-      "journal": "ANU Open Research (Australian National University)",
-      "publisher": "Australian National University",
+      "journal": "Ofioliti",
+      "publisher": "",
       "year": 1999,
       "cited": 3,
       "type": "article",

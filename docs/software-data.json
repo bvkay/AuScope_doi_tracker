@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T10:46:31.896Z",
+  "generated": "2026-11-16T10:53:00.839Z",
   "records": [
     {
       "name": "GPlates",
@@ -12,21 +12,11 @@
       ],
       "status": "active",
       "note": "",
-      "publications": 258,
-      "citations": 7996,
+      "publications": 264,
+      "citations": 8006,
       "earliestYear": 2012,
       "latestYear": 2026,
       "records": [
-        {
-          "doi": "10.5281/zenodo.21809463",
-          "title": "A GPlates tectonic reconstruction of the western North American margin since the Devonian",
-          "authors": "Andres Felipe Rodriguez Corcho; Sabin Zahirovic",
-          "year": 2026,
-          "journal": "Geological Magazine",
-          "cited": 0,
-          "oa": true,
-          "evidence": "text-software"
-        },
         {
           "doi": "10.1051/978-2-7598-3934-6",
           "title": "A new concept of karst development based on hydrogeology and geophysics",
@@ -116,6 +106,26 @@
           "cited": 4,
           "oa": true,
           "evidence": "text-attributed"
+        },
+        {
+          "doi": "10.1098/rspb.2026.1490",
+          "title": "Climate state controls the strength of the latitudinal diversity gradient",
+          "authors": "Die Wen; Lewis Alan Jones; Junxuan Fan; Philip D. Mannion",
+          "year": 2026,
+          "journal": "Proceedings of the Royal Society B Biological Sciences",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1126/sciadv.aeg2217",
+          "title": "Climatic niche conservatism shapes the macroevolution, extinction, and survivorship of crocodile-line archosaurs.",
+          "authors": "Alfio Alessandro Chiarenza; Alexandra F C Howard; Grace L Varnham; Alex Farnsworth; Paul J Valdes; Philip D Mannion",
+          "year": 2026,
+          "journal": "Science Advances",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
         },
         {
           "doi": "10.5194/jm-45-147-2026",
@@ -218,6 +228,16 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1371/journal.pbio.3004077",
+          "title": "High-resolution paleobiome reconstructions highlight ecological and historical dynamics underpinning global terrestrial vertebrate diversity",
+          "authors": "Alexander Skeels; Julian Rogger; Marcel Cardillo; Alex Farnsworth; Daniel John Lunt; Dirk Nikolaus Karger",
+          "year": 2026,
+          "journal": "PLoS Biology",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.7717/peerj.21192",
           "title": "How did climate drive the historical distribution of relict plants: a case study on Metasequoia using deep-time ecological niche modelling.",
           "authors": "Junmei Chen; Ai Song; Li Wang; Shufeng Li; Tao Su",
@@ -254,6 +274,16 @@
           "year": 2026,
           "journal": "Geophysical Research Letters",
           "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41467-026-77980-5",
+          "title": "Model-data synthesis of benthic isotopes suggests a warmer Miocene Climatic Optimum",
+          "authors": "Feng Zhu; Jiang Zhu; Weimin Si; Jared Nirenberg; Timothy D. Herbert; Jessica E. Tierney; R. Paul Acosta; Natalie Burls; David G. Evans",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "cited": 2,
           "oa": true,
           "evidence": "text-software"
         },
@@ -408,6 +438,16 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1126/sciadv.aeh3920",
+          "title": "Staking out the frontiers: The limits of the metazoan shallow marine fossil record.",
+          "authors": "Thomas A. Neubauer; Mathias Harzhauser",
+          "year": 2026,
+          "journal": "Science Advances",
+          "cited": 1,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.1016/j.jafrearsci.2026.106071",
           "title": "Structural evolution and dynamic mechanisms of structural domains in Algeria: Tectonic synthesis",
           "authors": "Zhe Cao; Haitao Zhao; Xueyan Lü; Shiyang Zhang; Hakim Saibi",
@@ -433,6 +473,26 @@
           "authors": "Chia Yu Yeh; Jeremy Tsung-Jui Wu; Eh Tan",
           "year": 2026,
           "journal": "",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1126/sciadv.aeb7653",
+          "title": "The body temperature of Tyrannosaurus rex.",
+          "authors": "Randon J. Flores; Robert A. Eagle; Robin B. Trayler; Gabriele Larocca Conte; Sora Lee Kim; Alfio Alessandro Chiarenza; Alex Farnsworth; Paul J. Valdes; Luis María Chiappe; Aradhna Tripati",
+          "year": 2026,
+          "journal": "Science Advances",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s41586-026-11156-5",
+          "title": "The deep Earth origin of the Great Unconformity.",
+          "authors": "Santosh Dhungana; Nicolas Flament",
+          "year": 2026,
+          "journal": "Nature",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -2273,7 +2333,7 @@
           "authors": "R. Dietmar Müller; John Cannon; Xiaodong Qin; Robin J. Watson; Michael Gurnis; Simon E. Williams; Tobias Pfaffelmoser; Maria Seton; Samuel H. J. Russell; Sabin Zahirovic",
           "year": 2018,
           "journal": "Geochemistry Geophysics Geosystems",
-          "cited": 792,
+          "cited": 799,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -2608,7 +2668,7 @@
       ],
       "status": "active",
       "note": "",
-      "publications": 54,
+      "publications": 51,
       "citations": 402,
       "earliestYear": 2020,
       "latestYear": 2026,
@@ -2630,16 +2690,6 @@
           "year": 2026,
           "journal": "Nature Communications",
           "cited": 0,
-          "oa": true,
-          "evidence": "text-software"
-        },
-        {
-          "doi": "10.5194/se-17-1167-2026",
-          "title": "Efficient Uzawa algorithms with projection strategies for geodynamic Stokes flow",
-          "authors": "Deok-Kyu Jang; Kyeong-Min Lee; Cédric Thieulot; Whan-Hyuk Choi; Byung‐Dal So",
-          "year": 2026,
-          "journal": "Solid Earth",
-          "cited": 1,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2669,26 +2719,6 @@
           "authors": "Nicolas Stoll",
           "year": 2026,
           "journal": "EGU General Assembly Conference Abstracts",
-          "cited": 0,
-          "oa": true,
-          "evidence": "text-software"
-        },
-        {
-          "doi": "10.6084/m9.figshare.33193566",
-          "title": "Our Journey from Underworld2 to Underworld3",
-          "authors": "Louis N. Moresi; John Mansour; Julian Giordani; Romain Beucher",
-          "year": 2026,
-          "journal": "Figshare",
-          "cited": 0,
-          "oa": true,
-          "evidence": "text-software"
-        },
-        {
-          "doi": "10.5194/gchron-8-423-2026",
-          "title": "Simplified modeling of the impact of lithospheric-scale geological processes on thermal histories and low-temperature thermochronometers",
-          "authors": "Dawn A. Kellett; David Michael Whipp",
-          "year": 2026,
-          "journal": "Geochronology",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -3099,7 +3129,7 @@
           "authors": "Ben Mather; R Dietmar Müller; Craig O'Neill; Adam Beall; R Willem Vervoort; Louis Moresi",
           "year": 2022,
           "journal": "Scientific Reports",
-          "cited": 14,
+          "cited": 15,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -3164,9 +3194,9 @@
       ],
       "status": "active",
       "note": "",
-      "publications": 12,
-      "citations": 119,
-      "earliestYear": 2021,
+      "publications": 11,
+      "citations": 64,
+      "earliestYear": 2022,
       "latestYear": 2026,
       "records": [
         {
@@ -3276,16 +3306,6 @@
           "year": 2022,
           "journal": "",
           "cited": 5,
-          "oa": true,
-          "evidence": "text-software"
-        },
-        {
-          "doi": "10.1016/j.epsl.2022.117964",
-          "title": "Geodynamic, geodetic, and seismic constraints favour deflated and dense-cored LLVPs",
-          "authors": "Fred D. Richards; Mark James Hoggard; Siavash Ghelichkhan; Paula Koelemeijer; Harriet C. P. Lau",
-          "year": 2021,
-          "journal": "Earth and Planetary Science Letters",
-          "cited": 55,
           "oa": true,
           "evidence": "text-software"
         }
@@ -3481,7 +3501,7 @@
       "openIssues": 4,
       "createdAt": "2026-05-18T10:25:20Z",
       "updatedAt": "2026-11-12T15:58:05Z",
-      "pushedAt": "2026-11-14T10:31:41Z"
+      "pushedAt": "2026-11-16T09:45:29Z"
     },
     {
       "name": "AuScope-Cat",
@@ -3553,7 +3573,7 @@
       "openIssues": 2,
       "createdAt": "2020-04-27T03:21:19Z",
       "updatedAt": "2026-11-12T04:52:20Z",
-      "pushedAt": "2026-11-12T03:52:16Z"
+      "pushedAt": "2026-11-16T04:33:57Z"
     },
     {
       "name": "AuScope-Portal-Layer-Configs",
@@ -3571,7 +3591,7 @@
       "openIssues": 0,
       "createdAt": "2026-04-29T04:31:25Z",
       "updatedAt": "2026-11-12T06:21:50Z",
-      "pushedAt": "2026-11-12T06:21:45Z"
+      "pushedAt": "2026-11-16T06:19:47Z"
     },
     {
       "name": "AuScope-Portal-UI",
@@ -3586,10 +3606,10 @@
       "fork": false,
       "stars": 5,
       "forks": 12,
-      "openIssues": 2,
+      "openIssues": 1,
       "createdAt": "2019-04-05T01:00:52Z",
       "updatedAt": "2026-11-11T02:47:14Z",
-      "pushedAt": "2026-11-11T05:40:29Z"
+      "pushedAt": "2026-11-16T06:22:04Z"
     },
     {
       "name": "AuScope-RAiD-Registry",
@@ -4575,7 +4595,7 @@
     }
   ],
   "githubMetadata": {
-    "generated": "2026-11-14T10:46:13.906Z",
+    "generated": "2026-11-16T10:52:30.248Z",
     "organisation": "AuScope",
     "organisationUrl": "https://github.com/AuScope",
     "source": "https://api.github.com/orgs/AuScope/repos",
