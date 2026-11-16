@@ -88,63 +88,87 @@
     },
     {
       "id": "term:Noble Gas Geochronology Laboratory",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:51:28.018Z",
+      "results": 5
     },
     {
       "id": "term:Geoscience Atom Probe",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:51:29.788Z",
+      "results": 45
     },
     {
       "id": "term:National Argon Map",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:52:32.311Z",
+      "results": 4
     },
     {
       "id": "term:AuScope VLBI",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:55:06.050Z",
+      "results": 68
     },
     {
       "id": "term:Yarragadee VLBI",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:55:39.280Z",
+      "results": 105
     },
     {
       "id": "term:Katherine VLBI",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:55:40.636Z",
+      "results": 1
     },
     {
       "id": "term:Mt Pleasant VLBI",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:55:42.619Z",
+      "results": 32
     },
     {
       "id": "term:AusPass seismic",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:55:44.603Z",
+      "results": 48
     },
     {
       "id": "term:AusLAMP",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:58:19.169Z",
+      "results": 108
     },
     {
       "id": "term:Australian Seismometers in Schools",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:58:31.387Z",
+      "results": 41
     },
     {
       "id": "term:Australian Geophysical Observing System",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:58:33.642Z",
+      "results": 97
     },
     {
       "id": "term:EarthByte",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-16T09:58:36.240Z",
+      "results": 151
     },
     {
       "id": "term:GPlates",
@@ -272,5 +296,5 @@
       "attempts": 0
     }
   ],
-  "updated": "2026-11-16T02:14:34.365Z"
+  "updated": "2026-11-16T09:58:36.295Z"
 }
