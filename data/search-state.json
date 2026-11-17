@@ -340,9 +340,12 @@
     },
     {
       "id": "term:escript finley",
-      "status": "pending",
-      "attempts": 0
+      "status": "done",
+      "attempts": 1,
+      "done_at": "2026-11-17T13:33:20.251Z",
+      "results": 27
     }
   ],
-  "updated": "2026-11-17T03:58:43.306Z"
+  "updated": "2026-11-17T13:33:20.283Z",
+  "completed": "2026-11-17T13:33:20.283Z"
 }
