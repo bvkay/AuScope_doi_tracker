@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T10:52:27.597Z",
+ "updated": "2026-11-17T13:54:26.283Z",
  "results": {
   "10.1029/2025gc012679": {
    "status": "no-oa-text",
@@ -3203,8 +3203,17 @@
    "checkedAt": "2026-11-16"
   },
   "10.1038/s41598-023-29004-1": {
-   "status": "error",
-   "attempts": 1
+   "status": "checked",
+   "pmcid": "PMC9894833",
+   "flags": [],
+   "terms": {
+    "EarthByte": {
+     "ack": 0,
+     "body": 3,
+     "refs": 0,
+     "snippet": "…of the slab. The oceanic lithosphere has an initial thickness based on spatially distributed seafloor ages provided by EarthByte 40 . The trenchward temperature boundary is assumed according to the plate cooling model 41 and the plate ages from EarthByte 40 . Figure 3 Seafloor age and he…"
+    }
+   }
   },
   "10.1038/s43247-022-00668-3": {
    "status": "no-oa-text",
@@ -3421,6 +3430,633 @@
      "snippet": "…merican analysis window (-167° to -20° longitude, 10° to 90° latitude). Paleogeographic context was provided by a 67-Ma GPlates ( 85 ) reconstruction of the Robertson model, from which we generated a polygonal representation of the Maastrichtian North American landmass; these coastlines…"
     }
    }
+  },
+  "10.1007/s10686-008-9124-7": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.5761761": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7686637": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7687175": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7687597": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7690837": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7694083": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.4546172": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.4083296": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.3905363": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.3539253": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1007/s00190-026-02124-y": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.8057903": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7956000": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7955925": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7980740": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7988936": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7988890": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1130/g050833.1": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.5907178": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7980235": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7687615": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.lithos.2018.03.025": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.3700645": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.3897/fr.29.189225": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1098/rsos.260333": {
+   "status": "checked",
+   "pmcid": "PMC13561085",
+   "flags": [],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 1,
+     "refs": 1,
+     "snippet": "…ation, (6) Los Alamitos Formation, and (7) Chorrillo Formation. The palaeogeographical map at 68 Ma was generated using GPlates version 2.5.0 [ 23 ] and the global Scotese PALEOMAP [ 24 ]. Abbreviation: Eq., equator. 2. Geological and palaeontological context In recent years, an explosi…"
+    }
+   }
+  },
+  "10.1080/20964471.2026.2723636": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.21425/fob.19.200936": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1038/s41467-026-77289-3": {
+   "status": "checked",
+   "pmcid": "PMC13635242",
+   "flags": [],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 2,
+     "refs": 2,
+     "snippet": "…d the TLF and fragmentation index from a recent tectonic reconstruction of exposed land across the Phanerozoic 48 using GPlates 112 . We converted the ShapeFiles from GPlates into NetCDF4 files encoding the exposed land from the 48 reconstructions at every 10 Myr interval from 480 Ma to…"
+    }
+   }
+  },
+  "10.1029/2025jb033736": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.3389/fevo.2026.1869345": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.64898/2026.08.27.747545": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1002/ece3.74238": {
+   "status": "checked",
+   "pmcid": "PMC13573089",
+   "flags": [],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 1,
+     "refs": 1,
+     "snippet": "…in paleoelevational and paleogeographic reconstructions. Competing models—such as PALEOMAP (Scotese and Wright 2018 ), GPlates (Müller et al. 2016 ; Zahirovic et al. 2022 ), or Getech's Globe/Neftex reconstructions—adopt contrasting assumptions on the timing and style of uplift (and th…"
+    }
+   }
+  },
+  "10.1111/jbi.70361": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.15298/arthsel.35.3.03": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.jseaes.2026.107311": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1038/s41597-026-08230-y": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1093/nsr/nwag534": {
+   "status": "checked",
+   "pmcid": "PMC13613981",
+   "flags": [
+    "referenceOnly"
+   ],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 0,
+     "refs": 1,
+     "snippet": "…waa091 PMC8288424 34691550 88. Scotese CR . PALEOMAP Project (2007) . https://www.earthbyte.org/paleomap-paleoatlas-for-gplates/ (30 June 2021, date last accessed). 89. Buffan L , Jones LA , Domeier M et al. Mind the uncertainty: global plate model choice impacts deep-time palaeobiologi…"
+    }
+   }
+  },
+  "10.1016/j.revpalbo.2026.105694": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.22004331": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.jvsv.2026.102601": {
+   "status": "error",
+   "attempts": 1
+  },
+  "10.1038/s44185-026-00152-7": {
+   "status": "checked",
+   "pmcid": "PMC13476168",
+   "flags": [],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 3,
+     "refs": 1,
+     "snippet": "…. Paleolatitude reconstruction and specimen documentation The paleolatitude of the studied reef was reconstructed using GPlates ( https://portal.gplates.org , last access 14-04-2025) based on the PALEOMAP PaleoAtlas for GPlates 89 . The reconstruction assumed a mean Burdigalian age of 1…"
+    }
+   }
+  },
+  "10.1103/rvhd-vsz8": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.3390/d18080476": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.21809463": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1093/aob/mcag242": {
+   "status": "checked",
+   "pmcid": "PMC13715045",
+   "flags": [],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 4,
+     "refs": 4,
+     "snippet": "…Myrtaceae). PLoS One 13: e0195034. DOI: 10.1371/journal.pone.0195034 Scotese CR. 2016. Tutorial PALEOMAP PaleoAtlas for GPlates and the PaleoData Plotter Program. PALEOMAP Project. (Accessed 20 December 2025). http://www.earthbyte.org/paleomap-paleoatlas-for-gplates/ Shang H-Y, Jia K-H,…"
+    }
+   }
+  },
+  "10.5194/egusphere-2026-3595": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1029/2025jb033545": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.earscirev.2026.105633": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.gr.2026.06.014": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.21626893": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1038/s41467-026-75790-3": {
+   "status": "checked",
+   "pmcid": "PMC13483433",
+   "flags": [
+    "referenceOnly"
+   ],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 0,
+     "refs": 2,
+     "snippet": "…ls: HadCM3@Bristol v1.0. Geosci. Model Dev. 10 , 3715–3743 (2017). 91. Scotese, C. R. Tutorial: PALEOMAP PaleoAtlas for GPlates and the PaleoData Plotter Program. http://www.earthbyte.org/paleomap-paleoatlas-for-gplates/ (2016). 92. Foster GL Royer DL Lunt DJ Future climate forcing pote…"
+    }
+   }
+  },
+  "10.1038/s41467-026-75609-1": {
+   "status": "checked",
+   "pmcid": "PMC13500696",
+   "flags": [
+    "referenceOnly"
+   ],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 0,
+     "refs": 2,
+     "snippet": "…parisons with other regions and events. Earth-Sci. Rev. 236 , 104263 (2023). 52. Scotese, C. R. PALEOMAP PaleoAtlas for GPlates and the PaleoData Plotter Program, PALEOMAP Project. http://www.earthbyte.org/paleomap-paleoatlas-for-gplates/ . (2016). 53. Seton M Williams SE Domeier M Coll…"
+    }
+   }
+  },
+  "10.1016/j.gsf.2026.102411": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.26848/rbgf.v19.03.p1198-1220": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1007/s44288-026-00637-9": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1038/s41467-026-75597-2": {
+   "status": "checked",
+   "pmcid": "PMC13487203",
+   "flags": [],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 7,
+     "refs": 3,
+     "snippet": "…75 th percentiles of each site are utilized in the LMG calculation. The paleocoordinate data is reconstructed by the “rgplates” package and “Kinematics Tool” utility in GPlates software 85 , 86 . These [Mn] percentile-paleolatitude data are fitted with quadratic polynomial functions (y…"
+    }
+   }
+  },
+  "10.31223/x5rf60": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.3389/fevo.2026.1843898": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.35463/j.apr.2026.01.03": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1029/2026gc013105": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1111/syen.70067": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.pld.2026.03.011": {
+   "status": "checked",
+   "pmcid": "PMC13424180",
+   "flags": [],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 2,
+     "refs": 1,
+     "snippet": "…omy is presented in Tables S8 and S9 . We converted modern coordinates of fossil records to paleo coordinates using the GPLATES WEB SERVICE with the SETON2012 model, according to their geological ages of the collected fossil records ( Seton et al., 2012 ; Müller et al., 2018 ). Paleocli…"
+    }
+   }
+  },
+  "10.1038/s41467-026-73110-3": {
+   "status": "checked",
+   "pmcid": "PMC13385881",
+   "flags": [],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 2,
+     "refs": 0,
+     "snippet": "…tivory are indicated in blue, while those reverting to non-planktivory are shown in green. The paleomaps (obtained from GPlates, Global_Scotese, https://www.gplates.org/ ) illustrate the location of the Tethys Sea at 49 million years ago (Ma), and the Indo-Pacific at present-day. WIO We…"
+    }
+   }
+  },
+  "10.5194/se-17-1167-2026": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.23356068": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5194/gmd-19-9781-2026": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1029/2025gl121594": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1038/s43247-026-04030-9": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.6084/m9.figshare.33193329": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.6084/m9.figshare.33193566": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5194/gchron-8-423-2026": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1038/s41467-026-75203-5": {
+   "status": "checked",
+   "pmcid": "PMC13470492",
+   "flags": [],
+   "terms": {
+    "Underworld2": {
+     "ack": 0,
+     "body": 4,
+     "refs": 0,
+     "snippet": "…n of this magmatism, we conducted two-dimensional thermo-mechanical simulations of plume–lithosphere interactions using Underworld2 44 (Fig. 3 ). Although plume–lithosphere interactions and plume-related melt migration are inherently three-dimensional processes, the principal mechanism inve…"
+    }
+   }
+  },
+  "10.1093/gji/ggag255": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.31223/x5sz06": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.59350/cfacs-6mg76": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.earscirev.2022.103955": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.3301/absgi.2022.01": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.33774/coe-2021-znrtz": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.31223/x5ws4x": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5194/egusphere-egu21-7210": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5194/egusphere-egu21-983": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.pepi.2020.106486": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.59350/a8hs7-k2e40": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1029/2019gl085212": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.59350/2nhnt-the20": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5194/se-10-969-2019": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.26180/5d9d62ca56d7c": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1353/acl.2019.0009": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.13189/cea.2026.140413": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1029/2022gc010672": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.epsl.2022.117964": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.35597/2313-545x-2026-12-2-7": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5194/gi-15-165-2026": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.7988900": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1080/14432471.2023.2175597": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.7185/gold2023.16353": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1080/08120099.2026.2693911": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.14509/30877": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.3390/min12010049": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1080/14432471.2021.1957452": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1080/14432471.2021.1957439": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1080/14432471.2019.1647608": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1109/pdp66500.2025.00050": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5281/zenodo.6575026": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.3390/app16083999": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.2139/ssrn.7511770": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.cpc.2024.109293": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5194/egusphere-egu23-10364": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1190/gem2019-041.1": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1088/1757-899x/581/1/012003": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.3997/2214-4609.201900700": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1007/s00466-018-1600-y": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.31227/osf.io/k6mqx": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1111/ajr.70172": {
+   "status": "checked",
+   "pmcid": "PMC13003279",
+   "flags": [],
+   "terms": {
+    "escript finley": {
+     "ack": 0,
+     "body": 3,
+     "refs": 0,
+     "snippet": "…ware, included the MBS item number (which relates to the service that the Australian federal government subsidises), a description of service (i.e., phone or telehealth, length of service), payment type (i.e., private, Medicare, Department of Veterans Affairs, health care card or Workco…"
+    }
+   }
+  },
+  "10.1093/biomtc/ujae116": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.5287/ora-z6vp5ardn": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1071/aseg2013ab200": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1016/j.tecto.2009.05.019": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1111/j.1365-246x.2008.03806.x": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1007/978-3-7643-8131-8_16": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1007/978-3-540-75755-9_33": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1111/j.1365-246x.2007.03471.x": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.1002/gj.70544": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.21203/rs.3.rs-11233811/v1": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
+  },
+  "10.31223/x5gz4x": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-17"
   }
  }
 }

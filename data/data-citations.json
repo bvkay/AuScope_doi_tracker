@@ -1,6 +1,28 @@
 {
- "harvested": "2026-11-16T10:42:28.324Z",
+ "harvested": "2026-11-17T13:45:33.191Z",
  "sources": {
+  "10.58024/agagb8a11ca7": {
+   "platform": "EarthBank",
+   "name": "Southeast Kalimantan (Borneo) Cenozoic alkaline magmatism",
+   "citing": []
+  },
+  "10.58024/agta38c38115": {
+   "platform": "EarthBank",
+   "name": "Geochronology of Late Jurassic–Cenozoic alkaline magmatism in central and southe",
+   "citing": []
+  },
+  "10.58024/agagbb5fb8db": {
+   "platform": "EarthBank",
+   "name": "Whole-Rock Major and Trace Element Geochemistry of Paleoproterozoic Granitoids f",
+   "citing": [
+    "10.1080/08120099.2026.2655335"
+   ]
+  },
+  "10.58024/agag38425f47": {
+   "platform": "EarthBank",
+   "name": "Zircon U–Pb Geochronology and Lu–Hf Isotope Data from the Georgetown Region, Que",
+   "citing": []
+  },
   "10.58024/agumaec47aff": {
    "platform": "EarthBank",
    "name": "Resolving closely spaced eruptions in the early Pleistocene Okote Tuff Complex, ",
@@ -8,7 +30,7 @@
   },
   "10.58024/agum23e4d588": {
    "platform": "EarthBank",
-   "name": "Large Igneous Provinces: CAMP",
+   "name": "Geochemical Evolution of Large Igneous Province (LIPs): Central Atlantic Magmati",
    "citing": []
   },
   "10.58024/agag3126b4ca": {
@@ -18,13 +40,15 @@
   },
   "10.58024/agcu9d1e3166": {
    "platform": "EarthBank",
-   "name": "Pb isotope data",
+   "name": "K-feldspar Pb isotope data of 2.5-1.8 Ga Granitoids",
    "citing": []
   },
   "10.58024/agwa9353beb7": {
    "platform": "EarthBank",
    "name": "The OSNACA Project: Samples",
-   "citing": []
+   "citing": [
+    "10.1016/j.oregeorev.2016.11.001"
+   ]
   },
   "10.58024/aguq3f7313ab": {
    "platform": "EarthBank",
@@ -169,7 +193,10 @@
    "platform": "EarthBank",
    "name": "North Australian Craton Low-Temperature Thermochronology - Nixon PhD",
    "citing": [
-    "10.1029/2025gc012887"
+    "10.1144/jgs2020-173",
+    "10.1029/2025gc012887",
+    "10.1029/2022gc010559",
+    "10.1111/bre.12691"
    ]
   },
   "10.58024/agumfbaafbe4": {
@@ -214,7 +241,9 @@
   "10.58024/aguaebe2cbb4": {
    "platform": "EarthBank",
    "name": "Foden Sunda-Banda Arc Collection",
-   "citing": []
+   "citing": [
+    "10.1016/j.chemgeo.2025.123092"
+   ]
   },
   "10.58024/agcud93d7eb1": {
    "platform": "EarthBank",
@@ -253,7 +282,9 @@
   "10.58024/aguaddd6d6b2": {
    "platform": "EarthBank",
    "name": "Cooper-Eromanga Basin detrital apatite",
-   "citing": []
+   "citing": [
+    "10.1111/bre.12843"
+   ]
   },
   "10.58024/agag2b7833fb": {
    "platform": "EarthBank",
@@ -552,6 +583,36 @@
    "name": "Holsnoy",
    "citing": []
   },
+  "10.60623/0oaylfda": {
+   "platform": "AuScope Data Repository",
+   "name": "Victorian Multi-element Geochemistry Samples",
+   "citing": []
+  },
+  "10.60623/odna57ut": {
+   "platform": "AuScope Data Repository",
+   "name": "Observing Galileo Satellites with the Australian AuScope VLBI Array - AS304A Cor",
+   "citing": []
+  },
+  "10.60623/3159pc3b": {
+   "platform": "AuScope Data Repository",
+   "name": "Calperum Critical Zone Observatory (CZO) Heat Needle Monitoring Program Feb 2024",
+   "citing": []
+  },
+  "10.60623/l8hc57ty": {
+   "platform": "AuScope Data Repository",
+   "name": "Gippsland and Murray Basin Fiber Optic Distributed Temperature Sensing Data",
+   "citing": []
+  },
+  "10.60623/y1ua83ti": {
+   "platform": "AuScope Data Repository",
+   "name": "University of New South Wales (UNSW) Raw Groundwater Levels Data (2012-2024)",
+   "citing": []
+  },
+  "10.60623/82trleue": {
+   "platform": "AuScope Data Repository",
+   "name": "Cloncurry METAL: multimodal integrated mineral system characterisation data",
+   "citing": []
+  },
   "10.7914/1wr3-b906": {
    "platform": "AusPass",
    "name": "Maunakea Observatory DAS Experiment",
@@ -727,6 +788,11 @@
     "10.1093/gji/ggag282"
    ]
   },
+  "10.7914/4a57-3b18": {
+   "platform": "AusPass",
+   "name": "Paralana Fault Nodal Network (PFNN)",
+   "citing": []
+  },
   "10.7914/sn/4h_2009": {
    "platform": "AusPass",
    "name": "EAL1",
@@ -753,7 +819,8 @@
    "citing": [
     "10.1785/0120250054",
     "10.1785/0220250316",
-    "10.1093/gji/ggag282"
+    "10.1093/gji/ggag282",
+    "10.1785/0220250376"
    ]
   },
   "10.7914/pgt8-x273": {
@@ -768,6 +835,11 @@
     "10.1785/0220250308",
     "10.1093/gji/ggag282"
    ]
+  },
+  "10.7914/94f1-7h05": {
+   "platform": "AusPass",
+   "name": "Mt. Stromolo DAS Sensors",
+   "citing": []
   },
   "10.7914/sn/5g_2018": {
    "platform": "AusPass",
@@ -1020,6 +1092,15 @@
    "name": "Kamb Ice Stream Outlet Channel (KambSeis2)",
    "citing": []
   },
+  "10.7914/sn/du": {
+   "platform": "AusPass",
+   "name": "Seismological Association of Australia (SAA)",
+   "citing": [
+    "10.1029/2023gl105464",
+    "10.1785/0120250054",
+    "10.1785/0220250316"
+   ]
+  },
   "10.7914/6e8t-6g37": {
    "platform": "AusPass",
    "name": "Australian Semi-Permanent Support Network (MATE)",
@@ -1120,9 +1201,179 @@
    "name": "Magnetotelluric Broadband Surveys of New South Wales",
    "citing": []
   },
+  "10.25914/7y87-be31": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Curnamona Province, New South Wales, 2017",
+   "citing": []
+  },
+  "10.25914/1j7n-4x68": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Curnamona Province, New South Wales, 2017 (Level-2",
+   "citing": []
+  },
+  "10.25914/bxyq-6355": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Curnamona Province,  New South Wales, 2017 (Level-",
+   "citing": []
+  },
+  "10.25914/gzb5-nw36": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Curnamona Province, New South Wales, 2017 (Packed ",
+   "citing": []
+  },
   "10.25914/rgpm-7528": {
    "platform": "NCI",
    "name": "Magnetotelluric Broadband Surveys of South Australia",
+   "citing": []
+  },
+  "10.25914/9tsg-0w07": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of Jupiter Prospect, South Australia, 2021",
+   "citing": []
+  },
+  "10.25914/mjv0-9391": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of Jupiter Prospect, South Australia, 2021 (Level-2 produ",
+   "citing": []
+  },
+  "10.25914/hp5k-e502": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of Jupiter Prospect, South Australia, 2021 (Level-2 EDI p",
+   "citing": []
+  },
+  "10.25914/drc8-h859": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of Jupiter Prospect, South Australia, 2021 (Packed raw MT",
+   "citing": []
+  },
+  "10.25914/ewrk-3s55": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of Kapunda, South Australia, 2019–2020",
+   "citing": []
+  },
+  "10.25914/7nat-bw91": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of Kapunda, South Australia, 2019–2020 (Level-2 products)",
+   "citing": []
+  },
+  "10.25914/dw4t-tp98": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of Kapunda, South Australia, 2019–2020 (Level-2 EDI produ",
+   "citing": []
+  },
+  "10.25914/cbnk-0v81": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of Kapunda, South Australia, 2019–2020 (Packed raw MTU-8A",
+   "citing": []
+  },
+  "10.25914/zhb7-3e78": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Burra region, Northern Mount Lofty Ranges, South A",
+   "citing": []
+  },
+  "10.25914/b06g-7328": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Burra region, Northern Mount Lofty Ranges, South A",
+   "citing": []
+  },
+  "10.25914/w3t0-wx05": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Burra region, Northern Mount Lofty Ranges, South A",
+   "citing": []
+  },
+  "10.25914/83vd-5h77": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Burra region, Northern Mount Lofty Ranges, South A",
+   "citing": []
+  },
+  "10.25914/je9d-5q16": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Curnamona Province, South Australia, 2017",
+   "citing": []
+  },
+  "10.25914/5sjj-w769": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Curnamona Province, South Australia, 2017 (Level-2",
+   "citing": []
+  },
+  "10.25914/hjx6-9b58": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Curnamona Province, South Australia, 2017 (Level-2",
+   "citing": []
+  },
+  "10.25914/t0an-6308": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Curnamona Province, South Australia, 2017 (Packed ",
+   "citing": []
+  },
+  "10.25914/thq3-r534": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Kalkaroo Cu-Au Deposit, South Australia, 2020-2021",
+   "citing": []
+  },
+  "10.25914/n01p-4r41": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Kalkaroo Cu-Au Deposit, South Australia, 2020-2021",
+   "citing": []
+  },
+  "10.25914/fenn-he68": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Kalkaroo Cu-Au Deposit, South Australia, 2020-2021",
+   "citing": []
+  },
+  "10.25914/8cwh-7t72": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Kalkaroo Cu-Au Deposit, South Australia, 2020-2021",
+   "citing": []
+  },
+  "10.25914/xswv-5069": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Newer Volcanic Province, South Australia, 2019",
+   "citing": []
+  },
+  "10.25914/eq0e-5a94": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Newer Volcanic Province, South Australia, 2019 (Le",
+   "citing": []
+  },
+  "10.25914/wxkq-hj14": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Newer Volcanic Province, South Australia, 2019 (Le",
+   "citing": []
+  },
+  "10.25914/7vwr-da74": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Newer Volcanic Province, South Australia, 2019 (Pa",
+   "citing": []
+  },
+  "10.25914/sv5r-zw68": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Vulcan IOCG Prospect, South Australia, 2022",
+   "citing": []
+  },
+  "10.25914/zgt4-y006": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Vulcan IOCG Prospect, South Australia, 2022 (Level",
+   "citing": []
+  },
+  "10.25914/jsdc-pn25": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Vulcan IOCG Prospect, South Australia, 2022 (Level",
+   "citing": []
+  },
+  "10.25914/2q8x-4575": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Vulcan IOCG Prospect, South Australia, 2022 (Packe",
+   "citing": []
+  },
+  "10.25914/zt3m-vv79": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Western Gawler Craton, South Australia, 2022",
+   "citing": []
+  },
+  "10.25914/4053-hk60": {
+   "platform": "NCI",
+   "name": "Magnetotelluric survey of the Western Gawler Craton, South Australia, 2022 (Leve",
    "citing": []
   },
   "10.25914/31br-q319": {

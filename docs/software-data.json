@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T11:28:06.877Z",
+  "generated": "2026-11-17T13:54:55.353Z",
   "records": [
     {
       "name": "GPlates",
@@ -12,8 +12,8 @@
       ],
       "status": "active",
       "note": "",
-      "publications": 264,
-      "citations": 8019,
+      "publications": 272,
+      "citations": 8024,
       "earliestYear": 2012,
       "latestYear": 2026,
       "records": [
@@ -158,6 +158,16 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1038/s41467-026-73110-3",
+          "title": "Ecological and genomic signatures of the convergent evolution of planktivory in fossil and living reef fishes over deep time.",
+          "authors": "Aintzane Santaquiteria; Dahiana Arcila; Giorgio Carnevale; Melissa Rincon-Sandoval; Fernando Melendez-Vazquez; William T White; Carole C Baldwin; Mark W Westneat; Guillermo Ortí; James C Tyler; Ricardo Betancur-R",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "cited": 2,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.5194/egusphere-egu26-15528",
           "title": "Emergent tectonic cycles along the Panthalassan margin of East Gondwana from numerical plate reconstruction",
           "authors": "Addison Tu; Sabin Zahirovic; Samuel Boone; Richard Glen; Luke Mahoney; Tristan Salles; Andres Rodriguez Corcho",
@@ -258,6 +268,16 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1038/s41467-026-75597-2",
+          "title": "Latitudinal manganese gradient dynamics associated with Earth's major ice ages.",
+          "authors": "Xubin Wang; Alexandre Pohl; Rosalind E. M. Rickaby; Zunli Lu",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.1126/sciadv.aeb2942",
           "title": "Linking carbonatites, rare earth ores, and subduction-fertilized mantle lithosphere.",
           "authors": "Carl Spandler; Andrew S. Merdith; Amber Griffin",
@@ -318,6 +338,16 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1016/j.pld.2026.03.011",
+          "title": "Niche evolution and asymmetric diversification in elm species (Ulmaceae).",
+          "authors": "Xin Yan; Enze Li; Xingyong Cui; Liangcheng Zhao; Wenpan Dong",
+          "year": 2026,
+          "journal": "Plant Diversity",
+          "cited": 1,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.7717/peerj.21007",
           "title": "Obligate faunivorous megatheropod size class patterns across the Jurassic-Cretaceous Periods.",
           "authors": "Colin Boisvert; Jack Perkins; Cassius Morrison; Samuel J. L. Gascoigne; Thomas R. Holtz; Brian Curtice",
@@ -358,6 +388,16 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1038/s41467-026-77289-3",
+          "title": "Paleogeographic controls on Phanerozoic weathering rates and implications for climate regulation.",
+          "authors": "Robert J. Graham; B. B. Cael; Minmin Fu; D. S. Abbot",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.1371/journal.pone.0346817",
           "title": "Paleolatitude.org 3.0: A calculator for paleoclimate and paleobiology studies based on a new global paleogeography model.",
           "authors": "Douwe J J van Hinsbergen; Bram Vaes; Lydian M Boschman; Nalan Lom; Suzanna H.A. Lagemaat; Eldert L Advokaat; Sanne Baar; Menno R. T. Fraters (23811852); Joren Paridaens; Emilia B. Jarochowska (23811858)",
@@ -393,6 +433,16 @@
           "authors": "Gui-Mei Lu; Zhong-Shan Shen; Cheng-Long Deng; James G Ogg; Ming-Dao Sun; Ming-Song Li; Hua-Feng Qin; Ri-Xiang Zhu; Zhong-He Zhou; Yi-Gang Xu",
           "year": 2026,
           "journal": "Science Advances",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1038/s44185-026-00152-7",
+          "title": "Rejuvenescence suggests recurrent coral responses in Miocene and modern reefs near upper thermal tolerance limits.",
+          "authors": "Markus Reuter; Werner E. Piller; Mathias Harzhauser; Francesca  R. Bosellini; Fabrizio Lirer; Tayebeh Mohtat; Diego K. Kersting",
+          "year": 2026,
+          "journal": "npj Biodiversity",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -468,6 +518,16 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1093/aob/mcag242",
+          "title": "Temporal dynamics of incomplete lineage sorting, introgression and divergence in eucalypts distributed across an expansive and ancient landscape",
+          "authors": "Harvey K. Orel; Rachael M. Fowler; Todd G. B. McLay; David J. Cantrill; Donald C Franklin; Daniel J. Murphy; Michael J. Bayly",
+          "year": 2026,
+          "journal": "Annals of Botany",
+          "cited": 2,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.5194/egusphere-egu26-12622",
           "title": "Testing the link between Panthalassa tectonic evolution and subduction-modified mantle heterogeneity",
           "authors": "Chia Yu Yeh; Jeremy Tsung-Jui Wu; Eh Tan",
@@ -528,11 +588,31 @@
           "evidence": "text-software"
         },
         {
+          "doi": "10.1098/rsos.260333",
+          "title": "Titanosaur eggshells from the latest Cretaceous of Patagonia, Argentina: implications for nesting at high latitude.",
+          "authors": "Kohei Tanaka; Fernando Emilio Novas; Makoto Manabe; Chisako Sakata; Jordi Alexis Garcia Marsà; Darla K. Zelenitsky",
+          "year": 2026,
+          "journal": "Royal Society Open Science",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
           "doi": "10.21105/joss.08812",
           "title": "TopoChronia: A QGIS plugin for the creation of fully quantified palaeogeographic maps",
           "authors": "Florian Franziskakis; Christian Vérard; Sébastien Castelltort; Grégory Giuliani",
           "year": 2026,
           "journal": "The Journal of Open Source Software",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.1002/ece3.74238",
+          "title": "Tracing Ancient Migration Routes: Did Gloydius Pitvipers Disperse Across Paleo-Tibet Through Temperate and Subtropical Corridors?",
+          "authors": "Sylvia Hofmann; Elán Pérez García; Morris Flecks; Daniel Jablonski; Chitra Bahadur Baniya; Dennis Rödder; Joachim Schmidt",
+          "year": 2026,
+          "journal": "Ecology and Evolution",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -2668,11 +2748,21 @@
       ],
       "status": "active",
       "note": "",
-      "publications": 51,
-      "citations": 411,
+      "publications": 53,
+      "citations": 413,
       "earliestYear": 2020,
       "latestYear": 2026,
       "records": [
+        {
+          "doi": "10.1038/s41467-026-75203-5",
+          "title": "Ancient plume-reinforced lithosphere modulates present-day crustal fluid migration and deformation.",
+          "authors": "Zikun Zhou; Nian Yu; Xin Li; Sheng Zhang; Tianqi Wang; Wenxin Kong; Tianyang Li",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "cited": 2,
+          "oa": true,
+          "evidence": "text-software"
+        },
         {
           "doi": "10.59350/5fe9q-8ps48",
           "title": "Constitutive Models in Symbolic Form",
@@ -2719,6 +2809,16 @@
           "authors": "Nicolas Stoll",
           "year": 2026,
           "journal": "EGU General Assembly Conference Abstracts",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.6084/m9.figshare.33193566",
+          "title": "Our Journey from Underworld2 to Underworld3",
+          "authors": "Louis N. Moresi; John Mansour; Julian Giordani; Romain Beucher",
+          "year": 2026,
+          "journal": "Figshare",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -3324,11 +3424,21 @@
       ],
       "status": "retired",
       "note": "Developed at the University of Queensland. AuScope-funded in earlier years; no longer funded or maintained.",
-      "publications": 4,
-      "citations": 50,
+      "publications": 5,
+      "citations": 51,
       "earliestYear": 2008,
-      "latestYear": 2024,
+      "latestYear": 2026,
       "records": [
+        {
+          "doi": "10.1111/ajr.70172",
+          "title": "Implementing the Virtual Integrated Practice ( VIP ) Program to Support Rural General Practice Viability in Australia",
+          "authors": "Jennifer Job; Ruby Strauss; Zena Martin; Claire Louise Jackson",
+          "year": 2026,
+          "journal": "Australian Journal of Rural Health",
+          "cited": 1,
+          "oa": true,
+          "evidence": "text-software"
+        },
         {
           "doi": "10.1029/2024ea003680",
           "title": "2D Magnetotelluric Inversion Using Linear Finite Element Methods and a Discretize‐Last Strategy With First and Second–Order Anisotropic Regularization",
@@ -3501,7 +3611,7 @@
       "openIssues": 4,
       "createdAt": "2026-05-18T10:25:20Z",
       "updatedAt": "2026-11-12T15:58:05Z",
-      "pushedAt": "2026-11-16T09:45:29Z"
+      "pushedAt": "2026-11-17T13:28:12Z"
     },
     {
       "name": "AuScope-Cat",
@@ -3570,10 +3680,10 @@
       "fork": false,
       "stars": 3,
       "forks": 9,
-      "openIssues": 2,
+      "openIssues": 3,
       "createdAt": "2020-04-27T03:21:19Z",
       "updatedAt": "2026-11-12T04:52:20Z",
-      "pushedAt": "2026-11-16T04:33:57Z"
+      "pushedAt": "2026-11-17T06:20:26Z"
     },
     {
       "name": "AuScope-Portal-Layer-Configs",
@@ -3588,7 +3698,7 @@
       "fork": false,
       "stars": 0,
       "forks": 2,
-      "openIssues": 0,
+      "openIssues": 1,
       "createdAt": "2026-04-29T04:31:25Z",
       "updatedAt": "2026-11-12T06:21:50Z",
       "pushedAt": "2026-11-16T06:19:47Z"
@@ -3609,7 +3719,7 @@
       "openIssues": 1,
       "createdAt": "2019-04-05T01:00:52Z",
       "updatedAt": "2026-11-11T02:47:14Z",
-      "pushedAt": "2026-11-16T06:22:04Z"
+      "pushedAt": "2026-11-17T05:20:57Z"
     },
     {
       "name": "AuScope-RAiD-Registry",
@@ -3742,7 +3852,7 @@
       "openIssues": 7,
       "createdAt": "2026-11-02T02:40:57Z",
       "updatedAt": "2026-11-12T03:35:48Z",
-      "pushedAt": "2026-11-12T02:35:43Z"
+      "pushedAt": "2026-11-17T06:51:38Z"
     },
     {
       "name": "ckanext-contact",
@@ -4595,7 +4705,7 @@
     }
   ],
   "githubMetadata": {
-    "generated": "2026-11-16T10:52:30.248Z",
+    "generated": "2026-11-17T13:54:29.595Z",
     "organisation": "AuScope",
     "organisationUrl": "https://github.com/AuScope",
     "source": "https://api.github.com/orgs/AuScope/repos",
