@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-16T10:53:00.839Z",
+  "generated": "2026-11-17T11:28:06.877Z",
   "records": [
     {
       "name": "GPlates",
@@ -13,7 +13,7 @@
       "status": "active",
       "note": "",
       "publications": 264,
-      "citations": 8006,
+      "citations": 8019,
       "earliestYear": 2012,
       "latestYear": 2026,
       "records": [
@@ -103,7 +103,7 @@
           "authors": "Ben R. Mather; R. Dietmar Müller; Adriana Dutkiewicz; Sabin Zahirovic",
           "year": 2026,
           "journal": "Communications Earth & Environment",
-          "cited": 4,
+          "cited": 5,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -1523,7 +1523,7 @@
           "authors": "Thomas Gernon; Stephen M. Jones; Sascha Brune; Thea K. Hincks; Martin R. Palmer; John C. Schumacher; Rebecca M. Primiceri; Matthew Field; William L. Griffin; Suzanne Yvette O'Reilly; Derek Boswell Keir; Christopher J. Spencer; Andrew Merdith; Anne Glerum",
           "year": 2023,
           "journal": "Nature",
-          "cited": 70,
+          "cited": 75,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -2063,7 +2063,7 @@
           "authors": "Ben R Mather; R Dietmar Müller; Maria Seton; Saskia Ruttor; Oliver Nebel; Nick Mortimer",
           "year": 2020,
           "journal": "Science Advances",
-          "cited": 83,
+          "cited": 85,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -2563,7 +2563,7 @@
           "authors": "R Dietmar Müller; Xiaodong Qin; David T Sandwell; Adriana Dutkiewicz; Simon E Williams; Nicolas Flament; Stefan Maus; Maria Seton",
           "year": 2016,
           "journal": "PLoS ONE",
-          "cited": 77,
+          "cited": 79,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -2653,7 +2653,7 @@
           "authors": "Xiaodong Qin; R. Dietmar Müller; John Cannon; Thomas C.W. Landgrebe; Christian Heine; Robin J. Watson; M. Turner",
           "year": 2012,
           "journal": "Geoscientific instrumentation, methods and data systems",
-          "cited": 27,
+          "cited": 30,
           "oa": true,
           "evidence": "text-attributed"
         }
@@ -2669,7 +2669,7 @@
       "status": "active",
       "note": "",
       "publications": 51,
-      "citations": 402,
+      "citations": 411,
       "earliestYear": 2020,
       "latestYear": 2026,
       "records": [
@@ -2689,7 +2689,7 @@
           "authors": "Jing Li; Keqing Li; Jiangtao Li; Hongzhan Fei; Jiashun Hu",
           "year": 2026,
           "journal": "Nature Communications",
-          "cited": 0,
+          "cited": 1,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2699,7 +2699,7 @@
           "authors": "Xiaohan Song; Simon L Klemperer",
           "year": 2026,
           "journal": "Scientific Reports",
-          "cited": 4,
+          "cited": 5,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2749,7 +2749,7 @@
           "authors": "Fabio A Capitanio; Thyagarajulu Gollapalli; Radhakrishna Munukutla; Juan Carlos Graciosa; Zuhair Mohd; Adam Beall; Luca Dal Zilio",
           "year": 2025,
           "journal": "Nature Communications",
-          "cited": 2,
+          "cited": 5,
           "oa": true,
           "evidence": "text-attributed"
         },
@@ -2789,7 +2789,7 @@
           "authors": "Guido M. Gianni; Leandro C. Gallo; Jeremías Likerman; Andrés Echaurren; Conrado R. Gianni; Claudio Faccenna",
           "year": 2025,
           "journal": "Science Advances",
-          "cited": 5,
+          "cited": 6,
           "oa": true,
           "evidence": "text-software"
         },
@@ -2839,7 +2839,7 @@
           "authors": "Prasanna Mahesh Gunawardana; Priyadarshi Chowdhury; Gabriele Morra; Peter A. Cawood",
           "year": 2024,
           "journal": "Geology",
-          "cited": 24,
+          "cited": 25,
           "oa": true,
           "evidence": "text-software"
         },
@@ -3139,7 +3139,7 @@
           "authors": "Fabio A. Capitanio; Oliver Nebel; Jean‐François Moyen; Peter A. Cawood",
           "year": 2022,
           "journal": "Journal of Geophysical Research Solid Earth",
-          "cited": 10,
+          "cited": 12,
           "oa": true,
           "evidence": "text-software"
         },
@@ -3202,7 +3202,7 @@
         {
           "doi": "10.5194/egusphere-egu26-19074",
           "title": "Assimilating Intra-Plate Lava Geochemistry into Adjoint Reconstructions of Earth’s Mantle Evolution",
-          "authors": "Rhodri Davies; Sia Ghelichkhan",
+          "authors": "D. Rhodri Davies; Sia Ghelichkhan",
           "year": 2026,
           "journal": "EGU General Assembly Conference Abstracts",
           "cited": 0,

@@ -278,5 +278,21 @@
     "ausmtStations": null,
     "ausmtInstrumentsDeployed": null,
     "ausmtRecordingDays": null
+  },
+  {
+    "date": "2026-11-17",
+    "publications": 3209,
+    "verified": 46,
+    "citations": 73152,
+    "datasets": 325,
+    "samplesDeclared": 54717,
+    "stations": 4171,
+    "instrumentUnits": 170,
+    "surveys": 13,
+    "impactLinks": 27,
+    "ausmtSurveys": 161,
+    "ausmtStations": 15265,
+    "ausmtInstrumentsDeployed": 146,
+    "ausmtRecordingDays": 12876.9
   }
 ]
