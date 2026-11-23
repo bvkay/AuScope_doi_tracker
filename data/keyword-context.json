@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17T13:54:26.283Z",
+ "updated": "2026-11-23T11:57:05.544Z",
  "results": {
   "10.1029/2025gc012679": {
    "status": "no-oa-text",
@@ -3630,8 +3630,19 @@
    "checkedAt": "2026-11-17"
   },
   "10.1016/j.jvsv.2026.102601": {
-   "status": "error",
-   "attempts": 1
+   "status": "checked",
+   "pmcid": "PMC13586734",
+   "flags": [
+    "notFound"
+   ],
+   "terms": {
+    "GPlates": {
+     "ack": 0,
+     "body": 0,
+     "refs": 0,
+     "snippet": ""
+    }
+   }
   },
   "10.1038/s44185-026-00152-7": {
    "status": "checked",
@@ -4057,6 +4068,82 @@
   "10.31223/x5gz4x": {
    "status": "no-oa-text",
    "checkedAt": "2026-11-17"
+  },
+  "10.1038/s43247-024-01469-6": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1111/jmg.12789": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.2113/2023/lithosphere_2023_260": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1080/08120099.2022.2017344": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1093/petrology/egac040": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1016/j.quascirev.2022.107721": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1111/ggr.12477": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1016/j.chemgeo.2023.121630": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.5334/dsj-2023-005": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1016/j.precamres.2023.107018": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1016/j.gca.2020.04.031": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1111/ter.12471": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.1144/jgs2022-178": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.6084/m9.figshare.33193233": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.5194/gmd-19-5723-2026": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.59350/4n89a-3a429": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.25911/zz8y-3v70": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.59350/3819z-kgm32": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
+  },
+  "10.59350/4s3d1-att92": {
+   "status": "no-oa-text",
+   "checkedAt": "2026-11-23"
   }
  }
 }

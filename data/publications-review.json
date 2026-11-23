@@ -1,10 +1,10 @@
 {
   "metadata": {
     "type": "review",
-    "last_updated": "2026-11-17T13:39:11.691Z",
-    "total_count": 270,
+    "last_updated": "2026-11-23T11:47:12.845Z",
+    "total_count": 261,
     "by_tier": {
-      "candidate-review": 270
+      "candidate-review": 261
     }
   },
   "records": [
@@ -690,6 +690,37 @@
       ]
     },
     {
+      "doi": "10.5194/egusphere-egu24-21810",
+      "title": "FAIR Convergence using FAIR Implementation Profiles and the FAIR evolution pathways concept: lessons learned from the WorldFAIR Geochemistry Work Package",
+      "authors": "Alexander Prent; Rebecca Farrington",
+      "journal": "EGU General Assembly Conference Abstracts",
+      "publisher": "Copernicus Publications",
+      "year": 2025,
+      "cited": 0,
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Data Analysis and Archiving",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 2,
+      "institutions": [],
+      "countries": [],
+      "rors": [],
+      "authorIds": [
+        "https://openalex.org/A5066123034",
+        "https://openalex.org/A5016284891"
+      ],
+      "authorOrcids": [
+        "0000-0002-1321-7319",
+        "0000-0002-2594-6965"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-2594-6965"
+      ]
+    },
+    {
       "doi": "10.7185/gold2025.32104",
       "title": "Ensuring an Inclusive Scientific Culture for Developing and Maintaining Standards Required for the Creation of Global Networks of Geochemical and Isotopic Data Repositories.",
       "authors": "Lesley Wyborn; Jens Klump; Rebecca Farrington",
@@ -1120,37 +1151,6 @@
       ]
     },
     {
-      "doi": "10.5194/egusphere-egu24-21810",
-      "title": "FAIR Convergence using FAIR Implementation Profiles and the FAIR evolution pathways concept: lessons learned from the WorldFAIR Geochemistry Work Package",
-      "authors": "Alexander Prent; Rebecca Farrington",
-      "journal": "EGU General Assembly Conference Abstracts",
-      "publisher": "Copernicus Publications",
-      "year": 2024,
-      "cited": 0,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Research Data Management Practices; Scientific Computing and Data Management; Data Analysis and Archiving",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5066123034",
-        "https://openalex.org/A5016284891"
-      ],
-      "authorOrcids": [
-        "0000-0002-1321-7319",
-        "0000-0002-2594-6965"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-2594-6965"
-      ]
-    },
-    {
       "doi": "10.3389/feart.2024.1354058",
       "title": "Spatial variability of shear wave velocity: implications for the liquefaction response of a case study from the 2010 Maule Mw 8.8 Earthquake, Chile",
       "authors": "Sebastián Núñez-Jara; Gonzalo A. Montalva; Marco Pilz; Meghan Samantha Miller; H. Saldaña; Andrés Olivar-Castaño; R. Araya",
@@ -1166,7 +1166,7 @@
       ],
       "authorCount": 7,
       "institutions": [
-        "University of Concepción",
+        "Universidad de Concepción",
         "GFZ Helmholtz Centre for Geosciences",
         "University of Potsdam"
       ],
@@ -1207,9 +1207,9 @@
       "publisher": "Geological Society of America",
       "year": 2024,
       "cited": 0,
-      "type": "conference paper",
-      "isOA": "No",
-      "subject": "Research Data Management Practices; Environmental Monitoring and Data Management; Geological and Geochemical Analysis",
+      "type": "conference abstract",
+      "isOA": "Yes",
+      "subject": "Research Data Management Practices; Geochemistry and Geologic Mapping; Geological and Geochemical Analysis",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -1520,6 +1520,54 @@
       ]
     },
     {
+      "doi": "10.1111/ggr.12473",
+      "title": "Sulfur Mass Fractions in Thirty‐Seven Geological Reference Materials by Titration, XRF and Elemental Analyser",
+      "authors": "Olivier Alard; Halimulati Ananuer; Lauren R. Gorojovsky; Peter Wieland",
+      "journal": "Geostandards and Geoanalytical Research",
+      "publisher": "Wiley",
+      "year": 2023,
+      "cited": 8,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Scientific Measurement and Uncertainty Evaluation; Geological and Geochemical Analysis; Analytical chemistry methods development",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Centre National de la Recherche Scientifique",
+        "Université de Montpellier",
+        "Géosciences Montpellier",
+        "ARC Centre of Excellence for Core to Crust Fluid Systems",
+        "Macquarie University"
+      ],
+      "countries": [
+        "FR",
+        "AU"
+      ],
+      "rors": [
+        "02feahw73",
+        "051escj72",
+        "024gts110",
+        "03nk9pp38",
+        "01sf06y89"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5034349319",
+        "https://openalex.org/A5042029272",
+        "https://openalex.org/A5016148261"
+      ],
+      "authorOrcids": [
+        "0000-0002-0832-6625",
+        "0000-0001-8335-1786",
+        "0000-0002-7569-6909"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-0832-6625"
+      ]
+    },
+    {
       "doi": "10.7185/gold2023.17159",
       "title": "Lost in subduction: nitrogen mobility in fluids indicates its low recycling efficiency in cold slabs",
       "authors": "Michael W. Förster; Chunfei Chen; Stephen Foley; Olivier Alard; Gregory M. Yaxley",
@@ -1605,39 +1653,10 @@
       ]
     },
     {
-      "doi": "10.1080/07494467.2024.2348278",
-      "title": "Reflections on Performing Éliane Radigue's OCCAM I",
-      "authors": "Rhodri Davies",
-      "journal": "Contemporary Music Review",
-      "publisher": "Taylor & Francis",
-      "year": 2023,
-      "cited": 1,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Musicology and Musical Analysis; Music Technology and Sound Studies; Diverse Musicological Studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5064472114"
-      ],
-      "authorOrcids": [
-        "0000-0002-7662-9468"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-7662-9468"
-      ]
-    },
-    {
       "doi": "10.22541/au.166516581.17720849/v1",
       "title": "The Victorian Earthquake Hazard Map",
       "authors": "Dan Sandiford; Tim Rawling; Gary Gibson",
-      "journal": "",
+      "journal": "Authorea",
       "publisher": "",
       "year": 2022,
       "cited": 0,
@@ -1671,7 +1690,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2022,
-      "cited": 82,
+      "cited": 87,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Analytical chemistry methods development; Astro and Planetary Science",
@@ -1725,54 +1744,6 @@
         "0000-0002-9340-9205",
         "0000-0003-2538-1391",
         "0000-0001-6560-0654"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
-      "doi": "10.1111/ggr.12473",
-      "title": "Sulfur Mass Fractions in Thirty‐Seven Geological Reference Materials by Titration, XRF and Elemental Analyser",
-      "authors": "Olivier Alard; Halimulati Ananuer; Lauren R. Gorojovsky; Peter Wieland",
-      "journal": "Geostandards and Geoanalytical Research",
-      "publisher": "Wiley",
-      "year": 2022,
-      "cited": 8,
-      "type": "article",
-      "isOA": "Yes",
-      "subject": "Scientific Measurement and Uncertainty Evaluation; Geological and Geochemical Analysis; Analytical chemistry methods development",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "Centre National de la Recherche Scientifique",
-        "Université de Montpellier",
-        "Géosciences Montpellier",
-        "ARC Centre of Excellence for Core to Crust Fluid Systems",
-        "Macquarie University"
-      ],
-      "countries": [
-        "FR",
-        "AU"
-      ],
-      "rors": [
-        "02feahw73",
-        "051escj72",
-        "024gts110",
-        "03nk9pp38",
-        "01sf06y89"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5042029272",
-        "https://openalex.org/A5016148261"
-      ],
-      "authorOrcids": [
-        "0000-0002-0832-6625",
-        "0000-0001-8335-1786",
-        "0000-0002-7569-6909"
       ],
       "attribution": "candidate-review",
       "verifiedBy": [
@@ -2575,7 +2546,7 @@
       "journal": "Meteoritics and Planetary Science",
       "publisher": "Wiley",
       "year": 2021,
-      "cited": 14,
+      "cited": 16,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Paleontology and Stratigraphy of Fossils",
@@ -2952,39 +2923,6 @@
       ]
     },
     {
-      "doi": "10.1130/abs/2020am-356713",
-      "title": "CRATON STABILITY: WHAT ABOUT SHAPE?",
-      "authors": "Catherine Cooper; Rebecca Farrington; Meghan Samantha Miller",
-      "journal": "Abstracts with programs - Geological Society of America",
-      "publisher": "Geological Society of America",
-      "year": 2020,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; High-pressure geophysics and materials",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5004409560",
-        "https://openalex.org/A5016284891",
-        "https://openalex.org/A5026672994"
-      ],
-      "authorOrcids": [
-        "0000-0002-2594-6965",
-        "0000-0001-5494-2296"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-2594-6965",
-        "orcid:0000-0001-5494-2296"
-      ]
-    },
-    {
       "doi": "10.11636/135130",
       "title": "Ambient noise tomography of Australia: application to AusArray deployment",
       "authors": "Babak Hejrani; Rakib Hassan; A. Gorbatov; Malcolm Sambridge; R. Hawkibns; Andrew P. Valentine; Karol Czarnota; J. Zhao",
@@ -3153,7 +3091,7 @@
       "journal": "Journal of Analytical Atomic Spectrometry",
       "publisher": "Royal Society of Chemistry",
       "year": 2020,
-      "cited": 86,
+      "cited": 88,
       "type": "article",
       "isOA": "No",
       "subject": "Analytical chemistry methods development; Geological and Geochemical Analysis; Laser-induced spectroscopy and plasma",
@@ -3253,7 +3191,7 @@
       "journal": "Journal of African Earth Sciences",
       "publisher": "Elsevier BV",
       "year": 2020,
-      "cited": 15,
+      "cited": 16,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Karst Systems and Hydrogeology",
@@ -3750,7 +3688,7 @@
       "journal": "Global Food Security",
       "publisher": "Elsevier BV",
       "year": 2019,
-      "cited": 53,
+      "cited": 55,
       "type": "article",
       "isOA": "No",
       "subject": "Food Security and Health in Diverse Populations; Food Security and Socioeconomic Dynamics; Child Nutrition and Water Access",
@@ -3827,158 +3765,6 @@
       "attribution": "candidate-review",
       "verifiedBy": [
         "orcid:0000-0001-5494-2296"
-      ]
-    },
-    {
-      "doi": "10.1130/abs/2019am-336218",
-      "title": "EXAMPLES OF NARROW STRIKE-SLIP FAULTS THROUGH THE CRUST INDICATED BY GEOLOGIC AND GEOPHYSICAL EVIDENCE",
-      "authors": "Sarah M. Roeske; Sean R. Mulcahy; William C. McClelland; Meghan Samantha Miller; Jeffrey A. Benowitz",
-      "journal": "Abstracts with programs - Geological Society of America",
-      "publisher": "Geological Society of America",
-      "year": 2019,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "No",
-      "subject": "earthquake and tectonic studies; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 5,
-      "institutions": [
-        "University of California, Davis"
-      ],
-      "countries": [
-        "US"
-      ],
-      "rors": [
-        "05rrcem69"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5055946939",
-        "https://openalex.org/A5087360514",
-        "https://openalex.org/A5031809072",
-        "https://openalex.org/A5026672994",
-        "https://openalex.org/A5018255149"
-      ],
-      "authorOrcids": [
-        "0000-0002-0511-5865",
-        "0000-0002-8506-178X",
-        "0000-0003-2699-4667",
-        "0000-0001-5494-2296",
-        "0000-0003-2294-9172"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-5494-2296"
-      ]
-    },
-    {
-      "doi": "10.1130/abs/2019am-340903",
-      "title": "CONGESTED SUBDUCTION ZONES: INSIGHTS FROM EAST GONDWANA RECONSTRUCTIONS AND DYNAMIC MODELS",
-      "authors": "David Willis; Peter Betts; Joanne M. Whittaker; Louis N. Moresi; Meghan Samantha Miller",
-      "journal": "Abstracts with programs - Geological Society of America",
-      "publisher": "Geological Society of America",
-      "year": 2019,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 5,
-      "institutions": [
-        "University of Kentucky"
-      ],
-      "countries": [
-        "US"
-      ],
-      "rors": [
-        "02k3smh20"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5074885968",
-        "https://openalex.org/A5046072480",
-        "https://openalex.org/A5027423843",
-        "https://openalex.org/A5026672994"
-      ],
-      "authorOrcids": [
-        "0000-0002-2088-7433",
-        "0000-0002-3170-3935",
-        "0000-0003-3685-174X",
-        "0000-0001-5494-2296"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-5494-2296"
-      ]
-    },
-    {
-      "doi": "10.1016/j.epsl.2019.115969",
-      "title": "Sulfide in dunite channels reflects long-distance reactive migration of mid-ocean-ridge melts from mantle source to crust: A Re-Os isotopic perspective",
-      "authors": "Qing Xiong; Yong Xu; José María González-Jiménez; Jingao Liu; Olivier Alard; Jianping Zheng; William L. Griffin; Suzanne Yvette O'Reilly",
-      "journal": "Earth and Planetary Science Letters",
-      "publisher": "Elsevier BV",
-      "year": 2019,
-      "cited": 32,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 8,
-      "institutions": [
-        "China University of Geosciences",
-        "ARC Centre of Excellence for Core to Crust Fluid Systems",
-        "State Key Laboratory of Geological Processes and Mineral Resources",
-        "Macquarie University",
-        "China University of Geosciences (Beijing)",
-        "Universidad de Granada",
-        "Centre National de la Recherche Scientifique",
-        "Université de Montpellier",
-        "Géosciences Montpellier"
-      ],
-      "countries": [
-        "CN",
-        "AU",
-        "ES",
-        "FR"
-      ],
-      "rors": [
-        "04gcegc37",
-        "03nk9pp38",
-        "04sg95s75",
-        "01sf06y89",
-        "04q6c7p66",
-        "04njjy449",
-        "02feahw73",
-        "051escj72",
-        "024gts110"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5023288285",
-        "https://openalex.org/A5003136872",
-        "https://openalex.org/A5081103732",
-        "https://openalex.org/A5054129534",
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5036493852",
-        "https://openalex.org/A5056410545",
-        "https://openalex.org/A5020121719"
-      ],
-      "authorOrcids": [
-        "0000-0003-4498-3726",
-        "0000-0002-3946-0747",
-        "0000-0001-7270-5227",
-        "0000-0002-8800-5898",
-        "0000-0002-0832-6625",
-        "0000-0002-0393-9529",
-        "0000-0002-0980-2566",
-        "0000-0002-3883-5498"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
       ]
     },
     {
@@ -4103,6 +3889,74 @@
       ]
     },
     {
+      "doi": "10.1016/j.epsl.2019.115969",
+      "title": "Sulfide in dunite channels reflects long-distance reactive migration of mid-ocean-ridge melts from mantle source to crust: A Re-Os isotopic perspective",
+      "authors": "Qing Xiong; Yong Xu; José María González-Jiménez; Jingao Liu; Olivier Alard; Jianping Zheng; William L. Griffin; Suzanne Yvette O'Reilly",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2019,
+      "cited": 33,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "China University of Geosciences",
+        "ARC Centre of Excellence for Core to Crust Fluid Systems",
+        "State Key Laboratory of Geological Processes and Mineral Resources",
+        "Macquarie University",
+        "China University of Geosciences (Beijing)",
+        "Universidad de Granada",
+        "Centre National de la Recherche Scientifique",
+        "Université de Montpellier",
+        "Géosciences Montpellier"
+      ],
+      "countries": [
+        "CN",
+        "AU",
+        "ES",
+        "FR"
+      ],
+      "rors": [
+        "04gcegc37",
+        "03nk9pp38",
+        "04sg95s75",
+        "01sf06y89",
+        "04q6c7p66",
+        "04njjy449",
+        "02feahw73",
+        "051escj72",
+        "024gts110"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5023288285",
+        "https://openalex.org/A5003136872",
+        "https://openalex.org/A5081103732",
+        "https://openalex.org/A5054129534",
+        "https://openalex.org/A5034349319",
+        "https://openalex.org/A5036493852",
+        "https://openalex.org/A5056410545",
+        "https://openalex.org/A5020121719"
+      ],
+      "authorOrcids": [
+        "0000-0003-4498-3726",
+        "0000-0002-3946-0747",
+        "0000-0001-7270-5227",
+        "0000-0002-8800-5898",
+        "0000-0002-0832-6625",
+        "0000-0002-0393-9529",
+        "0000-0002-0980-2566",
+        "0000-0002-3883-5498"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-0832-6625"
+      ]
+    },
+    {
       "doi": "10.1126/sciadv.aau2620",
       "title": "Melting of sediments in the deep mantle produces saline fluid inclusions in diamonds",
       "authors": "Michael W. Förster; Stephen Foley; Horst R. Marschall; Olivier Alard; Stephan Buhre",
@@ -4164,7 +4018,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2019,
-      "cited": 23,
+      "cited": 24,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Planetary Science and Exploration",
@@ -4325,35 +4179,6 @@
       ]
     },
     {
-      "doi": "10.1017/s0007680519000783",
-      "title": "The Charity Market and Humanitarianism in Britain, 1870–1912. By Sarah Roddy, Julie-Marie Strange, and Bertrand Taithe. London: Bloomsbury Academic, 2019. ix + 224 pp. Illustrations, bibliography, notes, index. Cloth, $35.00. ISBN: 978-0-8047-9383-4.",
-      "authors": "Rhodri Davies",
-      "journal": "The Business History Review",
-      "publisher": "Cambridge University Press",
-      "year": 2019,
-      "cited": 1,
-      "type": "book review",
-      "isOA": "No",
-      "subject": "Historical and Contemporary Political Dynamics; Nonprofit Sector and Volunteering; Historical Economic and Social Studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5064472114"
-      ],
-      "authorOrcids": [
-        "0000-0002-7662-9468"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-7662-9468"
-      ]
-    },
-    {
       "doi": "10.5194/tc-2018-5-supplement",
       "title": "Supplementary material to \"A statistical fracture model for Antarctic ice shelves and glaciers\"",
       "authors": "Veronika Emetc; Paul Tregoning; Mathieu Morlighem; Chris Borstad; Malcolm Sambridge",
@@ -4396,7 +4221,7 @@
       "journal": "Public Health Nutrition",
       "publisher": "Cambridge University Press",
       "year": 2018,
-      "cited": 65,
+      "cited": 67,
       "type": "article",
       "isOA": "Yes",
       "subject": "Food Security and Health in Diverse Populations; Health disparities and outcomes; Employment and Welfare Studies",
@@ -4513,7 +4338,7 @@
       "journal": "Ore Geology Reviews",
       "publisher": "Elsevier BV",
       "year": 2018,
-      "cited": 61,
+      "cited": 64,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Geochronology of Asian Mineral Deposits; Geochemistry and Elemental Analysis",
@@ -4564,7 +4389,7 @@
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2018,
-      "cited": 46,
+      "cited": 47,
       "type": "review",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; High-pressure geophysics and materials",
@@ -4788,35 +4613,6 @@
       ]
     },
     {
-      "doi": "10.26180/4644928",
-      "title": "Geodynamic models of lithospheric and mantle processes.",
-      "authors": "Rebecca Farrington",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
-      "year": 2017,
-      "cited": 0,
-      "type": "dissertation",
-      "isOA": "Yes",
-      "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies; Geological and Geochemical Analysis",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5016284891"
-      ],
-      "authorOrcids": [
-        "0000-0002-2594-6965"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-2594-6965"
-      ]
-    },
-    {
       "doi": "10.5194/tc-2017-98-supplement",
       "title": "Supplementary material to \"A statistical fracture model for Antarctic glaciers\"",
       "authors": "Veronika Emetc; Paul Tregoning; Malcolm Sambridge",
@@ -4893,42 +4689,6 @@
       ]
     },
     {
-      "doi": "10.1130/abs/2017am-305345",
-      "title": "LARGE VERTICAL OFFSETS OF MOHO COINCIDE WITH MAJOR MESOZOIC TRANSFORM FAULTS IN NORTHERN ALASKA",
-      "authors": "Sarah M. Roeske; Alison B. Till; Meghan Samantha Miller; Richard W. Saltus; William C. McClelland",
-      "journal": "Abstracts with programs - Geological Society of America",
-      "publisher": "Geological Society of America",
-      "year": 2017,
-      "cited": 2,
-      "type": "conference paper",
-      "isOA": "No",
-      "subject": "Geological Studies and Exploration; Geological and Geophysical Studies; earthquake and tectonic studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 5,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5055946939",
-        "https://openalex.org/A5110102006",
-        "https://openalex.org/A5026672994",
-        "https://openalex.org/A5061346924",
-        "https://openalex.org/A5031809072"
-      ],
-      "authorOrcids": [
-        "0000-0002-0511-5865",
-        "0000-0001-5494-2296",
-        "0000-0001-6920-2936",
-        "0000-0003-2699-4667"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-5494-2296"
-      ]
-    },
-    {
       "doi": "10.5194/se-2017-26-supplement",
       "title": "Supplementary material to \"Global patterns of Earth's dynamic topography since the Jurassic\"",
       "authors": "Michael Rubey; Sascha Brune; Christian Heine; D. Rhodri Davies; Simon E. Williams; R. Dietmar Müller",
@@ -4956,7 +4716,7 @@
       ],
       "authorOrcids": [
         "0000-0003-4985-1810",
-        "0000-0001-7067-5650",
+        "0000-0002-5323-0534",
         "0000-0002-7662-9468",
         "0000-0003-4670-8883",
         "0000-0002-3334-5764"
@@ -4964,56 +4724,6 @@
       "attribution": "candidate-review",
       "verifiedBy": [
         "orcid:0000-0002-7662-9468"
-      ]
-    },
-    {
-      "doi": "10.1130/abs/2017am-304800",
-      "title": "LINKING DEEP CRUSTAL ARCHITECTURE TO MINERAL SYSTEMS",
-      "authors": "Geological Survey of Western Australia; Simon P. Johnson; Ian Tyler; Michael C. Dentith; Brian L. N. Kennett; Huaiyu Yuan; Imogen O.H. Fielding; Fawna J. Korhonen; Perla Piña-Varas; Klaus Gessner; Russell J Korsch; Ruth Murdie; Richard S. Blewett; Graham Heinson; Birger Rasmussen; Rob M. Hough",
-      "journal": "Abstracts with programs - Geological Society of America",
-      "publisher": "Geological Society of America",
-      "year": 2017,
-      "cited": 0,
-      "type": "conference paper",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; Geological and Geophysical Studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 16,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5090203900",
-        "https://openalex.org/A5075142365",
-        "https://openalex.org/A5088664218",
-        "https://openalex.org/A5009216786",
-        "https://openalex.org/A5022816963",
-        "https://openalex.org/A5071564892",
-        "https://openalex.org/A5041556716",
-        "https://openalex.org/A5055060773",
-        "https://openalex.org/A5002421886",
-        "https://openalex.org/A5025353710",
-        "https://openalex.org/A5112541692",
-        "https://openalex.org/A5089578866",
-        "https://openalex.org/A5026256786",
-        "https://openalex.org/A5112335078"
-      ],
-      "authorOrcids": [
-        "0000-0003-1653-3939",
-        "0000-0003-2206-5350",
-        "0000-0003-3512-7856",
-        "0000-0002-8313-3030",
-        "0000-0002-1599-7240",
-        "0000-0002-6591-9777",
-        "0000-0002-0886-0342",
-        "0000-0001-7106-0789",
-        "0000-0002-2745-0904"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789"
       ]
     },
     {
@@ -5167,7 +4877,7 @@
       "publisher": "Wiley",
       "year": 2016,
       "cited": 0,
-      "type": "article",
+      "type": "conference abstract",
       "isOA": "No",
       "subject": "Food Security and Health in Diverse Populations; Food Security and Socioeconomic Dynamics; Health disparities and outcomes",
       "sources": [
@@ -5205,7 +4915,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2015,
-      "cited": 75,
+      "cited": 79,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; High-pressure geophysics and materials",
@@ -5291,7 +5001,7 @@
       "journal": "Elements",
       "publisher": "Mineralogical Society of America",
       "year": 2015,
-      "cited": 44,
+      "cited": 47,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geochemical Analysis; Geological and Geophysical Studies",
@@ -5331,7 +5041,7 @@
       "journal": "Tectonics",
       "publisher": "Wiley",
       "year": 2015,
-      "cited": 43,
+      "cited": 45,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; earthquake and tectonic studies; Geological Studies and Exploration",
@@ -5419,7 +5129,7 @@
       "title": "Mantle flow at the highly arcuate northeast corner of the Lesser Antilles subduction zone: Constraints from shear-wave splitting analyses",
       "authors": "Michael Hodges; Meghan Samantha Miller",
       "journal": "Lithosphere",
-      "publisher": "Geological Society of America",
+      "publisher": "GeoScienceWorld",
       "year": 2015,
       "cited": 13,
       "type": "article",
@@ -5450,6 +5160,41 @@
       ]
     },
     {
+      "doi": "10.82308/22127",
+      "title": "Food security and social support: Exploring relationships between social resources and access to adequate food",
+      "authors": "Meghan Samantha Miller",
+      "journal": "",
+      "publisher": "",
+      "year": 2015,
+      "cited": 8,
+      "type": "dissertation",
+      "isOA": "Yes",
+      "subject": "Food Security and Health in Diverse Populations; Food Security and Socioeconomic Dynamics; Homelessness and Social Issues",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "McGill University"
+      ],
+      "countries": [
+        "CA"
+      ],
+      "rors": [
+        "01pxwe438"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5026672994"
+      ],
+      "authorOrcids": [
+        "0000-0001-5494-2296"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-5494-2296"
+      ]
+    },
+    {
       "doi": "10.1096/fasebj.29.1_supplement.585.20",
       "title": "Trends in the Contribution of Perceived, Received, and Integrative Social Support to Food Security",
       "authors": "Meghan Samantha Miller; Hugo Ramiro Melgar-Quiñonez; Diana Dallmann; Terri J. Ballard",
@@ -5457,7 +5202,7 @@
       "publisher": "Wiley",
       "year": 2015,
       "cited": 4,
-      "type": "article",
+      "type": "conference abstract",
       "isOA": "No",
       "subject": "Food Security and Health in Diverse Populations; Food Security and Socioeconomic Dynamics; Homelessness and Social Issues",
       "sources": [
@@ -5493,35 +5238,6 @@
       ]
     },
     {
-      "doi": "10.82308/22127",
-      "title": "Food security and social support: Exploring relationships between social resources and access to adequate food",
-      "authors": "Meghan Samantha Miller",
-      "journal": "",
-      "publisher": "",
-      "year": 2015,
-      "cited": 8,
-      "type": "dissertation",
-      "isOA": "Yes",
-      "subject": "Food Security and Health in Diverse Populations; Food Security and Socioeconomic Dynamics; Homelessness and Social Issues",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5026672994"
-      ],
-      "authorOrcids": [
-        "0000-0001-5494-2296"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-5494-2296"
-      ]
-    },
-    {
       "doi": "10.1096/fasebj.29.1_supplement.585.26",
       "title": "Food Insecure Individuals Are More Prone to Health Problems",
       "authors": "Meghan Samantha Miller; Diana Dallmann; Hugo Ramiro Melgar-Quiñonez",
@@ -5529,7 +5245,7 @@
       "publisher": "Wiley",
       "year": 2015,
       "cited": 0,
-      "type": "article",
+      "type": "conference abstract",
       "isOA": "No",
       "subject": "Food Security and Health in Diverse Populations; Food Security and Socioeconomic Dynamics; Homelessness and Social Issues",
       "sources": [
@@ -5567,7 +5283,7 @@
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2015,
-      "cited": 69,
+      "cited": 70,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Astro and Planetary Science",
@@ -5744,7 +5460,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2014,
-      "cited": 144,
+      "cited": 146,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -5793,7 +5509,7 @@
       "journal": "Nature",
       "publisher": "Nature Portfolio",
       "year": 2014,
-      "cited": 87,
+      "cited": 89,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Tectonic Studies in Latin America; Geological and Geophysical Studies",
@@ -5861,9 +5577,9 @@
       "title": "Craton formation: Internal structure inherited from closing of the early oceans",
       "authors": "C. M. Cooper; Meghan Samantha Miller",
       "journal": "Lithosphere",
-      "publisher": "Geological Society of America",
+      "publisher": "GeoScienceWorld",
       "year": 2014,
-      "cited": 45,
+      "cited": 47,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -5986,7 +5702,7 @@
       "year": 2014,
       "cited": 27,
       "type": "article",
-      "isOA": "No",
+      "isOA": "Yes",
       "subject": "Geological and Geophysical Studies Worldwide; earthquake and tectonic studies; Seismic Imaging and Inversion Techniques",
       "sources": [
         "OpenAlex (verified)"
@@ -6032,7 +5748,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2014,
-      "cited": 25,
+      "cited": 26,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -6074,7 +5790,7 @@
       "title": "Moho structure across the San Jacinto fault zone: Insights into strain localization at depth",
       "authors": "Meghan Samantha Miller; Panxu Zhang; James F. Dolan",
       "journal": "Lithosphere",
-      "publisher": "Geological Society of America",
+      "publisher": "GeoScienceWorld",
       "year": 2014,
       "cited": 15,
       "type": "article",
@@ -6189,7 +5905,7 @@
     {
       "doi": "10.1016/j.lithos.2014.11.005",
       "title": "Characterization of hydration in the mantle lithosphere: Peridotite xenoliths from the Ontong Java Plateau as an example",
-      "authors": "Sylvie Demouchy; Akira Ishikawa; Andréa Tommasi; Olivier Alard; Shantanu Keshav A",
+      "authors": "Sylvie Demouchy; Akira Ishikawa; Andréa Tommasi; Olivier Alard; Shantanu Keshav",
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2014,
@@ -6242,7 +5958,7 @@
       "journal": "Journal of Petrology",
       "publisher": "Oxford University Press",
       "year": 2014,
-      "cited": 33,
+      "cited": 34,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies",
@@ -6436,7 +6152,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2013,
-      "cited": 89,
+      "cited": 91,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -6523,7 +6239,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2013,
-      "cited": 54,
+      "cited": 56,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -6565,7 +6281,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2013,
-      "cited": 44,
+      "cited": 45,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies Worldwide; High-pressure geophysics and materials; earthquake and tectonic studies",
@@ -6689,7 +6405,7 @@
       "journal": "Meteoritics and Planetary Science",
       "publisher": "Wiley",
       "year": 2013,
-      "cited": 47,
+      "cited": 48,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Geochemistry and Elemental Analysis",
@@ -6902,7 +6618,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2012,
-      "cited": 71,
+      "cited": 72,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Tectonic Studies in Latin America; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -7065,7 +6781,7 @@
     {
       "doi": "10.1130/g32619.1",
       "title": "Melting under the Colorado Plateau, USA",
-      "authors": "M. R. Reid; Romain A. Bouchet; Janne Blichert-toft B; A. Levander; Kaijian Liu; Meghan Samantha Miller; Frank C. Ramos",
+      "authors": "M. R. Reid; Romain A. Bouchet; Janne Blichert-Toft; A. Levander; Kaijian Liu; Meghan Samantha Miller; Frank C. Ramos",
       "journal": "Geology",
       "publisher": "Geological Society of America",
       "year": 2012,
@@ -7130,7 +6846,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2012,
-      "cited": 21,
+      "cited": 23,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geophysical Studies Worldwide",
@@ -7169,7 +6885,7 @@
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 210,
+      "cited": 214,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -7221,9 +6937,9 @@
       "journal": "Nature Geoscience",
       "publisher": "Nature Portfolio",
       "year": 2012,
-      "cited": 72,
+      "cited": 74,
       "type": "article",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
       "sources": [
         "OpenAlex (verified)"
@@ -7286,7 +7002,7 @@
       "journal": "Meteoritics and Planetary Science",
       "publisher": "Wiley",
       "year": 2012,
-      "cited": 57,
+      "cited": 59,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Geochemistry and Elemental Analysis",
@@ -7335,7 +7051,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 293,
+      "cited": 297,
       "type": "article",
       "isOA": "No",
       "subject": "High-pressure geophysics and materials; Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis",
@@ -7397,7 +7113,7 @@
       "journal": "Physics of The Earth and Planetary Interiors",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 94,
+      "cited": 97,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Advanced Numerical Methods in Computational Mathematics; Geological and Geophysical Studies",
@@ -7441,7 +7157,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 42,
+      "cited": 43,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Astro and Planetary Science",
@@ -7493,7 +7209,7 @@
       "journal": "Nature",
       "publisher": "Nature Portfolio",
       "year": 2011,
-      "cited": 332,
+      "cited": 333,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide",
@@ -7590,7 +7306,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2011,
-      "cited": 23,
+      "cited": 24,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -7630,7 +7346,7 @@
       "journal": "Journal of Petrology",
       "publisher": "Oxford University Press",
       "year": 2011,
-      "cited": 139,
+      "cited": 140,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -7687,7 +7403,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2011,
-      "cited": 85,
+      "cited": 86,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geochemistry and Elemental Analysis",
@@ -7747,7 +7463,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2011,
-      "cited": 162,
+      "cited": 169,
       "type": "article",
       "isOA": "No",
       "subject": "Advanced Numerical Methods in Computational Mathematics; High-pressure geophysics and materials; Geological and Geochemical Analysis",
@@ -7791,7 +7507,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2011,
-      "cited": 44,
+      "cited": 45,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis",
@@ -7829,7 +7545,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2010,
-      "cited": 83,
+      "cited": 84,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; High-pressure geophysics and materials",
@@ -7869,7 +7585,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2010,
-      "cited": 76,
+      "cited": 77,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -7914,7 +7630,7 @@
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2010,
-      "cited": 44,
+      "cited": 45,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies",
@@ -7955,7 +7671,7 @@
       "journal": "Mineralogy and Petrology",
       "publisher": "Springer Science+Business Media",
       "year": 2010,
-      "cited": 38,
+      "cited": 39,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
@@ -8000,7 +7716,7 @@
       "journal": "Solid Earth",
       "publisher": "Copernicus Publications",
       "year": 2010,
-      "cited": 586,
+      "cited": 598,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; Geothermal Energy Systems and Applications; Geological and Geochemical Analysis",
@@ -8099,7 +7815,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2009,
-      "cited": 66,
+      "cited": 69,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Tectonic Studies in Latin America; Seismic Waves and Analysis; Geological and Geophysical Studies Worldwide",
@@ -8248,7 +7964,7 @@
       "year": 2009,
       "cited": 138,
       "type": "article",
-      "isOA": "No",
+      "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Planetary Science and Exploration",
       "sources": [
         "OpenAlex (verified)"
@@ -8298,7 +8014,7 @@
       "year": 2009,
       "cited": 79,
       "type": "article",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Paleontology and Stratigraphy of Fossils",
       "sources": [
         "OpenAlex (verified)"
@@ -8396,7 +8112,7 @@
       "year": 2009,
       "cited": 98,
       "type": "article",
-      "isOA": "No",
+      "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
       "sources": [
         "OpenAlex (verified)"
@@ -8433,7 +8149,7 @@
       "journal": "Physics of The Earth and Planetary Interiors",
       "publisher": "Elsevier BV",
       "year": 2009,
-      "cited": 58,
+      "cited": 59,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geomagnetism and Paleomagnetism Studies; Geological and Geochemical Analysis",
@@ -8474,7 +8190,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2008,
-      "cited": 63,
+      "cited": 66,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Tectonic Studies in Latin America; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
@@ -8628,7 +8344,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 215,
+      "cited": 217,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Geological and Geophysical Studies",
@@ -8673,7 +8389,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 152,
+      "cited": 151,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Paleontology and Stratigraphy of Fossils",
@@ -8714,7 +8430,7 @@
       "journal": "Elements",
       "publisher": "Mineralogical Society of America",
       "year": 2008,
-      "cited": 142,
+      "cited": 144,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -8762,7 +8478,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 111,
+      "cited": 114,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
@@ -8805,13 +8521,63 @@
       ]
     },
     {
+      "doi": "10.1039/b706727e",
+      "title": "Physical and chemical characteristics of particles produced by laser ablation of biogenic calcium carbonate",
+      "authors": "Ed C. Hathorne; Rachael H. James; Paul S. Savage; Olivier Alard",
+      "journal": "Journal of Analytical Atomic Spectrometry",
+      "publisher": "Royal Society of Chemistry",
+      "year": 2008,
+      "cited": 72,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Laser-induced spectroscopy and plasma; Laser-Ablation Synthesis of Nanoparticles; Analytical chemistry methods development",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "The Open University",
+        "University of Bristol",
+        "Centre National de la Recherche Scientifique",
+        "Géosciences Montpellier",
+        "Université Montpellier 2"
+      ],
+      "countries": [
+        "GB",
+        "FR"
+      ],
+      "rors": [
+        "05mzfcs16",
+        "0524sp257",
+        "02feahw73",
+        "024gts110",
+        "00wh4bp03"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5064647133",
+        "https://openalex.org/A5075056484",
+        "https://openalex.org/A5061708903",
+        "https://openalex.org/A5034349319"
+      ],
+      "authorOrcids": [
+        "0000-0002-7813-2455",
+        "0000-0001-7402-2315",
+        "0000-0001-8464-0264",
+        "0000-0002-0832-6625"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-0832-6625"
+      ]
+    },
+    {
       "doi": "10.1080/08120090802097450",
       "title": "Taking the pulse of the Earth: linking crustal and mantle events",
       "authors": "Suzanne Yvette O'Reilly; William L. Griffin; Norman J. Pearson; Simon E. Jackson; Elena A. Belousova; Olivier Alard; Ayesha Saeed",
       "journal": "Australian Journal of Earth Sciences",
       "publisher": "Taylor & Francis",
       "year": 2008,
-      "cited": 55,
+      "cited": 56,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -8899,7 +8665,7 @@
       "year": 2008,
       "cited": 19,
       "type": "article",
-      "isOA": "No",
+      "isOA": "Yes",
       "subject": "Advanced Numerical Methods in Computational Mathematics; Computational Geometry and Mesh Generation; Computational Fluid Dynamics and Aerodynamics",
       "sources": [
         "OpenAlex (verified)"
@@ -8935,46 +8701,13 @@
       ]
     },
     {
-      "doi": "10.1130/2006.2419(06)",
-      "title": "Thermochronology of the New Caledonian high-pressure terrane: Implications for middle Tertiary plate boundary processes in the southwest Pacific",
-      "authors": "Suzanne L. Baldwin; Tim Rawling; Paul G. Fitzgerald",
-      "journal": "Geological Society of America eBooks",
-      "publisher": "Geological Society of America",
-      "year": 2007,
-      "cited": 62,
-      "type": "book chapter",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5062288385",
-        "https://openalex.org/A5006277227",
-        "https://openalex.org/A5068710042"
-      ],
-      "authorOrcids": [
-        "0000-0003-1700-9303",
-        "0000-0002-8841-4384",
-        "0000-0003-3723-142X"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-8841-4384"
-      ]
-    },
-    {
       "doi": "10.1016/j.epsl.2007.10.039",
       "title": "Possible chemical modification of oceanic lithosphere by hotspot magmatism: Seismic evidence from the junction of Ninetyeast Ridge and the Sumatra–Andaman arc",
       "authors": "Meghan Samantha Miller; Cin‐Ty A. Lee",
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2007,
-      "cited": 13,
+      "cited": 14,
       "type": "article",
       "isOA": "No",
       "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geophysical Studies",
@@ -9011,7 +8744,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2007,
-      "cited": 420,
+      "cited": 424,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Astro and Planetary Science",
@@ -9051,6 +8784,110 @@
         "0000-0002-0832-6625",
         "0000-0003-4127-8976",
         "0000-0002-4743-6894"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-0832-6625"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2007.05.014",
+      "title": "The scale and origin of the osmium isotope variations in mid-ocean ridge basalts",
+      "authors": "Abdelmouhcine Gannoun; Kevin W. Burton; I. J. Parkinson; Olivier Alard; Pierre Schiano; Louise Thomas",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2007,
+      "cited": 170,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 6,
+      "institutions": [
+        "The Open University",
+        "Laboratoire Magmas et Volcans",
+        "Université Blaise Pascal"
+      ],
+      "countries": [
+        "GB",
+        "FR"
+      ],
+      "rors": [
+        "05mzfcs16",
+        "02vnq7240",
+        "0119hgk08"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5108767065",
+        "https://openalex.org/A5090504767",
+        "https://openalex.org/A5027893284",
+        "https://openalex.org/A5034349319",
+        "https://openalex.org/A5029378247",
+        "https://openalex.org/A5109876856"
+      ],
+      "authorOrcids": [
+        "0000-0003-4059-730X",
+        "0000-0002-3381-7004",
+        "0000-0001-6380-7061",
+        "0000-0002-0832-6625"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0002-0832-6625"
+      ]
+    },
+    {
+      "doi": "10.1016/j.epsl.2007.05.044",
+      "title": "Multiple events in the Neo-Tethyan oceanic upper mantle: Evidence from Ru–Os–Ir alloys in the Luobusa and Dongqiao ophiolitic podiform chromitites, Tibet",
+      "authors": "Rendeng Shi; Olivier Alard; Xiachen Zhi; Suzanne Yvette O'Reilly; Norman J. Pearson; William L. Griffin; Ming Zhang; Xiaoming Chen",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2007,
+      "cited": 161,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; Geochemistry and Geochronology of Asian Mineral Deposits; Geochemistry and Elemental Analysis",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 8,
+      "institutions": [
+        "University of Science and Technology of China",
+        "Nanjing University",
+        "Centre National de la Recherche Scientifique",
+        "Géosciences Montpellier",
+        "Université Montpellier 2",
+        "Macquarie University"
+      ],
+      "countries": [
+        "CN",
+        "FR",
+        "AU"
+      ],
+      "rors": [
+        "04c4dkn09",
+        "01rxvg760",
+        "02feahw73",
+        "024gts110",
+        "00wh4bp03",
+        "01sf06y89"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5113838476",
+        "https://openalex.org/A5034349319",
+        "https://openalex.org/A5089586342",
+        "https://openalex.org/A5020121719",
+        "https://openalex.org/A5111554675",
+        "https://openalex.org/A5056410545",
+        "https://openalex.org/A5110125724"
+      ],
+      "authorOrcids": [
+        "0000-0002-1222-8147",
+        "0000-0002-0832-6625",
+        "0000-0002-3883-5498",
+        "0000-0002-0980-2566"
       ],
       "attribution": "candidate-review",
       "verifiedBy": [
@@ -9114,152 +8951,51 @@
       ]
     },
     {
-      "doi": "10.1016/j.epsl.2007.05.014",
-      "title": "The scale and origin of the osmium isotope variations in mid-ocean ridge basalts",
-      "authors": "Abdelmouhcine Gannoun; Kevin W. Burton; I. J. Parkinson; Olivier Alard; Pierre Schiano; Louise Thomas",
-      "journal": "Earth and Planetary Science Letters",
+      "doi": "10.1016/j.gca.2007.06.024",
+      "title": "Goldschmidt Abstracts 2007- P",
+      "authors": "D.G. Pearson; Bill Griffin; Hans Kuhn; Olivier Alard; Kevin J. Grant; Simon Jackson; Sue O'Reilly",
+      "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2007,
-      "cited": 166,
+      "cited": 3,
       "type": "article",
       "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
+      "subject": "",
       "sources": [
         "OpenAlex (verified)"
       ],
-      "authorCount": 6,
+      "authorCount": 7,
       "institutions": [
-        "The Open University",
-        "Laboratoire Magmas et Volcans",
-        "Université Blaise Pascal"
+        "Institut de physique du globe de Paris",
+        "Université Paris Diderot",
+        "Centre National de la Recherche Scientifique",
+        "Centre de Recherches Pétrographiques et Géochimiques",
+        "Université de Lorraine",
+        "European Synchrotron Radiation Facility",
+        "Géosciences Montpellier"
       ],
       "countries": [
-        "GB",
         "FR"
       ],
       "rors": [
-        "05mzfcs16",
-        "02vnq7240",
-        "0119hgk08"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5108767065",
-        "https://openalex.org/A5090504767",
-        "https://openalex.org/A5027893284",
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5029378247",
-        "https://openalex.org/A5109876856"
-      ],
-      "authorOrcids": [
-        "0000-0003-4059-730X",
-        "0000-0002-3381-7004",
-        "0000-0001-6380-7061",
-        "0000-0002-0832-6625"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
-      "doi": "10.1016/j.epsl.2007.05.044",
-      "title": "Multiple events in the Neo-Tethyan oceanic upper mantle: Evidence from Ru–Os–Ir alloys in the Luobusa and Dongqiao ophiolitic podiform chromitites, Tibet",
-      "authors": "Rendeng Shi; Olivier Alard; Xiachen Zhi; Suzanne Yvette O'Reilly; Norman J. Pearson; William L. Griffin; Ming Zhang; Xiaoming Chen",
-      "journal": "Earth and Planetary Science Letters",
-      "publisher": "Elsevier BV",
-      "year": 2007,
-      "cited": 155,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Geochronology of Asian Mineral Deposits; Geochemistry and Elemental Analysis",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 8,
-      "institutions": [
-        "University of Science and Technology of China",
-        "Nanjing University",
-        "Centre National de la Recherche Scientifique",
-        "Géosciences Montpellier",
-        "Université Montpellier 2",
-        "Macquarie University"
-      ],
-      "countries": [
-        "CN",
-        "FR",
-        "AU"
-      ],
-      "rors": [
-        "04c4dkn09",
-        "01rxvg760",
+        "004gzqz66",
+        "02n7qrg46",
         "02feahw73",
-        "024gts110",
-        "00wh4bp03",
-        "01sf06y89"
+        "011nqat45",
+        "04vfs2w97",
+        "02550n020",
+        "024gts110"
       ],
       "authorIds": [
-        "https://openalex.org/A5113838476",
+        "https://openalex.org/A5146427489",
+        "https://openalex.org/A5162159139",
+        "https://openalex.org/A5162159295",
         "https://openalex.org/A5034349319",
-        "https://openalex.org/A5089586342",
-        "https://openalex.org/A5020121719",
-        "https://openalex.org/A5111554675",
-        "https://openalex.org/A5056410545",
-        "https://openalex.org/A5110125724"
+        "https://openalex.org/A5162255928",
+        "https://openalex.org/A5162352166",
+        "https://openalex.org/A5162378624"
       ],
       "authorOrcids": [
-        "0000-0002-1222-8147",
-        "0000-0002-0832-6625",
-        "0000-0002-3883-5498",
-        "0000-0002-0980-2566"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
-      "doi": "10.1039/b706727e",
-      "title": "Physical and chemical characteristics of particles produced by laser ablation of biogenic calcium carbonate",
-      "authors": "Ed C. Hathorne; Rachael H. James; Paul S. Savage; Olivier Alard",
-      "journal": "Journal of Analytical Atomic Spectrometry",
-      "publisher": "Royal Society of Chemistry",
-      "year": 2007,
-      "cited": 71,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Laser-induced spectroscopy and plasma; Laser-Ablation Synthesis of Nanoparticles; Analytical chemistry methods development",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "The Open University",
-        "University of Bristol",
-        "Centre National de la Recherche Scientifique",
-        "Géosciences Montpellier",
-        "Université Montpellier 2"
-      ],
-      "countries": [
-        "GB",
-        "FR"
-      ],
-      "rors": [
-        "05mzfcs16",
-        "0524sp257",
-        "02feahw73",
-        "024gts110",
-        "00wh4bp03"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5064647133",
-        "https://openalex.org/A5075056484",
-        "https://openalex.org/A5061708903",
-        "https://openalex.org/A5034349319"
-      ],
-      "authorOrcids": [
-        "0000-0002-7813-2455",
-        "0000-0001-7402-2315",
-        "0000-0001-8464-0264",
         "0000-0002-0832-6625"
       ],
       "attribution": "candidate-review",
@@ -9312,35 +9048,6 @@
       ]
     },
     {
-      "doi": "10.1162/lmj.2007.17.79b",
-      "title": "Rhodri Davies: Camber",
-      "authors": "Rhodri Davies",
-      "journal": "Leonardo Music Journal",
-      "publisher": "The MIT Press",
-      "year": 2007,
-      "cited": 0,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Music Technology and Sound Studies; Musicology and Musical Analysis; Sound Studies and Aurality",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5064472114"
-      ],
-      "authorOrcids": [
-        "0000-0002-7662-9468"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-7662-9468"
-      ]
-    },
-    {
       "doi": "10.3997/2214-4609.20146614",
       "title": "Fast-sampling EM Applied to the River Murray and Surrounding Floodplains in Australia",
       "authors": "Michael A. Hatch; Volmer Berens; A. Fitzpatrick; Graham Heinson; Timothy Munday; Andrew Telfer",
@@ -9377,11 +9084,11 @@
     {
       "doi": "10.1071/eg06322",
       "title": "Seismic wavefront tracking in 3D heterogeneous media: applications with multiple data classes",
-      "authors": "Nicholas J.F. Rawlinson; Marthijn de Kool; Malcolm Sambridge",
+      "authors": "Nicholas Rawlinson; Marthijn de Kool; Malcolm Sambridge",
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2006,
-      "cited": 60,
+      "cited": 64,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
@@ -9409,7 +9116,7 @@
     {
       "doi": "10.1071/eg06331",
       "title": "Phase space methods for multi-arrival wavefronts",
-      "authors": "Juerg Hauser; Malcolm Sambridge; Nicholas J.F. Rawlinson",
+      "authors": "Juerg Hauser; Malcolm Sambridge; Nicholas Rawlinson",
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2006,
@@ -9475,7 +9182,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2006,
-      "cited": 309,
+      "cited": 313,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
@@ -9750,9 +9457,9 @@
       "journal": "Nature",
       "publisher": "Nature Portfolio",
       "year": 2005,
-      "cited": 231,
+      "cited": 233,
       "type": "article",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
       "sources": [
         "OpenAlex (verified)"
@@ -9815,7 +9522,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2005,
-      "cited": 191,
+      "cited": 196,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Astrophysics and Star Formation Studies",
@@ -10086,7 +9793,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2004,
-      "cited": 159,
+      "cited": 162,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
@@ -10142,7 +9849,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2004,
-      "cited": 31,
+      "cited": 33,
       "type": "article",
       "isOA": "No",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; High-pressure geophysics and materials",
@@ -10298,7 +10005,7 @@
       "journal": "Journal of Analytical Atomic Spectrometry",
       "publisher": "Royal Society of Chemistry",
       "year": 2003,
-      "cited": 488,
+      "cited": 492,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Scientific Measurement and Uncertainty Evaluation; Analytical chemistry methods development",
@@ -10363,7 +10070,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2003,
-      "cited": 133,
+      "cited": 137,
       "type": "article",
       "isOA": "Yes",
       "subject": "Paleontology and Stratigraphy of Fossils; Analytical chemistry methods development; Geochemistry and Elemental Analysis",
@@ -10404,7 +10111,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2003,
-      "cited": 102,
+      "cited": 103,
       "type": "article",
       "isOA": "No",
       "subject": "Astro and Planetary Science; Planetary Science and Exploration; Geological and Geochemical Analysis",
@@ -10611,7 +10318,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2002,
-      "cited": 101,
+      "cited": 102,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -10692,7 +10399,7 @@
       "journal": "Handbook of geophysical exploration. Section 1, Seismic exploration/Handbook of geophysical exploration. Seismic exploration",
       "publisher": "Elsevier BV",
       "year": 2001,
-      "cited": 3,
+      "cited": 4,
       "type": "book chapter",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Neural Networks and Applications; Seismology and Earthquake Studies",
@@ -10722,7 +10429,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2001,
-      "cited": 289,
+      "cited": 292,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -10768,7 +10475,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2000,
-      "cited": 105,
+      "cited": 107,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Geological and Geophysical Studies Worldwide",
@@ -10805,51 +10512,6 @@
       "attribution": "candidate-review",
       "verifiedBy": [
         "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
-      "doi": "10.1071/eg00255",
-      "title": "Fractured rock geophysical studies in the Clare Valley, South Australia",
-      "authors": "Tom Wilson; Graham Heinson; Anthony L. Endres; Todd Halihan",
-      "journal": "Exploration Geophysics",
-      "publisher": "Taylor & Francis",
-      "year": 2000,
-      "cited": 7,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Geophysical and Geoelectrical Methods; Groundwater flow and contamination studies; Geophysical Methods and Applications",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 4,
-      "institutions": [
-        "Flinders University",
-        "University of Waterloo",
-        "The University of Texas at Austin"
-      ],
-      "countries": [
-        "AU",
-        "CA",
-        "US"
-      ],
-      "rors": [
-        "01kpzv902",
-        "01aff2v68",
-        "00hj54h04"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5103592065",
-        "https://openalex.org/A5089578866",
-        "https://openalex.org/A5061955333",
-        "https://openalex.org/A5079178653"
-      ],
-      "authorOrcids": [
-        "0000-0001-7106-0789",
-        "0000-0001-7324-9745"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789"
       ]
     },
     {
@@ -10893,6 +10555,51 @@
         "0000-0002-3252-9502",
         "0000-0002-1387-7632",
         "0000-0003-1488-3361"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789"
+      ]
+    },
+    {
+      "doi": "10.1071/eg00255",
+      "title": "Fractured rock geophysical studies in the Clare Valley, South Australia",
+      "authors": "Tom Wilson; Graham Heinson; Anthony L. Endres; Todd Halihan",
+      "journal": "Exploration Geophysics",
+      "publisher": "Taylor & Francis",
+      "year": 2000,
+      "cited": 7,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geophysical and Geoelectrical Methods; Groundwater flow and contamination studies; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Flinders University",
+        "University of Waterloo",
+        "The University of Texas at Austin"
+      ],
+      "countries": [
+        "AU",
+        "CA",
+        "US"
+      ],
+      "rors": [
+        "01kpzv902",
+        "01aff2v68",
+        "00hj54h04"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5103592065",
+        "https://openalex.org/A5089578866",
+        "https://openalex.org/A5061955333",
+        "https://openalex.org/A5079178653"
+      ],
+      "authorOrcids": [
+        "0000-0001-7106-0789",
+        "0000-0001-7324-9745"
       ],
       "attribution": "candidate-review",
       "verifiedBy": [
@@ -11129,7 +10836,7 @@
       "journal": "Science",
       "publisher": "American Association for the Advancement of Science",
       "year": 1999,
-      "cited": 148,
+      "cited": 149,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -11199,6 +10906,41 @@
       ]
     },
     {
+      "doi": "10.1023/a:1006689521329",
+      "title": "Electromagnetic Studies Of The Lithosphere And Asthenosphere",
+      "authors": "Graham Heinson",
+      "journal": "Surveys in Geophysics",
+      "publisher": "Springer Science+Business Media",
+      "year": 1999,
+      "cited": 75,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geophysical and Geoelectrical Methods; High-pressure geophysics and materials; Geological and Geophysical Studies",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 1,
+      "institutions": [
+        "Flinders University"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "rors": [
+        "01kpzv902"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5089578866"
+      ],
+      "authorOrcids": [
+        "0000-0001-7106-0789"
+      ],
+      "attribution": "candidate-review",
+      "verifiedBy": [
+        "orcid:0000-0001-7106-0789"
+      ]
+    },
+    {
       "doi": "10.1071/eg999001",
       "title": "Marine self potential exploration*",
       "authors": "Graham Heinson; Antony White; Steven Constable; Kerry W. Key",
@@ -11242,50 +10984,15 @@
       ]
     },
     {
-      "doi": "10.1023/a:1006689521329",
-      "title": "Electromagnetic Studies Of The Lithosphere And Asthenosphere",
-      "authors": "Graham Heinson",
-      "journal": "Surveys in Geophysics",
-      "publisher": "Springer Science+Business Media",
-      "year": 1999,
-      "cited": 73,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Geophysical and Geoelectrical Methods; High-pressure geophysics and materials; Geological and Geophysical Studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [
-        "Flinders University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "01kpzv902"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5089578866"
-      ],
-      "authorOrcids": [
-        "0000-0001-7106-0789"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-7106-0789"
-      ]
-    },
-    {
       "doi": "10.1017/cbo9780511600050.003",
       "title": "Evidence for accumulated melt beneath the slow-spreading Mid-Atlantic Ridge",
-      "authors": "Martin C. Sinha; D. A. Navin; Lucy Jane MacGregor; Steven Constable; C. Peirce; A. White; Graham Heinson; M. A. Inglis",
+      "authors": "Martin C. Sinha; D. A. Navin; Lucy MacGregor; Steven Constable; C. Peirce; A. White; Graham Heinson; M. A. Inglis",
       "journal": "Cambridge University Press eBooks",
       "publisher": "Cambridge University Press",
       "year": 1999,
-      "cited": 3,
+      "cited": 4,
       "type": "book chapter",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; High-pressure geophysics and materials",
       "sources": [
         "OpenAlex (verified)"
@@ -11322,7 +11029,7 @@
       ],
       "authorOrcids": [
         "0000-0001-7612-9271",
-        "0000-0002-1062-9529",
+        "0000-0001-8034-3203",
         "0000-0001-6324-3470",
         "0000-0002-4040-5964",
         "0000-0001-8164-8965",
@@ -11340,7 +11047,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 1998,
-      "cited": 90,
+      "cited": 93,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Geophysical and Geoelectrical Methods; Numerical methods in inverse problems",
@@ -11371,7 +11078,7 @@
       "journal": "Inverse Problems",
       "publisher": "IOP Publishing",
       "year": 1998,
-      "cited": 0,
+      "cited": 1,
       "type": "editorial",
       "isOA": "No",
       "subject": "Numerical methods in inverse problems; Spectral Theory in Mathematical Physics; Seismic Imaging and Inversion Techniques",
@@ -11470,13 +11177,13 @@
     {
       "doi": "10.1046/j.1365-246x.1998.00704.x",
       "title": "Magmatic processes at slow spreading ridges: implications of the RAMESSES experiment at 57° 45′N on the Mid-Atlantic Ridge",
-      "authors": "Martin C. Sinha; Steven Constable; C. Peirce; A. White; Graham Heinson; Lucy Jane MacGregor; D. A. Navin",
+      "authors": "Martin C. Sinha; Steven Constable; C. Peirce; A. White; Graham Heinson; Lucy MacGregor; D. A. Navin",
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 1998,
       "cited": 121,
       "type": "article",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Geophysical and Geoelectrical Methods",
       "sources": [
         "OpenAlex (verified)"
@@ -11514,7 +11221,7 @@
         "0000-0002-4040-5964",
         "0000-0001-8164-8965",
         "0000-0001-7106-0789",
-        "0000-0002-1062-9529"
+        "0000-0001-8034-3203"
       ],
       "attribution": "candidate-review",
       "verifiedBy": [
@@ -11562,7 +11269,7 @@
     {
       "doi": "10.1098/rsta.1997.0008",
       "title": "Evidence for accumulated melt beneath the slow–spreading Mid–Atlantic Ridge",
-      "authors": "Martin C. Sinha; D. A. Navin; Lucy Jane MacGregor; Steven Constable; C. Peirce; A. White; Graham Heinson; M. A. Inglis",
+      "authors": "Martin C. Sinha; D. A. Navin; Lucy MacGregor; Steven Constable; C. Peirce; A. White; Graham Heinson; M. A. Inglis",
       "journal": "Philosophical Transactions of the Royal Society A Mathematical Physical and Engineering Sciences",
       "publisher": "Royal Society",
       "year": 1997,
@@ -11605,7 +11312,7 @@
       ],
       "authorOrcids": [
         "0000-0001-7612-9271",
-        "0000-0002-1062-9529",
+        "0000-0001-8034-3203",
         "0000-0001-6324-3470",
         "0000-0002-4040-5964",
         "0000-0001-8164-8965",
