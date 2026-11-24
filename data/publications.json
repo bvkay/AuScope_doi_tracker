@@ -1,12 +1,12 @@
 {
   "metadata": {
     "type": "publications",
-    "last_updated": "2026-11-24T01:00:21.593Z",
-    "total_count": 3346,
+    "last_updated": "2026-11-24T11:05:16.924Z",
+    "total_count": 3358,
     "evidence_updated": "2026-11-23T11:57:05.675Z",
     "consolidated": "2026-11-23T11:57:05.843Z",
     "dates_enriched": "2026-11-23T11:47:03.920Z",
-    "search_updated": "2026-11-24T01:00:21.593Z"
+    "search_updated": "2026-11-24T11:05:16.924Z"
   },
   "records": [
     {
@@ -109,7 +109,7 @@
       "journal": "Communications Earth & Environment",
       "publisher": "Nature Portfolio",
       "year": 2026,
-      "cited": 5,
+      "cited": 6,
       "type": "article",
       "isOA": "Yes",
       "subject": "Paleontology and Stratigraphy of Fossils; Geology and Paleoclimatology Research; Geological and Geochemical Analysis",
@@ -490,7 +490,7 @@
       "doi": "10.22541/essoar.175853067.79457057/v1",
       "title": "Plate-plume interaction driving microcontinent formation in the South Atlantic: Evidence from the Rio Grande Rise and Valdivia Bank",
       "authors": "Caesar Augusto Rigoti; Sabin Zahirovic; Nolan Maia Dehler; Maria Seton",
-      "journal": "",
+      "journal": "ESS Open Archive",
       "publisher": "Wiley",
       "year": 2025,
       "cited": 1,
@@ -2165,7 +2165,7 @@
       "doi": "10.22541/essoar.170136192.22275715/v1",
       "title": "Reconstructing the Mesozoic evolution of the Gulf of Mexico Basin: A new model incorporating optimised and focused lithospheric deformation",
       "authors": "Satyam Pratap Singh; Sabin Zahirovic; Maria Seton; Nicky M. Wright; Nicholas Atwood; Catherine Belgarde; Claire Mallard",
-      "journal": "",
+      "journal": "ESS Open Archive",
       "publisher": "Wiley",
       "year": 2023,
       "cited": 0,
@@ -6434,7 +6434,7 @@
       "journal": "Nature Communications",
       "publisher": "Nature Portfolio",
       "year": 2021,
-      "cited": 125,
+      "cited": 126,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Cryospheric studies and observations; Geological formations and processes",
@@ -15004,7 +15004,8 @@
         "AuScope",
         "EarthByte",
         "GPlates",
-        "Simulation Analysis Modelling AuScope"
+        "Simulation Analysis Modelling AuScope",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "evidence": "text-attributed",
@@ -35246,7 +35247,8 @@
       "searchTerms": [
         "Manual submission",
         "AuScope",
-        "Australian Geophysical Observing System"
+        "Australian Geophysical Observing System",
+        "Characterisation AuScope"
       ],
       "dateAdded": "2026-03-24",
       "evidence": "keyword",
@@ -40950,7 +40952,8 @@
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
         "Manual entry",
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "evidence": "keyword",
       "publicationDate": "2022-04-28",
@@ -41028,7 +41031,8 @@
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
         "Manual entry",
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope"
       ],
       "evidence": "keyword",
       "publicationDate": "2022-09-14",
@@ -42821,7 +42825,8 @@
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
         "Manual entry",
-        "AuScope"
+        "AuScope",
+        "Antarctica GRIT AuScope"
       ],
       "evidence": "keyword",
       "publicationDate": "2023-07-13",
@@ -44735,7 +44740,7 @@
       "journal": "Data Science Journal",
       "publisher": "Ubiquity Press, Ltd.",
       "year": 2023,
-      "cited": 7,
+      "cited": 8,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "Research Data Management Practices; Scientific Computing and Data Management; Data Quality and Management",
@@ -44746,7 +44751,8 @@
       "dateAdded": "Mon Mar 23 2026 21:00:00 GMT+0800 (Australian Western Standard Time)",
       "searchTerms": [
         "Manual entry",
-        "AuScope"
+        "AuScope",
+        "Outreach Engagement AuScope"
       ],
       "evidence": "keyword",
       "publicationDate": "2023-03-01",
@@ -49315,7 +49321,9 @@
       ],
       "searchTerms": [
         "G-Adopt geodynamic",
-        "AuScope"
+        "AuScope",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 5,
       "institutions": [
@@ -51548,7 +51556,7 @@
       "journal": "Advances in Space Research",
       "publisher": "Elsevier BV",
       "year": 2021,
-      "cited": 14,
+      "cited": 15,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "GNSS positioning and interference; Radio Astronomy Observations and Technology; Advanced Frequency and Time Standards",
@@ -60333,7 +60341,7 @@
       "journal": "Geochemistry, Geophysics, Geosystems",
       "publisher": "American Geophysical Union (AGU)",
       "year": 2021,
-      "cited": 52,
+      "cited": 53,
       "type": "journal article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
@@ -74053,7 +74061,7 @@
       "doi": "10.22541/essoar.174646990.01802371/v1",
       "title": "Topographic Diversity in Subduction-Related Mountains Driven by Plate Tectonics and Mantle Dynamics",
       "authors": "Satyam Pratap Singh; Maria Seton; Sabin Zahirovic; Nicky M. Wright; Nicholas Atwood; Clement Fay",
-      "journal": "",
+      "journal": "ESS Open Archive",
       "publisher": "Wiley",
       "year": 2025,
       "cited": 0,
@@ -74090,7 +74098,7 @@
       "cited": 0,
       "type": "other",
       "isOA": "Yes",
-      "subject": "Seismic Waves and Analysis; Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Geological Modeling and Analysis",
       "sources": [
         "OpenAlex"
       ],
@@ -90428,7 +90436,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 1,
       "institutions": [
@@ -90813,7 +90823,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Research Data Systems AuScope"
       ],
       "authorCount": 1,
       "institutions": [],
@@ -90925,7 +90936,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AuScope"
+        "AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 7,
       "institutions": [
@@ -91560,7 +91572,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "National Argon Map"
+        "National Argon Map",
+        "Characterisation AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -91584,7 +91597,9 @@
       ],
       "searchTerms": [
         "AuScope VLBI",
-        "Yarragadee VLBI"
+        "Yarragadee VLBI",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -91608,7 +91623,10 @@
       ],
       "searchTerms": [
         "AuScope VLBI",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope",
+        "International Collaboration AuScope"
       ],
       "authorCount": 42,
       "institutions": [
@@ -91921,7 +91939,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Mt Pleasant VLBI"
+        "Mt Pleasant VLBI",
+        "International Collaboration AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -91983,7 +92002,9 @@
       "searchTerms": [
         "Mt Pleasant VLBI",
         "National Virtual Core Library",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Imaging Sounding AuScope",
+        "Earth Composition Evolution AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -92025,7 +92046,7 @@
       "doi": "10.22541/essoar.176087378.86482639/v1",
       "title": "Three-dimensional High-resolution Crustal Structure of Mount Isa Province, Northwest Queensland, revealed by Ambient Noise Tomography",
       "authors": "Ao Chang; Craig O’Neill; Chengxin Jiang",
-      "journal": "",
+      "journal": "ESS Open Archive",
       "publisher": "",
       "year": 2025,
       "cited": 0,
@@ -92036,7 +92057,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "AusPass seismic"
+        "AusPass seismic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 3,
       "institutions": [
@@ -94402,7 +94424,8 @@
       ],
       "searchTerms": [
         "Underworld2",
-        "G-Adopt geodynamic"
+        "G-Adopt geodynamic",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -94677,7 +94700,9 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "G-Adopt geodynamic"
+        "G-Adopt geodynamic",
+        "Characterisation AuScope",
+        "Simulation Analysis Modelling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -95048,7 +95073,9 @@
       ],
       "searchTerms": [
         "National Virtual Core Library",
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Imaging Sounding AuScope",
+        "Earth Composition Evolution AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -95117,7 +95144,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "National Virtual Core Library"
+        "National Virtual Core Library",
+        "International Collaboration AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -95163,7 +95191,8 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Imaging Sounding AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
@@ -95186,12 +95215,303 @@
         "OpenAlex"
       ],
       "searchTerms": [
-        "Geospatial Geodesy AuScope"
+        "Geospatial Geodesy AuScope",
+        "Earth Sampling AuScope"
       ],
       "authorCount": 0,
       "institutions": [],
       "countries": [],
       "publicationDate": "2007-02-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.1071/pvv2009n140",
+      "title": "Preview Number 140",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2009,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Earth Imaging Sounding AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2009-06-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.1016/j.gexplo.2026.108284",
+      "title": "Metals exploration in sedimentary basins of Western Australia: insights from detrital rutile trace element geochemistry",
+      "authors": "J.K. Porter; Neal Jesse McNaughton; Noreen Joyce Evans; Bradley J. McDonald",
+      "journal": "Journal of Geochemical Exploration",
+      "publisher": "Elsevier BV",
+      "year": 2026,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geochemistry and Geologic Mapping; Geochemistry and Elemental Analysis; Geological and Geochemical Analysis",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Characterisation AuScope"
+      ],
+      "authorCount": 4,
+      "institutions": [
+        "Geological Survey of Western Australia",
+        "Curtin University"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "publicationDate": "2026-11-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.1080/14432471.2024.2438946",
+      "title": "ASEG branch news",
+      "authors": "Tjaart de Wit; Mark McLean; Emad Hemyari; Babak Hejrani; Harikrishnan Nalinakumar; Tim Dean; Mike Hatch",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2024,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Characterisation AuScope"
+      ],
+      "authorCount": 7,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2024-11-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.1071/pvv2009n139",
+      "title": "Preview Number 139",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2009,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geophysics and Gravity Measurements; Geophysical Methods and Applications",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Outreach Engagement AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2009-04-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.1071/pvv2012n157",
+      "title": "Preview Number 157",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2012,
+      "cited": 1,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "Geophysics and Gravity Measurements; Geophysical Methods and Applications; GNSS positioning and interference",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "International Collaboration AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2012-04-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.1071/pvv2009n143",
+      "title": "Preview Number 143",
+      "authors": "",
+      "journal": "Preview",
+      "publisher": "Taylor & Francis",
+      "year": 2009,
+      "cited": 0,
+      "type": "article",
+      "isOA": "Yes",
+      "subject": "",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "International Collaboration AuScope"
+      ],
+      "authorCount": 0,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2009-12-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.5281/zenodo.21059335",
+      "title": "Magnetotelluric data and resistivity models from deep Earth investigations in East Antarctica",
+      "authors": "María Constanza Manassero; Kate Selway; Anya M. Reading; Niam Askey-Doran; Tobias Stål",
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "publisher": "European Organization for Nuclear Research",
+      "year": 2026,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "Yes",
+      "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geomagnetism and Paleomagnetism Studies",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "Antarctica GRIT AuScope"
+      ],
+      "authorCount": 5,
+      "institutions": [
+        "University of Tasmania",
+        "Australian Centre for Excellence in Antarctic Science",
+        "University of South Australia",
+        "University of Oslo",
+        "Macquarie University"
+      ],
+      "countries": [
+        "AU",
+        "NO"
+      ],
+      "publicationDate": "2026-06-30",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.14264/2ff4c34",
+      "title": "esys-escript 5.7",
+      "authors": "Adam Ellery; Andrea Codd; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2021,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2021-01-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.14264/84f4666",
+      "title": "esys-escript 5.8",
+      "authors": "Adam Ellery; Andrea Codd; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2021,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2021-01-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.14264/uql.2020.118",
+      "title": "esys-escript 5.5",
+      "authors": "Adam Ellery; Andrea Codd; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2020,
+      "cited": 1,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2020-01-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.14264/uql.2020.966",
+      "title": "esys-escript 5.6",
+      "authors": "Adam Ellery; Andrea Codd; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2020,
+      "cited": 0,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2020-01-01",
+      "dateAdded": "2026-11-24"
+    },
+    {
+      "doi": "10.14264/uql.2019.510",
+      "title": "esys-escript 5.3",
+      "authors": "Adam Ellery; Joel Fenwick; Lutz Gross",
+      "journal": "Queensland's institutional digital repository (The University of Queensland)",
+      "publisher": "The University of Queensland",
+      "year": 2019,
+      "cited": 3,
+      "type": "dataset",
+      "isOA": "No",
+      "subject": "Computational Physics and Python Applications; Advanced Numerical Methods in Computational Mathematics; Modeling and Simulation Systems",
+      "sources": [
+        "OpenAlex"
+      ],
+      "searchTerms": [
+        "esys-escript"
+      ],
+      "authorCount": 3,
+      "institutions": [],
+      "countries": [],
+      "publicationDate": "2019-01-01",
       "dateAdded": "2026-11-24"
     }
   ]
