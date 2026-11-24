@@ -1,55 +1,55 @@
 {
-  "generated": "2026-11-23T11:57:30.325Z",
+  "generated": "2026-11-24T13:31:41.319Z",
   "stats": {
-    "totalPublications": 3199,
+    "totalPublications": 3327,
     "totalDatasets": 476,
-    "totalCitations": 75920,
-    "citedPublications": 2585,
-    "citedPercent": 80.8,
-    "avgCitations": 23.7,
-    "uniqueJournals": 670,
-    "uniqueAuthors": 11812,
-    "uniqueInstitutions": 1580,
+    "totalCitations": 76911,
+    "citedPublications": 2638,
+    "citedPercent": 79.3,
+    "avgCitations": 23.1,
+    "uniqueJournals": 695,
+    "uniqueAuthors": 12076,
+    "uniqueInstitutions": 1638,
     "uniqueCountries": 97,
-    "attributedAuthors": 2911,
-    "attributedInstitutions": 928,
+    "attributedAuthors": 2909,
+    "attributedInstitutions": 929,
     "attributedCountries": 79,
     "documentedAuthors": 2589,
     "documentedInstitutions": 861,
     "documentedCountries": 72,
     "yearRange": "2007–2026",
-    "noSubjectCount": 14,
+    "noSubjectCount": 23,
     "evidenceSplit": {
       "documented": {
         "pubs": 656,
-        "citations": 17132
+        "citations": 17178
       },
       "candidate": {
         "pubs": 124,
-        "citations": 5449
+        "citations": 5462
       },
       "software": {
         "pubs": 305,
-        "citations": 7259
+        "citations": 7292
       },
       "unverified": {
-        "pubs": 2114,
-        "citations": 46080
+        "pubs": 2242,
+        "citations": 46979
       }
     }
   },
   "publicationsByYear": [
     {
       "year": 2007,
-      "count": 10,
-      "cumulative": 10,
-      "citations": 503,
-      "cumulativeCitations": 503,
+      "count": 12,
+      "cumulative": 12,
+      "citations": 528,
+      "cumulativeCitations": 528,
       "documented": 0,
       "candidate": 0,
       "attributed": 0,
       "software": 0,
-      "unverified": 10,
+      "unverified": 12,
       "docCitations": 0,
       "attrCitations": 0,
       "cumulativeDocumented": 0,
@@ -59,15 +59,15 @@
     },
     {
       "year": 2008,
-      "count": 14,
-      "cumulative": 24,
+      "count": 16,
+      "cumulative": 28,
       "citations": 3807,
-      "cumulativeCitations": 4310,
+      "cumulativeCitations": 4335,
       "documented": 6,
       "candidate": 0,
       "attributed": 6,
       "software": 0,
-      "unverified": 8,
+      "unverified": 10,
       "docCitations": 2332,
       "attrCitations": 2332,
       "cumulativeDocumented": 6,
@@ -77,15 +77,15 @@
     },
     {
       "year": 2009,
-      "count": 19,
-      "cumulative": 43,
-      "citations": 910,
-      "cumulativeCitations": 5220,
+      "count": 23,
+      "cumulative": 51,
+      "citations": 913,
+      "cumulativeCitations": 5248,
       "documented": 6,
       "candidate": 1,
       "attributed": 7,
       "software": 0,
-      "unverified": 12,
+      "unverified": 16,
       "docCitations": 490,
       "attrCitations": 517,
       "cumulativeDocumented": 12,
@@ -95,15 +95,15 @@
     },
     {
       "year": 2010,
-      "count": 18,
-      "cumulative": 61,
-      "citations": 449,
-      "cumulativeCitations": 5669,
+      "count": 21,
+      "cumulative": 72,
+      "citations": 479,
+      "cumulativeCitations": 5727,
       "documented": 7,
       "candidate": 1,
       "attributed": 8,
       "software": 0,
-      "unverified": 10,
+      "unverified": 13,
       "docCitations": 288,
       "attrCitations": 289,
       "cumulativeDocumented": 19,
@@ -114,9 +114,9 @@
     {
       "year": 2011,
       "count": 20,
-      "cumulative": 81,
-      "citations": 644,
-      "cumulativeCitations": 6313,
+      "cumulative": 92,
+      "citations": 645,
+      "cumulativeCitations": 6372,
       "documented": 13,
       "candidate": 1,
       "attributed": 14,
@@ -131,15 +131,15 @@
     },
     {
       "year": 2012,
-      "count": 21,
-      "cumulative": 102,
-      "citations": 711,
-      "cumulativeCitations": 7024,
+      "count": 22,
+      "cumulative": 114,
+      "citations": 712,
+      "cumulativeCitations": 7084,
       "documented": 10,
       "candidate": 5,
       "attributed": 15,
       "software": 0,
-      "unverified": 6,
+      "unverified": 7,
       "docCitations": 363,
       "attrCitations": 570,
       "cumulativeDocumented": 42,
@@ -149,15 +149,15 @@
     },
     {
       "year": 2013,
-      "count": 22,
-      "cumulative": 124,
+      "count": 23,
+      "cumulative": 137,
       "citations": 1013,
-      "cumulativeCitations": 8037,
+      "cumulativeCitations": 8097,
       "documented": 9,
       "candidate": 1,
       "attributed": 10,
       "software": 1,
-      "unverified": 11,
+      "unverified": 12,
       "docCitations": 791,
       "attrCitations": 791,
       "cumulativeDocumented": 51,
@@ -167,28 +167,28 @@
     },
     {
       "year": 2014,
-      "count": 33,
-      "cumulative": 157,
-      "citations": 6396,
-      "cumulativeCitations": 14433,
+      "count": 35,
+      "cumulative": 172,
+      "citations": 6721,
+      "cumulativeCitations": 14818,
       "documented": 14,
       "candidate": 7,
       "attributed": 21,
       "software": 2,
-      "unverified": 10,
+      "unverified": 12,
       "docCitations": 649,
-      "attrCitations": 3934,
+      "attrCitations": 3936,
       "cumulativeDocumented": 65,
       "cumulativeDocCitations": 5318,
       "cumulativeAttributed": 81,
-      "cumulativeAttrCitations": 8918
+      "cumulativeAttrCitations": 8920
     },
     {
       "year": 2015,
       "count": 56,
-      "cumulative": 213,
-      "citations": 2497,
-      "cumulativeCitations": 16930,
+      "cumulative": 228,
+      "citations": 2498,
+      "cumulativeCitations": 17316,
       "documented": 24,
       "candidate": 4,
       "attributed": 28,
@@ -199,32 +199,32 @@
       "cumulativeDocumented": 89,
       "cumulativeDocCitations": 6147,
       "cumulativeAttributed": 109,
-      "cumulativeAttrCitations": 9924
+      "cumulativeAttrCitations": 9926
     },
     {
       "year": 2016,
       "count": 66,
-      "cumulative": 279,
-      "citations": 2799,
-      "cumulativeCitations": 19729,
+      "cumulative": 294,
+      "citations": 2801,
+      "cumulativeCitations": 20117,
       "documented": 29,
       "candidate": 5,
       "attributed": 34,
       "software": 7,
       "unverified": 25,
-      "docCitations": 1611,
-      "attrCitations": 1642,
+      "docCitations": 1613,
+      "attrCitations": 1644,
       "cumulativeDocumented": 118,
-      "cumulativeDocCitations": 7758,
+      "cumulativeDocCitations": 7760,
       "cumulativeAttributed": 143,
-      "cumulativeAttrCitations": 11566
+      "cumulativeAttrCitations": 11570
     },
     {
       "year": 2017,
       "count": 75,
-      "cumulative": 354,
-      "citations": 3655,
-      "cumulativeCitations": 23384,
+      "cumulative": 369,
+      "citations": 3657,
+      "cumulativeCitations": 23774,
       "documented": 32,
       "candidate": 1,
       "attributed": 33,
@@ -233,221 +233,225 @@
       "docCitations": 1135,
       "attrCitations": 1135,
       "cumulativeDocumented": 150,
-      "cumulativeDocCitations": 8893,
+      "cumulativeDocCitations": 8895,
       "cumulativeAttributed": 176,
-      "cumulativeAttrCitations": 12701
+      "cumulativeAttrCitations": 12705
     },
     {
       "year": 2018,
       "count": 96,
-      "cumulative": 450,
-      "citations": 4085,
-      "cumulativeCitations": 27469,
+      "cumulative": 465,
+      "citations": 4104,
+      "cumulativeCitations": 27878,
       "documented": 30,
       "candidate": 8,
       "attributed": 38,
       "software": 17,
       "unverified": 41,
-      "docCitations": 2011,
-      "attrCitations": 2291,
+      "docCitations": 2021,
+      "attrCitations": 2301,
       "cumulativeDocumented": 180,
-      "cumulativeDocCitations": 10904,
+      "cumulativeDocCitations": 10916,
       "cumulativeAttributed": 214,
-      "cumulativeAttrCitations": 14992
+      "cumulativeAttrCitations": 15006
     },
     {
       "year": 2019,
-      "count": 118,
-      "cumulative": 568,
-      "citations": 3576,
-      "cumulativeCitations": 31045,
+      "count": 123,
+      "cumulative": 588,
+      "citations": 3622,
+      "cumulativeCitations": 31500,
       "documented": 42,
       "candidate": 6,
       "attributed": 48,
       "software": 9,
-      "unverified": 61,
+      "unverified": 66,
       "docCitations": 918,
       "attrCitations": 1000,
       "cumulativeDocumented": 222,
-      "cumulativeDocCitations": 11822,
+      "cumulativeDocCitations": 11834,
       "cumulativeAttributed": 262,
-      "cumulativeAttrCitations": 15992
+      "cumulativeAttrCitations": 16006
     },
     {
       "year": 2020,
-      "count": 534,
-      "cumulative": 1102,
-      "citations": 18005,
-      "cumulativeCitations": 49050,
+      "count": 545,
+      "cumulative": 1133,
+      "citations": 18214,
+      "cumulativeCitations": 49714,
       "documented": 45,
       "candidate": 9,
       "attributed": 54,
       "software": 16,
-      "unverified": 464,
-      "docCitations": 1533,
-      "attrCitations": 2179,
+      "unverified": 475,
+      "docCitations": 1534,
+      "attrCitations": 2180,
       "cumulativeDocumented": 267,
-      "cumulativeDocCitations": 13355,
+      "cumulativeDocCitations": 13368,
       "cumulativeAttributed": 316,
-      "cumulativeAttrCitations": 18171
+      "cumulativeAttrCitations": 18186
     },
     {
       "year": 2021,
-      "count": 501,
-      "cumulative": 1603,
-      "citations": 12463,
-      "cumulativeCitations": 61513,
+      "count": 510,
+      "cumulative": 1643,
+      "citations": 12519,
+      "cumulativeCitations": 62233,
       "documented": 69,
       "candidate": 8,
       "attributed": 77,
       "software": 18,
-      "unverified": 406,
-      "docCitations": 1256,
-      "attrCitations": 1399,
+      "unverified": 415,
+      "docCitations": 1263,
+      "attrCitations": 1407,
       "cumulativeDocumented": 336,
-      "cumulativeDocCitations": 14611,
+      "cumulativeDocCitations": 14631,
       "cumulativeAttributed": 393,
-      "cumulativeAttrCitations": 19570
+      "cumulativeAttrCitations": 19593
     },
     {
       "year": 2022,
-      "count": 468,
-      "cumulative": 2071,
-      "citations": 7377,
-      "cumulativeCitations": 68890,
+      "count": 472,
+      "cumulative": 2115,
+      "citations": 7418,
+      "cumulativeCitations": 69651,
       "documented": 69,
       "candidate": 11,
       "attributed": 80,
       "software": 30,
-      "unverified": 358,
-      "docCitations": 913,
-      "attrCitations": 1101,
+      "unverified": 362,
+      "docCitations": 925,
+      "attrCitations": 1116,
       "cumulativeDocumented": 405,
-      "cumulativeDocCitations": 15524,
+      "cumulativeDocCitations": 15556,
       "cumulativeAttributed": 473,
-      "cumulativeAttrCitations": 20671
+      "cumulativeAttrCitations": 20709
     },
     {
       "year": 2023,
-      "count": 382,
-      "cumulative": 2453,
-      "citations": 4457,
-      "cumulativeCitations": 73347,
+      "count": 385,
+      "cumulative": 2500,
+      "citations": 4527,
+      "cumulativeCitations": 74178,
       "documented": 92,
       "candidate": 8,
       "attributed": 100,
       "software": 31,
-      "unverified": 251,
-      "docCitations": 933,
-      "attrCitations": 1073,
+      "unverified": 254,
+      "docCitations": 939,
+      "attrCitations": 1084,
       "cumulativeDocumented": 497,
-      "cumulativeDocCitations": 16457,
+      "cumulativeDocCitations": 16495,
       "cumulativeAttributed": 573,
-      "cumulativeAttrCitations": 21744
+      "cumulativeAttrCitations": 21793
     },
     {
       "year": 2024,
-      "count": 209,
-      "cumulative": 2662,
-      "citations": 1815,
-      "cumulativeCitations": 75162,
+      "count": 224,
+      "cumulative": 2724,
+      "citations": 1899,
+      "cumulativeCitations": 76077,
       "documented": 55,
       "candidate": 19,
       "attributed": 74,
       "software": 42,
-      "unverified": 93,
+      "unverified": 108,
       "docCitations": 395,
       "attrCitations": 506,
       "cumulativeDocumented": 552,
-      "cumulativeDocCitations": 16852,
+      "cumulativeDocCitations": 16890,
       "cumulativeAttributed": 647,
-      "cumulativeAttrCitations": 22250
+      "cumulativeAttrCitations": 22299
     },
     {
       "year": 2025,
-      "count": 221,
-      "cumulative": 2883,
-      "citations": 589,
-      "cumulativeCitations": 75751,
+      "count": 234,
+      "cumulative": 2958,
+      "citations": 641,
+      "cumulativeCitations": 76718,
       "documented": 75,
       "candidate": 15,
       "attributed": 90,
       "software": 52,
-      "unverified": 79,
-      "docCitations": 247,
-      "attrCitations": 282,
+      "unverified": 92,
+      "docCitations": 254,
+      "attrCitations": 291,
       "cumulativeDocumented": 627,
-      "cumulativeDocCitations": 17099,
+      "cumulativeDocCitations": 17144,
       "cumulativeAttributed": 737,
-      "cumulativeAttrCitations": 22532
+      "cumulativeAttrCitations": 22590
     },
     {
       "year": 2026,
-      "count": 316,
-      "cumulative": 3199,
-      "citations": 169,
-      "cumulativeCitations": 75920,
+      "count": 369,
+      "cumulative": 3327,
+      "citations": 193,
+      "cumulativeCitations": 76911,
       "documented": 29,
       "candidate": 14,
       "attributed": 43,
       "software": 68,
-      "unverified": 205,
-      "docCitations": 33,
-      "attrCitations": 49,
+      "unverified": 258,
+      "docCitations": 34,
+      "attrCitations": 50,
       "cumulativeDocumented": 656,
-      "cumulativeDocCitations": 17132,
+      "cumulativeDocCitations": 17178,
       "cumulativeAttributed": 780,
-      "cumulativeAttrCitations": 22581
+      "cumulativeAttrCitations": 22640
     }
   ],
   "topSubjects": [
     {
       "topic": "Geological and Geochemical Analysis",
-      "count": 1307
+      "count": 1332
     },
     {
       "topic": "earthquake and tectonic studies",
-      "count": 692
+      "count": 699
     },
     {
       "topic": "High-pressure geophysics and materials",
-      "count": 587
+      "count": 597
     },
     {
       "topic": "Geochemistry and Geologic Mapping",
-      "count": 486
-    },
-    {
-      "topic": "Geology and Paleoclimatology Research",
-      "count": 377
+      "count": 499
     },
     {
       "topic": "Geological and Geophysical Studies",
-      "count": 375
+      "count": 407
     },
     {
       "topic": "Paleontology and Stratigraphy of Fossils",
-      "count": 372
+      "count": 380
+    },
+    {
+      "topic": "Geology and Paleoclimatology Research",
+      "count": 378
     },
     {
       "topic": "Geophysical and Geoelectrical Methods",
-      "count": 215
+      "count": 230
     },
     {
       "topic": "GNSS positioning and interference",
-      "count": 184
+      "count": 193
     },
     {
       "topic": "Geochemistry and Elemental Analysis",
-      "count": 176
+      "count": 180
     },
     {
       "topic": "Seismic Waves and Analysis",
-      "count": 153
+      "count": 158
     },
     {
       "topic": "Hydrocarbon exploration and reservoir analysis",
-      "count": 149
+      "count": 150
+    },
+    {
+      "topic": "Geophysics and Gravity Measurements",
+      "count": 147
     },
     {
       "topic": "Geological formations and processes",
@@ -455,37 +459,33 @@
     },
     {
       "topic": "Seismic Imaging and Inversion Techniques",
-      "count": 139
-    },
-    {
-      "topic": "Geophysics and Gravity Measurements",
-      "count": 139
+      "count": 142
     }
   ],
   "citationDistribution": [
     {
       "label": "0",
-      "count": 614
+      "count": 689
     },
     {
       "label": "1–5",
-      "count": 760
+      "count": 793
     },
     {
       "label": "6–20",
-      "count": 912
+      "count": 921
     },
     {
       "label": "21–50",
-      "count": 577
+      "count": 583
     },
     {
       "label": "51–100",
-      "count": 222
+      "count": 226
     },
     {
       "label": "100+",
-      "count": 114
+      "count": 115
     }
   ],
   "evidenceBreakdown": {

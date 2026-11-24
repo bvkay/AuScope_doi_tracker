@@ -1,22 +1,22 @@
 {
-  "generated": "2026-11-23T11:57:30.198Z",
+  "generated": "2026-11-24T13:31:41.238Z",
   "pillars": {
     "publications": {
-      "total": 3199,
-      "citations": 75920,
+      "total": 3327,
+      "citations": 76911,
       "verified": 46,
       "candidate": 124,
       "attributed": {
         "pubs": 780,
-        "citations": 22581
+        "citations": 22640
       },
       "software": {
         "pubs": 305,
-        "citations": 7259
+        "citations": 7292
       },
       "unverified": {
-        "pubs": 2114,
-        "citations": 46080
+        "pubs": 2242,
+        "citations": 46979
       }
     },
     "datasets": {
@@ -121,13 +121,13 @@
         "surveys": 15,
         "stations": 1386
       },
-      "generated": "2026-10-15",
-      "instrumentsDeployed": 146,
-      "occupations": 3666,
-      "recordingDays": 12876.9,
-      "surveysPopulated": 31,
+      "generated": "2026-11-24",
+      "instrumentsDeployed": 150,
+      "occupations": 4716,
+      "recordingDays": 14910.5,
+      "surveysPopulated": 33,
       "scopeFiltered": true,
-      "runsFetched": "2026-11-06"
+      "runsFetched": "2026-11-24"
     },
     "dataRepository": {
       "total": 6
