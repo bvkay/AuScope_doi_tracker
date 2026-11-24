@@ -1,9 +1,9 @@
 {
-  "generated": "2026-11-24T13:31:41.238Z",
+  "generated": "2026-11-24T21:37:37.008Z",
   "pillars": {
     "publications": {
-      "total": 3327,
-      "citations": 76911,
+      "total": 3230,
+      "citations": 76382,
       "verified": 46,
       "candidate": 124,
       "attributed": {
@@ -11,12 +11,12 @@
         "citations": 22640
       },
       "software": {
-        "pubs": 305,
+        "pubs": 306,
         "citations": 7292
       },
       "unverified": {
-        "pubs": 2242,
-        "citations": 46979
+        "pubs": 2144,
+        "citations": 46450
       }
     },
     "datasets": {
@@ -110,7 +110,7 @@
     "ausis": {
       "stations": 54,
       "active": 51,
-      "streaming": 50,
+      "streaming": 51,
       "networkDoi": "10.7914/SN/S1",
       "since": 2011
     },

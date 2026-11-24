@@ -1,11 +1,11 @@
 {
   "metadata": {
     "type": "verified",
-    "last_updated": "2026-11-23T11:47:12.836Z",
-    "total_count": 692,
+    "last_updated": "2026-11-24T21:27:21.212Z",
+    "total_count": 691,
     "by_tier": {
       "verified": 89,
-      "candidate-strong": 603
+      "candidate-strong": 602
     }
   },
   "records": [
@@ -16,7 +16,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2026,
-      "cited": 3,
+      "cited": 2,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Geological and Geophysical Studies Worldwide; Geological and Tectonic Studies in Latin America",
@@ -4156,6 +4156,7 @@
       "authorCount": 5,
       "institutions": [
         "Commonwealth Scientific and Industrial Research Organisation",
+        "Fleet Space Technologies (Australia)",
         "The University of Adelaide",
         "Bureau of Meteorology"
       ],
@@ -4164,6 +4165,7 @@
       ],
       "rors": [
         "03qn8fb07",
+        "02dbh0a14",
         "00892tw58",
         "04dkp1p98"
       ],
@@ -4240,13 +4242,15 @@
       ],
       "authorCount": 4,
       "institutions": [
-        "The University of Adelaide"
+        "The University of Adelaide",
+        "Strategic Energy Resources (Australia)"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
-        "00892tw58"
+        "00892tw58",
+        "01bawqs29"
       ],
       "authorIds": [
         "https://openalex.org/A5116617237",
@@ -5090,7 +5094,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2025,
-      "cited": 7,
+      "cited": 8,
       "type": "article",
       "isOA": "Yes",
       "subject": "Markov Chains and Monte Carlo Methods; Seismic Imaging and Inversion Techniques; Geophysical and Geoelectrical Methods",
@@ -5454,7 +5458,7 @@
     {
       "doi": "10.1029/2025gc012589",
       "title": "Seismic Anisotropy Analysis Across Southwestern Australia Reveals ENE‐Trending Lithospheric Architecture Linked to Archean Yilgarn Craton Formation",
-      "authors": "Miriam Gauntlett; C. M. Eakin; Nitarani Bishoyi; Ping Zhang; John Paul O'Donnell; Ruth Murdie; Meghan Samantha Miller; Robert Pickle; R. Ebrahimi",
+      "authors": "Miriam Gauntlett; C. M. Eakin; Nitarani Bishoyi; Ping Zhang; John Paul O'Donnell; Ruth Murdie; Meghan Samantha Miller; Robert Pickle; Reza Ebrahimi",
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2025,
@@ -5487,7 +5491,8 @@
         "https://openalex.org/A5079759723",
         "https://openalex.org/A5025353710",
         "https://openalex.org/A5026672994",
-        "https://openalex.org/A5045532160"
+        "https://openalex.org/A5045532160",
+        "https://openalex.org/A5140531740"
       ],
       "authorOrcids": [
         "0000-0002-1050-6385",
@@ -5496,7 +5501,8 @@
         "0000-0003-1425-3925",
         "0000-0003-1524-2312",
         "0000-0001-5494-2296",
-        "0000-0002-8550-5256"
+        "0000-0002-8550-5256",
+        "0000-0002-2742-4423"
       ],
       "attribution": "candidate-strong",
       "verifiedBy": [
@@ -5704,7 +5710,8 @@
         "https://openalex.org/A5079759723",
         "https://openalex.org/A5025353710",
         "https://openalex.org/A5026672994",
-        "https://openalex.org/A5045532160"
+        "https://openalex.org/A5045532160",
+        "https://openalex.org/A5140531740"
       ],
       "authorOrcids": [
         "0000-0002-1050-6385",
@@ -5712,7 +5719,8 @@
         "0009-0005-3249-8768",
         "0000-0003-1524-2312",
         "0000-0001-5494-2296",
-        "0000-0002-8550-5256"
+        "0000-0002-8550-5256",
+        "0000-0002-2742-4423"
       ],
       "attribution": "candidate-strong",
       "verifiedBy": [
@@ -5847,6 +5855,7 @@
       "authorCount": 10,
       "institutions": [
         "Australian National University",
+        "Centre for Sustainable Tropical Fisheries and Aquaculture",
         "James Cook University",
         "Hasanuddin University",
         "Géosciences Montpellier",
@@ -5863,6 +5872,7 @@
       ],
       "rors": [
         "019wvm592",
+        "013q5xd84",
         "04gsp2c11",
         "00da1gf19",
         "024gts110",
@@ -6229,7 +6239,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2025,
-      "cited": 7,
+      "cited": 8,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies; Geological and Geochemical Analysis",
@@ -6873,13 +6883,15 @@
       ],
       "authorCount": 4,
       "institutions": [
-        "The University of Adelaide"
+        "The University of Adelaide",
+        "Strategic Energy Resources (Australia)"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
-        "00892tw58"
+        "00892tw58",
+        "01bawqs29"
       ],
       "authorIds": [
         "https://openalex.org/A5116617237",
@@ -7341,10 +7353,10 @@
         "China University of Geosciences",
         "Wuhan University of Science and Technology",
         "University of Tasmania",
-        "UCL Australia",
-        "South Australian Water Corporation",
         "Centre for Ore Deposit and Earth Sciences",
-        "Department of Water"
+        "Fleet Space Technologies (Australia)",
+        "Department of Water",
+        "Fortescue (Australia)"
       ],
       "countries": [
         "AU",
@@ -7355,10 +7367,10 @@
         "04gcegc37",
         "00e4hrk88",
         "01nfmeh72",
-        "024atcf19",
-        "0220wzg80",
         "01ff1ff64",
-        "017wrhq72"
+        "02dbh0a14",
+        "017wrhq72",
+        "04ry64d12"
       ],
       "authorIds": [
         "https://openalex.org/A5075856575",
@@ -7401,33 +7413,29 @@
       ],
       "authorCount": 11,
       "institutions": [
-        "Fleet Science Center",
         "University of Tasmania",
-        "Space Environment Technologies (United States)",
-        "Fleet Community Hospital",
+        "Fleet Space Technologies (Australia)",
         "The University of Adelaide",
         "China University of Geosciences",
         "Wuhan University of Science and Technology",
         "University of British Columbia",
-        "Department of Water"
+        "Department of Water",
+        "Fortescue (Australia)"
       ],
       "countries": [
-        "US",
         "AU",
-        "GB",
         "CN",
         "CA"
       ],
       "rors": [
-        "03bcvkf46",
         "01nfmeh72",
-        "026djsb11",
-        "04rxffs27",
+        "02dbh0a14",
         "00892tw58",
         "04gcegc37",
         "00e4hrk88",
         "03rmrcq20",
-        "017wrhq72"
+        "017wrhq72",
+        "04ry64d12"
       ],
       "authorIds": [
         "https://openalex.org/A5063795612",
@@ -7475,9 +7483,9 @@
         "The University of Adelaide",
         "China University of Geosciences",
         "University of Tasmania",
-        "UCL Australia",
-        "South Australian Water Corporation",
-        "Department of Water"
+        "Fleet Space Technologies (Australia)",
+        "Department of Water",
+        "Fortescue (Australia)"
       ],
       "countries": [
         "CN",
@@ -7488,9 +7496,9 @@
         "00892tw58",
         "04gcegc37",
         "01nfmeh72",
-        "024atcf19",
-        "0220wzg80",
-        "017wrhq72"
+        "02dbh0a14",
+        "017wrhq72",
+        "04ry64d12"
       ],
       "authorIds": [
         "https://openalex.org/A5089578866",
@@ -7523,7 +7531,7 @@
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2024,
-      "cited": 3,
+      "cited": 4,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Geomagnetism and Paleomagnetism Studies",
@@ -7536,9 +7544,9 @@
         "The University of Adelaide",
         "Wuhan University of Science and Technology",
         "University of Tasmania",
-        "UCL Australia",
-        "South Australian Water Corporation",
-        "Centre for Ore Deposit and Earth Sciences"
+        "Centre for Ore Deposit and Earth Sciences",
+        "Fleet Space Technologies (Australia)",
+        "Fortescue (Australia)"
       ],
       "countries": [
         "CN",
@@ -7549,9 +7557,9 @@
         "00892tw58",
         "00e4hrk88",
         "01nfmeh72",
-        "024atcf19",
-        "0220wzg80",
-        "01ff1ff64"
+        "01ff1ff64",
+        "02dbh0a14",
+        "04ry64d12"
       ],
       "authorIds": [
         "https://openalex.org/A5100414223",
@@ -7581,10 +7589,10 @@
       "doi": "10.22541/essoar.172854555.54637562/v1",
       "title": "Bayesian Inference in Geophysics with AI-enhanced Markov chain Monte Carlo",
       "authors": "Matthias Scheiter; Andrew P. Valentine; Malcolm Sambridge",
-      "journal": "",
+      "journal": "ESS Open Archive",
       "publisher": "",
       "year": 2024,
-      "cited": 1,
+      "cited": 2,
       "type": "preprint",
       "isOA": "No",
       "subject": "Markov Chains and Monte Carlo Methods; Seismic Imaging and Inversion Techniques; Geophysical and Geoelectrical Methods",
@@ -7638,14 +7646,16 @@
       ],
       "authorCount": 10,
       "institutions": [
+        "Groundwater Imaging (Australia)",
         "Mira Geoscience (Canada)",
         "Geoscience Australia"
       ],
       "countries": [
-        "CA",
-        "AU"
+        "AU",
+        "CA"
       ],
       "rors": [
+        "04f5y1695",
         "01e73dz52",
         "04ge02x20"
       ],
@@ -8481,63 +8491,16 @@
       ]
     },
     {
-      "doi": "10.22541/essoar.170689115.50644908/v1",
-      "title": "Investigating the Lid Effect in the Generation of Ocean Island Basalts",
-      "authors": "Shihao Jiang; Rhys Hawkins; Mark James Hoggard; D. Rhodri Davies; I. H. Campbell",
-      "journal": "",
-      "publisher": "",
-      "year": 2024,
-      "cited": 0,
-      "type": "preprint",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; High-pressure geophysics and materials",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 5,
-      "institutions": [
-        "Australian National University",
-        "Lyon 1 Université"
-      ],
-      "countries": [
-        "AU",
-        "FR"
-      ],
-      "rors": [
-        "019wvm592",
-        "029brtt94"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5057469316",
-        "https://openalex.org/A5046498993",
-        "https://openalex.org/A5046180202",
-        "https://openalex.org/A5072460934",
-        "https://openalex.org/A5005758630"
-      ],
-      "authorOrcids": [
-        "0009-0002-2931-5340",
-        "0000-0001-7295-6691",
-        "0000-0003-4310-3862",
-        "0000-0002-7662-9468",
-        "0000-0001-8578-0154"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0002-7662-9468",
-        "partner-ror:019wvm592"
-      ]
-    },
-    {
       "doi": "10.22541/essoar.170689115.50644908/v2",
       "title": "Investigating the Lid Effect in the Generation of Ocean Island Basalts",
       "authors": "Shihao Jiang; Rhys Hawkins; Mark James Hoggard; D. Rhodri Davies; I. H. Campbell",
-      "journal": "",
+      "journal": "ESS Open Archive",
       "publisher": "",
       "year": 2024,
       "cited": 0,
       "type": "preprint",
       "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
+      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; High-pressure geophysics and materials",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -8685,16 +8648,18 @@
       ],
       "authorCount": 4,
       "institutions": [
-        "Queensland Government",
+        "Geological Survey of Queensland",
         "The University of Queensland",
+        "Sustainable Minerals Institute",
         "The University of Adelaide"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
-        "037405308",
+        "058fs3b12",
         "00rqy9422",
+        "00bkez241",
         "00892tw58"
       ],
       "authorIds": [
@@ -8710,7 +8675,7 @@
       "attribution": "candidate-strong",
       "verifiedBy": [
         "orcid:0000-0001-7106-0789",
-        "partner-ror:037405308"
+        "partner-ror:00rqy9422"
       ]
     },
     {
@@ -8863,6 +8828,7 @@
       "authorCount": 4,
       "institutions": [
         "Bureau of Meteorology",
+        "Geological Survey of Queensland",
         "Geoscience Australia",
         "The University of Adelaide"
       ],
@@ -8871,6 +8837,7 @@
       ],
       "rors": [
         "04dkp1p98",
+        "058fs3b12",
         "04ge02x20",
         "00892tw58"
       ],
@@ -8900,7 +8867,7 @@
       "cited": 0,
       "type": "article",
       "isOA": "Yes",
-      "subject": "Biographical and Historical Analysis; History of Science and Medicine; Geological and Geophysical Studies",
+      "subject": "Biographical and Historical Analysis; French Historical and Cultural Studies; Photographic and Visual Arts",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -9724,6 +9691,7 @@
         "https://openalex.org/A5091736972",
         "https://openalex.org/A5013790018",
         "https://openalex.org/A5100760113",
+        "https://openalex.org/A5077213648",
         "https://openalex.org/A5067256214",
         "https://openalex.org/A5075006383",
         "https://openalex.org/A5044168243",
@@ -9744,6 +9712,7 @@
         "0000-0003-2655-7053",
         "0000-0001-7071-6555",
         "0000-0002-4543-1555",
+        "0000-0002-5375-5680",
         "0000-0003-4212-1006",
         "0000-0001-7232-8820",
         "0000-0002-9614-3553",
@@ -10755,6 +10724,7 @@
         "University of Florence",
         "University of Milan",
         "California Institute of Technology",
+        "Fortescue (Australia)",
         "The University of Western Australia",
         "Australian National University",
         "Pennsylvania State University"
@@ -10770,6 +10740,7 @@
         "04jr1s763",
         "00wjc7c48",
         "05dxps055",
+        "04ry64d12",
         "047272k79",
         "019wvm592",
         "04p491231"
@@ -12035,7 +12006,7 @@
       "journal": "The Seismic Record",
       "publisher": "Seismological Society of America",
       "year": 2022,
-      "cited": 40,
+      "cited": 41,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismology and Earthquake Studies; earthquake and tectonic studies; Seismic Waves and Analysis",
@@ -12530,7 +12501,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2022,
-      "cited": 34,
+      "cited": 35,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -12577,7 +12548,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2022,
-      "cited": 21,
+      "cited": 22,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geophysical Studies Worldwide",
@@ -12712,7 +12683,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2022,
-      "cited": 22,
+      "cited": 23,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies Worldwide; earthquake and tectonic studies",
@@ -13277,6 +13248,7 @@
         "Australian National University",
         "Monash University",
         "The University of Queensland",
+        "Sustainable Minerals Institute",
         "Terrestrial Ecosystem Research Network",
         "AuScope",
         "The University of Adelaide"
@@ -13289,6 +13261,7 @@
         "019wvm592",
         "02bfwt286",
         "00rqy9422",
+        "00bkez241",
         "03wxseg04",
         "04s1m4564",
         "00892tw58"
@@ -13748,7 +13721,8 @@
       "institutions": [
         "Australian National University",
         "Peking University",
-        "Griffith University"
+        "Griffith University",
+        "Griffith Centre for Social and Cultural Research"
       ],
       "countries": [
         "AU",
@@ -13757,7 +13731,8 @@
       "rors": [
         "019wvm592",
         "02v51f717",
-        "02sc3r913"
+        "02sc3r913",
+        "02kb1a113"
       ],
       "authorIds": [
         "https://openalex.org/A5072585759",
@@ -13820,7 +13795,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2021,
-      "cited": 32,
+      "cited": 31,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -14333,7 +14308,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2021,
-      "cited": 52,
+      "cited": 53,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
@@ -14380,7 +14355,7 @@
       "journal": "Geoscientific model development",
       "publisher": "Copernicus Publications",
       "year": 2021,
-      "cited": 34,
+      "cited": 35,
       "type": "article",
       "isOA": "Yes",
       "subject": "Advanced Numerical Methods in Computational Mathematics; High-pressure geophysics and materials; Computational Fluid Dynamics and Aerodynamics",
@@ -14477,7 +14452,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2021,
-      "cited": 18,
+      "cited": 19,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Geological and Geophysical Studies Worldwide",
@@ -14531,7 +14506,7 @@
       "journal": "Solid Earth",
       "publisher": "Copernicus Publications",
       "year": 2021,
-      "cited": 16,
+      "cited": 17,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
@@ -14795,7 +14770,8 @@
         "The University of Adelaide",
         "Geoscience Australia",
         "Geological Survey of South Australia",
-        "The University of Queensland"
+        "The University of Queensland",
+        "WH Bryan Mining and Geology Research Centre"
       ],
       "countries": [
         "AU"
@@ -14804,7 +14780,8 @@
         "00892tw58",
         "04ge02x20",
         "0121cjp70",
-        "00rqy9422"
+        "00rqy9422",
+        "04ahtx557"
       ],
       "authorIds": [
         "https://openalex.org/A5089578866",
@@ -15028,8 +15005,8 @@
       "doi": "10.26180/5f4dc2c4e94e0",
       "title": "AuScope Geothermal Demonstrators - Latrobe Valley, Victoria, Australia",
       "authors": "Steve Quenette; Tim Rawling; Alexander James Musson; Mike Sandiford",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
+      "journal": "Monash University",
+      "publisher": "",
       "year": 2020,
       "cited": 0,
       "type": "report",
@@ -15186,7 +15163,7 @@
       "journal": "Geology",
       "publisher": "Geological Society of America",
       "year": 2020,
-      "cited": 15,
+      "cited": 14,
       "type": "article",
       "isOA": "No",
       "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
@@ -15279,7 +15256,7 @@
       "cited": 0,
       "type": "conference abstract",
       "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; High-pressure geophysics and materials",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -15362,7 +15339,7 @@
       "journal": "Science",
       "publisher": "American Association for the Advancement of Science",
       "year": 2020,
-      "cited": 434,
+      "cited": 436,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Noise Effects and Management; Seismology and Earthquake Studies",
@@ -15832,7 +15809,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2020,
-      "cited": 20,
+      "cited": 19,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Geological and Geophysical Studies",
@@ -16228,7 +16205,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2020,
-      "cited": 13,
+      "cited": 14,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide",
@@ -16274,7 +16251,7 @@
       "doi": "10.1002/essoar.10504315.1",
       "title": "Linking Lithospheric Structure, Mantle Flow and Intra-Plate Volcanism",
       "authors": "Thomas Duvernay; D. Rhodri Davies; Christopher Mathews; Angus H. Gibson; Stephan C. Kramer",
-      "journal": "",
+      "journal": "ESS Open Archive",
       "publisher": "",
       "year": 2020,
       "cited": 1,
@@ -16343,11 +16320,13 @@
       ],
       "authorIds": [
         "https://openalex.org/A5049469681",
+        "https://openalex.org/A5038417709",
         "https://openalex.org/A5022602421",
         "https://openalex.org/A5072460934"
       ],
       "authorOrcids": [
         "0000-0001-9187-3138",
+        "0000-0001-7540-3515",
         "0000-0002-6600-4800",
         "0000-0002-7662-9468"
       ],
@@ -16464,6 +16443,7 @@
       "institutions": [
         "Queensland Department of Natural Resources, Mines and Energy",
         "Queensland Government",
+        "Geological Survey of Queensland",
         "The University of Adelaide"
       ],
       "countries": [
@@ -16472,6 +16452,7 @@
       "rors": [
         "007zyap28",
         "037405308",
+        "058fs3b12",
         "00892tw58"
       ],
       "authorIds": [
@@ -16537,7 +16518,7 @@
       "doi": "10.1002/essoar.10500447.1",
       "title": "Earth and Environment Science Information Partners: ESIP & E2SIP parallel pathways on opposite sides of the globe",
       "authors": "Erin Robinson; Lesley Wyborn; Ben Evans; Adrian Burton; Simón Cox; Tim Rawlings",
-      "journal": "",
+      "journal": "ESS Open Archive",
       "publisher": "",
       "year": 2019,
       "cited": 2,
@@ -16637,7 +16618,7 @@
       "journal": "The Journal of Open Source Software",
       "publisher": "Open Journals",
       "year": 2019,
-      "cited": 55,
+      "cited": 53,
       "type": "article",
       "isOA": "Yes",
       "subject": "Computational Physics and Python Applications; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -16916,7 +16897,7 @@
       "cited": 0,
       "type": "conference abstract",
       "isOA": "No",
-      "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; High-pressure geophysics and materials",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -17096,7 +17077,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2019,
-      "cited": 68,
+      "cited": 69,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geological Modeling and Analysis; Seismic Imaging and Inversion Techniques",
@@ -17233,7 +17214,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2019,
-      "cited": 20,
+      "cited": 21,
       "type": "article",
       "isOA": "No",
       "subject": "earthquake and tectonic studies; Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis",
@@ -17687,7 +17668,7 @@
       "cited": 0,
       "type": "conference abstract",
       "isOA": "No",
-      "subject": "earthquake and tectonic studies; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
+      "subject": "earthquake and tectonic studies; Geological and Geophysical Studies; Geological and Geochemical Analysis",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -17740,7 +17721,7 @@
       "cited": 0,
       "type": "conference abstract",
       "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
+      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -17794,7 +17775,7 @@
       "cited": 0,
       "type": "conference abstract",
       "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
+      "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; earthquake and tectonic studies",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -17803,6 +17784,7 @@
         "University of Kentucky",
         "Monash University",
         "University of Tasmania",
+        "Institute for Marine and Antarctic Studies",
         "Australian National University"
       ],
       "countries": [
@@ -17813,6 +17795,7 @@
         "02k3smh20",
         "02bfwt286",
         "01nfmeh72",
+        "00arpt780",
         "019wvm592"
       ],
       "authorIds": [
@@ -17840,7 +17823,7 @@
       "journal": "Nature Geoscience",
       "publisher": "Nature Portfolio",
       "year": 2019,
-      "cited": 105,
+      "cited": 107,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies; Geophysics and Gravity Measurements",
@@ -17963,7 +17946,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2019,
-      "cited": 24,
+      "cited": 25,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Geological and Geophysical Studies Worldwide; Geological and Tectonic Studies in Latin America",
@@ -18203,7 +18186,7 @@
       "cited": 2,
       "type": "article",
       "isOA": "Yes",
-      "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Geophysics and Sensor Technology",
+      "subject": "Seismic Waves and Analysis; Underwater Acoustics Research; Seismic Imaging and Inversion Techniques",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -18253,12 +18236,14 @@
       ],
       "authorCount": 2,
       "institutions": [
+        "Geological Survey of Queensland",
         "The University of Adelaide"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
+        "058fs3b12",
         "00892tw58"
       ],
       "authorIds": [
@@ -18420,7 +18405,7 @@
       "journal": "Journal of Climate",
       "publisher": "American Meteorological Society",
       "year": 2018,
-      "cited": 19,
+      "cited": 20,
       "type": "article",
       "isOA": "No",
       "subject": "Oceanographic and Atmospheric Processes; Climate variability and models; Geophysics and Gravity Measurements",
@@ -18708,7 +18693,7 @@
       "journal": "Seismological Research Letters",
       "publisher": "Seismological Society of America",
       "year": 2018,
-      "cited": 45,
+      "cited": 44,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; Geological and Geophysical Studies",
@@ -18748,7 +18733,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2018,
-      "cited": 40,
+      "cited": 41,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Tectonic Studies in Latin America; Geological and Geophysical Studies Worldwide; earthquake and tectonic studies",
@@ -18953,7 +18938,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2018,
-      "cited": 56,
+      "cited": 57,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -19047,6 +19032,52 @@
       ]
     },
     {
+      "doi": "10.1016/j.epsl.2018.11.008",
+      "title": "Tungsten isotopes in mantle plumes: Heads it's positive, tails it's negative",
+      "authors": "T. D. Jones; D. Rhodri Davies; Paolo A. Sossi",
+      "journal": "Earth and Planetary Science Letters",
+      "publisher": "Elsevier BV",
+      "year": 2018,
+      "cited": 43,
+      "type": "article",
+      "isOA": "No",
+      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Astro and Planetary Science",
+      "sources": [
+        "OpenAlex (verified)"
+      ],
+      "authorCount": 3,
+      "institutions": [
+        "Carnegie Institution for Science",
+        "Australian National University",
+        "Institut de physique du globe de Paris"
+      ],
+      "countries": [
+        "US",
+        "AU",
+        "FR"
+      ],
+      "rors": [
+        "04jr01610",
+        "019wvm592",
+        "004gzqz66"
+      ],
+      "authorIds": [
+        "https://openalex.org/A5036103110",
+        "https://openalex.org/A5072460934",
+        "https://openalex.org/A5065413322"
+      ],
+      "authorOrcids": [
+        "0000-0002-6824-3610",
+        "0000-0002-7662-9468",
+        "0000-0002-1462-1882"
+      ],
+      "attribution": "candidate-strong",
+      "verifiedBy": [
+        "orcid:0000-0002-7662-9468",
+        "partner-ror:019wvm592"
+      ]
+    },
+    {
       "doi": "10.1038/s41561-018-0110-z",
       "title": "Indian Ocean floor deformation induced by the Reunion plume rather than the Tibetan Plateau",
       "authors": "Giampiero Iaffaldano; D. Rhodri Davies; Charles DeMets",
@@ -19085,52 +19116,6 @@
         "0000-0003-1750-1576",
         "0000-0002-7662-9468",
         "0000-0001-7460-1165"
-      ],
-      "attribution": "candidate-strong",
-      "verifiedBy": [
-        "orcid:0000-0002-7662-9468",
-        "partner-ror:019wvm592"
-      ]
-    },
-    {
-      "doi": "10.1016/j.epsl.2018.11.008",
-      "title": "Tungsten isotopes in mantle plumes: Heads it's positive, tails it's negative",
-      "authors": "T. D. Jones; D. Rhodri Davies; Paolo A. Sossi",
-      "journal": "Earth and Planetary Science Letters",
-      "publisher": "Elsevier BV",
-      "year": 2018,
-      "cited": 42,
-      "type": "article",
-      "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Astro and Planetary Science",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [
-        "Carnegie Institution for Science",
-        "Australian National University",
-        "Institut de physique du globe de Paris"
-      ],
-      "countries": [
-        "US",
-        "AU",
-        "FR"
-      ],
-      "rors": [
-        "04jr01610",
-        "019wvm592",
-        "004gzqz66"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5036103110",
-        "https://openalex.org/A5072460934",
-        "https://openalex.org/A5065413322"
-      ],
-      "authorOrcids": [
-        "0000-0002-6824-3610",
-        "0000-0002-7662-9468",
-        "0000-0002-1462-1882"
       ],
       "attribution": "candidate-strong",
       "verifiedBy": [
@@ -19201,14 +19186,14 @@
       "authorCount": 5,
       "institutions": [
         "The University of Adelaide",
-        "Queensland Department of Natural Resources, Mines and Energy"
+        "Geological Survey of Queensland"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
         "00892tw58",
-        "007zyap28"
+        "058fs3b12"
       ],
       "authorIds": [
         "https://openalex.org/A5041522750",
@@ -19408,12 +19393,14 @@
       ],
       "authorCount": 2,
       "institutions": [
+        "Geological Survey of Queensland",
         "The University of Adelaide"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
+        "058fs3b12",
         "00892tw58"
       ],
       "authorIds": [
@@ -19491,12 +19478,14 @@
       ],
       "authorCount": 2,
       "institutions": [
+        "Geological Survey of Queensland",
         "The University of Adelaide"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
+        "058fs3b12",
         "00892tw58"
       ],
       "authorIds": [
@@ -19528,12 +19517,14 @@
       ],
       "authorCount": 2,
       "institutions": [
+        "Geological Survey of Queensland",
         "The University of Adelaide"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
+        "058fs3b12",
         "00892tw58"
       ],
       "authorIds": [
@@ -19689,8 +19680,8 @@
       "doi": "10.26180/4644928",
       "title": "Geodynamic models of lithospheric and mantle processes.",
       "authors": "Rebecca Farrington",
-      "journal": "Figshare",
-      "publisher": "Figshare (United Kingdom)",
+      "journal": "Monash University",
+      "publisher": "",
       "year": 2017,
       "cited": 0,
       "type": "dissertation",
@@ -19728,7 +19719,7 @@
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2017,
-      "cited": 51,
+      "cited": 52,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Numerical methods in inverse problems",
@@ -19917,7 +19908,7 @@
       "journal": "Tectonics",
       "publisher": "Wiley",
       "year": 2017,
-      "cited": 113,
+      "cited": 114,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide",
@@ -20038,16 +20029,19 @@
       "cited": 2,
       "type": "conference abstract",
       "isOA": "No",
-      "subject": "Geological Studies and Exploration; Geological and Geophysical Studies; earthquake and tectonic studies",
+      "subject": "Geological Studies and Exploration; Geological and Geophysical Studies; Geological and Geochemical Analysis",
       "sources": [
         "OpenAlex (verified)"
       ],
       "authorCount": 5,
       "institutions": [
         "University of California, Davis",
-        "University of Alaska Anchorage",
+        "United States Geological Survey",
         "Australian National University",
+        "National Oceanic and Atmospheric Administration",
         "Cooperative Institute for Research in Environmental Sciences",
+        "University of Colorado Boulder",
+        "NOAA National Centers for Environmental Information",
         "University of Iowa"
       ],
       "countries": [
@@ -20056,9 +20050,12 @@
       ],
       "rors": [
         "05rrcem69",
-        "03k3c2t50",
+        "035a68863",
         "019wvm592",
+        "02z5nhe81",
         "00bdqav06",
+        "02ttsq026",
+        "04r0wrp59",
         "036jqmy94"
       ],
       "authorIds": [
@@ -20087,7 +20084,7 @@
       "journal": "Nature",
       "publisher": "Nature Portfolio",
       "year": 2017,
-      "cited": 71,
+      "cited": 72,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -20150,7 +20147,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2017,
-      "cited": 50,
+      "cited": 51,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; High-pressure geophysics and materials",
@@ -20425,7 +20422,7 @@
       "cited": 0,
       "type": "conference abstract",
       "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Geologic Mapping; Geological and Geophysical Studies",
+      "subject": "Geochemistry and Geologic Mapping; Geological and Geochemical Analysis; Geological Studies and Exploration",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -20435,10 +20432,11 @@
         "The University of Western Australia",
         "Australian National University",
         "ARC Centre of Excellence for Core to Crust Fluid Systems",
+        "Macquarie University",
         "Curtin University",
         "Geoscience Australia",
         "The University of Adelaide",
-        "Australian Resources Research Centre"
+        "Commonwealth Scientific and Industrial Research Organisation"
       ],
       "countries": [
         "AU"
@@ -20448,10 +20446,11 @@
         "047272k79",
         "019wvm592",
         "03nk9pp38",
+        "01sf06y89",
         "02n415q13",
         "04ge02x20",
         "00892tw58",
-        "03rzhkf33"
+        "03qn8fb07"
       ],
       "authorIds": [
         "https://openalex.org/A5090203900",
@@ -20714,7 +20713,7 @@
       "journal": "Tectonophysics",
       "publisher": "Elsevier BV",
       "year": 2016,
-      "cited": 29,
+      "cited": 30,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; High-pressure geophysics and materials",
@@ -20916,7 +20915,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2016,
-      "cited": 37,
+      "cited": 38,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -20967,7 +20966,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2016,
-      "cited": 33,
+      "cited": 34,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
@@ -21767,6 +21766,7 @@
       "authorCount": 2,
       "institutions": [
         "Queensland Department of Natural Resources, Mines and Energy",
+        "Geological Survey of Queensland",
         "The University of Adelaide"
       ],
       "countries": [
@@ -21774,6 +21774,7 @@
       ],
       "rors": [
         "007zyap28",
+        "058fs3b12",
         "00892tw58"
       ],
       "authorIds": [
@@ -22139,7 +22140,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2015,
-      "cited": 102,
+      "cited": 103,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques; Markov Chains and Monte Carlo Methods",
@@ -22380,7 +22381,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2015,
-      "cited": 103,
+      "cited": 104,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies; Geological and Geochemical Analysis",
@@ -22483,7 +22484,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2015,
-      "cited": 63,
+      "cited": 64,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
@@ -23483,7 +23484,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2014,
-      "cited": 2974,
+      "cited": 3003,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Marine and environmental studies; Geological formations and processes",
@@ -23532,7 +23533,7 @@
       "journal": "Advances in geophysics",
       "publisher": "Elsevier BV",
       "year": 2014,
-      "cited": 240,
+      "cited": 242,
       "type": "book chapter",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Geophysical and Geoelectrical Methods",
@@ -23583,7 +23584,7 @@
       "journal": "Palaeogeography Palaeoclimatology Palaeoecology",
       "publisher": "Elsevier BV",
       "year": 2014,
-      "cited": 141,
+      "cited": 140,
       "type": "article",
       "isOA": "No",
       "subject": "Archaeology and ancient environmental studies; Geological and Geochemical Analysis; Pleistocene-Era Hominins and Archaeology",
@@ -23625,7 +23626,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2014,
-      "cited": 113,
+      "cited": 114,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis",
@@ -23838,7 +23839,7 @@
       "journal": "Journal of Geophysical Research Solid Earth",
       "publisher": "Wiley",
       "year": 2014,
-      "cited": 29,
+      "cited": 30,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geomagnetism and Paleomagnetism Studies; Geological and Geophysical Studies; Paleontology and Stratigraphy of Fossils",
@@ -23927,7 +23928,7 @@
       "journal": "Nature",
       "publisher": "Nature Portfolio",
       "year": 2014,
-      "cited": 298,
+      "cited": 299,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
@@ -24084,7 +24085,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2014,
-      "cited": 216,
+      "cited": 218,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies Worldwide; Geological and Geochemical Analysis",
@@ -24181,7 +24182,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2014,
-      "cited": 45,
+      "cited": 46,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide",
@@ -24547,7 +24548,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2013,
-      "cited": 331,
+      "cited": 332,
       "type": "article",
       "isOA": "Yes",
       "subject": "Markov Chains and Monte Carlo Methods; Seismic Imaging and Inversion Techniques; Theoretical and Computational Physics",
@@ -24638,7 +24639,7 @@
       "cited": 92,
       "type": "article",
       "isOA": "No",
-      "subject": "High-pressure geophysics and materials; Seismic Waves and Analysis; earthquake and tectonic studies",
+      "subject": "High-pressure geophysics and materials; earthquake and tectonic studies; Seismic Waves and Analysis",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -24968,7 +24969,7 @@
       "journal": "Geoscientific model development",
       "publisher": "Copernicus Publications",
       "year": 2013,
-      "cited": 62,
+      "cited": 63,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Advanced Numerical Methods in Computational Mathematics; Computational Fluid Dynamics and Aerodynamics",
@@ -25112,14 +25113,14 @@
       "authorCount": 4,
       "institutions": [
         "The University of Adelaide",
-        "Analysis & Policy Observatory"
+        "PTR Minerals (Australia)"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
         "00892tw58",
-        "036s3gz19"
+        "00k6ec249"
       ],
       "authorIds": [
         "https://openalex.org/A5063537632",
@@ -25722,7 +25723,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2012,
-      "cited": 531,
+      "cited": 533,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; Markov Chains and Monte Carlo Methods",
@@ -25774,9 +25775,9 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2012,
-      "cited": 280,
+      "cited": 281,
       "type": "article",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Numerical methods in inverse problems",
       "sources": [
         "OpenAlex (verified)"
@@ -25867,7 +25868,7 @@
       "journal": "Quaternary Geochronology",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 72,
+      "cited": 73,
       "type": "article",
       "isOA": "No",
       "subject": "Archaeology and ancient environmental studies; Forensic Anthropology and Bioarchaeology Studies; Geological and Geochemical Analysis",
@@ -26097,13 +26098,15 @@
       ],
       "authorCount": 4,
       "institutions": [
-        "The University of Adelaide"
+        "The University of Adelaide",
+        "PTR Minerals (Australia)"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
-        "00892tw58"
+        "00892tw58",
+        "00k6ec249"
       ],
       "authorIds": [
         "https://openalex.org/A5063537632",
@@ -26181,17 +26184,14 @@
       "authorCount": 5,
       "institutions": [
         "The University of Adelaide",
-        "Laboratoire Physiopathologie et Génétique du Neurone et du Muscle",
-        "Perception, Représentations, Image, Son, Musique"
+        "PTR Minerals (Australia)"
       ],
       "countries": [
-        "AU",
-        "FR"
+        "AU"
       ],
       "rors": [
         "00892tw58",
-        "013nhg483",
-        "04f5x2z86"
+        "00k6ec249"
       ],
       "authorIds": [
         "https://openalex.org/A5009015433",
@@ -26366,7 +26366,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2011,
-      "cited": 80,
+      "cited": 82,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies",
@@ -26413,7 +26413,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2011,
-      "cited": 127,
+      "cited": 128,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geology and Paleoclimatology Research; Markov Chains and Monte Carlo Methods; Soil and Environmental Studies",
@@ -26869,13 +26869,15 @@
       ],
       "authorCount": 4,
       "institutions": [
-        "The University of Adelaide"
+        "The University of Adelaide",
+        "PTR Minerals (Australia)"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
-        "00892tw58"
+        "00892tw58",
+        "00k6ec249"
       ],
       "authorIds": [
         "https://openalex.org/A5063537632",
@@ -26950,7 +26952,7 @@
       "journal": "Economic Geology",
       "publisher": "Society of Economic Geologists",
       "year": 2010,
-      "cited": 91,
+      "cited": 92,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geological Studies and Exploration; Geochemistry and Geologic Mapping",
@@ -26997,7 +26999,7 @@
       "journal": "Science",
       "publisher": "American Association for the Advancement of Science",
       "year": 2010,
-      "cited": 111,
+      "cited": 114,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; earthquake and tectonic studies; Geological and Geochemical Analysis",
@@ -27049,7 +27051,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2010,
-      "cited": 172,
+      "cited": 173,
       "type": "article",
       "isOA": "Yes",
       "subject": "Benford’s Law and Fraud Detection; Statistical Mechanics and Entropy; Complex Systems and Time Series Analysis",
@@ -27483,7 +27485,7 @@
       "journal": "Geophysics",
       "publisher": "Society of Exploration Geophysicists",
       "year": 2010,
-      "cited": 45,
+      "cited": 47,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Water Quality and Resources Studies",
@@ -27720,13 +27722,15 @@
       ],
       "authorCount": 4,
       "institutions": [
-        "The University of Adelaide"
+        "The University of Adelaide",
+        "PTR Minerals (Australia)"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
-        "00892tw58"
+        "00892tw58",
+        "00k6ec249"
       ],
       "authorIds": [
         "https://openalex.org/A5009015433",
@@ -27806,13 +27810,15 @@
       ],
       "authorCount": 4,
       "institutions": [
-        "The University of Adelaide"
+        "The University of Adelaide",
+        "PTR Minerals (Australia)"
       ],
       "countries": [
         "AU"
       ],
       "rors": [
-        "00892tw58"
+        "00892tw58",
+        "00k6ec249"
       ],
       "authorIds": [
         "https://openalex.org/A5009015433",
@@ -27978,7 +27984,7 @@
       "journal": "Tectonophysics",
       "publisher": "Elsevier BV",
       "year": 2009,
-      "cited": 186,
+      "cited": 189,
       "type": "article",
       "isOA": "No",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies",
@@ -28111,7 +28117,7 @@
       "journal": "Marine and Petroleum Geology",
       "publisher": "Elsevier BV",
       "year": 2009,
-      "cited": 335,
+      "cited": 336,
       "type": "article",
       "isOA": "No",
       "subject": "Markov Chains and Monte Carlo Methods; Geological Modeling and Analysis; Statistical Methods and Bayesian Inference",
@@ -28167,7 +28173,7 @@
       "journal": "Inverse Problems",
       "publisher": "IOP Publishing",
       "year": 2009,
-      "cited": 91,
+      "cited": 92,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Numerical methods in inverse problems; Markov Chains and Monte Carlo Methods",
@@ -28290,7 +28296,7 @@
       "journal": "Tectonophysics",
       "publisher": "Elsevier BV",
       "year": 2009,
-      "cited": 145,
+      "cited": 146,
       "type": "article",
       "isOA": "No",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -28675,7 +28681,7 @@
       "journal": "Physics of The Earth and Planetary Interiors",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 54,
+      "cited": 55,
       "type": "article",
       "isOA": "No",
       "subject": "High-pressure geophysics and materials; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
@@ -28737,7 +28743,7 @@
       "journal": "American Mineralogist",
       "publisher": "Mineralogical Society of America",
       "year": 2008,
-      "cited": 214,
+      "cited": 216,
       "type": "article",
       "isOA": "No",
       "subject": "Mineralogy and Gemology Studies; High-pressure geophysics and materials; Optical Polarization and Ellipsometry",
@@ -28787,7 +28793,7 @@
       "journal": "Advances in geophysics",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 167,
+      "cited": 168,
       "type": "book chapter",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
@@ -28827,7 +28833,7 @@
       "journal": "American Mineralogist",
       "publisher": "Mineralogical Society of America",
       "year": 2008,
-      "cited": 122,
+      "cited": 125,
       "type": "article",
       "isOA": "No",
       "subject": "Optical Polarization and Ellipsometry; Mineralogy and Gemology Studies; Optical and Acousto-Optic Technologies",
@@ -28949,7 +28955,7 @@
       "journal": "Tectonics",
       "publisher": "Wiley",
       "year": 2008,
-      "cited": 485,
+      "cited": 487,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geochemical Analysis; earthquake and tectonic studies",
@@ -29261,7 +29267,7 @@
       "journal": "Australian Journal of Earth Sciences",
       "publisher": "Taylor & Francis",
       "year": 2006,
-      "cited": 27,
+      "cited": 29,
       "type": "article",
       "isOA": "No",
       "subject": "Geological Modeling and Analysis; Geochemistry and Geologic Mapping; Geological Studies and Exploration",
@@ -29588,7 +29594,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2006,
-      "cited": 388,
+      "cited": 390,
       "type": "article",
       "isOA": "Yes",
       "subject": "Markov Chains and Monte Carlo Methods; Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques",
@@ -29638,7 +29644,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2006,
-      "cited": 199,
+      "cited": 202,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Geological and Geophysical Studies",
@@ -29677,7 +29683,7 @@
       "journal": "Geophysics",
       "publisher": "Society of Exploration Geophysicists",
       "year": 2006,
-      "cited": 116,
+      "cited": 117,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Geochemistry and Geologic Mapping",
@@ -30056,7 +30062,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2006,
-      "cited": 120,
+      "cited": 121,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
@@ -30099,7 +30105,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2006,
-      "cited": 81,
+      "cited": 82,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; High-pressure geophysics and materials; Seismic Imaging and Inversion Techniques",
@@ -30266,7 +30272,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2006,
-      "cited": 1234,
+      "cited": 1241,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Scientific Measurement and Uncertainty Evaluation; Analytical chemistry methods development",
@@ -30468,7 +30474,7 @@
       "journal": "Geology",
       "publisher": "Geological Society of America",
       "year": 2006,
-      "cited": 146,
+      "cited": 147,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Geochemistry and Geologic Mapping; Geological and Geochemical Analysis",
@@ -30509,7 +30515,7 @@
       "year": 2006,
       "cited": 73,
       "type": "article",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Geological and Geophysical Studies; Geological and Geochemical Analysis",
       "sources": [
         "OpenAlex (verified)"
@@ -30633,7 +30639,7 @@
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2005,
-      "cited": 373,
+      "cited": 377,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
@@ -30674,7 +30680,7 @@
       "cited": 37,
       "type": "book chapter",
       "isOA": "No",
-      "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Geophysical and Geoelectrical Methods",
+      "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; High-pressure geophysics and materials",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -31064,7 +31070,7 @@
       "journal": "Journal of Applied Geophysics",
       "publisher": "Elsevier BV",
       "year": 2005,
-      "cited": 30,
+      "cited": 31,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Groundwater flow and contamination studies",
@@ -31230,7 +31236,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2004,
-      "cited": 505,
+      "cited": 509,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Advanced Numerical Methods in Computational Mathematics",
@@ -31268,7 +31274,7 @@
       "journal": "Geophysics",
       "publisher": "Society of Exploration Geophysicists",
       "year": 2004,
-      "cited": 236,
+      "cited": 239,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Geophysical and Geoelectrical Methods",
@@ -31306,7 +31312,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2004,
-      "cited": 125,
+      "cited": 126,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; Geophysics and Sensor Technology",
@@ -31351,7 +31357,7 @@
       "journal": "Journal of Petroleum Science and Engineering",
       "publisher": "Elsevier BV",
       "year": 2004,
-      "cited": 84,
+      "cited": 85,
       "type": "article",
       "isOA": "No",
       "subject": "Reservoir Engineering and Simulation Methods; Geological Modeling and Analysis; Groundwater flow and contamination studies",
@@ -31393,7 +31399,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 2004,
-      "cited": 13,
+      "cited": 12,
       "type": "article",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Seismology and Earthquake Studies; Seismic Waves and Analysis",
@@ -31879,7 +31885,7 @@
       "journal": "Advances in geophysics",
       "publisher": "Elsevier BV",
       "year": 2003,
-      "cited": 268,
+      "cited": 274,
       "type": "book chapter",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; Geological and Geophysical Studies",
@@ -31917,7 +31923,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2003,
-      "cited": 78,
+      "cited": 79,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Imaging and Inversion Techniques; High-pressure geophysics and materials; Seismic Waves and Analysis",
@@ -31955,7 +31961,7 @@
       "journal": "SPE Reservoir Simulation Conference",
       "publisher": "",
       "year": 2003,
-      "cited": 73,
+      "cited": 74,
       "type": "conference paper",
       "isOA": "No",
       "subject": "Reservoir Engineering and Simulation Methods; Geological Modeling and Analysis; Groundwater flow and contamination studies",
@@ -31998,7 +32004,7 @@
       "journal": "Geophysical Research Letters",
       "publisher": "American Geophysical Union",
       "year": 2003,
-      "cited": 63,
+      "cited": 64,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; High-pressure geophysics and materials",
@@ -32148,7 +32154,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2003,
-      "cited": 165,
+      "cited": 167,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Paleontology and Stratigraphy of Fossils",
@@ -32567,9 +32573,9 @@
       "journal": "Reviews of Geophysics",
       "publisher": "Wiley",
       "year": 2002,
-      "cited": 960,
+      "cited": 967,
       "type": "article",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Markov Chains and Monte Carlo Methods; Geophysical and Geoelectrical Methods",
       "sources": [
         "OpenAlex (verified)"
@@ -32608,7 +32614,7 @@
       "journal": "Inverse Problems",
       "publisher": "IOP Publishing",
       "year": 2002,
-      "cited": 388,
+      "cited": 394,
       "type": "article",
       "isOA": "No",
       "subject": "Markov Chains and Monte Carlo Methods; Numerical methods in inverse problems; Seismic Imaging and Inversion Techniques",
@@ -32649,7 +32655,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2002,
-      "cited": 45,
+      "cited": 46,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Seismic Imaging and Inversion Techniques; High-pressure geophysics and materials",
@@ -32727,7 +32733,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2002,
-      "cited": 243,
+      "cited": 245,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; High-pressure geophysics and materials",
@@ -32780,7 +32786,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2002,
-      "cited": 191,
+      "cited": 192,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Analytical chemistry methods development",
@@ -32906,7 +32912,7 @@
       "journal": "Inverse Problems",
       "publisher": "IOP Publishing",
       "year": 2001,
-      "cited": 100,
+      "cited": 101,
       "type": "article",
       "isOA": "Yes",
       "subject": "Numerical methods in inverse problems; Seismic Imaging and Inversion Techniques; Markov Chains and Monte Carlo Methods",
@@ -33280,7 +33286,7 @@
       "journal": "Nature",
       "publisher": "Nature Portfolio",
       "year": 2000,
-      "cited": 516,
+      "cited": 519,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; High-pressure geophysics and materials",
@@ -33468,7 +33474,7 @@
       "journal": "Geological Society London Special Publications",
       "publisher": "Geological Society of London",
       "year": 1999,
-      "cited": 44,
+      "cited": 45,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
@@ -33506,7 +33512,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 1999,
-      "cited": 1748,
+      "cited": 1761,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Geophysical and Geoelectrical Methods; Numerical methods in inverse problems",
@@ -33542,7 +33548,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 1999,
-      "cited": 952,
+      "cited": 955,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Seismic Imaging and Inversion Techniques; Numerical methods in inverse problems",
@@ -33578,7 +33584,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 1998,
-      "cited": 471,
+      "cited": 474,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis",
@@ -33690,7 +33696,7 @@
       "journal": "Basin Research",
       "publisher": "Wiley",
       "year": 1997,
-      "cited": 445,
+      "cited": 449,
       "type": "article",
       "isOA": "No",
       "subject": "Geological formations and processes; Hydrology and Sediment Transport Processes; Geography and Environmental Studies",

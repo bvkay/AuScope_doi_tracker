@@ -1,10 +1,10 @@
 {
   "metadata": {
     "type": "review",
-    "last_updated": "2026-11-23T11:47:12.845Z",
-    "total_count": 261,
+    "last_updated": "2026-11-24T21:27:21.220Z",
+    "total_count": 256,
     "by_tier": {
-      "candidate-review": 261
+      "candidate-review": 256
     }
   },
   "records": [
@@ -323,7 +323,7 @@
       "publisher": "Australian National University",
       "year": 2026,
       "cited": 0,
-      "type": "article",
+      "type": "dataset",
       "isOA": "Yes",
       "subject": "earthquake and tectonic studies; Seismic Waves and Analysis; Seismology and Earthquake Studies",
       "sources": [
@@ -2043,45 +2043,6 @@
       ]
     },
     {
-      "doi": "10.46427/gold2022.11565",
-      "title": "Application of Ge/Si ratios to ultramafic alkaline rocks using a novel LA-ICP-QQQ-MS method",
-      "authors": "Matthew R. Phillips; Olivier Alard; Stephen Foley",
-      "journal": "Goldschmidt Abstracts",
-      "publisher": "",
-      "year": 2022,
-      "cited": 0,
-      "type": "conference abstract",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Analytical chemistry methods development",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 3,
-      "institutions": [
-        "Macquarie University"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "rors": [
-        "01sf06y89"
-      ],
-      "authorIds": [
-        "https://openalex.org/A5009427777",
-        "https://openalex.org/A5034349319",
-        "https://openalex.org/A5015162425"
-      ],
-      "authorOrcids": [
-        "0000-0003-1522-9281",
-        "0000-0002-0832-6625",
-        "0000-0001-7510-0223"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-0832-6625"
-      ]
-    },
-    {
       "doi": "10.1029/2021eo163702",
       "title": "Australia’s Unfolding Geoscience Malady",
       "authors": "Samuel Boone; Mark C. Quigley; Peter Betts; Meghan Samantha Miller; Tim Rawling",
@@ -2120,7 +2081,7 @@
       ]
     },
     {
-      "doi": "10.59350/gmtm6-rs917",
+      "doi": "10.59350/hvwpf-1g750",
       "title": "Building Australia's Downward Looking Telescope",
       "authors": "Tim Rawling; Geo Down Under Contributors",
       "journal": "",
@@ -2250,7 +2211,7 @@
       ]
     },
     {
-      "doi": "10.59350/sajpn-r7002",
+      "doi": "10.59350/jwred-p0t13",
       "title": "Australian Seismometers in Schools - Noise monitoring dashboard",
       "authors": "Louis N. Moresi; Meghan Samantha Miller",
       "journal": "",
@@ -2281,7 +2242,7 @@
       ]
     },
     {
-      "doi": "10.59350/1evzk-y6b17",
+      "doi": "10.59350/h4nph-she37",
       "title": "Australia surprised by moderate quake, but rumbling is not unusual",
       "authors": "C. M. Eakin; Meghan Samantha Miller",
       "journal": "",
@@ -2312,7 +2273,7 @@
       ]
     },
     {
-      "doi": "10.59350/tjg7h-2q731",
+      "doi": "10.59350/2e7kf-wjz12",
       "title": "Lighting Up Dark Fibre for Seismic Imaging",
       "authors": "Meghan Samantha Miller",
       "journal": "",
@@ -2341,7 +2302,7 @@
       ]
     },
     {
-      "doi": "10.59350/16nst-edw24",
+      "doi": "10.59350/6cdrw-rpw02",
       "title": "Distributed Acoustic Sensing in Australia's Downward Looking Telescope",
       "authors": "Voon Hui Lai; Meghan Samantha Miller; Geo Down Under Contributors",
       "journal": "",
@@ -2373,7 +2334,7 @@
       ]
     },
     {
-      "doi": "10.59350/jx13r-hwn63",
+      "doi": "10.59350/mst5q-pj119",
       "title": "The inherited structures within the Australian lithosphere define the tectonic evolution along the Banda arc",
       "authors": "Meghan Samantha Miller",
       "journal": "",
@@ -2402,7 +2363,7 @@
       ]
     },
     {
-      "doi": "10.59350/56v44-pxt48",
+      "doi": "10.59350/r4acg-76268",
       "title": "Seismic Fly-past of the Century",
       "authors": "Voon Hui Lai; C. M. Eakin; Chengxin Jiang; Meghan Samantha Miller",
       "journal": "",
@@ -2546,7 +2507,7 @@
       "journal": "Meteoritics and Planetary Science",
       "publisher": "Wiley",
       "year": 2021,
-      "cited": 16,
+      "cited": 17,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Paleontology and Stratigraphy of Fossils",
@@ -2770,7 +2731,7 @@
       ]
     },
     {
-      "doi": "10.59350/3m1nm-g4r48",
+      "doi": "10.59350/v4r3v-8k864",
       "title": "A tight squeeze between tectonic plates",
       "authors": "Adam Beall; D. Rhodri Davies",
       "journal": "",
@@ -2793,37 +2754,6 @@
       ],
       "authorOrcids": [
         "0000-0002-7182-1864",
-        "0000-0002-7662-9468"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-7662-9468"
-      ]
-    },
-    {
-      "doi": "10.59350/xagqq-58b57",
-      "title": "East Australian Volcanism – interaction of plumes and subduction remnants",
-      "authors": "Brian L. N. Kennett; D. Rhodri Davies",
-      "journal": "",
-      "publisher": "",
-      "year": 2021,
-      "cited": 0,
-      "type": "other",
-      "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; Geological Studies and Exploration",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5088664218",
-        "https://openalex.org/A5072460934"
-      ],
-      "authorOrcids": [
-        "0000-0003-2206-5350",
         "0000-0002-7662-9468"
       ],
       "attribution": "candidate-review",
@@ -2863,36 +2793,7 @@
       ]
     },
     {
-      "doi": "10.59350/v4r3v-8k864",
-      "title": "A tight squeeze between tectonic plates",
-      "authors": "Adam Beall; D. Rhodri Davies",
-      "journal": "",
-      "publisher": "",
-      "year": 2021,
-      "cited": 0,
-      "type": "other",
-      "isOA": "Yes",
-      "subject": "earthquake and tectonic studies; Geological and Geophysical Studies; Geological and Geophysical Studies Worldwide",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5072460934"
-      ],
-      "authorOrcids": [
-        "0000-0002-7662-9468"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-7662-9468"
-      ]
-    },
-    {
-      "doi": "10.59350/s0yek-cya30",
+      "doi": "10.59350/n53sw-awc39",
       "title": "A decadal vision, a decade later",
       "authors": "Louis N. Moresi; Tim Rawling",
       "journal": "",
@@ -2963,7 +2864,7 @@
       ]
     },
     {
-      "doi": "10.59350/n8dd4-8de92",
+      "doi": "10.59350/7dsb5-26110",
       "title": "Australian cities are quiet during lockdown. Earthquake scientists are making the most of it",
       "authors": "Meghan Samantha Miller; Louis N. Moresi",
       "journal": "",
@@ -2994,7 +2895,7 @@
       ]
     },
     {
-      "doi": "10.59350/cz117-60117",
+      "doi": "10.59350/jcm1a-wdd46",
       "title": "COVID lockdowns and seismic noise in Australia",
       "authors": "Meghan Samantha Miller; Louis N. Moresi",
       "journal": "",
@@ -3018,36 +2919,6 @@
       "authorOrcids": [
         "0000-0001-5494-2296",
         "0000-0003-3685-174X"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0001-5494-2296"
-      ]
-    },
-    {
-      "doi": "10.59350/cyf7a-3kk26",
-      "title": "Testing AuScope's next-gen seismometers at Mt Stromlo",
-      "authors": "Meghan Samantha Miller; Geo Down Under Contributors",
-      "journal": "",
-      "publisher": "",
-      "year": 2020,
-      "cited": 0,
-      "type": "other",
-      "isOA": "Yes",
-      "subject": "Geophysics and Sensor Technology; Seismic Waves and Analysis; earthquake and tectonic studies",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 2,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5026672994",
-        "https://openalex.org/A5096610649"
-      ],
-      "authorOrcids": [
-        "0000-0001-5494-2296"
       ],
       "attribution": "candidate-review",
       "verifiedBy": [
@@ -3091,7 +2962,7 @@
       "journal": "Journal of Analytical Atomic Spectrometry",
       "publisher": "Royal Society of Chemistry",
       "year": 2020,
-      "cited": 88,
+      "cited": 87,
       "type": "article",
       "isOA": "No",
       "subject": "Analytical chemistry methods development; Geological and Geochemical Analysis; Laser-induced spectroscopy and plasma",
@@ -3128,7 +2999,7 @@
       "journal": "Journal of Archaeological Science",
       "publisher": "Elsevier BV",
       "year": 2020,
-      "cited": 43,
+      "cited": 44,
       "type": "article",
       "isOA": "No",
       "subject": "Metallurgy and Cultural Artifacts; Cultural Heritage Materials Analysis; Archaeology and Historical Studies",
@@ -3624,35 +3495,6 @@
       ]
     },
     {
-      "doi": "10.59350/3atx2-v4j54",
-      "title": "Viscoelasticity in Underworld2",
-      "authors": "Rebecca Farrington",
-      "journal": "",
-      "publisher": "",
-      "year": 2019,
-      "cited": 0,
-      "type": "other",
-      "isOA": "Yes",
-      "subject": "Rheology and Fluid Dynamics Studies; Advanced Numerical Methods in Computational Mathematics; High-pressure geophysics and materials",
-      "sources": [
-        "OpenAlex (verified)"
-      ],
-      "authorCount": 1,
-      "institutions": [],
-      "countries": [],
-      "rors": [],
-      "authorIds": [
-        "https://openalex.org/A5016284891"
-      ],
-      "authorOrcids": [
-        "0000-0002-2594-6965"
-      ],
-      "attribution": "candidate-review",
-      "verifiedBy": [
-        "orcid:0000-0002-2594-6965"
-      ]
-    },
-    {
       "doi": "10.59350/2nhnt-the20",
       "title": "Viscoelasticity in Underworld2",
       "authors": "Rebecca Farrington",
@@ -3688,7 +3530,7 @@
       "journal": "Global Food Security",
       "publisher": "Elsevier BV",
       "year": 2019,
-      "cited": 55,
+      "cited": 57,
       "type": "article",
       "isOA": "No",
       "subject": "Food Security and Health in Diverse Populations; Food Security and Socioeconomic Dynamics; Child Nutrition and Water Access",
@@ -4301,7 +4143,7 @@
       ]
     },
     {
-      "doi": "10.59350/b6zct-rar07",
+      "doi": "10.59350/5hrd2-s4c45",
       "title": "Alaska Moho Model (Reproducible research with containers)",
       "authors": "Louis N. Moresi; Meghan Samantha Miller",
       "journal": "",
@@ -4338,7 +4180,7 @@
       "journal": "Ore Geology Reviews",
       "publisher": "Elsevier BV",
       "year": 2018,
-      "cited": 64,
+      "cited": 65,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Geochronology of Asian Mineral Deposits; Geochemistry and Elemental Analysis",
@@ -4389,7 +4231,7 @@
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2018,
-      "cited": 47,
+      "cited": 48,
       "type": "review",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; High-pressure geophysics and materials",
@@ -4559,7 +4401,7 @@
       "publisher": "",
       "year": 2018,
       "cited": 0,
-      "type": "article",
+      "type": "dataset",
       "isOA": "Yes",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Geological Modeling and Analysis",
       "sources": [
@@ -4822,10 +4664,10 @@
       "journal": "Seismological Research Letters",
       "publisher": "Seismological Society of America",
       "year": 2016,
-      "cited": 22,
+      "cited": 21,
       "type": "article",
       "isOA": "No",
-      "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; earthquake and tectonic studies",
+      "subject": "earthquake and tectonic studies; Geological and Geophysical Studies; Seismic Waves and Analysis",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -4915,7 +4757,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2015,
-      "cited": 79,
+      "cited": 80,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; High-pressure geophysics and materials",
@@ -5041,7 +4883,7 @@
       "journal": "Tectonics",
       "publisher": "Wiley",
       "year": 2015,
-      "cited": 45,
+      "cited": 46,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; earthquake and tectonic studies; Geological Studies and Exploration",
@@ -5460,7 +5302,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2014,
-      "cited": 146,
+      "cited": 147,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -5579,10 +5421,10 @@
       "journal": "Lithosphere",
       "publisher": "GeoScienceWorld",
       "year": 2014,
-      "cited": 47,
+      "cited": 48,
       "type": "article",
       "isOA": "Yes",
-      "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geological and Geophysical Studies",
+      "subject": "High-pressure geophysics and materials; Geological and Geochemical Analysis; Geological and Geophysical Studies",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -6152,7 +5994,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2013,
-      "cited": 91,
+      "cited": 95,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; earthquake and tectonic studies; High-pressure geophysics and materials",
@@ -6205,7 +6047,7 @@
       "cited": 74,
       "type": "article",
       "isOA": "No",
-      "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; Geological and Geochemical Analysis",
+      "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; High-pressure geophysics and materials",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -6579,7 +6421,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2012,
-      "cited": 150,
+      "cited": 154,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; High-pressure geophysics and materials; Seismic Waves and Analysis",
@@ -6618,7 +6460,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2012,
-      "cited": 72,
+      "cited": 77,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Tectonic Studies in Latin America; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -6703,7 +6545,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 52,
+      "cited": 54,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies Worldwide; Geological and Geophysical Studies; earthquake and tectonic studies",
@@ -6743,7 +6585,7 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2012,
-      "cited": 40,
+      "cited": 41,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; Geological and Geophysical Studies; High-pressure geophysics and materials",
@@ -6785,7 +6627,7 @@
       "journal": "Geology",
       "publisher": "Geological Society of America",
       "year": 2012,
-      "cited": 45,
+      "cited": 47,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geological and Geophysical Studies; High-pressure geophysics and materials",
@@ -6885,7 +6727,7 @@
       "journal": "Lithos",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 214,
+      "cited": 213,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -7002,7 +6844,7 @@
       "journal": "Meteoritics and Planetary Science",
       "publisher": "Wiley",
       "year": 2012,
-      "cited": 59,
+      "cited": 60,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Geochemistry and Elemental Analysis",
@@ -7113,7 +6955,7 @@
       "journal": "Physics of The Earth and Planetary Interiors",
       "publisher": "Elsevier BV",
       "year": 2012,
-      "cited": 97,
+      "cited": 98,
       "type": "article",
       "isOA": "Yes",
       "subject": "High-pressure geophysics and materials; Advanced Numerical Methods in Computational Mathematics; Geological and Geophysical Studies",
@@ -7209,7 +7051,7 @@
       "journal": "Nature",
       "publisher": "Nature Portfolio",
       "year": 2011,
-      "cited": 333,
+      "cited": 335,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Geological and Geophysical Studies Worldwide",
@@ -7263,7 +7105,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2011,
-      "cited": 44,
+      "cited": 45,
       "type": "article",
       "isOA": "Yes",
       "subject": "Seismic Waves and Analysis; High-pressure geophysics and materials; Seismic Imaging and Inversion Techniques",
@@ -7403,7 +7245,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2011,
-      "cited": 86,
+      "cited": 87,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Geochemistry and Elemental Analysis",
@@ -7463,7 +7305,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2011,
-      "cited": 169,
+      "cited": 171,
       "type": "article",
       "isOA": "No",
       "subject": "Advanced Numerical Methods in Computational Mathematics; High-pressure geophysics and materials; Geological and Geochemical Analysis",
@@ -7585,7 +7427,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2010,
-      "cited": 77,
+      "cited": 80,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -7716,7 +7558,7 @@
       "journal": "Solid Earth",
       "publisher": "Copernicus Publications",
       "year": 2010,
-      "cited": 598,
+      "cited": 608,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geophysical Studies; Geothermal Energy Systems and Applications; Geological and Geochemical Analysis",
@@ -7815,9 +7657,9 @@
       "journal": "Journal of Geophysical Research Atmospheres",
       "publisher": "American Geophysical Union",
       "year": 2009,
-      "cited": 69,
+      "cited": 70,
       "type": "article",
-      "isOA": "Yes",
+      "isOA": "No",
       "subject": "Geological and Tectonic Studies in Latin America; Seismic Waves and Analysis; Geological and Geophysical Studies Worldwide",
       "sources": [
         "OpenAlex (verified)"
@@ -7962,7 +7804,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2009,
-      "cited": 138,
+      "cited": 140,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Planetary Science and Exploration",
@@ -8344,7 +8186,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 217,
+      "cited": 220,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Geological and Geophysical Studies",
@@ -8389,7 +8231,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 151,
+      "cited": 154,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Paleontology and Stratigraphy of Fossils",
@@ -8430,10 +8272,10 @@
       "journal": "Elements",
       "publisher": "Mineralogical Society of America",
       "year": 2008,
-      "cited": 144,
+      "cited": 145,
       "type": "article",
       "isOA": "No",
-      "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
+      "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Geochemistry and Elemental Analysis",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -8478,7 +8320,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2008,
-      "cited": 114,
+      "cited": 115,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
@@ -8666,7 +8508,7 @@
       "cited": 19,
       "type": "article",
       "isOA": "Yes",
-      "subject": "Advanced Numerical Methods in Computational Mathematics; Computational Geometry and Mesh Generation; Computational Fluid Dynamics and Aerodynamics",
+      "subject": "Advanced Numerical Methods in Computational Mathematics; Computational Geometry and Mesh Generation; Singular Perturbation, Asymptotics and Difference Schemes",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -8744,7 +8586,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2007,
-      "cited": 424,
+      "cited": 425,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; High-pressure geophysics and materials; Astro and Planetary Science",
@@ -8797,7 +8639,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2007,
-      "cited": 170,
+      "cited": 171,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -8901,7 +8743,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2007,
-      "cited": 110,
+      "cited": 111,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
@@ -9088,7 +8930,7 @@
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2006,
-      "cited": 64,
+      "cited": 65,
       "type": "article",
       "isOA": "No",
       "subject": "Seismic Imaging and Inversion Techniques; Seismic Waves and Analysis; earthquake and tectonic studies",
@@ -9522,7 +9364,7 @@
       "journal": "Proceedings of the National Academy of Sciences",
       "publisher": "National Academy of Sciences",
       "year": 2005,
-      "cited": 196,
+      "cited": 202,
       "type": "article",
       "isOA": "Yes",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; Astrophysics and Star Formation Studies",
@@ -9574,7 +9416,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2005,
-      "cited": 110,
+      "cited": 111,
       "type": "article",
       "isOA": "Yes",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; High-pressure geophysics and materials",
@@ -9633,7 +9475,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2005,
-      "cited": 46,
+      "cited": 47,
       "type": "article",
       "isOA": "No",
       "subject": "Astro and Planetary Science; Planetary Science and Exploration; Geological and Geochemical Analysis",
@@ -9793,7 +9635,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2004,
-      "cited": 162,
+      "cited": 163,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Astro and Planetary Science",
@@ -9849,7 +9691,7 @@
       "journal": "Chemical Geology",
       "publisher": "Elsevier BV",
       "year": 2004,
-      "cited": 33,
+      "cited": 34,
       "type": "article",
       "isOA": "No",
       "subject": "Astro and Planetary Science; Geological and Geochemical Analysis; High-pressure geophysics and materials",
@@ -9975,7 +9817,7 @@
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2004,
-      "cited": 7,
+      "cited": 8,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Electrical and Bioimpedance Tomography; Groundwater flow and contamination studies",
@@ -10005,7 +9847,7 @@
       "journal": "Journal of Analytical Atomic Spectrometry",
       "publisher": "Royal Society of Chemistry",
       "year": 2003,
-      "cited": 492,
+      "cited": 495,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Scientific Measurement and Uncertainty Evaluation; Analytical chemistry methods development",
@@ -10070,7 +9912,7 @@
       "journal": "Geochemistry Geophysics Geosystems",
       "publisher": "Wiley",
       "year": 2003,
-      "cited": 137,
+      "cited": 139,
       "type": "article",
       "isOA": "Yes",
       "subject": "Paleontology and Stratigraphy of Fossils; Analytical chemistry methods development; Geochemistry and Elemental Analysis",
@@ -10111,7 +9953,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2003,
-      "cited": 103,
+      "cited": 104,
       "type": "article",
       "isOA": "No",
       "subject": "Astro and Planetary Science; Planetary Science and Exploration; Geological and Geochemical Analysis",
@@ -10159,7 +10001,7 @@
       "journal": "Exploration Geophysics",
       "publisher": "Taylor & Francis",
       "year": 2003,
-      "cited": 42,
+      "cited": 43,
       "type": "article",
       "isOA": "No",
       "subject": "Geophysical and Geoelectrical Methods; Geophysical Methods and Applications; Geological Modeling and Analysis",
@@ -10429,7 +10271,7 @@
       "journal": "Geochimica et Cosmochimica Acta",
       "publisher": "Elsevier BV",
       "year": 2001,
-      "cited": 292,
+      "cited": 293,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Astro and Planetary Science; Geochemistry and Elemental Analysis",
@@ -10475,7 +10317,7 @@
       "journal": "Earth and Planetary Science Letters",
       "publisher": "Elsevier BV",
       "year": 2000,
-      "cited": 107,
+      "cited": 108,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geochemical Analysis; Geochemistry and Elemental Analysis; Geological and Geophysical Studies Worldwide",
@@ -10993,7 +10835,7 @@
       "cited": 4,
       "type": "book chapter",
       "isOA": "No",
-      "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; High-pressure geophysics and materials",
+      "subject": "Geological and Geophysical Studies; High-pressure geophysics and materials; Geological and Geochemical Analysis",
       "sources": [
         "OpenAlex (verified)"
       ],
@@ -11181,7 +11023,7 @@
       "journal": "Geophysical Journal International",
       "publisher": "Oxford University Press",
       "year": 1998,
-      "cited": 121,
+      "cited": 124,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Geophysical and Geoelectrical Methods",
@@ -11273,7 +11115,7 @@
       "journal": "Philosophical Transactions of the Royal Society A Mathematical Physical and Engineering Sciences",
       "publisher": "Royal Society",
       "year": 1997,
-      "cited": 93,
+      "cited": 94,
       "type": "article",
       "isOA": "No",
       "subject": "Geological and Geophysical Studies; Geological and Geochemical Analysis; Geophysical and Geoelectrical Methods",

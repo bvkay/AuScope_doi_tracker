@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-23T11:57:05.697Z",
+  "generated": "2026-11-24T21:37:15.607Z",
   "note": "candidate-strong works not in the corpus — human review before adding (rejected works filtered out)",
   "records": [
     {
@@ -192,7 +192,7 @@
       "year": 2025,
       "journal": "Journal of Geophysical Research Solid Earth",
       "authors": "Malcolm Sambridge; Andrew P. Valentine; Juerg Hauser",
-      "cited": 7
+      "cited": 8
     },
     {
       "doi": "10.5194/egusphere-egu24-14483",
@@ -414,9 +414,9 @@
       "doi": "10.22541/essoar.172854555.54637562/v1",
       "title": "Bayesian Inference in Geophysics with AI-enhanced Markov chain Monte Carlo",
       "year": 2024,
-      "journal": "",
+      "journal": "ESS Open Archive",
       "authors": "Matthias Scheiter; Andrew P. Valentine; Malcolm Sambridge",
-      "cited": 1
+      "cited": 2
     },
     {
       "doi": "10.1029/2024jh000356",
@@ -507,18 +507,10 @@
       "cited": 1
     },
     {
-      "doi": "10.22541/essoar.170689115.50644908/v1",
-      "title": "Investigating the Lid Effect in the Generation of Ocean Island Basalts",
-      "year": 2024,
-      "journal": "",
-      "authors": "Shihao Jiang; Rhys Hawkins; Mark James Hoggard; D. Rhodri Davies; I. H. Campbell",
-      "cited": 0
-    },
-    {
       "doi": "10.22541/essoar.170689115.50644908/v2",
       "title": "Investigating the Lid Effect in the Generation of Ocean Island Basalts",
       "year": 2024,
-      "journal": "",
+      "journal": "ESS Open Archive",
       "authors": "Shihao Jiang; Rhys Hawkins; Mark James Hoggard; D. Rhodri Davies; I. H. Campbell",
       "cited": 0
     },
@@ -808,7 +800,7 @@
       "year": 2022,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Thomas Duvernay; D. Rhodri Davies; Christopher Mathews; Angus H. Gibson; Stephan C. Kramer",
-      "cited": 34
+      "cited": 35
     },
     {
       "doi": "10.1029/2022jb024494",
@@ -816,7 +808,7 @@
       "year": 2022,
       "journal": "Journal of Geophysical Research Solid Earth",
       "authors": "Nestor G. Cerpa; Karin Sigloch; Fanny Garel; Arnauld Heuret; D. Rhodri Davies; Mitchell G. Mihalynuk",
-      "cited": 22
+      "cited": 23
     },
     {
       "doi": "10.3389/feart.2022.852742",
@@ -904,7 +896,7 @@
       "year": 2021,
       "journal": "Geophysical Research Letters",
       "authors": "Ping Zhang; Meghan Samantha Miller",
-      "cited": 32
+      "cited": 31
     },
     {
       "doi": "10.1130/g48246.1",
@@ -968,7 +960,7 @@
       "year": 2021,
       "journal": "Geoscientific model development",
       "authors": "Stephan C. Kramer; D. Rhodri Davies; C. R. Wilson",
-      "cited": 34
+      "cited": 35
     },
     {
       "doi": "10.1029/2021gc009717",
@@ -984,7 +976,7 @@
       "year": 2021,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Adam Beall; Åke Fagereng; J. H. Davies; Fanny Garel; D. Rhodri Davies",
-      "cited": 18
+      "cited": 19
     },
     {
       "doi": "10.5194/se-12-79-2021",
@@ -992,7 +984,7 @@
       "year": 2021,
       "journal": "Solid Earth",
       "authors": "Lior Suchoy; Saskia D. B. Goes; Benjamin Maunder; Fanny Garel; D. Rhodri Davies",
-      "cited": 16
+      "cited": 17
     },
     {
       "doi": "10.5194/egusphere-egu21-1023",
@@ -1072,7 +1064,7 @@
       "year": 2020,
       "journal": "Journal of Geophysical Research Solid Earth",
       "authors": "Cooper W. Harris; Meghan Samantha Miller; Pepen Supendi; Sri Widiyantoro",
-      "cited": 20
+      "cited": 19
     },
     {
       "doi": "10.1130/b35665.1",
@@ -1112,13 +1104,13 @@
       "year": 2020,
       "journal": "Earth and Planetary Science Letters",
       "authors": "Fanny Garel; Catherine Thoraval; Andréa Tommasi; Sylvie Demouchy; D. Rhodri Davies",
-      "cited": 13
+      "cited": 14
     },
     {
       "doi": "10.1002/essoar.10504315.1",
       "title": "Linking Lithospheric Structure, Mantle Flow and Intra-Plate Volcanism",
       "year": 2020,
-      "journal": "",
+      "journal": "ESS Open Archive",
       "authors": "Thomas Duvernay; D. Rhodri Davies; Christopher Mathews; Angus H. Gibson; Stephan C. Kramer",
       "cited": 1
     },
@@ -1216,7 +1208,7 @@
       "year": 2019,
       "journal": "Geophysical Journal International",
       "authors": "Roberto Benavente; Jan Dettmer; Phil R. Cummins; Malcolm Sambridge",
-      "cited": 20
+      "cited": 21
     },
     {
       "doi": "10.3390/w11071463",
@@ -1288,7 +1280,7 @@
       "year": 2019,
       "journal": "Nature Geoscience",
       "authors": "D. Rhodri Davies; Andrew P. Valentine; Stephan C. Kramer; Nicholas Rawlinson; Mark James Hoggard; C. M. Eakin; C. R. Wilson",
-      "cited": 105
+      "cited": 107
     },
     {
       "doi": "10.1016/j.epsl.2019.05.037",
@@ -1304,7 +1296,7 @@
       "year": 2019,
       "journal": "Earth and Planetary Science Letters",
       "authors": "Manar Alsaif; Fanny Garel; Frédéric Gueydan; D. Rhodri Davies",
-      "cited": 24
+      "cited": 25
     },
     {
       "doi": "10.1016/j.cageo.2019.03.002",
@@ -1344,7 +1336,7 @@
       "year": 2018,
       "journal": "Journal of Climate",
       "authors": "Julia Pfeffer; Paul Tregoning; Anthony Purcell; Malcolm Sambridge",
-      "cited": 19
+      "cited": 20
     },
     {
       "doi": "10.1093/gji/ggy303",
@@ -1392,7 +1384,7 @@
       "year": 2018,
       "journal": "Seismological Research Letters",
       "authors": "Meghan Samantha Miller; Louis N. Moresi",
-      "cited": 45
+      "cited": 44
     },
     {
       "doi": "10.1029/2018gc007603",
@@ -1400,7 +1392,7 @@
       "year": 2018,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Cooper W. Harris; Meghan Samantha Miller; Robert W. Porritt",
-      "cited": 40
+      "cited": 41
     },
     {
       "doi": "10.1029/2018gc007562",
@@ -1432,7 +1424,7 @@
       "year": 2018,
       "journal": "Earth and Planetary Science Letters",
       "authors": "Alexander Perrin; Saskia D. B. Goes; Julie Prytulak; S. Rondenay; D. Rhodri Davies",
-      "cited": 56
+      "cited": 57
     },
     {
       "doi": "10.1016/j.epsl.2018.08.058",
@@ -1443,19 +1435,19 @@
       "cited": 38
     },
     {
-      "doi": "10.1038/s41561-018-0110-z",
-      "title": "Indian Ocean floor deformation induced by the Reunion plume rather than the Tibetan Plateau",
-      "year": 2018,
-      "journal": "Nature Geoscience",
-      "authors": "Giampiero Iaffaldano; D. Rhodri Davies; Charles DeMets",
-      "cited": 42
-    },
-    {
       "doi": "10.1016/j.epsl.2018.11.008",
       "title": "Tungsten isotopes in mantle plumes: Heads it's positive, tails it's negative",
       "year": 2018,
       "journal": "Earth and Planetary Science Letters",
       "authors": "T. D. Jones; D. Rhodri Davies; Paolo A. Sossi",
+      "cited": 43
+    },
+    {
+      "doi": "10.1038/s41561-018-0110-z",
+      "title": "Indian Ocean floor deformation induced by the Reunion plume rather than the Tibetan Plateau",
+      "year": 2018,
+      "journal": "Nature Geoscience",
+      "authors": "Giampiero Iaffaldano; D. Rhodri Davies; Charles DeMets",
       "cited": 42
     },
     {
@@ -1518,7 +1510,7 @@
       "doi": "10.26180/4644928",
       "title": "Geodynamic models of lithospheric and mantle processes.",
       "year": 2017,
-      "journal": "Figshare",
+      "journal": "Monash University",
       "authors": "Rebecca Farrington",
       "cited": 0
     },
@@ -1528,7 +1520,7 @@
       "year": 2017,
       "journal": "Exploration Geophysics",
       "authors": "Rhys Hawkins; Ross C. Brodie; Malcolm Sambridge",
-      "cited": 51
+      "cited": 52
     },
     {
       "doi": "10.1002/2016jb013692",
@@ -1560,7 +1552,7 @@
       "year": 2017,
       "journal": "Tectonics",
       "authors": "Cynthia J. Ebinger; Derek Boswell Keir; I. D. Bastow; Kathryn A. Whaler; J. O. S. Hammond; Atalay Ayele; Meghan Samantha Miller; Christel Tiberi; Sophie Hautot",
-      "cited": 113
+      "cited": 114
     },
     {
       "doi": "10.1016/j.cageo.2017.11.022",
@@ -1584,7 +1576,7 @@
       "year": 2017,
       "journal": "Nature",
       "authors": "T. D. Jones; D. Rhodri Davies; I. H. Campbell; Giampiero Iaffaldano; Gregory M. Yaxley; Stephan C. Kramer; C. R. Wilson",
-      "cited": 71
+      "cited": 72
     },
     {
       "doi": "10.1002/2017gl074911",
@@ -1592,7 +1584,7 @@
       "year": 2017,
       "journal": "Geophysical Research Letters",
       "authors": "Nicholas Rawlinson; D. Rhodri Davies; Simone Pilia",
-      "cited": 50
+      "cited": 51
     },
     {
       "doi": "10.5194/se-8-899-2017",
@@ -1680,7 +1672,7 @@
       "year": 2016,
       "journal": "Tectonophysics",
       "authors": "C. M. Cooper; Meghan Samantha Miller; Louis N. Moresi",
-      "cited": 29
+      "cited": 30
     },
     {
       "doi": "10.1093/petrology/egw004",
@@ -1712,7 +1704,7 @@
       "year": 2016,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "D. Rhodri Davies; G. Le Voci; Saskia D. B. Goes; Stephan C. Kramer; C. R. Wilson",
-      "cited": 37
+      "cited": 38
     },
     {
       "doi": "10.1002/2016gc006527",
@@ -1720,7 +1712,7 @@
       "year": 2016,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Alexander Perrin; Saskia D. B. Goes; Julie Prytulak; D. Rhodri Davies; C. R. Wilson; Stephan C. Kramer",
-      "cited": 33
+      "cited": 34
     },
     {
       "doi": "10.1071/aseg2016ab258",
@@ -1920,7 +1912,7 @@
       "year": 2015,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Nicola Tosi; Claudia Stein; Lena Noack; Christian Hüttig; Petra Maierová; Henri Samuel; D. Rhodri Davies; C. R. Wilson; Stephan C. Kramer; Cédric Thieulot; Anne Glerum; Menno Fraters; Wim Spakman; Antoine Rozel; Paul James Tackley",
-      "cited": 103
+      "cited": 104
     },
     {
       "doi": "10.1016/j.epsl.2015.11.016",
@@ -1928,7 +1920,7 @@
       "year": 2015,
       "journal": "Earth and Planetary Science Letters",
       "authors": "T. D. Jones; D. Rhodri Davies; I. H. Campbell; C. R. Wilson; Stephan C. Kramer",
-      "cited": 63
+      "cited": 64
     },
     {
       "doi": "10.1093/gji/ggv116",
@@ -2056,7 +2048,7 @@
       "year": 2014,
       "journal": "Advances in geophysics",
       "authors": "Nicholas Rawlinson; Andreas Fichtner; Malcolm Sambridge; M. K. Young",
-      "cited": 240
+      "cited": 242
     },
     {
       "doi": "10.1016/j.palaeo.2014.07.023",
@@ -2064,7 +2056,7 @@
       "year": 2014,
       "journal": "Palaeogeography Palaeoclimatology Palaeoecology",
       "authors": "Rainer Grün; Stephen M. Eggins; Leslie P. J. Kinsley; Hannah Moseley; Malcolm Sambridge",
-      "cited": 141
+      "cited": 140
     },
     {
       "doi": "10.1016/j.epsl.2014.11.052",
@@ -2088,7 +2080,7 @@
       "year": 2014,
       "journal": "Nature",
       "authors": "Louis N. Moresi; Peter Betts; Meghan Samantha Miller; R. A. Cayley",
-      "cited": 298
+      "cited": 299
     },
     {
       "doi": "10.1016/j.gsf.2014.07.002",
@@ -2112,7 +2104,7 @@
       "year": 2014,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Fanny Garel; Saskia D. B. Goes; D. Rhodri Davies; J. H. Davies; Stephan C. Kramer; C. R. Wilson",
-      "cited": 216
+      "cited": 218
     },
     {
       "doi": "10.1130/g36093.1",
@@ -2128,7 +2120,7 @@
       "year": 2014,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "G. Le Voci; D. Rhodri Davies; Saskia D. B. Goes; Stephan C. Kramer; C. R. Wilson",
-      "cited": 45
+      "cited": 46
     },
     {
       "doi": "10.1016/j.gr.2014.07.013",
@@ -2192,7 +2184,7 @@
       "year": 2013,
       "journal": "Geophysical Journal International",
       "authors": "Malcolm Sambridge",
-      "cited": 331
+      "cited": 332
     },
     {
       "doi": "10.1098/rsta.2011.0547",
@@ -2264,7 +2256,7 @@
       "year": 2013,
       "journal": "Geoscientific model development",
       "authors": "D. Rhodri Davies; J. H. Davies; Peter C. Bollada; Oubay Hassan; K. Morgan; Perumal Nithiarasu",
-      "cited": 62
+      "cited": 63
     },
     {
       "doi": "10.1080/08120099.2013.826735",
@@ -2392,7 +2384,7 @@
       "year": 2012,
       "journal": "Journal of Geophysical Research Atmospheres",
       "authors": "Thomas Bodin; Malcolm Sambridge; Kerry Gallagher; Nicholas Rawlinson",
-      "cited": 531
+      "cited": 533
     },
     {
       "doi": "10.1111/j.1365-246x.2012.05414.x",
@@ -2400,7 +2392,7 @@
       "year": 2012,
       "journal": "Geophysical Journal International",
       "authors": "Thomas Bodin; Malcolm Sambridge; Nicholas Rawlinson; P. Arroucau",
-      "cited": 280
+      "cited": 281
     },
     {
       "doi": "10.1121/1.4757639",
@@ -2416,7 +2408,7 @@
       "year": 2012,
       "journal": "Quaternary Geochronology",
       "authors": "Malcolm Sambridge; Rainer Grün; Stephen M. Eggins",
-      "cited": 72
+      "cited": 73
     },
     {
       "doi": "10.1071/aseg2012ab095",
@@ -2464,7 +2456,7 @@
       "year": 2011,
       "journal": "Earth and Planetary Science Letters",
       "authors": "Kerry Gallagher; Thomas Bodin; Malcolm Sambridge; Dominik Jakob Weiss; Malin E. Kylander; David John Large",
-      "cited": 127
+      "cited": 128
     },
     {
       "doi": "10.1029/2010jb007745",
@@ -2552,7 +2544,7 @@
       "year": 2010,
       "journal": "Economic Geology",
       "authors": "C. E. Willman; R. J. Korsch; D. H. Moore; R. A. Cayley; Vladimir Lisitsin; Tim Rawling; Vince J. Morand; P. J. O'Shea",
-      "cited": 91
+      "cited": 92
     },
     {
       "doi": "10.1126/science.1190366",
@@ -2560,7 +2552,7 @@
       "year": 2010,
       "journal": "Science",
       "authors": "Wouter P. Schellart; D. R. Stegman; Rebecca Farrington; J. Freeman; Louis N. Moresi",
-      "cited": 111
+      "cited": 114
     },
     {
       "doi": "10.1029/2010gl044830",
@@ -2568,7 +2560,7 @@
       "year": 2010,
       "journal": "Geophysical Research Letters",
       "authors": "Malcolm Sambridge; ‪Hrvoje Tkalčić; Andrew Jackson",
-      "cited": 172
+      "cited": 173
     },
     {
       "doi": "10.1016/j.epsl.2010.01.036",
@@ -2640,7 +2632,7 @@
       "year": 2010,
       "journal": "Geophysics",
       "authors": "Michael A. Hatch; Tim J. Munday; Graham Heinson",
-      "cited": 45
+      "cited": 47
     },
     {
       "doi": "10.1029/2009jb006698",
@@ -2712,7 +2704,7 @@
       "year": 2009,
       "journal": "Tectonophysics",
       "authors": "D. R. Stegman; Rebecca Farrington; Fabio A. Capitanio; Wouter P. Schellart",
-      "cited": 186
+      "cited": 189
     },
     {
       "doi": "10.1016/j.tecto.2009.10.008",
@@ -2736,7 +2728,7 @@
       "year": 2009,
       "journal": "Marine and Petroleum Geology",
       "authors": "Kerry Gallagher; Karl Charvin; Søren B. Nielsen; Malcolm Sambridge; John Stephenson",
-      "cited": 335
+      "cited": 336
     },
     {
       "doi": "10.1088/0266-5611/25/5/055009",
@@ -2744,7 +2736,7 @@
       "year": 2009,
       "journal": "Inverse Problems",
       "authors": "Thomas Bodin; Malcolm Sambridge; Kerry Gallagher",
-      "cited": 91
+      "cited": 92
     },
     {
       "doi": "10.1071/aseg2009ab061",
@@ -2760,7 +2752,7 @@
       "year": 2009,
       "journal": "Tectonophysics",
       "authors": "Wendy Glenys Mason; Louis N. Moresi; Peter Betts; Meghan Samantha Miller",
-      "cited": 145
+      "cited": 146
     },
     {
       "doi": "10.1130/g30175a.1",
@@ -2832,7 +2824,7 @@
       "year": 2008,
       "journal": "Physics of The Earth and Planetary Interiors",
       "authors": "Mark OzBench; Klaus Regenauer‐Lieb; D. R. Stegman; Gabriele Morra; Rebecca Farrington; Alina Jane Hale; Dave A. May; J. Freeman; Laurent Bourgouin; Hans B. Mühlhaus; Louis N. Moresi",
-      "cited": 54
+      "cited": 55
     },
     {
       "doi": "10.2138/am.2008.2656",
@@ -2840,7 +2832,7 @@
       "year": 2008,
       "journal": "American Mineralogist",
       "authors": "István János Kovács; Jörg Hermann; Hugh St.C. O'Neill; J. F. Gerald; Malcolm Sambridge; Gábor Horváth",
-      "cited": 214
+      "cited": 216
     },
     {
       "doi": "10.1016/s0065-2687(07)49003-3",
@@ -2848,7 +2840,7 @@
       "year": 2008,
       "journal": "Advances in geophysics",
       "authors": "Nicholas Rawlinson; Juerg Hauser; Malcolm Sambridge",
-      "cited": 167
+      "cited": 168
     },
     {
       "doi": "10.2138/am.2008.2657",
@@ -2856,7 +2848,7 @@
       "year": 2008,
       "journal": "American Mineralogist",
       "authors": "Malcolm Sambridge; J. F. Gerald; István János Kovács; Hugh St.C. O'Neill; Jörg Hermann",
-      "cited": 122
+      "cited": 125
     },
     {
       "doi": "10.1029/2008gc002069",
@@ -2880,7 +2872,7 @@
       "year": 2008,
       "journal": "Tectonics",
       "authors": "Gideon Rosenbaum; Massimo Gasparon; Francesco Pio Lucente; Angelο Peccerillo; Meghan Samantha Miller",
-      "cited": 485
+      "cited": 487
     },
     {
       "doi": "10.1130/2006.2419(06)",
@@ -2936,7 +2928,7 @@
       "year": 2006,
       "journal": "Australian Journal of Earth Sciences",
       "authors": "Finbarr C. Murphy; Tim Rawling; Christopher J.L. Wilson; L. J. Dugdale; J. McL. Miller",
-      "cited": 27
+      "cited": 29
     },
     {
       "doi": "10.1016/j.gexplo.2005.11.060",
@@ -3000,7 +2992,7 @@
       "year": 2006,
       "journal": "Geophysical Journal International",
       "authors": "Malcolm Sambridge; Kerry Gallagher; Andrew Jackson; Peter C. Rickwood",
-      "cited": 388
+      "cited": 390
     },
     {
       "doi": "10.1111/j.1365-246x.2006.03078.x",
@@ -3008,7 +3000,7 @@
       "year": 2006,
       "journal": "Geophysical Journal International",
       "authors": "M. de Kool; Nicholas Rawlinson; Malcolm Sambridge",
-      "cited": 199
+      "cited": 202
     },
     {
       "doi": "10.1190/1.2356112",
@@ -3016,7 +3008,7 @@
       "year": 2006,
       "journal": "Geophysics",
       "authors": "Ross Brodie; Malcolm Sambridge",
-      "cited": 116
+      "cited": 117
     },
     {
       "doi": "10.1029/2006gc001246",
@@ -3088,7 +3080,7 @@
       "year": 2006,
       "journal": "Journal of Geophysical Research Atmospheres",
       "authors": "Meghan Samantha Miller; Brian L. N. Kennett; Virginia Toy",
-      "cited": 120
+      "cited": 121
     },
     {
       "doi": "10.1029/2005gc001110",
@@ -3096,7 +3088,7 @@
       "year": 2006,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Meghan Samantha Miller; A. Gorbatov; Brian L. N. Kennett",
-      "cited": 81
+      "cited": 82
     },
     {
       "doi": "10.1016/j.pepi.2006.01.007",
@@ -3128,7 +3120,7 @@
       "year": 2006,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Klaus Peter Jochum; Brigitte Stoll; Kirstin Herwig; Matthias Willbold; Albrecht W. Hofmann; Marghaleray Amini; Susanne Aarburg; Wafa Abouchami; Eric W.G. Hellebrand; B. Mocek; Ingrid Raczek; Andreas Stracke; Olivier Alard; Claudia Bouman; Stefan Becker; Marc Dücking; Helene Brätz; Reiner Klemd; Deon de Bruin; Dante Canil; David H. Cornell; Jan C.M. De Hoog; Claude Dalpé; Leonid V. Danyushevsky; Anton Eisenhauer; Yongjun Gao; J. E. Snow; Nora Groschopf; Detlef Günther; Christopher Latkoczy; Marcel Guillong; Erik H. Hauri; Heidi E. Höfer; Yann Lahaye; Kersten H Horz; Dorrit E. Jacob; Simone A. Kasemann; Adam J.R. Kent; Thomas E Ludwig; Thomas Zack; Paul R.D. Mason; Anette Meixner; Martin Rösner; K. Misawa; Barbara P. Nash; Jörg A. Pfänder; Wayne R. Premo; Weidong Sun; Massimo Tiepolo; Riccardo Vannucci; Torsten Walter Vennemann; Dave Wayne; Jon David Woodhead",
-      "cited": 1234
+      "cited": 1241
     },
     {
       "doi": "10.1130/g22222.1",
@@ -3136,7 +3128,7 @@
       "year": 2006,
       "journal": "Geology",
       "authors": "Graham Heinson; Nicholas G Direen; Rob M. Gill",
-      "cited": 146
+      "cited": 147
     },
     {
       "doi": "10.1029/2005gl025328",
@@ -3168,7 +3160,7 @@
       "year": 2005,
       "journal": "Exploration Geophysics",
       "authors": "Nicholas Rawlinson; Malcolm Sambridge",
-      "cited": 373
+      "cited": 377
     },
     {
       "doi": "10.1029/157gm04",
@@ -3248,7 +3240,7 @@
       "year": 2005,
       "journal": "Journal of Applied Geophysics",
       "authors": "Brian Barrett; Graham Heinson; Michael A. Hatch; Andrew Telfer",
-      "cited": 30
+      "cited": 31
     },
     {
       "doi": "10.1016/j.epsl.2004.12.029",
@@ -3280,7 +3272,7 @@
       "year": 2004,
       "journal": "Geophysical Journal International",
       "authors": "Nicholas Rawlinson; Malcolm Sambridge",
-      "cited": 505
+      "cited": 509
     },
     {
       "doi": "10.1190/1.1801950",
@@ -3288,7 +3280,7 @@
       "year": 2004,
       "journal": "Geophysics",
       "authors": "Nicholas Rawlinson; Malcolm Sambridge",
-      "cited": 236
+      "cited": 239
     },
     {
       "doi": "10.1029/2003jb002652",
@@ -3296,7 +3288,7 @@
       "year": 2004,
       "journal": "Journal of Geophysical Research Atmospheres",
       "authors": "E. Debayle; Malcolm Sambridge",
-      "cited": 125
+      "cited": 126
     },
     {
       "doi": "10.1016/j.petrol.2004.02.011",
@@ -3304,7 +3296,7 @@
       "year": 2004,
       "journal": "Journal of Petroleum Science and Engineering",
       "authors": "Sam Subbey; Michael Andrew Christie; Malcolm Sambridge",
-      "cited": 84
+      "cited": 85
     },
     {
       "doi": "10.1111/j.1365-246x.2004.02123.x",
@@ -3312,7 +3304,7 @@
       "year": 2004,
       "journal": "Geophysical Journal International",
       "authors": "T. Nicholson; Ólafur Guðmundsson; Malcolm Sambridge",
-      "cited": 13
+      "cited": 12
     },
     {
       "doi": "10.1111/j.1365-246x.2003.02137.x",
@@ -3408,7 +3400,7 @@
       "year": 2003,
       "journal": "Advances in geophysics",
       "authors": "Nicholas Rawlinson; Malcolm Sambridge",
-      "cited": 268
+      "cited": 274
     },
     {
       "doi": "10.1029/2001gc000213",
@@ -3416,7 +3408,7 @@
       "year": 2003,
       "journal": "Geochemistry Geophysics Geosystems",
       "authors": "Malcolm Sambridge; Rado Faletič",
-      "cited": 78
+      "cited": 79
     },
     {
       "doi": "10.2118/79678-ms",
@@ -3424,7 +3416,7 @@
       "year": 2003,
       "journal": "SPE Reservoir Simulation Conference",
       "authors": "Sam Subbey; Mike Christie; Malcolm Sambridge",
-      "cited": 73
+      "cited": 74
     },
     {
       "doi": "10.1029/2003gl018090",
@@ -3432,7 +3424,7 @@
       "year": 2003,
       "journal": "Geophysical Research Letters",
       "authors": "Anya M. Reading; Brian L. N. Kennett; Malcolm Sambridge",
-      "cited": 63
+      "cited": 64
     },
     {
       "doi": "10.1046/j.1365-246x.2003.01983.x",
@@ -3464,7 +3456,7 @@
       "year": 2003,
       "journal": "Geochimica et Cosmochimica Acta",
       "authors": "Jean-Pierre Lorand; Olivier Alard; Ambre Luguet; Reid R. Keays",
-      "cited": 165
+      "cited": 167
     },
     {
       "doi": "10.1007/s00254-002-0693-x",
@@ -3544,7 +3536,7 @@
       "year": 2002,
       "journal": "Reviews of Geophysics",
       "authors": "Malcolm Sambridge; Klaus Mosegaard",
-      "cited": 960
+      "cited": 967
     },
     {
       "doi": "10.1088/0266-5611/18/3/201",
@@ -3552,7 +3544,7 @@
       "year": 2002,
       "journal": "Inverse Problems",
       "authors": "Klaus Mosegaard; Malcolm Sambridge",
-      "cited": 388
+      "cited": 394
     },
     {
       "doi": "10.1029/2001jb000498",
@@ -3560,7 +3552,7 @@
       "year": 2002,
       "journal": "Journal of Geophysical Research Atmospheres",
       "authors": "J. Arthur Snoke; Malcolm Sambridge",
-      "cited": 45
+      "cited": 46
     },
     {
       "doi": "10.1029/2000jb000035",
@@ -3576,7 +3568,7 @@
       "year": 2002,
       "journal": "Earth and Planetary Science Letters",
       "authors": "Olivier Alard; William L. Griffin; Norman J. Pearson; Jean-Pierre Lorand; Suzanne Yvette O'Reilly",
-      "cited": 243
+      "cited": 245
     },
     {
       "doi": "10.1016/s0016-7037(01)00823-7",
@@ -3584,7 +3576,7 @@
       "year": 2002,
       "journal": "Geochimica et Cosmochimica Acta",
       "authors": "Norman J. Pearson; Olivier Alard; William L. Griffin; Simon E. Jackson; Suzanne Yvette O'Reilly",
-      "cited": 191
+      "cited": 192
     },
     {
       "doi": "10.1071/eg02115",
@@ -3608,7 +3600,7 @@
       "year": 2001,
       "journal": "Inverse Problems",
       "authors": "Malcolm Sambridge",
-      "cited": 100
+      "cited": 101
     },
     {
       "doi": "10.1007/pl00001158",
@@ -3680,7 +3672,7 @@
       "year": 2000,
       "journal": "Nature",
       "authors": "Olivier Alard; William L. Griffin; Jean Pierre Lorand; Simon E. Jackson; Suzanne Yvette O'Reilly",
-      "cited": 516
+      "cited": 519
     },
     {
       "doi": "10.1029/2000gl011473",
@@ -3712,7 +3704,7 @@
       "year": 1999,
       "journal": "Geological Society London Special Publications",
       "authors": "Tim Rawling; Gordon Stuart Lister",
-      "cited": 44
+      "cited": 45
     },
     {
       "doi": "10.1046/j.1365-246x.1999.00876.x",
@@ -3720,7 +3712,7 @@
       "year": 1999,
       "journal": "Geophysical Journal International",
       "authors": "Malcolm Sambridge",
-      "cited": 1748
+      "cited": 1761
     },
     {
       "doi": "10.1046/j.1365-246x.1999.00900.x",
@@ -3728,7 +3720,7 @@
       "year": 1999,
       "journal": "Geophysical Journal International",
       "authors": "Malcolm Sambridge",
-      "cited": 952
+      "cited": 955
     },
     {
       "doi": "10.1029/97jb02488",
@@ -3736,7 +3728,7 @@
       "year": 1998,
       "journal": "Journal of Geophysical Research Atmospheres",
       "authors": "Ólafur Guðmundsson; Malcolm Sambridge",
-      "cited": 471
+      "cited": 474
     },
     {
       "doi": "10.1088/0266-5611/14/3/005",
@@ -3760,7 +3752,7 @@
       "year": 1997,
       "journal": "Basin Research",
       "authors": "Jean Braun; Malcolm Sambridge",
-      "cited": 445
+      "cited": 449
     },
     {
       "doi": "10.1016/s0016-7037(97)00130-0",

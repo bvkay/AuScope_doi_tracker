@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T13:31:41.341Z",
+  "generated": "2026-11-24T21:37:37.159Z",
   "records": [
     {
       "name": "GPlates",
@@ -2748,7 +2748,7 @@
       ],
       "status": "active",
       "note": "",
-      "publications": 52,
+      "publications": 53,
       "citations": 435,
       "earliestYear": 2020,
       "latestYear": 2026,
@@ -2809,6 +2809,16 @@
           "authors": "Nicolas Stoll",
           "year": 2026,
           "journal": "EGU General Assembly Conference Abstracts",
+          "cited": 0,
+          "oa": true,
+          "evidence": "text-software"
+        },
+        {
+          "doi": "10.6084/m9.figshare.33193566",
+          "title": "Our Journey from Underworld2 to Underworld3",
+          "authors": "Louis N. Moresi; John Mansour; Julian Giordani; Romain Beucher",
+          "year": 2026,
+          "journal": "Figshare",
           "cited": 0,
           "oa": true,
           "evidence": "text-software"
@@ -3601,7 +3611,7 @@
       "openIssues": 4,
       "createdAt": "2026-05-18T10:25:20Z",
       "updatedAt": "2026-11-12T15:58:05Z",
-      "pushedAt": "2026-11-23T09:07:12Z"
+      "pushedAt": "2026-11-24T18:44:32Z"
     },
     {
       "name": "AuScope-Cat",
@@ -3706,10 +3716,10 @@
       "fork": false,
       "stars": 5,
       "forks": 12,
-      "openIssues": 3,
+      "openIssues": 4,
       "createdAt": "2019-04-05T01:00:52Z",
       "updatedAt": "2026-11-11T02:47:14Z",
-      "pushedAt": "2026-11-23T06:42:16Z"
+      "pushedAt": "2026-11-24T07:25:05Z"
     },
     {
       "name": "AuScope-RAiD-Registry",
@@ -3717,17 +3727,17 @@
       "url": "https://github.com/AuScope/AuScope-RAiD-Registry",
       "description": "CKAN-based AuScope RAiD Registry built from the ckan-docker baseline",
       "homepage": "",
-      "language": "",
+      "language": "Python",
       "topics": [],
       "license": "",
       "archived": false,
       "fork": true,
       "stars": 0,
       "forks": 0,
-      "openIssues": 0,
+      "openIssues": 12,
       "createdAt": "2026-11-12T04:20:46Z",
-      "updatedAt": "2026-11-12T04:21:02Z",
-      "pushedAt": "2026-09-16T03:54:12Z"
+      "updatedAt": "2026-11-24T06:16:07Z",
+      "pushedAt": "2026-11-24T05:16:01Z"
     },
     {
       "name": "ausmt",
@@ -3839,10 +3849,10 @@
       "fork": false,
       "stars": 0,
       "forks": 0,
-      "openIssues": 7,
+      "openIssues": 9,
       "createdAt": "2026-11-02T02:40:57Z",
       "updatedAt": "2026-11-12T03:35:48Z",
-      "pushedAt": "2026-11-18T08:45:43Z"
+      "pushedAt": "2026-11-24T05:17:52Z"
     },
     {
       "name": "ckanext-contact",
@@ -4695,7 +4705,7 @@
     }
   ],
   "githubMetadata": {
-    "generated": "2026-11-23T11:57:08.821Z",
+    "generated": "2026-11-24T21:37:18.237Z",
     "organisation": "AuScope",
     "organisationUrl": "https://github.com/AuScope",
     "source": "https://api.github.com/orgs/AuScope/repos",
